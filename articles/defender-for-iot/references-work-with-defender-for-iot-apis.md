@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624575"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222141"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender per le API del sensore e della console di gestione
 
@@ -20,7 +20,7 @@ Usare un'API REST esterna per accedere ai dati individuati da sensori e console 
 
 Le connessioni sono protette tramite SSL.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 In generale, quando si usa un'API esterna nel sensore di Azure Defender per l'it o nella console di gestione locale, è necessario generare un token di accesso. I token non sono necessari per le API di autenticazione usate nel sensore e nella console di gestione locale.
 
@@ -56,33 +56,31 @@ Per generare un token:
 
 Questa sezione descrive le API del sensore seguenti:
 
-- /api/v1/devices
+- [Recuperare informazioni sul dispositivo-/API/V1/Devices](#retrieve-device-information---apiv1devices)
 
-- /api/v1/devices/connections
+- [Recuperare le informazioni di connessione del dispositivo-/API/V1/Devices/Connections](#retrieve-device-connection-information---apiv1devicesconnections)
 
-- /api/v1/devices/cves
+- [Recuperare informazioni su CVEs-/API/V1/Devices/cves](#retrieve-information-on-cves---apiv1devicescves)
 
-- /api/v1/alerts
+- [Recuperare informazioni avviso-/API/V1/Alerts](#retrieve-alert-information---apiv1alerts)
 
-- /api/v1/events
+- [Recuperare gli eventi della sequenza temporale-/API/V1/Events](#retrieve-timeline-events---apiv1events)
 
-- /api/v1/reports/vulnerabilities/devices
+- [Recuperare informazioni sulla vulnerabilità-/API/V1/Reports/vulnerabilities/Devices](#retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices)
 
-- /api/v1/reports/vulnerabilities/security
+- [Recuperare le vulnerabilità della sicurezza:/API/V1/Reports/vulnerabilities/Security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)
 
-- /api/v1/reports/vulnerabilities/operational
+- [Recuperare le vulnerabilità operative-/API/V1/Reports/vulnerabilities/Operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-- /api/external/authentication/validation
+- [Convalidare le credenziali utente-/API/External/Authentication/Validation](#validate-user-credentials---apiexternalauthenticationvalidation)
 
-- set_password/External/Authentication/
+- [Modificare la password-/External/Authentication/set_password](#change-password---externalauthenticationset_password)
 
-- set_password_by_admin/External/Authentication/
+- [Aggiornamento della password utente da parte dell'amministratore di sistema-/External/Authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
-### <a name="retrieve-device-information"></a>Recuperare le informazioni sul dispositivo
+### <a name="retrieve-device-information---apiv1devices"></a>Recuperare informazioni sul dispositivo-/API/V1/Devices
 
 Usare questa API per richiedere un elenco di tutti i dispositivi rilevati da Defender per il sensore Internet.
-
-#### <a name="apiv1devices"></a>/api/v1/devices
 
 #### <a name="method"></a>Metodo
 
@@ -110,7 +108,7 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="device-fields"></a>Campi dispositivo
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **id** | Numeric | No | - |
 | **ipAddresses** | Matrice JSON | Sì | Indirizzi IP (può essere più di un indirizzo in caso di indirizzi Internet o un dispositivo con schede di rete doppie) |
@@ -127,14 +125,14 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="protocol-fields"></a>Campi di protocollo
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **Nome** | string | No |  |
 | **Indirizzi** | Matrice JSON | Sì | Valori master o numerici |
 
 #### <a name="firmware-fields"></a>Campi del firmware
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **serie** | string | No | N/A oppure il valore effettivo |
 | **model** | string | No | N/A oppure il valore effettivo |
@@ -279,11 +277,15 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 ]
 ```
 
-### <a name="retrieve-device-connection-information"></a>Recuperare le informazioni di connessione del dispositivo
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https: <span> //127 <span> . 0.0.1/API/V1/Devices? Authorized = true |
+
+### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>Recuperare le informazioni di connessione del dispositivo-/API/V1/Devices/Connections
 
 Usare questa API per richiedere un elenco di tutte le connessioni per ogni dispositivo.
-
-#### <a name="apiv1devicesconnections"></a>/api/v1/devices/connections
 
 #### <a name="method"></a>Metodo
 
@@ -331,7 +333,7 @@ Matrice di oggetti JSON che rappresentano le connessioni del dispositivo.
 
 #### <a name="fields"></a>Campi
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **firstDeviceId** | Numeric | No | - |
 | **secondDeviceId** | Numeric | No | - |
@@ -342,7 +344,7 @@ Matrice di oggetti JSON che rappresentano le connessioni del dispositivo.
 
 #### <a name="protocol-field"></a>Campo protocollo
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **nome** | string | No | - |
 | **comandi** | Matrice di stringhe | No | - |
@@ -447,11 +449,17 @@ Matrice di oggetti JSON che rappresentano le connessioni del dispositivo.
 ]
 ```
 
-### <a name="retrieve-information-on-cves"></a>Recuperare informazioni su CVEs
+#### <a name="curl-command"></a>Comando Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Tipo | API | Esempio |
+> |--|--|--|
+> | GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices/Connections | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Devices/Connections |
+> | GET | curl-k-H "Authorization: <AUTH_TOKEN>"' https://<IP_ADDRESS>/API/V1/Devices/ <deviceId> /Connections? lastActiveInMinutes =&discoveredBefore =&discoveredAfter =' | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd"' https:/ <span> /127.0.0.1/API/V1/Devices/2/Connections? lastActiveInMinutes = 20&discoveredBefore = 1594550986000&discoveredAfter = 1594550986000' |
+
+### <a name="retrieve-information-on-cves---apiv1devicescves"></a>Recuperare informazioni su CVEs-/API/V1/Devices/cves
 
 Usare questa API per richiedere un elenco di tutti i CVEs noti individuati nei dispositivi della rete.
-
-#### <a name="apiv1devicescves"></a>/api/v1/devices/cves
 
 #### <a name="method"></a>Metodo
 
@@ -489,7 +497,7 @@ Matrice di oggetti JSON che rappresentano CVEs identificati sugli indirizzi IP.
 
 #### <a name="fields"></a>Campi
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **cveId** | string | No | - |
 | **ipAddress** | string | No | Indirizzo IP |
@@ -557,11 +565,16 @@ Matrice di oggetti JSON che rappresentano CVEs identificati sugli indirizzi IP.
 ]
 ```
 
-### <a name="retrieve-alert-information"></a>Recuperare le informazioni sugli avvisi
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices/cves | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Devices/cves |
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Devices/ <deviceIpAddress> /CVES? Top = | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Devices/10.10.10.15/CVES? Top = 50 |
+
+### <a name="retrieve-alert-information---apiv1alerts"></a>Recuperare informazioni avviso-/API/V1/Alerts
 
 Usare questa API per richiedere un elenco di tutti gli avvisi rilevati da Defender per il sensore Internet.
-
-#### <a name="apiv1alerts"></a>/api/v1/alerts
 
 #### <a name="method"></a>Metodo
 
@@ -603,7 +616,7 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 #### <a name="alert-fields"></a>Campi avviso
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **ID** | Numeric | No | - |
 | **time** | Numeric | No | Epoch (UTC) |
@@ -617,7 +630,7 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 #### <a name="additional-information-fields"></a>Campi informazioni aggiuntive
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **description** | string | No | - |
 | **informazioni** | Matrice JSON | No | string |
@@ -685,11 +698,16 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 ```
 
-### <a name="retrieve-timeline-events"></a>Recuperare gli eventi della sequenza temporale
+#### <a name="curl-command"></a>Comando Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Tipo | API | Esempio |
+> |--|--|--|
+> | GET | curl-k-H "Authorization: <AUTH_TOKEN>"' https://<IP_ADDRESS>/API/V1/Alerts? state =&fromTime =&ToTime =&Type =' | curl-k-H "autorizzazione: 1234b734a9244d54ab8d40aedddcabcd"' https:/ <span> /127.0.0.1/API/V1/Alerts? stato = non gestito&fromTime = 1594550986000&ToTime = 1594550986001&tipo = disconnection ' |
+
+### <a name="retrieve-timeline-events---apiv1events"></a>Recuperare gli eventi della sequenza temporale-/API/V1/Events
 
 Usare questa API per richiedere un elenco di eventi segnalati alla sequenza temporale dell'evento.
-
-#### <a name="apiv1events"></a>/api/v1/events
 
 #### <a name="method"></a>Metodo
 
@@ -721,7 +739,7 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 #### <a name="event-fields"></a>Campi dell'evento
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|--|
 | **timestamp** | Numeric | No | Epoch (UTC) |
 | **title** | string | No | - |
@@ -802,11 +820,15 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 ```
 
-### <a name="retrieve-vulnerability-information"></a>Recuperare le informazioni sulla vulnerabilità
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>"' https://<IP_ADDRESS>/API/V1/Events? minutesTimeFrame =&Type =' | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd"' https:/ <span> /127.0.0.1/API/V1/Events? minutesTimeFrame = 20&Type = DEVICE_CONNECTION_CREATED ' |
+
+### <a name="retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices"></a>Recuperare informazioni sulla vulnerabilità-/API/V1/Reports/vulnerabilities/Devices
 
 Usare questa API per richiedere i risultati della valutazione della vulnerabilità per ogni dispositivo.
-
-#### <a name="apiv1reportsvulnerabilitiesdevices"></a>/api/v1/reports/vulnerabilities/devices
 
 #### <a name="method"></a>Metodo
 
@@ -830,7 +852,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="device-fields"></a>Campi dispositivo
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **nome** | string | No | - |
 | **ipAddresses** | Matrice JSON | No | - |
@@ -844,7 +866,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="operating-system-fields"></a>Campi del sistema operativo
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **Nome** | string | Sì | - |
 | **Tipo** | string | Sì | - |
@@ -853,7 +875,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="vulnerabilities-fields"></a>Campi vulnerabilità
  
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **Antivirus** | Matrice JSON | Sì | Nomi antivirus |
 | **plainTextPasswords** | Matrice JSON | Sì | Oggetti password |
@@ -869,7 +891,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="password-fields"></a>Campi password
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **password** | string | No | - |
 | **protocol** | string | No | - |
@@ -877,7 +899,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="remote-access-fields"></a>Campi di accesso remoto
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **port** | Numeric | No | - |
 | **trasporto** | string | No | TCP o UDP |
@@ -886,7 +908,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="open-port-fields"></a>Apri campi porta
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **port** | Numeric | No | - |
 | **trasporto** | string | No | TCP o UDP |
@@ -895,7 +917,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="cve-fields"></a>Campi CVE
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **ID** | string | No | - |
 | **Punteggio** | Numeric | No | Double |
@@ -1052,13 +1074,17 @@ L'oggetto dispositivo contiene:
 
 ```
 
-### <a name="retrieve-security-vulnerabilities"></a>Recuperare le vulnerabilità della sicurezza
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Reports/vulnerabilities/Devices | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Reports/vulnerabilities/Devices |
+
+### <a name="retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity"></a>Recuperare le vulnerabilità della sicurezza:/API/V1/Reports/vulnerabilities/Security
 
 Usare questa API per richiedere i risultati di una valutazione della vulnerabilità generale. Questa valutazione fornisce informazioni approfondite sul livello di sicurezza del sistema.
 
 Questa valutazione si basa su informazioni generali sulla rete e sul sistema e non su una valutazione specifica del dispositivo.
-
-#### <a name="apiv1reportsvulnerabilitiessecurity"></a>/api/v1/reports/vulnerabilities/security
 
 #### <a name="method"></a>Metodo
 
@@ -1078,7 +1104,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **unauthorizedDevices**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **address** | string | Indirizzo IP |
 | **nome** | string | - |
@@ -1087,7 +1113,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **illegalTrafficByFirewallRules**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **server** | string | Indirizzo IP |
 | **client** | string | Indirizzo IP |
@@ -1096,7 +1122,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **weakFirewallRules**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **sources** | Matrice JSON di origini. Ogni origine può essere in uno dei quattro formati. | "Any", "indirizzo IP (host)", "da IP a IP (intervallo)", "indirizzo IP, subnet mask (rete)" |
 | **destinazioni** | Matrice JSON di destinazioni. Ogni destinazione può essere in uno dei quattro formati. | "Any", "indirizzo IP (host)", "da IP a IP (intervallo)", "indirizzo IP, subnet mask (rete)" |
@@ -1104,7 +1130,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **Accesso**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **macAddress** | string | Indirizzo MAC |
 | **fornitore** | string | Nome del fornitore |
@@ -1114,14 +1140,14 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **connectionsBetweenSubnets**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **server** | string | Indirizzo IP |
 | **client** | string | Indirizzo IP |
 
 **industrialMalwareIndicators**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **detectionTime** | Numeric | Epoch (UTC) |
 | **alertMessage** | string | - |
@@ -1130,7 +1156,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **internetConnections**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **internalAddress** | string | Indirizzo IP |
 | **autorizzato** | Boolean | Sì o No | 
@@ -1295,11 +1321,15 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 ```
 
-### <a name="retrieve-operational-vulnerabilities"></a>Recuperare le vulnerabilità operative
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Reports/vulnerabilities/Security | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Reports/vulnerabilities/Security |
+
+### <a name="retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational"></a>Recuperare le vulnerabilità operative-/API/V1/Reports/vulnerabilities/Operational
 
 Usare questa API per richiedere i risultati di una valutazione della vulnerabilità generale. Questa valutazione fornisce informazioni dettagliate sullo stato operativo della rete. Si basa su informazioni generali sulla rete e sul sistema e non sulla valutazione di un dispositivo specifico.
-
-#### <a name="apiv1reportsvulnerabilitiesoperational"></a>/api/v1/reports/vulnerabilities/operational
 
 #### <a name="method"></a>Metodo
 
@@ -1319,7 +1349,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **backupServer**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 |--|--|--|
 | **source** | string | Indirizzo IP |
 | **destinazione** | string | Indirizzo IP |
@@ -1330,7 +1360,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **ipNetworks**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 |--|--|--|
 | **Indirizzo** s | Numeric | - |
 | **rete** | string | Indirizzo IP |
@@ -1338,7 +1368,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **protocolProblems**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 |--|--|--|
 | **protocol** | string | - |
 | **indirizzi** | Matrice JSON | Indirizzi IP |
@@ -1347,14 +1377,14 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **protocolDataVolumes**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 |--|--|--|
 | protocol | string | - |
 | volume | string | "volume numero MB" |
 
 **disconnessioni**
 
-| Nome del campo | Type | Elenco di valori |
+| Nome del campo | Tipo | Elenco di valori |
 |--|--|--|
 | **assetAddress** | string | Indirizzo IP |
 | **assetName** | string | - |
@@ -1488,13 +1518,17 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 ```
 
-### <a name="validate-user-credentials"></a>Convalida credenziali utente
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/V1/Reports/vulnerabilities/Operational | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/V1/Reports/vulnerabilities/Operational |
+
+### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>Convalidare le credenziali utente-/API/External/Authentication/Validation
 
 Usare questa API per convalidare un Defender per nome utente e password. Per tutti i ruoli utente Defender è possibile usare l'API.
 
 Per usare questa API, non è necessario un Defender per il token di accesso.
-
-#### <a name="apiexternalauthenticationvalidation"></a>/api/external/authentication/validation
 
 #### <a name="method"></a>Metodo
 
@@ -1551,11 +1585,15 @@ response:
 
 ```
 
-### <a name="change-password"></a>Cambia password
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/External/Authentication/Validation | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/External/Authentication/Validation |
+
+### <a name="change-password---externalauthenticationset_password"></a>Modificare la password-/External/Authentication/set_password
 
 Usare questa API per consentire agli utenti di modificare le proprie password. Per tutti i ruoli utente Defender è possibile usare l'API. Per usare questa API, non è necessario un Defender per il token di accesso.
-
-#### <a name="externalauthenticationset_password"></a>set_password/External/Authentication/
 
 #### <a name="method"></a>Metodo
 
@@ -1621,11 +1659,15 @@ response:
 | **password** | string | No |
 | **new_password** | string | No |
 
-### <a name="user-password-update-by-system-admin"></a>Aggiornamento della password utente dall'amministratore di sistema
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| POST | curl-k-d'{"username": "<USER_NAME>", "password": "<CURRENT_PASSWORD>", "new_password": "<NEW_PASSWORD>"}'-H ' Content-Type: application/json ' https://<IP_ADDRESS>/API/External/Authentication/set_password | curl-k-d'{"username": "utente", "password": " 1234@abcd ", "new_password": " abcd@1234 "}'-H ' Content-Type: application/json ' https:/ <span> /127.0.0.1/API/External/Authentication/set_Password |
+
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Aggiornamento della password utente da parte dell'amministratore di sistema-/External/Authentication/set_password_by_admin
 
 Usare questa API per consentire agli amministratori di sistema di modificare le password per gli utenti specificati. Defender per i ruoli utente amministratore di Internet delle cose può funzionare con l'API. Per usare questa API, non è necessario un Defender per il token di accesso.
-
-#### <a name="externalauthenticationset_password_by_admin"></a>set_password_by_admin/External/Authentication/
 
 #### <a name="method"></a>Metodo
 
@@ -1697,6 +1739,13 @@ response:
 | **username** | string | No |
 | **new_password** | string | No |
 
+#### <a name="curl-command"></a>Comando Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Tipo | API | Esempio |
+> |--|--|--|
+> | POST | curl-k-d'{"admin_username": "<ADMIN_USERNAME>", "admin_password": "<ADMIN_PASSWORD>", "username": "<USER_NAME>", "new_password": "<NEW_PASSWORD>"}'-H ' Content-Type: application/json ' https://<IP_ADDRESS>/API/External/Authentication/set_password_by_admin | curl-k-d'{"admin_user": "adminUser", "admin_password": " 1234@abcd ", "username": "utente", "new_password": " abcd@1234 "}'-H ' Content-Type: application/json ' https:/ <span> /127.0.0.1/API/External/Authentication/set_password_by_admin |
+
 ## <a name="on-premises-management-console-api-specifications"></a>Specifiche API della console di gestione locale
 
 In questa sezione vengono descritte le API della console di gestione locale seguenti:
@@ -1726,23 +1775,17 @@ Le API definite qui vengono visualizzate nella finestra **esclusioni avvisi** de
 
 ```
 
-#### <a name="change-password"></a>Cambia password
+#### <a name="change-password---externalauthenticationset_password"></a>Modificare la password-/External/Authentication/set_password
 
 Usare questa API per consentire agli utenti di modificare le proprie password. Per tutti i ruoli utente Defender è possibile usare l'API. Per usare questa API, non è necessario un Defender per il token di accesso.
 
-- **set_password/External/Authentication/**
-
-#### <a name="user-password-update-by-system-admin"></a>Aggiornamento della password utente dall'amministratore di sistema
+#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Aggiornamento della password utente da parte dell'amministratore di sistema-/External/Authentication/set_password_by_admin
 
 Usare questa API per consentire agli amministratori di sistema di modificare le password per utenti specifici. Defender per i ruoli utente amministratore di Internet delle cose può funzionare con l'API. Per usare questa API, non è necessario un Defender per il token di accesso.
 
-- **set_password_by_admin/External/Authentication/**
-
-### <a name="retrieve-device-information"></a>Recuperare le informazioni sul dispositivo
+### <a name="retrieve-device-information---externalv1devices"></a>Recuperare informazioni sul dispositivo-/External/V1/Devices
 
 Questa API richiede un elenco di tutti i dispositivi rilevati da Defender per i sensori Internet che sono connessi a una console di gestione locale.
-
-- **/external/v1/devices**
 
 #### <a name="method"></a>Metodo
 
@@ -1782,7 +1825,7 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="device-fields"></a>Campi dispositivo
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **sensorId** | Numeric | No | - |
 | **IDArea** | Numeric | Sì | - |
@@ -1801,14 +1844,14 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="protocol-fields"></a>Campi di protocollo
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | Nome | string | No | - |
 | Indirizzi | Matrice JSON | Sì | Valori master o numerici |
 
 #### <a name="firmware-fields"></a>Campi del firmware
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **serie** | string | No | N/A oppure il valore effettivo |
 | **model** | string | No | N/A oppure il valore effettivo |
@@ -1959,11 +2002,15 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 ]
 ```
 
-### <a name="retrieve-alert-information"></a>Recuperare le informazioni sugli avvisi
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>"' https://<>IP_ADDRESS>/External/V1/Devices? siteId =&IDArea =&sensorId =&Authorized =' | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd"' https:/ <span> /127.0.0.1/External/V1/Devices? siteId = 1&IDArea = 2&sensorId = 5&Authorized = true ' |
+
+### <a name="retrieve-alert-information---externalv1alerts"></a>Recuperare informazioni avviso-/External/V1/Alerts
 
 Usare questa API per recuperare tutti gli avvisi o filtrati da una console di gestione locale.
-
-#### <a name="externalv1alerts"></a>/external/v1/alerts
 
 #### <a name="method"></a>Metodo
 
@@ -1999,7 +2046,7 @@ Usare questa API per recuperare tutti gli avvisi o filtrati da una console di ge
 
 #### <a name="alert-fields"></a>Campi avviso
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **ID** | Numeric | No | - |
 | **time** | Numeric | No | Epoch (UTC) |
@@ -2013,7 +2060,7 @@ Usare questa API per recuperare tutti gli avvisi o filtrati da una console di ge
 
 #### <a name="additional-information-fields"></a>Campi informazioni aggiuntive
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **description** | string | No | - |
 | **informazioni** | Matrice JSON | No | string |
@@ -2116,6 +2163,13 @@ Usare questa API per recuperare tutti gli avvisi o filtrati da una console di ge
 ]
 ```
 
+#### <a name="curl-command"></a>Comando Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Tipo | API | Esempio |
+> |--|--|--|
+> | GET | curl-k-H "Authorization: <AUTH_TOKEN>"' https://<>IP_ADDRESS>/External/V1/Alerts? state =&IDArea =&fromTime =&ToTime =&siteId =&Sensor =' | curl-k-H "autorizzazione: 1234b734a9244d54ab8d40aedddcabcd"' https:/ <span> /127.0.0.1/External/V1/Alerts? stato = non gestito&IDArea = 1&fromTime = 0&ToTime = 1594551777000&siteId = 1&Sensor = 1' |
+
 ### <a name="qradar-alerts"></a>Avvisi di QRadar
 
 L'integrazione di QRadar con Defender for Internet è utile per identificare gli avvisi generati da Defender per l'IT e per eseguire azioni con questi avvisi. QRadar riceve i dati da Defender for Internet e quindi contatta il componente della console di gestione locale dell'API pubblica.
@@ -2154,7 +2208,7 @@ Oggetto JSON che rappresenta l'azione da eseguire sull'avviso che contiene l'UUI
 
 #### <a name="action-fields"></a>Campi azione
 
-| Nome | Type | Nullable | Elenco di valori |
+| Nome | Tipo | Nullable | Elenco di valori |
 |--|--|--|--|
 | **action** | string | No | handle o handleAndLearn |
 
@@ -2178,7 +2232,7 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 #### <a name="response-fields"></a>Campi di risposta
 
 
-| Nome | Type | Nullable | Descrizione |
+| Nome | Tipo | Nullable | Descrizione |
 |--|--|--|--|
 | **contenuto/errore** | string | No | Se la richiesta ha esito positivo, viene visualizzata la proprietà Content. In caso contrario, viene visualizzata la proprietà Error. |
 
@@ -2213,15 +2267,19 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 }
 ```
 
-### <a name="alert-exclusions-maintenance-window"></a>Esclusioni avvisi (finestra di manutenzione)
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| PUT | curl-k-X PUT-d'{"Action": " <ACTION> "}'-H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/External/V1/Alerts/<UUID> | curl-k-X PUT-d'{"Action": "handle"}'-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/Alerts/1-1594550943000 |
+
+### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>Esclusioni avvisi (finestra di manutenzione)-/external/v1/maintenanceWindow
 
 Definire le condizioni in base alle quali non verranno inviati gli avvisi. Ad esempio, definire e aggiornare l'ora di arresto e di inizio, i dispositivi o le subnet che devono essere esclusi quando si attivano gli avvisi o Defender per i motori Internet che devono essere esclusi. Ad esempio, durante una finestra di manutenzione, potrebbe essere necessario arrestare il recapito di tutti gli avvisi, tranne che per gli avvisi malware nei dispositivi critici.
 
 Le API definite qui vengono visualizzate nella finestra **esclusioni avvisi** della console di gestione locale come regola di esclusione di sola lettura.
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="La finestra Esclusioni avvisi, che mostra un elenco di tutte le regole di esclusione. ":::
-
-#### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
 
 #### <a name="method---post"></a>Metodo-POST
 
@@ -2356,7 +2414,7 @@ Matrice di oggetti JSON che rappresentano le operazioni della finestra di manute
 
 #### <a name="response-structure"></a>Struttura della risposta
 
-| Nome | Type | Commento | Nullable |
+| Nome | Tipo | Commento | Nullable |
 |--|--|--|--|
 | **dateTime** | string | Esempio: "2012-04-23T18:25:43.511 Z" | no |
 | **ID ticket** | string | Esempio: "9a5fe99c-D914-4BDA-9332-307384fe40bf" | no |
@@ -2367,11 +2425,18 @@ Matrice di oggetti JSON che rappresentano le operazioni della finestra di manute
 | **ttl** | Numeric | - | sì |
 | **operationType** | string | I valori sono "OPEN", "UPDATE" e "CLOSE" | no |
 
-### <a name="authenticate-user-credentials"></a>Autenticare le credenziali utente
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| POST | curl-k-X POST-d'{"ID ticket": "<TICKET_ID>", TTL ": <TIME_TO_LIVE>," Engines ": [<ENGINE1, ENGINE2... MOTOREn>], "sensorIds": [<SENSOR_ID1, SENSOR_ID2... SENSOR_IDn>], "subnet": [<SUBNET1, SUBNET2.... SUBNET>]}'-H "autorizzazione: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow | curl-k-X POST-d'{"ID ticket": "a5fe99c-D914-4BDA-9332-307384fe40bf", "TTL": "20", "Engines": ["ANOMALity"], "sensorIds": ["5", "3"], "subnet": ["10.0.0.3"]}'-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow |
+| PUT | curl-k-X PUT-d'{"ID ticket": "<TICKET_ID>", TTL ":" <TIME_TO_LIVE> "}'-H" Authorization: <AUTH_TOKEN> "https:/ <span> /127.0.0.1/External/V1/maintenanceWindow | curl-k-X PUT-d'{"ID ticket": "a5fe99c-D914-4BDA-9332-307384fe40bf", "TTL": "20"}'-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow |
+| DELETE | curl-k-X DELETE-d'{"ID ticket": "<TICKET_ID>"}'-H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow | curl-k-X DELETE-d'{"ID ticket": "a5fe99c-D914-4BDA-9332-307384fe40bf"}'-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/External/V1/maintenanceWindow |
+| GET | curl-k-H "Authorization: <AUTH_TOKEN>"' https://<IP_ADDRESS>/external/v1/maintenanceWindow? fromDate =&ToDate =&ID ticket =&tokenname =' | curl-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd"' https:/ <span> /127.0.0.1/External/V1/maintenanceWindow? FromDate = 2020-01-01&ToDate = 2020-07-14&ID ticket = a5fe99c-D914-4BDA-9332-307384fe40bf&tokenname = a' |
+
+### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>Autenticare le credenziali utente-/External/Authentication/Validation
 
 Usare questa API per convalidare le credenziali utente. Per tutti i ruoli utente Defender è possibile usare l'API. Per usare questa API, non è necessario un Defender per il token di accesso.
-
-#### <a name="externalauthenticationvalidation"></a>/external/authentication/validation
 
 #### <a name="method"></a>Metodo
 
@@ -2426,11 +2491,15 @@ response:
 }
 ```
 
-### <a name="change-password"></a>Cambia password
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| POST | curl-k-d'{"username": "<USER_NAME>", "password": "PASSWORD"}'' https://<IP_ADDRESS>/External/Authentication/Validation ' | curl-k-d'{"username": "utente", "password": " 1234@abcd "}' "https:/ <span> /127.0.0.1/External/Authentication/Validation" |
+
+### <a name="change-password---externalauthenticationset_password"></a>Modificare la password-/External/Authentication/set_password
 
 Usare questa API per consentire agli utenti di modificare le proprie password. Per tutti i ruoli utente Defender è possibile usare l'API. Per usare questa API, non è necessario un Defender per il token di accesso.
-
-#### <a name="externalauthenticationset_password"></a>set_password/External/Authentication/
 
 #### <a name="method"></a>Metodo
 
@@ -2496,11 +2565,15 @@ response:
 | **password** | string | No |
 | **new_password** | string | No |
 
-### <a name="user-password-update-by-system-admin"></a>Aggiornamento della password utente dall'amministratore di sistema
+#### <a name="curl-command"></a>Comando Curl
+
+| Tipo | API | Esempio |
+|--|--|--|
+| POST | curl-k-d'{"username": "<USER_NAME>", "password": "<CURRENT_PASSWORD>", "new_password": "<NEW_PASSWORD>"}'-H ' Content-Type: application/json ' https://<IP_ADDRESS>/External/Authentication/set_password | curl-k-d'{"username": "utente", "password": " 1234@abcd ", "new_password": " abcd@1234 "}'-H ' Content-Type: application/json ' https:/ <span> /127.0.0.1/External/Authentication/set_Password |
+
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Aggiornamento della password utente da parte dell'amministratore di sistema-/External/Authentication/set_password_by_admin
 
 Usare questa API per consentire agli amministratori di sistema di modificare le password per gli utenti specificati. Defender per i ruoli utente amministratore di Internet delle cose può funzionare con l'API. Per usare questa API, non è necessario un Defender per il token di accesso.
-
-#### <a name="externalauthenticationset_password_by_admin"></a>set_password_by_admin/External/Authentication/
 
 #### <a name="method"></a>Metodo
 
@@ -2572,6 +2645,15 @@ response:
 | **username** | string | No |
 | **new_password** | string | No |
 
-## <a name="see-also"></a>Vedere anche
-[Esaminare i rilevamenti dei sensori nell'inventario](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
- dei dispositivi [Esaminare tutti i rilevamenti dei sensori aziendali nell'inventario di un dispositivo](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+#### <a name="curl-command"></a>Comando Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Tipo | API | Esempio |
+> |--|--|--|
+> | POST | curl-k-d'{"admin_username": "<ADMIN_USERNAME>", "admin_password": "<ADMIN_PASSWORD>", "username": "<USER_NAME>", "new_password": "<NEW_PASSWORD>"}'-H ' Content-Type: application/json ' https://<IP_ADDRESS>/External/Authentication/set_password_by_admin | curl-k-d'{"admin_user": "adminUser", "admin_password": " 1234@abcd ", "username": "utente", "new_password": " abcd@1234 "}'-H ' Content-Type: application/json ' https:/ <span> /127.0.0.1/External/Authentication/set_password_by_admin |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Esaminare i rilevamenti dei sensori in un inventario dei dispositivi](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+
+- [Esaminare tutti i rilevamenti dei sensori aziendali un inventario di dispositivi](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

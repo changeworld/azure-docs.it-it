@@ -1,5 +1,5 @@
 ---
-title: Usare l'intelligenza artificiale per comprendere i dati di archiviazione BLOB
+title: Usare l'intelligenza artificiale per arricchire il contenuto del BLOB
 titleSuffix: Azure Cognitive Search
 description: Informazioni sulle funzionalità di analisi delle immagini e del linguaggio naturale in Azure ricerca cognitiva e sul modo in cui tali processi si applicano ai contenuti archiviati nei BLOB di Azure.
 manager: nitinme
@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362798"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222049"
 ---
-# <a name="use-ai-to-understand-blob-storage-data"></a>Usare l'intelligenza artificiale per comprendere i dati di archiviazione BLOB
+# <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Usare l'intelligenza artificiale per elaborare e analizzare il contenuto di BLOB in Azure ricerca cognitiva
 
-I dati nell'archiviazione BLOB di Azure spesso sono un'ampia gamma di contenuto non strutturato, ad esempio immagini, testo lungo, PDF e documenti di Office. Usando le funzionalità di intelligenza artificiale in Azure ricerca cognitiva, è possibile comprendere ed estrarre informazioni utili dai BLOB in diversi modi. Esempi di applicazione dell'intelligenza artificiale al contenuto BLOB includono:
+Il contenuto nell'archivio BLOB di Azure composto da immagini o testo non differenziato lungo può essere sottoposto a un'analisi approfondita per rivelare ed estrarre informazioni utili per le applicazioni downstream. Con l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md)è possibile:
 
 + Estrai il testo dalle immagini usando il riconoscimento ottico dei caratteri (OCR)
 + Produrre una descrizione della scena o i tag da una foto
@@ -26,23 +26,23 @@ I dati nell'archiviazione BLOB di Azure spesso sono un'ampia gamma di contenuto 
 
 Sebbene possa essere necessaria solo una di queste funzionalità di intelligenza artificiale, è comune combinare più di essi nella stessa pipeline (ad esempio, estraendo testo da un'immagine digitalizzata e quindi individuando tutte le date e le posizioni a cui viene fatto riferimento). È anche comune includere l'intelligenza artificiale personalizzata o l'elaborazione di Machine Learning sotto forma di pacchetti esterni all'avanguardia o di modelli interni personalizzati per i dati e i requisiti.
 
-L'arricchimento di intelligenza artificiale crea nuove informazioni, acquisite come testo, memorizzate nei campi. Dopo l'arricchimento, è possibile accedere a queste informazioni da un indice di ricerca tramite la ricerca full-text oppure inviare documenti arricchiti ad archiviazione di Azure per potenziare le nuove esperienze che includono l'esplorazione dei dati per gli scenari di rilevamento o di analisi. 
+Sebbene sia possibile applicare l'arricchimento di intelligenza artificiale a qualsiasi origine dati supportata da un indicizzatore di ricerca, i BLOB sono le strutture usate più di frequente in una pipeline di arricchimento. I risultati vengono inseriti in un indice di ricerca per la ricerca full-text o reindirizzati ad archiviazione di Azure per potenziare le nuove esperienze di applicazioni che includono l'esplorazione dei dati per gli scenari di individuazione o di analisi. 
 
 In questo articolo viene illustrato come arricchire l'intelligenza artificiale tramite un grandangolo, in modo che sia possibile comprendere rapidamente l'intero processo, dalla trasformazione dei dati non elaborati nei BLOB, alle informazioni Queryable in un indice di ricerca o in un archivio informazioni.
 
 ## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>Cosa significa "arricchire" i dati BLOB con intelligenza artificiale
 
-L' *arricchimento di intelligenza artificiale* fa parte dell'architettura di indicizzazione di ricerca cognitiva di Azure che integra l'intelligenza artificiale integrata di Microsoft o di intelligenza artificiale personalizzata fornita dall'utente. Consente di implementare scenari end-to-end in cui è necessario elaborare i BLOB (sia quelli esistenti che quelli nuovi Man mano che vengono aggiornati), crack aprono tutti i formati di file per estrarre immagini e testo, estrarre le informazioni desiderate usando varie funzionalità di intelligenza artificiale e indicizzarle in un indice di ricerca per la ricerca veloce, il recupero e l'esplorazione. 
+L' *arricchimento di intelligenza artificiale* fa parte dell'architettura di indicizzazione di ricerca cognitiva di Azure che integra modelli di apprendimento automatico di Microsoft o di modelli di apprendimento personalizzati forniti dall'utente. Consente di implementare scenari end-to-end in cui è necessario elaborare i BLOB (sia quelli esistenti che quelli nuovi Man mano che vengono aggiornati), crack aprono tutti i formati di file per estrarre immagini e testo, estrarre le informazioni desiderate usando varie funzionalità di intelligenza artificiale e indicizzarle in un indice di ricerca per la ricerca veloce, il recupero e l'esplorazione. 
 
 Gli input sono i BLOB, in un singolo contenitore, nell'archivio BLOB di Azure. I BLOB possono essere quasi qualsiasi tipo di dati di testo o di immagine. 
 
 L'output è sempre un indice di ricerca, usato per la ricerca di testo veloce, il recupero e l'esplorazione nelle applicazioni client. Inoltre, l'output può essere anche un [*Archivio informazioni*](knowledge-store-concept-intro.md) che proietta documenti arricchiti in BLOB di Azure o tabelle di Azure per l'analisi downstream in strumenti come Power bi o in carichi di lavoro Data Science.
 
-In between è l'architettura della pipeline stessa. La pipeline è basata sulla funzionalità *indicizzatore* , a cui è possibile assegnare un *skillt*, che è costituita da una o più *competenze* che forniscono l'intelligenza artificiale. Lo scopo della pipeline è quello di produrre *documenti arricchiti* che vengono immessi come contenuti non elaborati, ma prelevano strutture, contesto e informazioni aggiuntive mentre si passano attraverso la pipeline. I documenti arricchiti vengono utilizzati durante l'indicizzazione per creare indici invertiti e altre strutture utilizzate nella ricerca full-text o nell'esplorazione e nell'analisi.
+In between è l'architettura della pipeline stessa. La pipeline è basata sugli [*indicizzatori*](search-indexer-overview.md), a cui è possibile assegnare un [*Skills*](cognitive-search-working-with-skillsets.md), che è costituita da una o più *competenze* che forniscono l'intelligenza artificiale. Lo scopo della pipeline è quello di produrre *documenti arricchiti* che entrano nella pipeline come contenuto non elaborato, ma acquisiscono struttura, contesto e informazioni aggiuntive durante lo scorrimento della pipeline. I documenti arricchiti vengono utilizzati durante l'indicizzazione per creare indici invertiti e altre strutture utilizzate nella ricerca full-text o nell'esplorazione e nell'analisi.
 
 ## <a name="required-resources"></a>Risorse necessarie
 
-Sono necessari archiviazione BLOB di Azure, Azure ricerca cognitiva e un terzo servizio o meccanismo che fornisce l'intelligenza artificiale:
+Oltre all'archivio BLOB di Azure e ad Azure ricerca cognitiva, è necessario un terzo servizio o meccanismo che fornisce l'intelligenza artificiale:
 
 + Per l'intelligenza artificiale incorporata, ricerca cognitiva si integra con la visione dei servizi cognitivi di Azure e con le API di elaborazione del linguaggio naturale. È possibile [alleghi una risorsa di servizi cognitivi](cognitive-search-attach-cognitive-services.md) per aggiungere il riconoscimento ottico dei caratteri (OCR), l'analisi delle immagini o l'elaborazione del linguaggio naturale (rilevamento della lingua, traduzione del testo, riconoscimento delle entità, estrazione di frasi chiave). 
 

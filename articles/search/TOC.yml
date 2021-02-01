@@ -230,7 +230,7 @@
           items:
             - name: Eseguire ricerche nei BLOB
               href: search-blob-storage-integration.md
-            - name: Informazioni sui BLOB con intelligenza artificiale
+            - name: Arricchimento di intelligenza artificiale per i BLOB
               href: search-blob-ai-integration.md
             - name: Configurare un indicizzatore BLOB
               href: search-howto-indexing-azure-blob-storage.md
