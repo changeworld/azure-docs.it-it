@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072174"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226557"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -83,7 +83,7 @@ Sia i modelli di base che i modelli personalizzati verranno ritirati in seguito 
 
 **D: Le richieste vengono registrate?**
 
-**R**: per impostazione predefinita, le richieste non vengono registrate, né audio né trascrizioni. Se necessario, è possibile selezionare *il contenuto del log da questa opzione di endpoint* quando si [Crea un endpoint personalizzato](./how-to-custom-speech-train-model.md). È anche possibile abilitare la registrazione audio nell' [SDK di riconoscimento vocale](speech-sdk.md) in base alle singole richieste senza creare un endpoint personalizzato. In entrambi i casi, i risultati dell'audio e del riconoscimento delle richieste verranno archiviati in un archivio protetto. Per le sottoscrizioni che usano l'archiviazione di proprietà di Microsoft, saranno disponibili per 30 giorni.
+**R**: per impostazione predefinita, le richieste non vengono registrate, né audio né trascrizioni. Se necessario, è possibile selezionare *il contenuto del log da questa opzione di endpoint* quando si [Crea un endpoint personalizzato](how-to-custom-speech-train-model.md#deploy-a-custom-model). È anche possibile abilitare la registrazione audio nell' [SDK di riconoscimento vocale](how-to-use-logging.md) in base alle singole richieste senza creare un endpoint personalizzato. In entrambi i casi, i risultati dell'audio e del riconoscimento delle richieste verranno archiviati in un archivio protetto. Per le sottoscrizioni che usano l'archiviazione di proprietà di Microsoft, saranno disponibili per 30 giorni.
 
 È possibile esportare i file registrati nella pagina di distribuzione in speech studio se si usa un endpoint personalizzato con *contenuto di log da questo endpoint* abilitato. Se la registrazione audio è abilitata tramite l'SDK, chiamare l' [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) per accedere ai file.
 

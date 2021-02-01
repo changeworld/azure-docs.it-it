@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 131cb325e3581a135be7a88f26c59637d35bc5f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937959"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225715"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -55,8 +55,9 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
 > 1. Selezionare **Registra**. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)** per uso successivo.
 > 1. Per questo avvio rapido è necessario abilitare il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). In **Gestisci** selezionare **Autenticazione**.
-> 1. In **Configurazioni della piattaforma** selezionare **Aggiungi una piattaforma**. Viene visualizzato un pannello sulla sinistra. Selezionare l'area **Applicazioni Web**.
-> 1. Sempre a sinistra, impostare il valore di **URI di reindirizzamento** su `http://localhost:3000/`. Selezionare quindi **Token di accesso** e **Token ID**.
+> 1. In **configurazioni piattaforma**  >  **aggiungere una piattaforma**. Selezionare **Web**.
+> 1. Impostare il valore del campo **URI di reindirizzamento** su `http://localhost:3000/`. 
+> 1. Selezionare **token di accesso** e **token ID** in **concessione implicita e flussi ibridi**  .
 > 1. Selezionare **Configura**.
 
 > [!div class="sxs-lookup" renderon="portal"]

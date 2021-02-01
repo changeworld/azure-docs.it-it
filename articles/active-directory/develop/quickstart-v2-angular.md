@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 161b7fcf4660ddb9515f0b82887f416d83598bdc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754426"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225800"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
 
@@ -49,11 +49,11 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 > 1. Se l'account ha accesso a più tenant, selezionare l'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 > 1. Seguire le istruzioni per [registrare un'applicazione a pagina singola](./scenario-spa-app-registration.md) nel portale di Azure.
 > 1. Aggiungere una nuova piattaforma nel riquadro **Autenticazione** della registrazione dell'app e registrare l'URI di reindirizzamento: `http://localhost:4200/`.
-> 1. Questo avvio rapido usa il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Selezionare le impostazioni di **Concessione implicita** per **Token ID** e **Token di accesso**. I token ID e i token di accesso sono obbligatori perché l'app consente l'accesso agli utenti e chiama un'API.
+> 1. Questo avvio rapido usa il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Nella sezione **concessione implicita e flussi ibridi** selezionare **token ID** e token di **accesso**. I token ID e i token di accesso sono obbligatori perché l'app consente l'accesso agli utenti e chiama un'API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento del codice di esempio di questa guida di avvio rapido è necessario aggiungere un URI di reindirizzamento come **http://localhost:4200/** e abilitare **Concessione implicita**.
+> Per il funzionamento dell'esempio di codice per questa Guida introduttiva, è necessario aggiungere un URI di reindirizzamento come **http://localhost:4200/** e abilitare * * * * concessione implicita * *.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >

@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949786"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225209"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modello di fatturazione per Azure Active Directory B2C
 
 I prezzi Azure Active Directory B2C (Azure AD B2C) si basano sugli utenti attivi mensili (MAU), ovvero sul numero di utenti univoci con attività di autenticazione in un mese di calendario. Questo modello di fatturazione si applica sia ai tenant di Azure AD B2C sia alla [collaborazione Azure ad utenti Guest (B2B)](../active-directory/external-identities/external-identities-pricing.md). MAU Billing ti aiuta a ridurre i costi offrendo un livello gratuito e prezzi flessibili e prevedibili. In questo articolo vengono fornite informazioni sulla fatturazione di MAU, il collegamento dei tenant Azure AD B2C a una sottoscrizione e la modifica del piano tariffario.
 
 > [!IMPORTANT]
-> Questo articolo non contiene i dettagli relativi ai prezzi. Per informazioni aggiornate sulla fatturazione e sui prezzi di utilizzo, vedere [Azure Active Directory B2C prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Questo articolo non contiene i dettagli relativi ai prezzi. Per informazioni aggiornate sulla fatturazione e sui prezzi di utilizzo, vedere [Azure Active Directory B2C prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Per informazioni dettagliate sulla posizione in cui è disponibile il servizio Azure AD B2C e sulla posizione in cui sono archiviati i dati utente, vedere anche [Azure ad B2C disponibilità dell'area e la residenza dei dati](data-residency.md) .
 
 ## <a name="what-do-i-need-to-do"></a>Come devo procedere?
 
@@ -61,16 +61,16 @@ Una sottoscrizione collegata a un tenant di Azure AD B2C può essere usata per l
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene la sottoscrizione di Azure che si vuole usare (*non* la directory che contiene il tenant di Azure ad B2C).
 3. Selezionare **Crea una risorsa**, immettere `Active Directory B2C` nel campo **Cerca nel Marketplace** e quindi selezionare **Azure Active Directory B2C**.
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Selezionare **Collegare un tenant di Azure AD B2C esistente alla sottoscrizione di Azure**.
 6. Selezionare un **Tenant Azure ad B2C** dall'elenco a discesa. Vengono visualizzati solo i tenant per i quali si è un amministratore globale e che non sono già collegati a una sottoscrizione. Il campo **nome risorsa Azure ad B2C** viene popolato con il nome di dominio del tenant di Azure ad B2C selezionato.
 7. Selezionare una **sottoscrizione** di Azure attiva di cui si è amministratori.
 8. In **gruppo di risorse** selezionare **Crea nuovo** e quindi specificare il **percorso del gruppo di risorse**. Le impostazioni del gruppo di risorse non hanno alcun effetto sulla posizione, sulle prestazioni o sullo stato di fatturazione del tenant Azure AD B2C.
-9. Selezionare **Create** (Crea).
+9. Selezionare **Crea**.
 
     ![Pagina di creazione della risorsa Azure AD B2C in portale di Azure](./media/billing/portal-01-create-b2c-resource-page.png)
 
-Dopo aver completato questi passaggi per un tenant di Azure AD B2C, la sottoscrizione di Azure viene fatturata in base ai dettagli di Azure Direct o Enterprise Agreement, se applicabile.
+Dopo aver completato questi passaggi per un tenant di Azure AD B2C, la sottoscrizione di Azure viene fatturata in base ai dettagli di Azure Direct o Contratto Enterprise, se applicabile.
 
 ## <a name="change-your-azure-ad-pricing-tier"></a>Modificare il piano tariffario Azure AD
 

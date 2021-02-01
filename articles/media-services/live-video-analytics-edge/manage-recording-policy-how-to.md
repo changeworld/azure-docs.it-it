@@ -3,18 +3,18 @@ title: Gestire i criteri di registrazione-Azure
 description: In questo argomento viene illustrato come gestire i criteri di registrazione.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: d3a1be915dc1cc8714e49cc7b2fe68bbe9cad161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011482"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99224990"
 ---
 # <a name="manage-recording-policy"></a>Gestire i criteri di registrazione
 
 È possibile usare l'analisi video in tempo reale su IoT Edge per la [registrazione video continua](continuous-video-recording-concept.md), in cui è possibile registrare video nel cloud per settimane o mesi. È possibile gestire la lunghezza (in giorni) dell'archivio cloud usando gli strumenti di [gestione del ciclo](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) di vita incorporati in archiviazione di Azure.  
 
-L'account di servizi multimediali è collegato a un account di archiviazione di Azure e, quando si registra un video nel cloud, il contenuto viene scritto in un [Asset](../latest/assets-concept.md)di servizi multimediali. Ogni asset è mappato a un contenitore nell'account di archiviazione. il ciclo di vita di gestione consente di definire un [criterio](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) per un account di archiviazione, in cui è possibile specificare una [regola](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) come la seguente.
+L'account di servizi multimediali è collegato a un account di archiviazione di Azure e, quando si registra un video nel cloud, il contenuto viene scritto in un [Asset](../latest/assets-concept.md)di servizi multimediali. Ogni asset è mappato a un contenitore nell'account di archiviazione. Il ciclo di vita di gestione consente di definire un [criterio](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) per un account di archiviazione, in cui è possibile specificare una [regola](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) come la seguente.
 
 ```
 {
@@ -45,7 +45,7 @@ Regola precedente:
 * Specifica che quando i BLOB superano i 30 giorni, vengono spostati dal [livello di accesso frequente a](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal)sporadico.
 * E quando i BLOB superano i 90 giorni, devono essere eliminati.
 
-Dal momento che analisi video live archivia il video in unità di tempo specificate, l'asset conterrà una serie di BLOB, un BLOB per segmento. Quando i criteri di gestione del ciclo di vita avviano ed eliminano i BLOB meno recenti, si continuerà a essere in grado di accedere e riprodurre i BLOB rimanenti tramite le API del servizio multimediale. Per ulteriori informazioni, vedere [riproduzione delle registrazioni](playback-recordings-how-to.md). 
+Quando si usa analisi video in tempo reale per registrare in un asset, si specifica una `segmentLength` proprietà che indica al modulo di aggregare una durata minima del video (in secondi) prima che venga scritta nel cloud. L'asset conterrà una serie di segmenti, ognuno con un timestamp di creazione `segmentLength` più recente rispetto a quello precedente. Quando vengono avviati i criteri di gestione del ciclo di vita, vengono eliminati i segmenti anteriori alla soglia specificata. Tuttavia, si continuerà a essere in grado di accedere e riprodurre i segmenti rimanenti tramite le API del servizio multimediale. Per altre informazioni, vedere [riprodurre registrazioni](playback-recordings-how-to.md). 
 
 ## <a name="limitations"></a>Limitazioni
 

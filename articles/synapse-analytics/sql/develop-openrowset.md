@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d79c296163dfcb1d81b4713f8a8673485950e05
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919766"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225614"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creare e usare OPENROWSET con il pool SQL serverless in Azure Synapse Analytics
 
@@ -222,6 +222,7 @@ Specifiche del parser CSV versione 1.0:
 Specifiche del parser CSV versione 2.0:
 
 - Non sono supportati tutti i tipi di dati.
+- La lunghezza massima della colonna carattere è 8000.
 - Il limite massimo delle dimensioni di riga è 8 MB.
 - Le opzioni seguenti non sono supportate: DATA_COMPRESSION.
 - La stringa vuota racchiusa tra virgolette ("") viene interpretata come stringa vuota.

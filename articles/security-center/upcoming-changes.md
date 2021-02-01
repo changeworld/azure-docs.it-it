@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 83c1d8ac316703d9d22d0716c86c5731c3db7133
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757712"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226472"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -83,7 +83,7 @@ Per ulteriori informazioni su questi consigli, vedere la pagina di riferimento r
 
 **Data stimata per la modifica:** Q2 2021
 
-La versione corrente dei **dati sensibili delle raccomandazioni nei database SQL deve essere classificata** in applica il controllo di sicurezza per la **classificazione dei dati** verrà deprecata e sostituita con una nuova versione più allineata alla strategia di classificazione dei dati di Microsoft. Di conseguenza:
+La versione corrente dei **dati sensibili delle raccomandazioni nei database SQL deve essere classificata** in applica il controllo di sicurezza della **classificazione dei dati** verrà sostituita con una nuova versione più allineata alla strategia di classificazione dei dati di Microsoft. Di conseguenza:
 
 - La raccomandazione non influirà più sul punteggio sicuro
 - Il controllo di sicurezza ("applica classificazione dati") non influirà più sul punteggio sicuro

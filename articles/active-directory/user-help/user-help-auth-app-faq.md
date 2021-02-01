@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 369ec11050fa7dbc09159d88793685ad5fbdb3e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053961"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226523"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -238,7 +238,7 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
    - In iOS, in **Impostazioni**, selezionare **come attivare il riempimento automatico** nella sezione Impostazioni riempimento automatico per informazioni su come impostare Authenticator come provider di riempimento automatico predefinito.
    - In Android in **Impostazioni** selezionare **Imposta come provider di riempimento automatico** nella sezione Impostazioni riempimento automatico.
 
-**D**: cosa accade se l'opzione di **riempimento automatico** non è disponibile nelle impostazioni?
+**D**: cosa accade se il **riempimento automatico** non è disponibile nelle impostazioni?
 
 **R**: se il riempimento automatico non è disponibile in Authenticator, è possibile che non sia stato ancora consentito il riempimento automatico per il tipo di account o organizzazione. È possibile usare questa funzionalità in un dispositivo in cui l'account aziendale o dell'Istituto di istruzione non viene aggiunto. Per altre informazioni su come consentire il riempimento automatico per l'organizzazione, vedere [riempimento automatico per gli amministratori it](#autofill-for-it-admins).
 

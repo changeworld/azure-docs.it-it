@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: ab3677ede2805fc8ecb076e8a40da605c038b54b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937932"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225631"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Avvio rapido: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
 
@@ -45,7 +45,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice che 
 1. Selezionare **Aggiungi una piattaforma** > **Web**. 
 1. Nella sezione **URI di reindirizzamento** immettere `http://localhost:3000/auth/openid/return`.
 1. Immettere un **URL di disconnessione front-Channel** `https://localhost:3000` .
-1. Nella sezione Concessione implicita selezionare **Token ID** perché con questo esempio è necessario che il [flusso di concessione implicito](./v2-oauth2-implicit-grant-flow.md) sia abilitato per consentire all'utente di accedere.
+1. Nella sezione **concessione implicita e flussi ibridi** selezionare **token ID** perché questo esempio richiede che il [flusso di concessione implicita](./v2-oauth2-implicit-grant-flow.md) sia abilitato per l'accesso dell'utente.
 1. Selezionare **Configura**.
 1. In **Gestisci** selezionare **Certificati e segreti** > **Nuovo segreto client**.
 1. Immettere una descrizione della chiave, ad esempio segreto dell'app.

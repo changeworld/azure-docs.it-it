@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934735"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226052"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
@@ -130,7 +130,7 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 | `threshold` | float| Gli eventi vengono uscita quando la confidenza dei modelli di intelligenza artificiale è maggiore o uguale a questo valore. |
 | `type` | string| Per **cognitiveservices. Vision. spatialanalysis-PersonCount** deve essere `count` .|
 | `trigger` | string| Tipo di trigger per l'invio di un evento. I valori supportati sono `event` per l'invio di eventi quando il conteggio cambia o `interval` per l'invio periodico di eventi, indipendentemente dal fatto che il conteggio sia stato modificato o meno.
-| `interval` | string| Tempo in secondi durante il quale il conteggio delle persone viene aggregato prima che venga generato un evento. L'operazione continuerà ad analizzare la scena a una velocità costante e restituisce il conteggio più comune rispetto a tale intervallo. L'intervallo di aggregazione è applicabile sia a `event` che a `interval` .|
+| `output_frequency` | INT | Frequenza con cui gli eventi vengono uscita. Quando `output_frequency` = x, ogni evento X è uscita, ad esempio. `output_frequency` = 2 indica che ogni altro evento viene restituito. `output_frequency`È applicabile sia a `event` che a `interval` . |
 | `focus` | string| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona.|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Configurazione della linea per cognitiveservices. Vision. spatialanalysis-personcrossingline
@@ -255,8 +255,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 | `threshold` | float| Gli eventi vengono uscita quando la confidenza dei modelli di intelligenza artificiale è maggiore o uguale a questo valore. |
 | `type` | string| Per **cognitiveservices. Vision. spatialanalysis-persondistance** deve essere `people_distance` .|
 | `trigger` | string| Tipo di trigger per l'invio di un evento. I valori supportati sono `event` per l'invio di eventi quando il conteggio cambia o `interval` per l'invio periodico di eventi, indipendentemente dal fatto che il conteggio sia stato modificato o meno.
-| `interval` | string | Tempo in secondi durante il quale le violazioni verranno aggregate prima che venga generato un evento. L'intervallo di aggregazione è applicabile sia a `event` che a `interval` .|
-| `output_frequency` | INT | Frequenza con cui gli eventi vengono uscita. Quando `output_frequency` = x, ogni evento X è uscita, ad esempio. `output_frequency` = 2 indica che ogni altro evento viene restituito. Il output_frequency è applicabile sia a `event` che a `interval` .|
+| `output_frequency` | INT | Frequenza con cui gli eventi vengono uscita. Quando `output_frequency` = x, ogni evento X è uscita, ad esempio. `output_frequency` = 2 indica che ogni altro evento viene restituito. `output_frequency`È applicabile sia a `event` che a `interval` .|
 | `minimum_distance_threshold` | float| Distanza in metri che attiverà un evento "TooClose" quando le persone sono inferiori a tale distanza.|
 | `maximum_distance_threshold` | float| Distanza in metri che attiverà un evento "TooFar" quando le persone sono più grandi della distanza.|
 | `focus` | string| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona.|

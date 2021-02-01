@@ -14,21 +14,21 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ec3500c124d3e4f8cb1b46445c28c6a64c93526
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d941bd9735149d08bfbd63ec97337dd7a3bac43b
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195450"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226659"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
 
-SAP HANA in Azure (istanze Large) è una soluzione esclusiva per Azure. Oltre a rendere disponibili macchine virtuali (VM) per distribuire ed eseguire SAP HANA, Azure offre la possibilità di eseguire e distribuire SAP HANA su server bare metal dedicati per i clienti. La soluzione SAP HANA in Azure (istanze Large) si basa su hardware bare metal host/server non condiviso che viene assegnato ai clienti. L'hardware del server è incorporato in stamp più grandi contenenti l'infrastruttura di calcolo/server, di rete e di archiviazione. L'intera infrastruttura è dotata di certificazione HANA TDI (HANA Tailored Data Center Integration). SAP HANA in Azure (istanze Large) offre diversi SKU o dimensioni per i server, Le unità possono avere 36 core CPU Intel e 768 GB di memoria e arrivare fino a unità con un massimo di 480 core CPU Intel e 24 TB di memoria.
+SAP HANA in Azure (istanze Large) è una soluzione esclusiva per Azure. Oltre a rendere disponibili macchine virtuali (VM) per distribuire ed eseguire SAP HANA, Azure offre la possibilità di eseguire e distribuire SAP HANA su server bare metal dedicati per i clienti. La soluzione SAP HANA in Azure (istanze Large) si basa su hardware bare metal host/server non condiviso che viene assegnato ai clienti. L'hardware del server è incorporato in stamp più grandi contenenti l'infrastruttura di calcolo/server, di rete e di archiviazione. SAP HANA in Azure (istanze Large) offre diversi SKU o dimensioni per i server, Le unità possono avere 36 core CPU Intel e 768 GB di memoria e arrivare fino a unità con un massimo di 480 core CPU Intel e 24 TB di memoria.
 
 L'isolamento dei clienti nel modulo dell'infrastruttura viene realizzato in base a tenant, nel modo seguente:
 
 - **Rete**: isolamento dei clienti nello stack dell'infrastruttura tramite reti virtuali per ogni tenant assegnato al cliente. Un tenant viene assegnato a un singolo cliente. Un cliente può avere più tenant. L'isolamento dei tenant basato su rete impedisce le comunicazioni di rete tra i tenant a livello del modulo dell'infrastruttura, anche se i tenant appartengono allo stesso cliente.
-- **Componenti di archiviazione**: isolamento tramite macchine virtuali di archiviazione a cui sono assegnati volumi di archiviazione. I volumi di archiviazione possono essere assegnati a una sola macchina virtuale di archiviazione. Una macchina virtuale di archiviazione viene assegnata esclusivamente a un solo tenant nello stack dell'infrastruttura con certificazione SAP HANA TDI. I volumi di archiviazione assegnati a una macchina virtuale di archiviazione sono pertanto accessibili solo in uno specifico tenant correlato e non sono visibili tra i diversi tenant distribuiti.
+- **Componenti di archiviazione**: isolamento tramite macchine virtuali di archiviazione a cui sono assegnati volumi di archiviazione. I volumi di archiviazione possono essere assegnati a una sola macchina virtuale di archiviazione. Una macchina virtuale di archiviazione viene assegnata esclusivamente a un singolo tenant nello stack dell'infrastruttura. I volumi di archiviazione assegnati a una macchina virtuale di archiviazione sono pertanto accessibili solo in uno specifico tenant correlato e non sono visibili tra i diversi tenant distribuiti.
 - **Server o host**: un'unità server o host non viene condivisa tra clienti o tenant. Un server o un host distribuito a un cliente è un'unità di calcolo bare metal atomica assegnata a un solo tenant. *Non* vengono usati partizionamenti hardware o software con i quali un cliente potrebbe trovarsi a condividere un host o un server con un altro cliente. I volumi di archiviazione assegnati alla macchina virtuale di archiviazione del tenant specifico vengono montati in tale server. A un tenant può essere assegnata in modo esclusivo una o più unità server di SKU diversi.
 - In un modulo dell'infrastruttura SAP HANA in Azure (istanze Large) più tenant diversi vengono distribuiti e isolati l'uno dall'altro in base a concetti definiti a livello di rete, archiviazione e calcolo. 
 

@@ -4,20 +4,42 @@ description: Informazioni su come interpretare i modelli di fatturazione con pag
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632479"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226642"
 ---
-# <a name="understanding-azure-files-billing"></a>Informazioni sulla fatturazione File di Azure
+# <a name="understand-azure-files-billing"></a>Informazioni sulla fatturazione File di Azure
 File di Azure offre due modelli di fatturazione distinti: con provisioning e con pagamento in base al consumo. Il modello di cui è stato effettuato il provisioning è disponibile solo per le condivisioni file Premium, ovvero le condivisioni file distribuite nel tipo di account di archiviazione **filestorage** . Il modello con pagamento in base al consumo è disponibile solo per le condivisioni file standard, ovvero le condivisioni file distribuite nel tipo di account di archiviazione per **utilizzo generico versione 2 (GPv2)** . Questo articolo illustra il funzionamento di entrambi i modelli per facilitare la comprensione della fattura mensile File di Azure.
 
-I prezzi attuali per File di Azure sono disponibili nella pagina relativa ai [prezzi file di Azure](https://azure.microsoft.com/pricing/details/storage/files/).
+Per File di Azure informazioni sui prezzi, vedere la pagina relativa ai [prezzi file di Azure](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="storage-units"></a>Unità di archiviazione    
+File di Azure USA unità di misura in base 2 per rappresentare la capacità di archiviazione: KiB, MiB, GiB e TiB. È possibile che il sistema operativo non usi la stessa unità di misura o di sistema di conteggio.
+
+### <a name="windows"></a>Windows
+
+Il sistema operativo Windows e File di Azure misurano la capacità di archiviazione usando il sistema di conteggio in base 2, ma c'è una differenza durante l'assegnazione di etichette alle unità. File di Azure etichetta la capacità di archiviazione con unità di misura in base 2, mentre Windows etichetta la capacità di archiviazione in base 10 unità di misura. Quando si segnala la capacità di archiviazione, Windows non converte la capacità di archiviazione da base 2 a base 10.
+
+|Acronimo  |Definizione  |Unità  |Windows viene visualizzato come  |
+|---------|---------|---------|---------|
+|KiB     |1.024 byte         |Kibibyte         |KB (kilobyte)         |
+|MiB     |1.024 KiB (1.048.576 byte)         |Mebibyte         |MB (megabyte)         |
+|GiB     |1024 MiB (1.073.741.824 byte)         |Gibibyte         |GB (gigabyte)         |
+|TiB     |1024 GiB (1.099.511.627.776 byte)         |Tebibyte         |TB (terabyte)         |
+
+### <a name="macos"></a>macOS
+
+Scopri in che [modo iOS e MacOS segnalano la capacità di archiviazione](https://support.apple.com/HT201402) nel sito Web di Apple per determinare il sistema di conteggio usato.
+
+### <a name="linux"></a>Linux
+
+Un sistema di conteggio diverso potrebbe essere utilizzato da ogni sistema operativo o singolo componente software. Vedere la documentazione per determinare il modo in cui la capacità di archiviazione viene segnalata.
 
 ## <a name="provisioned-model"></a>Modello sottoposta a provisioning
 File di Azure usa un modello con provisioning per le condivisioni file Premium. In un modello di business di cui è stato effettuato il provisioning, è possibile specificare in modo proattivo il File di Azure servizio che i requisiti di archiviazione sono, anziché essere fatturati in base a ciò che si usa. Questa operazione è simile all'acquisto di hardware in locale, in quanto quando si effettua il provisioning di una condivisione file di Azure con una determinata quantità di spazio di archiviazione, si paga per tale spazio di archiviazione, indipendentemente dal fatto che si usi o meno, così come non si inizia a pagare i costi dei supporti fisici locali quando si inizia a usare lo spazio. Diversamente dall'acquisto di supporti fisici in locale, le condivisioni file di cui è stato effettuato il provisioning possono essere aumentate o ridotte in modo dinamico a seconda delle caratteristiche delle prestazioni di archiviazione e i/o.

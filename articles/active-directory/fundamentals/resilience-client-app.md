@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: b32f9dd10d9bd03a7e446616d9941e7bd1a9c3ed
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: bc3b041e44fad66a4edc6ff34c0e534dc423de86
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724909"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226591"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Aumentare la resilienza dell'autenticazione e dell'autorizzazione nelle applicazioni client sviluppate
 
@@ -97,7 +97,7 @@ In generale, un'applicazione che usa l'autenticazione moderna chiamerà un endpo
 
 ### <a name="cache-tokens"></a>Token della cache
 
-Le app devono memorizzare correttamente nella cache i token ricevuti da Microsoft Identity. Quando l'app riceve i token, la risposta HTTP che contiene i token contiene anche una proprietà "expires_in" che indica all'applicazione il tempo di memorizzazione nella cache e il riutilizzo del token. In particolare, le applicazioni usano la proprietà "expires_in" per determinare la durata del token. L'applicazione non deve mai tentare di decodificare un token di accesso all'API.
+Le app devono memorizzare correttamente nella cache i token ricevuti da Microsoft Identity. Quando l'app riceve i token, la risposta HTTP che contiene i token contiene anche una proprietà "expires_in" che indica all'applicazione il tempo di memorizzazione nella cache e il riutilizzo del token. È importante che le applicazioni usino la proprietà "expires_in" per determinare la durata del token. L'applicazione non deve mai tentare di decodificare un token di accesso all'API.
 
 ![Un'applicazione che effettua una chiamata a Microsoft Identity, ma la chiamata passa attraverso una cache di token sul dispositivo che esegue l'applicazione](media/resilience-client-app/token-cache.png)
 

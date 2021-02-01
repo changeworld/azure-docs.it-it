@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a85ae227d45c8de6c3d04e4a058ebf9715421ca2
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: a5f0a7d8221e970c8c1aa3c1ddffbfc56f2d5715
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222066"
+ms.locfileid: "99226187"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Esercitazione: Creare un daemon multi-tenant che usa Microsoft Identity Platform
 
@@ -110,7 +110,7 @@ Se non si vuole usare l'automazione, seguire i passaggi delle sezioni seguenti.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota per usarlo in seguito. Sarà necessario per configurare il file di configurazione di Visual Studio per questo progetto.
 1. In **Gestisci** selezionare **Autenticazione**.
 1. Impostare l' **URL di disconnessione front-Channel** su `https://localhost:44316/Account/EndSession` .
-1. Nella sezione **Concessione implicita** selezionare **Token di accesso** e quindi **Token ID**. Per questo esempio è necessario abilitare il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) per consentire all'utente di accedere e chiamare un'API.
+1. Nella sezione **concessione implicita e flussi ibridi** selezionare **token di accesso** e **token ID**. Per questo esempio è necessario abilitare il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) per consentire all'utente di accedere e chiamare un'API.
 1. Selezionare **Salva**.
 1. In **Gestisci**, selezionare **Certificati e segreti**.
 1. Nella sezione **Segreti client** selezionare **Nuovo segreto client**. 

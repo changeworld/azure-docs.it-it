@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 39a675ff4947e7eca64298e1e68160cd6149f081
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756412"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226339"
 ---
 # <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: Registrazione delle app
 
@@ -47,7 +47,7 @@ Seguire questa procedura per aggiungere un URI di reindirizzamento per un'app ch
 1. Nel portale di Azure selezionare la registrazione dell'app creata in precedenza in [Creare la registrazione dell'app](#create-the-app-registration).
 1. In **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma**.
 1. In **Applicazioni Web** selezionare il riquadro **Applicazione a pagina singola**.
-1. In **URI di reindirizzamento** immettere un [URI di reindirizzamento](reply-url.md). **NON** selezionare nessuna delle due caselle di controllo in **Concessione implicita**.
+1. In **URI di reindirizzamento** immettere un [URI di reindirizzamento](reply-url.md). Non **selezionare una** casella di controllo in **concessioni implicite e flussi ibridi**.
 1. Selezionare **Configura** per completare l'aggiunta dell'URI di reindirizzamento.
 
 A questo punto è stata completata la registrazione dell'applicazione a pagina singola (SPA) ed è stato configurato un URI di reindirizzamento, a cui verrà reindirizzato il client e verranno inviati tutti i token di sicurezza. Se si configura l'URI di reindirizzamento tramite il riquadro **Applicazione a pagina singola** nell'area **Aggiungi una piattaforma**, la registrazione dell'applicazione è configurata in modo da supportare il flusso del codice di autorizzazione con PKCE e CORS.
@@ -62,7 +62,7 @@ Seguire questa procedura per aggiungere un URI di reindirizzamento per un'app a 
 1. In **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma**.
 1. In **Applicazioni Web** selezionare il riquadro **Applicazione a pagina singola**.
 1. In **URI di reindirizzamento** immettere un [URI di reindirizzamento](reply-url.md).
-1. Abilitare il **Flusso implicito**:
+1. Abilitare la **concessione implicita e i flussi ibridi**:
     - Se l'applicazione consente l'accesso agli utenti, selezionare **Token ID**.
     - Se l'applicazione deve anche chiamare un'API Web protetta, selezionare **Token di accesso**. Per altre informazioni su questi tipi di token, vedere [Token ID](id-tokens.md) e [Token di accesso](access-tokens.md).
 1. Selezionare **Configura** per completare l'aggiunta dell'URI di reindirizzamento.

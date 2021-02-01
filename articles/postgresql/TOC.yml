@@ -611,6 +611,8 @@
           items:
             - name: Monitorare e ottimizzare
               href: concepts-hyperscale-monitoring.md
+            - name: Log di controllo
+              href: concepts-hyperscale-audit.md
         - name: Opzioni di configurazione
           href: concepts-hyperscale-configuration-options.md
         - name: Pagare in anticipo la capacità riservata

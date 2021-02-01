@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 05e14b5bdc2f603ffe802b12ed33b7b57be25b69
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938203"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225834"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
 
@@ -57,7 +57,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > 1. In **Gestisci** selezionare **Autenticazione**.
 > 1. In **URI di reindirizzamento** selezionare **Aggiungi URI**, quindi immettere `https://localhost:44321/signin-oidc` .
 > 1. Immettere un **URL di disconnessione front-Channel** di `https://localhost:44321/signout-oidc` .
-> 1. In **Concessione implicita** selezionare **Token ID**.
+> 1. In **concessione implicita e flussi ibridi** selezionare **token ID**.
 > 1. Selezionare **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]

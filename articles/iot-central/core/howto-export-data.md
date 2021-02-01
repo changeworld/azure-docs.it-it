@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 350cd7c14a4f1ee5058a60ccf60c1205ce97916a
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760896"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226063"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
@@ -166,7 +166,7 @@ Ora che si dispone di una destinazione in cui esportare i dati, configurare l'es
 
 1. Al termine della configurazione dell'esportazione, selezionare **Salva**. Dopo alcuni minuti, i dati verranno visualizzati nelle destinazioni.
 
-## <a name="export-contents-and-format"></a>Esporta contenuto e formato
+## <a name="destinations"></a>Destinazioni
 
 ### <a name="azure-blob-storage-destination"></a>Destinazione di archiviazione BLOB di Azure
 
@@ -187,7 +187,7 @@ Il contenitore delle annotazioni o delle proprietà di sistema del messaggio con
 
 Per le destinazioni webhook, i dati vengono anche esportati quasi in tempo reale. I dati nel corpo del messaggio hanno lo stesso formato degli hub eventi e del bus di servizio.
 
-### <a name="telemetry-format"></a>Formato di telemetria
+## <a name="telemetry-format"></a>Formato di telemetria
 
 Ogni messaggio esportato contiene una forma normalizzata del messaggio completo del dispositivo inviato nel corpo del messaggio. Il messaggio è in formato JSON e codificato come UTF-8. Le informazioni contenute in ogni messaggio includono:
 
@@ -231,6 +231,102 @@ L'esempio seguente mostra un messaggio di telemetria esportato:
     "messageProperties": {
       "messageProp": "value"
     }
+}
+```
+
+### <a name="message-properties"></a>Proprietà del messaggio
+
+I messaggi di telemetria hanno proprietà per i metadati oltre al payload di telemetria. Il frammento di codice precedente mostra esempi di messaggi di sistema, ad esempio `deviceId` e `enqueuedTime` . Per altre informazioni sulle proprietà dei messaggi di sistema, vedere [proprietà di sistema dei messaggi dell'hub D2C](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+
+È possibile aggiungere proprietà ai messaggi di telemetria se è necessario aggiungere metadati personalizzati ai messaggi di telemetria. Ad esempio, è necessario aggiungere un timestamp quando il dispositivo crea il messaggio.
+
+Il frammento di codice seguente mostra come aggiungere la `iothub-creation-time-utc` proprietà al messaggio quando lo si crea nel dispositivo:
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+async function sendTelemetry(deviceClient, index) {
+  console.log('Sending telemetry message %d...', index);
+  const msg = new Message(
+    JSON.stringify(
+      deviceTemperatureSensor.updateSensor().getCurrentTemperatureObject()
+    )
+  );
+  msg.properties.add("iothub-creation-time-utc", new Date().toISOString());
+  msg.contentType = 'application/json';
+  msg.contentEncoding = 'utf-8';
+  await deviceClient.sendEvent(msg);
+}
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```java
+private static void sendTemperatureTelemetry() {
+  String telemetryName = "temperature";
+  String telemetryPayload = String.format("{\"%s\": %f}", telemetryName, temperature);
+
+  Message message = new Message(telemetryPayload);
+  message.setContentEncoding(StandardCharsets.UTF_8.name());
+  message.setContentTypeFinal("application/json");
+  message.setProperty("iothub-creation-time-utc", Instant.now().toString());
+
+  deviceClient.sendEventAsync(message, new MessageIotHubEventCallback(), message);
+  log.debug("My Telemetry: Sent - {\"{}\": {}°C} with message Id {}.", telemetryName, temperature, message.getMessageId());
+  temperatureReadings.put(new Date(), temperature);
+}
+```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+```csharp
+private async Task SendTemperatureTelemetryAsync()
+{
+  const string telemetryName = "temperature";
+
+  string telemetryPayload = $"{{ \"{telemetryName}\": {_temperature} }}";
+  using var message = new Message(Encoding.UTF8.GetBytes(telemetryPayload))
+  {
+      ContentEncoding = "utf-8",
+      ContentType = "application/json",
+  };
+  message.Properties.Add("iothub-creation-time-utc", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+  await _deviceClient.SendEventAsync(message);
+  _logger.LogDebug($"Telemetry: Sent - {{ \"{telemetryName}\": {_temperature}°C }}.");
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+async def send_telemetry_from_thermostat(device_client, telemetry_msg):
+    msg = Message(json.dumps(telemetry_msg))
+    msg.custom_properties["iothub-creation-time-utc"] = datetime.now(timezone.utc).isoformat()
+    msg.content_encoding = "utf-8"
+    msg.content_type = "application/json"
+    print("Sent message")
+    await device_client.send_message(msg)
+```
+
+---
+
+Il frammento di codice seguente Mostra questa proprietà nel messaggio esportato nell'archivio BLOB:
+
+```json
+{
+  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "messageSource":"telemetry",
+  "deviceId":"sample-device-01",
+  "schema":"default@v1",
+  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
+  "enqueuedTime":"2021-01-29T16:45:39.143Z",
+  "telemetry":{
+    "temperature":8.341033560421833
+  },
+  "messageProperties":{
+    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
+  },
+  "enrichments":{}
 }
 ```
 

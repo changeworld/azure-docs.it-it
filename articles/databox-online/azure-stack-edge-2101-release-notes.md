@@ -6,18 +6,18 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/29/2021
+ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 025694dc020bb18ce66574bac476f34034353721
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 7c1f78f405a67687168457448f62d46a39da165f
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072600"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225125"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>Note sulla versione di Azure Stack Edge Pro con FPGA 2101
 
-Le note sulla versione seguenti identificano i problemi critici aperti e i problemi risolti per la versione 2101 di Azure Stack Edge Pro con con un FPGA (Field Programmable Gate Array) incorporato.
+Le note sulla versione seguenti identificano i problemi critici aperti e i problemi risolti per la versione 2101 di Azure Stack Edge Pro con un FPGA (Field Programmable Gate Array) incorporato.
 
 Le note sulla versione vengono aggiornate continuamente. Quando vengono individuati problemi critici che richiedono una soluzione alternativa, vengono aggiunti. Prima di distribuire il dispositivo Azure Stack Edge, esaminare attentamente le informazioni contenute nelle note sulla versione.  
 
@@ -38,7 +38,6 @@ Questa versione contiene anche gli aggiornamenti seguenti:
 
 - Tutti gli aggiornamenti cumulativi di Windows e gli aggiornamenti di .NET Framework rilasciati fino al 2020 ottobre.
 - La versione del firmware Baseboard Management Controller (BMC) viene aggiornata da 3.32.32.32 a 3.36.36.36 durante l'installazione della factory per risolvere l'incompatibilità con le unità di alimentazione di dell più recenti.
-- L'indirizzo IP statico per Azure Data Box Gateway viene mantenuto attraverso gli aggiornamenti software.
 - Questa versione supporta IoT Edge 1.0.9.3 nei dispositivi Azure Stack Edge.
 
 ## <a name="known-issues-in-this-release"></a>Problemi noti in questa versione

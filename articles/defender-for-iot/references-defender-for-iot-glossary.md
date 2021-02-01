@@ -7,35 +7,37 @@ ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 62d1f3e195247682dab96ec258d1b97695b20103
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 8007f11cb37063cef46ac7f3ac51e23bdfaae11a
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986989"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226455"
 ---
 # <a name="defender-for-iot-glossary"></a>Glossario di Defender per IoT
 
 Questo glossario fornisce una breve descrizione dei termini e dei concetti importanti per Azure Defender per la piattaforma Internet delle cose. Selezionare i collegamenti **ulteriori informazioni** per passare a termini correlati nel glossario. Ciò consentirà di apprendere e usare più rapidamente gli strumenti per i prodotti.
+
+<a name="glossary-a"></a>
 
 ## <a name="a"></a>A
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
 | **Gruppo di accesso** | Supportare i requisiti di accesso degli utenti per le organizzazioni di grandi dimensioni creando regole del gruppo di accesso.<br /><br />Le regole consentono di controllare l'accesso alla visualizzazione e alla configurazione alla console di gestione di protezione per gli utenti in locale per ruoli utente specifici in business unit, aree, siti e zone pertinenti.<br /><br />Ad esempio, è possibile consentire agli analisti della sicurezza di un gruppo di Active Directory di accedere ai dati autoeuropei dell'Europa occidentale, evitando però l'accesso ai dati in Africa. | **[Console di gestione locale](#o)** <br /><br />**[Business unit](#b)** |
-| **Token di accesso** | Generare token di accesso per accedere al Defender per l'API REST. | **[API](#a)** |
-| **Conferma evento di avviso** | Chiedere a Defender for Internet per l'utente di nascondere l'avviso una volta per l'evento rilevato. L'avviso verrà nuovamente attivato se l'evento viene nuovamente rilevato. | **[Avviso di](#a) <br /> <br /> [Informazioni sugli eventi](#l) <br /> <br /> di avviso [Disattiva evento di avviso](#m)** |
+| **Token di accesso** | Generare token di accesso per accedere al Defender per l'API REST. | **[API](#glossary-a)** |
+| **Conferma evento di avviso** | Chiedere a Defender for Internet per l'utente di nascondere l'avviso una volta per l'evento rilevato. L'avviso verrà nuovamente attivato se l'evento viene nuovamente rilevato. | **[Avviso di](#glossary-a) <br /> <br /> [Informazioni sugli eventi](#l) <br /> <br /> di avviso [Disattiva evento di avviso](#m)** |
 | **Avviso** | Messaggio che viene attivato da un Defender per il motore delle cose in merito a deviazioni dal comportamento di rete autorizzato, da anomalie di rete o da traffico e attività di rete sospette. | **[](#f) <br /> Regola <br /> di invio [](#e) <br /> Regola <br /> di esclusione [Notifiche di sistema](#s)** |
-| **Commento avviso** | Commenti che gli analisti e gli amministratori della sicurezza effettuano nei messaggi di avviso. Ad esempio, un commento di avviso può fornire istruzioni sulle azioni di mitigazione da intraprendere oppure i nomi di singoli utenti da contattare per quanto riguarda l'evento.<br /><br />Gli utenti che stanno esaminando gli avvisi possono scegliere il commento o i commenti che meglio riflettono lo stato dell'evento o i passaggi eseguiti per esaminare l'avviso. | **[Avviso](#a)** |
+| **Commento avviso** | Commenti che gli analisti e gli amministratori della sicurezza effettuano nei messaggi di avviso. Ad esempio, un commento di avviso può fornire istruzioni sulle azioni di mitigazione da intraprendere oppure i nomi di singoli utenti da contattare per quanto riguarda l'evento.<br /><br />Gli utenti che stanno esaminando gli avvisi possono scegliere il commento o i commenti che meglio riflettono lo stato dell'evento o i passaggi eseguiti per esaminare l'avviso. | **[Avviso](#glossary-a)** |
 | **Motore anomalie** | Un Defender per il motore delle cose che rileva un comportamento e una comunicazione da computer a computer (M2M) insoliti. È ad esempio possibile che il motore rilevi un numero eccessivo di tentativi di accesso SMB. Gli avvisi di anomalie vengono attivati quando vengono rilevati questi eventi. | **[Defender per i motori di Internet delle cose](#d)** |
-| **API** | Consente ai sistemi esterni di accedere ai dati individuati da Defender per tutto il tempo ed eseguire azioni usando l'API REST esterna tramite le connessioni SSL. | **[Token di accesso](#a)** |
+| **API** | Consente ai sistemi esterni di accedere ai dati individuati da Defender per tutto il tempo ed eseguire azioni usando l'API REST esterna tramite le connessioni SSL. | **[Token di accesso](#glossary-a)** |
 | **Report vettoriale di attacco** | Rappresentazione grafica in tempo reale delle catene di vulnerabilità di endpoint sfruttabili.<br /><br />I report consentono di valutare l'effetto delle attività di mitigazione nella sequenza di attacco da determinare. Ad esempio, è possibile valutare se un aggiornamento del sistema interrompe il percorso del pirata informatico compromettendo la catena di attacco o se rimane un percorso di attacco alternativo. Questo assegna la priorità alle attività di correzione e mitigazione. | **[Report di valutazione del rischio](#r)** |
 
 ## <a name="b"></a>B
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
-| **Business unit** | Organizzazione logica dell'azienda in base a settori specifici.<br /><br />Ad esempio, una società globale che contiene vetrerie e fabbriche di plastica può essere gestita come due unità aziendali diverse. È possibile controllare l'accesso di Defender per gli utenti di un sacco a business unit specifiche. | **[](#o) <br /> Console <br /> di gestione locale [](#o) <br /> Gruppo <br /> di accesso [Sito di](#s) <br /> <br /> [Area](#z) di** |
+| **Business unit** | Organizzazione logica dell'azienda in base a settori specifici.<br /><br />Ad esempio, una società globale che contiene vetrerie e fabbriche di plastica può essere gestita come due unità aziendali diverse. È possibile controllare l'accesso di Defender per gli utenti di un sacco a business unit specifiche. | **[](#o) <br /> Console <br /> di gestione locale [](#glossary-a) <br /> Gruppo <br /> di accesso [Sito di](#s) <br /> <br /> [Area](#z) di** |
 | **Di base** | Traffico di rete, protocolli, comandi e dispositivi approvati. Defender for Internet rileva le deviazioni dalla linea di base di rete. Consente di visualizzare il traffico di base approvato generando report di data mining. | **[Data mining](#d) <br /> <br /> [Modalità di apprendimento](#l)** |
 
 ## <a name="c"></a>C
@@ -50,7 +52,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
 | **Data mining** | Generare report completi e granulari sui dispositivi di rete:<br /><br />- **Risposta agli eventi imprevisti SOC**: report in tempo reale per gestire la risposta immediata agli eventi imprevisti. Ad esempio, un report può elencare i dispositivi che potrebbero richiedere l'applicazione di patch.<br /><br />- **Forensics**: report basati sui dati cronologici per i report investigativi.<br /><br />- **Integrità della rete it**: report che consentono di migliorare la sicurezza complessiva della rete. Un report, ad esempio, può elencare i dispositivi con credenziali di autenticazione vulnerabili.<br /><br />- **visibilità**: report che coprono tutti gli elementi della query per visualizzare tutti i parametri di base della rete.<br /><br />Salvare i report di data mining per gli utenti di sola lettura da visualizzare. | **[Linea di base](#b) <br /> <br /> [Report](#r) di** |
-| **Defender per i motori di Internet delle cose** | I motori di analisi self-learning in Defender per tutti gli strumenti eliminano la necessità di aggiornare le firme o definire regole. I motori usano analisi del comportamento specifiche di ICS e data science per analizzare continuamente il traffico di rete per anomalie, malware, problemi operativi, violazioni del protocollo e deviazioni dall'attività della rete di base.<br /><br />Quando un motore rileva una deviazione, viene generato un avviso. Gli avvisi possono essere visualizzati e gestiti dalla schermata **avvisi** o da un Siem. | **[Avviso](#a)** |
+| **Defender per i motori di Internet delle cose** | I motori di analisi self-learning in Defender per tutti gli strumenti eliminano la necessità di aggiornare le firme o definire regole. I motori usano analisi del comportamento specifiche di ICS e data science per analizzare continuamente il traffico di rete per anomalie, malware, problemi operativi, violazioni del protocollo e deviazioni dall'attività della rete di base.<br /><br />Quando un motore rileva una deviazione, viene generato un avviso. Gli avvisi possono essere visualizzati e gestiti dalla schermata **avvisi** o da un Siem. | **[Avviso](#glossary-a)** |
 | **Defender per la piattaforma Internet** | La soluzione Defender for Internet è installata in Defender per i sensori Internet e la console di gestione locale. | **[Sensore di](#s) <br /> <br /> [Console di gestione locale](#o)** |
 | **Mappa dei dispositivi** | Rappresentazione grafica dei dispositivi di rete che Defender for it rileva. Mostra le connessioni tra i dispositivi e le informazioni su ogni dispositivo. Usare la mappa per:<br /><br />-Recuperare e controllare le informazioni critiche sul dispositivo.<br /><br />-Analizza le sezioni di rete.<br /><br />-Esportare i dettagli e i riepiloghi del dispositivo. | **[Gruppo di livelli Purdue](#p)** |
 | **Inventario dispositivi-sensore** | Nell'inventario del dispositivo viene visualizzata una vasta gamma di attributi del dispositivo rilevati da Defender per l'intero. Sono disponibili opzioni per:<br /><br />-Filtrare le informazioni visualizzate.<br /><br />-Esportare le informazioni in un file CSV.<br /><br />-Importa i dettagli del registro di sistema di Windows. | **[Group](#g)** <br /><br />**[Inventario dispositivi-console di gestione locale](#d)** |
@@ -63,13 +65,13 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 |--|--|--|
 | **Visualizzazione Enterprise** | Mappa globale che presenta le unità aziendali, i siti e le aree in cui sono installati i difensori dei sensori Internet. Visualizza le posizioni geografiche di avvisi dannosi, avvisi operativi e altro ancora. | **[Business Unit](#b) <br /> <br /> [Sito di](#s) <br /> <br /> [Area](#z) di** |
 | **Sequenza temporale eventi** | Sequenza temporale delle attività rilevate nella rete, tra cui:<br /><br />-Avvisi attivati.<br /><br />-Eventi di rete (informational).<br /><br />-Operazioni utente come l'accesso, l'eliminazione degli utenti e la creazione dell'utente e le operazioni di gestione degli avvisi, ad esempio mute, Learn e conferma. Disponibile nelle console del sensore. | - |
-| **Regola di esclusione** | Indica a Defender di ignorare i trigger di avviso in base al periodo di tempo, all'indirizzo del dispositivo e al nome dell'avviso o a un sensore specifico.<br /><br />Ad esempio, se si sa che tutti i dispositivi OT monitorati da un sensore specifico passeranno attraverso una procedura di manutenzione compresa tra 6:30 e 10:15 al mattino, è possibile impostare una regola di esclusione che indica che questo sensore non deve inviare avvisi nel periodo predefinito. | **[Avviso di](#a) <br /> <br /> [Disattiva evento di avviso](#m)** |
+| **Regola di esclusione** | Indica a Defender di ignorare i trigger di avviso in base al periodo di tempo, all'indirizzo del dispositivo e al nome dell'avviso o a un sensore specifico.<br /><br />Ad esempio, se si sa che tutti i dispositivi OT monitorati da un sensore specifico passeranno attraverso una procedura di manutenzione compresa tra 6:30 e 10:15 al mattino, è possibile impostare una regola di esclusione che indica che questo sensore non deve inviare avvisi nel periodo predefinito. | **[Avviso di](#glossary-a) <br /> <br /> [Disattiva evento di avviso](#m)** |
 
 ## <a name="f"></a>F
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
-| **Regola di invio** | Le regole di invio indicano a Defender per l'invio di informazioni sugli avvisi ai fornitori o ai sistemi partner.<br /><br />Inviare, ad esempio, informazioni sugli avvisi a un server Splunk o a un server syslog. | **[Avviso](#a)** |
+| **Regola di invio** | Le regole di invio indicano a Defender per l'invio di informazioni sugli avvisi ai fornitori o ai sistemi partner.<br /><br />Inviare, ad esempio, informazioni sugli avvisi a un server Splunk o a un server syslog. | **[Avviso](#glossary-a)** |
 
 ## <a name="g"></a>G
 
@@ -95,7 +97,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
-| **Informazioni sugli eventi di avviso** | Indica a Defender per le cose di autorizzare il traffico rilevato in un evento di avviso. | **[Avviso di](#a) <br /> <br /> [Conferma evento](#a) <br /> <br /> di avviso [Disattiva evento di avviso](#m)** |
+| **Informazioni sugli eventi di avviso** | Indica a Defender per le cose di autorizzare il traffico rilevato in un evento di avviso. | **[Avviso di](#glossary-a) <br /> <br /> [Conferma evento](#glossary-a) <br /> <br /> di avviso [Disattiva evento di avviso](#m)** |
 | **Modalità di apprendimento** | Modalità usata quando Defender for Internet apprende l'attività di rete. Questa attività diventa la linea di base di rete. Il Defender per le cose rimane in modalità per un periodo predefinito dopo l'installazione. L'attività che devia dall'attività appresa dopo questo periodo attiverà il Defender per gli avvisi di Internet. | **[](#s) <br /> Apprendimento <br /> intelligente it [Linea di base](#b)** |
 | **Localizzazione** | Localizzare il testo per gli avvisi, gli eventi e i parametri del protocollo per i plug-in di dissettori sviluppati da Horizon. | **[Ambiente di sviluppo open Horizon](#h)** |
 
@@ -103,20 +105,20 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
-| **Disattiva evento di avviso** | Indica a Defender per le cose di ignorare continuamente le attività con dispositivi identici e traffico analogo. | **[Avviso di](#a) <br /> <br /> [](#e) <br /> Regola <br /> di esclusione [Conferma evento](#a) <br /> <br /> di avviso [Informazioni sugli eventi di avviso](#l)** |
+| **Disattiva evento di avviso** | Indica a Defender per le cose di ignorare continuamente le attività con dispositivi identici e traffico analogo. | **[Avviso di](#glossary-a) <br /> <br /> [](#e) <br /> Regola <br /> di esclusione [Conferma evento](#glossary-a) <br /> <br /> di avviso [Informazioni sugli eventi di avviso](#l)** |
 
 ## <a name="n"></a>N
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
-| **Notifications** | Informazioni sulle modifiche alla rete o sulle proprietà dei dispositivi non risolti. Sono disponibili opzioni per aggiornare le informazioni sul dispositivo e sulla rete con i nuovi dati rilevati. La risposta alle notifiche arricchisce l'inventario dei dispositivi, la mappa e vari report. Disponibile nelle console del sensore. | **[Avviso di](#a) <br /> <br /> [Notifiche di sistema](#s)** |
+| **Notifications** | Informazioni sulle modifiche alla rete o sulle proprietà dei dispositivi non risolti. Sono disponibili opzioni per aggiornare le informazioni sul dispositivo e sulla rete con i nuovi dati rilevati. La risposta alle notifiche arricchisce l'inventario dei dispositivi, la mappa e vari report. Disponibile nelle console del sensore. | **[Avviso di](#glossary-a) <br /> <br /> [Notifiche di sistema](#s)** |
 
 ## <a name="o"></a>O
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
 | **Console di gestione locale** | La console di gestione locale offre una visualizzazione centralizzata e la gestione dei dispositivi e delle minacce che i difensori per le distribuzioni di sensori Internet in uso rilevano nell'organizzazione. | **[Defender per la piattaforma Internet](#d) <br /> <br /> [Sensore](#s) di** |
-| **Avviso operativo** | Avvisi che riguardano problemi di rete operativo, ad esempio un dispositivo che si sospetta che sia disconnesso dalla rete. | **[Avviso di](#a) <br /> <br /> [Avviso di sicurezza](#s)** |
+| **Avviso operativo** | Avvisi che riguardano problemi di rete operativo, ad esempio un dispositivo che si sospetta che sia disconnesso dalla rete. | **[Avviso di](#glossary-a) <br /> <br /> [Avviso di sicurezza](#s)** |
 
 ## <a name="p"></a>P
 
@@ -129,7 +131,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
-| **Area** | Divisione logica di un'organizzazione globale in aree geografiche. Esempi sono America del Nord, Europa occidentale ed Europa orientale.<br /><br />America del Nord possono avere Factory di diverse business unit. | **[](#a) <br /> Gruppo <br /> di accesso [Business Unit](#b) <br /> <br /> [](#o) <br /> Console <br /> di gestione locale [Sito di](#s) <br /> <br /> [Area](#z) di** |
+| **Area** | Divisione logica di un'organizzazione globale in aree geografiche. Esempi sono America del Nord, Europa occidentale ed Europa orientale.<br /><br />America del Nord possono avere Factory di diverse business unit. | **[](#glossary-a) <br /> Gruppo <br /> di accesso [Business Unit](#b) <br /> <br /> [](#o) <br /> Console <br /> di gestione locale [Sito di](#s) <br /> <br /> [Area](#z) di** |
 | **Report** | I report riflettono le informazioni generate dai risultati della query di data mining. Sono inclusi i risultati predefiniti di data mining, disponibili nella visualizzazione **report** . Gli amministratori e gli analisti della sicurezza possono anche generare query di data mining personalizzate e salvarle come report. Questi report saranno disponibili anche per gli utenti di sola lettura. | **[Data mining](#d)** |
 | **Report di valutazione del rischio** | La creazione di report di valutazione dei rischi consente di generare un punteggio di sicurezza per ogni dispositivo di rete, insieme a un punteggio di sicurezza di rete globale. Il Punteggio complessivo rappresenta la percentuale di sicurezza del 100%. Il report fornisce consigli per la mitigazione che consentono di migliorare il Punteggio di sicurezza corrente. | - |
 
@@ -137,14 +139,14 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
-| **Avviso di sicurezza** | Avvisi che riguardano problemi di sicurezza, ad esempio tentativi di accesso SMB eccessivi o rilevamenti di malware. | **[Avviso di](#a) <br /> <br /> [Avviso operativo](#o)** |
+| **Avviso di sicurezza** | Avvisi che riguardano problemi di sicurezza, ad esempio tentativi di accesso SMB eccessivi o rilevamenti di malware. | **[Avviso di](#glossary-a) <br /> <br /> [Avviso operativo](#o)** |
 | **Sondaggio selettivo** | Defender per l'Internet delle cose esamina passivamente il traffico e il traffico e rileva le informazioni rilevanti sui dispositivi, i relativi attributi, il loro comportamento e altro ancora. In alcuni casi, alcune informazioni potrebbero non essere visibili nelle analisi della rete passiva.<br /><br />Quando si verifica questo problema, è possibile usare gli strumenti di probe sicuri e granulari in Defender, per individuare informazioni importanti sui dispositivi precedentemente non raggiungibili. | - |
 | **Sensor** | Macchina virtuale o fisica in cui è installata la piattaforma Defender for Internet. | **[Console di gestione locale](#o)** |
 | **Sito** | Posizione di una factory o di un'altra entità. Il sito deve contenere una zona o diverse zone in cui è installato un sensore. | **[Zona](#z)** |
 | **Gestione del sito** | Opzione della console di gestione locale che consente di gestire i sensori aziendali. | - |
 | **Apprendimento intelligente IT** | Una volta completato il periodo di apprendimento e la modalità di apprendimento è disabilitata, il Defender per le cose potrebbe rilevare un livello insolitamente elevato di modifiche di base che sono il risultato della normale attività IT, ad esempio le richieste DNS e HTTP. Questo traffico potrebbe attivare avvisi di violazione dei criteri non necessari e notifiche di sistema. Per ridurre questi avvisi e notifiche, è possibile abilitare l'apprendimento IT intelligente. | **[](#l) <br /> Modalità <br /> di apprendimento [Linea di base](#b)** |
 | **Subnet** | Per abilitare lo stato attivo sui dispositivi OT, i dispositivi IT vengono aggregati automaticamente per subnet nella mappa del dispositivo. Ogni subnet viene presentata come una singola entità sulla mappa, inclusa una funzionalità di compressione o espansione interattiva per concentrarsi in una subnet IT e viceversa. | **[Mappa dei dispositivi](#d)** |
-| **Notifiche di sistema** | Notifiche dalla console di gestione locale:<br /><br />-Stato della connessione del sensore.<br /><br />-Errori di backup remoto. | **[Notifiche di](#n) <br /> <br /> [Avviso](#a) di** |
+| **Notifiche di sistema** | Notifiche dalla console di gestione locale:<br /><br />-Stato della connessione del sensore.<br /><br />-Errori di backup remoto. | **[Notifiche di](#n) <br /> <br /> [Avviso](#glossary-a) di** |
 
 ## <a name="z"></a>Z
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12966503bfa17030fc4ebcb4d790a2f4655142a2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: b937dad6c3c8f5a5773ca7779493b41c905307b1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116535"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226506"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Regola del firewall IP di Azure Synapse Analytics
 
@@ -43,7 +43,10 @@ Assicurarsi che il firewall nella rete e nel computer locale consenta la comunic
 
 È inoltre necessario consentire la comunicazione in uscita attraverso la porta UDP 53 per Synapse Studio. Per connettersi con strumenti quali SSMS e Power BI, è necessario consentire la comunicazione in uscita tramite la porta TCP 1433.
 
-Se si usa l'impostazione predefinita dei criteri di connessione di reindirizzamento, potrebbe essere necessario consentire la comunicazione in uscita tramite porte aggiuntive. Per altre informazioni sui criteri di connessione, vedere [qui](../../azure-sql/database/connectivity-architecture.md#connection-policy).
+Il criterio di connessione SQL è impostato sul *valore predefinito* per l'area di lavoro. È possibile ottenere altre informazioni sugli indirizzi IP e sulle porte che i [client devono consentire le comunicazioni in uscita](../../azure-sql/database/connectivity-architecture.md#connection-policy).
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

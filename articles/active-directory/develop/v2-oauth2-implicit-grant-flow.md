@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f3598c6f072d09d7e427db66dcfbf8721b92a3a1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752743"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226489"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Piattaforma di identità Microsoft e flusso di concessione implicita
 
@@ -44,7 +44,7 @@ Il diagramma seguente illustra l'intero flusso di accesso implicito e le sezioni
 Per eseguire inizialmente l'accesso dell'utente all'app, è possibile inviare una richiesta di autenticazione [OpenID Connect](v2-protocols-oidc.md) e ottenere una `id_token` dalla piattaforma di identità Microsoft.
 
 > [!IMPORTANT]
-> Per richiedere un token ID e/o un token di accesso, per la registrazione dell'app nella pagina [portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) deve essere abilitato il flusso di concessione implicito corrispondente, selezionando **token ID** e **token di accesso** nella sezione **concessione implicita** . Se non è abilitato, `unsupported_response` verrà restituito un errore: **il valore specificato per il parametro di input ' response_type ' non è consentito per questo client. Il valore previsto è' code '**
+> Per richiedere un token ID e/o un token di accesso, per la registrazione dell'app nella pagina [portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) deve essere abilitato il flusso di concessione implicito corrispondente, selezionando **token ID** e **token di accesso** nella sezione **concessione implicita e flussi ibridi** . Se non è abilitato, `unsupported_response` verrà restituito un errore: `The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'`
 
 ```
 // Line breaks for legibility only
@@ -63,7 +63,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Per testare l'accesso tramite il flusso implicito, fare clic su <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize.. .</a> Dopo l'accesso, il browser deve essere reindirizzato a `https://localhost/myapp/` con un `id_token` nella barra degli indirizzi.
 >
 
-| Parametro | Type | Descrizione |
+| Parametro | Tipo | Descrizione |
 | --- | --- | --- |
 | `tenant` | obbligatorio |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | obbligatorio | ID dell'applicazione (client) che la pagina [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
@@ -205,7 +205,7 @@ OpenID Connect `end_session_endpoint` consente all'app di inviare una richiesta 
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parametro | Type | Descrizione |
+| Parametro | Tipo | Descrizione |
 | --- | --- | --- |
 | `tenant` |obbligatorio |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
 | `post_logout_redirect_uri` | Consigliato | URL di destinazione al quale l'utente deve essere reindirizzato dopo la disconnessione. Questo valore deve corrispondere a uno degli URI di reindirizzamento registrati per l'applicazione. Se non è incluso, l'utente verrà visualizzato un messaggio generico dalla piattaforma di identità Microsoft. |

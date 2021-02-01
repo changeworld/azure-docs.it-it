@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ddd676a1e0b3d8f554b007974b62eb8c0c2ca9c1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756512"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226356"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>App desktop che chiama le API Web: passa all'ambiente di produzione
 
@@ -39,7 +39,7 @@ Non è possibile ottenere un token per più risorse contemporaneamente con la pi
 - `https://mytenant.onmicrosoft.com/customerapi` con gli ambiti `customer.read` e `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` con gli ambiti `vendor.read` e `vendor.write`
 
-In questo esempio, usare il `.WithAdditionalPromptToConsent` modificatore con il `extraScopesToConsent` parametro.
+In questo esempio, usare il `.WithExtraScopesToConsent` modificatore con il `extraScopesToConsent` parametro.
 
 Ad esempio:
 
@@ -106,6 +106,11 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Per gli utenti di account personali Microsoft, la richiesta di consenso per ogni chiamata di Native Client (desktop o mobile) per autorizzare è il comportamento previsto. L'identità di Native Client è intrinsecamente non sicura, contraria all'identità dell'applicazione client riservata. Le applicazioni client riservate scambiano un segreto con la piattaforma di identità Microsoft per dimostrare la propria identità. La piattaforma di identità Microsoft ha scelto di mitigare questa insicurezza per i servizi consumer richiedendo all'utente il consenso ogni volta che l'applicazione è autorizzata.
 
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+Per provare esempi aggiuntivi, vedere [app client pubbliche per desktop e dispositivi mobili](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+
+
+

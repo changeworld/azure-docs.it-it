@@ -1,18 +1,18 @@
 ---
 title: Configurare impostazioni personalizzate
 description: Configurare le impostazioni che si applicano all'intero ambiente di Servizio app di Azure. Informazioni su come eseguire questa operazione con modelli di Azure Resource Manager.
-author: stefsch
+author: ccompy
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 10/03/2020
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 5c1e81d02aa35a40a296f04e456be09eeed10331
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713288"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226390"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Impostazioni di configurazione personalizzate per gli ambienti del servizio app
 ## <a name="overview"></a>Panoramica
@@ -61,7 +61,7 @@ Ad esempio, se un ambiente del servizio app dispone di quattro front-end, per l'
 
 ## <a name="enable-internal-encryption"></a>Abilitare la crittografia interna
 
-L'ambiente del servizio app funziona come un sistema di black box in cui non è possibile visualizzare i componenti interni o la comunicazione all'interno del sistema. Per consentire una velocità effettiva più elevata, la crittografia non è abilitata per impostazione predefinita tra i componenti interni. Il sistema è sicuro perché il traffico è completamente inaccessibile per il monitoraggio o l'accesso. Tuttavia, se sono presenti requisiti di conformità che richiedono la crittografia completa del percorso dati dall'inizio alla fine, è possibile abilitare questa funzionalità con l'attributo clusterSetting.  
+L'ambiente del servizio app funziona come un sistema di black box in cui non è possibile visualizzare i componenti interni o la comunicazione all'interno del sistema. Per consentire una velocità effettiva più elevata, la crittografia non è abilitata per impostazione predefinita tra i componenti interni. Il sistema è sicuro perché il traffico è inaccessibile per il monitoraggio o l'accesso. Se si dispone di un requisito di conformità che richiede la crittografia completa del percorso dati da end-to-end, è possibile abilitare la crittografia del percorso dati completo con un clusterSetting.  
 
 ```json
 "clusterSettings": [
@@ -71,7 +71,7 @@ L'ambiente del servizio app funziona come un sistema di black box in cui non è 
     }
 ],
 ```
-Verrà crittografato il traffico di rete interno nell'ambiente del servizio app tra i front-end e i ruoli di lavoro, verrà crittografato il file di paging e verranno crittografati i dischi del ruolo di lavoro. Dopo aver abilitato l'impostazione InternalEncryption in clusterSetting, è possibile che si verifichino problemi in termini di prestazioni del sistema. Quando si apporta la modifica per abilitare InternalEncryption, l'ambiente del servizio app sarà in uno stato instabile fino a quando la modifica non viene propagata completamente. Il completamento della propagazione completa della modifica può richiedere alcune ore, a seconda del numero di istanze disponibili nell'ambiente del servizio app. È consigliabile non abilitare questa impostazione in un ambiente del servizio app mentre è in uso. Se è necessario abilitare questa impostazione in un ambiente del servizio app usato attivamente, è opportuno deviare il traffico in un ambiente di backup fino al completamento dell'operazione. 
+Se si imposta InternalEncryption su true, il traffico di rete interno nell'ambiente del servizio app viene crittografato tra i front-end e i ruoli di lavoro, crittografa il paging e crittografa anche i dischi di lavoro. Dopo aver abilitato l'impostazione InternalEncryption in clusterSetting, è possibile che si verifichino problemi in termini di prestazioni del sistema. Quando si apporta la modifica per abilitare InternalEncryption, l'ambiente del servizio app sarà in uno stato instabile fino a quando la modifica non viene propagata completamente. Il completamento della propagazione completa della modifica può richiedere alcune ore, a seconda del numero di istanze disponibili nell'ambiente del servizio app. Si consiglia vivamente di non abilitare InternalEncryption in un ambiente del servizio app mentre è in uso. Se è necessario abilitare InternalEncryption in un ambiente del servizio app usato attivamente, si consiglia vivamente di deviare il traffico in un ambiente di backup fino al completamento dell'operazione. 
 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Disabilitare TLS 1.1 e TLS 1.0
@@ -92,13 +92,13 @@ Per disabilitare tutto il traffico TLS 1.1 e TLS 1.0 in ingresso per tutte le ap
 Il nome dell'impostazione indica 1.0, ma quando è configurata, disabilita sia TLS 1.0 che TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Modifica dell'ordine dei pacchetti di crittografia TLS
-Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco delle crittografie negoziate dal server. Questo risultato può essere ottenuto modificando **clusterSettings** come illustrato di seguito. L'elenco dei pacchetti di crittografia può essere recuperato da [questo articolo MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+L'ambiente del servizio app supporta la modifica del pacchetto di crittografia dal valore predefinito. Il set predefinito di crittografie è lo stesso set usato nel servizio multi-tenant. La modifica dei pacchetti di crittografia influiscono su un'intera distribuzione del servizio app, che lo rende possibile solo nell'ambiente del servizio app con tenant singolo. Sono necessari due pacchetti di crittografia per un ambiente del servizio app; TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 e TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Se si vuole usare l'ambiente del servizio app con il set di pacchetti di crittografia più sicuro e minimo, usare solo le due crittografie necessarie. Per configurare l'ambiente del servizio app in modo da usare solo le crittografie necessarie, modificare il **clusterSettings** come mostrato di seguito. 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```

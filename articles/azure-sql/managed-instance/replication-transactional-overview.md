@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790815"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225344"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replica transazionale con Istanza gestita SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,11 +39,11 @@ La replica transazionale è attualmente disponibile in anteprima pubblica per l'
 
 ### <a name="components"></a>Componenti
 
-I componenti principali della replica transazionale sono **server di pubblicazione** , **server di distribuzione** e **Sottoscrittore** , come illustrato nell'immagine seguente:  
+I componenti principali della replica transazionale sono **server di pubblicazione**, **server di distribuzione** e **Sottoscrittore**, come illustrato nell'immagine seguente:  
 
 ![Replica con database SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Ruolo | database SQL di Azure | Istanza gestita di SQL di Azure |
+| Ruolo | Database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | **Autore** | No | Sì |
 | **Database di distribuzione** | No | Sì|
@@ -72,7 +72,7 @@ Istanza gestita SQL di Azure può supportare l'esecuzione di un Sottoscrittore d
 
 Esistono diversi [tipi di replica](/sql/relational-databases/replication/types-of-replication):
 
-| Replica | database SQL di Azure | Istanza gestita di SQL di Azure |
+| Replica | Database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | [**Transazionale standard**](/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì |
 | [**Snapshot**](/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
@@ -109,7 +109,7 @@ La replica transazionale è utile negli scenari seguenti:
 | Category | Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
-| Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>- Alti costi di manutenzione |
+| Svantaggi | - Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>- Alti costi di manutenzione |
 
 ## <a name="common-configurations"></a>Configurazioni comuni
 
@@ -197,9 +197,9 @@ Per ulteriori informazioni sulla configurazione della replica transazionale, ved
 - [Configurare la replica tra un server di pubblicazione e un Sottoscrittore SQL Istanza gestita](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configurare la replica tra un server di pubblicazione SQL Istanza gestita, un server di distribuzione SQL Istanza gestita e un Sottoscrittore SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
 - [Creare una pubblicazione](/sql/relational-databases/replication/publish/create-a-publication).
-- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server come Sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net` , e il database nel nome del database SQL di Azure come database di destinazione, ad esempio **AdventureWorks** . )
+- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server come Sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net` , e il database nel nome del database SQL di Azure come database di destinazione, ad esempio **AdventureWorks**. )
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
 - [Replica con un Istanza gestita SQL e un gruppo di failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replica nel database SQL](../database/replication-to-sql-database.md)

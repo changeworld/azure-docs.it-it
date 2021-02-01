@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5d656a27017f3c7ec97362efc6207917ffcd1a56
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111248"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225159"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
@@ -40,7 +40,9 @@ Questa funzionalità consente alle applicazioni di gestire scenari come:
 1. Selezionare **Flussi utente**.
 1. Selezionare il flusso utente per il quale si desidera abilitare l'autenticazione a più fattori. Ad esempio, *B2C_1_signinsignup*.
 1. Selezionare **Proprietà**.
-1. Nella sezione **autenticazione** a più fattori selezionare il **Metodo** di autenticazione a più fattori desiderato, quindi in **applicazione** dell'autenticazione a più fattori selezionare **Always on** oppure **[condizionale](conditional-access-user-flow.md) (scelta consigliata)**. Per condizionale, creare un criterio di [criteri di accesso condizionale](conditional-access-identity-protection-setup.md) e specificare le app a cui si vuole applicare il criterio. 
+1. Nella sezione **autenticazione** a più fattori selezionare il **Metodo** di autenticazione a più fattori desiderato, quindi in **applicazione** dell'autenticazione a più fattori selezionare **Always on** oppure **condizionale (scelta consigliata)**.
+  > [!NOTE]
+  > Se si seleziona **condizionale (scelta consigliata)**, è necessario anche [aggiungere un criterio di accesso condizionale](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e specificare le app a cui si vuole applicare il criterio.
 1. Selezionare Salva. L'autenticazione a più fattori è ora abilitata per questo flusso utente.
 
 È possibile usare **Esegui ora** per verificare l'esperienza. Confermare lo scenario seguente:

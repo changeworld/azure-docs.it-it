@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 122262ff6d49174b19773800f2db8c7d29506bb9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 420415cc3bc2228a104ccf054098543bf04847b0
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938149"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225766"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET
 
@@ -54,7 +54,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > 1. Immettere un **Nome** per l'applicazione, ad esempio `ASPNET-Quickstart`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
 > 1. Aggiungere `https://localhost:44368/` in **URI di reindirizzamento**, quindi selezionare **Registra**.
 > 1. In **Gestisci** selezionare **Autenticazione**.
-> 1. Nella sottosezione **Concessione implicita** selezionare **Token ID**.
+> 1. Nella sezione **concessione implicita e flussi ibridi** selezionare **token ID**.
 > 1. Selezionare **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]

@@ -1,5 +1,5 @@
 ---
-title: Ruoli di controllo delle sinapsi
+title: Ruoli Controllo degli accessi in base al ruolo di Synapse
 description: Questo articolo descrive i ruoli predefiniti di sinapsi RBAC
 author: billgib
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 1ffbb5579ea19d7d608dd9c9d600342cd89d371c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572797"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225075"
 ---
 # <a name="synapse-rbac-roles"></a>Ruoli di controllo delle sinapsi
 
@@ -39,9 +39,9 @@ Nella tabella seguente vengono descritti i ruoli predefiniti e gli ambiti in cui
 
 |Ruolo |Autorizzazioni|Ambiti|
 |---|---|-----|
-|Amministratore sinapsi  |Accesso completo a sinapsi per pool SQL senza server, pool di Apache Spark e runtime di integrazione.  Include l'accesso di creazione, lettura, aggiornamento ed eliminazione a tutti gli elementi di codice pubblicati.  Include le autorizzazioni operatore di calcolo, Data Manager collegato e credenziali utente per le credenziali di identità del sistema dell'area di lavoro.  Include l'assegnazione di ruoli RBAC di sinapsi.  Le autorizzazioni di Azure sono necessarie per creare, eliminare e gestire le risorse di calcolo. </br></br>_Consente di leggere e scrivere artefatti </br> per eseguire tutte le azioni sulle attività Spark. </br> Può visualizzare i log del pool Spark </br> può visualizzare il notebook salvato e </br> l'output della pipeline può usare i segreti archiviati da servizi collegati oppure le credenziali </br> possono connettersi a endpoint SQL senza server con le `db_datareader` autorizzazioni SQL,, `db_datawriter` `connect` e `grant` possono assegnare e revocare i ruoli di controllo degli accessi in base </br> al ruolo di sinapsi nell'ambito corrente_|Area di lavoro </br> Pool Spark<br/>Runtime di integrazione </br>Servizio collegato</br>Credenziale |
+|Synapse Administrator  |Accesso completo a sinapsi per pool SQL senza server, pool di Apache Spark e runtime di integrazione.  Include l'accesso di creazione, lettura, aggiornamento ed eliminazione a tutti gli elementi di codice pubblicati.  Include le autorizzazioni operatore di calcolo, Data Manager collegato e credenziali utente per le credenziali di identità del sistema dell'area di lavoro.  Include l'assegnazione di ruoli RBAC di sinapsi. Oltre all'amministratore della sinapsi, i proprietari di Azure possono assegnare anche i ruoli RBAC. Le autorizzazioni di Azure sono necessarie per creare, eliminare e gestire le risorse di calcolo. </br></br>_Consente di leggere e scrivere artefatti </br> per eseguire tutte le azioni sulle attività Spark. </br> Può visualizzare i log del pool Spark </br> può visualizzare il notebook salvato e </br> l'output della pipeline può usare i segreti archiviati da servizi collegati oppure le credenziali </br> possono connettersi a endpoint SQL senza server con le `db_datareader` autorizzazioni SQL,, `db_datawriter` `connect` e `grant` possono assegnare e revocare i ruoli di controllo degli accessi in base </br> al ruolo di sinapsi nell'ambito corrente_|Area di lavoro </br> Pool Spark<br/>Runtime di integrazione </br>Servizio collegato</br>Credenziale |
 |Amministratore Apache Spark sinapsi</br>|Accesso completo a sinapsi per i pool di Apache Spark.  Consente di creare, leggere, aggiornare ed eliminare l'accesso alle definizioni dei processi Spark pubblicate, ai notebook e ai relativi output, nonché a librerie, servizi collegati e credenziali.  Include l'accesso in lettura a tutti gli altri elementi di codice pubblicati. Non include l'autorizzazione per l'uso delle credenziali e l'esecuzione di pipeline. Non include la concessione dell'accesso. </br></br>_Può eseguire tutte le azioni sugli artefatti Spark per </br> eseguire tutte le azioni sulle attività Spark_|Area di lavoro</br>Pool Spark|
-|Amministratore SQL sinapsi|Accesso sinapsi completo ai pool SQL senza server.  Consente di creare, leggere, aggiornare ed eliminare l'accesso agli script SQL pubblicati, alle credenziali e ai servizi collegati.  Include l'accesso in lettura a tutti gli altri elementi di codice pubblicati.  Non include l'autorizzazione per l'uso delle credenziali e l'esecuzione di pipeline. Non include la concessione dell'accesso. </br></br>*È possibile eseguire tutte le azioni sugli script SQL <br/> per connettersi a endpoint SQL senza server con le `db_datareader` autorizzazioni SQL,, `db_datawriter` `connect` e `grant`*|Area di lavoro|
+|Synapse SQL Administrator|Accesso sinapsi completo ai pool SQL senza server.  Consente di creare, leggere, aggiornare ed eliminare l'accesso agli script SQL pubblicati, alle credenziali e ai servizi collegati.  Include l'accesso in lettura a tutti gli altri elementi di codice pubblicati.  Non include l'autorizzazione per l'uso delle credenziali e l'esecuzione di pipeline. Non include la concessione dell'accesso. </br></br>*È possibile eseguire tutte le azioni sugli script SQL <br/> per connettersi a endpoint SQL senza server con le `db_datareader` autorizzazioni SQL,, `db_datawriter` `connect` e `grant`*|Area di lavoro|
 |Collaboratore sinapsi|Accesso completo a sinapsi per pool SQL senza server, pool di Apache Spark, Runtime di integrazione.  Include l'accesso di creazione, lettura, aggiornamento ed eliminazione a tutti gli elementi di codice pubblicati e ai relativi output, incluse le credenziali e i servizi collegati.  Include le autorizzazioni dell'operatore di calcolo. Non include l'autorizzazione per l'uso delle credenziali e l'esecuzione di pipeline. Non include la concessione dell'accesso. </br></br>_È possibile leggere e scrivere artefatti </br> per visualizzare il notebook salvato e l'output della pipeline </br> può eseguire tutte le azioni sulle attività Spark </br> può visualizzare i log del pool Spark_|Area di lavoro </br> Pool Spark<br/> Runtime di integrazione|
 |Server di pubblicazione artefatto sinapsi|Consente di creare, leggere, aggiornare ed eliminare l'accesso agli elementi di codice pubblicati e ai rispettivi output. Non include l'autorizzazione per eseguire codice o pipeline o per concedere l'accesso. </br></br>_Può leggere gli artefatti pubblicati e pubblicare artefatti </br> può visualizzare il notebook salvato, il processo Spark e l'output della pipeline_|Area di lavoro
 |Utente artefatto sinapsi|Accesso in lettura agli artefatti di codice pubblicati e ai relativi output. Consente di creare nuovi elementi ma non di pubblicare le modifiche o di eseguire codice senza autorizzazioni aggiuntive.|Area di lavoro
@@ -58,11 +58,11 @@ Nella tabella seguente vengono descritti i ruoli predefiniti e gli ambiti in cui
 
 Nella tabella seguente sono elencati i ruoli predefiniti e le azioni/autorizzazioni supportate da ciascuno di essi.
 
-Role|Azioni
+Ruolo|Azioni
 --|--
-Amministratore sinapsi|aree di lavoro/lettura</br>aree di lavoro/roleAssignment/scrittura, eliminazione</br>aree di lavoro/managedPrivateEndpoint/scrittura, eliminazione</br>aree di lavoro/bigDataPools/useCompute/azione</br>aree di lavoro/bigDataPools/viewLogs/azione</br>aree di lavoro/integrationRuntimes/useCompute/azione</br>aree di lavoro/elementi/lettura</br>aree di lavoro/notebook/scrittura, eliminazione</br>aree di lavoro/sparkJobDefinitions/scrittura, eliminazione</br>aree di lavoro/SqlScript/scrittura, eliminazione</br>aree di lavoro/flussi di lavoro/scrittura, eliminazione</br>aree di lavoro/pipeline/scrittura, eliminazione</br>aree di lavoro/trigger/scrittura, eliminazione</br>aree di lavoro/set di impostazioni/scrittura, eliminazione</br>aree di lavoro/librerie/scrittura, eliminazione</br>aree di lavoro/linkedServices/scrittura, eliminazione</br>aree di lavoro/credenziali/scrittura, eliminazione</br>aree di lavoro/notebook/viewOutputs/azione</br>aree di lavoro/pipeline/viewOutputs/azione</br>aree di lavoro/linkedServices/useSecret/azione</br>aree di lavoro/credenziali/useSecret/azione|
+Synapse Administrator|aree di lavoro/lettura</br>aree di lavoro/roleAssignment/scrittura, eliminazione</br>aree di lavoro/managedPrivateEndpoint/scrittura, eliminazione</br>aree di lavoro/bigDataPools/useCompute/azione</br>aree di lavoro/bigDataPools/viewLogs/azione</br>aree di lavoro/integrationRuntimes/useCompute/azione</br>aree di lavoro/elementi/lettura</br>aree di lavoro/notebook/scrittura, eliminazione</br>aree di lavoro/sparkJobDefinitions/scrittura, eliminazione</br>aree di lavoro/SqlScript/scrittura, eliminazione</br>aree di lavoro/flussi di lavoro/scrittura, eliminazione</br>aree di lavoro/pipeline/scrittura, eliminazione</br>aree di lavoro/trigger/scrittura, eliminazione</br>aree di lavoro/set di impostazioni/scrittura, eliminazione</br>aree di lavoro/librerie/scrittura, eliminazione</br>aree di lavoro/linkedServices/scrittura, eliminazione</br>aree di lavoro/credenziali/scrittura, eliminazione</br>aree di lavoro/notebook/viewOutputs/azione</br>aree di lavoro/pipeline/viewOutputs/azione</br>aree di lavoro/linkedServices/useSecret/azione</br>aree di lavoro/credenziali/useSecret/azione|
 |Amministratore Apache Spark sinapsi|aree di lavoro/lettura</br>aree di lavoro/bigDataPools/useCompute/azione</br>aree di lavoro/bigDataPools/viewLogs/azione</br>aree di lavoro/notebook/viewOutputs/azione</br>aree di lavoro/elementi/lettura</br>aree di lavoro/notebook/scrittura, eliminazione</br>aree di lavoro/sparkJobDefinitions/scrittura, eliminazione</br>aree di lavoro/librerie/scrittura, eliminazione</br>aree di lavoro/linkedServices/scrittura, eliminazione</br>aree di lavoro/credenziali/scrittura, eliminazione|
-|Amministratore SQL sinapsi|aree di lavoro/lettura</br>aree di lavoro/elementi/lettura</br>aree di lavoro/SqlScript/scrittura, eliminazione</br>aree di lavoro/linkedServices/scrittura, eliminazione</br>aree di lavoro/credenziali/scrittura, eliminazione|
+|Synapse SQL Administrator|aree di lavoro/lettura</br>aree di lavoro/elementi/lettura</br>aree di lavoro/SqlScript/scrittura, eliminazione</br>aree di lavoro/linkedServices/scrittura, eliminazione</br>aree di lavoro/credenziali/scrittura, eliminazione|
 |Collaboratore sinapsi|aree di lavoro/lettura</br>aree di lavoro/bigDataPools/useCompute/azione</br>aree di lavoro/bigDataPools/viewLogs/azione</br>aree di lavoro/integrationRuntimes/useCompute/azione</br>aree di lavoro/integrationRuntimes/viewLogs/azione</br>aree di lavoro/elementi/lettura</br>aree di lavoro/notebook/scrittura, eliminazione</br>aree di lavoro/sparkJobDefinitions/scrittura, eliminazione</br>aree di lavoro/SqlScript/scrittura, eliminazione</br>aree di lavoro/flussi di lavoro/scrittura, eliminazione</br>aree di lavoro/pipeline/scrittura, eliminazione</br>aree di lavoro/trigger/scrittura, eliminazione</br>aree di lavoro/set di impostazioni/scrittura, eliminazione</br>aree di lavoro/librerie/scrittura, eliminazione</br>aree di lavoro/linkedServices/scrittura, eliminazione</br>aree di lavoro/credenziali/scrittura, eliminazione</br>aree di lavoro/notebook/viewOutputs/azione</br>aree di lavoro/pipeline/viewOutputs/azione|
 |Server di pubblicazione artefatto sinapsi|aree di lavoro/lettura</br>aree di lavoro/elementi/lettura</br>aree di lavoro/notebook/scrittura, eliminazione</br>aree di lavoro/sparkJobDefinitions/scrittura, eliminazione</br>aree di lavoro/SqlScript/scrittura, eliminazione</br>aree di lavoro/flussi di lavoro/scrittura, eliminazione</br>aree di lavoro/pipeline/scrittura, eliminazione</br>aree di lavoro/trigger/scrittura, eliminazione</br>aree di lavoro/set di impostazioni/scrittura, eliminazione</br>aree di lavoro/librerie/scrittura, eliminazione</br>aree di lavoro/linkedServices/scrittura, eliminazione</br>aree di lavoro/credenziali/scrittura, eliminazione</br>aree di lavoro/notebook/viewOutputs/azione</br>aree di lavoro/pipeline/viewOutputs/azione|
 |Utente artefatto sinapsi|aree di lavoro/lettura</br>aree di lavoro/elementi/lettura</br>aree di lavoro/notebook/viewOutputs/azione</br>aree di lavoro/pipeline/viewOutputs/azione|
@@ -75,29 +75,29 @@ Amministratore sinapsi|aree di lavoro/lettura</br>aree di lavoro/roleAssignment/
 
 La tabella seguente elenca le azioni sinapsi e i ruoli predefiniti che consentono le operazioni seguenti:
 
-Azione|Role
+Azione|Ruolo
 --|--
-aree di lavoro/lettura|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Amministratore SQL sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi</br>Operatore di calcolo sinapsi </br>Utente credenziale sinapsi</br>Data Manager collegata a sinapsi</br>Utente sinapsi 
-aree di lavoro/roleAssignment/scrittura, eliminazione|Amministratore sinapsi
-aree di lavoro/managedPrivateEndpoint/scrittura, eliminazione|Amministratore sinapsi</br>Data Manager collegata a sinapsi
-aree di lavoro/bigDataPools/useCompute/azione|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Operatore di calcolo sinapsi 
-aree di lavoro/bigDataPools/viewLogs/azione|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Operatore di calcolo sinapsi 
-aree di lavoro/integrationRuntimes/useCompute/azione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Operatore di calcolo sinapsi 
-aree di lavoro/elementi/lettura|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Amministratore SQL sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi
-aree di lavoro/notebook/scrittura, eliminazione|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/sparkJobDefinitions/scrittura, eliminazione|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/SqlScript/scrittura, eliminazione|Amministratore sinapsi</br>Amministratore SQL sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/flussi di lavoro/scrittura, eliminazione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/pipeline/scrittura, eliminazione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/trigger/scrittura, eliminazione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/set di impostazioni/scrittura, eliminazione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/librerie/scrittura, eliminazione|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
-aree di lavoro/linkedServices/scrittura, eliminazione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Data Manager collegata a sinapsi
-aree di lavoro/credenziali/scrittura, eliminazione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Data Manager collegata a sinapsi
-aree di lavoro/notebook/viewOutputs/azione|Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi
-aree di lavoro/pipeline/viewOutputs/azione|Amministratore sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi
-aree di lavoro/linkedServices/useSecret/azione|Amministratore sinapsi</br>Utente credenziale sinapsi
-aree di lavoro/credenziali/useSecret/azione|Amministratore sinapsi</br>Utente credenziale sinapsi
+aree di lavoro/lettura|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Synapse SQL Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi</br>Operatore di calcolo sinapsi </br>Utente credenziale sinapsi</br>Data Manager collegata a sinapsi</br>Utente sinapsi 
+aree di lavoro/roleAssignment/scrittura, eliminazione|Synapse Administrator
+aree di lavoro/managedPrivateEndpoint/scrittura, eliminazione|Synapse Administrator</br>Data Manager collegata a sinapsi
+aree di lavoro/bigDataPools/useCompute/azione|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Operatore di calcolo sinapsi 
+aree di lavoro/bigDataPools/viewLogs/azione|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Operatore di calcolo sinapsi 
+aree di lavoro/integrationRuntimes/useCompute/azione|Synapse Administrator</br>Collaboratore sinapsi</br>Operatore di calcolo sinapsi 
+aree di lavoro/elementi/lettura|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Synapse SQL Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi
+aree di lavoro/notebook/scrittura, eliminazione|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/sparkJobDefinitions/scrittura, eliminazione|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/SqlScript/scrittura, eliminazione|Synapse Administrator</br>Synapse SQL Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/flussi di lavoro/scrittura, eliminazione|Synapse Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/pipeline/scrittura, eliminazione|Synapse Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/trigger/scrittura, eliminazione|Synapse Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/set di impostazioni/scrittura, eliminazione|Synapse Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/librerie/scrittura, eliminazione|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi
+aree di lavoro/linkedServices/scrittura, eliminazione|Synapse Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Data Manager collegata a sinapsi
+aree di lavoro/credenziali/scrittura, eliminazione|Synapse Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Data Manager collegata a sinapsi
+aree di lavoro/notebook/viewOutputs/azione|Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi
+aree di lavoro/pipeline/viewOutputs/azione|Synapse Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi
+aree di lavoro/linkedServices/useSecret/azione|Synapse Administrator</br>Utente credenziale sinapsi
+aree di lavoro/credenziali/useSecret/azione|Synapse Administrator</br>Utente credenziale sinapsi
 
 ## <a name="synapse-rbac-scopes-and-their-supported-roles"></a>Ambiti di controllo degli accessi in base al ruolo e ruoli supportati
 
@@ -108,11 +108,11 @@ Nella tabella seguente sono elencati gli ambiti di controllo degli accessi in ba
 
 Ambito|Ruoli
 --|--
-Area di lavoro |Amministratore sinapsi</br>Amministratore Apache Spark sinapsi</br>Amministratore SQL sinapsi</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi</br>Operatore di calcolo sinapsi </br>Utente credenziale sinapsi</br>Data Manager collegata a sinapsi</br>Utente sinapsi
-Pool di Apache Spark | Amministratore sinapsi </br>Collaboratore sinapsi </br> Operatore di calcolo sinapsi
-Runtime di integrazione | Amministratore sinapsi </br>Collaboratore sinapsi </br> Operatore di calcolo sinapsi
-Servizio collegato |Amministratore sinapsi </br>Utente credenziale sinapsi
-Credenziale |Amministratore sinapsi </br>Utente credenziale sinapsi
+Area di lavoro |Synapse Administrator</br>Amministratore Apache Spark sinapsi</br>Synapse SQL Administrator</br>Collaboratore sinapsi</br>Server di pubblicazione artefatto sinapsi</br>Utente artefatto sinapsi</br>Operatore di calcolo sinapsi </br>Utente credenziale sinapsi</br>Data Manager collegata a sinapsi</br>Utente sinapsi
+Pool di Apache Spark | Synapse Administrator </br>Collaboratore sinapsi </br> Operatore di calcolo sinapsi
+Runtime di integrazione | Synapse Administrator </br>Collaboratore sinapsi </br> Operatore di calcolo sinapsi
+Servizio collegato |Synapse Administrator </br>Utente credenziale sinapsi
+Credenziale |Synapse Administrator </br>Utente credenziale sinapsi
  
 >[!note]
 >Tutti i ruoli e le azioni dell'artefatto hanno come ambito il livello dell'area di lavoro. 

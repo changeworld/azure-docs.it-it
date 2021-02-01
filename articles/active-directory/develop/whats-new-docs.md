@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 0beaef9162f4bdb540764a100243c579b40d1324
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755956"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225480"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentazione della piattaforma Microsoft Identity: novità
 
@@ -24,13 +24,25 @@ Ecco le novità della documentazione della piattaforma Microsoft Identity. Quest
 
 ## <a name="january-2021"></a>Gennaio 2021
 
+### <a name="new-articles"></a>Nuovi articoli
+
+- [Registrazione in MSAL per Android](msal-logging-android.md)
+- [Registrazione in MSAL.NET](msal-logging-dotnet.md)
+- [Registrazione in MSAL per iOS/macOS](msal-logging-ios.md)
+- [Registrazione in MSAL per Java](msal-logging-java.md)
+- [Registrazione in MSAL.js](msal-logging-js.md)
+- [Registrazione in MSAL per Python](msal-logging-python.md)
+
 ### <a name="updated-articles"></a>Articoli aggiornati
 
+- [Risolvere i problemi di verifica dell'autore](troubleshoot-publisher-verification.md)
+- [Modello applicativo](application-model.md)
 - [Confronto tra autenticazione e autorizzazione](authentication-vs-authorization.md)
 - [Procedura: limitare l'app Azure AD a un set di utenti in un tenant Azure AD](howto-restrict-your-app-to-a-set-of-users.md)
 - [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](v2-permissions-and-consent.md)
 - [Durata del token configurabile nella piattaforma di identità Microsoft (anteprima)](active-directory-configurable-token-lifetimes.md)
 - [Configurare i criteri di durata del token (anteprima)](configure-token-lifetimes.md)
+- [Librerie di autenticazione della piattaforma Microsoft Identity](reference-v2-libraries.md)
 - [Flusso del codice di autorizzazione OAuth 2.0 e Microsoft Identity Platform](v2-oauth2-auth-code-flow.md)
 
 ## <a name="december-2020"></a>Dicembre 2020

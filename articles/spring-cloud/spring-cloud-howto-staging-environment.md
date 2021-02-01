@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8cae73e03fee0b59be0c7596f0783570ac14f6ee
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991a335207fc29cef7b243d7e520dd5f62ff691f
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053064"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226110"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurare un ambiente di staging nel cloud Spring di Azure
 
@@ -22,6 +22,7 @@ Questo articolo illustra come configurare una distribuzione di gestione temporan
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+* Istanza cloud Spring di Azure con piano **tariffario** *standard* .
 * Un'applicazione in esecuzione.  Vedere [Guida introduttiva: distribuire la prima applicazione Azure Spring cloud](spring-cloud-quickstart.md).
 * [Estensione](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) dell'interfaccia della riga di comando di Azure
 
@@ -78,7 +79,7 @@ Visualizzare le app distribuite usando le procedure seguenti.
 1. Nell'interfaccia della riga di comando di Azure creare una nuova distribuzione e assegnarle il nome della distribuzione di staging "verde".
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app <appName> -n green --jar-path gateway/target/gateway.jar
     ```
 
 1. Al termine della distribuzione dell'interfaccia della riga di comando, accedere alla pagina dell'app dal **Dashboard dell'applicazione** e visualizzare tutte le istanze nella scheda **distribuzioni** a sinistra.
@@ -113,11 +114,11 @@ Per verificare che lo sviluppo di gestione temporanea verde funzioni correttamen
 
    [Distribuzione di ![ set di gestione temporanea](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. Tornare alla pagina di **gestione della distribuzione** .  `green`Lo stato della distribuzione della distribuzione dovrebbe essere visualizzato. Questa è ora la build di produzione in esecuzione.
+1. Tornare alla pagina di **gestione della distribuzione** . Impostare la `green` distribuzione su `production` . Al termine dell'impostazione, `green` lo stato della distribuzione dovrebbe essere visualizzato. Questa è ora la build di produzione in esecuzione.
 
    [![Risultato della distribuzione del set di gestione temporanea](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
 
-1. Copiare e incollare l'URL in una nuova finestra del browser e visualizzare la pagina nuova applicazione con le modifiche apportate.
+1. L'URL dell'app dovrebbe visualizzare le modifiche.
 
 >[!NOTE]
 > Dopo aver impostato la distribuzione verde come ambiente di produzione, la distribuzione precedente diventa la distribuzione di gestione temporanea.

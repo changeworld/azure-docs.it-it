@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219259"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226406"
 ---
 # <a name="test-vm-network-latency"></a>Testare la latenza di rete delle macchine virtuali
 
@@ -45,7 +45,7 @@ Utilizzando due macchine virtuali, una come mittente e una come ricevente, viene
 ### <a name="tools-for-testing"></a>Strumenti per il test
 Per misurare la latenza, sono disponibili due opzioni dello strumento diverse:
 
-* Per sistemi basati su Windows: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Per sistemi basati su Windows: [latte.exe (Windows)](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 * Per sistemi basati su Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Usando questi strumenti, è possibile garantire che vengano misurati solo i tempi di recapito del payload TCP o UDP e non i tipi di pacchetti ICMP (ping) o altri tipi di pacchetti che non vengono usati dalle applicazioni e non influiscono sulle prestazioni.
