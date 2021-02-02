@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741729"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255374"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteggere gli account utente da attacchi con Azure Active Directory blocco intelligente
 
@@ -58,7 +58,7 @@ Per verificare i criteri di blocco dell'account Active Directory Domain Services
 
 1. Aprire lo strumento Gestione criteri di gruppo.
 2. Modificare i criteri di gruppo che includono i criteri di blocco degli account dell'organizzazione, ad esempio i criteri di **dominio predefiniti**.
-3. Passare a **Configurazione computer** criteri impostazioni di Windows impostazioni di  >  **Policies**  >  **Windows Settings**  >  **sicurezza**  >  criteri **account criteri** di  >  **blocco account**.
+3. Passare a **Configurazione computer** criteri impostazioni di Windows impostazioni di  >    >    >  **sicurezza**  >  criteri **account criteri** di  >  **blocco account**.
 4. Verificare la **soglia di blocco dell'account** e **ripristinare il contatore del blocco dell'account dopo** i valori.
 
 ![Modificare i criteri di blocco degli account Active Directory locali](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -70,7 +70,7 @@ In base ai requisiti dell'organizzazione, è possibile personalizzare i valori d
 Per controllare o modificare i valori di blocco Smart per l'organizzazione, attenersi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare e selezionare *Azure Active Directory*, quindi selezionare i metodi di autenticazione di **sicurezza**  >  **Authentication methods**  >  **Password Protection**.
+1. Cercare e selezionare *Azure Active Directory*, quindi selezionare i metodi di autenticazione di **sicurezza**  >    >  **Password Protection**.
 1. Impostare il valore di **Soglia di blocco**, in base al numero di accessi non riusciti consentiti per un account prima che venga applicato il primo blocco.
 
     Il valore predefinito è 10.
@@ -89,6 +89,8 @@ Per controllare o modificare i valori di blocco Smart per l'organizzazione, atte
 Quando viene attivata la soglia di blocco Smart, si riceverà il messaggio seguente quando l'account è bloccato:
 
 *L'account è temporaneamente bloccato per impedire l'uso non autorizzato. Riprovare più tardi. se il problema persiste, contattare l'amministratore.*
+
+Quando si esegue il test del blocco intelligente, le richieste di accesso potrebbero essere gestite da diversi Data Center a causa della natura distribuita geograficamente e con bilanciamento del carico del servizio di autenticazione Azure AD. In questo scenario, poiché ogni Azure AD datacenter tiene traccia del blocco in modo indipendente, potrebbe essere necessario più del numero di tentativi di soglia di blocco definito per provocare un blocco. Un utente ha (*threshold_limit * datacenter_count*) il numero di tentativi non validi se l'utente raggiunge ogni data center prima che si verifichi un blocco.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

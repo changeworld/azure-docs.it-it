@@ -4,7 +4,7 @@ description: Usare le raccolte di app personali per personalizzare le pagine del
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,12 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7743a1af54b01f848c4ac6f0cb1d4526d66f8132
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656786"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254983"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creare le raccolte nel portale App personali
 
@@ -83,7 +83,7 @@ I log di controllo registrano le operazioni raccolte di app personali, incluse l
 * Aggiunta di applicazioni self-service (utente finale)
 * Eliminazione di applicazioni self-service (utente finale)
 
-È possibile accedere ai log di controllo nel [portale di Azure](https://portal.azure.com) selezionando **Azure Active Directory**  >  log di controllo delle **applicazioni aziendali**  >  **Audit logs** nella sezione attività. Per **servizio** selezionare **app personali**.
+È possibile accedere ai log di controllo nel [portale di Azure](https://portal.azure.com) selezionando **Azure Active Directory**  >  log di controllo delle **applicazioni aziendali**  >   nella sezione attività. Per **servizio** selezionare **app personali**.
 
 ## <a name="get-support-for-my-account-pages"></a>Ottenere supporto per le pagine account personali
 
@@ -93,7 +93,7 @@ Se è necessario inviare una richiesta di supporto per un problema con la pagina
 
 * Per i problemi relativi alla **Azure ad pagina "account personale"** , aprire una richiesta di supporto dall'interno del portale di Azure. Passare a **portale di Azure**  >  **Azure Active Directory**  >  **nuova richiesta di supporto**.
 
-* Per i problemi relativi alla pagina **"account personale" di Office** , aprire una richiesta di supporto dall'interfaccia di amministrazione di Microsoft 365. Passare a **Microsoft 365** supporto dell'interfaccia di amministrazione  >  **Support**. 
+* Per i problemi relativi alla pagina **"account personale" di Office** , aprire una richiesta di supporto dall'interfaccia di amministrazione di Microsoft 365. Passare a **Microsoft 365** supporto dell'interfaccia di amministrazione  >  . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Esperienze per gli utenti finali per le applicazioni in Azure Active Directory](end-user-experiences.md)
