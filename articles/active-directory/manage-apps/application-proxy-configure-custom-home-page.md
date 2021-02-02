@@ -4,7 +4,7 @@ description: Tratta i fondamenti dei connettori del proxy applicazione di Azure 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebef93455414c114fb60df9af8ebc629769a33e6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642062"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254429"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Impostare una home page personalizzata per le app pubblicate tramite il proxy applicazione di Azure AD
 
@@ -58,7 +58,7 @@ Per modificare l'URL di home page dell'app tramite il portale di Azure AD, segui
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore.
 1. Selezionare **Azure Active Directory**, quindi **registrazioni app**. Viene visualizzato l'elenco delle app registrate.
 1. Scegli l'app dall'elenco. Viene visualizzata una pagina che mostra i dettagli dell'app registrata.
-1. In **Gestisci**selezionare **personalizzazione**.
+1. In **Gestisci** selezionare **personalizzazione**.
 1. Aggiornare l' **URL della Home page**  con il nuovo percorso.
 
    ![Pagina di personalizzazione per un'app registrata che mostra il campo URL della Home page](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
@@ -75,7 +75,7 @@ Per configurare la home page di un'app usando PowerShell, è necessario:
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installare il modulo Azure AD PowerShell
 
-Prima di definire l'URL di una home page personalizzata tramite PowerShell è necessario installare il modulo Azure AD PowerShell.È possibile scaricare il pacchetto da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), che usa l'endpoint API Graph.
+Prima di definire l'URL di una home page personalizzata tramite PowerShell è necessario installare il modulo Azure AD PowerShell. È possibile scaricare il pacchetto da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), che usa l'endpoint API Graph.
 
 Per installare il pacchetto, seguire questa procedura:
 
@@ -115,8 +115,8 @@ Per ottenere il valore ObjectId dell'app, cercare l'app in base al relativo nome
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
    In alternativa, è possibile eseguire il pull dell'elenco di tutte le app, cercare l'app con un nome visualizzato specifico o home page e copiare il valore ObjectId dell'app dopo aver trovato l'app.
@@ -169,8 +169,8 @@ Creare l'URL home page e aggiornare l'app con tale valore. Continuare a usare la
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
 1. Riavviare l'app per verificare che il home page venga visualizzato come prima schermata, come previsto.

@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2020
+ms.openlocfilehash: 7e58daf72522071eb7d0031d4ea236a21c6d8bfb
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956141"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252322"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring your own key (chiavi gestite dal cliente) con servizi multimediali
 
@@ -36,6 +36,12 @@ La chiave può essere una chiave di 2048, 3072 o una chiave RSA 4096, mentre le 
 
 > [!WARNING]
 > Servizi multimediali monitora l'accesso alla chiave del cliente. Se la chiave del cliente diventa inaccessibile, ad esempio se la chiave è stata eliminata o se la Key Vault è stata eliminata o se la concessione di accesso è stata rimossa, servizi multimediali eseguirà la transizione dell'account allo stato inaccessibile della chiave del cliente (disabilitando in modo efficace l'account). Tuttavia, l'account può essere eliminato in questo stato. Le uniche operazioni supportate sono GET, LIST e DELETE per l'account. tutte le altre richieste (codifica, streaming e così via) avranno esito negativo fino a quando non viene ripristinato l'accesso alla chiave dell'account.
+
+## <a name="double-encryption"></a>Crittografia doppia
+
+Servizi multimediali supporta la crittografia doppia.  Per altre informazioni sulla crittografia doppia, vedere [crittografia doppia di Azure](../../security/fundamentals/double-encryption.md).
+
+La crittografia doppia viene abilitata automaticamente nell'account di servizi multimediali. Tuttavia, è necessario configurare separatamente la chiave gestita dal cliente e la doppia crittografia nell'account di archiviazione.
 
 ## <a name="tutorials"></a>Esercitazioni
 

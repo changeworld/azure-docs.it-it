@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster privato del servizio Azure K
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734665"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254513"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster privato del servizio Azure Kubernetes
 
@@ -130,7 +130,6 @@ Come indicato in precedenza, il peering di rete virtuale è un modo per accedere
 * Per i clienti che devono consentire al Registro contenitori di Azure di lavorare con il servizio Azure Kubernetes, è necessario eseguire il peering della rete virtuale Registro contenitori con la rete virtuale del cluster di agenti.
 * Nessun supporto per la conversione di cluster AKS esistenti in cluster privati
 * Se si elimina o si modifica l'endpoint privato nella subnet del cliente, il cluster smette di funzionare. 
-* Non è attualmente supportato Monitoraggio di Azure per i contenitori Live Data.
 * Dopo che i clienti hanno aggiornato il record A nei propri server DNS, questi Pod risolveranno comunque il nome di dominio completo (FQDN) di apiserver nell'IP precedente dopo la migrazione fino a quando non vengono riavviati. I clienti devono riavviare i pod hostNetwork e i pod DNSPolicy predefiniti dopo la migrazione del piano di controllo.
 * In caso di manutenzione sul piano di controllo, l' [IP AKS](./limit-egress-traffic.md) potrebbe cambiare. In questo caso è necessario aggiornare il record A che punta all'indirizzo IP privato del server API nel server DNS personalizzato e riavviare tutti i pod o le distribuzioni personalizzati usando hostNetwork.
 

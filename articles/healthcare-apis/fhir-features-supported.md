@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747526"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252118"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -27,7 +27,7 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 
 ## <a name="rest-api"></a>API REST
 
-| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment                                             |
+| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | lettura                           | Sì       | Sì       | Sì       |                                                     |
 | VREAD                          | Sì       | Sì       | Sì       |                                                     |
@@ -41,8 +41,8 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 | create                         | Sì       | Sì       | Sì       | Supporto per POST/PUT                               |
 | Crea (condizionale)           | Sì       | Sì       | Sì       | [#1382](https://github.com/microsoft/fhir-server/issues/1382) problema |
 | ricerca                         | Parziale   | Parziale   | Parziale   | Vedere di seguito                                           |
-| ricerca concatenata                 | No        | Sì       | No        |                                           |
-| ricerca inversa concatenata         | No        | No        | No        |                                            |
+| ricerca concatenata                 | No        | Sì       | No        |                                                     |
+| ricerca inversa concatenata         | No        | Sì       | No        |                                                     |
 | capabilities                   | Sì       | Sì       | Sì       |                                                     |
 | o batch                          | Sì       | Sì       | Sì       |                                                     |
 | transaction                    | No        | Sì       | No        |                                                     |
@@ -53,13 +53,13 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 
 Sono supportati tutti i tipi di parametro di ricerca. 
 
-| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
+| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |-----------------------|-----------|-----------|-----------|---------|
 | Number                | Sì       | Sì       | Sì       |         |
 | Date/DateTime         | Sì       | Sì       | Sì       |         |
 | string                | Sì       | Sì       | Sì       |         |
 | Token                 | Sì       | Sì       | Sì       |         |
-| Informazioni di riferimento             | Sì       | Sì       | Sì       |         |
+| Riferimento             | Sì       | Sì       | Sì       |         |
 | Composite             | Sì       | Sì       | Sì       |         |
 | Quantità              | Sì       | Sì       | Sì       |         |
 | URI                   | Sì       | Sì       | Sì       |         |
@@ -72,39 +72,39 @@ Sono supportati tutti i tipi di parametro di ricerca.
 |`:exact`               | Sì       | Sì       | Sì       |         |
 |`:contains`            | Sì       | Sì       | Sì       |         |
 |`:text`                | Sì       | Sì       | Sì       |         |
+|`:[type]` riferimento  | Sì       | Sì       | Sì       |         |
+|`:not`                 | Sì       | Sì       | Sì       |         |
+|`:below` URI         | Sì       | Sì       | Sì       |         |
+|`:above` URI         | No        | No        | No        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problema |
 |`:in` token          | No        | No        | No        |         |
 |`:below` token       | No        | No        | No        |         |
 |`:above` token       | No        | No        | No        |         |
 |`:not-in` token      | No        | No        | No        |         |
-|`:[type]` riferimento  | No        | No        | No        |         |
-|`:below` URI         | Sì       | Sì       | Sì       |         |
-|`:not`                 | No        | No        | No        |         |
-|`:above` URI         | No        | No        | No        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problema |
 
 | Parametro di ricerca comune | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | Sì       | Sì       | Sì       |         |
 | `_lastUpdated`          | Sì       | Sì       | Sì       |         |
 | `_tag`                  | Sì       | Sì       | Sì       |         |
-| `_profile`              | Parziale   | Parziale   | Parziale   | Supportato solo in STU3, nessun supporto in R4 |
+| `_list`                 | Sì       | Sì       | Sì       |         |
+| `_type`                 | Sì       | Sì       | Sì       | [#1562](https://github.com/microsoft/fhir-server/issues/1562) problema        |
 | `_security`             | Sì       | Sì       | Sì       |         |
+| `_profile`              | Parziale   | Parziale   | Parziale   | Supportato solo in STU3, nessun supporto in R4 |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | Sì       | Sì       | Sì       |         |
 | `_has`                  | No        | No        | No        |         |
-| `_type`                 | Sì       | Sì       | Sì       |         |
 | `_query`                | No        | No        | No        |         |
 | `_filter`               | No        | No        | No        |         |
 
 | Parametri dei risultati della ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Parziale        | Parziale   | Parziale        |   `_sort=_lastUpdated` è supportato       |
+| `_elements`             | Sì       | Sì       | Sì       | [#1256](https://github.com/microsoft/fhir-server/issues/1256) problema        |
 | `_count`                | Sì       | Sì       | Sì       | `_count` è limitato a 100 caratteri. Se è impostato su un valore superiore a 100, verrà restituito solo 100 e nel bundle verrà restituito un avviso. |
 | `_include`              | Sì       | Sì       | Sì       |Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non include: iterate support.|
-| `_revinclude`           | Sì       | Sì       | Sì       | Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non include: iterate support.|
+| `_revinclude`           | Sì       | Sì       | Sì       | Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non [include: iterate support](https://github.com/microsoft/fhir-server/issues/1313). [#1319](https://github.com/microsoft/fhir-server/issues/1319) problema|
 | `_summary`              | Parziale   | Parziale   | Parziale   | `_summary=count` è supportato |
-| `_total`                | Parziale   | Parziale   | Parziale   | _total = non e _total = accurate      |
-| `_elements`             | Sì       | Sì       | Sì       |         |
+| `_total`                | Parziale   | Parziale   | Parziale   | `_total=none` e `_total=accurate`      |
+| `_sort`                 | Parziale   | Parziale   | Parziale   |   `_sort=_lastUpdated` è supportato       |
 | `_contained`            | No        | No        | No        |         |
 | `containedType`         | No        | No        | No        |         |
 | `_score`                | No        | No        | No        |         |
@@ -113,7 +113,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 
 Tutte le operazioni supportate che estendono l'API RESTful.
 
-| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
+| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |------------------------|-----------|-----------|-----------|---------|
 | $export (intero sistema) | Sì       | Sì       | Sì       |         |
 | Paziente/$export        | Sì       | Sì       | Sì       |         |

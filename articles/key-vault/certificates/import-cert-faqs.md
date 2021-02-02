@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e75786c42b54882c249b5ed7100ebd12f3f78e78
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289502"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254360"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Domande frequenti sull'importazione di certificati Azure Key Vault
 
@@ -62,6 +62,10 @@ Per ulteriori informazioni, vedere [get deleted certificate Operation](/rest/api
 Questo errore può essere causato da uno dei due motivi seguenti:    
 * Il nome del soggetto del certificato è limitato a 200 caratteri.
 * La password del certificato è limitata a 200 caratteri.
+
+
+### <a name="error-the-specified-pem-x509-certificate-content-is-in-an-unexpected-format-please-check-if-certificate-is-in-valid-pem-format"></a>Errore "il contenuto del certificato X. 509 specificato è in un formato non previsto. Verificare se il certificato è in formato PEM valido ".
+Verificare che il contenuto nel file PEM usi separatori di riga di tipo UNIX `(\n)`
 
 ### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>È possibile importare un certificato scaduto per Azure Key Vault?
     

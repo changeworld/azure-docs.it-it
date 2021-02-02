@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: 93e705eea39443ffc15fbdd079e1376ec46cb51c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786691"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252611"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -528,6 +528,18 @@ Per configurare un modello Request/Reply asincrono per l'app per la logica usand
 Per i messaggi di errore completi, controllare i log estesi dell'adapter SAP. È anche possibile [abilitare un file di log esteso per il connettore SAP](#extended-sap-logging-in-on-premises-data-gateway).
 
 Per le versioni del gateway dati locale a partire dal 2020 giugno e versioni successive, è possibile [abilitare i log del gateway nelle impostazioni dell'app](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app). 
+
+* Il livello di registrazione predefinito è **avviso**.
+
+* Se si Abilita la  **registrazione aggiuntiva** nelle impostazioni di **diagnostica** dell'app del gateway dati locale, il livello di registrazione viene aumentato a **informativo**.
+
+* Per aumentare il livello di registrazione a **verbose**, aggiornare la seguente impostazione nel file di configurazione. In genere, il file di configurazione si trova in `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config` .
+
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
 
 Per le versioni del gateway dati locale a partire dall'aprile 2020 e versioni precedenti, i log sono disabilitati per impostazione predefinita.
 

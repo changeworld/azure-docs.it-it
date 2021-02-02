@@ -3,7 +3,7 @@ title: Uso delle restrizioni del tenant per gestire l'accesso alle app SaaS - Az
 description: Come usare le restrizioni del tenant per stabilire quali utenti possono accedere alle app in base al tenant Azure AD.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286204"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252475"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -33,13 +33,13 @@ Questo articolo è incentrato sulle restrizioni dei tenant per Microsoft 365, ma
 
 La soluzione globale è composta dai seguenti elementi:
 
-1. **Azure ad** : se l' `Restrict-Access-To-Tenants: <permitted tenant list>` intestazione è presente, Azure ad emette solo i token di sicurezza per i tenant autorizzati.
+1. **Azure ad**: se l' `Restrict-Access-To-Tenants: <permitted tenant list>` intestazione è presente, Azure ad emette solo i token di sicurezza per i tenant autorizzati.
 
-2. **Infrastruttura di server proxy locale** : questa infrastruttura è un dispositivo proxy idoneo per l'ispezione Transport Layer Security (TLS). Per inserire l'intestazione contenente l'elenco dei tenant consentiti nel traffico destinato a Azure AD è necessario configurare il proxy.
+2. **Infrastruttura di server proxy locale**: questa infrastruttura è un dispositivo proxy idoneo per l'ispezione Transport Layer Security (TLS). Per inserire l'intestazione contenente l'elenco dei tenant consentiti nel traffico destinato a Azure AD è necessario configurare il proxy.
 
-3. **Software client** : per supportare Restrizioni del tenant, il software client deve richiedere i token direttamente da Azure AD in modo che l'infrastruttura proxy possa intercettare il traffico. Le applicazioni Microsoft 365 basate su browser attualmente supportano le restrizioni dei tenant, ad esempio i client di Office che usano l'autenticazione moderna (ad esempio OAuth 2,0).
+3. **Software client**: per supportare Restrizioni del tenant, il software client deve richiedere i token direttamente da Azure AD in modo che l'infrastruttura proxy possa intercettare il traffico. Le applicazioni Microsoft 365 basate su browser attualmente supportano le restrizioni dei tenant, ad esempio i client di Office che usano l'autenticazione moderna (ad esempio OAuth 2,0).
 
-4. **Tecniche di autenticazione moderne** : i servizi cloud devono usare tecniche di autenticazione moderne per Restrizioni del tenant e per bloccare l'accesso a tutti i tenant non consentiti. Per impostazione predefinita, è necessario configurare Microsoft 365 servizi cloud per l'uso di protocolli di autenticazione moderni. Per le informazioni più aggiornate sul supporto Microsoft 365 per l'autenticazione moderna, leggere [aggiornamento dell'autenticazione moderna di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Tecniche di autenticazione moderne**: i servizi cloud devono usare tecniche di autenticazione moderne per Restrizioni del tenant e per bloccare l'accesso a tutti i tenant non consentiti. Per impostazione predefinita, è necessario configurare Microsoft 365 servizi cloud per l'uso di protocolli di autenticazione moderni. Per le informazioni più aggiornate sul supporto Microsoft 365 per l'autenticazione moderna, leggere [aggiornamento dell'autenticazione moderna di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Il diagramma seguente illustra il flusso di traffico di alto livello. Per le restrizioni dei tenant è richiesta l'ispezione TLS solo sul traffico da Azure AD, non ai servizi cloud Microsoft 365. Questa distinzione è importante perché il volume di traffico per l'autenticazione in Azure AD è in genere molto inferiore rispetto a quello verso applicazioni SaaS come Exchange Online e SharePoint Online.
 
@@ -76,12 +76,12 @@ Per ogni richiesta in ingresso a login.microsoftonline.com, login.microsoft.com 
 
 Le intestazioni devono includere gli elementi seguenti:
 
-- Per *Restrict-Access-to-Tenants* , usare un valore di \<permitted tenant list\> , ovvero un elenco delimitato da virgole di tenant a cui si vuole consentire agli utenti di accedere. Qualsiasi dominio registrato con un tenant può essere usato per identificare il tenant in questo elenco, nonché l'ID directory stesso. Per un esempio di tutti e tre i modi per descrivere un tenant, la coppia nome/valore per consentire contoso, Fabrikam e Microsoft è simile alla seguente: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
+- Per *Restrict-Access-to-Tenants*, usare un valore di \<permitted tenant list\> , ovvero un elenco delimitato da virgole di tenant a cui si vuole consentire agli utenti di accedere. Qualsiasi dominio registrato con un tenant può essere usato per identificare il tenant in questo elenco, nonché l'ID directory stesso. Per un esempio di tutti e tre i modi per descrivere un tenant, la coppia nome/valore per consentire contoso, Fabrikam e Microsoft è simile alla seguente: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Per *Restrict-Access-Context* , usare un valore ID di directory singola, dichiarando quale tenant imposta Restrizioni del tenant. Per dichiarare Contoso come tenant che ha impostato i criteri di restrizione dei tenant, ad esempio, la coppia nome/valore è simile alla seguente: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  In questo punto è **necessario** usare il proprio ID directory.
+- Per *Restrict-Access-Context*, usare un valore ID di directory singola, dichiarando quale tenant imposta Restrizioni del tenant. Per dichiarare Contoso come tenant che ha impostato i criteri di restrizione dei tenant, ad esempio, la coppia nome/valore è simile alla seguente: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  In questo punto è **necessario** usare il proprio ID directory.
 
 > [!TIP]
-> L'ID della directory si trova nel [Portale di Azure Active Directory](https://aad.portal.azure.com/). Accedere come amministratore, selezionare **Azure Active Directory** , quindi selezionare **Proprietà**. 
+> L'ID della directory si trova nel [Portale di Azure Active Directory](https://aad.portal.azure.com/). Accedere come amministratore, selezionare **Azure Active Directory**, quindi selezionare **Proprietà**. 
 >
 > Per verificare che un ID directory o un nome di dominio faccia riferimento allo stesso tenant, utilizzare tale ID o dominio al posto di <tenant> in questo URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration` .  Se i risultati con il dominio e l'ID sono uguali, fanno riferimento allo stesso tenant. 
 
