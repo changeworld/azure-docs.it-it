@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605092"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427461"
 ---
 Questa sezione illustra come creare un hub IoT usando il [portale di Azure](https://portal.azure.com).
 
@@ -35,17 +35,17 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Creare un hub nel portale di Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Creare un Hub nell'portale di Azure.":::
 
 1. Selezionare **Avanti: Rete** per continuare a creare l'hub.
 
    Scegliere gli endpoint che possono connettersi all'hub IoT. È possibile selezionare l'impostazione predefinita **Endpoint pubblico (tutte le reti)** oppure scegliere **Endpoint pubblico (intervalli IP selezionati)** o **Endpoint privato**. Accettare l'impostazione predefinita per questo esempio.
 
-   ![Scegliere gli endpoint che possono connettersi](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Scegliere gli endpoint che possono connettersi.":::
 
 1. Selezionare **Avanti: Gestione** per continuare a creare l'hub.
 
-    ![Configurare le dimensioni e la scalabilità per un nuovo hub con il portale di Azure](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Imposta la dimensione e la scala per un nuovo hub usando il portale di Azure.":::
 
     In questa schermata è possibile accettare le impostazioni predefinite. Se si preferisce, è possibile modificare uno dei campi seguenti:
 
@@ -60,14 +60,14 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
 
     - **Impostazioni avanzate** > **Partizioni da dispositivo a cloud**: questa proprietà associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. La maggior parte degli hub richiede solo quattro partizioni.
 
-1.  Selezionare **Avanti: Tag** per passare alla schermata successiva.
+1. Selezionare **Avanti: Tag** per passare alla schermata successiva.
 
     I tag sono coppie nome/valore. È possibile assegnare lo stesso tag a più risorse e gruppi di risorse per classificare le risorse e consolidare la fatturazione. Per altre informazioni, vedere [Usare tag per organizzare le risorse di Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Assegnare tag per l'hub con il portale di Azure](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Assegnare i tag per l'hub usando il portale di Azure.":::
 
-1.  Selezionare **Avanti: Rivedi e crea** per rivedere le scelte effettuate. Viene visualizzata una schermata simile a questa, ma con i valori selezionati durante la creazione dell'hub. 
+1. Selezionare **Avanti: Rivedi e crea** per rivedere le scelte effettuate. Viene visualizzata una schermata simile a questa, ma con i valori selezionati durante la creazione dell'hub.
 
-    ![Rivedere le informazioni per la creazione del nuovo hub](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Esaminare le informazioni per la creazione del nuovo hub.":::
 
-1.  Fare clic su **Crea** per creare il nuovo hub. La creazione dell'hub richiede alcuni minuti.
+1. Fare clic su **Crea** per creare il nuovo hub. La creazione dell'hub richiede alcuni minuti.

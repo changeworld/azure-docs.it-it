@@ -3,7 +3,7 @@ title: Esperienza dell'utente finale per le applicazioni-Azure Active Directory
 description: Azure Active Directory (Azure AD) fornisce diverse soluzioni personalizzabili per distribuire le applicazioni agli utenti finali all'interno dell'organizzazione.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0d3f1cab0637c7409cbc45f4f5a5374b2b5b6a77
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649229"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259254"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
 
@@ -72,5 +72,5 @@ Questi collegamenti usano gli stessi meccanismi di controllo di accesso delle ap
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Serie di guide di avvio rapido sulla gestione delle applicazioni](view-applications-portal.md)
-* [Che cos'è l'accesso Single Sign-On?](what-is-single-sign-on.md)
+* [Che cos'è Single Sign-On?](what-is-single-sign-on.md)
 * [Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni](plan-an-application-integration.md)

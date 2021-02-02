@@ -4,7 +4,7 @@ description: Attivare il proxy di applicazione nel portale di Azure e installare
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a03f3c57d3fbc7efe20055343eab3db33aa8194
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84760049"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259085"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
 Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme per permettere di usare con facilità l'Application Proxy e fornire l'accesso remoto alla distribuzione Qlik Sense.  

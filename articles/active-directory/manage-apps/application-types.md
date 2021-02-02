@@ -3,19 +3,19 @@ title: Visualizzazione di app con il tenant di Azure Active Directory per la ges
 description: Informazioni su come visualizzare tutte le applicazioni usando il tenant di Azure Active Directory per la gestione delle identità.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: 18e29ce8bf744cabb31c5634c9b0ca547bca5acc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 443e8c83ec29f9f0478e3881b9e6d6a8eb0bf403
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020673"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259787"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualizzazione di app con il tenant di Azure AD per la gestione delle identità
 La [serie di guide introduttive sulla gestione delle applicazioni](view-applications-portal.md) offre le nozioni di base. Si apprenderà come visualizzare tutte le app usando il tenant di Azure AD per la gestione delle identità. Questo articolo illustra in maniera approfondita i tipi di app disponibili.

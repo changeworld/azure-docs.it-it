@@ -4,19 +4,19 @@ description: Eseguire il debug dell'accesso Single Sign-On basato su SAML su app
 services: active-directory
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: f8eb00a2a88c6e26dd5361097f17990469caa8f3
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4a5fbef3380db8c9b357c83b4cb8240a41a0012c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326068"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259288"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory
 
@@ -37,7 +37,7 @@ Per scaricare e installare l'estensione My Apps Secure Sign-in, usare uno dei co
 Per testare Single Sign-On basate su SAML tra Azure AD e un'applicazione di destinazione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale e altro amministratore autorizzato a gestire le applicazioni.
-1. Nel pannello sinistro selezionare **Azure Active Directory**e quindi selezionare **applicazioni aziendali**. 
+1. Nel pannello sinistro selezionare **Azure Active Directory** e quindi selezionare **applicazioni aziendali**. 
 1. Dall'elenco di applicazioni aziendali, selezionare l'applicazione per cui si desidera eseguire il test Single Sign-On, quindi dalle opzioni a sinistra selezionare **Single Sign-on**.
 1. Per aprire l'esperienza di test di Single Sign-On basata su SAML, passare a **Test Single Sign-on** (passaggio 5). Se il pulsante **test** è disattivato, è necessario compilare e salvare prima gli attributi necessari nella sezione di **configurazione SAML di base** .
 1. Nel pannello **Test dell'accesso Single Sign-On** usare le credenziali aziendali per accedere all'applicazione di destinazione. È possibile accedere come utente corrente o come altro utente. Se si accede come altro utente, verrà chiesto di eseguire l'autenticazione.

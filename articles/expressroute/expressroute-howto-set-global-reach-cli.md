@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 55f1e4c030dc0e7c8d0011dcff0cc1c9f8fec06e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028064"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260232"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute Copertura globale usando l'interfaccia della riga di comando di Azure
 
@@ -56,7 +56,7 @@ Quando si esegue il comando per abilitare la connettività, tenere presenti i re
 
 * *peer-circuit* deve essere l'ID risorsa completo. Ad esempio:
 
-  > /subscriptions/{id_sottoscrizione}/resourceGroups/{gruppo_risorse}/providers/Microsoft.Network/expressRouteCircuits/{nome_circuito}
+  > /Subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
 
 * *address-prefix* deve essere una subnet IPv4 "/29" (ad esempio, "10.0.0.0/29"). Gli indirizzi IP di questa subnet vengono usati per stabilire la connettività tra i due circuiti ExpressRoute. Non è possibile usare gli indirizzi in questa subnet nelle reti virtuali di Azure o nelle reti locali.
 

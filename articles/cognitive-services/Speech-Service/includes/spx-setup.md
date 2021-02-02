@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095183"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427455"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -29,14 +29,6 @@ Digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando
 > [!NOTE]
 > In alternativa a NuGet, è possibile scaricare ed estrarre l' [archivio zip](https://aka.ms/speech/spx-zips.zip)dell'interfaccia della riga di comando vocale, trovare ed estrarre la piattaforma dalla `spx-zips` Directory e aggiungere il `spx` percorso alla variabile del **percorso** di sistema.
 
-### <a name="run-the-speech-cli"></a>Eseguire l'interfaccia della riga di comando per Voce
-
-1. Aprire il prompt dei comandi o PowerShell, quindi passare alla directory in cui è stata estratta l'interfaccia della riga di comando di Voce.  
-2. Digitare `spx` per visualizzare i comandi della Guida per l'interfaccia della riga di comando di Voce.
-
-> [!NOTE]
-> PowerShell non controlla la directory locale durante la ricerca di un comando. In PowerShell cambiare directory passando alla posizione di `spx` e chiamare lo strumento immettendo `.\spx`.
-> Se si aggiunge questa directory al percorso, PowerShell e il prompt dei comandi di Windows troveranno `spx` da qualsiasi directory senza includere il prefisso `.\`.
 
 ### <a name="font-limitations"></a>Limitazioni dei tipi di carattere
 

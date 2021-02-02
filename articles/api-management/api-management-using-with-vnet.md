@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070943"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260249"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -117,7 +117,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 | * / 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | **Dipendenza da Archiviazione di Azure**                             | Esterno e interno  |
 | * / 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) e dipendenza dell'insieme di credenziali delle credenziali di Azure                  | Esterno e interno  |
 | * / 1433                     | In uscita           | TCP                | VIRTUAL_NETWORK/SQL                 | **Accesso agli endpoint SQL di Azure**                           | Esterno e interno  |
-| */433                     | In uscita           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Accesso ad Azure Vault**                           | Esterno e interno  |
+| * / 443                     | In uscita           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Accesso ad Azure Vault**                           | Esterno e interno  |
 | * / 5671, 5672, 443          | In uscita           | TCP                | VIRTUAL_NETWORK / EventHub            | Dipendenza per il criterio [Registra a Hub eventi](api-management-howto-log-event-hubs.md) e l'agente di monitoraggio | Esterno e interno  |
 | * / 445                      | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | Dipendenza dalla condivisione file di Azure per [GIT](api-management-configuration-repository-git.md)                      | Esterno e interno  |
 | */443, 12000                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Estensione Health and Monitoring         | Esterno e interno  |

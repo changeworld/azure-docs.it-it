@@ -3,7 +3,7 @@ title: "Esercitazione: Aggiungere un'app locale - Proxy di applicazione in Azure
 description: Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione illustra come preparare l'ambiente per l'uso con il proxy di applicazione. Viene quindi usato il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 6f8fdb23222944eab4742d1e972280e1e27e30a3
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 04b3dd51aab9686d102b6b94324f89396a268e7d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728516"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260080"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -56,7 +56,8 @@ Per la disponibilità elevata nell'ambiente di produzione è consigliabile avere
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 Value: 0
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp]
+> "EnableDefaultHTTP2"=dword:00000000
 > ```
 >
 > La chiave può essere impostata da PowerShell con il comando seguente.

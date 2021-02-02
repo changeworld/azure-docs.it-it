@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 02/01/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
-ms.translationtype: HT
+ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152639"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427189"
 ---
 Le tabelle seguenti forniscono le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -30,7 +30,8 @@ I limiti seguenti sono comuni tra tutti i livelli.
 | Numero di ricevitori non epoch per gruppo consumer |- |5 |
 | Numero di regole di autorizzazione per spazio dei nomi | Le richieste successive di creazione di regole di autorizzazione vengono rifiutate.|12 |
 | Numero di chiamate al metodo GetRuntimeInformation |  - | 50 al secondo | 
-| Numero di regole di rete virtuale e di configurazione IP | - | 128 | 
+| Numero di reti virtuali (VNet) | - | 128 | 
+| Numero di regole di configurazione IP | - | 128 | 
 
 
 ### <a name="basic-vs-standard-tiers"></a>Livelli Basic e Standard

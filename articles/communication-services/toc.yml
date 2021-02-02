@@ -43,6 +43,8 @@
   items:
     - name: Creare un servizio di autenticazione attendibile con Funzioni di Azure
       href: tutorials/trusted-service-tutorial.md
+    - name: Preparare un'app Web per i servizi di comunicazione (Node.js)
+      href: tutorials/building-app-start.md
 - name: Concetti
   expanded: false
   items:

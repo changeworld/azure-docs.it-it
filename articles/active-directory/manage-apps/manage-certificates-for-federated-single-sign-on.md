@@ -4,7 +4,7 @@ description: Informazioni su come personalizzare la data di scadenza per i certi
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87190e9a7aa3c3a26b77220dd0332d65c640bc2e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658996"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259220"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per accesso Single Sign-On federato in Azure Active Directory
 
@@ -30,7 +30,7 @@ Questo articolo è pertinente solo per le app configurate per l'uso di Azure AD 
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificato generato automaticamente per le applicazioni incluse e non incluse nella raccolta
 
-Quando si aggiunge una nuova applicazione dalla raccolta e si configura un accesso basato su SAML (selezionando SAML **Single Sign-on** nella  >  **SAML** pagina Panoramica applicazione), Azure ad genera un certificato per l'applicazione valida per tre anni. Per scaricare il certificato attivo come file del certificato di sicurezza (con **estensione cer**), tornare alla pagina (**accesso basato su SAML**) e selezionare un collegamento per il download nell'intestazione del **certificato di firma SAML** . È possibile scegliere tra il certificato non elaborato (binario) o il certificato Base64 (testo codificato in base 64). Per le applicazioni della raccolta, in questa sezione può essere anche visualizzato un collegamento per scaricare il certificato come XML dei metadati di federazione (un file con **estensione XML** ), a seconda del requisito dell'applicazione.
+Quando si aggiunge una nuova applicazione dalla raccolta e si configura un accesso basato su SAML (selezionando SAML **Single Sign-on** nella  >   pagina Panoramica applicazione), Azure ad genera un certificato per l'applicazione valida per tre anni. Per scaricare il certificato attivo come file del certificato di sicurezza (con **estensione cer**), tornare alla pagina (**accesso basato su SAML**) e selezionare un collegamento per il download nell'intestazione del **certificato di firma SAML** . È possibile scegliere tra il certificato non elaborato (binario) o il certificato Base64 (testo codificato in base 64). Per le applicazioni della raccolta, in questa sezione può essere anche visualizzato un collegamento per scaricare il certificato come XML dei metadati di federazione (un file con **estensione XML** ), a seconda del requisito dell'applicazione.
 
 ![Opzioni di download del certificato di firma attiva SAML](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 

@@ -14,14 +14,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: a152735d21a347262ce6485e6110f9e040a0071a
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 6da860cf9f116d859657be8b81682088b47474eb
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916236"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259152"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuire un sistema di SAP HANA con scale-out con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su SUSE Linux Enterprise Server 
 
@@ -84,7 +84,7 @@ Prima di iniziare, vedere le note e i documenti SAP seguenti:
 * [Guide alle procedure consigliate di SUSE SAP][suse-ha-guide]: contiene tutte le informazioni necessarie per configurare la disponibilità elevata NetWeaver e la replica di SAP Hana sistema locale (da usare come base di riferimento generale; forniscono informazioni molto più dettagliate)
 * [Note sulla versione di SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 * [Applicazioni NetApp SAP su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
-
+* [Volumi NFS v4.1 in Azure NetApp Files per SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## <a name="overview"></a>Panoramica
 
@@ -863,4 +863,5 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 * [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* [Volumi NFS v4.1 in Azure NetApp Files per SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA nelle VM di Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure][sap-hana-ha].

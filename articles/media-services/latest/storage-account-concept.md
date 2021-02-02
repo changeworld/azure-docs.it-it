@@ -1,7 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campi obbligatori. Scopri di più su aka.ms/skyeye/meta.
 title: account di archiviazione di Azure: Descrizione di servizi multimediali di Azure: informazioni su come creare un account di archiviazione di Azure da usare con servizi multimediali di Azure.
-Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:'' ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 01/05/2021 ms. Author: inhenkel
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:'' ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 01/29/2021 ms. Author: inhenkel
 ---
 
 # <a name="azure-storage-accounts"></a>Account di archiviazione di Azure
@@ -19,7 +19,7 @@ Si consiglia di usare GPv2, in modo da poter sfruttare le funzionalità e le pre
 > [!NOTE]
 > Solo il livello di accesso frequente è supportato per l'uso con servizi multimediali di Azure, anche se gli altri livelli di accesso possono essere usati per ridurre i costi di archiviazione sul contenuto che non viene usato attivamente.
 
-Esistono diversi SKU che è possibile scegliere per l'account di archiviazione. Per altre informazioni, vedere [account di archiviazione](/cli/azure/storage/account?view=azure-cli-latest). Se si vogliono provare gli account di archiviazione, usare `--sku Standard_LRS`. Tuttavia, quando si sceglie uno SKU per la produzione, è necessario prendere in considerazione `--sku Standard_RAGRS` , che fornisce la replica geografica per la continuità aziendale.
+Esistono diversi SKU che è possibile scegliere per l'account di archiviazione. Se si vogliono provare gli account di archiviazione, usare `--sku Standard_LRS`. Tuttavia, quando si sceglie uno SKU per la produzione, è necessario prendere in considerazione `--sku Standard_RAGRS` , che fornisce la replica geografica per la continuità aziendale.
 
 ## <a name="assets-in-a-storage-account"></a>Asset in un account di archiviazione
 
@@ -34,14 +34,15 @@ Per proteggere gli asset inattivi, gli asset devono essere crittografati tramite
 
 |Opzione di crittografia|Descrizione|Servizi multimediali v3|
 |---|---|---|
-|Crittografia di archiviazione di servizi multimediali| Crittografia AES-256, chiave gestita da servizi multimediali. |Non supportato. <sup>(1)</sup>|
+|Crittografia di archiviazione di servizi multimediali| Crittografia AES-256, chiave gestita da servizi multimediali. |Non supportato. <sup>1</sup>|
 |[Crittografia del servizio di archiviazione per i dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportata.|
 |[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportata.|
 
 <sup>1</sup> in servizi multimediali V3, la crittografia di archiviazione (crittografia AES-256) è supportata solo per la compatibilità con le versioni precedenti quando gli asset sono stati creati con servizi multimediali V2, il che significa che V3 funziona con asset crittografati di archiviazione esistenti ma non consente la creazione di nuove risorse.
 
-## <a name="double-encryption"></a>Crittografia doppia
-Servizi multimediali supporta la crittografia doppia.  Per altre informazioni sulla crittografia doppia, vedere [crittografia doppia di Azure](../../security/fundamentals/double-encryption.md).
+## <a name="storage-account-double-encryption"></a>Crittografia doppia dell'account di archiviazione
+
+Gli account di archiviazione supportano la crittografia doppia, ma il secondo livello deve essere abilitato in modo esplicito. Vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption)inattivi.  
 
 ## <a name="storage-account-errors"></a>Errori dell'account di archiviazione
 
@@ -53,10 +54,6 @@ Di seguito sono riportati gli scenari principali che potrebbero comportare il ma
 |---|---|
 |L'account di Servizi multimediali o gli account di archiviazione collegati sono stati migrati per separare le sottoscrizioni. |Eseguire la migrazione degli account di archiviazione o degli account di servizi multimediali in modo che si trovino tutti nella stessa sottoscrizione. |
 |L'account di Servizi multimediali usa un account di archiviazione associato in un'altra sottoscrizione perché si tratta di un account Servizi multimediali iniziale in cui l'account di archiviazione era già precedentemente supportato. Tutti gli account di servizi multimediali precedenti sono stati convertiti in account basati su Azure Resource Manager moderni e avranno uno stato disconnesso. |Eseguire la migrazione dell'account di archiviazione o dell'account di servizi multimediali in modo che si trovino tutti nella stessa sottoscrizione.|
-
-## <a name="azure-storage-firewall"></a>Firewall di archiviazione di Azure
-
-Servizi multimediali di Azure non supporta gli account di archiviazione con il firewall di archiviazione di Azure o gli [endpoint privati](../../storage/common/storage-network-security.md) abilitati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

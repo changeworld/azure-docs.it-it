@@ -2,7 +2,7 @@
 title: Integrare app locali con Cloud App Security Azure AD
 description: Configurare un'applicazione in locale in Azure Active Directory in modo che collabori con Microsoft Cloud App Security (MCAS). Usare il Controllo app per l'accesso condizionale MCAS per monitorare e controllare le sessioni in tempo reale in base ai criteri di accesso condizionale. È possibile applicare questi criteri alle applicazioni locali che usano Proxy di applicazione in Azure Active Directory (Azure AD).
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.date: 12/19/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 889168782acabaafa4200a8ebd097e431a68ede3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 139f347a3d1bce7a8f841cd1c39cd250b9a2182d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764571"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259356"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurare il monitoraggio in tempo reale degli accessi alle applicazioni con Microsoft Cloud App Security e Azure Active Directory
 Configurare un'applicazione in locale in Azure Active Directory (Azure AD) per usare Microsoft Cloud App Security (MCAS) per il monitoraggio in tempo reale. MCAS USA Controllo app per l'accesso condizionale per monitorare e controllare le sessioni in tempo reale in base ai criteri di accesso condizionale. È possibile applicare questi criteri alle applicazioni locali che usano Proxy di applicazione in Azure Active Directory (Azure AD).

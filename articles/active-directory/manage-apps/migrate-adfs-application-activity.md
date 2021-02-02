@@ -3,7 +3,7 @@ title: Usare il report attività per spostare le app AD FS in Azure Active Direc
 description: Il report attività applicazione Active Directory Federation Services (AD FS) consente di eseguire rapidamente la migrazione delle applicazioni da AD FS a Azure Active Directory (Azure AD). Questo strumento di migrazione per AD FS identifica la compatibilità con Azure AD e fornisce indicazioni sulla migrazione.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3665c5b82095004ddf7dc1f503b54f5164d49c7f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573885"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260063"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usare il report delle attività dell'applicazione AD FS (anteprima) per eseguire la migrazione delle applicazioni ai Azure AD
 
@@ -78,7 +78,7 @@ Il report attività dell'applicazione AD FS è disponibile nella portale di Azur
 
 Nella tabella seguente sono elencati tutti i test di configurazione eseguiti su AD FS applicazioni.
 
-|Result  |Superato/avviso/esito negativo  |Descrizione  |
+|Risultato  |Superato/avviso/esito negativo  |Descrizione  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> È stata rilevata almeno una regola non migrazione nei per AdditionalAuthentication.       | Pass/avviso          | Il relying party dispone di regole per richiedere l'autenticazione a più fattori (multi-factor authentication). Per spostarsi in Azure AD, tradurre tali regole in criteri di accesso condizionale. Se si usa un'autenticazione a più fattori locale, si consiglia di passare a Azure AD autenticazione a più fattori. [Altre informazioni sull'accesso condizionale](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> Il valore di AdditionalWSFedEndpoint del componente è impostato su true.       | Esito positivo o negativo          | Il relying party in AD FS consente più endpoint dell'asserzione di WS-Fed.Attualmente Azure AD ne supporta solo uno.Se si dispone di uno scenario in cui il risultato è il blocco della migrazione, segnalare il [problema.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |
