@@ -58,7 +58,7 @@
           href: ./scripts/batch-cli-sample-run-job.md
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
@@ -118,9 +118,8 @@
         - name: Azure AD con la gestione di Batch
           href: batch-aad-auth-management.md
         - name: Accedere in modo sicuro a Key Vault con Batch
+          displayName: 'credential, certificate'
           href: credential-access-key-vault.md
-        - name: Uso dei certificati con Batch
-          href: batch-certificates.md
     - name: Copiare file e applicazioni in nodi del pool
       items:
         - name: Copia di applicazioni e dati nei nodi del pool

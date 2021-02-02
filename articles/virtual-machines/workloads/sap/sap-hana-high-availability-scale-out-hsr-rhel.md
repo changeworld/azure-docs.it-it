@@ -14,14 +14,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: c97975d6920cd0f04a7d2d4e73c00104a2b13235
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6ce169eee4f931d02071a326c65ba94cfe723ae1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685613"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259034"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Disponibilità elevata del sistema di SAP HANA con scalabilità orizzontale in Red Hat Enterprise Linux 
 
@@ -91,7 +91,7 @@ Prima di iniziare, vedere le note e i documenti SAP seguenti:
   * [Soluzione Red Hat Enterprise Linux per SAP HANA Scale-Out e la replica di sistema](https://access.redhat.com/solutions/4386601)
 * [Applicazioni NetApp SAP su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
 * [Documentazione di Azure NetApp Files][anf-azure-doc] 
-
+* [Volumi NFS v4.1 in Azure NetApp Files per SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## <a name="overview"></a>Panoramica
 
@@ -1172,4 +1172,5 @@ Si consiglia di testare accuratamente la configurazione del cluster di SAP HANA,
 * [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* [Volumi NFS v4.1 in Azure NetApp Files per SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA nelle VM di Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure][sap-hana-ha].

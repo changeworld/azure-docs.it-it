@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1825767d8140421d4f0e22f9ebfde42f8262da5e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8a572221ca8899c5e4f4cf76e4b89c995952a2f3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201077"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258558"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Baseline di sicurezza di Azure per Gestione API
 
@@ -90,15 +90,11 @@ La combinazione di Gestione API in una rete VNET interna con il Gateway applicaz
 
 Nota: Questa funzionalità è disponibile nei livelli Premium e Developer di Gestione API.
 
-Abilitare la protezione DDoS di Azure standard nella VNET associata alla distribuzione di Gestione API per la protezione da attacchi di tipo Denial of Service (DDoS) distribuiti.
-
 Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
 
 * [Informazioni su come integrare Gestione API in una VNET interna con un gateway applicazione](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Informazioni sul gateway applicazione di Azure](../application-gateway/index.yml)
-
-* [Come configurare la protezione DDoS di Azure standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
@@ -184,8 +180,7 @@ Attenzione: Quando si configura un NSG nella subnet di Gestione API è necessari
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: gestire le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Indicazioni**: definire e implementare configurazioni di sicurezza standard per le impostazioni di rete correlate alle distribuzioni di Gestione API di Azure. Usare gli alias di Criteri di Azure negli spazi dei nomi "Microsoft.ApiManagement" e "Microsoft.Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete delle distribuzioni di Gestione API di Azure e delle risorse correlate. È inoltre possibile usare le definizioni di criteri predefiniti per le reti virtuali di Azure, ad esempio:
-- Lo standard di protezione DDoS deve essere abilitato
+**Indicazioni**: definire e implementare configurazioni di sicurezza standard per le impostazioni di rete correlate alle distribuzioni di Gestione API di Azure. Usare gli alias di Criteri di Azure negli spazi dei nomi "Microsoft.ApiManagement" e "Microsoft.Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete delle distribuzioni di Gestione API di Azure e delle risorse correlate. 
 
 È anche possibile usare i progetti di Azure per semplificare le distribuzioni su larga scala di Azure tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e criteri in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 

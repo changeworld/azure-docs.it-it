@@ -1,7 +1,7 @@
 ---
 title: Novità di Azure Active Directory identità esterne
 description: Documentazione nuova e aggiornata per le identità esterne Azure Active Directory.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,21 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: e614507fbcfce5fc006983e0be7963223bb0b7ed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 84adb08231589ae636c6a6926a4019a8a070a62e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562379"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258864"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory identità esterne: novità
 
 Introduzione alle novità di Azure Active Directory documentazione di identità esterne. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio identità esterne, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
 
+## <a name="january-2021"></a>Gennaio 2021
+
+### <a name="updated-articles"></a>Articoli aggiornati
+- [Consentire o bloccare gli inviti agli utenti B2B di organizzazioni specifiche](allow-deny-list.md)
+- [Informazioni sul modo in cui utenti nell'organizzazione possono invitare utenti guest a un'app](add-users-information-worker.md)
+
+
 ## <a name="december-2020"></a>Dicembre 2020
 
 ### <a name="updated-articles"></a>Articoli aggiornati
-
 - [Domande frequenti su Collaborazione B2B di Azure Active Directory](faq.md)
 - [Aggiungere Google come provider di identità per utenti guest B2B](google-federation.md)
 - [Provider di identità per le identità esterne](identity-providers.md)

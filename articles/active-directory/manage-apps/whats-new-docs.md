@@ -1,24 +1,51 @@
 ---
 title: Novità della gestione delle applicazioni Azure Active Directory
 description: Documentazione nuova e aggiornata per la gestione delle applicazioni Azure Active Directory.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: ea2e08db91d23e9523b7bc95e01b7adc9c93b3cc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+manager: daveba
+ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054822"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258575"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
 Ecco le novità della documentazione sulla gestione delle applicazioni Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio di gestione delle applicazioni, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Gennaio 2021
+
+### <a name="new-articles"></a>Nuovi articoli
+- [Pianificare Azure Active Directory la configurazione delle app personali](my-apps-deployment-plan.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+- [Problemi di installazione del connettore dell'agente proxy dell'applicazione](application-proxy-connector-installation-problem.md)
+- [Risolvere i problemi di Single Sign-On basato su password in Azure AD](troubleshoot-password-based-sso.md)
+- [Procedure consigliate per la gestione delle applicazioni](application-management-fundamentals.md)
+- [Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni](plan-an-application-integration.md)
+- [Cos'è la gestione delle applicazioni?](what-is-application-management.md)
+- [Domande frequenti sul proxy di applicazione Active Directory (Azure AD)](application-proxy-faq.md)
+- [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Sviluppare app line-of-business per Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
+- [Informazioni sull'accesso collegato](configure-linked-sign-on.md)
+- [Informazioni Single Sign-On basate su password](configure-password-single-sign-on-non-gallery-applications.md)
+- [Informazioni Single Sign-On basate su SAML](configure-saml-single-sign-on.md)
+- [Risolvere i problemi comuni relativi all'aggiunta o alla rimozione di un'applicazione Azure Active Directory](troubleshoot-adding-apps.md)
+- [Visualizzazione di app con il tenant di Azure AD per la gestione delle identità](application-types.md)
+- [Informazioni sul modo in cui gli utenti vengono assegnati alle app in Azure Active Directory](ways-users-get-assigned-to-applications.md)
+- [Avvio rapido: Eliminare un'applicazione dal tenant di Azure Active Directory (Azure AD)](delete-application-portal.md)
+- [Pubblicare Desktop remoto con proxy dell'applicazione di Azure AD](application-proxy-integrate-with-remote-desktop-services.md)
+- [Intervenire su applicazioni sospette o con privilegi eccessivi in Azure Active Directory](manage-application-permissions.md)
+
 
 ## <a name="december-2020"></a>Dicembre 2020
 

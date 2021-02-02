@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 56013a51937915cc240e2bd0ec26342c24c79807
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095907"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258796"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -39,7 +39,7 @@ Servizi Desktop remoto, vedere questi articoli:
 
 ## <a name="fslogix-updates"></a>Aggiornamenti FSLogix
 
-Sei curioso degli aggiornamenti più recenti per FSLogix? Scopri le [novità di FSLogix](/fslogix/whats-new.md).
+Sei curioso degli aggiornamenti più recenti per FSLogix? Scopri le [novità di FSLogix](/fslogix/whats-new).
 
 ## <a name="january-2021"></a>Gennaio 2021
 
