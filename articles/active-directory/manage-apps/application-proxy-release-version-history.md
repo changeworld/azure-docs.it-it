@@ -3,7 +3,7 @@ title: "Proxy dell'applicazione Azure AD: cronologia delle versioni"
 description: Questo articolo elenca tutte le versioni di Azure AD proxy di applicazione e descrive le nuove funzionalità e i problemi risolti
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658401"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258134"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy dell'applicazione Azure AD: cronologia delle versioni
 Questo articolo elenca le versioni e le funzionalità del proxy di applicazione Azure Active Directory (Azure AD) rilasciate. Il team di Azure AD aggiorna regolarmente il proxy di applicazione con nuove caratteristiche e funzionalità. I connettori del proxy di applicazione vengono aggiornati automaticamente quando viene rilasciata una nuova versione. 

@@ -1,16 +1,16 @@
 ---
-title: Aggiungere binding a una funzione esistente in funzioni di Azure
-description: Informazioni su come aggiungere binding a una funzione esistente nel progetto di funzioni di Azure.
+title: Connetti funzioni ad altri servizi di Azure
+description: Informazioni su come aggiungere binding che si connettono ad altri servizi di Azure a una funzione esistente nel progetto di funzioni di Azure.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654153"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258202"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Aggiungere binding a una funzione esistente in funzioni di Azure
+# <a name="connect-functions-to-azure-services-using-bindings"></a>Connettere le funzioni ai servizi di Azure usando i binding
 
 Quando si crea una funzione, il codice del trigger specifico della lingua viene aggiunto nel progetto da un set di modelli di trigger. Se si vuole connettere la funzione ad altri servizi usando binding di input o di output, è necessario aggiungere definizioni di binding specifiche nella funzione. Per altre informazioni sui binding, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
 

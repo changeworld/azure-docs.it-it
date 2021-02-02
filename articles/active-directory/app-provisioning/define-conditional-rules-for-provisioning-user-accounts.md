@@ -3,19 +3,19 @@ title: Eseguire il provisioning delle app con filtri di ambito | Microsoft Docs
 description: Informazioni su come usare i filtri di ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 7fff456b7ad6e980fc3c9bda36cfcab02e2ed863
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861392"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255832"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -116,7 +116,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 
 ## <a name="common-scoping-filters"></a>Filtri di ambito comuni
-| Target Attribute| Operatore | Valore | Description|
+| Target Attribute| Operatore | Valore | Descrizione|
 |----|----|----|----|
 |userPrincipalName|CORRISPONDENZA REGEX|.\*@domain.com |Tutti gli utenti con userPrincipal con il dominio @domain.com saranno nell'ambito per il provisioning|
 |userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che possiede il dominio @domain.com saranno fuori dall'ambito per il provisioning|

@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322535"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257407"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Trovare informazioni e aprire un ticket di supporto per Azure Active Directory
 Microsoft fornisce supporto tecnico, pre-vendita, per la fatturazione e per le sottoscrizioni per Azure Active Directory (Azure AD) a livello globale. Il supporto è disponibile sia online che telefonicamente per le sottoscrizioni di Microsoft Azure di valutazione e a pagamento. Il supporto telefonico e il supporto online per la fatturazione sono disponibili anche in altre lingue. 
@@ -41,8 +41,8 @@ In caso non si riesca a trovare le informazioni desiderate attraverso le risorse
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Come aprire un ticket di supporto per Azure AD nel portale di Azure
 
 > [!NOTE]
-> Per problemi relativi alla fatturazione o alla sottoscrizione, è necessario usare l'interfaccia di [amministrazione Microsoft 365](https://admin.microsoft.com).
-> 
+> * Per problemi relativi alla fatturazione o alla sottoscrizione, è necessario usare l'interfaccia di [amministrazione Microsoft 365](https://admin.microsoft.com).  
+> * Se si usa Azure AD B2C, aprire un ticket di supporto passando innanzitutto a un tenant Azure AD a cui è associata una sottoscrizione di Azure. In genere, si tratta del tenant del dipendente o del tenant predefinito creato automaticamente al momento dell'iscrizione a una sottoscrizione di Azure. Per altre informazioni, vedere la [relazione tra una sottoscrizione di Azure e Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire **Azure Active Directory**.
    
@@ -52,11 +52,11 @@ In caso non si riesca a trovare le informazioni desiderate attraverso le risorse
 
 1. Selezionare la **sottoscrizione**.
 
-1. Per **servizio**selezionare **Azure Active Directory**.
+1. Per **servizio** selezionare **Azure Active Directory**.
 
 1. Creare un **Riepilogo** per la richiesta. Il riepilogo deve essere inferiore a 140 caratteri.
   
-1. Selezionare un **tipo di problema**e quindi selezionare una categoria per quel tipo. A questo punto, vengono anche visualizzate informazioni self-help per la categoria del problema corrispondente.
+1. Selezionare un **tipo di problema** e quindi selezionare una categoria per quel tipo. A questo punto, vengono anche visualizzate informazioni self-help per la categoria del problema corrispondente.
   
 1. Aggiungere le informazioni restanti sul problema e fare clic su **Avanti**. 
 
@@ -74,7 +74,7 @@ In caso non si riesca a trovare le informazioni desiderate attraverso le risorse
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Come aprire un ticket di supporto per Azure AD nell'interfaccia di amministrazione di Microsoft 365
 
 > [!NOTE]
-> Il supporto per Azure AD nell'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com) è disponibile solo per gli amministratori. 
+> Il supporto per Azure AD nell'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com) è disponibile solo per gli amministratori.
 
 1. Accedere al centro di [amministrazione di Microsoft 365](https://admin.microsoft.com) con un account che disponga di una licenza di Enterprise Mobility + Security (EMS).
 

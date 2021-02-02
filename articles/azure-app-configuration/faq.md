@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: alkemper
-ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39ad20bd57e3da6345c63d4601f34b19e640c1d6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929566"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256476"
 ---
 # <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
 
@@ -105,7 +105,7 @@ Non è possibile effettuare il downgrade di un archivio dal livello standard al 
 
 ## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Sono previsti limiti per il numero di richieste effettuate alla configurazione dell'app?
 
-Gli archivi di configurazione nel livello gratuito sono limitati a 1.000 richieste al giorno. Per gli archivi di configurazione nel livello standard è possibile che si verifichi una limitazione temporanea quando la frequenza delle richieste supera 20.000 richieste all'ora.
+Nella configurazione dell'app, durante la lettura dei valori chiave, i dati verranno impaginati e ogni richiesta potrà leggere fino a 100 valori di chiave. Quando si scrivono valori chiave, ogni richiesta può creare o aggiornare un valore chiave. Questa operazione è supportata tramite l'API REST, gli SDK di configurazione dell'app e i provider di configurazione. Gli archivi di configurazione nel livello gratuito sono limitati a 1.000 richieste al giorno. Per gli archivi di configurazione nel livello standard è possibile che si verifichi una limitazione temporanea quando la frequenza delle richieste supera 20.000 richieste all'ora.
 
 Quando un negozio raggiunge il limite, restituirà il codice di stato HTTP 429 per tutte le richieste effettuate fino alla scadenza del periodo di tempo. L' `retry-after-ms` intestazione nella risposta fornisce un tempo di attesa suggerito (in millisecondi) prima di ritentare la richiesta.
 

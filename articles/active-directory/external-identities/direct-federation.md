@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860627"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257186"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con Active Directory Federation Services (AD FS) e provider di terze parti per utenti guest (anteprima)
 
@@ -78,7 +78,8 @@ Sì. Se il dominio non è stato verificato e il tenant non ha subito un'[acquisi
 Quando viene stabilita la federazione diretta con un'organizzazione partner, ha la precedenza sull'autenticazione con passcode monouso tramite posta elettronica per i nuovi utenti guest di tale organizzazione. Se un utente guest ha riscattato un invito usando l'autenticazione con passcode monouso prima della configurazione della federazione diretta, continuerà a usare l'autenticazione con passcode monouso. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>La federazione diretta consente di risolvere i problemi di accesso causati da tenancy parzialmente sincronizzata?
 No, in questo scenario è consigliabile usare la funzionalità di [passcode monouso tramite posta elettronica](one-time-passcode.md). Una "tenancy parzialmente sincronizzata" indica un tenant Azure AD partner in cui le identità utente locali non sono completamente sincronizzate nel cloud. Un utente guest la cui identità non esiste ancora nel cloud, ma che tenta di riscattare l'invito B2B non riuscirà a eseguire l'accesso. La funzionalità passcode monouso consente a questo utente guest di eseguire l'accesso. La funzionalità di federazione diretta aiuta a risolvere i problemi relativi a scenari in cui l'utente guest dispone di account aziendale gestito dal provider di identità personale, ma l'organizzazione non ha alcuna presenza in Azure AD.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Quando la Federazione diretta è configurata con un'organizzazione, è necessario inviare ogni Guest e riscattare un singolo invito?
+La configurazione della Federazione diretta non comporta la modifica del metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. È possibile aggiornare il metodo di autenticazione di un utente Guest eliminando l'account utente guest dalla directory e riinvitandoli.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Passaggio 1: Configurare il provider di identità dell'organizzazione partner
 In primo luogo, l'organizzazione partner deve configurare il provider di identità con le attestazioni e i trust di relying party necessari. 
 

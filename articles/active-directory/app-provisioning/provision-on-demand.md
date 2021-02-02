@@ -3,7 +3,7 @@ title: Effettuare il provisioning di un utente su richiesta usando Azure Active 
 description: Forza sincronizzazione
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629013"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255662"
 ---
 # <a name="on-demand-provisioning"></a>Provisioning su richiesta
 Usare il provisioning su richiesta per eseguire il provisioning di un utente in un'applicazione in pochi secondi. Tra le altre cose, è possibile usare questa funzionalità per:
@@ -124,7 +124,7 @@ Infine, il servizio di provisioning esegue un'azione, ad esempio la creazione, l
 
 Di seguito è riportato un esempio di ciò che è possibile vedere dopo il completamento del provisioning su richiesta di un utente:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot che mostra l'interfaccia utente di portale di Azure per il provisioning di un utente su richiesta.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot che mostra il completamento del provisioning su richiesta di un utente.":::
 
 #### <a name="view-details"></a>Visualizza i dettagli
 

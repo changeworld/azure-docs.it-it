@@ -3,7 +3,7 @@ title: Pianificare l'applicazione cloud HR per Azure Active Directory il provisi
 description: Questo articolo descrive il processo di distribuzione dell'integrazione dei sistemi HR cloud, ad esempio giorni lavorativi e SuccessFactors, con Azure Active Directory. L'integrazione di Azure AD con il sistema HR cloud genera un sistema di gestione del ciclo di vita delle identità completo.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174901"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256712"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
@@ -73,7 +73,7 @@ Il provisioning IT basato su risorse umane offre alle aziende gli importanti van
 - **Gestione della conformità e della governance:** Azure AD supporta i log di controllo nativi per le richieste di provisioning utenti eseguite dalle app dei sistemi di origine e di destinazione. La funzionalità di controllo consente di monitorare chi ha accesso alle app da un'unica schermata.
 - **Gestione dei costi:** il provisioning automatico riduce i costi evitando le inefficienze e gli errori umani associati ai processi di provisioning manuali. Riduce inoltre la necessità di usare soluzioni di provisioning utenti personalizzate sviluppate nel tempo usando piattaforme legacy e obsolete.
 
-### <a name="licensing"></a>Licenza
+### <a name="licensing"></a>Gestione delle licenze
 
 Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degli utenti, è necessario disporre di una [licenza Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/) valida e di una licenza per l'app HR cloud, ad esempio giornata lavorativa o SuccessFactors.
 

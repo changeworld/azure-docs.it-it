@@ -3,7 +3,7 @@ title: Come usare l'accesso alle applicazioni self-service in Azure AD
 description: Abilita self-service in modo che gli utenti possano trovare le app in Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 13f91fdd9e2d9501fba426bd6facbf9824a39285
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372464"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257018"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Come usare l'accesso alle applicazioni self-service
 
@@ -43,8 +43,8 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 2. Aprire l' **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
-4. Selezionare **applicazioni aziendali** nel menu di spostamento a sinistra Azure Active Directory.
-5. Selezionare **tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento a sinistra di Azure Active Directory.
+5. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
    * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 6. Selezionare l'applicazione per cui si desidera abilitare l'accesso self-service dall'elenco.
 7. Dopo il caricamento dell'applicazione, selezionare **self-service** nel menu di navigazione a sinistra dell'applicazione.

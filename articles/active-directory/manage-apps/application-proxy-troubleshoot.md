@@ -3,7 +3,7 @@ title: Risolvere i problemi del proxy dell'applicazione | Documentazione Microso
 description: Illustra come risolvere gli errori nel Proxy applicazione di Azure AD.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 06/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 413cfe4f3aed446ad26a210b4faa452c4f624685
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb8fb0e194b4c43b5e247f2ea5d1e38d924591db
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88640855"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257964"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 
@@ -85,7 +85,7 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 
 Se si verifica un errore o un problema con il Proxy dell'applicazione Azure AD che non è elencato in questa guida alla risoluzione dei problemi, è necessario segnalarlo. Invia un'email al [team che si occupa del feedback](mailto:aadapfeedback@microsoft.com) specificando i dettagli dell'errore che si è verificato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Abilitare il proxy di applicazione per Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md)
 * [Abilita Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)

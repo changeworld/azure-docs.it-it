@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
-ms.translationtype: HT
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618536"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256543"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -212,6 +212,12 @@ Viene visualizzata una notifica che informa che è in corso la configurazione di
 Per abilitare LDAP sicuro per il dominio gestito sono necessari alcuni minuti. Se il certificato LDAP sicuro fornito non corrisponde ai criteri richiesti, l'azione per abilitare LDAP sicuro per il dominio gestito ha esito negativo.
 
 L'errore si verifica in genere se il nome di dominio non è corretto, se l'algoritmo di crittografia per il certificato non è *TripleDES-SHA1* oppure se il certificato sta per scadere o è già scaduto. È possibile creare di nuovo il certificato con parametri validi, quindi abilitare LDAP sicuro usando questo certificato aggiornato.
+
+## <a name="change-an-expiring-certificate"></a>Modificare un certificato in scadenza
+
+1. Creare un certificato LDAP sicuro sostitutivo attenendosi alla procedura per [creare un certificato per l'LDAP sicuro](#create-a-certificate-for-secure-ldap).
+1. Per applicare il certificato sostitutivo a Azure AD DS, nel menu a sinistra per Azure AD DS nel portale di Azure selezionare **LDAP sicuro** e quindi selezionare **Cambia certificato**.
+1. Distribuire il certificato a tutti i client che si connettono usando LDAP sicuro. 
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloccare l'accesso LDAP sicuro su Internet
 

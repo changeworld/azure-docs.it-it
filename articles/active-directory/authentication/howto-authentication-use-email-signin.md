@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559841"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255968"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Accedere a Azure Active Directory usando la posta elettronica come ID di accesso alternativo (anteprima)
 
@@ -113,7 +113,7 @@ Durante la fase di anteprima ora è possibile abilitare l'accesso tramite posta 
 1. Verificare se il criterio *HomeRealmDiscoveryPolicy* è già presente nel tenant usando il cmdlet [Get-AzureADPolicy][Get-AzureADPolicy] come segue:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 1. In assenza di un criterio attualmente configurato, il comando non restituisce alcun valore. Se viene restituito un criterio, ignorare questo passaggio e passare a quello successivo per aggiornare un criterio esistente.
@@ -121,10 +121,22 @@ Durante la fase di anteprima ora è possibile abilitare l'accesso tramite posta 
     Per aggiungere il criterio *HomeRealmDiscoveryPolicy* al tenant, usare il cmdlet [New-AzureADPolicy][New-AzureADPolicy] e impostare l'attributo *AlternateIdLogin* su *"Enabled": true* come mostrato nell'esempio seguente:
 
     ```powershell
-    New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    New-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Dopo aver completato la creazione del criterio, il comando restituisce l'ID del criterio come mostrato nell'output di esempio seguente:
@@ -156,17 +168,31 @@ Durante la fase di anteprima ora è possibile abilitare l'accesso tramite posta 
     L'esempio seguente aggiunge l'attributo  *AlternateIdLogin* e preserva l'attributo  *AllowCloudPasswordValidation* che può essere già stato impostato:
 
     ```powershell
-    Set-AzureADPolicy -id b581c39c-8fe3-4bb5-b53d-ea3de05abb4b `
-        -Definition @('{"HomeRealmDiscoveryPolicy" :{"AllowCloudPasswordValidation":true,"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AllowCloudPasswordValidation" = $true
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      ID                    = "b581c39c-8fe3-4bb5-b53d-ea3de05abb4b"
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    
+    Set-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Confermare che il criterio aggiornato riflette le modifiche e che l'attributo *AlternateIdLogin* sia ora abilitato:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 Con l'applicazione dei criteri, la propagazione può richiedere fino a un'ora e consentire agli utenti di eseguire l'accesso con l'ID di accesso alternativo.
@@ -207,7 +233,12 @@ Per completare i passaggi seguenti è necessario disporre delle autorizzazioni d
 4. Se non sono presenti criteri di implementazione di gestione temporanea esistenti per questa funzionalità, creare un nuovo criterio di implementazione di gestione temporanea e prendere nota dell'ID criterio:
 
    ```powershell
-   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   $AzureADMSFeatureRolloutPolicy = @{
+      Feature    = "EmailAsAlternateId"
+      DisplayName = "EmailAsAlternateId Rollout Policy"
+      IsEnabled   = $true
+   }
+   New-AzureADMSFeatureRolloutPolicy @AzureADMSFeatureRolloutPolicy
    ```
 
 5. Trovare l'ID directoryObject per il gruppo da aggiungere ai criteri di implementazione di gestione temporanea. Si noti il valore restituito per il parametro *ID* , perché verrà usato nel passaggio successivo.
@@ -250,7 +281,7 @@ Se gli utenti hanno problemi con gli eventi di accesso usando il proprio indiriz
 1. Confermare che per il criterio di Azure AD *HomeRealmDiscoveryPolicy* l'attributo *AlternateIdLogin* sia impostato su *"Enabled": true*:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,19 +3,19 @@ title: Gestione dell'accesso alle app tramite Azure AD
 description: Descrive come Azure Active Directory consente alle organizzazioni di specificare le app a cui ha accesso ogni utente.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: c73a5ccd9e16fb5efd9fefca6253701f942c3202
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5afc6aa8f52011eba6d7cfdfaa09b0ab995183e8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367789"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257424"
 ---
 # <a name="managing-access-to-apps"></a>Gestione dell'accesso alle app
 
@@ -88,7 +88,7 @@ Vi sono tre principali modi con cui un utente può accedere a un'applicazione pu
 
 Alcune applicazioni combinano questi metodi. Alcune applicazioni Microsoft, ad esempio, fanno parte di una sottoscrizione di Microsoft 365, ma richiedono comunque il consenso.
 
-Gli utenti possono accedere alle applicazioni Microsoft 365 tramite i portali di Office 365. È anche possibile visualizzare o nascondere le applicazioni Microsoft 365 in app personali con l' [interruttore di visibilità di Office 365](hide-application-from-user-portal.md) nelle **impostazioni utente**della directory. 
+Gli utenti possono accedere alle applicazioni Microsoft 365 tramite i portali di Office 365. È anche possibile visualizzare o nascondere le applicazioni Microsoft 365 in app personali con l' [interruttore di visibilità di Office 365](hide-application-from-user-portal.md) nelle **impostazioni utente** della directory. 
 
 Come per le app aziendali, è possibile [assegnare utenti](assign-user-or-group-access-portal.md) a determinate applicazioni Microsoft tramite il portale di Azure o, se l'opzione del portale non è disponibile, usando PowerShell.
 

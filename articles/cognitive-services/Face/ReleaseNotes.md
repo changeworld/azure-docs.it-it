@@ -1,5 +1,5 @@
 ---
-title: Novità del servizio Face
+title: Novità del servizio Viso
 titleSuffix: Azure Cognitive Services
 description: Le note sulla versione per il servizio viso includono una cronologia delle modifiche di versione per varie versioni.
 services: cognitive-services
@@ -10,19 +10,31 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 8a409d66065a7ccd2b34365bd565202f207ac0e8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560747"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258083"
 ---
-# <a name="whats-new-in-face-service"></a>Novità del servizio Face
+# <a name="whats-new-in-face-service"></a>Novità del servizio Viso
 
 Il servizio Azure Face viene aggiornato su base continuativa. Usare questo articolo per rimanere sempre aggiornati sui miglioramenti delle funzionalità, sulle correzioni e sugli aggiornamenti della documentazione.
 
+## <a name="january-2021"></a>Gennaio 2021
+* Attenuare la latenza quando si usa il API Viso: il team del viso ha pubblicato un nuovo articolo che illustra in dettaglio le potenziali cause della latenza quando si usa il servizio e le possibili strategie di mitigazione. Vedere [attenuare la latenza quando si usa il servizio Face](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+
+## <a name="december-2020"></a>Dicembre 2020
+* Configurazione del cliente per l'archiviazione con ID viso: mentre il servizio viso non archivia le immagini dei clienti, le funzionalità della faccia estratte verranno archiviate nel server. L'ID del viso è un identificatore della funzionalità della faccia e verrà usato in un tipo di identificazione [della faccia,](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)una [Verifica della faccia](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)e un [aspetto simile](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). Le funzionalità dei visi archiviati scadranno e verranno eliminate 24 ore dopo la chiamata di rilevamento originale. I clienti possono ora determinare il periodo di memorizzazione nella cache degli ID di questi visi. Il valore massimo è ancora fino a 24 ore, ma ora è possibile impostare un valore minimo di 60 secondi. I nuovi intervalli di tempo per gli ID facciali memorizzati nella cache sono valori compresi tra 60 secondi e 24 ore. Per altri dettagli, vedere la Guida di riferimento alle API per il [rilevamento dei visi](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (il parametro *faceIdTimeToLive* ).
+
 ## <a name="november-2020"></a>Novembre 2020
-* È stata pubblicata un'app di registrazione Face di esempio per illustrare le procedure consigliate per la definizione di un consenso significativo e la creazione di sistemi di riconoscimento viso ad alta precisione tramite registrazioni di alta qualità. L'esempio Open Source è disponibile nella Guida all' [app per la creazione di una registrazione](build-enrollment-app.md) e in [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), pronto per gli sviluppatori per la distribuzione o la personalizzazione.  
+* È stata pubblicata un'app di registrazione Face di esempio per illustrare le procedure consigliate per la definizione di un consenso significativo e la creazione di sistemi di riconoscimento viso ad alta precisione tramite registrazioni di alta qualità. L'esempio Open Source è disponibile nella Guida all'app per la [creazione di una registrazione](build-enrollment-app.md) e in [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), pronto per gli sviluppatori per la distribuzione o la personalizzazione. 
+
+## <a name="august-2020"></a>Agosto 2020
+* Crittografia dei dati inattivi gestita dal cliente: il servizio viso crittografa automaticamente i dati in modo permanente nel cloud. La crittografia del servizio viso protegge i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È disponibile anche una nuova opzione per gestire la sottoscrizione con chiavi personalizzate denominate chiavi gestite dal cliente (CMK). Ulteriori informazioni sono disponibili in [chiavi gestite dal cliente](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+
+## <a name="april-2020"></a>Aprile 2020
+* Nuovo modello di riconoscimento API Viso: il nuovo modello di riconoscimento 03 è il modello più accurato attualmente disponibile. Se sei un nuovo cliente, ti consigliamo di usare questo modello. Il riconoscimento 03 fornirà una maggiore accuratezza per i confronti di somiglianza e i confronti con corrispondenza di persona. Per ulteriori informazioni, vedere [specificare un modello di riconoscimento viso](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
 
 ## <a name="june-2019"></a>Giugno 2019
 

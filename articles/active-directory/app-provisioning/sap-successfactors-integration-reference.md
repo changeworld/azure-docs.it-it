@@ -3,19 +3,19 @@ title: Informazioni di riferimento sull'integrazione di Azure Active Directory e
 description: Approfondimento tecnico su SAP SuccessFactors-provisioning basato su HR
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: ed97600ca1802629f81f93f4f51c92ad4b1c9bd1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569454"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256222"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Come Azure Active Directory il provisioning si integra con SAP SuccessFactors 
 
@@ -76,7 +76,7 @@ Per ogni utente di SuccessFactors, Azure AD servizio di provisioning recupera le
 In base al mapping degli attributi, durante la sincronizzazione completa Azure AD servizio di provisioning Invia la seguente query API OData "GET" per recuperare dati effettivi di tutti gli utenti attivi. 
 
 > [!div class="mx-tdCol2BreakAll"]
->| Parametro | Description |
+>| Parametro | Descrizione |
 >| ----------|-------------|
 >| Host API OData | Accoda HTTPS all'URL del *tenant*. Esempio: `https://api4.successfactors.com` |
 >| Endpoint API OData | `/odata/v2/PerPerson` |

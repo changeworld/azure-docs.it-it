@@ -3,7 +3,7 @@ title: Informazioni di riferimento sugli attributi di SAP SuccessFactors
 description: Informazioni sugli attributi di SuccessFactors supportati dal provisioning basato su SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d1a25f67d3550e79b2339ee060d37acaea0c1c4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87808508"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255543"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Informazioni di riferimento sugli attributi di SAP SuccessFactors
 
@@ -34,7 +34,7 @@ La tabella seguente consente di acquisire l'elenco degli attributi SuccessFactor
 
 Per estendere lo schema per attributi aggiuntivi, vedere informazioni di [riferimento sull'integrazione di SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) . 
 
-| \# | Entità SuccessFactors                  | Attributo SuccessFactors     | Tipo di operazione |
+| \# | Entità SuccessFactors                  | Attributo di SuccessFactors     | Tipo di operazione |
 |----|----------------------------------------|------------------------------|----------------|
 | 1  | PerPerson                              | personIdExternal             | Lettura           |
 | 2  | PerPerson                              | personId                     | Lettura           |
@@ -45,35 +45,35 @@ Per estendere lo schema per attributi aggiuntivi, vedere informazioni di [riferi
 | 7  | PerPersonal                            | lastName                     | Lettura           |
 | 8  | PerPersonal                            | middleName                   | Lettura           |
 | 9  | PerPersonal                            | preferenzaname                | Lettura           |
-| 10 | Utente                                   | addressLine1                 | Lettura           |
-| 11 | Utente                                   | addressLine2                 | Lettura           |
+| 10 | User                                   | addressLine1                 | Lettura           |
+| 11 | User                                   | addressLine2                 | Lettura           |
 | 12 | Utente                                   | addressLIne3                 | Lettura           |
-| 13 | Utente                                   | businessPhone                | Lettura           |
-| 14 | Utente                                   | cellPhone                    | Lettura           |
+| 13 | User                                   | businessPhone                | Lettura           |
+| 14 | User                                   | cellPhone                    | Lettura           |
 | 15 | Utente                                   | city                         | Lettura           |
 | 16 | Utente                                   | country                      | Lettura           |
-| 17 | Utente                                   | custom01                     | Lettura           |
-| 18 | Utente                                   | custom02                     | Lettura           |
-| 19 | Utente                                   | custom03                     | Lettura           |
-| 20 | Utente                                   | custom04                     | Lettura           |
-| 21 | Utente                                   | custom05                     | Lettura           |
-| 22 | Utente                                   | custom06                     | Lettura           |
-| 23 | Utente                                   | custom07                     | Lettura           |
-| 24 | Utente                                   | custom08                     | Lettura           |
-| 25 | Utente                                   | custom09                     | Lettura           |
-| 26 | Utente                                   | personalizzata10                     | Lettura           |
-| 27 | Utente                                   | custom11                     | Lettura           |
-| 28 | Utente                                   | custom12                     | Lettura           |
-| 29 | Utente                                   | custom13                     | Lettura           |
-| 30 | Utente                                   | custom14                     | Lettura           |
-| 31 | Utente                                   | empId                        | Lettura           |
-| 32 | Utente                                   | homePhone                    | Lettura           |
-| 33 | Utente                                   | jobFamily                    | Lettura           |
-| 34 | Utente                                   | nickname                     | Lettura           |
+| 17 | User                                   | custom01                     | Lettura           |
+| 18 | User                                   | custom02                     | Lettura           |
+| 19 | User                                   | custom03                     | Lettura           |
+| 20 | User                                   | custom04                     | Lettura           |
+| 21 | User                                   | custom05                     | Lettura           |
+| 22 | User                                   | custom06                     | Lettura           |
+| 23 | User                                   | custom07                     | Lettura           |
+| 24 | User                                   | custom08                     | Lettura           |
+| 25 | User                                   | custom09                     | Lettura           |
+| 26 | User                                   | personalizzata10                     | Lettura           |
+| 27 | User                                   | custom11                     | Lettura           |
+| 28 | User                                   | custom12                     | Lettura           |
+| 29 | User                                   | custom13                     | Lettura           |
+| 30 | User                                   | custom14                     | Lettura           |
+| 31 | User                                   | empId                        | Lettura           |
+| 32 | User                                   | homePhone                    | Lettura           |
+| 33 | User                                   | jobFamily                    | Lettura           |
+| 34 | User                                   | nickname                     | Lettura           |
 | 35 | Utente                                   | state                        | Lettura           |
-| 36 | Utente                                   | timeZone                     | Lettura           |
-| 37 | Utente                                   | username                     | Lettura           |
-| 38 | Utente                                   | zipCode                      | Lettura           |
+| 36 | User                                   | timeZone                     | Lettura           |
+| 37 | User                                   | username                     | Lettura           |
+| 38 | User                                   | zipCode                      | Lettura           |
 | 39 | PerPhone                               | areaCode                     | Lettura           |
 | 40 | PerPhone                               | countryCode                  | Lettura           |
 | 41 | PerPhone                               | estensione                    | Lettura           |
@@ -120,7 +120,7 @@ Per estendere lo schema per attributi aggiuntivi, vedere informazioni di [riferi
 
 La tabella seguente fornisce il mapping predefinito degli attributi tra gli attributi SuccessFactors elencati sopra e gli attributi AD/Azure AD. Nel pannello "mapping" dell'app di provisioning di Azure AD è possibile modificare questo mapping predefinito per includere gli attributi dall'elenco precedente. 
 
-| \# | Entità SuccessFactors                  | Attributo SuccessFactors | Mapping di attributi AD/Azure AD predefinito   | Elaborazione del contrassegno                                                                            |
+| \# | Entità SuccessFactors                  | Attributo di SuccessFactors | Mapping di attributi AD/Azure AD predefinito   | Elaborazione del contrassegno                                                                            |
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
 | 1  | PerPerson                              | personIdExternal         | employeeId                              | Utilizzato come attributo corrispondente                                                                   |
 | 2  | PerPerson                              | perPersonUuid            | \[Non mappato \- usato come ancoraggio di origine\] | Durante la sincronizzazione iniziale, il servizio di provisioning collega personUuid a objectGuid\. esistenti  |
@@ -131,8 +131,8 @@ La tabella seguente fornisce il mapping predefinito degli attributi tra gli attr
 | 7  | Utente                                   | city                     | l                                       | N/D                                                                                           |
 | 8  | Utente                                   | country                  | co                                      | N/D                                                                                           |
 | 9  | Utente                                   | state                    | st                                      | N/D                                                                                           |
-| 10 | Utente                                   | username                 | samAccountName                          | N/D                                                                                           |
-| 11 | Utente                                   | zipCode                  | postalCode                              | N/D                                                                                           |
+| 10 | User                                   | username                 | samAccountName                          | N/D                                                                                           |
+| 11 | User                                   | zipCode                  | postalCode                              | N/D                                                                                           |
 | 12 | PerEmail                               | emailAddress             | mail                                    | N/D                                                                                           |
 | 13 | EmpJob                                 | jobTitle                 | title                                   | N/D                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | N/D                                                                                           |

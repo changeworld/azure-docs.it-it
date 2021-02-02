@@ -1,24 +1,36 @@
 ---
 title: Novità del provisioning dell'applicazione Azure Active Directory
 description: Documentazione nuova e aggiornata per il provisioning dell'applicazione Azure Active Directory.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: 053d342c8fbdd506ac5d4ba0916a1ae9361e7189
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: daveba
+ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562209"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256002"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory provisioning dell'applicazione: novità
 
 Ecco le novità della documentazione relativa al provisioning dell'applicazione Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità del servizio di provisioning, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Gennaio 2021
+
+### <a name="new-articles"></a>Nuovi articoli
+- [Integrazione di Azure Active Directory provisioning con la giornata lavorativa](workday-integration-reference.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+- [Esercitazione: sviluppare un endpoint SCIM di esempio](use-scim-to-build-users-and-groups-endpoints.md)
+- [Esercitazione: Personalizzare i mapping di attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory](customize-application-attributes.md)
+- [Come Azure Active Directory il provisioning si integra con SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [Provisioning dell'applicazione in stato di quarantena](application-provisioning-quarantine-status.md)
+
 
 ## <a name="december-2020"></a>Dicembre 2020
 

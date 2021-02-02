@@ -3,12 +3,12 @@ title: Procedure consigliate per i modelli
 description: Vengono descritti gli approcci consigliati per la creazione di modelli di Azure Resource Manager (modelli ARM). Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696347"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257998"
 ---
 # <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
 
@@ -276,6 +276,8 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](templ
 
    > [!NOTE]
    > Per assicurarsi che i segreti vengano crittografati quando vengono passati come parametri alle macchine virtuali e alle estensioni, usare la `protectedSettings` proprietà delle estensioni pertinenti.
+
+* Specificare i valori espliciti per le proprietà con valori predefiniti che potrebbero cambiare nel tempo. Se ad esempio si distribuisce un cluster AKS, è possibile specificare o omettere la `kubernetesVersion` Proprietà. Se non viene specificato, [il cluster viene impostato per impostazione predefinita sulla versione secondaria N-1 e sulla patch più recente](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). Quando si distribuisce il cluster usando un modello ARM, questo comportamento predefinito potrebbe non corrispondere a quello previsto. La ridistribuzione del modello può comportare l'aggiornamento imprevisto del cluster a una nuova versione di Kubernetes. È invece consigliabile specificare un numero di versione esplicito e quindi modificarlo manualmente quando si è pronti ad aggiornare il cluster.
 
 ## <a name="use-test-toolkit"></a>USA test Toolkit
 

@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602683"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257812"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usare l'inventario BLOB di archiviazione di Azure per gestire i dati BLOB (anteprima)
 
@@ -32,6 +32,8 @@ L'anteprima dell'inventario BLOB è disponibile negli account di archiviazione n
 - Francia centrale
 - Canada centrale
 - Canada orientale
+- Stati Uniti orientali
+- Stati Uniti Orientali 2
 
 ### <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -57,7 +59,7 @@ Abilitare i report inventario BLOB aggiungendo un criterio all'account di archiv
 I criteri di inventario vengono letti o scritti completamente. Gli aggiornamenti parziali non sono supportati.
 
 > [!IMPORTANT]
-> Se si abilitano le regole del firewall per l'account di archiviazione, le richieste di inventario potrebbero essere bloccate. È possibile sbloccare queste richieste fornendo eccezioni per i servizi Microsoft attendibili. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](../common/storage-network-security.md#exceptions).
+> Se si abilitano le regole del firewall per l'account di archiviazione, è possibile che le richieste di inventario vengano bloccate. È possibile sbloccarle specificando eccezioni per servizi attendibili di Microsoft. Per ulteriori informazioni, vedere la sezione eccezioni in [configurare firewall e reti virtuali](../common/storage-network-security.md#exceptions).
 
 Un'esecuzione dell'inventario BLOB viene automaticamente pianificata ogni giorno. Il completamento dell'esecuzione di un inventario può richiedere fino a 24 ore. Un report di inventario viene configurato aggiungendo un criterio di inventario con una o più regole.
 

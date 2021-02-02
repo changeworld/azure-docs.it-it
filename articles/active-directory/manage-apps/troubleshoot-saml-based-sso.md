@@ -1,23 +1,23 @@
 ---
-title: Risolvere i problemi di Single Sign-On basati su SAML in Azure Active Directory
+title: Risolvere i problemi di Single Sign-On basato su SAML in Azure Active Directory
 description: Risolvere i problemi relativi a un'app Azure AD configurata per Single Sign-On basato su SAML.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658877"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257527"
 ---
-# <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Risolvere i problemi di Single Sign-On basati su SAML in Azure Active Directory
+# <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Risolvere i problemi di Single Sign-On basato su SAML in Azure Active Directory
 Se si verifica un problema durante la configurazione di un'applicazione. Verificare di aver seguito tutti i passaggi dell'esercitazione per l'applicazione. Durante la configurazione dell'applicazione è disponibile la documentazione in linea relativa a come configurare l'applicazione. Per le istruzioni dettagliate, è possibile accedere all'[Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Impossibile aggiungere un'altra istanza dell'applicazione
