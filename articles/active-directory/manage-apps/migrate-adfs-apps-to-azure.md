@@ -3,7 +3,7 @@ title: Trasferimento dell'autenticazione dell'applicazione da AD FS a Azure Acti
 description: Questo articolo illustra come le organizzazioni possono spostare le applicazioni in Azure Active Directory, in particolare applicazioni SaaS federate.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: b27ccf5a861295ae83b5ddc021e77de75962de48
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745381"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258389"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Trasferimento dell'autenticazione dell'applicazione da Azure Active Directory Federation Services ad Azure Active Directory
 
@@ -236,11 +236,11 @@ Le app SaaS devono comprendere dove inviare le richieste di autenticazione e com
 
 | Impostazione di configurazione| AD FS| Come configurare in Azure AD |
 | - | - | - |
-| **URL accesso IdP** <p>URL di accesso del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato per l'accesso.| L'URL di accesso AD FS è il nome del servizio federativo AD FS seguito da "/adfs/ls/." <p>Ad esempio: `https://fs.contoso.com/adfs/ls/`| Sostituire {Tenant-ID} con l'ID tenant. <p> Per le app che usano il protocollo SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **URL di disconnessione IdP**<p>URL di disconnessione del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato quando sceglie di disconnettersi dall'app.| L'URL di disconnessione è uguale all'URL di accesso oppure lo stesso URL con l'aggiunta di "WA = wsignout 1.0". Ad esempio: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Sostituire {Tenant-ID} con l'ID tenant.<p>Per le app che usano il protocollo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **URL accesso IdP** <p>URL di accesso del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato per l'accesso.| L'URL di accesso AD FS è il nome del servizio federativo AD FS seguito da "/adfs/ls/." <p>ad esempio `https://fs.contoso.com/adfs/ls/`| Sostituire {Tenant-ID} con l'ID tenant. <p> Per le app che usano il protocollo SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **URL di disconnessione IdP**<p>URL di disconnessione del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato quando sceglie di disconnettersi dall'app.| L'URL di disconnessione è uguale all'URL di accesso oppure lo stesso URL con l'aggiunta di "WA = wsignout 1.0". ad esempio `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Sostituire {Tenant-ID} con l'ID tenant.<p>Per le app che usano il protocollo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **Certificato per la firma di token**<p>IdP usa la chiave privata del certificato per firmare i token emessi. Verifica che il token provenga dallo stesso provider di identità per cui è stato configurato il trust nell'app.| Il certificato per la firma di token di AD FS si trova in **Certificati** in Gestione AD FS.| Trovarlo nella portale di Azure nelle **proprietà Single Sign-on** dell'applicazione sotto l'intestazione certificato di **firma SAML**. da dove può essere scaricato per il caricamento nell'app.  <p>Se l'applicazione dispone di più di un certificato, è possibile trovare tutti i certificati nel file XML dei metadati di Federazione. |
-| **Identificatore/"emittente"**<p>Identificatore dell'IdP dal punto di vista dell'app, talvolta denominato "ID autorità emittente".<p>Nel token SAML, il valore viene visualizzato come elemento Issuer.| L'identificatore per AD FS è in genere l'identificatore del servizio federativo nella gestione AD FS in **service > modificare le proprietà servizio federativo**. Ad esempio: `http://fs.contoso.com/adfs/services/trust`| Sostituire {Tenant-ID} con l'ID tenant.<p>https: \/ /STS.Windows.NET/{Tenant-ID}/ |
-| **Metadati federativi IdP**<p>Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.| Trovare l'URL dei metadati della Federazione AD FS in gestione AD FS in **Service > endpoint > metadati di tipo >: metadati federativi**. Ad esempio: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Il valore corrispondente per Azure AD segue il modello [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Sostituire {TenantDomainName} con il nome del tenant nel formato "contoso.onmicrosoft.com".   <p>Per altre informazioni, vedere [Metadati della federazione](../azuread-dev/azure-ad-federation-metadata.md). |
+| **Identificatore/"emittente"**<p>Identificatore dell'IdP dal punto di vista dell'app, talvolta denominato "ID autorità emittente".<p>Nel token SAML, il valore viene visualizzato come elemento Issuer.| L'identificatore per AD FS è in genere l'identificatore del servizio federativo nella gestione AD FS in **service > modificare le proprietà servizio federativo**. ad esempio `http://fs.contoso.com/adfs/services/trust`| Sostituire {Tenant-ID} con l'ID tenant.<p>https: \/ /STS.Windows.NET/{Tenant-ID}/ |
+| **Metadati federativi IdP**<p>Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.| Trovare l'URL dei metadati della Federazione AD FS in gestione AD FS in **Service > endpoint > metadati di tipo >: metadati federativi**. ad esempio `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Il valore corrispondente per Azure AD segue il modello [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Sostituire {TenantDomainName} con il nome del tenant nel formato "contoso.onmicrosoft.com".   <p>Per altre informazioni, vedere [Metadati della federazione](../azuread-dev/azure-ad-federation-metadata.md). |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>Rappresentano i criteri di sicurezza AD FS in Azure AD
@@ -458,7 +458,7 @@ A seconda di come si configura l'app, verificare che SSO funzioni correttamente.
 ‎ |
 | SSO basato su SAML| Usare il pulsante [test impostazioni SAML](./debug-saml-sso-issues.md) disponibile in **Single Sign-on**.
 ‎ |
-| Password-Based SSO| Scaricare e installare l'estensione per l' [accesso sicuro app](../user-help/my-apps-portal-end-user-access.md) [-](../user-help/my-apps-portal-end-user-access.md) [in Extension](../user-help/my-apps-portal-end-user-access.md). Questa estensione consente di avviare tutte le app cloud dell'organizzazione che richiedono l'uso di un processo SSO.
+| Password-Based SSO| Scaricare e installare l'estensione per l' [accesso sicuro app](../user-help/my-apps-portal-end-user-access.md) [-](../user-help/my-apps-portal-end-user-access.md) [](../user-help/my-apps-portal-end-user-access.md). Questa estensione consente di avviare tutte le app cloud dell'organizzazione che richiedono l'uso di un processo SSO.
 ‎ |
 | Proxy dell'applicazione| Verificare che il connettore sia in esecuzione e che sia stato assegnato all'applicazione. Per ulteriore assistenza, vedere la [Guida alla risoluzione dei problemi del proxy di applicazione](./application-proxy-troubleshoot.md) .
 ‎ |

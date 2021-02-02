@@ -3,19 +3,19 @@ title: "Avvio rapido: Assegnare utenti a un'app che usa Azure Active Directory c
 description: Questo argomento di avvio rapido illustra come consentire agli utenti di usare un'app configurata per l'uso di Azure AD come provider di identità.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
-ms.translationtype: HT
+ms.openlocfilehash: 53dd2d15565149c3a9888ba063a6194ae033d8e0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325879"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258372"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Avvio rapido: Assegnare utenti a un'app che usa Azure AD come provider di identità
 
