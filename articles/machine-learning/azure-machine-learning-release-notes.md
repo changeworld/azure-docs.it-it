@@ -9,17 +9,32 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788876"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430998"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
+ ## <a name="2021-01-31"></a>2021-01-31
+### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di gennaio)
++ **Nuove funzionalità**
+  + Editor Markdown nativo in AzureML. Gli utenti possono ora eseguire il rendering e modificare i file Markdown in modo nativo in AzureML Studio.
+  + [Pulsante Esegui per gli script (. py,. R e. sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Gli utenti possono ora eseguire facilmente script Python, R e bash in AzureML
+  + [Esplora variabili](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Esplorare il contenuto di variabili e frame di dati in un pannello popup. Gli utenti possono controllare facilmente il tipo di dati, le dimensioni e il contenuto.
+  + [Tabella di contenuto](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Passare alle sezioni del notebook, indicate dalle intestazioni Markdown.
+  + Esporta il notebook come Latex/HTML/py. Creare file di notebook facili da condividere esportando in LaTex, HTML o py
+  + Intellicode. I risultati basati su ML offrono un' [esperienza di completamento automatico intelligente](https://docs.microsoft.com/visualstudio/intellicode/overview)avanzata.
+
++ **Correzioni di bug e miglioramenti**
+  + Tempi di caricamento delle pagine migliorati
+  + prestazioni migliorate 
+  + Maggiore velocità e affidabilità del kernel
+  
  ## <a name="2021-01-25"></a>2021-01-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>SDK di Azure Machine Learning per Python v 1.21.0
@@ -178,7 +193,7 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
     + Documentazione migliorata per `OutputDatasetConfig.register_on_complete` includere il comportamento di ciò che accade quando il nome esiste già.
     + Se si specificano i nomi di input e output del set di dati che possono entrare in conflitto con le variabili di ambiente comuni, verrà generato un avviso
     + Parametro riutilizzabile `grant_workspace_access` durante la registrazione di archivi dati. Impostarla su `True` per accedere ai dati dietro la rete virtuale da Machine Learning Studio.
-      [Altre informazioni](./how-to-enable-studio-virtual-network.md)
+      [Scopri di più](./how-to-enable-studio-virtual-network.md)
     + L'API del servizio collegato è stata perfezionata. Anziché fornire l'ID risorsa, sono disponibili 3 parametri distinti sub_id, RG e Name definiti nella configurazione.
     + Per consentire ai clienti di risolvere automaticamente i problemi di danneggiamento dei token, abilitare la sincronizzazione dei token dell'area di lavoro come metodo pubblico.
     + Questa modifica consente di utilizzare una stringa vuota come valore per una script_param

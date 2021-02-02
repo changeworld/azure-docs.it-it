@@ -1,37 +1,38 @@
 ---
-title: 'Esercitazione: configurare Precie per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Precie.
+title: 'Esercitazione: configurare la Intranet Iris per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Iris Intranet.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
 writer: Zhchia
 manager: beatrizd
-ms.assetid: fa640971-87e7-49f2-933b-bc7c95fe51e2
+ms.assetid: 38db8479-6d33-43de-9f71-1f1bd184fe69
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2020
+ms.date: 01/15/2021
 ms.author: Zhchia
-ms.openlocfilehash: a1480e6382a70699e84ddffd3c2fb4bb6414ece9
+ms.openlocfilehash: 1edd587f945dbecb3ea4e88421ad164f6f00516d
 ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430815"
+ms.locfileid: "99431190"
 ---
-# <a name="tutorial-configure-preciate-for-automatic-user-provisioning"></a>Esercitazione: configurare Precie per il provisioning utenti automatico
+# <a name="tutorial-configure-iris-intranet-for-automatic-user-provisioning"></a>Esercitazione: configurare la Intranet Iris per il provisioning utenti automatico
 
-In questa esercitazione vengono descritti i passaggi da eseguire sia in Precie che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Quando è configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi per [l'uso del](https://www.preciate.org/) servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+Questa esercitazione descrive i passaggi da eseguire sia nella Intranet Iris sia nella Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi nella [Intranet Iris](https://www.triptic.nl/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Crea utenti in preciate
-> * Rimuovere gli utenti in Precie quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e preciate
+> * Creare utenti in Iris Intranet
+> * Rimuovere gli utenti nella Intranet Iris quando non richiedono più l'accesso
+> * Mantieni gli attributi utente sincronizzati tra Azure AD e Intranet Iris
+> * [Accesso Single Sign-on](iris-intranet-tutorial.md) a Iris Intranet (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,56 +40,44 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 * [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
-* Tenant Precie.
-* Un account utente in Precie con autorizzazioni di amministratore.
+* Tenant Intranet Iris.
+* Un account utente nella Intranet Iris con autorizzazioni di amministratore.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Acquisire informazioni su [come funziona il servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e precie](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+3. Determinare quali dati eseguire il [mapping tra Azure ad e la Intranet Iris](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-preciate-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Precie per supportare il provisioning con Azure AD
+## <a name="step-2-configure-iris-intranet-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare la Intranet Iris per supportare il provisioning con Azure AD
 
-1.  Accedere al [portale di amministrazione di precie](https://preciate.com/web/admin/keys) e passare alla pagina **Integrations (integrazioni** ).
+Per configurare la Intranet Iris per il supporto del provisioning con Azure AD è necessario ottenere l' **URL del tenant** e il **token segreto** eliminando un messaggio di posta elettronica al [team di supporto di Iris Intranet](mailto:support@triptic.nl). Questi valori verranno immessi nel campo **token segreto** e **URL tenant** nella scheda provisioning dell'applicazione della Intranet Iris nella portale di Azure.
 
-    ![Chiave privata](media/preciate-provisioning-tutorial/preciate-secret-path.png)
+## <a name="step-3-add-iris-intranet-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere la Intranet Iris dalla raccolta di applicazioni Azure AD
 
-2.  Selezionare il pulsante **genera** in cui viene indicato Active Directory chiave privata di integrazione. 
- 
-    ![Genera di preciate](media/preciate-provisioning-tutorial/preciate-secret-generate.png)
-
-3.  Verrà visualizzata una nuova **chiave privata** . Copiare e salvare la **chiave privata**. Prendere nota anche che l'URL del tenant è `https://preciate.com/api/v1/scim` . Questi valori verranno immessi nel campo **token segreto** e **URL tenant** nella scheda provisioning dell'applicazione precie nella portale di Azure.
- 
-> [!NOTE]
->Ogni volta che si fa clic sul pulsante genera viene creata una nuova chiave privata. Verrà immediatamente invalidato quello corrente. Se un'integrazione sta già usando attivamente la chiave corrente, la generazione di quella nuova provocherà l'arresto del funzionamento dell'integrazione finché il token del segreto non verrà aggiornato nell'applicazione di Precie in Azure porta.
-
-
-## <a name="step-3-add-preciate-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Precie dalla raccolta di applicazioni di Azure AD
-
-Aggiungere Precie dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Precie. Se il programma di installazione è stato impostato in precedenza per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Altre informazioni sull'aggiunta di un'applicazione dalla [raccolta](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Aggiungere la Intranet Iris dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Intranet Iris. Se in precedenza è stata eseguita la configurazione di Iris Intranet per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Quando si assegnano utenti e gruppi a Precie, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi alla Intranet Iris, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-preciate"></a>Passaggio 5. Configurare il provisioning utenti automatico su preciate 
+## <a name="step-5-configure-automatic-user-provisioning-to-iris-intranet"></a>Passaggio 5. Configurare il provisioning utenti automatico in Iris Intranet 
 
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-preciate-in-azure-ad"></a>Per configurare il provisioning utenti automatico per preciate in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-iris-intranet-in-azure-ad"></a>Per configurare il provisioning utenti automatico per la Intranet Iris in Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **preciate**.
+2. Nell'elenco delle applicazioni selezionare **Iris Intranet**.
 
-    ![Collegamento di Precie nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Iris Intranet nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Selezionare la scheda **Provisioning**.
 
@@ -98,7 +87,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL del tenant di precie e il token segreto. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a precie. Se la connessione non riesce, verificare che l'account in uso disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere l'URL del tenant della Intranet Iris e il token segreto. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi alla Intranet Iris. Se la connessione non riesce, verificare che l'account Iris Intranet disponga delle autorizzazioni di amministratore e riprovare.
 
     ![token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -108,29 +97,30 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gli utenti a precie**.
+8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Iris Intranet**.
 
-9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Precie nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in precie per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API precie supporti l'applicazione di filtri agli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Iris Intranet nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente nella Intranet Iris per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), è necessario assicurarsi che l'API Intranet Iris supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|Supportato per il filtro|
    |---|---|---|
    |userName|string|&check;|
    |active|Boolean|
-   |displayName|string|
-   |title|string|
+   |emails[type eq "work"].value|string|
    |name.givenName|string|
    |name.familyName|string|
    |name.formatted|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |phoneNumbers[type eq "mobile"].value|string|
    |externalId|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+  
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Per abilitare il servizio di provisioning Azure AD per preciate, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+11. Per abilitare il servizio di provisioning Azure AD per la Intranet Iris, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning nella Intranet Iris selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 

@@ -9,12 +9,12 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b768a4fba7474c863ff8a9bce538f0a0b67e191
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 0b3959ba3ec80f3113ea0358db550c86f1f276b1
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072620"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430310"
 ---
 # <a name="use-coarse-relocalization-without-an-anchor-session"></a>Usare la rilocalizzazione grossolana senza una sessione di ancoraggio
 
@@ -146,3 +146,10 @@ sensorProvider.Stop();
 ```
 
 ---
+
+### <a name="next-steps"></a>Passaggi successivi
+
+Questo articolo ha illustrato come usare l'API di rilocalizzazione grossolana per ottenere una stima della posizione del dispositivo. Per altre informazioni sulla rilocalizzazione grossolana, passare alla guida successiva.
+
+> [!div class="nextstepaction"]
+> [Rilocalizzazione grossolana](../concepts/coarse-reloc.md)

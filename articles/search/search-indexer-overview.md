@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: ceeaad64734099f8669590d39f1629b9f4173e19
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097149"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430463"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Ricerca cognitiva di Azure
 
@@ -47,6 +47,8 @@ Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azu
 + [Database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Istanza gestita di SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server in Macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+Le connessioni dell'indicizzatore a origini dati remote possono essere effettuate usando connessioni Internet standard (pubblico) o connessioni private crittografate quando si usano reti virtuali di Azure per le app client. È anche possibile configurare le connessioni per l'autenticazione usando un'identità del servizio attendibile. Per altre informazioni sulle connessioni protette, vedere [concessione dell'accesso tramite endpoint privati](search-indexer-securing-resources.md#granting-access-via-private-endpoints) e [connettersi a un'origine dati usando un'identità gestita](search-howto-managed-identities-data-sources.md).
 
 ## <a name="stages-of-indexing"></a>Fasi di indicizzazione
 

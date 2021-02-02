@@ -2,19 +2,20 @@
 title: Configurare la propria chiave per la crittografia dei dati inattivi di hub eventi di Azure
 description: Questo articolo fornisce informazioni su come configurare la propria chiave per la crittografia dei dati REST di hub eventi di Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 00e33bc3464aed1829968b7957e48455eaa04447
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/01/2021
+ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933782"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430680"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Il servizio Hub eventi Usa archiviazione di Azure per archiviare i dati. Tutti i dati archiviati con archiviazione di Azure vengono crittografati usando chiavi gestite da Microsoft. Se si usa una chiave personalizzata (detta anche Bring Your Own Key (BYOK) o una chiave gestita dal cliente), i dati vengono comunque crittografati con la chiave gestita da Microsoft, ma in aggiunta la chiave gestita da Microsoft verrà crittografata con la chiave gestita dal cliente. Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia delle chiavi gestite da Microsoft. L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
 
 > [!NOTE]
-> La funzionalità BYOK è supportata dai cluster a [tenant singolo dedicati di hub eventi](event-hubs-dedicated-overview.md) . Non può essere abilitata per gli spazi dei nomi standard di hub eventi.
+> - La funzionalità BYOK è supportata dai cluster a [tenant singolo dedicati di hub eventi](event-hubs-dedicated-overview.md) . Non può essere abilitata per gli spazi dei nomi standard di hub eventi.
+> - La crittografia può essere abilitata solo per gli spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene Hub eventi, l'operazione di crittografia avrà esito negativo.
 
 È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../key-vault/general/overview.md)
 

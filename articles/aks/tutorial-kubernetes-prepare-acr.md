@@ -3,14 +3,14 @@ title: Esercitazione su Kubernetes in Azure - Creare un registro contenitori
 description: In questa esercitazione sul servizio Azure Kubernetes si crea un'istanza di Registro Azure Container e si carica un'immagine del contenitore dell'applicazione di esempio.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 01/31/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250622"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430965"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Esercitazione: Distribuire e usare Registro Azure Container
 
@@ -61,7 +61,7 @@ Al termine, il comando restituisce un messaggio di *Accesso riuscito*.
 Per visualizzare un elenco delle immagini locali correnti, usare il comando [docker images][docker-images]:
 
 ```console
-$ docker images
+docker images
 ```
 L'output del comando precedente mostra l'elenco delle immagini locali correnti:
 
@@ -88,8 +88,8 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 Per verificare che i tag siano applicati, eseguire di nuovo [docker images][docker-images].
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 Un'immagine è contrassegnata con l'indirizzo dell'istanza di Registro Azure Container e un numero di versione.

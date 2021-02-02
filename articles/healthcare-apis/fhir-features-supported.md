@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e75cf8d6660bf6f2630b83e0c2c812fa7cf59057
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252118"
+ms.locfileid: "99430243"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -118,6 +118,8 @@ Tutte le operazioni supportate che estendono l'API RESTful.
 | $export (intero sistema) | Sì       | Sì       | Sì       |         |
 | Paziente/$export        | Sì       | Sì       | Sì       |         |
 | Gruppo/$export          | Sì       | Sì       | Sì       |         |
+| $convert-dati          | Sì       | Sì       | Sì       |         |
+
 
 ## <a name="persistence"></a>Persistenza
 

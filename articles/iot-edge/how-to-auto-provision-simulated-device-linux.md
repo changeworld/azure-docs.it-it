@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046044"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430629"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM in Linux
 
@@ -63,7 +63,7 @@ Se si verificano errori in fase di creazione del nuovo commutatore virtuale, ass
 
 1. Scaricare un file di immagine del disco da usare per la macchina virtuale e salvarlo in locale. Ad esempio, [Ubuntu server 18,04](http://releases.ubuntu.com/18.04/). Per informazioni sui sistemi operativi supportati per i dispositivi IoT Edge, vedere [Azure IOT Edge sistemi supportati](support.md).
 
-2. Nella console di gestione di Hyper-V **Action**selezionare  >  **nuova**azione  >  **macchina virtuale** dal menu **azioni** .
+2. Nella console di gestione di Hyper-V selezionare  >  **nuova** azione  >  **macchina virtuale** dal menu **azioni** .
 
 3. Completare la **Creazione guidata macchina virtuale** con le configurazioni specifiche seguenti:
 
@@ -91,7 +91,7 @@ Una volta creata la macchina virtuale, aprire le impostazioni per abilitare il m
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Avviare la macchina virtuale e raccogliere i dati del modulo TPM
 
-Nella macchina virtuale creare uno strumento che è possibile usare per recuperare l' **ID di registrazione** e la **chiave**di verifica dell'autenticità del dispositivo.
+Nella macchina virtuale creare uno strumento che è possibile usare per recuperare l' **ID di registrazione** e la **chiave** di verifica dell'autenticità del dispositivo.
 
 1. Nella console di gestione di Hyper-V, avviare la macchina virtuale e connettersi.
 
@@ -112,7 +112,7 @@ Nella macchina virtuale creare uno strumento che è possibile usare per recupera
    sudo ./tpm_device_provision
    ```
 
-1. La finestra output Visualizza l' **ID registrazione** del dispositivo e la **chiave**di verifica dell'autenticità. Copiare questi valori per usarli in seguito quando si crea una registrazione singola per il dispositivo.
+1. La finestra output Visualizza l' **ID registrazione** del dispositivo e la **chiave** di verifica dell'autenticità. Copiare questi valori per usarli in seguito quando si crea una registrazione singola per il dispositivo.
 
 Dopo aver ottenuto l'ID registrazione e la chiave di verifica dell'autenticità, passare alla sezione [configurare il servizio Device provisioning in hub](#set-up-the-iot-hub-device-provisioning-service) Internet
 
@@ -132,7 +132,7 @@ Se si usa un dispositivo di IoT Edge fisico anziché una VM, compilare uno strum
    sudo ./tpm_device_provision
    ```
 
-1. Copiare i valori per l' **ID registrazione** e la **chiave**di verifica dell'autenticità. Usare questi valori per creare una registrazione singola per il dispositivo nel servizio Device Provisioning.
+1. Copiare i valori per l' **ID registrazione** e la **chiave** di verifica dell'autenticità. Usare questi valori per creare una registrazione singola per il dispositivo nel servizio Device Provisioning.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configurare il servizio Device Provisioning in hub IoT di Azure
 
@@ -160,13 +160,13 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
    2. Fornire la **chiave** di verifica dell'autenticità e l' **ID di registrazione** copiati dalla macchina virtuale.
 
       > [!TIP]
-      > Se si usa un dispositivo TPM fisico, è necessario determinare la **chiave**di verifica dell'autenticità, che è univoca per ogni chip TPM ed è ottenuta dal produttore del chip TPM associato. È possibile derivare un **ID di registrazione** univoco per il dispositivo TPM, ad esempio creando un hash SHA-256 della chiave di verifica dell'autenticità.
+      > Se si usa un dispositivo TPM fisico, è necessario determinare la **chiave** di verifica dell'autenticità, che è univoca per ogni chip TPM ed è ottenuta dal produttore del chip TPM associato. È possibile derivare un **ID di registrazione** univoco per il dispositivo TPM, ad esempio creando un hash SHA-256 della chiave di verifica dell'autenticità.
 
    3. Se si desidera, specificare un ID per il dispositivo. Se non si specifica un ID dispositivo, viene usato l'ID di registrazione.
 
    4. Selezionare **true** per dichiarare che questa macchina virtuale è un dispositivo IOT Edge.
 
-   5. Scegliere l'hub Internet degli altri collegamenti a cui si vuole connettere il dispositivo oppure selezionare **collega a nuovo hub**Internet. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di assegnazione selezionati.
+   5. Scegliere l'hub Internet degli altri collegamenti a cui si vuole connettere il dispositivo oppure selezionare **collega a nuovo hub** Internet. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di assegnazione selezionati.
 
    6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Per altre informazioni, vedere [distribuire moduli IOT Edge su larga scala](how-to-deploy-at-scale.md).
 
@@ -205,7 +205,11 @@ Una volta installato il runtime nel dispositivo, configurare il dispositivo con 
      attestation:
        method: "tpm"
        registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
+
+   Facoltativamente, usare le `always_reprovision_on_startup` `dynamic_reprovisioning` linee o per configurare il comportamento del nuovo provisioning del dispositivo. Se un dispositivo è impostato per eseguire un nuovo provisioning all'avvio, tenterà sempre di eseguire il provisioning con DPS prima e quindi di eseguire il fallback al backup del provisioning in caso di errore. Se un dispositivo è impostato in modo da eseguire un nuovo provisioning dinamico, IoT Edge verrà riavviato ed eseguito un nuovo provisioning se viene rilevato un evento di reprovisioning. Per altre informazioni, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](../iot-dps/concepts-device-reprovision.md).
 
 1. Aggiornare i valori di `scope_id` e `registration_id` con le informazioni sul dispositivo e sul DPS.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: efee1e1cda7767620931ef81825708d94a1925c3
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063180"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430446"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapping dei campi e trasformazioni usando gli indicizzatori di Azure ricerca cognitiva
 
@@ -42,7 +42,7 @@ Un mapping dei campi è costituito da tre parti:
 I mapping dei campi vengono aggiunti alla `fieldMappings` matrice della definizione dell'indicizzatore.
 
 > [!NOTE]
-> Se non viene aggiunto alcun mapping di campi, gli indicizzatori presuppongono che i campi dell'origine dati debbano essere mappati ai campi di indice con lo stesso nome. L'aggiunta di un mapping dei campi consente di rimuovere i mapping dei campi predefiniti per il campo di origine e di destinazione. Alcuni indicizzatori, ad esempio [l'indicizzatore di archiviazione BLOB](search-howto-indexing-azure-blob-storage.md), aggiungono i mapping dei campi predefiniti per il campo chiave di indice.
+> Se non viene aggiunto alcun mapping di campi, gli indicizzatori presuppongono che i campi dell'origine dati debbano essere mappati ai campi di indice con lo stesso nome. L'aggiunta di un mapping dei campi consente di rimuovere i mapping dei campi predefiniti per il campo di origine e di destinazione. Alcuni indicizzatori, ad esempio l' [indicizzatore di archiviazione BLOB](search-howto-indexing-azure-blob-storage.md), aggiungono i mapping dei campi predefiniti per il campo chiave di indice.
 
 ## <a name="map-fields-using-rest"></a>Eseguire il mapping di campi con REST
 
@@ -51,7 +51,6 @@ I mapping dei campi vengono aggiunti alla `fieldMappings` matrice della definizi
 Ad esempio, di seguito viene illustrato come eseguire il mapping di un campo di origine a un campo di destinazione con un nome diverso:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]

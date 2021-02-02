@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2020
+ms.openlocfilehash: ca8fad59e581ef3f5a3ebf585356564d539f0bbd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533411"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430731"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da SAP Business Warehouse (BW) tramite Open Hub. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
@@ -38,8 +39,8 @@ Questo SAP Business Warehouse tramite connettore Open Hub è supportato per le a
 
 In particolare, il connettore SAP Business Warehouse Open Hub supporta:
 
-- SAP Business Warehouse **versione 7,01 o successiva (in uno stack del pacchetto di supporto SAP recente rilasciato dopo l'anno 2015)**. SAP BW4/HANA non è supportato da questo connettore.
-- Copia dei dati tramite tabella locale Open Hub Destination che può essere DSO, InfoCube, MultiProvider, DataSource e così via.
+- SAP Business Warehouse **versione 7,01 o successiva (in uno stack del pacchetto di supporto SAP recente rilasciato dopo l'anno 2015)**. SAP BW/4HANA non è supportato da questo connettore.
+- La copia dei dati tramite la tabella locale di destinazione dell'hub aperto, che sotto può essere DSO, InfoCube, multifornitor, DataSource e così via.
 - La copia di dati usando l'autenticazione di base.
 - Connessione a un server applicazioni SAP o a un server di messaggi SAP.
 - Recupero di dati tramite RFC.
@@ -73,7 +74,7 @@ Per impostazione predefinita, ADF non legge il Delta più recente dalla tabella 
 
 In genere l'ID richiesta massimo copiato viene archiviato nell'ultima esecuzione di ADF in un archivio dati di staging, ad esempio BLOB di Azure nel diagramma precedente. La stessa richiesta non viene pertanto letta una seconda volta da ADF nell'esecuzione successiva. Nel frattempo, si noti che i dati non vengono eliminati automaticamente dalla tabella dell'hub aperto.
 
-Per una corretta gestione Delta non è consentito avere ID richiesta da DTPs diversi nella stessa tabella dell'hub aperta. Pertanto, non è necessario creare più di un DTP per ogni destinazione di hub aperto (OHD). Quando è necessaria l'estrazione completa e Delta dallo stesso InfoProvider, è necessario creare due OHDs per lo stesso InfoProvider. 
+Per una gestione Delta corretta, non è consentito avere ID richiesta da DTPs diversi nella stessa tabella Hub aperta. Pertanto, non è necessario creare più di un DTP per ogni destinazione di hub aperto (OHD). Quando è necessaria l'estrazione completa e Delta dallo stesso InfoProvider, è necessario creare due OHDs per lo stesso InfoProvider. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -90,9 +91,9 @@ Per usare il connettore SAP Business Warehouse Open Hub, è necessario:
     - Autorizzazione per RFC e SAP BW. 
     - Autorizzazioni per l'attività "Execute" dell'oggetto di autorizzazione "S_SDSAUTH".
 
-- Creare il tipo SAP Open Hub Destination come **Database Table** (Tabella di database) con l'opzione "Technical Key" (Chiave tecnica) selezionata.  È inoltre consigliabile lasciare deselezionata l'opzione di eliminazione dei dati dalla tabella, anche se questa impostazione non è obbligatoria. Sfruttare DTP (esecuzione diretta o integrazione nella catena di processo esistente) per il trasferimento dei dati dall'oggetto di origine scelto (ad esempio il cubo) nella tabella di destinazione dell'hub aperto.
+- Creare il tipo SAP Open Hub Destination come **Database Table** (Tabella di database) con l'opzione "Technical Key" (Chiave tecnica) selezionata.  È inoltre consigliabile lasciare deselezionata l'opzione di eliminazione dei dati dalla tabella, anche se questa impostazione non è obbligatoria. Usare il DTP (eseguire direttamente o integrarsi nella catena di processi esistente) per visualizzare i dati dall'oggetto di origine, ad esempio Cube, scelto nella tabella di destinazione dell'hub.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 > [!TIP]
 >
@@ -241,7 +242,7 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 | F (Float) | Double |
 | D (Date) | string |
 | T (Time) | string |
-| P (BCD Packed, Currency, Decimal, Qty) | Decimale |
+| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | string |
 | X (Binary e Raw) | string |
 

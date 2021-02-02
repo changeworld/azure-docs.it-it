@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 385a67e117bf0cf9508b81d014e3accac4725744
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ee51b31246760e4619eef1e16e800b16ea886de0
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914910"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430714"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando certificati X. 509
 
@@ -104,7 +104,7 @@ Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning,
 
    * **Selezionare gli hub di Internet delle cose a cui è possibile assegnare il dispositivo**: scegliere l'hub delle cose collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
-   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Esempio:
+   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Ad esempio:
 
       ```json
       {
@@ -189,7 +189,7 @@ Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning,
 
    * **Selezionare gli hub di Internet delle cose a cui è possibile assegnare il dispositivo**: scegliere l'hub delle cose collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
-   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Esempio:
+   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Ad esempio:
 
       ```json
       {
@@ -248,11 +248,15 @@ Sono disponibili le informazioni seguenti:
    #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
        identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
        identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
+
+   Facoltativamente, usare le `always_reprovision_on_startup` `dynamic_reprovisioning` linee o per configurare il comportamento del nuovo provisioning del dispositivo. Se un dispositivo è impostato per eseguire un nuovo provisioning all'avvio, tenterà sempre di eseguire il provisioning con DPS prima e quindi di eseguire il fallback al backup del provisioning in caso di errore. Se un dispositivo è impostato in modo da eseguire un nuovo provisioning dinamico, IoT Edge verrà riavviato ed eseguito un nuovo provisioning se viene rilevato un evento di reprovisioning. Per altre informazioni, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](../iot-dps/concepts-device-reprovision.md).
 
 1. Aggiornare i valori di `scope_id` , `identity_cert` e `identity_pk` con le informazioni sul dispositivo e sul DPS.
 
-   Quando si aggiungono le informazioni sulla chiave e sul certificato X. 509 al file config. YAML, i percorsi devono essere specificati come URI di file. Esempio:
+   Quando si aggiungono le informazioni sulla chiave e sul certificato X. 509 al file config. YAML, i percorsi devono essere specificati come URI di file. Ad esempio:
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`

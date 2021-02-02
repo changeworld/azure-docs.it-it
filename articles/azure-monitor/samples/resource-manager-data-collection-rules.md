@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 4983e4b7f76c627cb3cb3081bc12e27111b2b521
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bff13c24e0b5818b352e76df1d8ecd8251a5f12c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951463"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430227"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di raccolta dati in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'[agente di Log Analytics](../platform/log-analytics-agent.md) e l'[estensione di diagnostica](../platform/diagnostics-extension-overview.md) per le macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
@@ -21,7 +21,7 @@ Questo articolo include esempi di [modelli di Azure Resource Manager](../../azur
 
 ## <a name="create-association-with-azure-vm"></a>Creare un'associazione con la macchina virtuale di Azure
 
-L'esempio seguente installa l'agente di Monitoraggio di Azure in una macchina virtuale Windows di Azure. Viene creata un'associazione tra una macchina virtuale di Azure e una regola di raccolta dati.
+Nell'esempio seguente viene creata un'associazione tra una macchina virtuale di Azure e una regola di raccolta dati.
 
 ### <a name="template-file"></a>File modello
 

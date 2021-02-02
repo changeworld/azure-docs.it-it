@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4511ad979312d58e0a1b9cce9b1280e9ca059007
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ad2a27d1e41ba8e589aa98542c4a0cb3d92afbea
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744576"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430866"
 ---
 # <a name="apply-the-windows-azure-diagnostics-extension-in-cloud-services-extended-support"></a>Applicare l'estensione diagnostica di Microsoft Azure in servizi cloud (supporto esteso) 
 È possibile monitorare le metriche di prestazioni chiave per qualsiasi servizio cloud. Ogni ruolo del servizio cloud raccoglie dati minimi: utilizzo della CPU, utilizzo della rete e utilizzo del disco. Se il servizio cloud ha l'estensione Microsoft. Azure. Diagnostics applicata a un ruolo, tale ruolo può raccogliere ulteriori punti di dati. Per altre informazioni, vedere [Cenni preliminari sulle estensioni](extensions.md)
@@ -24,14 +24,15 @@ ms.locfileid: "98744576"
 
 ```powershell
 # Create WAD extension object
-$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
-$extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
+$storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "contosostorageaccount"
+$configFile = "<WAD public configuration file path>"
+$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -StorageAccountName "contosostorageaccount" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
 
 # Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
 # Add WAD extension to existing Cloud Service extension object
-$cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension + $wadExtension
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension + $wadExtension
 
 # Update Cloud Service
 $cloudService | Update-AzCloudService

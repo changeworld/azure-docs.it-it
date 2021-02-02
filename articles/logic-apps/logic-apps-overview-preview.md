@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760632"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430798"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Panoramica: anteprima di app per la logica di Azure
 
@@ -168,6 +168,8 @@ Per ulteriori informazioni sui modelli di determinazione prezzi applicabili a qu
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Funzionalità modificate, limitate, non disponibili o non supportate
 
 Nell'anteprima di app per la logica di Azure queste funzionalità sono state modificate o sono attualmente limitate, non disponibili o non supportate:
+
+* **Supporto del sistema operativo**: attualmente, la finestra di progettazione in Visual Studio Code non funziona in un sistema operativo Linux, ma è comunque possibile distribuire app per la logica che usano il runtime di anteprima delle app per la logica in macchine virtuali basate su Linux. Per il momento è possibile compilare le app per la logica in Visual Studio Code in Windows o macOS e quindi distribuirle in una macchina virtuale basata su Linux.
 
 * **Trigger e azioni**: alcuni trigger predefiniti non sono disponibili, ad esempio finestra temporale scorrevole e batch. Per avviare il flusso di lavoro, usare la [ricorrenza, la richiesta, il http, il webhook http, l'hub eventi o il trigger del bus di servizio predefiniti](../connectors/apis-list.md). I trigger e le azioni predefiniti vengono eseguiti in modo nativo nel runtime di anteprima di app per la logica di Azure, mentre i connettori gestiti vengono distribuiti in Azure. Nella finestra di progettazione, i trigger e le azioni predefiniti vengono visualizzati nella scheda **incorporata** , mentre i trigger e le azioni del connettore gestito vengono visualizzati nella scheda **Azure** .
 

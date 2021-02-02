@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: a521623447f4415e35a06c5c60e3723a69b4aa15
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 72735dad6a52fffd6e6e94ad4fb0fb7a9558b4c4
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98700602"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430080"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -82,6 +82,7 @@ Fare clic sul nome del provider di risorse nella tabella seguente per visualizza
 | [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated) |
 | [Microsoft.Purview](#microsoftpurview) |
 | [Microsoft.StreamAnalytics](#microsoftstreamanalytics) |
+| [Microsoft.Synapse](#microsoftsynapse) |
 | **Blockchain** |
 | [Microsoft.Blockchain](#microsoftblockchain) |
 | **Intelligenza artificiale e Machine Learning** |
@@ -4766,6 +4767,169 @@ Servizio di Azure: [analisi di flusso](../stream-analytics/index.yml)
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Read | Crea una trasformazione processo di Analisi di flusso |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Write | Scrive una trasformazione processo di Analisi di flusso |
 
+### <a name="microsoftsynapse"></a>Microsoft.Synapse
+
+Servizio di Azure: [analisi delle sinapsi](../synapse-analytics/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Azione | Descrizione |
+> | --- | --- |
+> | Microsoft. sinapsi/checkNameAvailability/azione | Controlla la disponibilità del nome dell'area di lavoro. |
+> | Microsoft. sinapsi/Register/Action | Registra il provider di risorse di analisi delle sinapsi di Azure (aree di lavoro) e consente la creazione di aree di lavoro. |
+> | Microsoft. sinapsi/Annulla registrazione/azione | Annulla la registrazione del provider di risorse di analisi delle sinapsi di Azure (aree di lavoro) e Disabilita la creazione di aree di lavoro. |
+> | Microsoft. sinapsi/aree di lavoro/integrationRuntimes/lettura | Ottenere qualsiasi Integration Runtime. |
+> | Microsoft. sinapsi/Workspaces/integrationruntimes/Write | Crea o aggiorna tutti i runtime di integrazione. |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/Delete | Elimina qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/GetStatus/Action | Ottenere lo stato di qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/createExpressSHIRInstallLink/Action | Creare un collegamento di installazione Integration Runtime |
+> | Microsoft. sinapsi/area di lavoro/integrationRuntimes di avvio/azione | Avvia qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/Stop/Action | Arresta qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/getConnectionInfo/Action | Ottenere le informazioni di connessione di qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/regenerateAuthKey/Action | Rigenera la chiave di autenticazione di qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/listAuthKeys/Action | Elencare le chiavi di autenticazione di qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/removeNode/Action | Rimuovere qualsiasi nodo Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/monitoringData/Action | Ottenere i dati di monitoraggio di Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/syncCredentials/Action | Sincronizzare le credenziali in qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/upgrade/Action | Aggiornare qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/removeLinks/Action | Rimuovere qualsiasi collegamento Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/enableInteractiveQuery/Action | Abilita query interattiva su qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/disableInteractiveQuery/Action | Disabilitare la query interattiva in qualsiasi Integration Runtime |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/refreshObjectMetadata/Action | Aggiornare i metadati degli oggetti in qualsiasi runtime di integrazione |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/getObjectMetadata/Action | Ottenere i metadati degli oggetti in qualsiasi runtime di integrazione |
+> | Microsoft. sinapsi/Workspaces/managedIdentitySqlControlSettings/Write | Aggiornare le impostazioni di controllo SQL Identity gestite nell'area di lavoro |
+> | Microsoft. sinapsi/aree di lavoro/managedIdentitySqlControlSettings/lettura | Ottenere le impostazioni di controllo SQL Identity gestite |
+> | Microsoft. sinapsi/Workspaces/scopePools/Write | Crea o aggiorna tutti i pool di ambito. |
+> | Microsoft. sinapsi/aree di lavoro/scopePools/lettura | Legge tutti i pool di ambito. |
+> | Microsoft. sinapsi/Workspaces/scopePools/Delete | Eliminare tutti i pool di ambito. |
+> | Microsoft. sinapsi/operazioni/lettura | Leggere le operazioni disponibili dal provider di risorse di analisi sinapsi di Azure. |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/nodes/Read | Ottiene qualsiasi nodo Integration Runtime. |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/nodes/Delete | Eliminare qualsiasi nodo Integration Runtime. |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/nodes/Write | Applicare patch a qualsiasi nodo Integration Runtime. |
+> | Microsoft. sinapsi/Workspaces/integrationRuntimes/nodes/ipAddress/Action | Ottenere Integration Runtime indirizzo IP |
+> | Microsoft. sinapsi/Workspaces/firewallRules/Write | Crea o aggiorna qualsiasi regola del firewall IP. |
+> | Microsoft. sinapsi/aree di lavoro/firewallRules/lettura | Leggi regola firewall IP |
+> | Microsoft. sinapsi/Workspaces/firewallRules/Delete | Eliminare qualsiasi regola del firewall IP. |
+> | Microsoft. sinapsi/Workspaces/replaceAllIpFirewallRules/Action | Sostituisce tutte le regole del firewall IP per l'area di lavoro. |
+> | Microsoft. sinapsi/aree di lavoro/scrittura | Creare o aggiornare le aree di lavoro. |
+> | Microsoft. sinapsi/aree di lavoro/lettura | Leggere tutte le aree di lavoro. |
+> | Microsoft. sinapsi/aree di lavoro/eliminazione | Elimina tutte le aree di lavoro. |
+> | Microsoft. sinapsi/Workspaces/checkDefaultStorageAccountStatus/Action | Controlla lo stato dell'account di archiviazione predefinito. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Write | Crea o aggiorna tutti i pool di analisi SQL. |
+> | Microsoft. sinapsi/aree di lavoro/sqlpools/lettura | Legge tutti i pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Delete | Eliminare tutti i pool di analisi SQL. |
+> | Microsoft. sinapsi/area di lavoro/sqlpools/pausa/azione | Sospendere tutti i pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Resume/Action | Riprendere tutti i pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/restorePoints/Action | Creare un punto di ripristino del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Move/Action | Rinominare tutti i pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataWarehouseQueries/Read | Leggere tutte le query del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/geoBackupPolicies/Read | Legge i criteri di backup geografico del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataWarehouseUserActivities/Read | Legge le attività utente del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/restorePoints/Read | Legge tutti i punti di ripristino del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/restorePoints/Delete | Elimina un punto di ripristino. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataWarehouseQueries/dataWarehouseQuerySteps/Read | Legge tutti i passaggi della query del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/maintenanceWindows/Read | Leggere tutte le finestre di manutenzione del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/maintenanceWindows/Write | Leggere tutte le finestre di manutenzione del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/maintenanceWindowOptions/Read | Leggere tutte le opzioni della finestra di manutenzione del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/replicationLinks/Read | Leggere tutti i collegamenti di replica del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/transparentDataEncryption/Read | Leggere tutti i pool di analisi SQL Transparent Data Encryption configurazione. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/transparentDataEncryption/Write | Crea o aggiorna qualsiasi Transparent Data Encryption configurazione del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/transparentDataEncryption/operationResults/Read | Legge i risultati dell'operazione di configurazione Transparent Data Encryption di qualsiasi pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/auditingSettings/Read | Leggere le impostazioni di controllo del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/auditingSettings/Write | Crea o aggiorna le impostazioni di controllo del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Operations/Read | Legge tutte le operazioni del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/usages/Read | Legge gli utilizzi del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/currentSensitivityLabels/Read | Legge tutte le etichette di riservatezza correnti del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/currentSensitivityLabels/Write | Etichette di riservatezza correnti aggiornamento batch |
+> | Microsoft. sinapsi/Workspaces/sqlpools/recommendedSensitivityLabels/Read | Legge tutte le etichette di riservatezza consigliate del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/recommendedSensitivityLabels/Write | Etichette di riservatezza consigliate per l'aggiornamento batch |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Read | Legge tutti gli schemi del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Tables/Read | Leggere tutte le tabelle dello schema del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Tables/Columns/Read | Leggere tutte le colonne della tabella dello schema del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/connectionPolicies/Read | Legge tutti i criteri di connessione del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/Read | Legge la valutazione della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/Write | Crea o aggiorna la valutazione della vulnerabilità del pool SQL |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/Delete | Elimina la valutazione della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/scansioni/lettura | Legge i record di analisi della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/scansitions/initiateScan/Action | Avviare eventuali record di analisi della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/scansitions/Export/Action | Esportare i record di analisi della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/securityAlertPolicies/Read | Legge i criteri di rilevamento delle minacce per il pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/securityAlertPolicies/Write | Crea o aggiorna i criteri di rilevamento delle minacce per il pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Tables/Columns/sensitivityLabels/Read | Ottiene l'etichetta di riservatezza di una determinata colonna. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Tables/Columns/sensitivityLabels/Enable/Action | Abilitare tutte le etichette di riservatezza del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Tables/Columns/sensitivityLabels/Disable/Action | Disabilitare le etichette di riservatezza del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Tables/Columns/sensitivityLabels/Write | Crea o aggiorna le etichette di riservatezza del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/schemas/Tables/Columns/sensitivityLabels/Delete | Elimina tutte le etichette di riservatezza del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/Rules/baselines/Read | Ottenere una baseline della regola di valutazione della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/Rules/baselines/write | Crea o aggiorna qualsiasi Baseline della regola di valutazione della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/vulnerabilityAssessments/Rules/baselines/Delete | Elimina la baseline della regola di valutazione della vulnerabilità del pool di analisi SQL. |
+> | Microsoft. sinapsi/aree di lavoro/operationStatuses/lettura | Legge lo stato di qualsiasi operazione asincrona. |
+> | Microsoft. sinapsi/aree di lavoro/operationResult/lettura | Legge il risultato di qualsiasi operazione asincrona. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/operationResults/Read | Legge il risultato di qualsiasi operazione asincrona. |
+> | Microsoft. sinapsi/Workspaces/bigDataPools/Write | Crea o aggiorna tutti i pool Spark. |
+> | Microsoft. sinapsi/aree di lavoro/bigDataPools/lettura | Leggere tutti i pool Spark. |
+> | Microsoft. sinapsi/Workspaces/bigDataPools/Delete | Eliminare tutti i pool Spark. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/metadataSync/Write | Crea o aggiorna la configurazione di sincronizzazione dei metadati del pool di analisi SQL |
+> | Microsoft. sinapsi/Workspaces/sqlpools/metadataSync/Read | Leggi la configurazione di sincronizzazione dei metadati del pool di analisi SQL |
+> | Microsoft. sinapsi/aree di lavoro/recoverableSqlpools/lettura | Ottiene i pool di analisi SQL ripristinabili, ovvero le risorse che rappresentano i backup geografici dei pool di analisi SQL |
+> | Microsoft. sinapsi/aree di lavoro/amministratori/scrittura | Impostare Active Directory amministratore nell'area di lavoro |
+> | Microsoft. sinapsi/aree di lavoro/amministratori/lettura | Ottenere l'amministratore dell'area di lavoro Active Directory |
+> | Microsoft. sinapsi/aree di lavoro/amministratori/eliminazione | Elimina area di lavoro Active Directory amministratore |
+> | Microsoft. sinapsi/Workspaces/privateEndpointConnections/Write | Crea o aggiorna la connessione all'endpoint privato |
+> | Microsoft. sinapsi/aree di lavoro/privateEndpointConnections/lettura | Lettura di qualsiasi connessione all'endpoint privato |
+> | Microsoft. sinapsi/Workspaces/privateEndpointConnections/Delete | Elimina connessione endpoint privato |
+> | Microsoft. sinapsi/aree di lavoro/privateLinkResources/lettura | Ottenere un elenco di risorse di collegamento privato |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Extensions/Read | Ottenere l'estensione del pool di analisi SQL |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Extensions/Write | Modificare l'estensione per un determinato pool di analisi SQL |
+> | Microsoft. sinapsi/privateLinkHubs/scrittura | Creare qualsiasi PrivateLinkHubs. |
+> | Microsoft. sinapsi/privateLinkHubs/Read | Leggere tutti i PrivateLinkHubs. |
+> | Microsoft. sinapsi/privateLinkHubs/Delete | Elimina PrivateLinkHubs. |
+> | Microsoft. sinapsi/locations/operationStatuses/Read | Legge lo stato di qualsiasi operazione asincrona. |
+> | Microsoft. sinapsi/località/operationResult/lettura | Legge il risultato di qualsiasi operazione asincrona. |
+> | Microsoft. sinapsi/privateLinkHubs/privateLinkResources/Read | Ottenere un elenco di risorse di collegamento privato |
+> | Microsoft. sinapsi/privateLinkHubs/privateEndpointConnections/scrittura | Crea o aggiorna la connessione all'endpoint privato per PrivateLinkHub |
+> | Microsoft. sinapsi/privateLinkHubs/privateEndpointConnections/Read | Leggere qualsiasi connessione all'endpoint privato per PrivateLinkHub |
+> | Microsoft. sinapsi/privateLinkHubs/privateEndpointConnections/Delete | Elimina la connessione all'endpoint privato per PrivateLinkHub |
+> | Microsoft. sinapsi/Workspaces/sqlpools/operationStatuses/Read | Legge il risultato di qualsiasi operazione asincrona. |
+> | Microsoft. sinapsi/aree di lavoro/chiavi/scrittura | Creare o aggiornare le chiavi dell'area di lavoro |
+> | Microsoft. sinapsi/aree di lavoro/chiavi/lettura | Legge la definizione della chiave dell'area di lavoro. |
+> | Microsoft. sinapsi/aree di lavoro/chiavi/eliminazione | Eliminare qualsiasi chiave dell'area di lavoro. |
+> | Microsoft. sinapsi/aree di lavoro/librerie/lettura | Lettura elementi libreria |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/Read | Elenca i gruppi del carico di lavoro per un pool SQL selezionato. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/Write | Imposta le proprietà per un gruppo di carico di lavoro specifico. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/Delete | Elimina un gruppo di carico di lavoro specifico. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/workloadClassifiers/Read | Elenca i classificatori del carico di lavoro per un pool di analisi SQL selezionato. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/workloadClassifiers/Write | Imposta le proprietà per un classificatore del carico di lavoro specifico. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/workloadClassifiers/Delete | Elimina un classificatore del carico di lavoro specifico. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/extendedAuditingSettings/Read | Leggere le impostazioni di controllo estese del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/extendedAuditingSettings/Write | Crea o aggiorna le impostazioni di controllo estese del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataMaskingPolicies/Read | Restituisce l'elenco dei criteri di maschera dati del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataMaskingPolicies/Write | Crea o aggiorna un criterio di maschera dati del pool di analisi SQL |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataMaskingPolicies/Rules/Read | Ottiene un elenco di regole di maschera dati del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataMaskingPolicies/Rules/Write | Crea o aggiorna una regola di maschera dati del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/Columns/Read | Restituisce un elenco di colonne per un pool di analisi SQL |
+> | Microsoft. sinapsi/Workspaces/sqlpools/sensitivityLabels/Read | Ottiene l'etichetta di riservatezza di una determinata colonna. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/auditRecords/Read | Ottenere i record di controllo BLOB del pool SQL |
+> | Microsoft. sinapsi/resourceGroups/operationStatuses/Read | Legge lo stato di qualsiasi operazione asincrona. |
+> | Microsoft. sinapsi/Workspaces/extendedAuditingSettings/Write | Crea o aggiorna le impostazioni di controllo estese di SQL Server. |
+> | Microsoft. sinapsi/aree di lavoro/extendedAuditingSettings/lettura | Leggere le impostazioni di controllo estese predefinite di SQL Server. |
+> | Microsoft. sinapsi/Workspaces/auditingSettings/Write | Crea o aggiorna le impostazioni di controllo di SQL Server. |
+> | Microsoft. sinapsi/aree di lavoro/auditingSettings/lettura | Leggere le impostazioni di controllo predefinite di SQL Server. |
+> | Microsoft. sinapsi/Workspaces/securityAlertPolicies/Write | Crea o aggiorna i criteri di avviso di sicurezza di SQL Server. |
+> | Microsoft. sinapsi/aree di lavoro/securityAlertPolicies/lettura | Legge i criteri di avviso di sicurezza di SQL Server predefiniti. |
+> | Microsoft. sinapsi/Workspaces/vulnerabilityAssessments/Write | Crea o aggiorna il report assement vulnerabilità di SQL Server. |
+> | Microsoft. sinapsi/aree di lavoro/vulnerabilityAssessments/lettura | Leggere il report assement vulnerabilità di SQL Server predefinita. |
+> | Microsoft. sinapsi/Workspaces/vulnerabilityAssessments/Delete | Elimina il report assement vulnerabilità di SQL Server. |
+> | Microsoft. sinapsi/aree di lavoro/restorableDroppedSqlPools/lettura | Ottiene un pool SQL eliminato che può essere ripristinato |
+> | Microsoft. sinapsi/Workspaces/sqlpools/dataWarehouseQueries/Steps/Read | Legge tutti i passaggi della query del pool di analisi SQL. |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/operationStatuses/Read | Stato operazione del gruppo di carico di lavoro pool di analisi SQL |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/workloadClassifiers/operationStatuses/Read | Stato operazione del classificatore del carico di lavoro del pool di analisi SQL |
+> | Microsoft. sinapsi/Workspaces/sqlpools/workloadGroups/workloadClassifiers/operationResults/Read | Risultato dell'operazione di classificazione del carico di lavoro del pool di analisi SQL |
+> | Microsoft. sinapsi/aree di lavoro/sqlusages/lettura | Ottiene i limiti di utilizzo disponibili per i pool di analisi SQL |
+> | Microsoft. sinapsi/Workspaces/auditingSettings/operationResults/Read | Impostazioni di controllo SQL Server |
+> | Microsoft. sinapsi/Workspaces/sqladministrators/Write | Impostare Active Directory amministratore nell'area di lavoro |
+> | Microsoft. sinapsi/aree di lavoro/sqladministrators/lettura | Ottenere l'amministratore dell'area di lavoro Active Directory |
+> | Microsoft. sinapsi/Workspaces/sqladministrators/Delete | Elimina area di lavoro Active Directory amministratore |
+
 ## <a name="blockchain"></a>Blockchain
 
 ### <a name="microsoftblockchain"></a>Microsoft.Blockchain
@@ -7255,7 +7419,7 @@ Servizio di Azure: [Azure DevOps](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Elimina il progetto |
 > | Microsoft.VisualStudio/Project/Read | Legge il progetto |
 
-## <a name="migrate"></a>Migrazione
+## <a name="migrate"></a>Migrate
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -7730,7 +7894,7 @@ Servizio di Azure: [Azure migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Ottiene le proprietà di un VMware vCenter |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Crea o aggiorna il VMware vCenter |
 
-## <a name="monitor"></a>Monitorare
+## <a name="monitor"></a>Monitoraggio
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 

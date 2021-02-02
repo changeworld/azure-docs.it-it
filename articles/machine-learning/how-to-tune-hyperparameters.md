@@ -2,24 +2,23 @@
 title: Ottimizzazione iperparametri di un modello
 titleSuffix: Azure Machine Learning
 description: Automatizzare l'ottimizzazione degli iperparametri per i modelli di apprendimento avanzato e di apprendimento automatico usando Azure Machine Learning.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133862"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430368"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Ottimizzazione iperparametri di un modello con Azure Machine Learning
-
 
 Automatizzare l'ottimizzazione efficiente degli iperparametri usando Azure Machine Learning [pacchetto](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py)di iperguida. Informazioni su come completare i passaggi necessari per ottimizzare gli iperparametri con [Azure Machine Learning SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>Visualizzare le esecuzioni dell'ottimizzazione iperparametri
 
+È possibile visualizzare le esecuzioni degli iperparametri in Azure Machine Learning Studio oppure è possibile usare un widget del notebook.
+
+### <a name="studio"></a>Studio
+
+È possibile visualizzare tutte le esecuzioni degli iperparametri in [Azure Machine Learning Studio](https://ml.azure.com). Per altre informazioni su come visualizzare un esperimento nel portale, vedere [visualizzare i record di esecuzione in studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+
+- **Grafico delle metriche**: questa visualizzazione tiene traccia delle metriche registrate per ogni figlio iperguidato eseguito per la durata dell'ottimizzazione degli iperparametri. Ogni riga rappresenta un'esecuzione figlio e ogni punto misura il valore della metrica primaria in corrispondenza di tale iterazione del runtime.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Grafico delle metriche di ottimizzazione iperparametri":::
+
+- **Grafico Coordinate parallele**: questa visualizzazione Mostra la correlazione tra le prestazioni della metrica primaria e i singoli valori degli iperparametri. Il grafico è interattivo tramite spostamento di assi (fare clic e trascinare l'etichetta dell'asse) ed evidenziando i valori in un singolo asse (fare clic e trascinare verticalmente lungo un singolo asse per evidenziare un intervallo di valori desiderati).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Grafico Coordinate parallele ottimizzazione iperparametri":::
+
+- **grafico a dispersione bidimensionale**: questa visualizzazione Mostra la correlazione tra due singoli iperparametri insieme al valore della metrica primaria associato.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Hyparameter ottimizzazione 2-grafico a dispersione dimensionale":::
+
+- **grafico a dispersione tridimensionale**: questa visualizzazione è identica a quella 2D, ma consente tre dimensioni iperparametri della correlazione con il valore della metrica primaria. È inoltre possibile fare clic e trascinare per riorientare il grafico in modo da visualizzare diverse correlazioni nello spazio 3D.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Hyparameter ottimizzazione del grafico a dispersione 3D":::
+
+### <a name="notebook-widget"></a>Widget del notebook
+
 Usare il [widget notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) per visualizzare lo stato di avanzamento delle esecuzioni di training. Il frammento seguente mostra tutte le esecuzioni di ottimizzazione degli iperparametri in un Jupyter Notebook:
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 Il codice mostra una tabella con informazioni dettagliate sulle esecuzioni di training per ciascuna configurazione degli iperparametri.
 
-![tabella di ottimizzazione degli iperparametri](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tabella di ottimizzazione iperparametri":::
 
-È anche possibile visualizzare le prestazioni di ognuna delle esecuzioni nel corso del training. 
-
-![tracciato di ottimizzazione degli iperparametri](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-È possibile identificare visivamente la correlazione tra le prestazioni e i valori dei singoli iperparametri usando un tracciato di coordinate parallele. 
-
-[![coordinate parallele di ottimizzazione degli iperparametri](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-È anche possibile visualizzare tutte le esecuzioni degli iperparametri nel portale Web di Azure. Per altre informazioni su come visualizzare un esperimento nel portale, vedere [come tenere traccia degli esperimenti](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+È anche possibile visualizzare le prestazioni di ognuna delle esecuzioni nel corso del training.
 
 ## <a name="find-the-best-model"></a>Individuare il modello migliore
 

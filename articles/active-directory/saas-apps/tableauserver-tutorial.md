@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 3c9d79ef4fd73adbe3ba376f1723693ea8e85197
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7ee22121fd023f3942eed64bd605bf87b961d893
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736508"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429836"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Tableau Server
 
@@ -40,7 +40,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Tableau Server supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Aggiunta di Tableau Server dalla raccolta
+## <a name="add-tableau-server-from-the-gallery"></a>Aggiungere Tableau Server dalla raccolta
 
 Per configurare l'integrazione di Tableau Server in Azure AD, è necessario aggiungere Tableau Server dalla raccolta all'elenco di app SaaS gestite.
 
@@ -83,7 +83,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
-    > I valori precedenti non sono valori reali. Aggiornare i valori con l'URL e l'identificatore effettivi indicati nella pagina di configurazione di Tableau Server, come illustrato più avanti in questa esercitazione.
+    > I valori precedenti non sono valori reali. Aggiornare i valori con l'URL di accesso, l'identificatore e l'URL di risposta effettivi dalla pagina di configurazione di Tableau Server, descritta più avanti nell'esercitazione.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -123,27 +123,27 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Nella scheda **CONFIGURATION** (Configurazione) selezionare **User Identity & Access**(Identità utente e accesso), quindi selezionare la scheda **Authentication Method** (Metodo di autenticazione).
 
-    ![Screenshot che mostra l'opzione Autenticazione selezionata in User Identity & Access.](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+    ![Screenshot che mostra l'opzione Autenticazione selezionata in User Identity & Access.](./media/tableauserver-tutorial/auth.png)
 
 3. Nella pagina **CONFIGURATION** (Configurazione) seguire questa procedura:
 
-    ![Screenshot che mostra la pagina Configuration in cui è possibile immettere i valori descritti.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+    ![Screenshot che mostra la pagina Configuration in cui è possibile immettere i valori descritti.](./media/tableauserver-tutorial/config.png)
 
     a. Per **Authentication Method** (Metodo di autenticazione) selezionare SAML.
 
     b. Selezionare la casella di controllo **Enable SAML Authentication for the server** (Abilita autenticazione SAML per il server).
 
-    c. Tableau Server return URL (URL restituito di Tableau Server): l'URL a cui accedono gli utenti di Tableau Server, ad esempio `http://tableau_server`. L'uso di `http://localhost` non è consigliato. L'uso di un URL con una barra finale, ad esempio `http://tableau_server/`, non è supportato. Copiare il valore di **Tableau Server return URL** (URL restituito di Tableau Server) e incollarlo nella casella di testo **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure
+    c. Tableau Server return URL (URL restituito di Tableau Server): l'URL a cui accedono gli utenti di Tableau Server, ad esempio `http://tableau_server`. L'uso di `http://localhost` non è consigliato. L'uso di un URL con una barra finale, ad esempio `http://tableau_server/`, non è supportato. Copiare **Tableau Server Return URL** e incollarlo nella casella di testo **URL di accesso** nella sezione di **configurazione SAML di base** nel portale di Azure.
 
-    d. SAML entity ID (ID entità SAML): l'ID entità identifica in modo univoco l'installazione di Tableau Server nel provider di identità. Se si desidera, qui è possibile immettere di nuovo l'URL di Tableau Server, ma non deve essere l'URL di Tableau Server in uso. Copiare il valore di **SAML entity ID** (ID entità SAML) e incollarlo nella casella di testo **Identificatore** nella sezione **Configurazione SAML di base** del portale di Azure.
+    d. SAML entity ID (ID entità SAML): l'ID entità identifica in modo univoco l'installazione di Tableau Server nel provider di identità. Se si desidera, qui è possibile immettere di nuovo l'URL di Tableau Server, ma non deve essere l'URL di Tableau Server in uso. Copiare l' **ID entità SAML** e incollarlo nella casella di testo **identificatore** nella sezione di **configurazione SAML di base** nel portale di Azure.
 
-    e. Fare clic su **Download XML Metadata File** (Scarica file di metadati XML) e aprire il file nell'applicazione editor di testo. Cercare l'URL del servizio consumer di asserzione con Http Post e Indice 0 e copiarlo. Ora incollarlo nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base** del portale di Azure.
+    e. Fare clic su **Download XML Metadata File** (Scarica file di metadati XML) e aprire il file nell'applicazione editor di testo. Cercare l'URL del servizio consumer di asserzione con Http Post e Indice 0 e copiarlo. Ora incollarlo nella casella di testo **URL di risposta** nella sezione di **configurazione SAML di base** nel portale di Azure.
 
     f. Individuare il file di metadati della federazione scaricato dal portale di Azure e quindi caricarlo in **SAML Idp metadata file**(File metadati IdP SAML).
 
     g. Immettere i nomi per gli attributi usati dal provider di identità per contenere nomi utente, nomi visualizzati e indirizzi di posta elettronica.
 
-    h. Fare clic su **Save** (Salva).
+    h. Fare clic su **Salva**.
 
     > [!NOTE]
     > Il cliente deve caricare un file di certificato X509 con codifica PEM con estensione .crt e un file di chiave privata RSA o DSA con estensione .key come file di chiave del certificato. Per altre informazioni sul file di certificato e sul file di chiave del certificato, fare riferimento a [questo](https://help.tableau.com/current/server/en-us/saml_requ.htm) documento. Per assistenza nella configurazione di SAML in Tableau Server, vedere l'articolo sulla [configurazione SAML a livello di server](https://help.tableau.com/current/server/en-us/config_saml.htm).
@@ -165,9 +165,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di Tableau Server e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Tableau Server in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Tableau Server. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
-
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Tableau Server in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Tableau Server. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Tableau Server, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Dopo aver configurato Tableau Server è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

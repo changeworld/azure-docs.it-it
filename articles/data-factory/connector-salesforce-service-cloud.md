@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 755346c1da38f66c0c0fef6144d34eea62735273
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/02/2021
+ms.openlocfilehash: 91ab6ca1350a1c6964daeae401bf7b08c6b1cd91
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072081"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430765"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce Service Cloud usando Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Salesforce Service Cloud. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
@@ -70,10 +71,7 @@ Per il servizio collegato di Salesforce sono supportate le proprietà seguenti.
 | password |Specificare la password per l'account utente.<br/><br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | securityToken |Specificare un token di sicurezza per l'account utente. <br/><br/>Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). Il token di sicurezza può essere ignorato solo se si aggiunge l'IP del Integration Runtime all' [elenco di indirizzi IP attendibili](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) in Salesforce. Quando si usa Azure IR, fare riferimento a [Azure Integration Runtime indirizzi IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Per istruzioni su come ottenere e reimpostare un token di sicurezza, vedere [ottenere un token di sicurezza](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | apiVersion | Specificare la versione REST/API bulk di Salesforce da usare, ad esempio `48.0` . Per impostazione predefinita, il connettore USA [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare i dati da Salesforce e USA [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati in Salesforce. | No |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone di un runtime di integrazione |
-
->[!IMPORTANT]
->Quando si copiano dati in Salesforce Service Cloud, non è possibile usare il Azure Integration Runtime predefinito per eseguire la copia. In altre parole, se il servizio collegato all'origine non dispone di un runtime di integrazione specifico, creare in modo esplicito [un Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) con una posizione vicina all'istanza del cloud del servizio salesforce. Associare il servizio collegato del cloud del servizio Salesforce come nell'esempio seguente.
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No |
 
 **Esempio: Archiviare le credenziali in Data Factory**
 
@@ -298,7 +296,7 @@ Quando si copiano dati da Salesforce Service Cloud, è possibile usare query SOQ
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperare i dati usando una clausola where nella colonna DateTime
 
-Quando si specifica la query SOQL o SQL, prestare attenzione alla differenza di formato di DateTime. Esempio:
+Quando si specifica la query SOQL o SQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio:
 
 * **Esempio SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Esempio SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`

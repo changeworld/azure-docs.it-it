@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: c26529f48d03b8cd038ce4fea8164a305dfc17f3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ade5880a6b06f448df23eb77d81201a521f1d240
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097641"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430046"
 ---
 # <a name="create-a-search-indexer"></a>Creare un indicizzatore di ricerca
 
@@ -155,7 +155,7 @@ Dato che gli indicizzatori non correggono i problemi relativi ai dati, potrebber
 
 ## <a name="know-your-index"></a>Informazioni sull'indice
 
-Ricordare che gli indicizzatori passano i documenti di ricerca al motore di ricerca per l'indicizzazione. Così come gli indicizzatori dispongono di proprietà che determinano il comportamento di esecuzione, uno schema di indice dispone di proprietà che influiscono in modo indeterminato sulle stringhe indicizzate (solo le stringhe vengono analizzate e in formato token). A seconda delle assegnazioni dell'analizzatore, le stringhe indicizzate potrebbero essere diverse da quelle passate. È possibile valutare gli effetti degli analizzatori utilizzando [analizza testo (REST)](/rest/api/searchservice/test-analyzer). Per ulteriori informazioni sugli analizzatori, vedere [analizzatori per l'elaborazione del testo](search-analyzers.md).
+Ricordare che gli indicizzatori passano i documenti di ricerca al motore di ricerca per l'indicizzazione. Così come gli indicizzatori dispongono di proprietà che determinano il comportamento di esecuzione, uno schema dell'indice dispone di proprietà che influiscono in modo inverso sulla modalità di indicizzazione delle stringhe (solo le stringhe vengono analizzate e in formato token). A seconda delle assegnazioni dell'analizzatore, le stringhe indicizzate potrebbero essere diverse da quelle passate. È possibile valutare gli effetti degli analizzatori utilizzando [analizza testo (REST)](/rest/api/searchservice/test-analyzer). Per ulteriori informazioni sugli analizzatori, vedere [analizzatori per l'elaborazione del testo](search-analyzers.md).
 
 Per il modo in cui gli indicizzatori interagiscono con un indice, un indicizzatore controlla solo i tipi e i nomi dei campi. Non esiste un passaggio di convalida che garantisce che il contenuto in ingresso sia corretto per il campo di ricerca corrispondente nell'indice. Come passaggio di verifica, è possibile eseguire query sull'indice compilato che restituiscono interi documenti o campi selezionati. Per ulteriori informazioni sull'esecuzione di query sul contenuto di un indice, vedere [creare una query di base](search-query-create.md).
 
