@@ -7,22 +7,26 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3ab1e6011a1c127c9ac5a2c7652a4bf458372e1e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 86adac557c6de133e95e97bfedbd302cc6a2b27e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733938"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429158"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-portal"></a>Guida introduttiva: configurare l'attestazione di Azure con portale di Azure
 
+## <a name="prerequisites"></a>Prerequisiti
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
 Attenersi ai passaggi seguenti per gestire un provider di attestazione utilizzando portale di Azure.
 
-## <a name="attestation-provider"></a>Provider di attestazioni
+## <a name="1-attestation-provider"></a>1. provider di attestazione
 
-### <a name="create-an-attestation-provider"></a>Creare un provider di attestazioni
+### <a name="11-create-an-attestation-provider"></a>1,1 creare un provider di attestazione
 
-#### <a name="to-configure-the-provider-with-unsigned-policies"></a>Per configurare il provider con criteri non firmati
+#### <a name="111-to-configure-the-provider-with-unsigned-policies"></a>1.1.1 per configurare il provider con criteri non firmati
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **Crea una risorsa** .
 2.  Nella casella di ricerca immettere **attestazione**
@@ -42,7 +46,7 @@ Attenersi ai passaggi seguenti per gestire un provider di attestazione utilizzan
 6.  Dopo aver fornito gli input necessari, fare clic su **Verifica + crea**
 7.  Risolvere eventuali problemi di convalida e fare clic su **Crea**.
 
-#### <a name="to-configure-the-provider-with-signed-policies"></a>Per configurare il provider con i criteri firmati
+#### <a name="112-to-configure-the-provider-with-signed-policies"></a>1.1.2 per configurare il provider con i criteri firmati
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **Crea una risorsa** .
 2.  Nella casella di ricerca immettere **attestazione**
@@ -62,12 +66,12 @@ Attenersi ai passaggi seguenti per gestire un provider di attestazione utilizzan
 6.  Dopo aver fornito gli input necessari, fare clic su **Verifica + crea**
 7.  Risolvere eventuali problemi di convalida e fare clic su **Crea**.
 
-### <a name="view-attestation-provider"></a>Visualizza provider di attestazione
+### <a name="12-view-attestation-provider"></a>1,2 visualizzare il provider di attestazione
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **tutte le risorse**
 2.  Nella casella filtro immettere il nome del provider di attestazione e selezionarlo
 
-### <a name="delete-attestation-provider"></a>Elimina provider di attestazione
+### <a name="13-delete-attestation-provider"></a>1,3 eliminare il provider di attestazione
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **tutte le risorse**
 2.  Nella casella filtro immettere il nome del provider di attestazione
@@ -79,9 +83,9 @@ Attenersi ai passaggi seguenti per gestire un provider di attestazione utilizzan
 4.  Fare clic su **Elimina** nel menu in alto e fare clic su **Sì**
 
 
-## <a name="attestation-policy-signers"></a>Firmatari dei criteri di attestazione
+## <a name="2-attestation-policy-signers"></a>2. firmatari del criterio di attestazione
 
-### <a name="view-policy-signer-certificates"></a>Visualizzare i certificati del firmatario dei criteri
+### <a name="21-view-policy-signer-certificates"></a>2,1 visualizzare i certificati del firmatario dei criteri
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **tutte le risorse**
 2.  Nella casella filtro immettere il nome del provider di attestazione
@@ -91,7 +95,7 @@ Attenersi ai passaggi seguenti per gestire un provider di attestazione utilizzan
 6.  Il file di testo scaricato avrà tutti i certificati in un formato JWS.
 a.  Verificare il numero di certificati e i certificati scaricati.
 
-### <a name="add-policy-signer-certificate"></a>Aggiungi certificato di firma del criterio
+### <a name="22-add-policy-signer-certificate"></a>2,2 aggiungere il certificato del firmatario dei criteri
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **tutte le risorse**
 2.  Nella casella filtro immettere il nome del provider di attestazione
@@ -100,7 +104,7 @@ a.  Verificare il numero di certificati e i certificati scaricati.
 5.  Fare clic su **Aggiungi** nel menu in alto (il pulsante verrà disabilitato per i provider di attestazione creati senza requisito di firma dei criteri)
 6.  Caricare il file del certificato di firma del criterio e fare clic su **Aggiungi**. Vedere gli esempi [qui](./policy-signer-examples.md)
 
-### <a name="delete-policy-signer-certificate"></a>Elimina certificato del firmatario dei criteri
+### <a name="23-delete-policy-signer-certificate"></a>2,3 eliminare il certificato del firmatario di criteri
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **tutte le risorse**
 2.  Nella casella filtro immettere il nome del provider di attestazione
@@ -109,9 +113,9 @@ a.  Verificare il numero di certificati e i certificati scaricati.
 5.  Fare clic su **Elimina** nel menu in alto (il pulsante verrà disabilitato per i provider di attestazione creati senza requisito di firma dei criteri)
 6.  Caricare il file del certificato di firma del criterio e fare clic su **Elimina**. Vedere gli esempi [qui](./policy-signer-examples.md) 
 
-## <a name="attestation-policy"></a>Criteri di attestazione
+## <a name="3-attestation-policy"></a>3. criterio di attestazione
 
-### <a name="view-attestation-policy"></a>Visualizzare i criteri di attestazione
+### <a name="31-view-attestation-policy"></a>3,1 visualizzare i criteri di attestazione
 
 1.  Dal menu portale di Azure o dalla Home page selezionare **tutte le risorse**
 2.  Nella casella filtro immettere il nome del provider di attestazione
@@ -119,9 +123,9 @@ a.  Verificare il numero di certificati e i certificati scaricati.
 4.  Fare clic su **criteri** nel menu delle risorse a sinistra o nel riquadro inferiore
 5.  Selezionare il **tipo di attestazione** preferito e visualizzare i **criteri correnti**
 
-### <a name="configure-attestation-policy"></a>Configurare i criteri di attestazione
+### <a name="32-configure-attestation-policy"></a>3,2 configurare i criteri di attestazione
 
-#### <a name="when-attestation-provider-is-created-without-policy-signing-requirement"></a>Quando il provider di attestazione viene creato senza requisito di firma dei criteri
+#### <a name="321-when-attestation-provider-is-created-without-policy-signing-requirement"></a>3.2.1 quando il provider di attestazione viene creato senza requisito di firma dei criteri
 
 ##### <a name="upload-policy-in-jwt-format"></a>Caricare i criteri nel formato JWT
 
@@ -153,7 +157,7 @@ a.  Verificare il numero di certificati e i certificati scaricati.
 
 8.  Fare clic su **Aggiorna** per visualizzare i criteri configurati
 
-#### <a name="when-attestation-provider-is-created-with-policy-signing-requirement"></a>Quando il provider di attestazione viene creato con il requisito di firma dei criteri
+#### <a name="322-when-attestation-provider-is-created-with-policy-signing-requirement"></a>3.2.2 quando il provider di attestazione viene creato con il requisito di firma dei criteri
 
 ##### <a name="upload-policy-in-jwt-format"></a>Caricare i criteri nel formato JWT
 
@@ -168,4 +172,9 @@ a.  Verificare il numero di certificati e i certificati scaricati.
     Per l'opzione di caricamento file, l'anteprima dei criteri verrà visualizzata in formato testo e l'anteprima criteri non è modificabile.
     
 8.  Fare clic su **Aggiorna** per visualizzare i criteri configurati
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Come creare e firmare un criterio di attestazione](author-sign-policy.md)
+- [Attestare un'enclave SGX con esempi di codice](/samples/browse/?expanded=azure&terms=attestation)
 

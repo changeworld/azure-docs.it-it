@@ -11,15 +11,16 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: d11125ed00491f87844c7b0b344473825ad52a99
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/02/2021
+ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223475"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428471"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare un'attività di copia in Azure Data Factory per copiare dati da e in Microsoft Dynamics 365 e Microsoft Dynamics CRM. Si basa sull'articolo [Panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale di un'attività di copia.
@@ -88,7 +89,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 | servicePrincipalCredential | Credenziale dell'entità servizio. <br/><br/>Quando si usa "ServicePrincipalKey" come tipo di credenziale, `servicePrincipalCredential` può essere una stringa che Azure Data Factory crittografata al momento della distribuzione del servizio collegato. In alternativa, può trattarsi di un riferimento a un segreto in Azure Key Vault. <br/><br/>Quando si usa "ServicePrincipalCert" come credenziale, `servicePrincipalCredential` deve essere un riferimento a un certificato in Azure Key Vault. | Sì quando l'autenticazione è "AADServicePrincipal" |
 | username | Nome utente per la connessione a Dynamics. | Sì quando l'autenticazione è "Office365" |
 | password | Password per l'account utente specificato come nome utente. Contrassegnare questo campo con "SecureString" per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì quando l'autenticazione è "Office365" |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non viene specificato alcun valore, la proprietà usa il runtime di integrazione di Azure predefinito. | No per l'origine e Sì per il sink se il servizio collegato di origine non dispone di un runtime di integrazione |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non viene specificato alcun valore, la proprietà usa il runtime di integrazione di Azure predefinito. | No |
 
 >[!NOTE]
 >Dynamics Connector usava in precedenza la proprietà facoltativa **OrganizationName** per identificare l'istanza di Dynamics CRM o Dynamics 365 online. Sebbene la proprietà funzioni ancora, è consigliabile specificare invece la nuova proprietà **ServiceUri** per ottenere prestazioni migliori per l'individuazione dell'istanza.
@@ -184,7 +185,7 @@ Proprietà aggiuntive che vengono confrontate con Dynamics Online sono **nome ho
 | authenticationType | Tipo di autenticazione per la connessione al server Dynamics. Specificare "Ifd" per Dynamics locale con IFD. | Sì. |
 | username | Nome utente per la connessione a Dynamics. | Sì. |
 | password | Password per l'account utente specificato per il nome utente. È possibile contrassegnare questo campo con "SecureString" per archiviarlo in modo sicuro in Data Factory. In alternativa, è possibile archiviare una password in Key Vault e consentire all'attività di copia di effettuare il pull da tale posizione quando esegue la copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali nell'insieme di credenziali delle chiavi](store-credentials-in-key-vault.md). | Sì. |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non viene specificato alcun valore, la proprietà usa il runtime di integrazione di Azure predefinito. | No per l'origine e Sì per il sink. |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non viene specificato alcun valore, la proprietà usa il runtime di integrazione di Azure predefinito. | No |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Esempio: Dynamics locale con IFD usando l'autenticazione IFD
 

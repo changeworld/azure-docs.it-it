@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/01/2021
+ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486131"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428999"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub di gestione in Azure Data Factory
 
@@ -34,13 +34,17 @@ I servizi collegati definiscono le informazioni di connessione per Azure Data Fa
 
 Un runtime di integrazione è un'infrastruttura di calcolo usata da Azure Data Factory per fornire funzionalità di integrazione dei dati in ambienti di rete diversi. Per ulteriori informazioni, vedere Concetti relativi a [Integration Runtime](concepts-integration-runtime.md). Nell'hub di gestione è possibile creare, eliminare e monitorare i runtime di integrazione.
 
-![Gestisci runtime di integrazione](media/author-management-hub/management-hub-integration-runtime.png)
+![Gestire i runtime di integrazione](media/author-management-hub/management-hub-integration-runtime.png)
 
 ## <a name="manage-source-control"></a>Gestione del controllo del codice sorgente
 
 ### <a name="git-configuration"></a>Configurazione git
 
-Visualizzare e modificare le impostazioni del repository git configurate nell'hub di gestione. Per ulteriori informazioni, vedere informazioni sul [controllo del codice sorgente in Azure Data Factory](source-control.md).
+È possibile visualizzare o modificare tutte le informazioni relative a git nelle impostazioni di configurazione di git nell'hub di gestione. 
+
+Sono elencate anche le ultime informazioni sui commit pubblicate e possono essere utili per comprendere il commit preciso, che è stato pubblicato/distribuito negli ambienti. Può essere utile anche quando si esegue la correzione rapida nell'ambiente di produzione.
+
+Per ulteriori informazioni, vedere informazioni sul [controllo del codice sorgente in Azure Data Factory](source-control.md).
 
 ![Gestisci repository git](media/author-management-hub/management-hub-git.png)
 

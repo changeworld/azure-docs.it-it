@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223407"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428674"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -364,13 +364,6 @@ Sì. Vedere [come configurare un DNS personalizzato per istanza gestita SQL di A
 **È possibile eseguire l'aggiornamento DNS?**
 
 Sì. Vedere [sincronizzare i server DNS della rete virtuale in SQL istanza gestita cluster virtuale](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
-
-Alla fine, la configurazione DNS verrà aggiornata:
-
-- Quando il lease DHCP scade.
-- Aggiornamento della piattaforma.
-
-Per risolvere il problema, eseguire il downgrade di SQL Istanza gestita a 4 Vcore e aggiornarlo di nuovo in seguito. Questa operazione ha effetto collaterale sull'aggiornamento della configurazione DNS.
 
 ## <a name="change-time-zone"></a>Modificare il fuso orario
 

@@ -223,6 +223,8 @@
           href: source-control.md
         - name: Integrazione continua e recapito continuo
           href: continuous-integration-deployment.md
+        - name: Pubblicazione automatizzata
+          href: continuous-integration-deployment-improvements.md
     - name: Connettori
       items:
         - name: Panoramica dei connettori

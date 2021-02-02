@@ -8,25 +8,24 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6895a47bc6d99a09408ca002ec48405a5c78682
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: ba000fd4cf79f2bb4a176bd7d5c33fc2dfff3781
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255679"
+ms.locfileid: "99428403"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: sviluppare e pianificare il provisioning per un endpoint SCIM
 
 Gli sviluppatori di applicazioni possono usare l'API SCIM (System for Cross-domain Identity Management) di gestione degli utenti per abilitare il provisioning automatico di utenti e gruppi tra l'applicazione e Azure AD. Questo articolo illustra come creare un endpoint SCIM ed eseguire l'integrazione con il servizio di provisioning di Azure AD. La specifica SCIM offre uno schema utente comune per il provisioning. In combinazione con standard di federazione come OpenID Connect o SAML, SCIM offre agli amministratori una soluzione end-to-end basata su standard per la gestione degli accessi.
 
-SCIM è una definizione standardizzata di due endpoint: un `/Users` endpoint e un `/Groups` endpoint. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2.0 possono ridurre o eliminare le difficoltà associate all'uso di un'API proprietaria di gestione degli utenti. Ad esempio, tutti i client SCIM conformi sanno come inserire un HTTP POST di un oggetto JSON nell' `/Users` endpoint per creare una nuova voce utente. Invece di richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi del codice, dei client e degli strumenti preesistenti. 
-
 ![Provisioning da Azure AD a un'app con SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+
+SCIM è una definizione standardizzata di due endpoint: un `/Users` endpoint e un `/Groups` endpoint. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2.0 possono ridurre o eliminare le difficoltà associate all'uso di un'API proprietaria di gestione degli utenti. Ad esempio, tutti i client SCIM conformi sanno come inserire un HTTP POST di un oggetto JSON nell' `/Users` endpoint per creare una nuova voce utente. Invece di richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi del codice, dei client e degli strumenti preesistenti. 
 
 Lo schema dell'oggetto utente standard e le API REST per la gestione definiti in SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643) e [7644](https://tools.ietf.org/html/rfc7644)) facilitano l'integrazione tra provider di identità e app. Gli sviluppatori di applicazioni che creano un endpoint SCIM possono effettuare l'integrazione con qualsiasi client conforme a SCIM senza che siano necessarie operazioni personalizzate.
 
@@ -70,6 +69,7 @@ Lo schema definito sopra verrà rappresentato con il payload JSON riportato di s
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen@testuser.com",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "familyName":"Jensen",
@@ -914,7 +914,7 @@ Inviare una richiesta GET al controller dei token per ottenere un token di conne
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Gestione del provisioning e del deprovisioning di utenti
 
-***Esempio 1. Eseguire query sul servizio per trovare un utente corrispondente** _
+***Esempio 1. Eseguire query sul servizio per trovare un utente corrispondente***
 
 Azure Active Directory esegue query nel servizio per trovare un utente con valore dell'attributo `externalId` corrispondente al valore dell'attributo mailNickname di un utente in Azure AD. La query viene espressa come richiesta HTTP (Hypertext Transfer Protocol) come in questo esempio, in cui jyoung è un esempio di mailNickname di un utente in Azure Active Directory.
 
@@ -942,12 +942,12 @@ Nel codice di esempio, la richiesta viene convertita in una chiamata al metodo Q
 
 Nella query di esempio, per un utente con un determinato valore dell'attributo `externalId`, i valori degli argomenti passati al metodo QueryAsync sono i seguenti:
 
-_ parameters.AlternateFilters.Count: 1
+* parameters.AlternateFilters.Count: 1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
 * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 
-***Esempio 2. Effettuare il provisioning di un utente** _
+***Esempio 2. Effettuare il provisioning di un utente***
 
 Se la risposta a una query sul servizio Web per trovare un utente con valore dell'attributo `externalId` corrispondente al valore dell'attributo mailNickname non restituisce alcun utente, Azure Active Directory richiede che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory.  Ecco un esempio di questa richiesta: 
 
@@ -996,7 +996,7 @@ Nel codice di esempio, la richiesta viene convertita in una chiamata al metodo C
 
 In una richiesta di provisioning di un utente, il valore dell'argomento resource è un'istanza della classe Microsoft.SCIM.Core2EnterpriseUser, definita nella libreria Microsoft.SCIM.Schemas.  Se la richiesta di provisioning dell'utente ha esito positivo, è previsto che l'implementazione del metodo restituisca un'istanza della classe Microsoft.SCIM.Core2EnterpriseUser, con il valore della proprietà Identifier impostato sull'identificatore univoco dell'utente di cui è appena stato effettuato il provisioning.  
 
-_*_Esempio 3. Eseguire query sullo stato corrente di un utente_*_ 
+***Esempio 3. Eseguire query sullo stato corrente di un utente*** 
 
 Per aggiornare un utente la cui esistenza è nota in un archivio identità gestito da SCIM, Azure Active Directory richiede al servizio lo stato corrente dell'utente con una richiesta simile alla seguente: 
 
@@ -1020,14 +1020,14 @@ Nel codice di esempio, la richiesta viene convertita in una chiamata al metodo R
 
 Nell'esempio di una richiesta per recuperare lo stato corrente di un utente, i valori delle proprietà dell'oggetto fornito come valore dell'argomento parameters sono analoghi ai seguenti: 
   
-_ Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-***Esempio 4. Eseguire query sul valore di un attributo di riferimento da aggiornare** _ 
+***Esempio 4. Eseguire query sul valore di un attributo di riferimento da aggiornare*** 
 
 Se è necessario aggiornare un attributo di riferimento, Azure Active Directory esegue query sul servizio per determinare se il valore corrente dell'attributo nell'archivio identità gestito dal servizio corrisponde già al valore di tale attributo in Azure Active Directory. Per gli utenti, l'unico attributo il cui valore corrente viene sottoposto a query con questa modalità è l'attributo manager. L'esempio illustra una richiesta per determinare se l'attributo manager di un oggetto utente ha attualmente un determinato valore. Nel codice di esempio, la richiesta viene convertita in una chiamata al metodo QueryAsync del provider del servizio. Il valore delle proprietà dell'oggetto fornito come valore dell'argomento parameters è analogo al seguente: 
   
-_ parameters.AlternateFilters.Count: 2
+* parameters.AlternateFilters.Count: 2
 * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
 * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
@@ -1039,7 +1039,7 @@ _ parameters.AlternateFilters.Count: 2
 
 Il valore dell'indice x può essere 0 e il valore dell'indice y può essere 1 oppure il valore di x può essere 1 e il valore di y può essere 0, a seconda dell'ordine delle espressioni del parametro di filtro della query.   
 
-***Esempio 5. Inviare una richiesta da Azure AD a un servizio SCIM per aggiornare un utente** _ 
+***Esempio 5. Inviare una richiesta da Azure AD a un servizio SCIM per aggiornare un utente*** 
 
 Ecco un esempio di una richiesta di Azure Active Directory a un servizio SCIM per l'aggiornamento di un utente: 
 
@@ -1078,7 +1078,7 @@ Nel codice di esempio, la richiesta viene convertita in una chiamata al metodo U
 
 Nell'esempio di una richiesta per l'aggiornamento di un utente, i valori delle proprietà dell'oggetto fornito come valore dell'argomento patch sono analoghi ai seguenti: 
   
-_ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier:  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 * (PatchRequest as PatchRequest2).Operations.Count: 1
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
@@ -1087,7 +1087,7 @@ _ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-***Esempio 6. Effettuare il deprovisioning di un utente** _
+***Esempio 6. Effettuare il deprovisioning di un utente***
 
 Per effettuare il deprovisioning di un utente da un archivio identità gestito da un servizio SCIM, Azure AD invia una richiesta come la seguente:
 
@@ -1110,7 +1110,7 @@ Nel codice di esempio, la richiesta viene convertita in una chiamata al metodo D
 
 Nell'esempio di richiesta per il deprovisioning di un utente, l'oggetto specificato come valore dell'argomento resourceIdentifier ha i valori delle proprietà seguenti. 
 
-_ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Passaggio 4: Integrare l'endpoint SCIM con il client SCIM Azure AD
@@ -1151,8 +1151,8 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 7. Nel campo **URL tenant** immettere l'URL dell'endpoint SCIM dell'applicazione. Esempio: `https://api.contoso.com/scim/`
 8. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, Azure AD include in ogni richiesta un token di connessione OAuth rilasciato da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD. 
    > [!NOTE]
-   > **_Non_* _ è consigliabile lasciare vuoto questo campo e usare un token generato da Azure AD. Questa opzione è disponibile principalmente a scopo di test.
-9. Selezionare _ *Test connessione** affinché Azure Active Directory tenti la connessione all'endpoint SCIM. Se il tentativo non riesce, verranno visualizzate le informazioni sull'errore.  
+   > ***Non*** è consigliabile lasciare vuoto questo campo e usare un token generato da Azure AD. Questa opzione è disponibile principalmente a scopo di test.
+9. Selezionare **Test connessione** affinché Azure Active Directory tenti la connessione all'endpoint SCIM. Se il tentativo non riesce, verranno visualizzate le informazioni sull'errore.  
 
     > [!NOTE]
     > **Test connessione** esegue query sull'endpoint SCIM per cercare un utente che non esiste usando un GUID casuale come proprietà corrispondente selezionata nella configurazione di Azure AD. La risposta corretta prevista è HTTP 200 OK con un messaggio ListResponse SCIM vuoto.

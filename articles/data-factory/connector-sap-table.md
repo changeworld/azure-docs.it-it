@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.date: 02/01/2021
+ms.openlocfilehash: b796b9eb065a221904fe4487c900efa2db1955af
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280426"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429544"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data Factory
 
@@ -53,7 +53,7 @@ In particolare, questo connettore di tabella SAP supporta:
 La versione 7,01 o successiva si riferisce alla versione di SAP NetWeaver invece che alla versione SAP ECC. Ad esempio, SAP ECC 6,0 EHP 7 in generale presenta NetWeaver Version >= 7,4. Se non si è certi dell'ambiente, di seguito sono riportati i passaggi per confermare la versione dal sistema SAP:
 
 1. Usare l'interfaccia utente grafica SAP per connettersi al sistema SAP. 
-2. Passare a **System**  ->  **stato** del sistema. 
+2. Passare a   ->  **stato** del sistema. 
 3. Controllare la versione del SAP_BASIS, verificare che sia uguale o maggiore di 701.  
       ![Controlla SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
@@ -102,7 +102,7 @@ Per il servizio collegato SAP BW Hub aperto sono supportate le proprietà seguen
 | `sncQop` | Qualità SNC del livello di protezione da applicare.<br/>Si applica quando `sncMode` è on. <br/>I valori consentiti sono `1` (Authentication), `2` (integrità), `3` (privacy), `8` (impostazione predefinita), `9` (Maximum). | No |
 | `connectVia` | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Un runtime di integrazione self-hosted è obbligatorio, come indicato in precedenza in [prerequisiti](#prerequisites). |Sì |
 
-**Esempio 1: connettersi a un server applicazioni SAP**
+### <a name="example-1-connect-to-an-sap-application-server"></a>Esempio 1: connettersi a un server applicazioni SAP
 
 ```json
 {
@@ -294,6 +294,60 @@ In `rfcTableOptions` è possibile utilizzare gli operatori di query SAP comuni s
     }
 ]
 ```
+
+## <a name="join-sap-tables"></a>Aggiungere tabelle SAP
+
+Il connettore tabella SAP supporta attualmente solo una singola tabella con il modulo funzione predefinito. Per ottenere i dati uniti in join di più tabelle, è possibile usare la proprietà [customRfcReadTableFunctionModule](#copy-activity-properties) in SAP Table Connector attenendosi alla procedura seguente:
+
+- [Scrivere un modulo di funzione personalizzato](#create-custom-function-module), che può usare una query come opzioni e applicare la logica personalizzata per recuperare i dati.
+- Per "Custom Function Module" immettere il nome del modulo della funzione personalizzata.
+- Per le opzioni della tabella RFC, specificare l'istruzione Table join da inserire nel modulo della funzione come opzioni, ad esempio " `<TABLE1>` inner join `<TABLE2>` on COLUMN0".
+
+Di seguito è riportato un esempio:
+
+![Join di tabella SAP](./media/connector-sap-table/sap-table-join.png) 
+
+>[!TIP]
+>È anche possibile considerare che i dati uniti in join sono aggregati nella vista, supportata da SAP Table Connector.
+>È anche possibile provare a estrarre le tabelle correlate per eseguire l'onboarding in Azure, ad esempio archiviazione di Azure, database SQL di Azure, quindi usare il flusso di dati per procedere con un ulteriore join o filtro.
+
+## <a name="create-custom-function-module"></a>Crea modulo funzione personalizzata
+
+Per la tabella SAP, attualmente è supportata la proprietà [customRfcReadTableFunctionModule](#copy-activity-properties) nell'origine della copia, che consente di sfruttare la logica ed elaborare i dati.
+
+Come guida rapida, di seguito sono riportati alcuni requisiti per iniziare a usare il "modulo funzione personalizzata":
+
+- Definizione:
+
+    ![Definizione](./media/connector-sap-table/custom-function-module-definition.png) 
+
+- Esportare i dati in una delle tabelle seguenti:
+
+    ![Esporta tabella 1](./media/connector-sap-table/export-table-1.png) 
+
+    ![Esporta tabella 2](./media/connector-sap-table/export-table-2.png)
+ 
+Di seguito sono illustrate le modalità di funzionamento di SAP Table Connector con il modulo funzione personalizzata:
+
+1. Creare una connessione con il server SAP tramite SAP NCO.
+
+1. Richiamare "Custom Function Module" con i parametri impostati come indicato di seguito:
+
+    - QUERY_TABLE: il nome della tabella impostato nel set di dati della tabella SAP di ADF. 
+    - Delimitatore: il delimitatore impostato nell'origine della tabella SAP di ADF. 
+    - RIGHE/opzioni/campi: i campi o l'opzione RowCount/aggregated impostati nell'origine della tabella di ADF.
+
+1. Ottenere il risultato e analizzare i dati nei modi seguenti:
+
+    1. Analizzare il valore nella tabella Fields per ottenere gli schemi.
+
+        ![Analizzare i valori nei campi](./media/connector-sap-table/parse-values.png)
+
+    1. Ottenere i valori della tabella di output per vedere quale tabella contiene questi valori.
+
+        ![Ottenere i valori nella tabella di output](./media/connector-sap-table/get-values.png)
+
+    1. Ottenere i valori nel OUT_TABLE, analizzare i dati e quindi scriverli nel sink.
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>Mapping dei tipi di dati per una tabella SAP
 

@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954784"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428301"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -63,6 +63,31 @@ Come reagisce il codice in caso di errore dopo l'inserimento di 5.000 di tali el
 Se un elemento della coda è già stato elaborato, consentire alla funzione di essere no-op.
 
 Sfruttare le misure difensive già messe a disposizione per i componenti usati nella piattaforma Funzioni di Azure. Ad esempio, vedere **Gestione di messaggi della coda non elaborabili** nella documentazione relativa a [trigger e associazioni della coda di Archiviazione di Azure](functions-bindings-storage-queue-trigger.md#poison-messages). 
+
+## <a name="function-organization-best-practices"></a>Procedure consigliate per l'organizzazione delle funzioni
+
+Come parte della soluzione, è possibile sviluppare e pubblicare più funzioni. Queste funzioni vengono spesso combinate in una singola app per le funzioni, ma possono anche essere eseguite in app per le funzioni separate. Nei piani di hosting Premium e dedicato (servizio app), più app per le funzioni possono condividere anche le stesse risorse eseguendo nello stesso piano. Il modo in cui si raggruppano le funzioni e le app per le funzioni può influito sulle prestazioni, il ridimensionamento, la configurazione, la distribuzione e la sicurezza della soluzione complessiva. Non esistono regole applicabili a tutti gli scenari, quindi considerare le informazioni contenute in questa sezione durante la pianificazione e lo sviluppo di funzioni.
+
+### <a name="organize-functions-for-performance-and-scaling"></a>Organizzare le funzioni per le prestazioni e la scalabilità
+
+Ogni funzione creata ha un footprint di memoria. Sebbene questo footprint sia in genere di piccole dimensioni, la presenza di un numero eccessivo di funzioni all'interno di un'app per le funzioni può comportare un avvio più lento dell'app nelle nuove istanze. Significa anche che l'utilizzo della memoria complessiva dell'app per le funzioni potrebbe essere superiore. È difficile pronunciare il numero di funzioni in una singola app, che dipende dal carico di lavoro specifico. Tuttavia, se la funzione archivia una grande quantità di dati in memoria, è consigliabile disporre di un minor numero di funzioni in una singola app.
+
+Se si eseguono più app per le funzioni in un piano Premium singolo o in un piano dedicato (servizio app), queste app vengono tutte ridimensionate insieme. Se si dispone di un'app per le funzioni con un requisito di memoria molto più elevato rispetto alle altre, viene usata una quantità sproporzionata di risorse di memoria in ogni istanza in cui viene distribuita l'app. Poiché questo potrebbe lasciare meno memoria disponibile per le altre app in ogni istanza, potrebbe essere necessario eseguire un'app per le funzioni a memoria elevata, come questa, nel proprio piano di hosting separato.
+
+> [!NOTE]
+> Quando si usa il [piano a consumo](./functions-scale.md), è consigliabile inserire sempre ogni app nel proprio piano, perché le app vengono ridimensionate in modo indipendente.
+
+Valutare se si desidera raggruppare le funzioni con profili di carico diversi. Se, ad esempio, si dispone di una funzione che elabora molte migliaia di messaggi della coda e un altro che viene chiamato solo occasionalmente ma con requisiti di memoria elevati, potrebbe essere necessario distribuirli in app per le funzioni separate in modo da ottenere i propri set di risorse e ridimensionarsi in modo indipendente l'uno dall'altro.
+
+### <a name="organize-functions-for-configuration-and-deployment"></a>Organizzare le funzioni per la configurazione e la distribuzione
+
+Le app per le funzioni hanno un `host.json` file, che viene usato per configurare il comportamento avanzato dei trigger di funzione e il runtime di funzioni di Azure. Le modifiche apportate al `host.json` file si applicano a tutte le funzioni all'interno dell'app. Se sono presenti alcune funzioni che necessitano di configurazioni personalizzate, provare a spostarle nella propria app per le funzioni.
+
+Tutte le funzioni del progetto locale vengono distribuite insieme come un set di file nell'app per le funzioni in Azure. Potrebbe essere necessario distribuire le singole funzioni separatamente o usare funzionalità come gli [slot di distribuzione](./functions-deployment-slots.md) per alcune funzioni e non altre. In questi casi, è necessario distribuire queste funzioni (in progetti di codice separati) a diverse app per le funzioni.
+
+### <a name="organize-functions-by-privilege"></a>Organizzare le funzioni per privilegio 
+
+Le stringhe di connessione e altre credenziali archiviate nelle impostazioni dell'applicazione conferiscono a tutte le funzioni nell'app per le funzioni lo stesso set di autorizzazioni nella risorsa associata. Provare a ridurre al minimo il numero di funzioni con accesso a credenziali specifiche spostando le funzioni che non usano tali credenziali in un'app per le funzioni separata. È sempre possibile usare tecniche come il [concatenamento delle funzioni](/learn/modules/chain-azure-functions-data-using-bindings/) per spostare i dati tra funzioni in app per le funzioni diverse.  
 
 ## <a name="scalability-best-practices"></a>Procedure consigliate per la scalabilità
 

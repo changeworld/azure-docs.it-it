@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921623"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429280"
 ---
 # <a name="basic-concepts"></a>Concetti di base
 
@@ -28,21 +29,24 @@ Di seguito sono riportati alcuni concetti di base relativi ad Attestazione di Mi
 
 ## <a name="attestation-provider"></a>Provider di attestazioni
 
-Il provider di attestazioni appartiene al provider di risorse di Azure denominato Microsoft.Attestation. Il provider di risorse è un endpoint del servizio che fornisce il contratto REST di Attestazione di Azure e viene distribuito con [Azure Resource Manager](../azure-resource-manager/management/overview.md). Ogni provider di attestazioni rispetta criteri specifici individuabili. 
+Il provider di attestazioni appartiene al provider di risorse di Azure denominato Microsoft.Attestation. Il provider di risorse è un endpoint del servizio che fornisce il contratto REST di Attestazione di Azure e viene distribuito con [Azure Resource Manager](../azure-resource-manager/management/overview.md). Ogni provider di attestazioni rispetta criteri specifici individuabili. I provider di attestazioni vengono creati con un criterio predefinito per ogni tipo di attestazione (si noti che l'enclave VBS non include criteri predefiniti). Per informazioni dettagliate sui criteri predefiniti per SGX, vedere [Esempi di un criterio di attestazione](policy-examples.md).
 
-I provider di attestazioni vengono creati con un criterio predefinito per ogni tipo di attestazione (si noti che l'enclave VBS non include criteri predefiniti). Per informazioni dettagliate sui criteri predefiniti per SGX, vedere [Esempi di un criterio di attestazione](policy-examples.md).
+### <a name="regional-shared-provider"></a>Provider condiviso a livello di area
 
-### <a name="regional-default-provider"></a>Provider predefinito a livello di area
-
-Attestazione di Azure prevede un provider predefinito in ogni area. I clienti possono scegliere di usare il provider predefinito per l'attestazione o di creare i propri provider con criteri personalizzati. I provider predefiniti sono accessibili a qualsiasi utente di Azure AD e il criterio associato a un provider predefinito non può essere modificato.
+L'attestazione di Azure fornisce un provider condiviso a livello di area in ogni area disponibile. I clienti possono scegliere di usare il provider condiviso a livello di area per l'attestazione o creare i propri provider con criteri personalizzati. I provider condivisi sono accessibili da qualsiasi utente Azure AD e il criterio associato non può essere modificato.
 
 | Area | URI di attestazione | 
 |--|--|
+| Stati Uniti orientali | `https://sharedeus.eus.attest.azure.net` | 
+| Stati Uniti occidentali | `https://sharedwus.wus.attest.azure.net` | 
 | Regno Unito meridionale | `https://shareduks.uks.attest.azure.net` | 
+| Regno Unito occidentale| `https://sharedukw.ukw.attest.azure.net  ` | 
+| Canada orientale | `https://sharedcae.cae.attest.azure.net` | 
+| Canada centrale | `https://sharedcac.cac.attest.azure.net` | 
+| Europa settentrionale | `https://sharedneu.neu.attest.azure.net` | 
+| Europa occidentale| `https://sharedweu.weu.attest.azure.net` | 
 | Stati Uniti orientali 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | Stati Uniti centrali | `https://sharedcus.cus.attest.azure.net` | 
-| Stati Uniti orientali| `https://sharedeus.eus.attest.azure.net` | 
-| Canada centrale | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Richiesta di attestazione
 
@@ -58,7 +62,7 @@ Il criterio di attestazione viene usato per elaborare l'evidenza dell'attestazio
 
 Se il criterio predefinito nel provider di attestazioni non soddisfa le esigenze, i clienti potranno creare criteri personalizzati in tutte le aree supportate da Attestazione di Azure. La gestione dei criteri è una funzionalità chiave fornita ai clienti da Attestazione di Azure. I criteri saranno specifici del tipo di attestazione e potranno essere usati per identificare le enclavi o aggiungere attestazioni al token di output oppure per modificare le attestazioni in un token di output. 
 
-Per informazioni sui contenuti e gli esempi di criteri predefiniti, vedere [Esempi di un criterio di attestazione](policy-examples.md).
+Vedere [esempi di criteri di attestazione](policy-examples.md) per gli esempi di criteri.
 
 ## <a name="benefits-of-policy-signing"></a>Vantaggi della firma dei criteri
 
@@ -80,25 +84,55 @@ Esempio di token JWT generato per un'enclave SGX:
 
 ```
 {
-  “alg”: “RS256”,
-  “jku”: “https://tradewinds.us.attest.azure.net/certs”,
-  “kid”: “f1lIjBlb6jUHEUp1/Nh6BNUHc6vwiUyMKKhReZeEpGc=”,
-  “typ”: “JWT”
+  "alg": "RS256",
+  "jku": "https://tradewinds.us.attest.azure.net/certs",
+  "kid": <self signed certificate reference to perform signature verification of attestation token,
+  "typ": "JWT"
 }.{
-  “maa-ehd”: <input enclave held data>,
-  “exp”: 1568187398,
-  “iat”: 1568158598,
-  “is-debuggable”: false,
-  “iss”: “https://tradewinds.us.attest.azure.net”,
-  “nbf”: 1568158598,
-  “product-id”: 4639,
-  “sgx-mrenclave”: “”,
-  “sgx-mrsigner”: “”,
-  “svn”: 0,
-  “tee”: “sgx”
+  "aas-ehd": <input enclave held data>,
+  "exp": 1568187398,
+  "iat": 1568158598,
+  "is-debuggable": false,
+  "iss": "https://tradewinds.us.attest.azure.net",
+  "maa-attestationcollateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "maa-ehd": <input enclave held data>,
+  "nbf": 1568158598,
+  "product-id": 4639,
+  "sgx-mrenclave": <SGX enclave mrenclave value>,
+  "sgx-mrsigner": <SGX enclave msrigner value>,
+  "svn": 0,
+  "tee": "sgx"
+  "x-ms-attestation-type": "sgx", 
+  "x-ms-policy-hash": <>,
+  "x-ms-sgx-collateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "x-ms-sgx-ehd": <>, 
+  "x-ms-sgx-is-debuggable": true,
+  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
+  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
+  "x-ms-sgx-product-id": 1, 
+  "x-ms-sgx-svn": 1,
+  "x-ms-ver": "1.0"
 }.[Signature]
 ```
-Attestazioni come "exp", "iat", "iss" e "nbf" vengono definite da [JWT RFC](https://tools.ietf.org/html/rfc7517) e le altre vengono generate da Attestazione di Azure. Per altre informazioni, vedere [Attestazioni emesse da Attestazione di Azure](claim-sets.md).
+Alcune delle attestazioni usate sopra sono considerate deprecate, ma sono completamente supportate.  È consigliabile che tutti gli strumenti e il codice futuri usino i nomi delle attestazioni non deprecate. Per altre informazioni, vedere [Attestazioni emesse da Attestazione di Azure](claim-sets.md).
 
 ## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 

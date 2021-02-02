@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: da85c80dd6450fd4427f83586e75cf1e9d62a605
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090859"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428775"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -69,15 +69,9 @@ gli utenti in questo ruolo possono creare registrazioni di applicazioni quando l
 
 ### <a name="authentication-administrator"></a>[Amministratore dell'autenticazione](#authentication-administrator-permissions)
 
-Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per alcuni utenti e possono aggiornare le password per tutti gli utenti. Gli amministratori dell'autenticazione possono richiedere agli utenti non amministratori o assegnati ad alcuni ruoli di eseguire di nuovo la registrazione con credenziali esistenti diverse dalle password (ad esempio, MFA o FIDO) e anche revocare l'opzione **Memorizza Multi-Factor Authentication** nel dispositivo, richiedendo l'autenticazione MFA all'accesso successivo. Queste azioni sono valide solo per gli utenti non amministratori o a cui sono assegnati uno o più dei ruoli seguenti:
+Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per alcuni utenti e possono aggiornare le password per tutti gli utenti. Gli amministratori dell'autenticazione possono richiedere agli utenti non amministratori o assegnati ad alcuni ruoli di eseguire di nuovo la registrazione con credenziali esistenti diverse dalle password (ad esempio, MFA o FIDO) e anche revocare l'opzione **Memorizza Multi-Factor Authentication** nel dispositivo, richiedendo l'autenticazione MFA all'accesso successivo. Se un amministratore di autenticazione può reimpostare la password di un utente dipende dal ruolo assegnato dall'utente. Per un elenco dei ruoli a cui un amministratore di autenticazione può reimpostare le password, vedere [autorizzazioni di reimpostazione della password](#password-reset-permissions).
 
-* Amministratore dell'autenticazione
-* Ruoli con autorizzazioni di lettura nella directory
-* Mittente dell'invito guest
-* Ruolo con autorizzazioni di lettura per il Centro messaggi
-* Lettore di report
-
-Il ruolo [Amministratore dell'autenticazione con privilegi](#privileged-authentication-administrator) è autorizzato a forzare la ripetizione della registrazione e l'autenticazione a più fattori per tutti gli utenti.
+Il ruolo [amministratore autenticazione con privilegi](#privileged-authentication-administrator) dispone dell'autorizzazione può forzare la ripetizione della registrazione e l'autenticazione a più fattori per tutti gli utenti.
 
 > [!IMPORTANT]
 > gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
@@ -253,14 +247,7 @@ gli utenti con questo ruolo possono gestire gli inviti per gli utenti guest di A
 
 ### <a name="helpdesk-administrator"></a>[Amministratore supporto tecnico](#helpdesk-administrator-permissions)
 
-gli utenti con questo ruolo possono modificare le password, invalidare i token di aggiornamento, gestire le richieste di servizio e monitorare l'integrità dei servizi. Invalidando un token di aggiornamento si impone all'utente di eseguire di nuovo l'accesso. Gli utenti con ruolo di Amministratore supporto tecnico possono reimpostare le password e invalidare i token di aggiornamento di altri utenti non amministratori o assegnati solo ai ruoli seguenti:
-
-* Ruoli con autorizzazioni di lettura nella directory
-* Mittente dell'invito guest
-* Amministratore del supporto tecnico
-* Ruolo con autorizzazioni di lettura per il Centro messaggi
-* Amministratore password
-* Lettore di report
+gli utenti con questo ruolo possono modificare le password, invalidare i token di aggiornamento, gestire le richieste di servizio e monitorare l'integrità dei servizi. Invalidando un token di aggiornamento si impone all'utente di eseguire di nuovo l'accesso. Il fatto che un amministratore del supporto tecnico possa reimpostare la password di un utente e invalidare i token di aggiornamento dipende dal ruolo assegnato dall'utente. Per un elenco dei ruoli che un amministratore del supporto tecnico può reimpostare le password per e invalidare i token di aggiornamento, vedere [autorizzazioni di reimpostazione della password](#password-reset-permissions).
 
 > [!IMPORTANT]
 > gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
@@ -271,7 +258,7 @@ gli utenti con questo ruolo possono modificare le password, invalidare i token d
 >- Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
 >- Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
-La delega delle autorizzazioni amministrative a subset di utenti e l'applicazione di criteri a un subset di utenti sono possibili con le [unità amministrative (ora in anteprima pubblica)](administrative-units.md).
+La delega delle autorizzazioni amministrative su subset di utenti e l'applicazione di criteri a un subset di utenti è possibile con le [unità amministrative](administrative-units.md).
 
 Questo ruolo era precedentemente chiamato "Amministratore password" nel [portale di Azure](https://portal.azure.com/). Il nome "Amministratore supporto tecnico" in Azure AD ora corrisponde al nome in Azure AD PowerShell e nell'API Microsoft Graph.
 
@@ -344,11 +331,7 @@ Non usare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il 
 
 ### <a name="password-administrator"></a>[Amministratore password](#password-administrator-permissions)
 
-Gli utenti con questo ruolo hanno la possibilità di gestire le password in modo limitato. Questo ruolo non concede la possibilità di gestire le richieste di servizio o di monitorare l'integrità dei servizi. Gli amministratori delle password possono reimpostare le password di altri utenti non amministratori o membri soltanto dei ruoli seguenti:
-
-* Ruoli con autorizzazioni di lettura nella directory
-* Mittente dell'invito guest
-* Amministratore password
+Gli utenti con questo ruolo hanno la possibilità di gestire le password in modo limitato. Questo ruolo non concede la possibilità di gestire le richieste di servizio o di monitorare l'integrità dei servizi. La possibilità di reimpostare la password di un utente dipende dal ruolo assegnato dall'utente. Per un elenco dei ruoli a cui un amministratore delle password può reimpostare le password, vedere [autorizzazioni di reimpostazione](#password-reset-permissions)della password.
 
 ### <a name="power-bi-administrator"></a>[Amministratore di Power BI](#power-bi-service-administrator-permissions)
 
@@ -371,13 +354,7 @@ Gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato d
 
 ### <a name="privileged-authentication-administrator"></a>[Amministratore autenticazione con privilegi](#privileged-authentication-administrator-permissions)
 
-Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per tutti gli utenti, inclusi gli amministratori globali, ed è possibile aggiornare le password per tutti gli utenti. Gli amministratori dell'autenticazione con privilegi possono forzare gli utenti a eseguire di nuovo la registrazione per le credenziali esistenti diverse dalle password (ad esempio MFA, FIDO) e revocare la scelta di ricordare l'autenticazione a più fattori sul dispositivo, richiedendo l'autenticazione MFA al successivo accesso per tutti gli utenti. Il ruolo di [amministratore dell'autenticazione](#authentication-administrator) può forzare la ripetizione della registrazione e l'autenticazione MFA solo per utenti non amministratori e utenti assegnati ai ruoli Azure AD seguenti:
-
-* Amministratore dell'autenticazione
-* Ruoli con autorizzazioni di lettura nella directory
-* Mittente dell'invito guest
-* Ruolo con autorizzazioni di lettura per il Centro messaggi
-* Lettore di report
+Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per tutti gli utenti, inclusi gli amministratori globali, ed è possibile aggiornare le password per tutti gli utenti. Gli amministratori dell'autenticazione con privilegi possono forzare gli utenti a eseguire di nuovo la registrazione per le credenziali esistenti diverse dalle password (ad esempio MFA, FIDO) e revocare la scelta di ricordare l'autenticazione a più fattori sul dispositivo, richiedendo l'autenticazione MFA al successivo accesso per tutti gli utenti.
 
 ### <a name="privileged-role-administrator"></a>[Amministratore dei ruoli con privilegi](#privileged-role-administrator-permissions)
 
@@ -500,11 +477,12 @@ Gli utenti con questo ruolo possono accedere ai dati aggregati a livello di tena
 
 Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti degli utenti con alcune restrizioni (vedere la tabella) e possono aggiornare i criteri di scadenza delle password. Possono anche creare e gestire tutti i gruppi. Il ruolo consente anche di creare e gestire visualizzazioni utente, gestire i ticket di supporto e monitorare l'integrità del servizio. Gli amministratori degli utenti non sono autorizzati a gestire alcune proprietà utente per gli utenti con la maggior parte dei ruoli di amministratore. L'utente con questo ruolo non ha le autorizzazioni per gestire l'autenticazione MFA. I ruoli che rappresentano eccezioni a questa restrizione sono elencati nella tabella seguente.
 
-| **Autorizzazione** | **Operazione consentita** |
+| Autorizzazione utente amministratore | Note |
 | --- | --- |
-|Autorizzazioni generiche|<p>Creare utenti e gruppi</p><p>Creare e gestire visualizzazioni utente</p><p>Gestire ticket di supporto di Office<p>Aggiornare i criteri di scadenza delle password|
-| <p>Su tutti gli utenti, inclusi tutti gli amministratori</p>|<p>Gestire licenze</p><p>Gestire tutte le proprietà utente, ad eccezione del Nome dell'entità utente</p>
-| Solo sugli utenti non amministratori o in uno dei seguenti ruoli di amministratore con limitazioni:<ul><li>Ruoli con autorizzazioni di lettura nella directory<li>Amministratore di gruppi<li>Mittente dell'invito guest<li>Amministratore del supporto tecnico<li>Ruolo con autorizzazioni di lettura per il Centro messaggi<li>Amministratore password<li>Lettore di report<li>Amministratore utenti|<p>Eliminare e ripristinare</p><p>Disattivare e attivare</p><p>Invalidare i token di aggiornamento</p><p>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente</p><p>Reimposta password</p><p>Aggiornare le chiavi dispositivo (FIDO)</p>|
+| Creare utenti e gruppi<br/>Creare e gestire visualizzazioni utente<br/>Gestire ticket di supporto di Office<br/>Aggiornare i criteri di scadenza delle password |  |
+| Gestire licenze<br/>Gestire tutte le proprietà utente, ad eccezione del Nome dell'entità utente | Si applica a tutti gli utenti, inclusi tutti gli amministratori |
+| Eliminare e ripristinare<br/>Disattivare e attivare<br/>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente<br/>Aggiornare le chiavi dispositivo (FIDO) | Si applica agli utenti che non sono amministratori o in uno dei seguenti ruoli:<ul><li>Amministratore del supporto tecnico</li><li>Utente senza ruolo</li><li>Amministratore utenti</li></ul> |
+| Invalidare i token di aggiornamento<br/>Reimposta password | Per un elenco dei ruoli che un amministratore utente può reimpostare le password per e invalidare i token di aggiornamento, vedere [autorizzazioni di reimpostazione della password](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
@@ -515,7 +493,7 @@ Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti de
 >- Amministratori in altri servizi all'esterno di Azure Active Directory, ad esempio Exchange Online, Centro sicurezza e conformità di Office e sistemi di gestione delle risorse umane.
 >- Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
-## <a name="role-permissions"></a>Autorizzazioni dei ruoli
+## <a name="role-permissions"></a>Autorizzazioni ruoli
 
 Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate a ogni ruolo in Azure Active Directory. Alcuni ruoli potrebbero avere altre autorizzazioni per i servizi Microsoft al di fuori di Azure Active Directory.
 
@@ -572,6 +550,7 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
 ### <a name="application-developer-permissions"></a>Autorizzazioni per sviluppatori di applicazioni
 
@@ -647,6 +626,7 @@ Può gestire tutti gli aspetti del servizio Azure Information Protection.
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Autorizzazioni dell'amministratore dei set di chiavi IEF B2C
 
@@ -725,6 +705,7 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Autorizzazioni per l'amministratore dispositivo cloud
 
@@ -2064,6 +2045,31 @@ Supporto di livello 2 partner | Non viene visualizzato perché non deve essere u
 Utente guest con restrizioni | Non viene visualizzato perché non può essere usato | ND
 Utente | Non viene visualizzato perché non può essere usato | ND
 Aggiunta di dispositivi all'area di lavoro | Deprecato | [Documentazione dei ruoli deprecati](permissions-reference.md#deprecated-roles)
+
+## <a name="password-reset-permissions"></a>Autorizzazioni di reimpostazione password
+
+Le intestazioni di colonna rappresentano i ruoli che possono reimpostare le password. Le righe della tabella contengono i ruoli per i quali è possibile reimpostare la password.
+
+È possibile reimpostare la password | Amministratore autenticazione | Amministratore helpdesk | Amministratore password | User Admin | Amministratore dell'autenticazione con privilegi | Amministratore globale
+------ | ------ | ------ | ------ | ------ | ------ | ------
+Amministratore autenticazione | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Ruoli con autorizzazioni di lettura nella directory | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Amministratore globale | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+Amministrazione gruppi | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Guest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Mittente dell'invito guest | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Amministratore helpdesk | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Ruolo con autorizzazioni di lettura per il Centro messaggi | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Amministratore password | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Amministratore dell'autenticazione con privilegi | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Amministratore del ruolo con privilegi | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Lettore di report | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Guest con restrizioni | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Utente (nessun ruolo amministratore) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Lettore report di riepilogo utilizzo | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* Un amministratore globale non può rimuovere la propria assegnazione di amministratore globale. In questo modo si evita una situazione in cui un'organizzazione ha 0 amministratori globali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

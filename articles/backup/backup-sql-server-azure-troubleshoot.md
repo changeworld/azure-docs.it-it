@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733928"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429467"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -164,7 +164,7 @@ Se si vuole attivare un ripristino nelle istanze di SQL integre, seguire questa 
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non può essere usato per arrestare in un punto nel tempo arbitrario in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](/sql/relational-databases/backup-restore/recovery-models-sql-server).
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non può essere usato per arrestare in un punto nel tempo arbitrario in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -217,7 +217,7 @@ Prima di attivare l'operazione di ripetizione della registrazione, verificare la
 
   - Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale.
   - Arrestare la macchina virtuale, quindi non è possibile eseguire i backup.
-  - Problemi di rete.
+  - [Problemi di rete](#usererrorvminternetconnectivityissue)
 
    ![ripetizione della registrazione della macchina virtuale](./media/backup-azure-sql-database/re-register-vm.png)
 

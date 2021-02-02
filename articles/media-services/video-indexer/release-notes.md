@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120088"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427660"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -30,7 +30,23 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Correzioni di bug
 * Funzionalità deprecate
 
-##  <a name="december-2020"></a>Dicembre 2020
+## <a name="january-2021"></a>Gennaio 2021
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>Video Indexer viene distribuito nel cloud del governo degli Stati Uniti 
+
+È ora possibile creare un account a pagamento Video Indexer nel cloud del governo degli Stati Uniti nelle aree Virginia e Arizona. Video Indexer offerta di valutazione gratuita non è disponibile nell'area indicata. Per ulteriori informazioni, vedere Video Indexer documentazione. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>Video Indexer distribuita nell'area India centrale 
+
+È ora possibile creare un account a pagamento Video Indexer nell'area India centrale. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Nuova modalità scura per l'esperienza del sito Web Video Indexer
+
+L'esperienza del sito Web Video Indexer è ora disponibile in modalità scura. Per abilitare la modalità scura, aprire il pannello impostazioni e attivare o disabilitare l'opzione **modalità scura** . 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Impostazione della modalità scura":::
+
+## <a name="december-2020"></a>Dicembre 2020
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer distribuite nel Svizzera occidentale e Svizzera settentrionale
 
@@ -325,4 +341,4 @@ Oltre al formato di didascalia chiuso già supportato (SRT, VTT e TTML), Video I
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)

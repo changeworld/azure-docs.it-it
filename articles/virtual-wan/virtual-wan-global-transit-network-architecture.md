@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563733"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428184"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
@@ -133,9 +133,6 @@ Gli hub WAN virtuali di Azure interconnettono tutti gli endpoint di rete attrave
 
 **Figura 5: hub virtuale protetto con il firewall di Azure**
 
-> [!NOTE]
-> L'Interhub con firewall attualmente non è supportato. Il traffico tra hub passerà direttamente al bypass del firewall di Azure in ogni hub.
-
 Il firewall di Azure per la rete WAN virtuale supporta i seguenti percorsi di connettività di transito protetti globali. Le lettere tra parentesi vengono mappate alla figura 5.
 
 * Transito sicuro da VNet a VNet (e)
@@ -152,6 +149,23 @@ VNet-to-Internet consente a reti virtuali di connettersi a Internet tramite il f
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Da ramo a Internet o da un servizio di sicurezza di terze parti (j)
 Il ramo a Internet consente ai Branch di connettersi a Internet tramite il firewall di Azure nell'hub WAN virtuale. Il traffico verso Internet tramite i servizi di sicurezza di terze parti supportati non viene propagata attraverso il firewall di Azure. È possibile configurare il percorso da ramo a Internet tramite il servizio di sicurezza di terze parti supportato tramite gestione firewall di Azure. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Transito protetto da ramo a ramo tra aree (f)
+
+I rami possono essere connessi a un hub virtuale protetto con il firewall di Azure usando circuiti ExpressRoute e/o connessioni VPN da sito a sito. È possibile connettere i rami all'hub WAN virtuale che si trova nell'area più vicina al ramo.
+
+Questa opzione consente alle aziende di sfruttare la backbone di Azure per connettere i rami. Tuttavia, anche se questa funzionalità è disponibile, è necessario valutare i vantaggi della connessione dei rami sulla rete WAN virtuale di Azure rispetto all'uso di una rete WAN privata.  
+
+> [!NOTE]
+> L'elaborazione tra hub del traffico tramite firewall non è attualmente supportata. Il traffico tra gli hub verrà indirizzato al ramo appropriato nell'hub virtuale protetto, ma il traffico ignorerà il firewall di Azure in ogni hub.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Transito protetto da ramo a VNet (g)
+
+Il transito protetto da ramo a VNet consente ai Branch di comunicare con reti virtuali nella stessa area dell'hub WAN virtuale e in un'altra rete virtuale connessa a un altro hub WAN virtuale in un'altra area.
+
+> [!NOTE]
+> L'Interhub con firewall attualmente non è supportato. Il traffico tra hub passerà direttamente al bypass del firewall di Azure in ogni hub.  Il traffico tramite una connessione destinata a una rete virtuale nella stessa area verrà elaborato dal firewall di Azure nell'hub protetto.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Ricerca per categorie abilitare la route predefinita (0.0.0.0/0) in un hub virtuale protetto
 

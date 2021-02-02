@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a2b26ae8debf1c52693018ce9a758bfa9b029fa2
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093377"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429263"
 ---
 # <a name="microsoft-azure-attestation"></a>Attestazione di Microsoft Azure 
 
@@ -67,7 +67,7 @@ Attestazione di Azure rappresenta la scelta ideale per l'attestazione di ambient
 
 - Framework unificato per l'attestazione di più ambienti, ad esempio TPM ed enclavi SGX e VBS 
 - Servizio multi-tenant che consente la configurazione di criteri e provider di attestazione personalizzati per limitare la generazione di token
-- Offre provider predefiniti in grado di create attestazioni senza configurazione da parte degli utenti
+- Offre provider di servizi condivisi a livello di area che possono attestare senza configurazione dagli utenti
 - Protegge i dati in uso con l'implementazione in un'enclave SGX
 - Servizi a disponibilità elevata 
 

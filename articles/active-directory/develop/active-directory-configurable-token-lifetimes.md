@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755309"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428150"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Durata dei token configurabili nella piattaforma di identità Microsoft (anteprima)
 
@@ -77,16 +77,14 @@ Per un esempio, vedere [creare criteri per l'accesso Web](configure-token-lifeti
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Criteri di durata dei token per i token di aggiornamento e di sessione
 
-È possibile impostare i criteri di durata dei token per i token di aggiornamento e di sessione.
+Non è possibile impostare i criteri di durata dei token per i token di aggiornamento e di sessione.
 
 > [!IMPORTANT]
-> A partire da maggio 2020, i nuovi tenant non possono configurare la durata dei token di aggiornamento e di sessione.  I tenant con configurazione esistente possono modificare i criteri di aggiornamento e token di sessione fino al 30 gennaio 2021.   Azure Active Directory smetterà di rispettare la configurazione del token di sessione e di aggiornamento esistente nei criteri dopo il 30 gennaio 2021. È comunque possibile configurare la durata dei token di accesso, SAML e ID dopo il ritiro.
->
-> Se è necessario continuare a definire il periodo di tempo prima che all'utente venga richiesto di eseguire di nuovo l'accesso, configurare la frequenza di accesso nell'accesso condizionale. Per altre informazioni sull'accesso condizionale, vedere [configurare la gestione delle sessioni di autenticazione con l'accesso condizionale](../conditional-access/howto-conditional-access-session-lifetime.md).
->
-> Se non si vuole usare l'accesso condizionale dopo la data di ritiro, i token di aggiornamento e di sessione verranno impostati sulla [configurazione predefinita](#configurable-token-lifetime-properties-after-the-retirement) in tale data e non sarà più possibile modificarne la durata.
+> A partire dal 30 gennaio 2021 non è possibile configurare la durata dei token di aggiornamento e di sessione. Azure Active Directory non rispetta più la configurazione del token di sessione e di aggiornamento nei criteri esistenti.  I nuovi token emessi dopo la scadenza dei token esistenti sono ora impostati sulla [configurazione predefinita](#configurable-token-lifetime-properties-after-the-retirement). È comunque possibile configurare la durata dei token di accesso, SAML e ID dopo il ritiro della configurazione del token di sessione e di aggiornamento.
 >
 > La durata del token esistente non verrà modificata. Dopo la scadenza, viene emesso un nuovo token basato sul valore predefinito.
+>
+> Se è necessario continuare a definire il periodo di tempo prima che all'utente venga richiesto di eseguire di nuovo l'accesso, configurare la frequenza di accesso nell'accesso condizionale. Per altre informazioni sull'accesso condizionale, vedere [configurare la gestione delle sessioni di autenticazione con l'accesso condizionale](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informazioni sul ritiro":::
 

@@ -7,16 +7,20 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
-ms.translationtype: HT
+ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937220"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429246"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Avvio rapido: Configurare Attestazione di Azure con l'interfaccia della riga di comando di Azure
 
-Usare l'interfaccia della riga di comando di Azure per configurare Attestazione di Azure.
+Introduzione all' [attestazione di Azure](/cli/azure/ext/attestation/attestation?view=azure-cli-latest)tramite l'interfaccia della riga di comando di Azure.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -65,7 +69,7 @@ Usare l'interfaccia della riga di comando di Azure per configurare Attestazione 
 
 Ecco i comandi che è possibile usare per creare e gestire il provider di attestazioni:
 
-1. Eseguire il comando [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) per creare un provider di attestazioni:
+1. Eseguire il comando [AZ Attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) per creare un provider di attestazione senza requisito di firma dei criteri:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
@@ -128,7 +132,7 @@ Per impostare i criteri in formato JWT per un tipo di attestazione specificato u
 
 ```azurecli
 az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
---attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+--attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
