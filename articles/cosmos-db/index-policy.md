@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 79791bf2db888912d5c1f016f4bf357e76bddcba
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681651"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475101"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,10 +42,7 @@ In Azure Cosmos DB lo spazio di archiviazione totale usato risulta dalla combina
 
 * La dimensione dell'indice dipende dai criteri di indicizzazione. Se tutte le proprietà sono indicizzate, le dimensioni dell'indice possono essere maggiori delle dimensioni dei dati.
 * Quando si eliminano i dati, gli indici vengono compattati in modo quasi continuo. Tuttavia, per le eliminazioni di dati di piccole dimensioni, è possibile che non si osservi immediatamente una riduzione delle dimensioni degli indici.
-* Le dimensioni dell'indice possono aumentare nei casi seguenti:
-
-  * Durata divisione partizione: lo spazio dell'indice viene rilasciato dopo il completamento della divisione della partizione.
-  * Quando si suddivide una partizione, lo spazio di indice aumenterà temporaneamente durante la suddivisione della partizione. 
+* È possibile che le dimensioni degli indici crescano temporaneamente quando si suddividono partizioni fisiche. Lo spazio di indice viene rilasciato dopo il completamento della divisione della partizione.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
 
@@ -186,33 +183,35 @@ Si consideri l'esempio seguente in cui viene definito un indice composito per le
 
 Se una query dispone di filtri su due o più proprietà, potrebbe essere utile creare un indice composto per queste proprietà.
 
-Si consideri, ad esempio, la query seguente che presenta un filtro di uguaglianza per due proprietà:
+Si consideri, ad esempio, la query seguente con un filtro di uguaglianza e di intervallo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-Questa query sarà più efficiente, richiedendo meno tempo e consumando meno ur, se è in grado di sfruttare un indice composto in (nome ASC, Age ASC).
+Questa query sarà più efficiente, richiedendo meno tempo e consumando meno ur, se è in grado di utilizzare un indice composito in `(name ASC, age ASC)` .
 
-È possibile ottimizzare le query con filtri di intervallo anche con un indice composto. Tuttavia, la query può avere solo un filtro di intervallo singolo. I filtri di intervallo includono `>` ,, `<` `<=` , `>=` e `!=` . Il filtro di intervallo deve essere definito per ultimo nell'indice composto.
+È possibile ottimizzare le query con più filtri di intervallo anche con un indice composto. Ogni singolo indice composito, tuttavia, può ottimizzare solo un filtro di intervallo singolo. I filtri di intervallo includono `>` ,, `<` `<=` , `>=` e `!=` . Il filtro di intervallo deve essere definito per ultimo nell'indice composto.
 
-Si consideri la query seguente con i filtri di uguaglianza e di intervallo:
+Si consideri la query seguente con un filtro di uguaglianza e due filtri di intervallo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-Questa query sarà più efficiente con un indice composto in (nome ASC, Age ASC). Tuttavia, la query non utilizzerebbe un indice composto su (Age ASC, Name ASC) perché i filtri di uguaglianza devono essere definiti per primi nell'indice composto.
+Questa query sarà più efficiente con un indice composito in `(name ASC, age ASC)` e `(name ASC, _ts ASC)` . Tuttavia, la query non utilizzerebbe un indice composto in `(age ASC, name ASC)` perché le proprietà con i filtri di uguaglianza devono essere definite per prime nell'indice composto. Sono necessari due indici compositi separati anziché un singolo indice composto in `(name ASC, age ASC, _ts ASC)` , in quanto ogni indice composito può ottimizzare solo un filtro di intervallo singolo.
 
 Quando si creano indici compositi per le query con filtri su più proprietà, vengono usate le considerazioni seguenti.
 
+- Le espressioni di filtro possono utilizzare più indici compositi.
 - Le proprietà nel filtro della query devono corrispondere a quelle nell'indice composto. Se una proprietà è nell'indice composto ma non è inclusa nella query come filtro, la query non utilizzerà l'indice composto.
 - Se una query include proprietà aggiuntive nel filtro che non sono state definite in un indice composito, per valutare la query verrà utilizzata una combinazione di indici composti e di intervallo. Questa operazione richiederà meno ur rispetto all'uso esclusivo degli indici di intervallo.
-- Se una proprietà ha un filtro di intervallo ( `>` , `<` , `<=` , `>=` o `!=` ), questa proprietà deve essere definita per ultima nell'indice composto. Se una query contiene più di un filtro di intervallo, non utilizzerà l'indice composto.
+- Se una proprietà ha un filtro di intervallo ( `>` , `<` , `<=` , `>=` o `!=` ), questa proprietà deve essere definita per ultima nell'indice composto. Se una query contiene più di un filtro di intervallo, può trarre vantaggio da più indici compositi.
 - Quando si crea un indice composto per ottimizzare le query con più filtri, l'oggetto `ORDER` dell'indice composto non avrà alcun effetto sui risultati. Questa proprietà è facoltativa.
-- Se non si definisce un indice composto per una query con filtri su più proprietà, la query avrà comunque esito positivo. Tuttavia, il costo ur della query può essere ridotto con un indice composto.
-- Le query con entrambe le aggregazioni, ad esempio COUNT o SUM, e i filtri traggono vantaggio anche dagli indici compositi.
-- Le espressioni di filtro possono utilizzare più indici compositi.
 
 Si considerino gli esempi seguenti in cui viene definito un indice composito per le proprietà Name, Age e timestamp:
 
@@ -227,43 +226,76 @@ Si considerino gli esempi seguenti in cui viene definito un indice composito per
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Query con un filtro e una clausola ORDER BY
+### <a name="queries-with-a-filter-and-order-by"></a>Query con filtro e ORDER BY
 
 Se una query Filtra in base a una o più proprietà e dispone di proprietà diverse nella clausola ORDER BY, può essere utile aggiungere le proprietà del filtro alla `ORDER BY` clausola.
 
-Se ad esempio si aggiungono le proprietà nel filtro alla clausola ORDER BY, è possibile riscrivere la query seguente per sfruttare un indice composto:
+Se ad esempio si aggiungono le proprietà nel filtro alla `ORDER BY` clausola, è possibile riscrivere la query seguente per sfruttare un indice composto:
 
 Query con l'indice di intervallo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Query con indice composito:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-Lo stesso modello e le stesse ottimizzazioni di query possono essere generalizzate per le query con più filtri di uguaglianza:
+Le stesse ottimizzazioni di query possono essere generalizzate per qualsiasi `ORDER BY` query con filtri, tenendo presente che i singoli indici compositi possono supportare al massimo un filtro di intervallo.
 
 Query con l'indice di intervallo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Query con indice composito:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+Inoltre, è possibile utilizzare gli indici compositi per ottimizzare le query con le funzioni di sistema e ORDER BY:
+
+Query con l'indice di intervallo:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Query con indice composito:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 Quando si creano indici compositi per ottimizzare una query con un filtro e una clausola, vengono utilizzate le considerazioni seguenti `ORDER BY` :
 
-* Se la query Filtra le proprietà, è necessario includerle prima nella `ORDER BY` clausola.
-* Se la query Filtra su più proprietà, i filtri di uguaglianza devono essere le prime proprietà nella `ORDER BY` clausola
 * Se non si definisce un indice composto in una query con un filtro su una proprietà e una clausola separata con `ORDER BY` una proprietà diversa, la query avrà comunque esito positivo. Tuttavia, il costo ur della query può essere ridotto con un indice composito, in particolare se la proprietà nella `ORDER BY` clausola ha una cardinalità elevata.
+* Se la query Filtra le proprietà, è necessario includerle prima nella `ORDER BY` clausola.
+* Se la query Filtra su più proprietà, i filtri di uguaglianza devono essere le prime proprietà nella `ORDER BY` clausola.
+* Se la query Filtra in base a più proprietà, è possibile disporre di un massimo di un filtro di intervallo o di una funzione di sistema utilizzata per ogni indice composto. La proprietà utilizzata nel filtro di intervallo o nella funzione di sistema deve essere definita per ultima nell'indice composto.
 * Sono comunque valide tutte le considerazioni per la creazione di indici compositi per le `ORDER BY` query con più proprietà e per le query con filtri su più proprietà.
 
 
@@ -276,6 +308,7 @@ Quando si creano indici compositi per ottimizzare una query con un filtro e una 
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 
 ## <a name="modifying-the-indexing-policy"></a>Modifica dei criteri di indicizzazione
 

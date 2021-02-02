@@ -4,16 +4,16 @@ description: Informazioni su come identificare, diagnosticare e risolvere i prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905112"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475727"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,6 +62,8 @@ Per informazioni sull'ottimizzazione delle query relative a ogni scenario, veder
 - [Includere i percorsi necessari nei criteri di indicizzazione.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Individuare le funzioni di sistema che usano l'indice.](#understand-which-system-functions-use-the-index)
+
+- [Migliorare l'esecuzione della funzione di sistema di stringa.](#improve-string-system-function-execution)
 
 - [Individuare le query di aggregazione che usano l'indice.](#understand-which-aggregate-queries-use-the-index)
 
@@ -198,10 +200,11 @@ Criteri di indicizzazione aggiornati:
 
 La maggior parte delle funzioni di sistema utilizza gli indici. Ecco un elenco di alcune funzioni stringa comuni che usano gli indici:
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, ma solo se il primo num_expr è 0
+- StartsWith
+- Contiene
+- RegexMatch
+- Sinistra
+- Substring-ma solo se il primo num_expr è 0
 
 Di seguito sono riportate alcune funzioni di sistema comuni che non usano l'indice e che devono caricare ogni documento:
 
@@ -210,11 +213,21 @@ Di seguito sono riportate alcune funzioni di sistema comuni che non usano l'indi
 | UPPER/LOWER                             | Anziché usare la funzione di sistema per normalizzare i dati per i confronti, normalizzare le maiuscole e minuscole al momento dell'inserimento. Una query come ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` diventa ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Funzioni matematiche (non aggregate) | Se nella query è necessario calcolare spesso un valore specifico, è consigliabile memorizzare il valore come proprietà nel documento JSON. |
 
-------
+### <a name="improve-string-system-function-execution"></a>Migliorare l'esecuzione della funzione di sistema stringa
 
-Se una funzione di sistema usa indici e ha ancora un addebito di ur elevato, è possibile provare `ORDER BY` ad aggiungere alla query. In alcuni casi, `ORDER BY` l'aggiunta può migliorare l'utilizzo degli indici delle funzioni di sistema, in particolare se la query è a esecuzione prolungata o si estende su più pagine.
+Per alcune funzioni di sistema che utilizzano indici, è possibile migliorare l'esecuzione delle query aggiungendo una `ORDER BY` clausola alla query. 
 
-Si consideri, ad esempio, la query seguente con `CONTAINS` . `CONTAINS` usare un indice ma si supponga che, dopo aver aggiunto l'indice pertinente, si osservi un addebito di ur molto elevato quando si esegue la query seguente:
+In particolare, qualsiasi funzione di sistema il cui addebito delle unità richiesta aumenta con l'aumentare della cardinalità della proprietà può trarre vantaggio dalla presenza `ORDER BY` nella query. Queste query eseguono un'analisi dell'indice, pertanto l'ordinamento dei risultati della query può rendere la query più efficiente.
+
+Questa ottimizzazione può migliorare l'esecuzione per le funzioni di sistema seguenti:
+
+- StartsWith (senza distinzione tra maiuscole e minuscole = true)
+- StringEquals (senza distinzione tra maiuscole e minuscole = true)
+- Contiene
+- RegexMatch
+- EndsWith
+
+Si consideri, ad esempio, la query seguente con `CONTAINS` . `CONTAINS` utilizzerà gli indici, ma a volte anche dopo l'aggiunta dell'indice pertinente, è comunque possibile osservare un addebito di ur molto elevato quando si esegue la query seguente.
 
 Query originale:
 
@@ -224,13 +237,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-Query aggiornata con `ORDER BY` :
+È possibile migliorare l'esecuzione delle query aggiungendo `ORDER BY` :
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+La stessa ottimizzazione può essere utile nelle query con filtri aggiuntivi. In questo caso, è preferibile aggiungere anche proprietà con filtri di uguaglianza alla `ORDER BY` clausola.
+
+Query originale:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+È possibile migliorare l'esecuzione delle query aggiungendo `ORDER BY` e [un indice composto](index-policy.md#composite-indexes) per (c.Name, c. Town):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Individuare le query di aggregazione che usano l'indice

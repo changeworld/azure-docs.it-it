@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 83c1d8ac316703d9d22d0716c86c5731c3db7133
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226472"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475591"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -38,7 +38,7 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 ### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Le raccomandazioni per la protezione del carico di lavoro Kubernetes verranno presto rilasciate per la disponibilità generale (GA)
 
-**Data stimata per la modifica:** gennaio 2021
+**Data stimata per la modifica:** 2021 febbraio
 
 I consigli sulla protezione del carico di lavoro Kubernetes descritti in [proteggere i carichi di lavoro di Kubernetes](kubernetes-workload-protections.md) sono attualmente in anteprima. Mentre una raccomandazione è in anteprima, non esegue il rendering di una risorsa non integro e non è inclusa nei calcoli del Punteggio sicuro.
 

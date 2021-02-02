@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780740"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475540"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperare i log da distribuzioni IoT Edge
 
@@ -51,8 +51,8 @@ Questo metodo accetta un payload JSON con lo schema seguente:
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -69,10 +69,10 @@ Questo metodo accetta un payload JSON con lo schema seguente:
 | items | Matrice JSON | Matrice con `id` `filter` Tuple e. |
 | ID | string | Espressione regolare che fornisce il nome del modulo. Può corrispondere a più moduli in un dispositivo perimetrale. È previsto il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . |
 | filter | Sezione JSON | Filtri di log da applicare ai moduli corrispondenti all' `id` espressione regolare nella tupla. |
-| coda | integer | Numero di righe di log nel passato da recuperare a partire dall'ultima. FACOLTATIVO |
-| since | integer | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX.  Se `tail` `since` vengono specificati sia che, i log vengono recuperati usando `since` prima il valore. Quindi, il `tail` valore viene applicato al risultato e viene restituito il risultato finale. FACOLTATIVO |
-| until | integer | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
-| livello di registrazione | integer | Filtrare le righe di log inferiori o uguali al livello di log specificato. Le linee di log devono seguire il formato di registrazione consigliato e usare lo standard del [livello di gravità syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . FACOLTATIVO |
+| coda | numero intero | Numero di righe di log nel passato da recuperare a partire dall'ultima. FACOLTATIVO |
+| since | string | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX.  Se `tail` `since` vengono specificati sia che, i log vengono recuperati usando `since` prima il valore. Quindi, il `tail` valore viene applicato al risultato e viene restituito il risultato finale. FACOLTATIVO |
+| until | string | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
+| livello di registrazione | numero intero | Filtrare le righe di log inferiori o uguali al livello di log specificato. Le linee di log devono seguire il formato di registrazione consigliato e usare lo standard del [livello di gravità syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . FACOLTATIVO |
 | regex | string | Filtrare le righe di log con contenuto corrispondente all'espressione regolare specificata utilizzando il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . FACOLTATIVO |
 | codifica | string | `gzip` o `none`. Il valore predefinito è `none`. |
 | contentType | string | `json` o `text`. Il valore predefinito è `text`. |
@@ -160,8 +160,8 @@ Questo metodo accetta un payload JSON simile a **GetModuleLogs**, con l'aggiunta
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -293,8 +293,8 @@ Questo metodo accetta un payload JSON con lo schema seguente:
 |-|-|-|
 | schemaVersion | string | Impostare su `1.0` |
 | sasURL | stringa (URI) | [URL della firma di accesso condiviso con accesso in scrittura al contenitore di archiviazione BLOB di Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| since | integer | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX. FACOLTATIVO |
-| until | integer | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
+| since | string | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX. FACOLTATIVO |
+| until | string | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
 | edgeRuntimeOnly | boolean | Se è true, vengono restituiti solo i log dell'agente Edge, dell'Hub Edge e del daemon di sicurezza perimetrale. Valore predefinito: false.  FACOLTATIVO |
 
 > [!IMPORTANT]

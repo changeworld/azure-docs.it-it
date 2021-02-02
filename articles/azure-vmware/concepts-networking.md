@@ -3,12 +3,12 @@ title: Concetti-interconnettività di rete
 description: Informazioni sugli aspetti chiave e i casi d'uso di rete e interconnettività nella soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9369c0fff31de4c6575d8e4903420cfa01461bf4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062121"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475421"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Concetti relativi alla rete e alla connettività della soluzione VMware di Azure
 
@@ -58,8 +58,11 @@ Il diagramma seguente illustra l'interconnettività da locale a cloud privato, c
 Per l'interconnettività completa con il cloud privato, abilitare ExpressRoute Copertura globale e quindi richiedere una chiave di autorizzazione e un ID di peering privato per Copertura globale nel portale di Azure. La chiave di autorizzazione e l'ID del peering vengono usati per stabilire Copertura globale tra un circuito ExpressRoute nella sottoscrizione e il circuito ExpressRoute per il nuovo cloud privato. Una volta collegati, i due circuiti ExpressRoute instradano il traffico di rete tra gli ambienti locali al cloud privato.  Per ulteriori informazioni sulle procedure per richiedere e utilizzare la chiave di autorizzazione e l'ID peering, vedere l' [esercitazione per la creazione di un ExpressRoute copertura globale peering a un cloud privato](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## <a name="next-steps"></a>Passaggi successivi 
-Informazioni sui [concetti relativi alla memoria cloud privata](concepts-storage.md).
 
+Ora che sono stati trattati questi concetti di rete e di interconnettività, è possibile ottenere informazioni su:
+
+- [Concetti relativi all'archiviazione della soluzione VMware di Azure](concepts-storage.md).
+- [Concetti di identità della soluzione VMware di Azure](concepts-identity.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

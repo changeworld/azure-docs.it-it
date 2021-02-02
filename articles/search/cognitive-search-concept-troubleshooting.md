@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403382"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475489"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
@@ -100,7 +100,7 @@ L’analisi delle immagini è complessa a livello computazionale anche per i cas
 
 Il tempo di esecuzione massimo varia in base al livello: alcuni minuti per il livello gratuito, indicizzazione di 24 ore per i livelli fatturabili. Se l'elaborazione non viene completata entro un periodo di 24 ore per l'elaborazione a richiesta, passare a una pianificazione per consentire all'indicizzatore di riprendere l'elaborazione dove era stata interrotta. 
 
-Per gli indicizzatori pianificati, l'indicizzazione dell'ultimo documento valido noto viene ripresa nei termini previsti. Tramite una pianificazione ricorrente, l'indicizzatore può concentrarsi sul backlog immagine per svariate ore o giorni, fino a quando è completa l’elaborazione di tutte le immagini. Per altre informazioni sulla sintassi Schedule, vedere [Step 3: Create-an-Indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) o vedere [How to Schedule Indexers for Azure ricerca cognitiva](search-howto-schedule-indexers.md).
+Per gli indicizzatori pianificati, l'indicizzazione dell'ultimo documento valido noto viene ripresa nei termini previsti. Tramite una pianificazione ricorrente, l'indicizzatore può concentrarsi sul backlog immagine per svariate ore o giorni, fino a quando è completa l’elaborazione di tutte le immagini. Per altre informazioni sulla sintassi della pianificazione, vedere [pianificare un indicizzatore](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > Se un indicizzatore è impostato su una determinata pianificazione ma ha ripetutamente esito negativo sullo stesso documento più volte ogni volta che viene eseguito, l'indicizzatore inizierà a essere eseguito in un intervallo meno frequente (fino al massimo almeno una volta ogni 24 ore) finché non ripeterà correttamente lo stato di avanzamento.  Se si ritiene di aver risolto il problema che causava il blocco dell'indicizzatore in un determinato momento, è possibile eseguire un'esecuzione su richiesta dell'indicizzatore e, se l'operazione ha esito positivo, l'indicizzatore tornerà nuovamente all'intervallo di pianificazione impostato.
@@ -109,12 +109,12 @@ Per l’indicizzazione basata sul portale (come descritto nella Guida introdutti
 
 ## <a name="tip-8-increase-indexing-throughput"></a>Suggerimento 8: aumentare la velocità effettiva di indicizzazione
 
-Per [indicizzazione parallela](search-howto-large-index.md), inserire i dati in più contenitori o più cartelle virtuali all'interno dello stesso contenitore. Creare quindi più coppie di origine dati e di indicizzatori. Tutti gli indicizzatori possono utilizzare lo stesso insieme di competenze e scrivere nello stesso indice di ricerca di destinazione, in modo che l'app per la ricerca non debba necessariamente essere a conoscenza di tale partizionamento.
+Per [indicizzazione parallela](search-howto-large-index.md), inserire i dati in più contenitori o più cartelle virtuali all'interno dello stesso contenitore. Quindi creare più coppie di origini dati e indicizzatori. Tutti gli indicizzatori possono utilizzare lo stesso insieme di competenze e scrivere nello stesso indice di ricerca di destinazione, in modo che l'app per la ricerca non debba necessariamente essere a conoscenza di tale partizionamento.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Guida introduttiva: creare una pipeline di arricchimento di intelligenza artificiale nel portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: informazioni sulle API REST per l'arricchimento di intelligenza artificiale](cognitive-search-tutorial-blob.md)
-+ [Specificare le credenziali dell'origine dati](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Come configurare gli indicizzatori BLOB](search-howto-indexing-azure-blob-storage.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come eseguire la mappatura dei campi arricchiti a un indice](cognitive-search-output-field-mapping.md)

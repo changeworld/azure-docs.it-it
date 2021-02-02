@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814296"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474847"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Abilità cognitiva di estrazione documenti
 
@@ -37,7 +37,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Input | Valori consentiti | Descrizione |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Impostare su `default` per l'estrazione dei documenti da file che non sono testo puro o JSON. Impostare su `text` per migliorare le prestazioni in file di testo normale. Impostare su `json` per estrarre il contenuto strutturato dai file JSON. Se `parsingMode` non è definito in modo esplicito, verrà impostato su `default` . |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Impostare su `contentAndMetadata` per estrarre tutti i metadati e il contenuto testuale da ogni file. Impostare su `allMetadata` per estrarre solo i [metadati specifici del tipo di contenuto](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) , ad esempio i metadati univoci solo per i file con estensione png. Se `dataToExtract` non è definito in modo esplicito, verrà impostato su `contentAndMetadata` . |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Impostare su `contentAndMetadata` per estrarre tutti i metadati e il contenuto testuale da ogni file. Impostare su `allMetadata` per estrarre solo le [proprietà dei metadati per il tipo di contenuto](search-blob-metadata-properties.md) , ad esempio i metadati univoci per i soli file con estensione png. Se `dataToExtract` non è definito in modo esplicito, verrà impostato su `contentAndMetadata` . |
 | `configuration` | Vedere qui di seguito. | Dizionario di parametri facoltativi che regolano il modo in cui viene eseguita l'estrazione del documento. Vedere la tabella seguente per le descrizioni delle proprietà di configurazione supportate. |
 
 | Parametro di configurazione   | Valori consentiti | Descrizione |

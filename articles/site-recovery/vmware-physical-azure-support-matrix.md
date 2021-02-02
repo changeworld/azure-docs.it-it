@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f525666e91a482a6c23128e266b4f5669437a502
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956022"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475472"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -231,7 +231,7 @@ NFS guest/server | No
 ISCSI Guest/server | Per la migrazione-Sì<br/>Per il ripristino di emergenza-No, iSCSI effettuerà il failback come disco collegato alla macchina virtuale
 SMB 3.0 guest/server | No
 RDM guest/server | Sì<br/><br/> N/D per server fisici
-Disco guest/server > 1 TB | Sì, il disco deve avere dimensioni maggiori di 1024 MB<br/><br/>Fino a 8.192 GB durante la replica a Managed Disks (9,26 versioni successive)<br></br> Fino a 4.095 GB durante la replica in account di archiviazione
+Disco guest/server > 1 TB | Sì, il disco deve avere dimensioni maggiori di 1024 MB<br/><br/>Fino a 32 TB durante la replica a Managed Disks (9,40 versioni successive)<br></br> Fino a 4.095 GB durante la replica in account di archiviazione
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | No
 Disco Guest/server con dimensioni del settore fisico 4K logiche e 512 byte | No
 Volume con disco con striping > 4 TB guest/server | Sì
@@ -292,7 +292,7 @@ Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negat
 Dimensioni disco del sistema operativo | Fino a 2.048 GB. | Il controllo ha esito negativo se non supportato.
 Conteggio dischi del sistema operativo | 1 </br> la partizione di avvio e di sistema in dischi diversi non è supportata | Il controllo ha esito negativo se non supportato.
 Conteggio dischi dati | 64 o un numero inferiore. | Il controllo ha esito negativo se non supportato.
-Dimensioni del disco dati | Fino a 8.192 GB durante la replica in un disco gestito (versione 9,26 e successive)<br></br>Fino a 4.095 GB durante la replica nell'account di archiviazione| Il controllo ha esito negativo se non supportato.
+Dimensioni del disco dati | Fino a 32 TB durante la replica in un disco gestito (versione 9,40 e successive)<br></br>Fino a 4.095 GB durante la replica nell'account di archiviazione| Il controllo ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede. |
 VHD condiviso | Non supportata. | Il controllo ha esito negativo se non supportato.
 Disco FC | Non supportata. | Il controllo ha esito negativo se non supportato.

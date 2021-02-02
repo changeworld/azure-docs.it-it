@@ -173,7 +173,7 @@
             - name: Configurare l'interfaccia della riga di comando usingAzure collegamento privato
               href: howto-configure-privatelink-cli.md
               displayName: 'private link, private endpoint'
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica della sicurezza
           href: concepts-security.md
@@ -412,6 +412,10 @@
       items:
         - name: Che cos'è Server flessibile?
           href: flexible-server/overview.md
+        - name: Versioni supportate
+          href: flexible-server/concepts-supported-versions.md
+        - name: Calcolo e archiviazione
+          href: flexible-server/concepts-compute-storage.md
     - name: Guide rapide introduttive
       expanded: true
       items:
@@ -437,93 +441,8 @@
               href: flexible-server/connect-java.md
             - name: .NET
               href: flexible-server/connect-csharp.md
-    - name: Esercitazioni
-      items:
-        - name: WordPress in Azure Kubernetes
-          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
-        - name: Creare un'app PHP (Laravel) con il database
-          href: flexible-server/tutorial-php-database-app.md
-        - name: Connettersi con l'app Web privata
-          href: flexible-server/tutorial-webapp-server-vnet.md
-    - name: Concetti
-      items:
-        - name: Server
-          href: flexible-server/concept-servers.md
-        - name: Versioni supportate
-          href: flexible-server/concepts-supported-versions.md
-        - name: Limitazioni
-          href: flexible-server/concepts-limitations.md
-        - name: Calcolo e archiviazione
-          href: flexible-server/concepts-compute-storage.md
-        - name: Rete
-          href: flexible-server/concepts-networking.md
-          displayName: 'virtual network, IP address, public access'
-        - name: Manutenzione
-          href: flexible-server/concepts-maintenance.md
-        - name: Continuità aziendale
-          items:
-            - name: Panoramica sulla continuità aziendale
-              href: flexible-server/concepts-business-continuity.md
-            - name: Backup e ripristino
-              href: flexible-server/concepts-backup-restore.md
-            - name: Disponibilità elevata
-              href: flexible-server/concepts-high-availability.md
-        - name: Monitoraggio e log
-          items:
-            - name: Parametri del server
-              href: flexible-server/concepts-server-parameters.md
-            - name: Log query lente
-              href: flexible-server/concepts-slow-query-logs.md
-            - name: Log di controllo
-              href: flexible-server/concepts-audit-logs.md
-            - name: Metriche
-              href: flexible-server/concepts-monitoring.md
-        - name: Replica
-          items:
-            - name: Repliche in lettura
-              href: flexible-server/concepts-read-replicas.md
-    - name: Guide pratiche
-      items:
-        - name: Gestire un server
-          items:
-            - name: Portale di Azure
-              href: flexible-server/how-to-manage-server-portal.md
-            - name: Interfaccia della riga di comando di Azure
-              href: flexible-server/how-to-manage-server-cli.md
-        - name: Manutenzione
-          items:
-            - name: Portale di Azure
-              href: flexible-server/how-to-maintenance-portal.md
-        - name: Arrestare/Avviare il server
-          items:
-            - name: Portale di Azure
-              href: flexible-server/how-to-stop-start-server-portal.md
-        - name: Ripristinare un server
-          items:
-            - name: Portale di Azure
-              href: flexible-server/how-to-restore-server-portal.md
-        - name: Disponibilità elevata
-          items:
-            - name: Portale di Azure
-              href: flexible-server/how-to-configure-high-availability.md
-        - name: Rete
-          items:
-            - name: Accesso privato (integrazione rete virtuale)
-              items:
-                - name: Portale di Azure
-                  href: flexible-server/how-to-manage-virtual-network-portal.md
-                - name: Interfaccia della riga di comando di Azure
-                  href: flexible-server/how-to-manage-virtual-network-cli.md
-            - name: Accesso pubblico (indirizzi IP consentiti)
-              items:
-                - name: Portale di Azure
-                  href: flexible-server/how-to-manage-firewall-portal.md
-                - name: Interfaccia della riga di comando di Azure
-                  href: flexible-server/how-to-manage-firewall-cli.md
-            - name: TLS/SSL
-              items:
-                - name: Connettersi con TLS/SSL
-                  href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Connettersi con TLS/SSL
+          href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configurare i parametri del server
           items:
             - name: Portale di Azure
@@ -532,32 +451,104 @@
             - name: Interfaccia della riga di comando di Azure
               href: flexible-server/how-to-configure-server-parameters-cli.md
               displayName: 'server parameters, cli'
-        - name: Monitoraggio e log
-          items:
-            - name: Creare avvisi relativi alle metriche
-              href: flexible-server/how-to-alert-on-metric.md
-            - name: Log query lente
-              items:
-                - name: Portale di Azure
-                  href: flexible-server/how-to-configure-slow-query-logs-portal.md
-            - name: Log di controllo
-              items:
-                - name: Portale di Azure
-                  href: flexible-server/how-to-configure-audit-logs-portal.md
-        - name: Riavviare il server
+        - name: Creare database e utenti
+          href: howto-create-users.md
+          displayName: users
+        - name: Server di monitoraggio
+          href: flexible-server/how-to-alert-on-metric.md
+    - name: Sviluppo applicazioni
+      items:
+        - name: WordPress in Azure Kubernetes
+          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
+        - name: Creare un'app PHP (Laravel) con il database
+          href: flexible-server/tutorial-php-database-app.md
+        - name: Connettersi con l'app Web privata
+          href: flexible-server/tutorial-webapp-server-vnet.md
+    - name: Gestione server
+      items:
+        - name: Concetti
+          href: flexible-server/concept-servers.md
+        - name: Parametri del server
+          href: flexible-server/concepts-server-parameters.md
+        - name: Limitazioni
+          href: flexible-server/concepts-limitations.md
+        - name: Gestire un server
           items:
             - name: Portale di Azure
-              href: flexible-server/how-to-restart-server-portal.md
-        - name: Replica
+              href: flexible-server/how-to-manage-server-portal.md
+            - name: Interfaccia della riga di comando di Azure
+              href: flexible-server/how-to-manage-server-cli.md
+        - name: Arrestare/avviare il server utilizzando portale di Azure
+          href: flexible-server/how-to-stop-start-server-portal.md
+        - name: Riavviare il server utilizzando portale di Azure
+          href: flexible-server/how-to-restart-server-portal.md
+    - name: Rete
+      items:
+        - name: Concetti
+          href: flexible-server/concepts-networking.md
+          displayName: 'virtual network, IP address, public access'
+        - name: Accesso privato (integrazione rete virtuale)
           items:
-            - name: Creare repliche in lettura nel portale di Azure
+            - name: Configurare l'accesso privato con portale di Azure
+              href: flexible-server/how-to-manage-virtual-network-portal.md
+            - name: Configurare accesso privato tramite l'interfaccia della riga di comando di Azure
+              href: flexible-server/how-to-manage-virtual-network-cli.md
+        - name: Accesso pubblico (indirizzi IP consentiti)
+          items:
+            - name: Configurare l'accesso pubblico usando portale di Azure
+              href: flexible-server/how-to-manage-firewall-portal.md
+            - name: Configurare l'accesso pubblico usando l'interfaccia della riga di comando
+              href: flexible-server/how-to-manage-firewall-cli.md
+    - name: Manutenzione del servizio
+      items:
+        - name: Manutenzione pianificata
+          href: flexible-server/concepts-maintenance.md
+        - name: Configurare la manutenzione pianificata usando portale di Azure
+          href: flexible-server/how-to-maintenance-portal.md
+    - name: Disponibilità elevata
+      items:
+        - name: Panoramica sulla continuità aziendale
+          href: flexible-server/concepts-business-continuity.md
+        - name: Disponibilità elevata
+          href: flexible-server/concepts-high-availability.md
+        - name: Configurare la disponibilità elevata usando portale di Azure
+          href: flexible-server/how-to-configure-high-availability.md
+    - name: Monitoraggio e log
+      items:
+        - name: Concetti
+          href: flexible-server/concepts-monitoring.md
+        - name: Log di query lente
+          items:
+            - name: Concetti
+              href: flexible-server/concepts-slow-query-logs.md
+            - name: Configurare i log di query lente usando portale di Azure
+              href: flexible-server/how-to-configure-slow-query-logs-portal.md
+        - name: Log di controllo
+          items:
+            - name: Concetti
+              href: flexible-server/concepts-audit-logs.md
+            - name: Configurare i log di controllo
+              href: flexible-server/how-to-configure-audit-logs-portal.md
+    - name: Replica
+      items:
+        - name: Repliche in lettura
+          href: flexible-server/concepts-read-replicas.md
+        - name: Creare repliche di lettura
+          items:
+            - name: Creare repliche di lettura usando portale di Azure
               href: flexible-server/how-to-read-replicas-portal.md
-            - name: Creare repliche in lettura con l'interfaccia della riga di comando di Azure
+            - name: Creare repliche di lettura usando l'interfaccia della riga di comando
               href: flexible-server/how-to-read-replicas-cli.md
-        - name: Risolvere problemi
-          items:
-            - name: Errori di connessione
-              href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+    - name: Backup e ripristino
+      items:
+        - name: Concetti
+          href: flexible-server/concepts-backup-restore.md
+        - name: Ripristinare un server con il portale di Azure
+          href: flexible-server/how-to-restore-server-portal.md
+    - name: Risoluzione dei problemi
+      items:
+        - name: Risolvere gli errori di connessione
+          href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Migrazione
   items:
     - name: Eseguire la migrazione dei dati con mysqldump o phpmyadmin
