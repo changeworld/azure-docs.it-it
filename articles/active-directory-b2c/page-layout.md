@@ -11,18 +11,21 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976504"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492247"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
 I pacchetti del layout di pagina vengono aggiornati periodicamente per includere correzioni e miglioramenti negli elementi della pagina. Nel log delle modifiche seguente vengono specificate le modifiche introdotte in ogni versione.
 
 ## <a name="self-asserted-page-selfasserted"></a>Pagina autocertificata (selfasserted)
+
+**2.1.2**
+- Correzione del problema di codifica della localizzazione per le lingue, ad esempio spagnolo e francese.
 
 **2.1.1**
 
@@ -70,6 +73,10 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 - Versione iniziale
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Pagina di iscrizione dell'accesso unificato con collegamento per la reimpostazione della password (unifiedssp)
+
+**2.1.2**
+- Correzione del problema di codifica della localizzazione per le lingue, ad esempio spagnolo e francese.
+- Consentire il collegamento "password dimenticata" da usare come scambio di attestazioni come IDP sociale.
 
 **2.1.1**
 - Aggiunta di un UXString `heading` , oltre a `intro` da visualizzare nella pagina come titolo. Questa operazione è nascosta per impostazione predefinita.

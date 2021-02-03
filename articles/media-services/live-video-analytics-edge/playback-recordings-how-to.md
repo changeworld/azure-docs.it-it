@@ -3,12 +3,12 @@ title: Riproduzione di registrazioni-Azure
 description: È possibile usare l'analisi video in tempo reale su IoT Edge per la registrazione video continua, in cui è possibile registrare video nel cloud per settimane o mesi. È anche possibile limitare la registrazione a clip di interesse, tramite la registrazione basata su eventi. Questo articolo illustra come riprodurre le registrazioni.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84260384"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490896"
 ---
 # <a name="playback-of-recordings"></a>Riproduzione di registrazioni 
 
@@ -18,7 +18,7 @@ ms.locfileid: "84260384"
 * [Registrazione continua di video](continuous-video-recording-concept.md)
 * [Registrazione di video basata su eventi](event-based-video-recording-concept.md)
 
-## <a name="background"></a>Background  
+## <a name="background"></a>Sfondo  
 
 È possibile usare analisi video in tempo reale su IoT Edge per la [registrazione video continua](continuous-video-recording-concept.md) (CVR), in cui è possibile registrare video nel cloud per settimane o mesi. È anche possibile limitare la registrazione a clip di interesse, tramite [registrazione video basata su eventi](event-based-video-recording-concept.md) (EVR). 
 
@@ -52,7 +52,7 @@ Dove il valore di precisione può essere uno dei seguenti: Year, month, Day o fu
 |---|---|---|---|---|
 |Query|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |Risposta|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Risposta di fedeltà completa. Se non si sono verificati Gap, l'inizio sarebbe startTime e end sarebbe endTime.|
-|Vincola|&#x2022;startTime <= endTime<br/>&#x2022;devono essere entrambi in formato aaaa; in caso contrario, restituisce un errore.<br/>Il valore di &#x2022;può essere diverso da un numero di anni.<br/>I valori &#x2022;sono inclusivi.|&#x2022;startTime <= endTime<br/>&#x2022;deve essere in formato AAAA-MM; in caso contrario, restituisce un errore.<br/>I valori &#x2022;possono avere una distanza massima di 12 mesi.<br/>I valori &#x2022;sono inclusivi.|&#x2022;startTime <= endTime<br/>&#x2022;deve essere in formato AAAA-MM-GG, in caso contrario restituisce un errore.<br/>I valori &#x2022;possono avere una distanza massima di 31 giorni.<br/>I valori sono inclusivi.|&#x2022;startTime < endTime<br/>I valori di &#x2022;possono essere a un massimo di 25 ore.<br/>I valori &#x2022;sono inclusivi.|
+|Vincoli|&#x2022;startTime <= endTime<br/>&#x2022;devono essere entrambi in formato aaaa; in caso contrario, restituisce un errore.<br/>Il valore di &#x2022;può essere diverso da un numero di anni.<br/>I valori &#x2022;sono inclusivi.|&#x2022;startTime <= endTime<br/>&#x2022;deve essere in formato AAAA-MM; in caso contrario, restituisce un errore.<br/>I valori &#x2022;possono avere una distanza massima di 12 mesi.<br/>I valori &#x2022;sono inclusivi.|&#x2022;startTime <= endTime<br/>&#x2022;deve essere in formato AAAA-MM-GG, in caso contrario restituisce un errore.<br/>I valori &#x2022;possono avere una distanza massima di 31 giorni.<br/>I valori sono inclusivi.|&#x2022;startTime < endTime<br/>I valori di &#x2022;possono essere a un massimo di 25 ore.<br/>I valori &#x2022;sono inclusivi.|
 
 #### <a name="additional-request-format-considerations"></a>Considerazioni aggiuntive sul formato della richiesta
 

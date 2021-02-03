@@ -4,15 +4,15 @@ description: Vengono descritti le origini dati e i connettori supportati per i m
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685596"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493821"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -128,7 +128,9 @@ Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authenticati
 
 ## <a name="oauth-credentials"></a>Credenziali OAuth
 
-Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità in memoria, il database SQL di Azure, la sinapsi di Azure, Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali utilizzando Power Query.
+Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità *in memoria* , il database SQL di Azure, la sinapsi di Azure, Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Per generare token validi, impostare le credenziali utilizzando Power Query. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. 
+> [!NOTE]
+> L'aggiornamento del token gestito non è supportato per le origini dati a cui si accede tramite un gateway. Ad esempio, è possibile accedere a una o più origini dati di query mashup tramite un gateway e/o la proprietà [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) è impostata su **true**. 
 
 La modalità DirectQuery non è supportata con le credenziali OAuth.
 

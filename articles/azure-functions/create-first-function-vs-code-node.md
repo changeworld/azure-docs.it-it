@@ -3,12 +3,12 @@ title: Creare una funzione in JavaScript con Visual Studio Code - Funzioni di Az
 description: Informazioni su come creare una funzione in JavaScript e quindi pubblicare il progetto Node.js locale nell'hosting serverless in Funzioni di Azure usando l'estensione Funzioni di Azure in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 11195531cafadcc8b73c0913bc99b4119aa2d4fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
-ms.translationtype: HT
+ms.openlocfilehash: 79da3686310013d4af2acebe5c7c941a38df1a8a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424724"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493618"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in JavaScript in Azure con Visual Studio Code
 
@@ -75,7 +75,7 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
 1. Selezionare l'icona di Azure nella barra attività, quindi nell'area **Azure: Funzioni** scegliere il pulsante **Deploy to function app...** (Distribuisci nell'app per le funzioni...).
 
-    ![Pubblicare il progetto in Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Pubblicare il progetto in Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Quando richiesto, immettere le informazioni seguenti:
 
@@ -91,15 +91,17 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
     + **Selezionare una località per le nuove risorse**:  per prestazioni ottimali, scegliere un'[area](https://azure.microsoft.com/regions/) vicina. 
 
+    L'estensione Mostra lo stato delle singole risorse man mano che vengono create in Azure nell'area di notifica.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notifica della creazione di risorse di Azure":::
+
 1. Al termine, nella sottoscrizione vengono create le risorse di Azure seguenti con i nomi basati sul nome dell'app per le funzioni:
 
-    + Un gruppo di risorse, ovvero un contenitore logico di risorse correlate.
-    + Un account di archiviazione di Azure Standard, che mantiene lo stato e altre informazioni sul progetto.
-    + Un piano a consumo, che definisce l'host sottostante per l'app per le funzioni serverless. 
-    + Un'app per le funzioni, che fornisce l'ambiente per l'esecuzione del codice della funzione. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse all'interno dello stesso piano di hosting.
-    + Un'istanza di Application Insights connessa all'app per le funzioni, che tiene traccia dell'utilizzo della funzione serverless.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Dopo la creazione dell'app per le funzioni e dopo l'applicazione del pacchetto di distribuzione viene visualizzata una notifica. 
+
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
 
 1. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create. Se non si riesce a visualizzare la notifica, selezionare l'icona della campana nell'angolo in basso a destra per visualizzarla di nuovo.
 
@@ -111,7 +113,7 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato usato Visual Studio Code per creare un'app per le funzioni con una semplice funzione attivata tramite HTTP. Il prossimo articolo descrive come espandere questa funzione aggiungendo un binding di output. Questo binding scrive la stringa della richiesta HTTP in un messaggio in una coda dell'archiviazione code di Azure. 
+Si è usato [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) per creare un'app per le funzioni con una semplice funzione attivata tramite http. Nell'articolo successivo si espande la funzione connettendosi ad archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=javascript).  
 
 > [!div class="nextstepaction"]
 > [Connettersi a una coda di Archiviazione di Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)

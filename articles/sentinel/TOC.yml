@@ -2,6 +2,8 @@
   href: index.yml
 - name: Panoramica
   href: overview.md
+- name: Quali sono le novità di Azure Sentinel?
+  href: whats-new.md
 - name: Avvi rapidi
   expanded: true
   items:

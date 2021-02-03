@@ -3,12 +3,12 @@ title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 0b3ddc63e49b272c93349ada91e9a1599ea4be4f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186210"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491487"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Distribuzioni tenant con modelli ARM
 
@@ -133,7 +133,7 @@ Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione p
 
 Per le distribuzioni a livello di tenant, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione. Le distribuzioni di [sottoscrizioni](deploy-to-subscription.md) e [gruppi di gestione](deploy-to-management-group.md) richiedono anche un percorso. Per le distribuzioni di [gruppi di risorse](deploy-to-resource-group.md) , il percorso del gruppo di risorse viene usato per archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato _azuredeploy.json_ crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se, ad esempio, si crea una distribuzione tenant con il nome **Deployment1** in **centralus**, non sarà possibile creare in un secondo momento un'altra distribuzione con il nome **Deployment1** ma un percorso di **westus**. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 

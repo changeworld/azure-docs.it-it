@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4cde4dadee33ec1c3f91ab4770dbfe697289cef3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504733"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491014"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Usare i valori denominati nei criteri di gestione API di Azure
 
@@ -25,7 +25,7 @@ I [criteri di gestione API](api-management-howto-policies.md) sono una potente f
 
 ## <a name="value-types"></a>Tipi valore
 
-|Type  |Descrizione  |
+|Tipo  |Descrizione  |
 |---------|---------|
 |Pianura     |  Stringa letterale o espressione di criteri     |
 |Segreto     |   Stringa letterale o espressione di criteri crittografata da gestione API      |
@@ -43,7 +43,7 @@ I valori dei segreti possono essere archiviati come stringhe crittografate in ge
 
 * I segreti archiviati negli insiemi di credenziali delle chiavi possono essere riutilizzati tra i servizi
 * I [criteri di accesso](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) granulari possono essere applicati ai segreti
-* I segreti aggiornati nell'insieme di credenziali delle chiavi vengono automaticamente ruotati in gestione API. Dopo l'aggiornamento nell'insieme di credenziali delle chiavi, un valore denominato in gestione API viene aggiornato entro 4 ore. 
+* I segreti aggiornati nell'insieme di credenziali delle chiavi vengono automaticamente ruotati in gestione API. Dopo l'aggiornamento nell'insieme di credenziali delle chiavi, un valore denominato in gestione API viene aggiornato entro 4 ore. È anche possibile aggiornare manualmente il segreto usando il portale di Azure o tramite l'API REST di gestione.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Prerequisiti per l'integrazione di Key Vault
 
@@ -58,25 +58,16 @@ I valori dei segreti possono essere archiviati come stringhe crittografate in ge
 
 Per usare il segreto dell'insieme di credenziali delle chiavi, [aggiungere o modificare un valore denominato](#add-or-edit-a-named-value)e specificare un tipo di insieme di credenziali delle **chiavi**. Selezionare il segreto dall'insieme di credenziali delle chiavi.
 
-> [!CAUTION]
-> Quando si usa un segreto di Key Vault in gestione API, prestare attenzione a non eliminare il segreto, l'insieme di credenziali delle chiavi o l'identità gestita usata per accedere all'insieme di credenziali delle chiavi.
-
-Se [Key Vault firewall](../key-vault/general/network-security.md) è abilitato nell'insieme di credenziali delle chiavi, di seguito sono riportati i requisiti aggiuntivi per l'uso dei segreti di Key Vault:
-
-* Per accedere all'insieme di credenziali delle chiavi, è necessario usare l'identità gestita **assegnata dal sistema** dell'istanza di gestione API.
-* In Key Vault Firewall abilitare l'opzione **Consenti ai servizi Microsoft attendibili di ignorare questo firewall** .
-
-Se l'istanza di gestione API viene distribuita in una rete virtuale, configurare anche le impostazioni di rete seguenti:
-* Abilitare un [endpoint di servizio](../key-vault/general/overview-vnet-service-endpoints.md) per Azure Key Vault nella subnet di gestione API.
-* Configurare una regola del gruppo di sicurezza di rete (NSG) per consentire il traffico in uscita ai [tag del servizio](../virtual-network/service-tags-overview.md)AzureKeyVault e AzureActiveDirectory. 
-
-Per informazioni dettagliate, vedere la pagina relativa ai dettagli di configurazione di rete in [connettersi a una rete virtuale](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## <a name="add-or-edit-a-named-value"></a>Aggiungere o modificare un valore denominato
 
 ### <a name="add-a-key-vault-secret"></a>Aggiungere un segreto dell'insieme di credenziali delle chiavi
 
 Vedere [prerequisiti per l'integrazione di Key Vault](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> Quando si usa un segreto di Key Vault in gestione API, prestare attenzione a non eliminare il segreto, l'insieme di credenziali delle chiavi o l'identità gestita usata per accedere all'insieme di credenziali delle chiavi.
 
 1. Nel [portale di Azure](https://portal.azure.com) accedere all'istanza di Gestione API.
 1. In **API** selezionare **valori denominati**  >  **+ Aggiungi**.

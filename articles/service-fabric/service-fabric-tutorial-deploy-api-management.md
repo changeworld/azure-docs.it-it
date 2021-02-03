@@ -4,12 +4,12 @@ description: Informazioni su come iniziare a usare rapidamente Gestione API di A
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b89204e2df5c8e79200b780de38d06b1a93c1fa3
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f1ae658ac4944f8d39dc11769669d32958fd14f4
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702192"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491283"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
 
@@ -30,7 +30,7 @@ Questo articolo illustra come configurare il servizio [Gestione API di Azure](..
 Prima di iniziare:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installare [Azure PowerShell](/powershell/azure/install-az-ps) o l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli)
+* Installare [Azure PowerShell](/powershell/azure/install-az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Creare un [cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) protetto in un gruppo di sicurezza di rete.
 * Se si distribuisce un cluster di Windows, configurare un ambiente di sviluppo di Windows. Installare [Visual Studio 2019](https://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
 
@@ -190,7 +190,7 @@ Specificare un valore per i seguenti parametri vuoti in *apim.parameters.json* p
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
+|apimSku|Sviluppatore|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -293,6 +293,8 @@ az group delete --name $ResourceGroupName
 
 Altre informazioni sull'uso di [ Gestione API](../api-management/import-and-publish.md).
 
+È anche possibile usare la [portale di Azure](../api-management/how-to-configure-service-fabric-backend.md) per creare e gestire Service Fabric backend per gestione API.
+
 [azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
@@ -303,7 +305,6 @@ Altre informazioni sull'uso di [ Gestione API](../api-management/import-and-publ
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-Vice-Fabric-scripts-and-Templates/BLOB/Master/templates/Service-Integration/network-apim.parameters.jsonn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

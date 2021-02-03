@@ -4,12 +4,12 @@ description: Informazioni su come creare una funzione in Python e quindi pubblic
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d7b98c44b85e17d084994bbcaa285c55c7a5e4d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e022843f95e5d5b52a15eaab2d28b6b9eb923006
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880845"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493567"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in Azure con Python usando Visual Studio Code
 
@@ -54,7 +54,8 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 
     + **Selezionare un linguaggio per il progetto di funzione**: Scegliere `Python`.
 
-    + **Selezionare un alias Python per creare un ambiente virtuale**: Scegliere la posizione dell'interprete Python. Se la posizione non viene visualizzata, digitare il percorso completo del file binario di Python.  
+    + **Selezionare un alias Python per creare un ambiente virtuale**: Scegliere la posizione dell'interprete Python.  
+    Se la posizione non viene visualizzata, digitare il percorso completo del file binario di Python.  
 
     + **Selezionare un modello per la prima funzione del progetto**: Scegliere `HTTP trigger`.
 
@@ -81,15 +82,18 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
 1. Selezionare l'icona di Azure nella barra attività, quindi nell'area **Azure: Funzioni** scegliere il pulsante **Deploy to function app...** (Distribuisci nell'app per le funzioni...).
 
-    ![Pubblicare il progetto in Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Pubblicare il progetto in Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Quando richiesto, immettere le informazioni seguenti:
 
-    + **Selezionare la cartella**: scegliere una cartella dall'area di lavoro o selezionarne una che contenga l'app per le funzioni. Questa opzione non verrà visualizzata se è già stata aperta un'app per le funzioni valida.
+    + **Selezionare la cartella**: scegliere una cartella dall'area di lavoro o selezionarne una che contenga l'app per le funzioni.   
+    Questa opzione non verrà visualizzata se è già stata aperta un'app per le funzioni valida.
 
-    + **Selezionare la sottoscrizione**: scegliere la sottoscrizione da usare. Questa opzione non è visibile se è disponibile una sola sottoscrizione.
+    + **Selezionare la sottoscrizione**: scegliere la sottoscrizione da usare.  
+    Questa opzione non è visibile se è disponibile una sola sottoscrizione.
 
-    + **Selezionare l'app per le funzioni in Azure**: Scegliere `+ Create new Function App`. Non scegliere l'opzione `Advanced`, che non è illustrata in questo articolo.
+    + **Selezionare l'app per le funzioni in Azure**: Scegliere `+ Create new Function App`.  
+    Non scegliere l'opzione `Advanced`, che non è illustrata in questo articolo.
 
     + **Immettere un nome univoco a livello globale per l'app per le funzioni**: digitare un nome valido in un percorso URL. Il nome digitato viene convalidato per assicurarsi che sia univoco in Funzioni di Azure. 
 
@@ -97,17 +101,19 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
     + **Selezionare una località per le nuove risorse**:  per prestazioni ottimali, scegliere un'[area](https://azure.microsoft.com/regions/) vicina.
 
+    L'estensione Mostra lo stato delle singole risorse man mano che vengono create in Azure nell'area di notifica.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notifica della creazione di risorse di Azure":::
+
 1. Al termine, nella sottoscrizione vengono create le risorse di Azure seguenti con i nomi basati sul nome dell'app per le funzioni:
 
-    + Un gruppo di risorse, ovvero un contenitore logico di risorse correlate.
-    + Un account di archiviazione di Azure Standard, che mantiene lo stato e altre informazioni sul progetto.
-    + Un piano a consumo, che definisce l'host sottostante per l'app per le funzioni serverless. 
-    + Un'app per le funzioni, che fornisce l'ambiente per l'esecuzione del codice della funzione. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse all'interno dello stesso piano di hosting.
-    + Un'istanza di Application Insights connessa all'app per le funzioni, che tiene traccia dell'utilizzo della funzione serverless.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Dopo la creazione dell'app per le funzioni e dopo l'applicazione del pacchetto di distribuzione viene visualizzata una notifica. 
 
-1. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create. Se non si riesce a visualizzare la notifica, selezionare l'icona della campana nell'angolo in basso a destra per visualizzarla di nuovo.
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
+
+4. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create. Se non si riesce a visualizzare la notifica, selezionare l'icona della campana nell'angolo in basso a destra per visualizzarla di nuovo.
 
     ![Notifica di creazione completata](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
@@ -117,7 +123,7 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato usato Visual Studio Code per creare un'app per le funzioni con una semplice funzione attivata tramite HTTP. Il prossimo articolo descrive come espandere questa funzione aggiungendo un binding di output. Questo binding scrive la stringa della richiesta HTTP in un messaggio in una coda dell'archiviazione code di Azure. 
+Si è usato [Visual Studio Code](functions-develop-vs-code.md?tabs=python) per creare un'app per le funzioni con una semplice funzione attivata tramite http. Nell'articolo successivo si espande la funzione connettendosi ad archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=python). 
 
 > [!div class="nextstepaction"]
 > [Connettersi a una coda di Archiviazione di Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)

@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: 1f198d47191e7893e74b072ae8fd10546e3a6ee7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 378a85ed77a6eedeb928dee541046db1909da553
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752210"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491992"
 ---
 # <a name="dependency-analysis"></a>analisi delle dipendenze
 
@@ -76,7 +76,7 @@ Le differenze tra la visualizzazione senza agente e la visualizzazione basata su
 
 **Requisito** | **Senza agente** | **Basata su agenti**
 --- | --- | ---
-**Supporto tecnico** | In anteprima solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
+**Supporto** | In anteprima solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
 **Agent** | Non sono necessari agenti nei computer che si vuole analizzare. | Agenti necessari in ogni computer locale che si vuole analizzare.
 **Log Analytics** | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](../azure-monitor/insights/service-map.md) nei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per l'analisi delle dipendenze.<br/><br/> Associare un'area di lavoro Log Analytics a un progetto Azure Migrate. L'area di lavoro deve trovarsi nelle aree Stati Uniti orientali, Asia sud-orientale o Europa occidentale. L'area di lavoro deve trovarsi in una regione in cui la soluzione [Mapping dei servizi](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) è supportata.
 **Processo** | Acquisisce i dati di connessione TCP. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.

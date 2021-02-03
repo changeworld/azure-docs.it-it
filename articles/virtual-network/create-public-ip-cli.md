@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 4d2f339f5a1339b5f249172170fed54c91f1dc24
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2c469324db11d2e65f8eb958e68f77fd77020865
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927193"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491048"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Guida introduttiva: creare un indirizzo IP pubblico usando l'interfaccia della riga di comando
 
@@ -53,7 +53,7 @@ Usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-n
     --resource-group myResourceGroup \
     --name myStandardZRPublicIP \
     --sku Standard
-    --zone 1,2,3
+    --zone 1 2 3
 ```
 > [!IMPORTANT]
 > Per le versioni dell'API precedenti alla 2020-08-01, eseguire il comando precedente senza specificare un parametro di zona per creare un indirizzo IP con ridondanza della zona. 

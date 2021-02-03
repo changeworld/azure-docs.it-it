@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e280fddbe83da2a7ee89185046883f6c2c77167a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
-ms.translationtype: HT
+ms.openlocfilehash: 96384d2c50e7d5b4b5b6e652d01c4a89cd519573
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739817"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493388"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Connettere Funzioni di Azure ad Archiviazione di Azure con Visual Studio Code
 
@@ -96,7 +96,7 @@ Ora è possibile aggiungere il binding di output di archiviazione nel progetto.
 
 In Funzioni ogni tipo di binding richiede di definire `direction`, `type` e un valore univoco `name` nel file function.json. Il modo in cui si definiscono questi attributi dipende dal linguaggio dell'app per le funzioni.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -148,35 +148,25 @@ Una volta definito il binding, è possibile usare il relativo valore `name` per 
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
-## <a name="update-the-test-set"></a>Aggiornare il set di test
+## <a name="update-the-tests"></a>Aggiornare i test
 
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
 
-<!--- Local testing section --->
+## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+1. Come nell'articolo precedente, premere <kbd>F5</kbd> per avviare il progetto di app per le funzioni e gli strumenti di base. 
 
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+1. Con gli strumenti di base in esecuzione, passare all'area **funzioni di Azure:** . In **funzioni** espandere funzioni **del progetto locale**  >  . Fare clic con il pulsante destro del mouse sulla funzione (Ctrl + clic su Mac) `HttpExample` e scegliere **Esegui ora funzione...**.
 
-::: zone-end
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Esegui ora la funzione da Visual Studio Code":::
 
-::: zone pivot="programming-language-powershell"
+1. In **immettere il corpo della richiesta** viene visualizzato il valore del corpo del messaggio di richiesta `{ "name": "Azure" }` . Premere INVIO per inviare il messaggio di richiesta alla funzione.  
+ 
+1. Dopo la restituzione di una risposta, premere <kbd>CTRL + C</kbd> per arrestare gli strumenti di base.
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
-
-::: zone-end
-
-Quando il binding di output viene usato per la prima volta, nell'account di archiviazione viene creata dal runtime di Funzioni una nuova coda denominata **outqueue**. Usare Storage Explorer per verificare che siano stati creati la coda e un nuovo messaggio.
-
-::: zone pivot="programming-language-java"  
-
-## <a name="update-the-tests"></a>Aggiornare i test
-
-[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
-
-::: zone-end
+Poiché si usa la stringa di connessione di archiviazione, la funzione si connette all'account di archiviazione di Azure durante l'esecuzione in locale. Quando il binding di output viene usato per la prima volta, nell'account di archiviazione viene creata dal runtime di Funzioni una nuova coda denominata **outqueue**. Usare Storage Explorer per verificare che siano stati creati la coda e un nuovo messaggio.
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Connettere Storage Explorer all'account
 
@@ -212,11 +202,7 @@ Ora è il momento di ripubblicare l'app per le funzioni aggiornata in Azure.
 
 1. Scegliere l'app per le funzioni creata nel primo articolo. Poiché il progetto viene ridistribuito nella stessa app, selezionare **Distribuisci** per ignorare l'avviso sulla sovrascrittura di file.
 
-1. Al termine della distribuzione, è possibile usare di nuovo cURL o un browser per testare la funzione ridistribuita. Come prima, aggiungere la stringa di query `&name=<yourname>` all'URL, come nell'esempio seguente:
-
-    ```bash
-    curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-    ```
+1. Al termine della distribuzione, è possibile usare di nuovo la funzionalità **Esegui funzione Now...** per attivare la funzione in Azure.
 
 1. [Visualizzare di nuovo il messaggio nella coda di archiviazione](#examine-the-output-queue) per verificare che il binding di output genera anche in questo caso un nuovo messaggio nella coda.
 

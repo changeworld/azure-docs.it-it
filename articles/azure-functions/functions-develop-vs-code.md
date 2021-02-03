@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare e testare funzioni di Azure usando 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d4353e6be313d61716933879efa930e22472781b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936975"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493948"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare Funzioni di Azure con Visual Studio Code
 
@@ -49,10 +49,55 @@ Prima di installare ed [eseguire l'estensione funzioni][di Azure per le funzioni
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Altre risorse necessarie, ad esempio un account di archiviazione di Azure, vengono create nella sottoscrizione quando si esegue la [pubblicazione usando Visual Studio Code](#publish-to-azure).
+Altre risorse necessarie, ad esempio un account di archiviazione di Azure, vengono create nella sottoscrizione quando si esegue la [pubblicazione usando Visual Studio Code](#publish-to-azure). 
 
-> [!IMPORTANT]
-> È possibile sviluppare funzioni localmente e pubblicarle in Azure senza doverle avviare ed eseguirle localmente. Per eseguire le funzioni localmente, è necessario soddisfare alcuni requisiti aggiuntivi, incluso un download automatico di Azure Functions Core Tools. Per ulteriori informazioni, vedere [requisiti aggiuntivi per l'esecuzione di un progetto in locale](#additional-requirements-for-running-a-project-locally).
+### <a name="run-local-requirements"></a>Requisiti locali di esecuzione
+
+Questi prerequisiti sono necessari solo per [eseguire ed eseguire il debug delle funzioni in locale](#run-functions-locally). Non sono necessarie per creare o pubblicare progetti in funzioni di Azure.
+
+# <a name="c"></a>[C\#](#tab/csharp)
+
++ Il [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) versione 2. x o successiva. Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
+
++ [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) per Visual Studio Code. 
+
++ [Strumenti di interfaccia della riga di comando di .NET Core](/dotnet/core/tools/?tabs=netcore2x).  
+
+# <a name="java"></a>[Java](#tab/java)
+
++ Il [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) versione 2. x o successiva. Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
+
++ [Debugger per l'estensione Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
+
++ Si consiglia [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) . Per altre versioni supportate, vedere [versioni Java](functions-reference-java.md#java-versions).
+
++ [Maven 3 o versione successiva](https://maven.apache.org/)
+
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
+
++ Il [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) versione 2. x o successiva. Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
+
++ [Node.js](https://nodejs.org/), versioni Active LTS e Maintenance LTS (10.14.1 consigliata). Usare il comando `node --version` per controllare la versione in uso. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
++ Il [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) versione 2. x o successiva. Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
+
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) consigliato. Per informazioni sulla versione, vedere [versioni di PowerShell](functions-reference-powershell.md#powershell-versions).
+
++ Sia il [runtime di .NET Core 3.1](https://www.microsoft.com/net/download) che il [runtime di .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
+
++ [Estensione PowerShell per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
+
+# <a name="python"></a>[Python](#tab/python)
+
++ Il [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) versione 2. x o successiva. Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
+
++ [Python 3. x](https://www.python.org/downloads/). Per informazioni sulla versione, vedere [versioni di Python](functions-reference-python.md#python-version) dal runtime di funzioni di Azure.
+
++ [Estensione Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) per Visual Studio Code.
+
+---
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
@@ -65,8 +110,6 @@ L'estensione Functions consente di creare un progetto di app per le funzioni, in
     ![Creare una funzione](./media/functions-develop-vs-code/create-function.png)
 
 1. Selezionare la cartella per il progetto di app per le funzioni e quindi **selezionare una lingua per il progetto di funzione**.
-
-1. Se non sono stati ancora installati gli strumenti di base, viene richiesto di **selezionare una versione** degli strumenti di base da installare. Scegliere versione 2. x o versione successiva. 
 
 1. Selezionare il modello di funzione **trigger http** . in alternativa, è possibile selezionare **Ignora per ora** per creare un progetto senza una funzione. È sempre possibile [aggiungere una funzione al progetto in](#add-a-function-to-your-project) un secondo momento.
 
@@ -97,7 +140,11 @@ A seconda del linguaggio, vengono creati questi altri file:
 
 * [File di libreria di classi HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) che implementa la funzione.
 
-A questo punto, è possibile aggiungere associazioni di input e di output alla funzione [aggiungendo un parametro a una funzione della libreria di classi C#](#add-input-and-output-bindings).
+# <a name="java"></a>[Java](#tab/java)
+
++ Un file di pom.xml nella cartella radice che definisce i parametri del progetto e della distribuzione, incluse le dipendenze del progetto e la [versione di Java](functions-reference-java.md#java-versions). Il pom.xml contiene anche informazioni sulle risorse di Azure create durante una distribuzione.   
+
++ Un [file functions. Java](functions-reference-java.md#triggers-and-annotations) nel percorso src che implementa la funzione.
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
@@ -105,21 +152,19 @@ A questo punto, è possibile aggiungere associazioni di input e di output alla f
 
 * Una cartella HttpExample che contiene il [function.jsfile di definizione](functions-reference-node.md#folder-structure) e il file di [index.js](functions-reference-node.md#exporting-a-function), un file Node.js che contiene il codice della funzione.
 
-A questo punto, è possibile aggiungere associazioni di input e di output alla funzione [modificando il function.jssu file](#add-input-and-output-bindings).
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-<!-- # [PowerShell](#tab/powershell)
-
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+* Una cartella HttpExample che contiene il [function.jsfile di definizione](functions-reference-powershell.md#folder-structure) e il file run.ps1, che contiene il codice della funzione.
  
-# [Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
     
-* A project-level requirements.txt file that lists packages required by Functions.
+* Un file di requirements.txt a livello di progetto che elenca i pacchetti richiesti dalle funzioni.
     
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
-     -->
+* Una cartella HttpExample che contiene il [function.jsfile di definizione](functions-reference-python.md#folder-structure) e il \_ \_ \_ \_ file init. py, che contiene il codice della funzione.
+
 ---
 
-È anche possibile [aggiungere una nuova funzione al progetto](#add-a-function-to-your-project).
+A questo punto, è possibile [aggiungere associazioni di input e di output](#add-input-and-output-bindings) alla funzione. È anche possibile [aggiungere una nuova funzione al progetto](#add-a-function-to-your-project).
 
 ## <a name="install-binding-extensions"></a>Installare le estensioni di binding
 
@@ -133,7 +178,19 @@ Eseguire il comando [DotNet Add Package](/dotnet/core/tools/dotnet-add-package) 
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# <a name="python"></a>[Python](#tab/python)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -149,15 +206,27 @@ I risultati di questa azione dipendono dalla lingua del progetto:
 
 Al progetto viene aggiunto un nuovo file di libreria di classi C# (. cs).
 
+# <a name="java"></a>[Java](#tab/java)
+
+Un nuovo file Java (Java) viene aggiunto al progetto.
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo function.jsnel file e il nuovo file di codice JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo function.jsnel file e il nuovo file di codice PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Nel progetto viene creata una nuova cartella. La cartella contiene un nuovo function.jsnel file e il nuovo file di codice Python.
+
 ---
 
-## <a name="add-input-and-output-bindings"></a>Aggiungere binding di input e di output
+## <a name="connect-to-services"></a><a name="add-input-and-output-bindings"></a>Connettersi ai servizi
 
-È possibile espandere la funzione aggiungendo associazioni di input e di output. Il processo per l'aggiunta di binding dipende dalla lingua del progetto. Per altre informazioni sui binding, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
+È possibile connettere la funzione ad altri servizi di Azure aggiungendo Binding di input e di output. Le associazioni consentono di connettere la funzione ad altri servizi senza dover scrivere il codice di connessione. Il processo per l'aggiunta di binding dipende dalla lingua del progetto. Per altre informazioni sui binding, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
 
 Gli esempi seguenti si connettono a una coda di archiviazione denominata `outqueue` , in cui la stringa di connessione per l'account di archiviazione viene impostata nell' `MyStorageConnection` impostazione dell'applicazione in local.settings.json.
 
@@ -165,61 +234,69 @@ Gli esempi seguenti si connettono a una coda di archiviazione denominata `outque
 
 Aggiornare il metodo Function per aggiungere il parametro seguente alla `Run` definizione del metodo:
 
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-Per questo codice è necessario aggiungere l' `using` istruzione seguente:
+Il parametro `msg` è un tipo `ICollector<T>`, che rappresenta una raccolta di messaggi scritti in un binding di output al completamento della funzione. Il codice seguente aggiunge un messaggio alla raccolta:
 
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="30-31":::
 
-Il parametro `msg` è un tipo `ICollector<T>`, che rappresenta una raccolta di messaggi scritti in un binding di output al completamento della funzione. Si aggiungono uno o più messaggi alla raccolta. Questi messaggi vengono inviati alla coda al termine della funzione.
+ Quando la funzione viene completata, i messaggi vengono inviati alla coda.
 
-Per altre informazioni, vedere la documentazione sull' [associazione di output dell'archiviazione code](functions-bindings-storage-queue-output.md) .
+Per altre informazioni, vedere la documentazione dell' [articolo di riferimento sull'associazione di output di archiviazione code](functions-bindings-storage-queue-output.md?tabs=csharp) . Per altre informazioni generali sui binding che è possibile aggiungere a una funzione, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=csharp). 
+
+# <a name="java"></a>[Java](#tab/java)
+
+Aggiornare il metodo Function per aggiungere il parametro seguente alla `Run` definizione del metodo:
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="20-21":::
+
+Il `msg` parametro è un `OutputBinding<T>` tipo, dove è `T` una stringa scritta in un'associazione di output al completamento della funzione. Il codice seguente imposta il messaggio nell'associazione di output:
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="33-34":::
+
+Questo messaggio viene inviato alla coda al termine della funzione.
+
+Per altre informazioni, vedere la documentazione dell' [articolo di riferimento sull'associazione di output di archiviazione code](functions-bindings-storage-queue-output.md?tabs=java) . Per altre informazioni generali sui binding che è possibile aggiungere a una funzione, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=java). 
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-Visual Studio Code consente di aggiungere binding al function.jsnel file attenendosi a un set di istruzioni appropriato. Per creare un'associazione, fare clic con il pulsante destro del mouse (Ctrl + clic su macOS) il **function.js** nel file nella cartella della funzione e selezionare **Aggiungi binding**:
-
-![Aggiungere un'associazione a una funzione JavaScript esistente ](media/functions-develop-vs-code/function-add-binding.png)
-
-Di seguito sono riportate alcune richieste di esempio per definire una nuova associazione di output di archiviazione:
-
-| Prompt | Valore | Descrizione |
-| -------- | ----- | ----------- |
-| **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
-| **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
-| **Il nome usato per identificare questo binding nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
-| **La coda a cui verrà inviato il messaggio** | `outqueue` | Il nome della coda in cui scrive il binding. Se *queueName* non esiste, il binding lo crea al primo utilizzo. |
-| **Selezionare l'impostazione da "local.settings.json"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L' `AzureWebJobsStorage` impostazione contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
-
-In questo esempio, l'associazione seguente viene aggiunta alla `bindings` matrice nel function.jsnel file:
-
-```javascript
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "msg",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnection"
-}
-```
-
-È anche possibile aggiungere la stessa definizione di associazione direttamente al function.js.
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
 
 Nel codice della funzione, l' `msg` associazione è accessibile da `context` , come nell'esempio seguente:
 
-```javascript
-context.bindings.msg = "Name passed to the function: " req.query.name;
-```
+:::code language="javascript" range="5-7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 
-Per altre informazioni, vedere riferimento dell' [associazione di output dell'archiviazione code](functions-bindings-storage-queue-output.md) .
+Questo messaggio viene inviato alla coda al termine della funzione.
+
+Per altre informazioni, vedere la documentazione dell' [articolo di riferimento sull'associazione di output di archiviazione code](functions-bindings-storage-queue-output.md?tabs=javascript) . Per altre informazioni generali sui binding che è possibile aggiungere a una funzione, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=javascript). 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+:::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
+
+Questo messaggio viene inviato alla coda al termine della funzione.
+
+Per altre informazioni, vedere la documentazione dell' [articolo di riferimento sull'associazione di output di archiviazione code](functions-bindings-storage-queue-output.md?tabs=powershell) . Per altre informazioni generali sui binding che è possibile aggiungere a una funzione, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=powershell). 
+
+# <a name="python"></a>[Python](#tab/python)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+Aggiornare la `Main` definizione per aggiungere un parametro di output in `msg: func.Out[func.QueueMessage]` modo che la definizione appaia come nell'esempio seguente:
+
+:::code language="python" range="6" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
+
+Il codice seguente aggiunge dati stringa dalla richiesta alla coda di output:
+
+:::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
+
+Questo messaggio viene inviato alla coda al termine della funzione.
+
+Per altre informazioni, vedere la documentazione dell' [articolo di riferimento sull'associazione di output di archiviazione code](functions-bindings-storage-queue-output.md?tabs=python) . Per altre informazioni generali sui binding che è possibile aggiungere a una funzione, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=python). 
 
 ---
-
-[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -227,7 +304,7 @@ Per altre informazioni, vedere riferimento dell' [associazione di output dell'ar
 
 Visual Studio Code consente di pubblicare il progetto di funzioni direttamente in Azure. Durante il processo vengono create un'app per le funzioni e le risorse correlate nella sottoscrizione di Azure. L'app per le funzioni fornisce un contesto di esecuzione per le funzioni. Il progetto viene inserito in un pacchetto e distribuito nella nuova app per le funzioni nella sottoscrizione di Azure.
 
-Quando si esegue la pubblicazione da Visual Studio Code a una nuova app per le funzioni in Azure, viene offerto un percorso di creazione rapido di app per le funzioni e un percorso avanzato. 
+Quando si esegue la pubblicazione da Visual Studio Code a una nuova app per le funzioni in Azure, è possibile scegliere un'app per le funzioni rapida Crea percorso usando i valori predefiniti o un percorso avanzato, in cui è possibile avere un maggiore controllo sulle risorse remote create. 
 
 Quando si pubblica da Visual Studio Code, si sfrutta la tecnologia di [distribuzione zip](functions-deployment-technologies.md#zip-deploy) . 
 
@@ -241,9 +318,7 @@ Se si desidera fornire nomi espliciti per le risorse create, è necessario scegl
 
 La procedura seguente consente di pubblicare il progetto in una nuova app per le funzioni creata con le opzioni di creazione avanzate:
 
-1. Nell'area **Azure: Functions** selezionare l'icona **distribuisci in app per le funzioni** .
-
-    ![Impostazioni dell'app per le funzioni](./media/functions-develop-vs-code/function-app-publish-project.png)
+1. Nel comando pallet immettere **funzioni di Azure: Distribuisci in app per** le funzioni.
 
 1. Se non è stato effettuato l'accesso, viene richiesto di **accedere ad Azure**. È anche possibile **creare un account Azure gratuito**. Dopo aver eseguito l'accesso dal browser, tornare a Visual Studio Code.
 
@@ -263,18 +338,9 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
     Dopo la creazione dell'app per le funzioni viene visualizzata una notifica e viene applicato il pacchetto di distribuzione. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create.
 
-## <a name="republish-project-files"></a>Ripubblicare i file di progetto
+### <a name="get-the-url-of-an-http-triggered-function-in-azure"></a><a name="get-the-url-of-the-deployed-function"></a>Ottenere l'URL di una funzione attivata tramite HTTP in Azure
 
-Quando si configura la [distribuzione continua](functions-continuous-deployment.md), l'app per le funzioni in Azure viene aggiornata ogni volta che i file di origine vengono aggiornati nella posizione di origine connessa. Si consiglia la distribuzione continua, ma è anche possibile ripubblicare gli aggiornamenti dei file di progetto da Visual Studio Code.
-
-> [!IMPORTANT]
-> La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure.
-
-[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
-
-## <a name="get-the-url-of-the-deployed-function"></a>Ottenere l'URL della funzione distribuita
-
-Per chiamare una funzione attivata tramite HTTP, è necessario l'URL della funzione quando viene distribuita nell'app per le funzioni. Questo URL include tutti i [tasti funzione](functions-bindings-http-webhook-trigger.md#authorization-keys)necessari. Per ottenere questi URL per le funzioni distribuite, è possibile usare l'estensione.
+Per chiamare una funzione attivata da HTTP da un client, è necessario l'URL della funzione quando viene distribuita nell'app per le funzioni. Questo URL include tutti i tasti funzione necessari. Per ottenere questi URL per le funzioni distribuite, è possibile usare l'estensione. Se si vuole solo eseguire la funzione remota in Azure, [usare la funzionalità Esegui ora della funzione](#run-functions-in-azure) dell'estensione.
 
 1. Selezionare F1 per aprire il riquadro comandi, quindi cercare ed eseguire il comando funzioni di **Azure: copia URL funzione**.
 
@@ -282,28 +348,44 @@ Per chiamare una funzione attivata tramite HTTP, è necessario l'URL della funzi
 
 L'URL della funzione viene copiato negli Appunti, insieme alle chiavi richieste passate dal parametro di `code` query. Usare uno strumento HTTP per inviare richieste POST o un browser per le richieste GET alla funzione remota.  
 
-## <a name="run-functions-locally"></a>Eseguire funzioni localmente
+Quando si recupera l'URL delle funzioni in Azure, l'estensione usa l'account Azure per recuperare automaticamente le chiavi necessarie per avviare la funzione. [Altre informazioni sulle chiavi di accesso alle funzioni](security-concepts.md#function-access-keys). L'avvio di funzioni attivate non HTTP richiede l'uso della chiave admin.
 
-L'estensione funzioni di Azure consente di eseguire un progetto di funzioni nel computer di sviluppo locale. Il runtime locale è lo stesso runtime che ospita l'app per le funzioni in Azure. Le impostazioni locali vengono lette dal [local.settings.jssul file](#local-settings-file).
+## <a name="republish-project-files"></a>Ripubblicare i file di progetto
 
-### <a name="additional-requirements-for-running-a-project-locally"></a>Requisiti aggiuntivi per l'esecuzione locale di un progetto
+Quando si configura la [distribuzione continua](functions-continuous-deployment.md), l'app per le funzioni in Azure viene aggiornata quando si aggiornano i file di origine nel percorso di origine connesso. Si consiglia la distribuzione continua, ma è anche possibile ripubblicare gli aggiornamenti dei file di progetto da Visual Studio Code.
 
-Per eseguire localmente il progetto di funzioni, è necessario soddisfare i requisiti aggiuntivi seguenti:
+> [!IMPORTANT]
+> La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure.
 
-* Installare la versione 2. x o successiva di [Azure Functions Core Tools](functions-run-local.md#v2). Il pacchetto degli strumenti di base viene scaricato e installato automaticamente quando si avvia il progetto in locale. Gli strumenti di base includono l'intero runtime di funzioni di Azure, quindi il download e l'installazione potrebbero richiedere del tempo.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
-* Installare i requisiti specifici per il linguaggio scelto:
+## <a name="run-functions"></a>Funzioni Run
 
-    | Linguaggio | Requisito |
-    | -------- | --------- |
-    | **C#** | [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Strumenti dell'interfaccia della riga di comando di .NET Core](/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Debugger per l'estensione Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 o versione successiva](https://maven.apache.org/) |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Estensione di Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[3.6.8 tramite Python](https://www.python.org/downloads/) consigliato|
+L'estensione funzioni di Azure consente di eseguire singole funzioni nel progetto nel computer di sviluppo locale o nella sottoscrizione di Azure. 
 
-    <sup>*</sup>Versioni di LTS attive e di manutenzione (8.11.1 e 10.14.1 consigliate).
+Per le funzioni trigger HTTP, l'estensione chiama l'endpoint HTTP. Per altri tipi di trigger, chiama le API dell'amministratore per avviare la funzione. Il corpo del messaggio della richiesta inviata alla funzione dipende dal tipo di trigger. Quando un trigger richiede dati di test, viene richiesto di immettere i dati in un formato JSON specifico.
 
-### <a name="configure-the-project-to-run-locally"></a>Configurare il progetto per l'esecuzione locale
+### <a name="run-functions-in-azure"></a>Eseguire funzioni in Azure
+
+Per eseguire una funzione in Azure da Visual Studio Code. 
+
+1. Nel comando pallet immettere funzioni di **Azure: Esegui ora funzione** e scegliere la sottoscrizione di Azure. 
+
+1. Scegliere l'app per le funzioni in Azure dall'elenco. Se l'app per le funzioni non è visualizzata, assicurarsi di avere eseguito l'accesso alla sottoscrizione corretta. 
+
+1. Scegliere la funzione che si desidera eseguire dall'elenco e digitare il corpo del messaggio della richiesta in **immettere il corpo della richiesta**. Premere INVIO per inviare il messaggio di richiesta alla funzione. Il testo predefinito nel **corpo della richiesta Enter** deve indicare il formato del corpo. Se l'app per le funzioni non ha funzioni, viene visualizzato un errore di notifica con questo errore. 
+
+1. Quando la funzione viene eseguita in Azure e restituisce una risposta, viene generata una notifica in Visual Studio Code.
+ 
+È anche possibile eseguire la funzione dall'area **Azure: Functions** facendo clic con il pulsante destro del mouse (Ctrl + clic su Mac) la funzione che si vuole eseguire dall'app per le funzioni nella sottoscrizione di Azure e scegliendo **Execute Function Now...**.
+
+Quando si eseguono funzioni in Azure, l'estensione usa l'account Azure per recuperare automaticamente le chiavi necessarie per avviare la funzione. [Altre informazioni sulle chiavi di accesso alle funzioni](security-concepts.md#function-access-keys). L'avvio di funzioni attivate non HTTP richiede l'uso della chiave admin.
+
+### <a name="run-functions-locally"></a>Eseguire funzioni localmente
+
+Il runtime locale è lo stesso runtime che ospita l'app per le funzioni in Azure. Le impostazioni locali vengono lette dal [local.settings.jssul file](#local-settings-file). Per eseguire il progetto di funzioni localmente, è necessario soddisfare [requisiti aggiuntivi](#run-local-requirements).
+
+#### <a name="configure-the-project-to-run-locally"></a>Configurare il progetto per l'esecuzione locale
 
 Il runtime di funzioni usa un account di archiviazione di Azure internamente per tutti i tipi di trigger diversi da HTTP e webhook. Quindi, è necessario impostare la chiave **values. AzureWebJobsStorage** su una stringa di connessione dell'account di archiviazione di Azure valida.
 
@@ -319,15 +401,19 @@ Per impostare la stringa di connessione dell'account di archiviazione:
 
 Per ulteriori informazioni, vedere [file di impostazioni locali](#local-settings-file).
 
-### <a name="debugging-functions-locally"></a>Funzioni di debug in locale  
+#### <a name="debug-functions-locally"></a><a name="debugging-functions-locally"></a>Funzioni di debug in locale  
 
 Per eseguire il debug delle funzioni, selezionare F5. Se non sono stati ancora scaricati [gli strumenti principali][Azure Functions Core Tools], viene richiesto di eseguire questa operazione. Quando gli strumenti di base sono installati e in esecuzione, l'output viene visualizzato nel terminale. Questa operazione equivale all'esecuzione del `func host start` comando degli strumenti di base dal terminale, ma con attività di compilazione aggiuntive e un debugger collegato.  
 
-Quando il progetto è in esecuzione, è possibile attivare le funzioni come si farebbe quando il progetto viene distribuito in Azure. Quando il progetto viene eseguito in modalità di debug, i punti di interruzione vengono raggiunti in Visual Studio Code, come previsto.
+Quando il progetto è in esecuzione, è possibile usare la funzionalità **Execute Function Now...** dell'estensione per attivare le funzioni come si farebbe quando il progetto viene distribuito in Azure. Con il progetto in esecuzione in modalità di debug, i punti di interruzione vengono raggiunti in Visual Studio Code come previsto. 
 
-L'URL della richiesta per i trigger HTTP viene visualizzato nell'output nel terminale. I tasti funzione per i trigger HTTP non vengono usati quando un progetto viene eseguito in locale. Per altre informazioni, vedere [Strategie per il test del codice in Funzioni di Azure](functions-test-a-function.md).  
+1. Nel comando pallet immettere funzioni di **Azure: Esegui ora funzione** e scegliere **progetto locale**. 
 
-Per altre informazioni, vedere [usare Azure Functions Core Tools][Azure Functions Core Tools].
+1. Scegliere la funzione che si vuole eseguire nel progetto e digitare il corpo del messaggio della richiesta in **immettere il corpo della richiesta**. Premere INVIO per inviare il messaggio di richiesta alla funzione. Il testo predefinito nel **corpo della richiesta Enter** deve indicare il formato del corpo. Se l'app per le funzioni non ha funzioni, viene visualizzato un errore di notifica con questo errore. 
+
+1. Quando la funzione viene eseguita localmente e dopo la ricezione della risposta, viene generata una notifica in Visual Studio Code. Informazioni sull'esecuzione della funzione vengono visualizzate nel pannello del **terminale** .
+
+Per eseguire localmente le funzioni non è necessario usare chiavi. 
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -341,10 +427,12 @@ I valori delle impostazioni dell'applicazione di funzione possono anche essere l
 * [Script C# (file con estensione csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 ## <a name="application-settings-in-azure"></a>Impostazioni dell'applicazione in Azure
 
-Le impostazioni nel local.settings.jsfile del progetto devono essere le stesse delle impostazioni dell'applicazione nell'app per le funzioni in Azure. È necessario aggiungere anche le impostazioni aggiunte al local.settings.json all'app per le funzioni in Azure. Queste impostazioni non vengono caricate automaticamente quando si pubblica il progetto. Analogamente, tutte le impostazioni create nell'app per [le funzioni nel portale](functions-how-to-use-azure-function-app-settings.md#settings) devono essere scaricate nel progetto locale.
+Le impostazioni nel local.settings.jsfile del progetto devono essere le stesse delle impostazioni dell'applicazione nell'app per le funzioni in Azure. Qualsiasi impostazione aggiunta a local.settings.jsè necessario aggiungere anche all'app per le funzioni in Azure. Queste impostazioni non vengono caricate automaticamente quando si pubblica il progetto. Analogamente, tutte le impostazioni create nell'app per [le funzioni nel portale](functions-how-to-use-azure-function-app-settings.md#settings) devono essere scaricate nel progetto locale.
 
 ### <a name="publish-application-settings"></a>Pubblicare le impostazioni dell'applicazione
 
@@ -424,7 +512,7 @@ L'estensione funzioni di Azure offre un'interfaccia grafica utile nell'area per 
 | **Scarica impostazioni remote** | Scarica le impostazioni dall'app per le funzioni scelta in Azure nel local.settings.jsfile. Se il file locale è crittografato, viene decrittografato, aggiornato e crittografato di nuovo. Se sono presenti impostazioni che contengono valori in conflitto nei due percorsi, viene richiesto di scegliere come procedere. Prima di eseguire questo comando, assicurarsi di salvare le modifiche apportate al local.settings.jssul file. |
 | **Modifica impostazioni** | Modifica il valore di un'impostazione dell'app per le funzioni esistente in Azure. Questo comando non influisce sulle impostazioni nel local.settings.jsfile.  |
 | **Crittografa impostazioni** | Crittografa i singoli elementi nella `Values` matrice nelle [impostazioni locali](#local-settings-file). In questo file, `IsEncrypted` viene anche impostato su `true` , che specifica che il runtime locale definirà le impostazioni prima di utilizzarle. Crittografare le impostazioni locali per ridurre il rischio di perdita di informazioni importanti. In Azure le impostazioni dell'applicazione vengono sempre archiviate crittografate. |
-| **Esegui ora funzione** | Avvia manualmente una [funzione attivata dal timer](functions-bindings-timer.md) in Azure. Questo comando viene usato per i test. Per altre informazioni sull'attivazione di funzioni non HTTP in Azure, vedere [eseguire manualmente una funzione non attivata tramite http](functions-manually-run-non-http.md). |
+| **Esegui ora funzione** | Avvia manualmente una funzione usando le API di amministrazione. Questo comando viene usato per i test, sia localmente che durante il debug, rispetto alle funzioni in esecuzione in Azure. Quando si attiva una funzione in Azure, l'estensione ottiene automaticamente una chiave amministratore, che usa per chiamare le API di amministrazione remota che avviano funzioni in Azure. Il corpo del messaggio inviato all'API dipende dal tipo di trigger. I trigger timer non richiedono il passaggio di dati. |
 | **Inizializzare il progetto per l'utilizzo con VS Code** | Aggiunge i file di progetto Visual Studio Code necessari a un progetto di funzioni esistente. Usare questo comando per lavorare con un progetto creato tramite gli strumenti di base. |
 | **Installare o aggiornare Azure Functions Core Tools** | Installa o aggiorna [Azure Functions Core Tools], che viene usato per eseguire localmente le funzioni. |
 | **Ripetere la distribuzione**  | Consente di ridistribuire i file di progetto da un repository git connesso a una distribuzione specifica in Azure. Per ripubblicare gli aggiornamenti locali da Visual Studio Code, [ripubblicare il progetto](#republish-project-files). |

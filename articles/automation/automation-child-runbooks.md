@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169885"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491249"
 ---
 # <a name="create-modular-runbooks"></a>Creare runbook modulari
 
@@ -23,7 +23,7 @@ Esistono due metodi per chiamare un runbook figlio, con differenze precise che �
 | **Processo** |I runbook figlio vengono eseguiti nello stesso processo dell’elemento padre. |Viene creato un processo separato per il runbook figlio. |
 | **Esecuzione** |Il runbook padre attende il completamento del runbook figlio prima di continuare. |Il runbook padre continua subito dopo l'avvio del runbook figlio *o* attende il completamento del processo figlio. |
 | **Output** |Il runbook padre può ottenere output direttamente dal runbook figlio. |Il runbook padre deve recuperare l'output dal processo del runbook figlio *o* può ottenere direttamente l'output dal runbook figlio. |
-| **Parameters** |I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati. |I valori dei parametri dei runbook figlio devono essere raggruppati in un'unica tabella hash. Questa tabella hash può contenere solo tipi di dati semplici, matrice e oggetto che usano la serializzazione JSON. |
+| **Parametri** |I valori per i parametri di runbook figlio vengono specificati separatamente e possono utilizzare qualsiasi tipo di dati. |I valori dei parametri dei runbook figlio devono essere raggruppati in un'unica tabella hash. Questa tabella hash può contenere solo tipi di dati semplici, matrice e oggetto che usano la serializzazione JSON. |
 | **Account di automazione** |Il runbook padre può usare solo un runbook figlio nello stesso account di Automazione. |I runbook padre possono usare un runbook figlio da qualsiasi account di Automazione, dalla stessa sottoscrizione di Azure, e anche da una sottoscrizione diversa con cui si ha una connessione. |
 | **Pubblicazione** |Il runbook figlio deve essere pubblicato prima della pubblicazione del runbook padre. |Il runbook figlio viene pubblicato prima che il runbook padre venga avviato. |
 
@@ -103,7 +103,7 @@ Connect-AzAccount `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Get-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 

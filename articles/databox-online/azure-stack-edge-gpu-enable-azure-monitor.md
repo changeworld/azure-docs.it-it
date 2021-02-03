@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466444"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493913"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Abilitare monitoraggio di Azure sul dispositivo GPU Pro Azure Stack Edge
 
@@ -30,7 +30,7 @@ Prima di iniziare, è necessario:
 - Il passaggio di **calcolo** è stato completato in base all' [esercitazione: configurare il calcolo nel dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md) sul dispositivo. Il dispositivo deve disporre di una risorsa Hub di Internet delle cose associata, un dispositivo Internet delle cose e un dispositivo IoT Edge.
 
 
-## <a name="create-log-analytics-workspace"></a>Creare Log Analytics area di lavoro.
+## <a name="create-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
 Per creare un'area di lavoro di log Analytics, seguire questa procedura. Un'area di lavoro di log Analytics è un'unità di archiviazione logica in cui i dati di log vengono raccolti e archiviati.
 
@@ -118,8 +118,8 @@ Per abilitare il contenitore Insights nell'area di lavoro, seguire questa proced
 
 1. Ottenere l'ID e la posizione della risorsa. Passare a `Your Log Analytics workspace > General > Properties`. Copiare le informazioni seguenti:
 
-    - **ID risorsa** che è l'ID di risorsa di Azure completo dell'area di lavoro di Azure log Analytics. 
-    - **località** che rappresenta l'area di Azure.
+    - **ID risorsa**, ovvero l'ID di risorsa di Azure completo dell'area di lavoro di Azure log Analytics. 
+    - **località**, ovvero l'area di Azure.
 
     ![Proprietà dell'area di lavoro Log Analytics](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -241,3 +241,4 @@ Per abilitare il contenitore Insights nell'area di lavoro, seguire questa proced
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [monitorare i carichi di lavoro Kubernetes tramite il dashboard di Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Informazioni su come [gestire le notifiche di avviso](azure-stack-edge-gpu-manage-device-event-alert-notifications.md)per gli eventi del dispositivo. 

@@ -3,12 +3,12 @@ title: Monitorare le prestazioni in macchine virtuali di Azure-applicazione Azur
 description: Application Performance Monitoring per VM di Azure e set di scalabilità di macchine virtuali di Azure. Tempo di caricamento e di risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 01583cf5ecb85e4f66538afaba6984bff455ea99
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 48441711c8c6209b25974108fd91d1023fd6e6be
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475455"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493737"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Distribuire l'agente di Application Insights di monitoraggio di Azure in macchine virtuali di Azure e set di scalabilità di macchine virtuali di Azure
 
@@ -27,7 +27,7 @@ Questo articolo illustra come abilitare il monitoraggio Application Insights usa
 
 Esistono due modi per abilitare il monitoraggio delle applicazioni per le macchine virtuali di Azure e i set di scalabilità di macchine virtuali di Azure ospitate:
 
-### <a name="auto-inctrumentation-via-application-insights-agent"></a>Inctrumentation automatico tramite agente Application Insights
+### <a name="auto-instrumentation-via-application-insights-agent"></a>Strumentazione automatica tramite Application Insights Agent
 
 * Questo metodo è il più semplice da abilitare e non è necessaria alcuna configurazione avanzata. Viene spesso definito monitoraggio "Runtime".
 

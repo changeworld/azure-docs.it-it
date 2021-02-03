@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741491"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491386"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Abilitare la reimpostazione della password self-service Azure Active Directory nella schermata di accesso di Windows
 
@@ -40,7 +40,7 @@ Le limitazioni seguenti si applicano all'uso di SSPR dalla schermata di accesso 
 - Per usare la nuova password e aggiornare le credenziali memorizzate nella cache, è necessario che i computer aggiunti ad Azure AD ibrido abbiano la connettività di rete associata a un controller di dominio. Ciò significa che i dispositivi devono trovarsi nella rete interna dell'organizzazione o in una VPN con accesso di rete a un controller di dominio locale.
 - Se si usa un'immagine, assicurarsi che la cache Web sia stata cancellata per l'amministratore predefinito prima di eseguire il passaggio CopyProfile di Sysprep. Per altre informazioni su questo passaggio, vedere l'articolo di supporto [Prestazioni insufficienti quando si usa il profilo utente predefinito personalizzato](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Le impostazioni seguenti sono note per interferire con la possibilità di usare e reimpostare le password nei dispositivi Windows 10:
-    - Se la combinazione di tasti CTRL + ALT + CANC è necessaria per i criteri nelle versioni di Windows 10 prima di v1909, **reimpostare la password** non funzionerà.
+    - Se CTRL + ALT + CANC è richiesto dai criteri in Windows 10, **reimpostare la password** non funzionerà.
     - Se le notifiche della schermata di blocco sono spente, **reimpostare la password** non funzionerà.
     - *HideFastUserSwitching* è impostato su Enabled o su 1
     - *DontDisplayLastUserName* è impostato su Enabled o su 1
@@ -51,6 +51,10 @@ Le limitazioni seguenti si applicano all'uso di SSPR dalla schermata di accesso 
     - Accesso interattivo: Non richiede CTRL+ALT+CANC = Disattivato
     - *DisableLockScreenAppNotifications* = 1 o abilitato
     - Lo SKU di Windows non è l'edizione Home o Professional
+
+> [!NOTE]
+> Queste limitazioni si applicano anche alla reimpostazione del PIN di Windows Hello for business dalla schermata di blocco del dispositivo.
+>
 
 ## <a name="windows-10-password-reset"></a>Reimpostazione della password di Windows 10
 
@@ -75,7 +79,7 @@ La distribuzione della modifica della configurazione per abilitare SSPR dalla sc
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Creare criteri di configurazione dei dispositivi in Intune
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Intune**.
-1. Creare un nuovo profilo di configurazione del dispositivo passando a profili di **configurazione del dispositivo**  >  **Profiles**, quindi selezionare **+ Crea profilo**
+1. Creare un nuovo profilo di configurazione del dispositivo passando a profili di **configurazione del dispositivo**  >  , quindi selezionare **+ Crea profilo**
    - Per la **piattaforma** scegliere *Windows 10 e versioni successive*
    - Per **tipo di profilo** scegliere *personalizzato* .
 1. Selezionare **Crea** e quindi specificare un nome significativo per il profilo, ad esempio la *schermata di accesso di Windows 10 SSPR*

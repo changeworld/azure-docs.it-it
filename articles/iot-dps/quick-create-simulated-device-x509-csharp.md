@@ -1,6 +1,6 @@
 ---
 title: "Avvio rapido: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure con C#"
-description: "Avvio rapido: creare un dispositivo X.509 simulato ed effettuarne il provisioning con l'SDK per dispositivi C# per il servizio Device Provisioning in hub IoT di Azure. Questa guida introduttiva usa registrazioni singole."
+description: 'Guida introduttiva: creare ed effettuare il provisioning di un dispositivo X. 509 usando C# Device SDK per il servizio Device provisioning in hub Azure. Questa guida introduttiva usa registrazioni singole.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/01/2021
@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: a6e859a39cbcf867e3c0a21bb59c6154cbd47412
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 06f1d34e7d8da9a3ece206fc1ff804accf9454ff
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430587"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493855"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi C# per il servizio Device Provisioning in hub IoT
+# <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: creare ed effettuare il provisioning di un dispositivo X. 509 usando C# Device SDK per il servizio Device provisioning in hub Internet
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Questa procedura illustra come usare gli [esempi di Azure IoT per C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) per simulare un dispositivo X.509 in un computer di sviluppo che esegue il sistema operativo Windows. L'esempio consente anche di connettere il dispositivo simulato a un hub IoT usando il servizio Device Provisioning.
+Questi passaggi illustrano come usare il codice del dispositivo degli [esempi di Azure per](https://github.com/Azure-Samples/azure-iot-samples-csharp) il provisioning di un dispositivo X. 509 per C#. In questo articolo si eseguirà il codice di esempio del dispositivo nel computer di sviluppo per connettersi a un hub Internet delle cose usando il servizio Device provisioning.
 
 Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica relativa al [provisioning](about-iot-dps.md#provisioning-process). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
@@ -53,13 +53,13 @@ Questo articolo descrive le registrazioni singole.
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Creare un certificato per un dispositivo X.509 autofirmato
 
-In questa sezione verrà creato un certificato di test X. 509 autofirmato utilizzando `iothubx509device1` come nome comune del soggetto. È importante tenere presente quanto segue:
+In questa sezione verrà creato un certificato di test X. 509 autofirmato utilizzando `iothubx509device1` come nome comune del soggetto. Tenere presente questi punti importanti:
 
 * I certificati autofirmati sono destinati solo alle operazioni di testing e non dovrebbero essere usati nell'ambiente di produzione.
 * La data di scadenza predefinita per un certificato autofirmato è un anno.
 * L'ID dispositivo del dispositivo Internet è il nome comune del soggetto nel certificato. Assicurarsi di usare un nome soggetto conforme ai [requisiti della stringa ID dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
-Si userà il codice di esempio incluso nell'[esempio di client Provisioning Device con attestazione X.509](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) per creare il certificato da usare con la voce di registrazione singola per il dispositivo simulato.
+Si userà il codice di esempio di [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) per creare il certificato da usare con la voce di registrazione singola per il dispositivo.
 
 
 1. In un prompt di PowerShell passare alla directory del progetto per l'esempio di provisioning dei dispositivi X. 509.
@@ -106,7 +106,7 @@ Si userà il codice di esempio incluso nell'[esempio di client Provisioning Devi
 3. Nel pannello **Aggiungi registrazione** immettere le informazioni seguenti:
    - Selezionare **X.509** come *meccanismo* di attestazione dell'identità.
    - In *File di certificato primario con estensione pem o cer* scegliere *Selezionare un file* per selezionare il file di certificato **certificate.cer** creato nei passaggi precedenti.
-   - Lasciare **ID dispositivo** vuoto. Il provisioning del dispositivo verrà effettuato con l'ID dispositivo impostato sul nome comune del certificato X.509, **iothubx509device1**. Questo nome verrà usato anche per l'ID registrazione per la voce di registrazione singola. 
+   - Lasciare **ID dispositivo** vuoto. Il provisioning del dispositivo verrà effettuato con l'ID dispositivo impostato sul nome comune del certificato X.509, **iothubx509device1**. Questo nome comune sarà anche il nome usato per l'ID registrazione per la voce di registrazione singola. 
    - Facoltativamente, è possibile specificare le informazioni seguenti:
        - Selezionare un hub IoT collegato al servizio di provisioning.
        - Aggiornare lo **stato iniziale del dispositivo gemello** con la configurazione iniziale desiderata per il dispositivo.
@@ -118,7 +118,7 @@ Si userà il codice di esempio incluso nell'[esempio di client Provisioning Devi
 
 
 
-## <a name="provision-the-simulated-device"></a>Effettuare il provisioning del dispositivo simulato
+## <a name="provision-the-device"></a>Effettuare il provisioning del dispositivo
 
 1. Nel pannello **Panoramica** del servizio di provisioning prendere nota del valore di **_Ambito ID_** .
 
@@ -157,7 +157,7 @@ Si userà il codice di esempio incluso nell'[esempio di client Provisioning Devi
     Finished.
     ```
 
-4. Verificare che il provisioning del dispositivo sia stato effettuato. Al termine del provisioning del dispositivo simulato nell'hub IoT collegato al servizio di provisioning, l'ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** dell'hub. 
+4. Verificare che il provisioning del dispositivo sia stato effettuato. Al completamento del provisioning del dispositivo nell'hub Internet delle cose collegato al servizio di provisioning, l'ID del dispositivo viene visualizzato nel pannello **dispositivi** dell'hub. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device-x509-csharp/registration.png) 
 
@@ -175,7 +175,7 @@ Se si prevede di continuare a usare ed esplorare l'esempio di client dispositivo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato creato un dispositivo X.509 simulato nel computer Windows e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure nel portale. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida di avvio rapido per la registrazione a livello di codice dei dispositivi X.509. 
+In questa Guida introduttiva è stato effettuato il provisioning di un dispositivo X. 509 nell'hub Internet delle cose usando il servizio Device provisioning in hub Azure. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida di avvio rapido per la registrazione a livello di codice dei dispositivi X.509. 
 
 > [!div class="nextstepaction"]
 > [Avvio rapido di Azure: Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-csharp.md)

@@ -4,12 +4,12 @@ description: Informazioni su come creare una funzione in C# e quindi pubblicare 
 ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 791416a54fa75091facf1f7bc2aadf6fccf54b05
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 0068a9cbf99117a0a2432a02c9be934eb749f19a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968620"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493686"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in C# in Azure con Visual Studio Code
 
@@ -78,7 +78,7 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato usato Visual Studio Code per creare un'app per le funzioni con una semplice funzione attivata tramite HTTP. Il prossimo articolo descrive come espandere questa funzione aggiungendo un binding di output. Questo binding scrive la stringa della richiesta HTTP in un messaggio in una coda dell'archiviazione code di Azure. 
+Si è usato [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) per creare un'app per le funzioni con una semplice funzione attivata tramite http. Nell'articolo successivo si espande la funzione connettendosi ad archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=csharp). 
 
 > [!div class="nextstepaction"]
 > [Connettersi a una coda di Archiviazione di Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)

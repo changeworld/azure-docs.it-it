@@ -2,25 +2,34 @@
 title: Eseguire il rollback in errore alla distribuzione riuscita
 description: Consente di specificare che è necessario eseguire il rollback di una distribuzione non riuscita a una distribuzione riuscita.
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460144"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492213"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Rollback in merito a errori di distribuzione riuscita
 
-Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Questa funzionalità è utile se si ha uno stato valido noto per la distribuzione dell'infrastruttura e si vuole ripristinare questo stato. Esistono alcune avvertenze e restrizioni:
+Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Questa funzionalità è utile se si ha uno stato valido noto per la distribuzione dell'infrastruttura e si vuole ripristinare questo stato. È possibile specificare una particolare distribuzione precedente o l'ultima distribuzione riuscita.
 
+> [!IMPORTANT]
+> Questa funzionalità consente di eseguire il rollback di una distribuzione non riuscita ridistribuendo una distribuzione precedente. Questo risultato può essere diverso da quello previsto per l'annullamento della distribuzione non riuscita. Assicurarsi di comprendere il modo in cui la distribuzione precedente viene ridistribuita.
+
+## <a name="considerations-for-redeploying"></a>Considerazioni sulla ridistribuzione
+
+Prima di usare questa funzionalità, prendere in considerazione questi dettagli sul modo in cui viene gestita la ridistribuzione:
+
+- La distribuzione precedente viene eseguita usando la [modalità completa](./deployment-modes.md#complete-mode), anche se è stata usata la [modalità incrementale](./deployment-modes.md#incremental-mode) durante la distribuzione precedente. La ridistribuzione in modalità completa potrebbe produrre risultati imprevisti quando la distribuzione precedente usava incrementale. La modalità completa indica che tutte le risorse non incluse nella distribuzione precedente vengono eliminate. Specificare una distribuzione precedente che rappresenta tutte le risorse e i relativi Stati che si desidera includere nel gruppo di risorse. Per altre informazioni, vedere [modalità di distribuzione](./deployment-modes.md).
 - La ridistribuzione viene eseguita esattamente come è stata eseguita in precedenza con gli stessi parametri. Non è possibile modificare i parametri.
-- La distribuzione precedente viene eseguita utilizzando la [modalità completa](./deployment-modes.md#complete-mode). Tutte le risorse non incluse nella distribuzione precedente verranno eliminate e le configurazioni delle risorse verranno impostate sullo stato precedente. Assicurarsi di comprendere completamente le [modalità di distribuzione](./deployment-modes.md).
 - La ridistribuzione influisce solo sulle risorse. le modifiche apportate ai dati non sono interessate.
-- È possibile usare questa funzionalità solo con le distribuzioni di gruppi di risorse, non con le distribuzioni a livello di sottoscrizione o di gruppo di gestione. Per altre informazioni sulla distribuzione a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](./deploy-to-subscription.md).
+- Questa funzionalità può essere usata solo con le distribuzioni di gruppi di risorse. Non supporta le distribuzioni a livello di sottoscrizione, gruppo di gestione o tenant. Per altre informazioni sulla distribuzione a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](./deploy-to-subscription.md).
 - È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.
 
-Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia.
+Per usare questa opzione, le distribuzioni devono avere nomi univoci nella cronologia di distribuzione. Si tratta solo di nomi univoci che possono essere identificati da una distribuzione specifica. Se non si hanno nomi univoci, una distribuzione non riuscita potrebbe sovrascrivere una distribuzione corretta nella cronologia.
+
+Se si specifica una distribuzione precedente che non esiste nella cronologia di distribuzione, il rollback restituisce un errore.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -115,7 +124,5 @@ La distribuzione specificata deve aver avuto esito positivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per implementare in modo sicuro il servizio in più di un'area, vedere [Azure Deployment Manager](deployment-manager-overview.md).
-- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
+- Per informazioni sulle modalità complete e incrementali, vedere [Azure Resource Manager modalità di distribuzione](deployment-modes.md).
 - Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
-- Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).

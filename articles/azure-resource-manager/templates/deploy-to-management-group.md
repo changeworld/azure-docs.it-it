@@ -3,12 +3,12 @@ title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184017"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491622"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Distribuzioni del gruppo di gestione con i modelli ARM
 
@@ -112,7 +112,7 @@ Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione p
 
 Per le distribuzioni a livello di gruppo di gestione, è necessario specificare un percorso per la distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione. Per le distribuzioni di [sottoscrizione](deploy-to-subscription.md) e [tenant](deploy-to-tenant.md) è necessaria anche una località. Per le distribuzioni di [gruppi di risorse](deploy-to-resource-group.md) , il percorso del gruppo di risorse viene usato per archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato _azuredeploy.json_ crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se, ad esempio, si crea una distribuzione del gruppo di gestione con il nome **Deployment1** in **centralus**, non sarà possibile creare in un secondo momento un'altra distribuzione con il nome **Deployment1** ma un percorso di **westus**. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
@@ -164,9 +164,9 @@ Per usare una distribuzione del gruppo di gestione per creare un gruppo di risor
 
 ### <a name="scope-to-tenant"></a>Ambito al tenant
 
-È possibile creare risorse nel tenant impostando il `scope` valore su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
+Per creare risorse nel tenant, impostare `scope` su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
 
-È possibile usare una distribuzione annidata con `scope` e `location` set.
+Per utilizzare una distribuzione annidata, impostare `scope` e `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
@@ -222,7 +222,7 @@ Nell'esempio seguente viene creato un nuovo gruppo di gestione nel gruppo di ges
 
 ## <a name="azure-policy"></a>Criteri di Azure
 
-Le definizioni dei criteri personalizzati che vengono distribuite nel gruppo di gestione sono estensioni del gruppo di gestione. Per ottenere l'ID di una definizione di criteri personalizzata, usare la funzione [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . Le definizioni dei criteri predefinite sono risorse a livello di tenant. Per ottenere l'ID di una definizione dei criteri predefinita, usare la funzione [tenantResourceId](template-functions-resource.md#tenantresourceid) .
+Le definizioni dei criteri personalizzati che vengono distribuite nel gruppo di gestione sono estensioni del gruppo di gestione. Per ottenere l'ID di una definizione di criteri personalizzata, usare la funzione [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . Le definizioni dei criteri predefinite sono risorse a livello di tenant. Per ottenere l'ID di una definizione dei criteri predefinita, usare la funzione [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
 
 Nell'esempio seguente viene illustrato come [definire](../../governance/policy/concepts/definition-structure.md) un criterio a livello di gruppo di gestione e assegnarlo.
 

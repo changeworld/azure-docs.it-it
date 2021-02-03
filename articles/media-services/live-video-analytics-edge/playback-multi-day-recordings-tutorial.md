@@ -3,12 +3,12 @@ title: Riproduzione di registrazioni di più giorni - Azure
 description: In questa esercitazione si apprenderà come usare le API di Servizi multimediali di Azure per riprodurre una registrazione continua di video di più giorni.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
-ms.translationtype: HT
+ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803433"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492790"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Esercitazione: Riproduzione di registrazioni di più giorni  
 
@@ -57,7 +57,7 @@ Nel corso dell'[esercitazione sulla registrazione continua di video](continuous-
 }
 ```
 
-Quindi, in Visual Studio Code aprire src/ams-asset-player. Questa cartella contiene i file necessari per questa esercitazione. Aprire il file appsettings.json e copiarne il contenuto in un nuovo file appsettings.development.json. Apportare le modifiche seguenti al secondo file:
+Quindi, in Visual Studio Code aprire src/ams-asset-player. Questa cartella contiene i file necessari per questa esercitazione. Aprire il file appsettings.json e copiarne il contenuto in un nuovo file appsettings.development.json. Apportare le modifiche seguenti al appsettings.development.jsappena creato in:
 
 ```
   "AMS" : {
@@ -74,12 +74,11 @@ Quindi, in Visual Studio Code aprire src/ams-asset-player. Questa cartella conti
 1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Impostazioni estensione&quot;:::
-1. Cercare e abilitare &quot;Show Verbose Message" (Visualizza messaggio dettagliato).
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Impostazioni estensione":::
+1. Cercare e abilitare "Show Verbose Message" (Visualizza messaggio dettagliato).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Impostazioni estensione&quot;:::
-1. Cercare e abilitare &quot;Show Verbose Message":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. <!--In Visual Studio Code, you can click-->Fare clic sull'icona Esegui a sinistra (o premere CTRL+MAIUSC+D) per visualizzare le applicazioni disponibili per l'esecuzione:
 
     ![Screenshot che mostra un menu in Visual Studio Code con l'elemento di esecuzione selezionato.](./media/playback-multi-day-recordings-tutorial/run.png)

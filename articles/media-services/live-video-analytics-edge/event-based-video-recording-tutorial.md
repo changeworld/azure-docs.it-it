@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione di video basata su eventi nel cloud e ripro
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per eseguire una registrazione di video basata su eventi nel cloud e riprodurla dal cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 7f99eef626e2152e8acb01f0ade88b3b67aebcea
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 497c512c4d3874959e26b7a11c312abdda475b4e
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052213"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491859"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione di video basata su eventi nel cloud e riproduzione dal cloud
 
@@ -77,7 +77,7 @@ Il diagramma precedente è una rappresentazione grafica di un [grafo multimedial
     
 Come illustrato nel diagramma, verrà usato un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) nel grafo multimediale per acquisire il video live simulato del traffico in un'autostrada e inviarlo a due percorsi:
 
-* Il primo percorso si riferisce a un nodo di estensioni HTTP. Il nodo campiona i fotogrammi video in base a un valore impostato dall'utente usando il campo `samplingOptions` e quindi inoltra i fotogrammi, come immagini, al modulo di intelligenza artificiale YOLOv3, che è un rilevatore di oggetti. Il nodo riceve i risultati, ovvero gli oggetti (veicoli nel traffico) rilevati dal modello. Il nodo di estensioni HTTP pubblica quindi i risultati tramite il nodo sink di messaggi dell'hub IoT nell'hub di IoT Edge.
+* Il primo percorso è quello di un nodo di estensione HTTP. Il nodo campiona i fotogrammi video in base a un valore impostato dall'utente usando il campo `samplingOptions` e quindi inoltra i fotogrammi, come immagini, al modulo di intelligenza artificiale YOLOv3, che è un rilevatore di oggetti. Il nodo riceve i risultati, ovvero gli oggetti (veicoli nel traffico) rilevati dal modello. Il nodo di estensioni HTTP pubblica quindi i risultati tramite il nodo sink di messaggi dell'hub IoT nell'hub di IoT Edge.
 * Il modulo ObjectCounter è configurato per ricevere i messaggi dall'hub di IoT Edge, che includono i risultati di rilevamento degli oggetti (veicoli nel traffico). Il modulo controlla questi messaggi e cerca oggetti di un determinato tipo, configurati tramite un'impostazione. Quando questo tipo di oggetto viene individuato, il modulo invia un messaggio all'hub di IoT Edge. I messaggi di "oggetto trovato" vengono quindi instradati al nodo di origine dell'hub IoT del grafo multimediale. Alla ricezione di tale messaggio, il nodo di origine dell'hub IoT nel grafo multimediale attiva il nodo del [processore del gate di segnale](media-graph-concept.md#signal-gate-processor). Il nodo del processore del gate di segnale viene quindi aperto per un intervallo di tempo configurato. Il flusso video passa attraverso il controllo verso il nodo del sink dell'asset per l'intervallo di tempo specificato. Questa parte dello streaming live viene quindi registrata tramite il nodo [sink di asset](media-graph-concept.md#asset-sink) in un [asset](terminology.md#asset) nell'account Servizi multimediali di Azure.
 
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo

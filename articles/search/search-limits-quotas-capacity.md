@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 02/02/2021
+ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591345"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493042"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
 
@@ -139,7 +139,7 @@ Una [pipeline di arricchimento con intelligenza artificiale](cognitive-search-co
 
 ## <a name="throttling-limits"></a>Limiti della limitazione delle richieste
 
-Le richieste di ricerca e di indicizzazione vengono limitate quando il sistema si avvicina alla capacità massima. La limitazione delle richieste si comporta in modo diverso per le diverse API. Le API di query (ricerca/suggerimenti/completamento automatico) e le API di indicizzazione vengono limitate in modo dinamico in base al carico del servizio. Le API di indice hanno limiti statici per la frequenza delle richieste. 
+Le richieste API sono limitate perché il sistema si avvicina alla capacità di picco. La limitazione delle richieste si comporta in modo diverso per le diverse API. Le API di query (ricerca/suggerimenti/completamento automatico) e le API di indicizzazione vengono limitate in modo dinamico in base al carico del servizio. Le API di indice e le API per le operazioni del servizio hanno limiti di frequenza delle richieste statiche 
 
 Limiti statici per la frequenza delle richieste per le operazioni correlate a un indice:
 
@@ -148,6 +148,10 @@ Limiti statici per la frequenza delle richieste per le operazioni correlate a un
 + Creare un indice (POST /indexes): 12 al minuto per unità di ricerca
 + Creare o aggiornare un indice (PUT /indexes/myindex): 6 al secondo per unità di ricerca
 + Eliminare un indice (DELETE /indexes/myindex): 12 al minuto per unità di ricerca 
+
+Limiti di richieste di frequenza statica per le operazioni correlate a un servizio:
+
++ Statistiche servizio (GET/servicestats): 4 al secondo per unità di ricerca
 
 ## <a name="api-request-limits"></a>Limiti delle richieste API
 * 16 MB al massimo per <sup>1</sup> richiesta

@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione continua di video nel cloud e riproduzione 
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per registrare i video in modo continuo nel cloud ed eseguirne lo streaming di qualsiasi parte usando Servizi multimediali di Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 8fa2b65416499e58235fa312ffdcd2d71c3cfb39
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: 2db59b9c2b2893cad9a613257b4b7c1bafe3e333
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060147"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491606"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione continua di video nel cloud e riproduzione dal cloud
 
@@ -162,6 +162,12 @@ Quando si usa il modulo Analisi video live in IoT Edge per registrare il flusso 
 1. Fare clic con il pulsante destro del mouse sul file lva-sample-device e scegliere **Avvia il monitoraggio endpoint eventi predefinito**.
 
     ![Avvia monitoraggio endpoint eventi predefinito](./media/quickstarts/start-monitoring-iothub-events.png)
+
+> [!NOTE]
+> Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 ## <a name="run-the-program"></a>Eseguire il programma 
 

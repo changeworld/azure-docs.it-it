@@ -3,12 +3,12 @@ title: Creare una funzione in PowerShell con Visual Studio Code - Funzioni di Az
 description: Informazioni su come creare una funzione in PowerShell e quindi pubblicare il progetto locale nell'hosting serverless in Funzioni di Azure usando l'estensione Funzioni di Azure in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: ad129d8faec5725a6e76f14577e6a0e9deae8d86
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 9833b154cdba24f8760e7e8d9040bfc72bbcd271
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968008"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493593"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Avvio rapido: Creare una funzione in PowerShell in Azure con Visual Studio Code
 
@@ -65,7 +65,7 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 
 1. Usando queste informazioni, Visual Studio Code genera un progetto di Funzioni di Azure con un trigger HTTP. È possibile visualizzare i file di progetto locali in Explorer. Per altre informazioni sui file che vengono creati, vedere [File di progetto generati](functions-develop-vs-code.md#generated-project-files). 
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 Dopo aver verificato la corretta esecuzione della funzione nel computer locale, è possibile usare Visual Studio Code per pubblicare il progetto direttamente in Azure. 
 
@@ -79,7 +79,7 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato usato Visual Studio Code per creare un'app per le funzioni con una semplice funzione attivata tramite HTTP. Il prossimo articolo descrive come espandere questa funzione aggiungendo un binding di output. Questo binding scrive la stringa della richiesta HTTP in un messaggio in una coda dell'archiviazione code di Azure. 
+Si è usato [Visual Studio Code](functions-develop-vs-code.md?tabs=powershell) per creare un'app per le funzioni con una semplice funzione attivata tramite http. Nell'articolo successivo si espande la funzione connettendosi ad archiviazione di Azure. Per altre informazioni sulla connessione ad altri servizi di Azure, vedere [aggiungere binding a una funzione esistente in funzioni di Azure](add-bindings-existing-function.md?tabs=powershell).  
 
 > [!div class="nextstepaction"]
 > [Connettersi a una coda di Archiviazione di Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)

@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220814"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493312"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -77,7 +77,7 @@ Usare **displayName** e **description** per identificare la definizione dei crit
 > [!NOTE]
 > Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo** e **nome** sono definiti dalle proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **id**, **tipo** e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Anche se non è possibile impostare la proprietà **Type** , sono disponibili tre valori restituiti da SDK e visibili nel portale:
 
@@ -348,7 +348,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
                 "value": "[resourcegroup().tags[parameters('tagName')]]"
             }],
             "roleDefinitionIds": [
-                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                "/providers/microsoft.authorization/roleDefinitions/4a9ae827-6dc8-4573-8ac7-8239d42aa03f"
             ]
         }
     }

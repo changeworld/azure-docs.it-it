@@ -4,12 +4,12 @@ description: Informazioni su come visualizzare ed eseguire query per i dati di t
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937298"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493771"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizzare la telemetria di funzioni di Azure in Application Insights 
 
@@ -77,18 +77,18 @@ Scegliere **Log** per esplorare o eseguire una query in merito agli eventi regis
 
 Questo è un esempio che mostra la distribuzione delle richieste per ruolo di lavoro negli ultimi 30 minuti.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 Le tabelle disponibili vengono mostrate nella scheda **Schema** a sinistra. Nelle tabelle seguenti è possibile trovare i dati generati dalle chiamate alla funzione:
 
 | Tabella | Descrizione |
 | ----- | ----------- |
-| **traces** | Log creati dal runtime e tracce dal codice della funzione. |
+| **traces** | Log creati dal runtime, dal controller di scalabilità e dalle tracce del codice della funzione. |
 | **requests** | una richiesta per ogni chiamata alla funzione. |
 | **exceptions** | tutte le eccezioni generate dal runtime. |
 | **customMetrics** | numero di chiamate con esito positivo e negativo, percentuale di riuscita, durata. |
@@ -99,12 +99,38 @@ Le altre tabelle sono riservate ai test di disponibilità e ai dati di telemetri
 
 All'interno di ogni tabella alcuni dati specifici per Funzioni si trovano nel campo `customDimensions`.  Ad esempio, la query seguente recupera tutte le tracce con livello di registrazione `Error`.
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 Il runtime fornisce i campi `customDimensions.LogLevel` e `customDimensions.Category`. È possibile specificare campi aggiuntivi nei log in cui si scrive il codice funzione. Per un esempio in C#, vedere [registrazione strutturata](functions-dotnet-class-library.md#structured-logging) nella Guida per gli sviluppatori di librerie di classi .NET.
+
+## <a name="query-scale-controller-logs"></a>Log del controller di scalabilità delle query
+
+_Questa funzionalità è disponibile in anteprima._
+
+Dopo aver abilitato la [registrazione del controller di scalabilità](configure-monitoring.md#configure-scale-controller-logs) e l' [integrazione di Application Insights](configure-monitoring.md#enable-application-insights-integration), è possibile usare la ricerca log Application Insights per eseguire una query per i log del controller di scala emessi. I log del controller di ridimensionamento vengono salvati nella `traces` raccolta nella categoria **ScaleControllerLogs** .
+
+La query seguente può essere usata per cercare tutti i log del controller di scalabilità per l'app per le funzioni corrente entro il periodo di tempo specificato:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+La query seguente si espande nella query precedente per mostrare come ottenere solo i log che indicano una modifica della scala:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>Metriche specifiche del piano a consumo
 

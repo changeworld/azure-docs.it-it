@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879933"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491724"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrare e analizzare un'istanza gestita di database SQL di Azure
 
@@ -104,20 +104,6 @@ L'entità servizio o l'identità gestita deve avere l'autorizzazione per ottener
 1. Selezionare **Crea** per completare
 1. Se l'insieme di credenziali delle chiavi non è ancora connesso a Purview, sarà necessario [creare una nuova connessione dell'insieme di credenziali delle chiavi](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Infine, [creare nuove credenziali](manage-credentials.md#create-a-new-credential) usando l'entità servizio per configurare l'analisi
-
-### <a name="firewall-settings"></a>Impostazioni del firewall
-
-Il server di database deve consentire l'abilitazione delle connessioni di Azure. In questo modo Azure Purview potrà raggiungere il server e connettersi. È possibile seguire la procedura [Connessioni dall'interno di Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
-
-1. Passare all'account di database
-1. Selezionare il nome del server nella pagina **Panoramica**
-1. Selezionare **Sicurezza > Firewall e reti virtuali**
-1. Selezionare **Sì** per **Consenti alle risorse e ai servizi di Azure di accedere a questo server**
-
-    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Opzioni di registrazione delle origini" border="true":::
-    
-> [!Note]
-> Attualmente Azure Purview non supporta la configurazione di rete virtuale. Pertanto, non è possibile specificare impostazioni del firewall basate su IP.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Registrare e analizzare un'origine dati Istanza gestita di database SQL di Azure
 

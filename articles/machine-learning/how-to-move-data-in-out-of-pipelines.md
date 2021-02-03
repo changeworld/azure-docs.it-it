@@ -7,18 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 01/11/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 80a995b488f335ac2eb60ae18621acb2b1df58e2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 894b0fcddaead6ce60e1becc7221c4f5e608de48
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871537"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492298"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Spostamento di dati in e tra i passaggi della pipeline ML (Python)
-
 
 
 Questo articolo fornisce il codice per l'importazione, la trasformazione e lo stato di trasferimento dei dati tra i passaggi in una pipeline Azure Machine Learning. Per una panoramica del funzionamento dei dati in Azure Machine Learning, vedere [accedere ai dati nei servizi di archiviazione di Azure](how-to-access-data.md). Per i vantaggi e la struttura delle pipeline di Azure Machine Learning, vedere [che cosa sono le pipeline Azure Machine Learning?](concept-ml-pipelines.md).
@@ -176,7 +175,7 @@ dataprep_step = PythonScriptStep(
 ```python
 #get blob datastore already registered with the workspace
 blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(overwrite=False)
+OutputFileDatasetConfig(name="clean_data", destination=(blob_store, 'outputdataset')).as_upload(overwrite=False)
 ```
 
 > [!NOTE]
@@ -210,7 +209,7 @@ Nel codice seguente,
 ```python
 # get adls gen 2 datastore already registered with the workspace
 datastore = workspace.datastores['my_adlsgen2']
-step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=datastore).as_upload()
+step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=(datastore, "mypath/{run-id}/{output-name}")).as_upload()
 
 step1 = PythonScriptStep(
     name="generate_data",

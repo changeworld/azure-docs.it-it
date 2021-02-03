@@ -2,15 +2,15 @@
 title: Configurare app Python in Linux
 description: Informazioni su come configurare il contenitore Python in cui vengono eseguite app Web, usando sia il portale di Azure che l'interfaccia della riga di comando di Azure.
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
-ms.translationtype: HT
+ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855057"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493703"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -67,10 +67,13 @@ Per la configurazione, è possibile usare il [portale di Azure](https://portal.a
 
 Il sistema di compilazione del servizio app, Oryx, esegue i passaggi seguenti quando si distribuisce l'app usando pacchetti Git o ZIP:
 
-1. Esegue uno script di pre-compilazione personalizzato se specificato dall'impostazione `PRE_BUILD_COMMAND`.
+1. Esegue uno script di pre-compilazione personalizzato se specificato dall'impostazione `PRE_BUILD_COMMAND`. Lo script può eseguire a sua volta altri script Python e Node.js, comandi PIP e NPM e strumenti basati su nodi come Yarn, ad esempio `yarn install` e `yarn build` .
+
 1. Eseguire `pip install -r requirements.txt`. Il file *requirements.txt* deve essere presente nella cartella radice del progetto. In caso contrario, il processo di compilazione segnala l'errore con un messaggio analogo al seguente: "Non è stato possibile trovare setup.py o requirements.txt; l'installazione di pip non verrà eseguita".
+
 1. Se nella radice del repository viene trovato *manage.py* (che indica un'app Django), esegue *manage.py collectstatic*. Tuttavia, se l'impostazione `DISABLE_COLLECTSTATIC` è `true`, questo passaggio viene ignorato.
-1. Esegue uno script di post-compilazione personalizzato se specificato dall'impostazione `POST_BUILD_COMMAND`.
+
+1. Esegue uno script di post-compilazione personalizzato se specificato dall'impostazione `POST_BUILD_COMMAND`. Anche in questo caso, lo script può eseguire altri script Python e Node.js, comandi PIP e NPM e strumenti basati su nodi.
 
 Per impostazione predefinita, le impostazioni `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` e `DISABLE_COLLECTSTATIC` sono vuote. 
 
@@ -131,6 +134,52 @@ La tabella seguente descrive le impostazioni di produzione pertinenti per Azure.
 | `ALLOWED_HOSTS` | In produzione, Django richiede di includere l'URL dell'app nella matrice `ALLOWED_HOSTS` di *settings-py*. È possibile recuperare questo URL in fase di esecuzione con il codice `os.environ['WEBSITE_HOSTNAME']`. Il servizio app imposta automaticamente la variabile di ambiente `WEBSITE_HOSTNAME` sull'URL dell'app. |
 | `DATABASES` | Definire le impostazioni nel servizio app per la connessione al database e caricarle come variabili di ambiente per popolare il dizionario [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). In alternativa, è possibile archiviare i valori, in particolare il nome utente e la password, come [segreti di Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 
+## <a name="serve-static-files-for-django-apps"></a>Gestire i file statici per le app Django
+
+Se l'app Web Django include file front-end statici, seguire prima le istruzioni per la [gestione dei file statici](https://docs.djangoproject.com/en/3.1/howto/static-files/) nella documentazione di Django.
+
+Per il servizio app, è quindi necessario apportare le modifiche seguenti:
+
+1. Si consiglia di usare le variabili di ambiente (per lo sviluppo locale) e le impostazioni dell'app (durante la distribuzione nel cloud) per impostare dinamicamente Django `STATIC_URL` e le `STATIC_ROOT` variabili. Ad esempio:    
+
+    ```python
+    STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
+    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
+    ```
+
+    `DJANGO_STATIC_URL` e `DJANGO_STATIC_ROOT` possono essere modificati in modo necessario per gli ambienti locali e cloud. Se, ad esempio, il processo di compilazione per i file statici li inserisce in una cartella denominata `django-static` , è possibile impostare `DJANGO_STATIC_URL` su `/django-static/` per evitare di utilizzare il valore predefinito.
+
+1. Se si dispone di uno script di pre-compilazione che genera file statici in una cartella diversa, includere la cartella nella `STATICFILES_DIRS` variabile Django in modo che il processo di Django `collectstatic` li ritrovi. Ad esempio, se si esegue `yarn build` nella cartella front-end e yarn genera una cartella che `build/static` contiene file statici, includere la cartella nel modo seguente:
+
+    ```python
+    FRONTEND_DIR = "path-to-frontend-folder" 
+    STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
+    ```
+
+    Qui, `FRONTEND_DIR` , per creare un percorso in cui viene eseguito uno strumento di compilazione come yarn. È possibile usare nuovamente una variabile di ambiente e l'impostazione dell'app nel modo desiderato.
+
+1. Aggiungere `whitenoise` al file di *requirements.txt* . [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.Evans.io) è un pacchetto Python che semplifica la gestione dei file statici da un'app Django di produzione. Whitenoise fornisce in particolare i file presenti nella cartella specificata dalla `STATIC_ROOT` variabile Django.
+
+1. Nel file *Settings.py* aggiungere la riga seguente per Whitenoise:
+
+    ```python
+    STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
+    ```
+
+1. Modificare anche gli `MIDDLEWARE` `INSTALLED_APPS` elenchi e in modo da includere Whitenoise:
+
+    ```python
+    MIDDLEWARE = [
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+        # Other values follow
+    ]
+
+    INSTALLED_APPS = [
+        "whitenoise.runserver_nostatic",
+        # Other values follow
+    ]
+    ```
+
 ## <a name="container-characteristics"></a>Caratteristiche del contenitore
 
 Quando vengono distribuite nel servizio app, le app Python vengono eseguite in un contenitore Docker Linux definito nel [repository GitHub di Python per il servizio app](https://github.com/Azure-App-Service/python). È possibile trovare le configurazioni delle immagini all'interno delle directory specifiche della versione.
@@ -150,6 +199,8 @@ Questo contenitore presenta le caratteristiche seguenti:
 
 - Il servizio app definisce automaticamente una variabile di ambiente denominata `WEBSITE_HOSTNAME` con l'URL dell'app Web, ad esempio `msdocs-hello-world.azurewebsites.net`. Definisce anche `WEBSITE_SITE_NAME` con il nome dell'app, ad esempio `msdocs-hello-world`. 
    
+- NPM e Node.js vengono installati nel contenitore in modo che sia possibile eseguire strumenti di compilazione basati su nodi, ad esempio Yarn.
+
 ## <a name="container-startup-process"></a>Processo di avvio del contenitore
 
 Durante l'avvio il servizio app in un contenitore Linux esegue i passaggi seguenti:
@@ -270,7 +321,7 @@ Se ad esempio è stata creata un'impostazione dell'app denominata `DATABASE_SERV
 ```python
 db_server = os.environ['DATABASE_SERVER']
 ```
-    
+
 ## <a name="detect-https-session"></a>Rilevare una sessione HTTPS
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) si verifica nei servizi di bilanciamento del carico di rete, per cui tutte le richieste HTTPS raggiungono l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.

@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 38d138b43441016e06fca5003bc09c940cb23efe
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883317"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491791"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -240,7 +240,7 @@ Successivamente, è possibile testare l'esempio richiamando un metodo diretto. L
     
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 1. Fare clic sull'opzione "Richiama metodo" nella parte superiore della pagina

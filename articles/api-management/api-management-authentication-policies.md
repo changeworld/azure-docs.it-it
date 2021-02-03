@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071286"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492604"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
@@ -48,13 +48,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Description|Obbligatoria|
+|Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |authentication-basic|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Description|Obbligatoria|Predefinito|
+|Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |username|Specifica il nome utente della credenziale di base.|Sì|N/D|
 |password|Specifica la password della credenziale di base.|Sì|N/D|
@@ -67,7 +67,10 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   **Ambiti del criterio:** tutti gli ambiti
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticazione con certificato client
- Usare il criterio `authentication-certificate` per eseguire l'autenticazione con un servizio di back-end tramite il certificato client. Il certificato deve essere prima [installato in Gestione API](./api-management-howto-mutual-certificates.md) e viene identificato tramite la relativa identificazione personale.
+ Usare il `authentication-certificate` criterio per eseguire l'autenticazione con un servizio back-end usando un certificato client. Il certificato deve essere prima [installato in gestione API](./api-management-howto-mutual-certificates.md) ed è identificato dall'identificazione personale o dall'ID del certificato (nome della risorsa). 
+
+> [!CAUTION]
+> Se il certificato fa riferimento a un certificato archiviato in Azure Key Vault, identificarlo utilizzando l'ID del certificato. Quando un certificato dell'insieme di credenziali delle chiavi viene ruotato, l'identificazione personale in gestione API verrà modificata e i criteri non risolveranno il nuovo certificato se identificato dall'identificazione personale.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -75,20 +78,19 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
+
+In questo esempio, il certificato client viene identificato dall'ID certificato:
+
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
+``` 
 
 In questo esempio, il certificato client viene identificato dalla relativa identificazione personale:
 
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-
-In questo esempio, il certificato client viene identificato dal nome della risorsa:
-
-```xml  
-<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-``` 
-
 In questo esempio, il certificato client viene impostato nei criteri anziché essere recuperato dall'archivio certificati incorporato:
 
 ```xml
@@ -97,13 +99,13 @@ In questo esempio, il certificato client viene impostato nei criteri anziché es
 
 ### <a name="elements"></a>Elementi  
   
-|Nome|Description|Obbligatoria|  
+|Nome|Descrizione|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Description|Obbligatoria|Predefinito|  
+|Nome|Descrizione|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Identificazione personale del certificato client.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
 |ID certificato|Nome della risorsa del certificato.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
@@ -174,15 +176,15 @@ Per richiedere il token, è possibile usare sia l'identità assegnata dal sistem
 
 ### <a name="elements"></a>Elementi  
   
-|Nome|Description|Obbligatoria|  
+|Nome|Descrizione|Obbligatoria|  
 |----------|-----------------|--------------|  
 |autenticazione-gestita-identità |Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Description|Obbligatoria|Predefinito|  
+|Nome|Descrizione|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|Risorsa|Stringa. ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|Sì|N/D|
+|risorse|Stringa. ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|Sì|N/D|
 |ID client|Stringa. ID app dell'identità assegnata dall'utente in Azure Active Directory.|No|identità assegnata dal sistema|
 |output-token-variabile-nome|Stringa. Nome della variabile di contesto che riceverà il valore del token come tipo di oggetto `string` . |No|N/D|  
 |ignore-error|Proprietà di tipo Boolean. Se impostato su `true` , la pipeline dei criteri continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  

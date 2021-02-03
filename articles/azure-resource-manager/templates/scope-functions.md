@@ -3,12 +3,12 @@ title: Funzioni modello nelle distribuzioni con ambito
 description: Viene descritto come vengono risolte le funzioni modello nelle distribuzioni con ambito. L'ambito può essere un tenant, gruppi di gestione, sottoscrizioni e gruppi di risorse.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681588"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492094"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Funzioni modello ARM negli ambiti di distribuzione
 
@@ -40,15 +40,15 @@ Quando si esegue la distribuzione in ambiti diversi, è necessario tenere presen
 * Utilizzare la funzione [extensionResourceId ()](template-functions-resource.md#extensionresourceid) per le risorse implementate come estensioni del gruppo di gestione. Le definizioni dei criteri personalizzati che vengono distribuite nel gruppo di gestione sono estensioni del gruppo di gestione.
 
   Per ottenere l'ID risorsa per una definizione di criteri personalizzata a livello di gruppo di gestione, usare:
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Usare la funzione [tenantResourceId](template-functions-resource.md#tenantresourceid) per ottenere l'ID per una risorsa distribuita nel tenant. Le definizioni dei criteri predefinite sono risorse a livello di tenant. Quando si assegna un criterio predefinito a livello di gruppo di gestione, usare la funzione tenantResourceId.
+* Usare la funzione [tenantResourceId ()](template-functions-resource.md#tenantresourceid) per ottenere l'ID per una risorsa distribuita nel tenant. Le definizioni dei criteri predefinite sono risorse a livello di tenant. Quando si assegna un criterio predefinito a livello di gruppo di gestione, usare la funzione tenantResourceId.
 
   Per ottenere l'ID risorsa per una definizione dei criteri predefinita, usare:
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -138,6 +138,6 @@ L'output dell'esempio precedente è:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
+* Per informazioni su come definire i parametri nel modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 * Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
-* Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).
+* Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [distribuire un modello ARM privato con token SAS](secure-template-with-sas-token.md).

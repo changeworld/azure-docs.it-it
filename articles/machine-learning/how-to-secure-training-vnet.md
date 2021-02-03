@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029567"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493838"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteggere un ambiente di training Azure Machine Learning con reti virtuali
 
@@ -62,16 +62,19 @@ Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](co
 > * Se anche gli account di archiviazione di Azure per l'area di lavoro sono protetti in una rete virtuale, devono trovarsi nella stessa rete virtuale dell'istanza di calcolo o del cluster di elaborazione di Azure Machine Learning. 
 > * Per il corretto funzionamento della funzionalità Jupyter dell'istanza di calcolo, assicurarsi che la comunicazione con il Websocket non sia disabilitata. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms. 
 > * Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile accedervi solo dall'interno della rete virtuale. Se si usa un file host o DNS personalizzato, aggiungere una voce per `<instance-name>.<region>.instances.azureml.ms` con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](./how-to-custom-dns.md) .
+> * La subnet usata per distribuire il cluster o l'istanza di calcolo non deve essere delegata ad altri servizi come ACI
+> * I criteri dell'endpoint di servizio della rete virtuale non funzionano per gli account di archiviazione del sistema di cluster/istanza di calcolo
+
     
 > [!TIP]
 > L'istanza di calcolo o il cluster di elaborazione di Machine Learning alloca automaticamente le risorse di rete aggiuntive __nel gruppo di risorse contenente la rete virtuale__. Per ogni istanza o cluster, il servizio alloca le risorse seguenti:
 > 
 > * Un gruppo di sicurezza di rete
-> * Un indirizzo IP pubblico
+> * Un indirizzo IP pubblico. Se si dispone di criteri di Azure che proibiscono la creazione di indirizzi IP pubblici, la distribuzione di cluster/istanze avrà esito negativo
 > * Un bilanciamento del carico
 > 
 > Nel caso dei cluster queste risorse vengono eliminate e ricreate ogni volta che il cluster si ridimensiona fino a 0 nodi, tuttavia, per un'istanza le risorse vengono mantenute finché l'istanza viene eliminata completamente (l'arresto non comporta la rimozione delle risorse). 
-> Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione.
+> Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Se il gruppo di risorse della rete virtuale è bloccato, l'eliminazione dell'istanza o del cluster di calcolo avrà esito negativo. Il servizio di bilanciamento del carico non può essere eliminato fino a quando non viene eliminato il cluster o l'istanza di calcolo.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Porte richieste

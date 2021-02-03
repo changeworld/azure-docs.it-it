@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f635a4c4c6e0b1dcb4d4842d3cddb337d2b26407
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735161"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493923"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Meraki Dashboard
 
@@ -103,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Modificare il certificato di firma SAML](common/edit-certificate.png)
 
-1. Nella sezione **Certificato di firma SAML** copiare il valore **Valore di identificazione personale** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** copiare il valore **Valore di identificazione personale** e salvarlo nel computer. Questo valore deve essere convertito per includere i due punti affinché il dashboard di Meraki possa comprenderlo. Se, ad esempio, l'identificazione personale di Azure è `C2569F50A4AAEDBB8E` necessario modificarla in `C2:56:9F:50:A4:AA:ED:BB:8E` per usarla in un secondo momento nel dashboard di Meraki.
 
     ![Copiare il valore di Identificazione personale](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Opzione Add a SAML IdP di Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Nella casella di testo **X.590 cert SHA1 fingerprint** (Identificazione personale SHA1 del certificato X.590) incollare il valore di **Identificazione personale** copiato dal portale di Azure. Fare quindi clic su **Salva**. Dopo il salvataggio, viene visualizzato l'URL del consumer. Copiare il valore di dell'URL del consumer e incollarlo nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base** del portale di Azure.
+1. Incollare il valore di **identificazione personale** convertito copiato dal portale di Azure e convertito nel formato specificato come indicato nel passaggio 9 della sezione precedente nella casella di testo **X. 590 CERT SHA1 Fingerprint** . Fare quindi clic su **Salva**. Dopo il salvataggio, viene visualizzato l'URL del consumer. Copiare il valore di dell'URL del consumer e incollarlo nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base** del portale di Azure.
 
     ![Configurazione di Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-4.png)
 

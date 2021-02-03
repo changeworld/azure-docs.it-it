@@ -3,12 +3,12 @@ title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 1daf95945f619d0e904880d8a8a778810a685d9a
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b5c99e5dc21c2b93f1c9da3977302a2dd311277f
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183983"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491504"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Distribuzioni di sottoscrizioni con modelli ARM
 
@@ -104,7 +104,7 @@ az deployment sub create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Come comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment**. L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
+Per il comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o il relativo alias `New-AzSubscriptionDeployment` . L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -130,7 +130,7 @@ Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione p
 
 Per le distribuzioni a livello di sottoscrizione, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione. Il [gruppo di gestione](deploy-to-management-group.md) e le distribuzioni [tenant](deploy-to-tenant.md) richiedono anche un percorso. Per le distribuzioni di [gruppi di risorse](deploy-to-resource-group.md) , il percorso del gruppo di risorse viene usato per archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato _azuredeploy.json_ crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se, ad esempio, si crea una distribuzione di sottoscrizione con il nome **Deployment1** in **centralus**, in un secondo momento non sarà possibile creare un'altra distribuzione con il nome **Deployment1** ma un percorso di **westus**. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
@@ -173,9 +173,9 @@ Per un esempio di distribuzione in un gruppo di risorse, vedere [creare risorse 
 
 ### <a name="scope-to-tenant"></a>Ambito al tenant
 
-È possibile creare risorse nel tenant impostando il `scope` valore su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
+Per creare risorse nel tenant, impostare `scope` su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
 
-È possibile usare una distribuzione annidata con `scope` e `location` set.
+Per utilizzare una distribuzione annidata, impostare `scope` e `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
 
@@ -254,7 +254,7 @@ Per creare più gruppi di risorse usare l'[elemento copy](copy-resources.md).
 }
 ```
 
-Per informazioni sull'iterazione delle risorse, vedere [Distribuire più istanze di una risorsa nei modelli di Azure Resource Manager](./copy-resources.md) ed [Esercitazione: Creare più istanze di risorse con modelli di Resource Manager](./template-tutorial-create-multiple-instances.md).
+Per informazioni sull'iterazione delle risorse, vedere [iterazione delle risorse nei modelli ARM](./copy-resources.md)ed [esercitazione: creare più istanze di risorse con i modelli ARM](./template-tutorial-create-multiple-instances.md).
 
 ### <a name="create-resource-group-and-resources"></a>Creare il gruppo di risorse e le risorse
 

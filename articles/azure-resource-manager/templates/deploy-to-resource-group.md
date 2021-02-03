@@ -3,12 +3,12 @@ title: Distribuire le risorse nei gruppi di risorse
 description: Viene descritto come distribuire le risorse in un modello di Azure Resource Manager. Mostra come definire come destinazione più di un gruppo di risorse.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186227"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491555"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Distribuzioni di gruppi di risorse con modelli ARM
 
@@ -128,9 +128,9 @@ Per un modello di esempio, vedere [creare un gruppo di risorse](#create-resource
 
 ### <a name="scope-to-tenant"></a>Ambito al tenant
 
-È possibile creare risorse nel tenant impostando il `scope` valore su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
+Per creare risorse nel tenant, impostare `scope` su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
 
-È possibile usare una distribuzione annidata con `scope` e `location` set.
+Per utilizzare una distribuzione annidata, impostare `scope` e `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ Per ulteriori informazioni, vedere [gruppo di gestione](deploy-to-management-gro
 
 ## <a name="deploy-to-target-resource-group"></a>Distribuire nel gruppo di risorse di destinazione
 
-Per distribuire le risorse nel gruppo di risorse di destinazione, definire le risorse nella sezione **Resources** del modello. Il modello seguente crea un account di archiviazione nel gruppo di risorse specificato nell'operazione di distribuzione.
+Per distribuire le risorse nel gruppo di risorse di destinazione, definire le risorse nella `resources` sezione del modello. Il modello seguente crea un account di archiviazione nel gruppo di risorse specificato nell'operazione di distribuzione.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

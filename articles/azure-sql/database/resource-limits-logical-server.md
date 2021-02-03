@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 1/14/2021
-ms.openlocfilehash: e21a5a5be03ffa4ada362247c488ee7d12bd50f7
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/02/2021
+ms.openlocfilehash: e8f18f56c746f0d12f43cc2fb6ce9088a9b82b45
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222225"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492383"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limiti delle risorse per il database SQL di Azure e i server di analisi di Azure sinapsi
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -69,7 +69,8 @@ In caso di uso elevato di spazio, le opzioni di mitigazione includono:
 
 - Aumentare le dimensioni massime del database o del pool elastico o aggiungere ulteriore spazio di archiviazione. Vedere [Ridimensionare le risorse del database singolo](single-database-scale.md) e [Ridimensionare le risorse del pool elastico](elastic-pool-scale.md).
 - Se il database si trova in un pool elastico, in alternativa è possibile spostare il database all'esterno del pool in modo che lo spazio di archiviazione non sia condiviso con altri database.
-- Compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](file-space-manage.md)
+- Compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
+- Controllare se l'utilizzo dello spazio elevato è dovuto a un picco nelle dimensioni dell'archivio versioni permanente (PVS). PVS è parte di ogni database e viene usato per implementare il  [recupero accelerato del database](../accelerated-database-recovery.md). Per determinare le dimensioni PVS correnti, vedere la pagina relativa alla [risoluzione dei problemi di PVS](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Un motivo comune per grandi dimensioni PVS è una transazione aperta per molto tempo (ore), impedendo la pulizia delle versioni precedenti in PVS.
 
 ### <a name="sessions-and-workers-requests"></a>Sessioni e ruoli di lavoro (richieste)
 
@@ -82,7 +83,7 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 - Riduzione dell'impostazione di [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (massimo grado di parallelismo).
 - Ottimizzazione del carico di lavoro delle query per ridurre il numero di occorrenze e la durata del blocco di query. Per altre informazioni, vedere [comprendere e risolvere i problemi di blocco di SQL Azure](understand-resolve-blocking.md).
 
-### <a name="memory"></a>Memory
+### <a name="memory"></a>Memoria
 
 A differenza di altre risorse (CPU, ruoli di lavoro, archiviazione), raggiungere il limite di memoria non influisce negativamente sulle prestazioni delle query e non genera errori e errori. Come descritto in dettaglio in [Guida all'architettura di gestione della memoria](/sql/relational-databases/memory-management-architecture-guide), il motore di database di SQL Server spesso usa tutta la memoria disponibile, in base alla progettazione. La memoria viene utilizzata principalmente per la memorizzazione nella cache dei dati, per evitare un accesso più costoso alle risorse di archiviazione. Pertanto, un utilizzo più elevato della memoria di solito migliora le prestazioni delle query a causa di letture più veloci dalla memoria, anziché letture più lente dall'archiviazione.
 

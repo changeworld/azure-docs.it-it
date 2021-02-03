@@ -4,12 +4,12 @@ description: Informazioni su come connettere l'app per le funzioni a Application
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070141"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493754"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 
@@ -229,6 +229,8 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
+Con la registrazione del controller di scalabilità abilitata, è ora possibile [eseguire query sui log del controller di scalabilità](analyze-telemetry-data.md#query-scale-controller-logs). 
+
 ## <a name="enable-application-insights-integration"></a>Abilitare l'integrazione di Application Insights
 
 Affinché un'app per le funzioni invii dati ad Application Insights, è necessario conoscere la chiave di strumentazione di una risorsa di Application Insights. La chiave deve essere specificata in un'impostazione dell'app denominata **APPINSIGHTS_INSTRUMENTATIONKEY**.
@@ -271,30 +273,6 @@ Se non è stata creata una risorsa di Application Insights con l'app per le funz
 
 > [!NOTE]
 > Nelle versioni precedenti di Funzioni veniva usato il servizio di monitoraggio incorporato, che non è più consigliato. Quando si abilita l'integrazione di Application Insights per un'app per le funzioni di questo tipo, è necessario anche [disabilitare la registrazione predefinita](#disable-built-in-logging).  
-
-## <a name="query-scale-controller-logs"></a>Log del controller di scalabilità delle query
-
-Dopo aver abilitato la registrazione del controller di scalabilità e l'integrazione di Application Insights, è possibile usare la ricerca log Application Insights per eseguire una query per i log del controller di scala emessi. I log del controller di ridimensionamento vengono salvati nella `traces` raccolta nella categoria **ScaleControllerLogs** .
-
-La query seguente può essere usata per cercare tutti i log del controller di scalabilità per l'app per le funzioni corrente entro il periodo di tempo specificato:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-```
-
-La query seguente si espande nella query precedente per mostrare come ottenere solo i log che indicano una modifica della scala:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-| where message == "Instance count changed"
-| extend Reason = CustomDimensions.Reason
-| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
-| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
-```
 
 ## <a name="disable-built-in-logging"></a>Disabilitare la registrazione predefinita
 

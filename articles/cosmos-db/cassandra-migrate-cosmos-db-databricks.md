@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516544"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493275"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrare i dati da Cassandra a Azure Cosmos DB account API Cassandra usando Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,28 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> Le `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` configurazioni e sono importanti per evitare la [limitazione della frequenza](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), che si verifica quando le richieste di Cosmos DB superano la velocità effettiva con provisioning (unità di[richiesta](./request-units.md)). Potrebbe essere necessario modificare queste impostazioni in base al numero di esecutori del cluster Spark e potenzialmente alla dimensione (e quindi al costo UR) di ogni record scritto nelle tabelle di destinazione.
+> Le `spark.cassandra.output.batch.size.rows` `spark.cassandra.output.concurrent.writes` configurazioni, e `connections_per_executor_max` sono importanti per evitare la [limitazione della frequenza](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), che si verifica quando le richieste di Azure Cosmos DB superano la velocità effettiva con provisioning/([unità di richiesta](./request-units.md)). Potrebbe essere necessario modificare queste impostazioni in base al numero di esecutori del cluster Spark e potenzialmente alla dimensione (e quindi al costo UR) di ogni record scritto nelle tabelle di destinazione.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="rate-limiting-429-error"></a>Limitazione della frequenza (errore 429)
+È possibile che venga visualizzato il codice di errore 429 o `request rate is large` il testo dell'errore, nonostante la riduzione delle impostazioni precedenti ai valori minimi. Di seguito sono riportati alcuni scenari di questo tipo:
+
+- **La velocità effettiva allocata alla tabella è inferiore a 6000 [unità richiesta](./request-units.md)**. Anche con le impostazioni minime, Spark sarà in grado di eseguire le Scritture con una frequenza di circa 6000 unità richiesta. Se è stato effettuato il provisioning di una tabella in uno spazio di spazi dei tuoi con il provisioning della velocità effettiva condivisa, è possibile che la tabella abbia meno di 6000 ur disponibili in fase di esecuzione. Verificare che per la tabella di cui si sta eseguendo la migrazione siano disponibili almeno 6000 ur durante l'esecuzione della migrazione e, se necessario, allocare unità richiesta dedicate a tale tabella. 
+- **Asimmetria dati eccessiva con volume di dati di grandi dimensioni**. Se si dispone di una grande quantità di dati, ovvero righe di tabella, per eseguire la migrazione in una tabella specifica, ma è presente una differenza significativa nei dati (ovvero un numero elevato di record scritti per lo stesso valore della chiave di partizione), è comunque possibile che si verifichi una limitazione della frequenza anche se è presente una grande quantità di [unità richiesta](./request-units.md) di cui è stato effettuato il provisioning nella Ciò è dovuto al fatto che le unità di richiesta sono divise equamente tra le partizioni fisiche e la notevole asimmetria dei dati può comportare un collo di bottiglia delle richieste a una singola partizione, causando una limitazione della frequenza. In questo scenario è consigliabile ridurre le impostazioni della velocità effettiva minima in Spark per evitare la limitazione della frequenza e forzare l'esecuzione lenta della migrazione. Questo scenario può essere più comune quando si esegue la migrazione di tabelle di riferimento o di controllo, in cui l'accesso è meno frequente, ma l'inclinazione può essere elevata. Tuttavia, se è presente un'asimmetria significativa in qualsiasi altro tipo di tabella, potrebbe essere opportuno esaminare il modello di dati per evitare problemi di partizione a caldo per il carico di lavoro durante le operazioni di stato stabile. 
+- **Impossibile ottenere il conteggio su una tabella di grandi dimensioni**. L'esecuzione `select count(*) from table` di non è attualmente supportata per le tabelle di grandi dimensioni. È possibile ottenere il conteggio dalle metriche in portale di Azure (vedere l' [articolo sulla risoluzione dei problemi](cassandra-troubleshoot.md)), ma se è necessario determinare il numero di una tabella di grandi dimensioni dall'interno del contesto di un processo Spark, è possibile copiare i dati in una tabella temporanea e quindi usare Spark SQL per ottenere il conteggio, ad esempio, sostituire `<primary key>` con un campo della tabella temporanea risultante.
+
+  ```scala
+  val ReadFromCosmosCassandra = sqlContext
+    .read
+    .format("org.apache.spark.sql.cassandra")
+    .options(cosmosCassandra)
+    .load
+
+  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
+  %sql
+  select count(<primary key>) from CosmosCassandraResult
+  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

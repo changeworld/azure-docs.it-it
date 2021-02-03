@@ -1,15 +1,15 @@
 ---
 title: 'Guida introduttiva: Inviare eventi personalizzati alla coda di archiviazione - Griglia di eventi, interfaccia della riga di comando di Azure'
 description: "Guida introduttiva: Usare Griglia di eventi di Azure e l'interfaccia della riga di comando di Azure per pubblicare un argomento e sottoscrivere l'evento. Una coda di archiviazione viene usata per l'endpoint."
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
-ms.translationtype: HT
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566317"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493261"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati ad Archiviazione code di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -116,6 +116,11 @@ done
 Passare all'archivio code nel portale e notare che Griglia di eventi ha inviato i tre eventi alla coda.
 
 ![Visualizzare i messaggi](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Se si usa un [trigger di archiviazione code di Azure per funzioni di Azure](../azure-functions/functions-bindings-storage-queue-trigger.md) per una coda che riceve messaggi da griglia di eventi, è possibile che venga visualizzato il messaggio di errore seguente nell'esecuzione della funzione: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> Il motivo è che quando si usa un [trigger di archiviazione code di Azure](../azure-functions/functions-bindings-storage-queue-trigger.md), funzioni di Azure prevede una **stringa con codifica Base64**, ma griglia di eventi invia messaggi a una coda di archiviazione in un formato di testo normale. Attualmente, non è possibile configurare il trigger della coda per le funzioni di Azure in modo che accettino testo normale. 
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

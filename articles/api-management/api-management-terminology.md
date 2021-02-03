@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
-ms.openlocfilehash: 5bc76d2526c5585071a240af36b8a31e3de5708f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 002ae9f99865114dd8bf52b53efc9303a0706a82
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024929"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491825"
 ---
 # <a name="azure-api-management-terminology"></a>Terminologia di gestione API di Azure
 
@@ -24,10 +24,10 @@ Questo articolo contiene le definizioni dei termini specifici di Gestione API.
 
 ## <a name="term-definitions"></a>Definizioni dei termini
 
-* **API back-end**: servizio HTTP che implementa l'API e le operazioni. 
-* API front- **end** / **API Gestione API** : un'API Gestione API non ospita le API, ma crea le facciate per le API per personalizzare la facciata in base alle esigenze senza toccare l'API back-end. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
+* **API back-end**: servizio HTTP che implementa l'API e le operazioni. Per altre informazioni, vedere [backend](backends.md).
+* API front- **end** / **API Gestione API** : un'API Gestione API non ospita le API, ma crea le facciate per le API. Personalizzare la facciata in base alle esigenze senza toccare l'API back-end. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
 * **Prodotto Gestione API**: un prodotto contiene una o più API, oltre a una quota di utilizzo e le condizioni per l'utilizzo. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. Per altre informazioni, vedere [Creare e pubblicare un prodotto](api-management-howto-add-products.md).
-* **Operazione API di Gestione API**: ogni API di Gestione API rappresenta un set di operazioni a disposizione degli sviluppatori. Ogni API di Gestione API contiene un riferimento al servizio back-end che implementa l'API e delle relative operazioni viene eseguito il mapping alle operazioni implementate dal servizio back-end. Per altre informazioni, vedere [Simulare le risposte di un'API](mock-api-responses.md).
+* **Operazione API di Gestione API**: ogni API di Gestione API rappresenta un set di operazioni a disposizione degli sviluppatori. Ogni API Gestione API contiene un riferimento al servizio back-end che implementa l'API e le relative operazioni sono mappate alle operazioni implementate dal servizio back-end. Per altre informazioni, vedere [Simulare le risposte di un'API](mock-api-responses.md).
 * **Versione**: a volte si vogliono pubblicare funzionalità dell'API nuove o diverse destinate ad alcuni utenti, mentre altri preferiscono continuare a usare l'API in uso e funzionante. Per altre informazioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).
 * **Revisione**: se l'API è pronta e inizia a essere usata dagli sviluppatori, è in genere necessario fare attenzione alle modifiche apportate a tale API e contemporaneamente non interrompere i chiamanti dell'API. È anche utile far conoscere agli sviluppatori le modifiche apportate. Per altre informazioni, vedere [Usare le revisioni](api-management-get-started-revise-api.md).
 * **Portale per sviluppatori**: i clienti (sviluppatori) devono usare il portale per sviluppatori per accedere alle API. È possibile personalizzare il portale per sviluppatori. Per altre informazioni, vedere [Personalizzare il portale per sviluppatori](api-management-customize-styles.md).
