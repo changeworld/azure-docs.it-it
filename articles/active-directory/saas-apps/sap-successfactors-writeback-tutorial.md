@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006439"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526976"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Esercitazione: Configurare il writeback degli attributi da Azure AD a SAP SuccessFactors
 L'obiettivo di questa esercitazione è illustrare la procedura di writeback di attributi da Azure AD a SAP SuccessFactors Employee Central. 
@@ -64,9 +64,9 @@ Collaborare con il team di amministrazione di SuccessFactors o con il partner re
 1. In Permission Role List (Elenco ruoli autorizzazioni) fare clic su **Create New** (Crea nuovo).
 
    > [!div class="mx-imgBorder"]
-   > ![Creazione di un nuovo ruolo di autorizzazioni](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+   > ![Creazione di un nuovo ruolo di autorizzazione](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 
-1. In **Role Name** e **Description** aggiungere rispettivamente un nome e una descrizione per il nuovo ruolo di autorizzazioni. Il nome e la descrizione devono indicare che il ruolo riguarda le autorizzazioni di utilizzo dell'API.
+1. In **Role Name** e **Description** aggiungere rispettivamente un nome e una descrizione per il nuovo ruolo di autorizzazione. Il nome e la descrizione devono indicare che il ruolo riguarda le autorizzazioni di utilizzo dell'API.
 
    > [!div class="mx-imgBorder"]
    > ![Dettagli del ruolo delle autorizzazioni](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
@@ -241,15 +241,15 @@ Questa sezione illustra la procedura per
 
 6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
 
-7. Impostare **Modalità** **di provisioning** su **Automatico**
+7. Impostare **Provisioning** **Mode** (Modalità di provisioning) su **Automatic** (Automatica)
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente amministratore**: immettere il nome utente dell'account utente dell'API SuccessFactors, seguito dall'ID società. Il formato è **nomeutente\@IDsocietà**
+   * **Admin Username** (Nome utente amministratore): immettere il nome utente dell'account utente dell'API SuccessFactors, seguito dall'ID società. Il formato è **nomeutente\@IDsocietà**
 
-   * **Password amministratore**: immettere la password dell'account utente dell'API SuccessFactors. 
+   * **Admin Password** (Password amministratore): immettere la password dell'account utente dell'API SuccessFactors. 
 
-   * **URL tenant**: immettere il nome dell'endpoint di servizio dell'API OData di SuccessFactors. Immettere solo il nome host del server senza http o https. Il valore dovrebbe essere simile a `api4.successfactors.com`.
+   * **Tenant URL** (URL tenant): immettere il nome dell'endpoint di servizio dell'API OData di SuccessFactors. Immettere solo il nome host del server senza http o https. Il valore dovrebbe essere simile a `api4.successfactors.com`.
 
    * **Messaggio di posta elettronica di notifica:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
     > [!NOTE]
@@ -282,7 +282,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
    | 3 | 8448 | emailType | Questo valore costante è il valore dell'ID SuccessFactors associato al tipo di indirizzo di posta elettronica aziendale. Aggiornare il valore in modo che corrisponda all'ambiente di SuccessFactors. Per la procedura da eseguire per impostare questo valore, vedere la sezione [Recuperare il valore costante di emailType](#retrieve-constant-value-for-emailtype). |
    | 4 | true | emailIsPrimary | Usare questo attributo per impostare l'indirizzo di posta elettronica aziendale come primario in SuccessFactors. Se l'indirizzo di posta elettronica aziendale non è quello primario, impostare questo flag su false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Facoltativamente, usando **Aggiungi nuovo mapping** è possibile scrivere l'attributo userPrincipalName o qualsiasi attributo di Azure AD in un attributo personalizzato disponibile nell'oggetto utente di SuccessFactors.  |
-   | 6 | on-prem-samAccountName | username | Facoltativamente, usando **Aggiungi nuovo mapping** è possibile eseguire il mapping dell'attributo samAccountName locale all'attributo username di SuccessFactors. |
+   | 6 | SamAccountName locale | username | Facoltativamente, usando **Aggiungi nuovo mapping** è possibile eseguire il mapping dell'attributo samAccountName locale all'attributo username di SuccessFactors. Usare [Azure ad Connect Sync: estensioni della directory](../hybrid/how-to-connect-sync-feature-directory-extensions.md) per sincronizzare samAccountName con Azure ad. Verrà visualizzato nell'elenco a discesa di origine come *extension_yourTenantGUID_samAccountName* |
    | 7 | SSO | loginMethod | Se il tenant di SuccessFactors è configurato per il [Single Sign-On parziale](https://apps.support.sap.com/sap/support/knowledge/en/2320766), usando Aggiungi nuovo mapping è possibile impostare loginMethod su un valore costante "SSO" o "PWD". |
    | 8 | telephoneNumber | businessPhoneNumber | Usare questo mapping per trasmettere *telephoneNumber* da Azure AD al numero di telefono aziendale/di lavoro di SuccessFactors. |
    | 9 | 10605 | businessPhoneType | Questo valore costante è il valore dell'ID SuccessFactors associato al tipo di numero di telefono aziendale. Aggiornare il valore in modo che corrisponda all'ambiente di SuccessFactors. Per la procedura da eseguire per impostare questo valore, vedere la sezione [Recuperare il valore costante di phoneType](#retrieve-constant-value-for-phonetype). |
@@ -317,7 +317,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
 ## <a name="enable-and-launch-user-provisioning"></a>Abilitare e avviare il provisioning utenti
 
-Dopo aver completato le configurazioni dell'app di provisioning di SuccessFactors, è possibile attivare il servizio di provisioning nel portale di Azure.
+Dopo aver completato le configurazioni dell'app di provisioning SuccessFactors, è possibile attivare il servizio di provisioning nel portale di Azure.
 
 > [!TIP]
 > Per impostazione predefinita quando si attiva il servizio di provisioning, verranno avviate le operazioni di provisioning per tutti gli utenti nell'ambito. Se sono presenti errori di mapping o problemi di dati, il processo di provisioning potrebbe non riuscire e passare allo stato di quarantena. Come procedura consigliata per evitare questo problema è consigliabile configurare il filtro **Source Object Scope** (Ambito dell'oggetto di origine) e il test di mapping degli attributi con alcuni utenti test prima di avviare la sincronizzazione completa per tutti gli utenti. Dopo avere verificato che i mapping funzionino e che restituiscano i risultati desiderati è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.

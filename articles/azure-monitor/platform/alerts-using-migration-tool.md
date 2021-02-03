@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4f17afc6fb5001b4bbee16fe84697b58d062b292
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536031"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526925"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria per eseguire la migrazione delle regole di avviso classiche
 
-Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici in monitoraggio di Azure vengono ritirati, anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che hanno utilizzato le regole di avviso classiche e che desiderano attivare la migrazione. Questo articolo illustra come usare lo strumento di migrazione, che verrà usato anche per gli avvisi restanti in attesa di un ulteriore annuncio.
+Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici di monitoraggio di Azure sono ritirati per gli utenti del cloud pubblico, anche se sono ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che hanno utilizzato le regole di avviso classiche e che desiderano attivare la migrazione. Questo articolo illustra come usare lo strumento di migrazione, che verrà usato anche per gli avvisi restanti in attesa di un ulteriore annuncio.
 
 ## <a name="benefits-of-new-alerts"></a>Vantaggi dei nuovi avvisi
 
@@ -95,5 +95,5 @@ Per informazioni sui problemi che potrebbero verificarsi durante la migrazione, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Prepararsi per la migrazione](alerts-prepare-migration.md)
+- [Preparare la migrazione](alerts-prepare-migration.md)
 - [Informazioni sul funzionamento dello strumento di migrazione](alerts-understand-migration.md)

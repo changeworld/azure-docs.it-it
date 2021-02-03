@@ -6,16 +6,16 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e57b3dd31455db245103469874c517fe54479110
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875921"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526908"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Informazioni sulle opzioni di migrazione per gli avvisi più recenti
 
-Gli avvisi classici vengono [ritirati](./monitoring-classic-retirement.md), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Una nuova data verrà annunciata a breve per la migrazione degli avvisi rimanenti, il [cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md)e [Azure Cina 21ViaNet](https://docs.azure.cn/).
+Gli avvisi classici sono [ritirati](./monitoring-classic-retirement.md) per gli utenti del cloud pubblico, anche se sono in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Una nuova data verrà annunciata a breve per la migrazione degli avvisi rimanenti, il [cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md)e [Azure Cina 21ViaNet](https://docs.azure.cn/).
 
 Questo articolo illustra come funziona lo strumento migrazione manuale e migrazione volontaria, che verrà usato per eseguire la migrazione delle regole di avviso rimanenti. Vengono inoltre descritte le soluzioni per alcuni problemi comuni.
 
@@ -150,7 +150,7 @@ Per i servizi dell'account di archiviazione come BLOB, tabelle, file e code, le 
 | SASSuccess | Metrica Transactions con Dimensions "ResponseType" = "success" e "Authentication" = "SAS" | |
 | ServerOtherError | Metrica transazioni con dimensioni "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Metrica transazioni con dimensioni "ResponseType" = "ServerTimeOutError"  | |
-| Operazione completata | Metrica transazioni con dimensioni "ResponseType" = "operazione riuscita" | |
+| Operazione riuscita | Metrica transazioni con dimensioni "ResponseType" = "operazione riuscita" | |
 | TotalBillableRequests| Transazioni | |
 | TotalEgress | Egress | |
 | TotalIngress | Dati in ingresso | |
@@ -264,4 +264,4 @@ Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuov
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Come usare lo strumento di migrazione](alerts-using-migration-tool.md)
-- [Prepararsi per la migrazione](alerts-prepare-migration.md)
+- [Preparare la migrazione](alerts-prepare-migration.md)
