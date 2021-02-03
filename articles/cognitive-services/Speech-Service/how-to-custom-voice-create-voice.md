@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: b59d9ebf55f7a4c02891a782b7271eec2f521576
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 0650a173b02e1b8f1f829953be1dd852024e6f65
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663282"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524516"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
 
@@ -52,17 +52,21 @@ Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati
 
 Al termine della convalida, è possibile visualizzare il numero totale di espressioni corrispondenti per ognuno dei set di impostazioni nella colonna **enunciazioni** . Se il tipo di dati selezionato richiede una segmentazione audio lunga, questa colonna riflette solo le espressioni che sono state segmentate in base alle trascrizioni o tramite il servizio di trascrizione vocale. È possibile scaricare ulteriormente il set di dati convalidato per visualizzare i risultati dettagliati degli enunciati importati correttamente e le relative trascrizioni di mapping. Suggerimento: la segmentazione dell'audio lungo può richiedere più di un'ora per completare l'elaborazione dei dati.
 
-Per i set di risultati en-US e zh-CN è possibile scaricare ulteriormente un report per verificare i punteggi di pronuncia e il livello di disturbo per ciascuna delle registrazioni. Gli intervalli del punteggio di pronuncia sono compresi tra 0 e 100. Un punteggio della pronuncia inferiore a 70 generalmente indica un errore di riconoscimento vocale o una mancata corrispondenza dello script. Un forte accento può ridurre il punteggio della pronuncia e influire sulla voce digitale generata.
+Nella visualizzazione dei dettagli dei dati è possibile controllare ulteriormente i punteggi di pronuncia e il livello di disturbo per ognuno dei set di dati. Gli intervalli del punteggio di pronuncia sono compresi tra 0 e 100. Un punteggio della pronuncia inferiore a 70 generalmente indica un errore di riconoscimento vocale o una mancata corrispondenza dello script. Un forte accento può ridurre il punteggio della pronuncia e influire sulla voce digitale generata.
 
 Un rapporto segnale/rumore superiore indica un livello di rumore inferiore nell'audio. Generalmente è possibile raggiungere un rapporto segnale/rumore superiore a 50 eseguendo la registrazione in studi professionali. L'audio con un rapporto segnale/rumore inferiore a 20 può determinare la presenza di rumore nella voce generata.
 
 Valutare se ripetere la registrazione di qualsiasi espressione con punteggi di pronuncia o rapporti segnale/rumore particolarmente bassi. Se non è possibile ripetere la registrazione, tali espressioni possono essere escluse dal set di dati.
 
+> [!NOTE]
+> È necessario che se si usa una voce neurale personalizzata, è necessario registrare il talento vocale nella scheda **Voice Talent** . Quando si prepara lo script di registrazione, assicurarsi di includere la frase seguente per acquisire la conferma del Talent Voice per l'uso dei dati vocali per creare un modello vocale TTS e generare un riconoscimento vocale sintetico. "I [dichiarare il nome e il cognome] sono consapevoli che le registrazioni della mia voce verranno usate da [stato nome della società] per creare e usare una versione sintetica della mia voce".
+Questa frase verrà usata per verificare se le registrazioni nei set di impostazioni di training vengono eseguite dalla stessa persona che rilascia il consenso. [Altre informazioni sulle modalità di elaborazione dei dati e sul modo in cui viene eseguita la verifica del talento vocale in questo articolo](https://aka.ms/CNV-data-privacy). 
+
 ## <a name="build-your-custom-voice-model"></a>Compilare il modello Voice personalizzato
 
 Dopo che il set di dati è stato convalidato, è possibile usarlo per compilare il modello Voice personalizzato.
 
-1.  Passare a sintesi vocale **> > vocale personalizzata [nome del progetto] > Training**.
+1.  Passare a sintesi vocale **> > vocale personalizzata [nome del progetto] > modello**.
 
 2.  Fare clic su **Train Model**.
 
@@ -72,15 +76,22 @@ Dopo che il set di dati è stato convalidato, è possibile usarlo per compilare 
 
     Un utilizzo comune del campo **Description** consiste nel registrare i nomi dei set di dati utilizzati per creare il modello.
 
-4.  Nella pagina **selezione dati di training** scegliere uno o più set di dati che si desidera utilizzare per il training. Verificare il numero di espressioni prima di inviarle. È possibile iniziare con un numero qualsiasi di espressioni per i modelli di voce en-US e zh-CN. Per le altre impostazioni locali, è necessario selezionare più di 2.000 espressioni per poter eseguire il training di una voce.
+4.  Nella pagina **selezione dati di training** scegliere uno o più set di dati che si desidera utilizzare per il training. Verificare il numero di espressioni prima di inviarle. È possibile iniziare con un numero qualsiasi di espressioni per i modelli di voce en-US e zh-CN usando il metodo di training "Adaptive". Per le altre impostazioni locali, è necessario selezionare più di 2.000 enunciati per poter eseguire il training di una voce usando un livello standard, inclusi i metodi di training "statistica parametrica" e "concatenativa" e più di 300 espressioni per eseguire il training di una voce neurale personalizzata. 
 
     > [!NOTE]
     > I nomi audio duplicati verranno rimossi dal training. Verificare che i set di dati selezionati non contengano gli stessi nomi audio in più file con estensione zip.
 
     > [!TIP]
-    > Per i risultati di qualità è necessario usare i set di dati dello stesso altoparlante. Quando i set di impostazioni inviati per il training contengono un numero totale inferiore a 6.000 di espressioni distinte, sarà necessario eseguire il training del modello vocale tramite la tecnica di sintesi parametrica statistica. Nel caso in cui i dati di training superino un numero totale di 6.000 espressioni distinte, sarà possibile avviare un processo di training con la tecnica di sintesi della concatenazione. In genere, la tecnologia di concatenazione può produrre risultati vocali più naturali e di maggiore fedeltà. [Contattare il team Voice personalizzato](https://go.microsoft.com/fwlink/?linkid=2108737) se si desidera eseguire il training di un modello con la più recente tecnologia TTS neurale che può produrre una voce digitale equivalente alle [voci neurali](language-support.md#neural-voices)disponibili pubblicamente.
+    > Per i risultati di qualità è necessario usare i set di dati dello stesso altoparlante. Metodi di training diversi richiedono dimensioni dei dati di training differenti. Per eseguire il training di un modello con il metodo "statistico parametrico", sono necessari almeno 2.000 enunciati distinti. Per il metodo "concatenativo", le espressioni 6.000, mentre per "neurale", il requisito minimo per le dimensioni dei dati è 300.
 
-5.  Fare clic su **Train** per iniziare a creare il modello vocale.
+5. Nel passaggio successivo selezionare il **metodo di training** . 
+
+    > [!NOTE]
+    > Se si vuole eseguire il training di una voce neurale, è necessario specificare un profilo di talento vocale con il file di consenso audio fornito dal talento vocale che riconosce di usare i propri dati vocali per eseguire il training di un modello vocale personalizzato. La voce neurale personalizzata è disponibile con accesso limitato. Assicurarsi di comprendere i [requisiti di intelligenza artificiale responsabili](https://aka.ms/gating-overview) e di [applicare l'accesso qui](https://aka.ms/customneural). 
+    
+    In questa pagina è anche possibile scegliere di caricare lo script per il test. Lo script di test deve essere un file txt, minore di 1 MB. Il formato di codifica supportato include ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Ogni paragrafo dell'espressione determinerà un audio separato. Se si desidera combinare tutte le frasi in un unico audio, impostarle in un paragrafo. 
+
+6. Fare clic su **Train** per iniziare a creare il modello vocale.
 
 Nella tabella training viene visualizzata una nuova voce che corrisponde al modello appena creato. La tabella Visualizza anche lo stato: elaborazione, operazione riuscita, non riuscita.
 
@@ -92,10 +103,13 @@ Lo stato illustrato riflette il processo di conversione del set di dati in un mo
 | Completato | Il modello vocale è stato creato e può essere distribuito. |
 | Non riuscito | Non è stato possibile eseguire il training del modello vocale a causa di diversi motivi, ad esempio problemi relativi ai dati o problemi di rete. |
 
-Il tempo necessario per il training varia a seconda del volume dei dati audio elaborati. In genere, i tempi vanno da 30 minuti per alcune centinaia di espressioni a 40 ore per 20.000 espressioni. Una volta completato il training del modello, è possibile iniziare a testarlo.
+Il tempo di training varia a seconda del volume dei dati audio elaborati e del metodo di training selezionato. Può variare da 30 minuti a 40 ore. Una volta completato il training del modello, è possibile iniziare a testarlo. 
 
 > [!NOTE]
 > Gli utenti della sottoscrizione gratuita (F0) possono eseguire il training di un tipo di carattere vocale simultaneamente. Gli utenti della sottoscrizione standard (S0) possono eseguire il training simultaneo di tre voci. Se si raggiunge il limite, attendere che venga completato il training di almeno un carattere voce, quindi riprovare.
+
+> [!NOTE]
+> Il training di voci neurali personalizzate non è disponibile. Controllare i [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) qui. 
 
 > [!NOTE]
 > Il numero massimo di modelli vocali di cui è possibile eseguire il training per ogni sottoscrizione è 10 modelli per gli utenti della sottoscrizione gratuita (F0) e 100 per gli utenti con sottoscrizione standard (S0).
@@ -104,32 +118,27 @@ Se si utilizza la funzionalità di training per la voce neurale, è possibile sc
 
 ## <a name="test-your-voice-model"></a>Testare il modello vocale
 
-Dopo aver creato correttamente il carattere voce, è possibile testarlo prima di distribuirlo per l'uso.
+Ogni training genererà automaticamente i file audio di esempio 100 per facilitare il test del modello. Al termine della compilazione del modello vocale, è possibile testarlo prima di distribuirlo per l'utilizzo.
 
-1.  Passare a sintesi vocale **> > vocale personalizzata [nome del progetto] > test**.
+1.  Passare a sintesi vocale **> > vocale personalizzata [nome del progetto] > modello**.
 
-2.  Fare clic su **Aggiungi test**.
+2.  Fare clic sul nome del modello che si desidera testare.
 
-3.  Selezionare uno o più modelli che si desidera testare.
+3.  Nella pagina dei dettagli del modello è possibile trovare i file audio di esempio nella scheda **test** . 
 
-4.  Fornire il testo che si desidera vengano pronunciate dalla voce. Se si è scelto di testare più modelli contemporaneamente, verrà usato lo stesso testo per il test di modelli diversi.
-
-    > [!NOTE]
-    > La lingua del testo deve corrispondere a quella del carattere voce. Solo i modelli con training completato possono essere testati. In questo passaggio è supportato solo testo normale.
-
-5.  Fare clic su **Crea**.
-
-Dopo aver inviato la richiesta di test, si tornerà alla pagina test. La tabella ora include una voce che corrisponde alla nuova richiesta e alla colonna di stato. La sintesi vocale può richiedere alcuni minuti. Quando nella colonna stato viene indicato **succeeded**, è possibile riprodurre l'audio oppure scaricare l'input di testo (un file con estensione txt) e l'output audio (un file con estensione wav) ed effettuare un provino per la qualità.
-
-È anche possibile trovare i risultati del test nella pagina dei dettagli di ogni modello selezionato per il test. Passare alla scheda **Training** , quindi fare clic sul nome del modello per accedere alla pagina dei dettagli del modello.
+La qualità della voce dipende da diversi fattori, tra cui la dimensione dei dati di training, la qualità della registrazione, l'accuratezza del file di trascrizione, il modo in cui la voce registrata nei dati di training corrisponde alla personalità della voce progettata per il caso d'uso previsto e altro ancora. [Vedere qui per altre informazioni sulle funzionalità e sui limiti della tecnologia e sulla procedura consigliata per migliorare la qualità del modello](https://aka.ms/CNV-limits). 
 
 ## <a name="create-and-use-a-custom-voice-endpoint"></a>Creare e usare un endpoint Voice personalizzato
 
 Dopo aver creato e testato il modello vocale, distribuirlo in un endpoint personalizzato per la sintesi vocale. È quindi possibile usare questo endpoint al posto dell'endpoint normale quando si effettuano richieste di sintesi vocale tramite l'API REST. L'endpoint personalizzato può essere chiamato solo dalla sottoscrizione usata per distribuire il tipo di carattere.
 
-Per creare un nuovo endpoint vocale personalizzato, passare a sintesi vocale **> distribuzione vocale > personalizzata**. Selezionare **Aggiungi endpoint** e immettere un **nome** e una **Descrizione** per l'endpoint personalizzato. Selezionare quindi il modello Voice personalizzato che si desidera associare a questo endpoint.
+Per creare un nuovo endpoint vocale personalizzato, passare a sintesi vocale **> endpoint voice > personalizzato**. Selezionare **Aggiungi endpoint** e immettere un **nome** e una **Descrizione** per l'endpoint personalizzato. Selezionare quindi il modello Voice personalizzato che si desidera associare a questo endpoint.
 
 Dopo aver fatto clic sul pulsante **Aggiungi** nella tabella dell'endpoint, viene visualizzata una voce per il nuovo endpoint. La creazione di un'istanza per un nuovo endpoint potrebbe richiedere alcuni minuti. Quando lo stato della distribuzione ha **esito positivo**, l'endpoint è pronto per l'utilizzo.
+
+È possibile **sospendere** e **riprendere** l'endpoint se non lo si usa continuamente. Quando un endpoint viene riattivato dopo la sospensione, l'URL dell'endpoint viene mantenuto invariato e non è necessario modificare il codice nelle app. 
+
+È inoltre possibile aggiornare l'endpoint a un nuovo modello. Per modificare il modello, verificare che il nuovo modello sia denominato identico a quello che si desidera aggiornare. 
 
 > [!NOTE]
 > Per gli utenti della sottoscrizione gratuita (F0) è possibile distribuire un solo modello. Gli utenti della sottoscrizione standard (S0) possono creare fino a 50 endpoint, ognuno con la propria voce personalizzata.

@@ -3,12 +3,12 @@ title: Errori di risorsa non trovati
 description: Viene descritto come risolvere gli errori quando non è possibile trovare una risorsa. L'errore può verificarsi durante la distribuzione di un modello di Azure Resource Manager o durante l'esecuzione di azioni di gestione.
 ms.topic: troubleshooting
 ms.date: 06/10/2020
-ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84667948"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526247"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Risolvere gli errori di risorsa non trovata
 
@@ -105,7 +105,7 @@ Nella funzione Reference usare `Full` per ottenere tutte le proprietà, inclusa 
 
 Il modello è:
 
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
 
 > [!IMPORTANT]
 > Non usare il modello:

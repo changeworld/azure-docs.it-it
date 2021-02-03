@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 989e50ec03dae5d00961d572b70d524a56b3d64c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 99e1e77a37afbdc1ed54767700574316ed03fae3
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062206"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525246"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
@@ -248,10 +248,8 @@ foreach ($deployment in $deployments){
 
 }
 ```
-
 ## <a name="report"></a>Report
-
-È possibile trovare il report per l'attribuzione dell'utilizzo da parte dei clienti nel dashboard del Centro per i partner ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Per visualizzare il report, è necessario usare le credenziali del Centro per i partner per accedere. Se si verificano problemi con il report o l'accesso, creare una [richiesta di supporto](#get-support).
+La creazione di report per l'utilizzo di Azure rilevati tramite l'attribuzione dell'utilizzo del cliente non è attualmente disponibile per i partner ISV L'aggiunta di report al programma Commercial Marketplace nel centro per i partner per coprire l'attribuzione dell'utilizzo dei clienti è destinata alla seconda metà del 2021.
 
 ## <a name="notify-your-customers"></a>Informare i clienti
 

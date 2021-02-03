@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 02/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225159"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525145"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
@@ -41,9 +41,12 @@ Questa funzionalità consente alle applicazioni di gestire scenari come:
 1. Selezionare il flusso utente per il quale si desidera abilitare l'autenticazione a più fattori. Ad esempio, *B2C_1_signinsignup*.
 1. Selezionare **Proprietà**.
 1. Nella sezione **autenticazione** a più fattori selezionare il **Metodo** di autenticazione a più fattori desiderato, quindi in **applicazione** dell'autenticazione a più fattori selezionare **Always on** oppure **condizionale (scelta consigliata)**.
-  > [!NOTE]
-  > Se si seleziona **condizionale (scelta consigliata)**, è necessario anche [aggiungere un criterio di accesso condizionale](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e specificare le app a cui si vuole applicare il criterio.
-1. Selezionare Salva. L'autenticazione a più fattori è ora abilitata per questo flusso utente.
+   > [!NOTE]
+   >
+   > - Se si seleziona **condizionale (scelta consigliata)**, è necessario anche [aggiungere un criterio di accesso condizionale](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e specificare le app a cui si vuole applicare il criterio.
+   > - Multi-factor authentication è disabilitato per impostazione predefinita per i flussi utente di iscrizione. È possibile abilitare l'autenticazione a più fattori nei flussi utente con l'iscrizione tramite telefono, ma poiché un numero di telefono viene usato come identificatore primario, il codice di posta elettronica monouso è l'unica opzione disponibile per il secondo fattore di autenticazione.
+
+1. Selezionare **Salva**. L'autenticazione a più fattori è ora abilitata per questo flusso utente.
 
 È possibile usare **Esegui ora** per verificare l'esperienza. Confermare lo scenario seguente:
 

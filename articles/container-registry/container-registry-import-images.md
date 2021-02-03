@@ -2,13 +2,13 @@
 title: Importare immagini del contenitore
 description: Importare immagini del contenitore in un registro Azure Container usando le API di Azure, senza bisogno di eseguire comandi di Docker.
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: 364c90b857d0d7d479152e2aa56db4d80041f037
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019974"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524499"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importare immagini del contenitore in un registro contenitori
 
@@ -35,6 +35,11 @@ Per importare immagini del contenitore seguendo le procedure di questo articolo,
 > [!NOTE]
 > Se occorre distribuire immagini del contenitore identiche tra più aree di Azure, Registro Azure Container supporta anche la [replica geografica](container-registry-geo-replication.md). Con la replica geografica di un registro di sistema (è necessario il livello di servizio Premium), è possibile servire più aree con nomi identici per le immagini e i tag da un unico registro.
 >
+
+> [!IMPORTANT]
+> Le modifiche apportate all'importazione di immagini tra due registri contenitori di Azure sono state introdotte a partire dal 2021 gennaio:
+> * L'importazione in o da un registro contenitori di Azure con restrizioni di rete richiede il registro di sistema con restrizioni per [**consentire l'accesso da parte di servizi attendibili**](allow-access-trusted-services.md) per ignorare la rete. Per impostazione predefinita, l'impostazione è abilitata, consentendo l'importazione. Se l'impostazione non è abilitata in un registro appena creato con un endpoint privato o con regole del firewall del registro di sistema, l'importazione avrà esito negativo. 
+> * In un registro contenitori di Azure con restrizioni di rete esistente usato come origine o destinazione dell'importazione, l'abilitazione di questa funzionalità di sicurezza di rete è facoltativa ma consigliata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -92,6 +97,8 @@ az acr import \
 * Il registro può trovarsi nella stessa sottoscrizione di Azure o in una sottoscrizione diversa nello stesso tenant di Active Directory.
 
 * L' [accesso pubblico](container-registry-access-selected-networks.md#disable-public-network-access) al registro di sistema di origine potrebbe essere disabilitato. Se l'accesso pubblico è disabilitato, specificare il registro di sistema di origine tramite l'ID risorsa anziché il nome del server di accesso del registro di sistema.
+
+* Se il registro di sistema di origine e/o il registro di sistema di destinazione ha un endpoint privato o regole del firewall del registro di sistema, assicurarsi che il registro di sistema con restrizioni [consenta ai servizi attendibili](allow-access-trusted-services.md) di accedere alla rete.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importare immagini da un registro nella stessa sottoscrizione
 

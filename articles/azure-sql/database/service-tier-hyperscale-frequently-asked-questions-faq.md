@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459639"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526823"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 I livelli di servizio basati su vCore sono differenziati in base alla disponibilità del database e al tipo di archiviazione, alle prestazioni e alle dimensioni massime, come descritto nella tabella seguente.
 
-| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
+| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutti|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Tipo di risorsa** ||Database SQL/SQL Istanza gestita | Database singolo | Database SQL/SQL Istanza gestita |
@@ -166,7 +166,7 @@ Le dimensioni del database aumentano automaticamente man mano che si inseriscono
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Qual è la dimensione minima del database supportata da iperscalare o che inizia con
 
-40 GB. Viene creato un database con iperscalabilità con una dimensione iniziale di 10 GB. Inizia quindi a crescere di 10 GB ogni 10 minuti, fino a raggiungere le dimensioni di 40 GB. Ognuno di questi mandrini da 10 GB viene allocato in un server di pagine diverso per fornire più IOPS e un maggiore parallelismo di I/O. A causa di questa ottimizzazione, anche se si scelgono dimensioni di database iniziali inferiori a 40 GB, il database aumenterà automaticamente ad almeno 40 GB.
+40 GB. Viene creato un database con iperscalabilità con una dimensione iniziale di 10 GB. Inizia quindi a crescere di 10 GB ogni 10 minuti, fino a raggiungere le dimensioni di 40 GB. Ognuno di questi blocchi da 10 GB viene allocato in un server di pagine diverso per offrire più IOPS e un maggiore parallelismo di I/O. A causa di questa ottimizzazione, anche se si scelgono dimensioni di database iniziali inferiori a 40 GB, il database aumenterà automaticamente ad almeno 40 GB.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>In base a quali incrementi aumentano le dimensioni del database
 
@@ -233,7 +233,7 @@ L'iperscalabilità è in grado di utilizzare 100 MB/s di dati nuovi o modificati
 
 È possibile fare in modo che un'applicazione client legga i dati da archiviazione di Azure e carichi i dati in un database con iperscalabilità (analogamente a qualsiasi altro database nel database SQL di Azure). La polibase non è attualmente supportata nel database SQL di Azure. Come alternativa per fornire un carico rapido, è possibile usare [Azure Data Factory](../../data-factory/index.yml)o usare un processo spark in [Azure Databricks](/azure/azure-databricks/) con il [connettore Spark per SQL](spark-connector.md). Il connettore Spark per SQL supporta l'inserimento bulk.
 
-È anche possibile eseguire la lettura bulk dei dati dall'archivio BLOB di Azure usando BULK INSERT o OPENROWSET: [esempi di accesso bulk ai dati nell'archivio BLOB di Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+È anche possibile eseguire la lettura bulk dei dati dall'archivio BLOB di Azure usando BULK INSERT o OPENROWSET: [esempi di accesso bulk ai dati nell'archivio BLOB di Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Il modello di recupero con registrazione minima o con registrazione bulk non è supportato nel livello Hyperscale. Per fornire disponibilità elevata e ripristino temporizzato, è necessario il modello di recupero con esecuzione completa. Tuttavia, l'architettura di log con iperscalabilità offre una migliore velocità di inserimento dei dati rispetto agli altri livelli di servizio del database SQL di Azure.
 

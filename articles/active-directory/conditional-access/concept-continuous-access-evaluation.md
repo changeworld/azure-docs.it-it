@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678205"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524669"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -48,7 +48,7 @@ La valutazione dell'accesso continuo viene implementata abilitando i servizi, ad
 - La password per un utente è stata modificata o reimpostata
 - Autenticazione a più fattori abilitata per l'utente
 - L'amministratore revoca in modo esplicito tutti i token di aggiornamento per un utente
-- Rischi utente elevati rilevati da Azure AD Identity Protection
+- Elevato rischio utente rilevato da Azure AD Identity Protection
 
 Questo processo consente lo scenario in cui gli utenti perdono l'accesso ai file, alla posta elettronica, al calendario o alle attività di SharePoint Online, nonché ai team di Microsoft 365 app client entro pochi minuti da uno di questi eventi critici. 
 

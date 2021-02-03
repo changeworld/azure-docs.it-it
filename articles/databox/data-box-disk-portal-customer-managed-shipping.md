@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f512b4415f4a83e779a8f9bf790ba2806e3b05c5
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575164"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526331"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box Disk nel portale di Azure
 
@@ -24,7 +24,9 @@ Questo articolo descrive le attività di spedizione autogestita per l'ordine, il
 La spedizione autogestita è disponibile come opzione quando si [ordina Azure Data Box Disk](data-box-disk-deploy-ordered.md). La spedizione autogestita è disponibile solo nelle aree geografiche seguenti:
 
 * US Gov
+* Regno Unito
 * Europa occidentale
+* Australia
 * Giappone
 * Singapore
 * Corea del Sud
@@ -41,7 +43,7 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
 2. Quando si sceglie il tipo di spedizione, selezionare l'opzione **Spedizione autogestita**. Questa opzione è disponibile solo se ci si trova in una delle aree supportate, come descritto nei prerequisiti.
 
-3. Dopo aver indicato l'indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
+3. Dopo aver fornito l'indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
 
    ![Screenshot della finestra di dialogo per l'aggiunta dell'indirizzo di spedizione, con le opzioni di spedizione e il pulsante per l'aggiunta dell'indirizzo evidenziati.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
@@ -53,34 +55,34 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
    ![Pianificare il ritiro](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-6. Dopo aver pianificato il ritiro del dispositivo, sarà possibile visualizzare il codice di autorizzazione nel riquadro **Pianifica il ritiro per Azure**.
+6. Dopo aver pianificato il prelievo del dispositivo, è possibile visualizzare il codice di autorizzazione nel **prelievo pianificato per Azure**.
 
    ![Screenshot della finestra di dialogo Seleziona pianificazione per Azure con il codice di autorizzazione per la casella di testo di prelievo denominata.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
-   Prendere nota del **codice di autorizzazione**.
+   Prendere nota del codice di autorizzazione.
 
-   In base ai requisiti di sicurezza, al momento della pianificazione del prelievo, è necessario presentare il nome della persona che arriverà per la selezione.
+   In base ai requisiti di sicurezza, al momento della pianificazione, è necessario presentare il nome della persona che arriverà per la selezione.
 
-   È anche necessario specificare i dettagli relativi a chi accederà al data center per il ritiro. L'utente o il punto di contatto deve esibire un documento d'identità valido che verrà convalidato presso il data center.
+   È anche necessario specificare i dettagli relativi agli utenti che accederanno al Data Center per la selezione. L'utente o il punto di contatto deve includere un ID foto approvato dal governo che verrà convalidato nel Data Center.
 
-   La persona che ritira il dispositivo deve avere anche il **codice di autorizzazione**. Il codice di autorizzazione è univoco per un prelievo o un rilascio e viene convalidato nel Data Center.
+   La persona che sta raccogliendo il dispositivo deve avere anche il codice di autorizzazione. Il codice di autorizzazione è univoco per un pick-up o un elenco a discesa e viene convalidato nel Data Center.
 
-7. L'ordine assume automaticamente lo stato **Ritirato** dopo che il dispositivo è stato ritirato dal data center.
+7. L'ordine passa automaticamente allo stato **prelevato** dopo che il dispositivo è stato prelevato dal Data Center.
 
    ![Ritirato](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-ready-disk-01b.png)
 
 8. Dopo il ritiro del dispositivo, è possibile copiare i dati nel Data Box Disk presso il proprio sito. Dopo aver completato la copia dei dati, è possibile preparare la spedizione del Data Box Disk.
 
-   Dopo aver terminato la copia dei dati, sarà necessario contattare gli operatori per pianificare un appuntamento per la consegna. Sarà necessario condividere i dettagli della persona che si presenterà al data center per consegnare i dischi. Il data center dovrà anche verificare il codice di autorizzazione al momento della consegna. Il codice di autorizzazione per la consegna sarà disponibile nel portale di Azure in **Pianifica la consegna**.
+   Al termine della copia dei dati, contattare le operazioni per pianificare un appuntamento per l'elenco a discesa. Dovrai condividere i dettagli della persona che arriva al Data Center per rilasciare i dischi. Il data center dovrà anche verificare il codice di autorizzazione al momento della consegna. Il codice di autorizzazione per l'elenco a discesa è reperibile nel portale di Azure in pianificazione, a **discesa**.
 
    > [!NOTE]
-   > Non condividere il codice di autorizzazione tramite posta elettronica. Il codice deve essere verificato solo nel data center durante la consegna.
+   > Non condividere il codice di autorizzazione tramite posta elettronica. Questa operazione viene verificata solo nel Data Center durante l'eliminazione.
 
-9. Se è stato ricevuto un appuntamento per la consegna, l'ordine deve avere lo stato **Pronto per la ricezione presso il data center di Azure** nel portale di Azure.
+9. Dopo aver ricevuto un appuntamento per l'elenco a discesa, l'ordine deve essere **pronto per la ricezione al centro dati di Azure** nella portale di Azure.
 
    ![Screenshot della finestra di dialogo Aggiungi indirizzo di spedizione con le opzioni in uscita e l'opzione Aggiungi indirizzo di spedizione richiamata.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
-10. Dopo che il documento e il codice di autorizzazione sono stati verificati e il dispositivo è stato consegnato presso il data center, lo stato dell'ordine sarà **Ricevuto**.
+10. Dopo che l'ID e il codice di autorizzazione sono stati verificati e il dispositivo è stato eliminato dal Data Center, è necessario **ricevere** lo stato dell'ordine.
 
     ![Ricezione completata](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-received-01a.png)
 

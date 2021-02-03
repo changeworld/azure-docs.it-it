@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
-ms.translationtype: HT
+ms.openlocfilehash: 1609f188af8ffb58251edc806e19f7820a6b0869
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593995"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525722"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Esercitazione: Aggiungere Istanza gestita di SQL a un gruppo di failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Aggiungere istanze gestite di Istanza gestita di SQL di Azure a un gruppo di fai
   > [!NOTE]
   > - Quando si esegue questa esercitazione, assicurarsi di configurare le risorse con i [prerequisiti per configurare i gruppi di failover per Istanza gestita di SQL](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La creazione di un'istanza gestita può richiedere molto tempo. Potrebbero quindi essere necessarie diverse ore per completare questa esercitazione. Per altre informazioni sui tempi di provisioning, vedere [Operazioni di gestione di istanze gestite di SQL](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Le istanze gestite che partecipano a un gruppo di failover richiedono [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o due gateway VPN connessi. Il peering di reti virtuali globale non è supportato. Questa esercitazione illustra i passaggi per creare e connettere i gateway VPN. Se ExpressRoute è già configurato, ignorare questi passaggi. 
+  > - Le istanze gestite che fanno parte di un gruppo di failover richiedono [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), il peering VNet globale o due gateway VPN connessi. Questa esercitazione illustra i passaggi per creare e connettere i gateway VPN. Se ExpressRoute è già configurato, ignorare questi passaggi. 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -69,7 +69,7 @@ Usare il portale di Azure per creare il gruppo di risorse e l'istanza gestita pr
 
     ![Selezionare Istanza gestita di SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
-1. Nella scheda **Generale** della pagina **Crea Istanza gestita di database SQL di Azure** :
+1. Nella scheda **Generale** della pagina **Crea Istanza gestita di database SQL di Azure**:
     1. In **Dettagli del progetto** selezionare la **sottoscrizione** dall'elenco a discesa e quindi scegliere **Crea nuovo** per creare il gruppo di risorse. Digitare un nome per il gruppo di risorse, ad esempio `myResourceGroup`. 
     1. In **Dettagli dell'istanza gestita** immettere il nome dell'istanza gestita e l'area in cui si vuole distribuire l'istanza gestita. Lasciare i valore predefiniti per **Calcolo e archiviazione**. 
     1. In **Account amministratore** immettere un account di accesso amministratore, ad esempio `azureuser`, e una password amministratore complessa. 
@@ -415,7 +415,7 @@ Se si usa il portale di Azure per creare l'istanza gestita, sarà necessario cre
 Per verificare l'intervallo di subnet della rete virtuale primaria, seguire questa procedura:
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al gruppo di risorse e selezionare la rete virtuale per l'istanza primaria.  
-2. Selezionare **Subnet** in **Impostazioni** e prendere nota dell' **intervallo di indirizzi**. L'intervallo di indirizzi della subnet della rete virtuale per l'istanza gestita secondaria non può sovrapporsi a questo intervallo. 
+2. Selezionare **Subnet** in **Impostazioni** e prendere nota dell'**intervallo di indirizzi**. L'intervallo di indirizzi della subnet della rete virtuale per l'istanza gestita secondaria non può sovrapporsi a questo intervallo. 
 
 
    ![Subnet primaria](./media/failover-group-add-instance-tutorial/verify-primary-subnet-range.png)
@@ -923,16 +923,16 @@ Connettere i due gateway usando il portale di Azure.
 
 
 1. Selezionare **Crea una risorsa** nel [portale di Azure](https://portal.azure.com).
-1. Digitare `connection` nella casella di ricerca e quindi premere INVIO per avviare la ricerca. Verrà visualizzala la risorsa **Connessione** , pubblicata da Microsoft.
+1. Digitare `connection` nella casella di ricerca e quindi premere INVIO per avviare la ricerca. Verrà visualizzala la risorsa **Connessione**, pubblicata da Microsoft.
 1. Fare clic su **Crea** per creare la connessione. 
 1. Nella pagina **Generale** selezionare i valori seguenti e quindi scegliere **OK**. 
     1. Selezionare `VNet-to-VNet` per **Tipo di connessione**. 
     1. Selezionare la sottoscrizione dall'elenco a discesa. 
     1. Selezionare il gruppo di risorse per Istanza gestita di SQL nell'elenco a discesa. 
     1. Selezionare dall'elenco a discesa la località dell'istanza gestita primaria. 
-1. Nella pagina **Impostazioni** selezionare o immettere i valori seguenti e quindi scegliere **OK** :
-    1. Scegliere il gateway di rete primario per **Primo gateway di rete virtuale** , ad esempio `primaryGateway`.  
-    1. Scegliere il gateway di rete secondario per **Secondo gateway di rete virtuale** , ad esempio `secondaryGateway`. 
+1. Nella pagina **Impostazioni** selezionare o immettere i valori seguenti e quindi scegliere **OK**:
+    1. Scegliere il gateway di rete primario per **Primo gateway di rete virtuale**, ad esempio `primaryGateway`.  
+    1. Scegliere il gateway di rete secondario per **Secondo gateway di rete virtuale**, ad esempio `secondaryGateway`. 
     1. Selezionare la casella di controllo accanto a **Stabilisci connettività bidirezionale**. 
     1. Lasciare il nome predefinito della connessione primaria o rinominarla con un valore di propria scelta. 
     1. Specificare una **chiave condivisa (PSK)** per la connessione, ad esempio `mi1m2psk`. 
@@ -1093,7 +1093,7 @@ Pulire le risorse eliminando prima le istanze gestite, quindi il cluster virtual
 1. Selezionare l'istanza o le istanze gestite, quindi selezionare **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. L'esecuzione di questa procedura in background può richiedere del tempo e, finché non viene completata, non sarà possibile eliminare il *cluster virtuale* o altre risorse dipendenti. Monitorare l'eliminazione nella scheda **Attività** per verificare che l'istanza gestita sia stata eliminata. 
 1. Una volta eliminata l'istanza gestita, eliminare il *cluster virtuale* selezionandolo nel gruppo di risorse e quindi scegliendo **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. 
 1. Eliminare eventuali risorse rimanenti. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. 
-1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse** , digitando il relativo nome, `myResourceGroup`, quindi selezionando **Elimina**. 
+1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse**, digitando il relativo nome, `myResourceGroup`, quindi selezionando **Elimina**. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

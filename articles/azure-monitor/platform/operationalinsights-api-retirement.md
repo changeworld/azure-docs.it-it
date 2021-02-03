@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: e2b12d7a2206ab369328563af438c6ef1ea39327
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d094e1760db1ddfcff520b0022a232735d21d355
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184111"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525823"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Ritiro versione API OperationalInsights
 Microsoft fornisce notifiche per almeno 12 mesi prima del ritiro di un'API per semplificare la transizione a una versione più recente o supportata. È stata rilasciata una nuova versione (2020-08-01) per le API del provider di risorse **OperationalInsights** e le versioni precedenti dell'API vengono ritirate il 29 febbraio 2024.
@@ -66,6 +66,15 @@ A seconda del metodo di configurazione usato, è necessario aggiornare la nuova 
     }
     ```
 
+
+### <a name="more-information"></a>Ulteriori informazioni
+In caso di domande, Ottieni risposte dagli [esperti della community della tecnologia]( https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor). Se si dispone di un piano di supporto ed è necessaria assistenza tecnica, creare una [richiesta di supporto]( https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest): 
+1.  In *tipo di problema* selezionare **tecnico**. 
+2.  In *Sottoscrizione* selezionare la propria sottoscrizione. 
+3.  In *servizio* selezionare **servizi personali**, quindi selezionare **log Analytics**. 
+4.  In *Riepilogo* Digitare una descrizione del problema. 
+5.  In *tipo di problema* selezionare **log Analytics Gestione dell'area di lavoro**.  
+6.  In *sottotipo di problema* selezionare **modelli ARM, PowerShell e interfaccia** della riga di comando. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

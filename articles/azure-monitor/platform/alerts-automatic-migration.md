@@ -4,16 +4,16 @@ description: Informazioni sul funzionamento del processo di migrazione automatic
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6a2d032c6aa33b72fe422638df45ca48bf8b1036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3550dcef174a4d970917fabfda3c4fd2a8df4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847283"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526552"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Informazioni sul processo di migrazione automatica per le regole di avviso classiche
 
-Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici in monitoraggio di Azure vengono ritirati, anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Nell'ambito del processo di ritiro, [uno strumento di migrazione](alerts-using-migration-tool.md) è disponibile nel portale di Azure per i clienti per attivare la migrazione.
+Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici di monitoraggio di Azure sono ritirati per gli utenti del cloud pubblico, anche se sono ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Nell'ambito del processo di ritiro, [uno strumento di migrazione](alerts-using-migration-tool.md) è disponibile nel portale di Azure per i clienti per attivare la migrazione.
 Questo articolo illustra il processo di migrazione automatica e consente di risolvere eventuali problemi che potrebbero verificarsi.
 
   > [!NOTE]
@@ -56,5 +56,5 @@ Per informazioni sui problemi che potrebbero verificarsi durante la migrazione, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Prepararsi per la migrazione](alerts-prepare-migration.md)
+- [Preparare la migrazione](alerts-prepare-migration.md)
 - [Informazioni sul funzionamento dello strumento di migrazione](alerts-understand-migration.md)

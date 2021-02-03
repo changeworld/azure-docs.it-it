@@ -5,14 +5,14 @@ author: alkohli
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af48e1f415e0ca0b1027d277f70c3f0f1a11e687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76273877"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526766"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
 
@@ -36,8 +36,8 @@ La tabella seguente riepiloga le funzionalità principali dell'array virtuale St
 | --- | --- |
 | Requisiti di installazione |Viene usata un'infrastruttura di virtualizzazione (Hyper-V o VMware) |
 | Disponibilità |Nodo singolo |
-| Capacità totale (incluso il cloud) |Fino a 64 TB di capacità utilizzabile per array virtuale |
-| Capacità locale |Capacità utilizzabile da 390 GB a 6,4 TB per array virtuale (necessità di provisioning da 500 GB a 8 TB di spazio su disco) |
+| Capacità totale (incluso il cloud) |Fino a 64 TB di capacità utilizzabile per ogni array virtuale |
+| Capacità locale |da 390 a 6,4 TB di capacità utilizzabile per array virtuale (è necessario eseguire il provisioning da 500 GB a 8 TB di spazio su disco) |
 | Protocolli nativi |iSCSI o SMB |
 | Obiettivo del tempo di ripristino (RTO) |iSCSI: meno di 2 minuti indipendentemente dalle dimensioni |
 | Obiettivo del punto di ripristino (RPO) |Backup giornalieri e backup su richiesta |
@@ -62,8 +62,10 @@ La tabella seguente illustra alcuni dei vantaggi principali forniti dalla soluzi
 | Integrazione trasparente |L'array virtuale supporta il protocollo iSCSI o SMB. Lo spostamento dei dati tra il livello locale e il livello cloud è semplice e trasparente per l'utente. |
 | Riduzione dei costi di archiviazione |Con StorSimple, è possibile eseguire il provisioning di archiviazione locale sufficiente per soddisfare le richieste correnti per i dati sensibili più utilizzati. Mentre le necessità di archiviazione crescono, StorSimple suddivide i dati meno utilizzati in livelli in un'archiviazione cloud a costi contenuti. Per ridurre ulteriormente i costi e i requisiti di archiviazione, i dati vengono deduplicati e compressi prima di essere inviati al cloud. |
 | Gestione dell'archiviazione semplificata |StorSimple fornisce la gestione centralizzata nel cloud tramite Gestione dispositivi StorSimple per la gestione di più dispositivi. |
-| Miglioramento del ripristino di emergenza e della conformità |StorSimple accelera il ripristino di emergenza con il ripristino immediato di dati e metadati in base alle esigenze. Le normali operazioni possono quindi continuare con un'interruzione minima. |
-| Mobilità dei dati |È possibile accedere ai dati caricati nel cloud da altri siti con finalità di ripristino e migrazione. Tenere presente la possibilità di ripristinare i dati solo sull'array virtuale originale. È tuttavia possibile usare le funzionalità di ripristino di emergenza per ripristinare l'intero array virtuale su un altro array virtuale. |
+| Miglioramento del ripristino di emergenza e della conformità |StorSimple accelera il ripristino di emergenza con il ripristino immediato di dati e metadati in base alle esigenze. Le normali operazioni possono continuare con un'interferenza minima. |
+| Mobilità dei dati |È possibile accedere ai dati caricati nel cloud da altri siti con finalità di ripristino e migrazione. È possibile ripristinare i dati solo nell'array virtuale originale. È tuttavia possibile usare le funzionalità di ripristino di emergenza per ripristinare l'intero array virtuale su un altro array virtuale. |
+
+
 
 ## <a name="storsimple-workload-summary"></a>Riepilogo dei carichi di lavoro di StorSimple
 
@@ -78,9 +80,9 @@ L'array virtuale StorSimple è particolarmente adatto per i dati ad accesso spor
 
 ![Archiviazione nel cloud](./media/storsimple-ova-overview/cloud-archiving.png)
 
-Quando più utenti simultanei accedono all'array virtuale, condividono tutti la connessione ad Azure. Questo comporta una riduzione delle prestazioni. Non esiste un livello di prestazioni garantito per utente e il dispositivo esegue le singole richieste in base all'ordine di arrivo.
+Quando più utenti simultanei accedono all'array virtuale, tutti condividono la connessione ad Azure, con un conseguente calo delle prestazioni. Non esiste alcuna prestazione garantita per ogni utente e il dispositivo elabora le singole richieste non appena arrivano.
 
-L'array virtuale StorSimple non è adatto per i flussi di lavoro che richiedono la disponibilità elevata. L'array virtuale è un dispositivo a nodo singolo che registra un periodo di inattività quando vengono installati gli aggiornamenti software. Gli amministratori dovrebbero pianificare una finestra di manutenzione di 30 minuti 3-4 volte all'anno.
+L'array virtuale StorSimple non è adatto per i flussi di lavoro che richiedono la disponibilità elevata. L'array virtuale è un dispositivo a nodo singolo che sperimenta tempi di inattività quando vengono installati gli aggiornamenti software. Gli amministratori dovrebbero pianificare una finestra di manutenzione di 30 minuti 3-4 volte all'anno.
 
 ## <a name="workflows"></a>Flussi di lavoro
 
@@ -91,12 +93,12 @@ StorSimple Virtual Array è particolarmente adatto per i flussi di lavoro seguen
 * [Protezione dati e ripristino di emergenza](#data-protection-and-disaster-recovery)
 
 ### <a name="cloud-based-storage-management"></a>Gestione dell'archiviazione basata su cloud
-È possibile usare il servizio Gestione dispositivi StorSimple in esecuzione nel portale di Azure per gestire i dati archiviati su più dispositivi e in più posizioni. Questo è particolarmente utile in scenari di succursali distribuite. Tenere presente che è necessario creare istanze separate del servizio Gestione dispositivi StorSimple per gestire array virtuali e dispositivi StorSimple fisici. Inoltre, la matrice virtuale utilizza ora il nuovo portale di Azure anziché quello classico.
+È possibile usare il servizio Gestione dispositivi StorSimple in esecuzione nel portale di Azure per gestire i dati archiviati su più dispositivi e in più posizioni. Ciò è particolarmente utile negli scenari di Branch distribuiti. È necessario creare istanze separate del servizio Gestione dispositivi StorSimple per gestire gli array virtuali e i dispositivi StorSimple fisici. L'array virtuale usa ora la nuova portale di Azure anziché il portale di Azure classico.<!--Is the "now" element still in date? Could it go at this point? Just checking.-->
 
 ![Gestione dell'archiviazione basata su cloud](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Backup indipendente dalla posizione
-Con l'array virtuale, gli snapshot cloud forniscono una copia indipendente dalla posizione e temporizzata di un volume o di una condivisione. Gli snapshot cloud sono abilitati per impostazione predefinita e non possono essere disabilitati. Tutti i volumi e tutte le condivisioni vengono sottoposto a backup contemporaneamente tramite un singolo criterio di backup giornaliero ed è possibile eseguire ulteriori backup ad hoc ogni volta che è necessario.
+Con l'array virtuale, gli snapshot cloud forniscono una copia indipendente dalla posizione e temporizzata di un volume o di una condivisione. Gli snapshot cloud sono abilitati per impostazione predefinita e non possono essere disabilitati. Viene eseguito il backup di tutti i volumi e delle condivisioni contemporaneamente tramite un singolo criterio di backup giornaliero ed è possibile eseguire ulteriori backup ad hoc ogni volta che è necessario.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Protezione dati e ripristino di emergenza
 L'array virtuale supporta i seguenti scenari di protezione dei dati e ripristino di emergenza:
@@ -110,14 +112,14 @@ L'array virtuale supporta i seguenti scenari di protezione dei dati e ripristino
 L'array virtuale include i componenti seguenti:
 
 * [Virtual Array](#virtual-array) : dispositivo di archiviazione cloud ibrido basato su una macchina virtuale di cui è stato effettuato il provisioning nell'ambiente virtualizzato o nell'hypervisor.
-* [StorSimple Device Manager Service](#storsimple-device-manager-service) : estensione del portale di Azure che consente di gestire uno o più dispositivi StorSimple da una singola interfaccia Web a cui è possibile accedere da diverse posizioni geografiche. È possibile usare il servizio Gestione dispositivi StorSimple per creare e gestire i servizi, visualizzare e gestire i dispositivi e gli avvisi, oltre a gestire volumi, condivisioni e snapshot esistenti.
-* [Interfaccia utente Web locale](#local-web-user-interface) : interfaccia utente basata sul Web usata per configurare il dispositivo in modo che possa connettersi alla rete locale e quindi registrare il dispositivo con il servizio StorSimple Device Manager. 
+* [StorSimple gestione dispositivi Service](#storsimple-device-manager-service) : estensione del portale di Azure che consente di gestire uno o più dispositivi StorSimple da una singola interfaccia Web a cui è possibile accedere da diverse posizioni geografiche. È possibile usare il servizio Gestione dispositivi StorSimple per creare e gestire i servizi, visualizzare e gestire i dispositivi e gli avvisi, oltre a gestire volumi, condivisioni e snapshot esistenti.
+* [Interfaccia utente Web locale](#local-web-user-interface) : interfaccia utente basata sul Web usata per configurare il dispositivo in modo che possa connettersi alla rete locale e quindi registrare il dispositivo con il servizio StorSimple gestione dispositivi. 
 * [Interfaccia della riga di comando](#command-line-interface) : interfaccia di Windows PowerShell che è possibile usare per avviare una sessione di supporto nell'array virtuale.
-  Le sezioni seguenti descrivono dettagliatamente ciascuno dei componenti e illustrano il modo in cui la soluzione organizza i dati, alloca le risorse di archiviazione e facilita la gestione dell'archiviazione e la protezione dei dati.
+  Le sezioni seguenti descrivono ogni componente in modo più dettagliato e spiegano in che modo la soluzione organizza i dati, alloca spazio di archiviazione e facilita la gestione dell'archiviazione e la protezione dei dati.
 
 ### <a name="virtual-array"></a>Array virtuale
 
-L'array virtuale è una soluzione di archiviazione a nodo singolo in grado di offrire archiviazione primaria, gestire la comunicazione con l'archiviazione cloud e favorire la sicurezza e la riservatezza di tutti i dati archiviati nel dispositivo.
+Virtual Array è una soluzione di archiviazione a nodo singolo che fornisce archiviazione primaria, gestisce la comunicazione con l'archiviazione cloud e consente di garantire la sicurezza e la riservatezza di tutti i dati archiviati nel dispositivo.
 
 L'array virtuale è disponibile in un modello scaricabile. L'array virtuale ha una capacità massima di 6,4 TB nel dispositivo (con un requisito di archiviazione sottostante di 8 TB) e di 64 TB includendo l'archiviazione cloud.
 
@@ -134,7 +136,7 @@ L'array virtuale presenta le seguenti caratteristiche:
 
 ### <a name="storsimple-device-manager-service"></a>Servizio Gestione dispositivi StorSimple
 
-Microsoft Azure StorSimple fornisce l'accesso a un'interfaccia utente basata sul Web, il servizio Gestione dispositivi StorSimple, che consente di gestire in modo centralizzato l'archiviazione StorSimple. È possibile usare il servizio Gestione dispositivi StorSimple per eseguire le attività seguenti:
+Microsoft Azure StorSimple fornisce un'interfaccia utente basata sul Web, il servizio di Gestione dispositivi StorSimple, che consente di gestire centralmente l'archiviazione StorSimple. È possibile usare il servizio Gestione dispositivi StorSimple per eseguire le attività seguenti:
 
 * Gestire più StorSimple Virtual Array da un singolo servizio.
 * Configurare e gestire le impostazioni di sicurezza per gli array virtuali StorSimple. (La crittografia nel cloud dipende da API Microsoft Azure.)
@@ -156,7 +158,7 @@ Per informazioni sull'uso di un'interfaccia utente basata sul Web, vedere [Usare
 
 ### <a name="command-line-interface"></a>Interfaccia della riga di comando
 
-L'interfaccia di Windows PowerShell inclusa consente di avviare una sessione di supporto con il supporto tecnico Microsoft per ricevere assistenza nella risoluzione dei problemi e risolvere quelli che possono verificarsi nell'array virtuale.
+L'interfaccia di Windows PowerShell inclusa consente di avviare una sessione di supporto con supporto tecnico Microsoft in modo da consentire la risoluzione dei problemi e risolvere i problemi che possono verificarsi nell'array virtuale.
 
 ## <a name="storage-management-technologies"></a>Tecnologie di gestione dell'archiviazione
 
@@ -170,7 +172,7 @@ Oltre all'array virtuale e ad altri componenti, la soluzione StorSimple usa le s
 ### <a name="automatic-storage-tiering"></a>Suddivisione automatica in livelli dell'archiviazione
 L'array virtuale si serve di un meccanismo di suddivisione in livelli nuovo per gestire i dati archiviati nell'array virtuale e nel cloud. Sono disponibili solo due livelli: l'array virtuale locale e l'archiviazione cloud di Azure. StorSimple Virtual Array organizza automaticamente i dati in livelli in base a una mappa termica che tiene traccia dell'uso corrente, dell'età e delle relazioni con altri dati. I dati più attivi (i più caldi) vengono archiviati in locale, mentre quelli meno attivi e non attivi vengono automaticamente migrati nel cloud. Tutti i backup vengono archiviati nel cloud. StorSimple regola e riorganizza i dati e le assegnazioni di archiviazione Man seconda che i modelli di utilizzo cambiano. Alcune informazioni, ad esempio, possono diventare meno attive nel corso del tempo. Man mano che diminuisce la loro attività, vengono distribuite nel cloud. Se gli stessi dati diventano nuovamente attivi, vengono reinseriti nell'array di archiviazione.
 
-Viene garantito uno spazio a livello locale per i dati di una particolare condivisione a livelli o un volume specifico (circa il 10% dello spazio totale con provisioning per la condivisione o il volume). Anche se in questo modo si riduce la memoria disponibile nell'array virtuale per una data condivisione o un dato volume, si garantisce che la suddivisione in livelli di una condivisione o di un volume non sia interessata dalle esigenze di suddivisione in livelli di altre condivisioni o altri volumi. Pertanto, un carico di lavoro molto pesante in una condivisione o in un volume non può forzare tutti gli altri carichi di lavoro nel cloud.
+Ai dati di una condivisione o di un volume a livelli specifico viene garantito lo spazio del livello locale (circa il 10% dello spazio totale di cui è stato effettuato il provisioning per la condivisione o il volume). Sebbene ciò riduca lo spazio di archiviazione disponibile nell'array virtuale per la condivisione o il volume, garantisce che la suddivisione in livelli di una condivisione o di un volume non sia interessata dalle esigenze di suddivisione in livelli di altre condivisioni o volumi. Un carico di lavoro molto occupato in una condivisione o un volume non può quindi forzare tutti gli altri carichi di lavoro nel cloud.
 
 I volumi a livelli creati per iSCSI hanno una prenotazione locale massima di 200 GB indipendentemente dalle dimensioni del volume.
 
@@ -178,6 +180,9 @@ I volumi a livelli creati per iSCSI hanno una prenotazione locale massima di 200
 
 > [!NOTE]
 > È possibile specificare un volume come aggiunto in locale. In questo caso i dati rimangono nell'array virtuale e non vengono mai suddivisi in livelli nel cloud. Per altre informazioni, vedere [Condivisioni e volumi aggiunti in locale](#locally-pinned-shares-and-volumes).
+
+> [!IMPORTANT]
+> Quando si usa StorSimple, non convertire i BLOB in archivio, anche se il dispositivo è in fase di eliminazione. Per recuperare i dati dal dispositivo, è necessario riattivare i BLOB dall'archivio al tipo frequente o ad accesso sporadico, che comporta costi significativi.
 
 
 ### <a name="locally-pinned-shares-and-volumes"></a>Condivisioni e volumi aggiunti in locale
@@ -198,6 +203,7 @@ StorSimple usa deduplicazione e compressione dei dati per ridurre ulteriormente 
 > [!NOTE]
 > I dati archiviati nell'array virtuale non sono deduplicati o compressi. Deduplicazione e compressione si verificano un attimo prima dell'invio dei dati al cloud.
 
+
 ### <a name="scheduled-and-on-demand-backups"></a>Backup pianificati e su richiesta
 
 Le funzionalità di protezione dei dati di StorSimple consentono di creare backup su richiesta. Inoltre, una pianificazione di backup predefinita garantisce il backup dei dati ogni giorno. Si eseguono backup sotto forma di snapshot incrementali che vengono archiviati nel cloud. Gli snapshot, che registrano solo le modifiche apportate dall'ultimo backup, possono essere creati e ripristinati rapidamente. Gli snapshot possono essere fondamentali in scenari di ripristino di emergenza perché sostituiscono i sistemi di archiviazione secondaria (come il backup su nastro) e consentono di ripristinare i dati nel data center o in siti alternativi, se necessario.
@@ -206,7 +212,7 @@ Le funzionalità di protezione dei dati di StorSimple consentono di creare backu
 
 Il servizio Gestione dispositivi StorSimple per la serie di dispositivi virtuali raccoglie le informazioni personali in due casi in particolare:
  - Impostazioni utente relative agli avvisi in cui vengono configurati gli indirizzi di posta elettronica degli utenti. Queste informazioni possono essere cancellate dell'amministratore. 
- - Utenti che possono accedere ai dati presenti nelle condivisioni. Viene visualizzato e può essere esportato un elenco di utenti che possono accedere ai dati delle condivisioni. Quando le condivisioni vengono eliminate, viene eliminato anche questo elenco.
+ - Utenti che possono accedere ai dati nelle condivisioni. Viene visualizzato e può essere esportato un elenco di utenti che possono accedere ai dati delle condivisioni. Questo elenco viene eliminato quando la condivisione viene eliminata.
 
 Per ulteriori informazioni, consultare l'informativa [sulla privacy Microsoft nel centro protezione](https://www.microsoft.com/trustcenter).
 

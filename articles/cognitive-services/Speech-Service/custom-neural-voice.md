@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: trbye
-ms.openlocfilehash: 9e230ff4e84eba7b61846540fef2915765fa4f77
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: baa48ede04b9de98bd69de69753c97b5fcee7329
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509697"
+ms.locfileid: "99525263"
 ---
 # <a name="what-is-custom-neural-voice"></a>Che cos'è la voce neurale personalizzata?
 
@@ -51,7 +51,7 @@ Con la funzionalità di personalizzazione di una voce neurale personalizzata, è
 
 ## <a name="responsible-use-of-ai"></a>Uso responsabile dell'intelligenza artificiale
 
-Per informazioni su come usare responsabilmente la voce neurale personalizzata, vedere la [Nota sulla trasparenza](https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice). Le note sulla trasparenza di Microsoft sono destinate a comprendere il funzionamento della tecnologia di intelligenza artificiale, le scelte che i proprietari del sistema possono influenzare sulle prestazioni e sul comportamento del sistema e sull'importanza di considerare l'intero sistema, tra cui la tecnologia, le persone e l'ambiente.
+Per informazioni su come usare responsabilmente la voce neurale personalizzata, vedere la [Nota sulla trasparenza](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context). Le note sulla trasparenza di Microsoft sono destinate a comprendere il funzionamento della tecnologia di intelligenza artificiale, le scelte che i proprietari del sistema possono influenzare sulle prestazioni e sul comportamento del sistema e sull'importanza di considerare l'intero sistema, tra cui la tecnologia, le persone e l'ambiente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

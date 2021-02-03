@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788350"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525382"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Ripristinare un database in Azure SQL Istanza gestita a un momento precedente
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ La tabella seguente illustra gli scenari di ripristino temporizzato per SQL Ista
 
 |           |Ripristinare il database esistente nella stessa istanza di SQL Istanza gestita| Ripristinare il database esistente in un altro Istanza gestita SQL|Ripristinare il database eliminato nello stesso Istanza gestita SQL|Ripristinare il database eliminato in un altro Istanza gestita SQL|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portale di Azure**| Sì|No |Sì|No|
+|**Azure portal**| Sì|No |Sì|No|
 |**Interfaccia della riga di comando di Azure**|Sì |Sì |No|No|
 |**PowerShell**| Sì|Sì |Sì|Sì|
 
@@ -139,7 +139,7 @@ Il ripristino di un database eliminato può essere eseguito tramite PowerShell o
 ### <a name="portal"></a>Portale 
 
 
-Per ripristinare un database gestito utilizzando il portale di Azure, aprire la pagina Panoramica di SQL Istanza gestita e selezionare **database eliminati** . Scegliere un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
+Per ripristinare un database gestito utilizzando il portale di Azure, aprire la pagina Panoramica di SQL Istanza gestita e selezionare **database eliminati**. Scegliere un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
 
   ![Schermata del ripristino del database dell'istanza SQL di Azure](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -162,7 +162,7 @@ $targetDatabaseName = "<target database name>"
 $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
 -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -176,7 +176,7 @@ Per ripristinare il database in un altro Istanza gestita SQL, specificare anche 
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
 $targetInstanceName = "<Target SQL Managed Instance name>"
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -211,7 +211,7 @@ Usare uno dei metodi seguenti per connettersi al database nel Istanza gestita SQ
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nella portale di Azure selezionare il database da SQL Istanza gestita, quindi selezionare **Elimina** .
+Nella portale di Azure selezionare il database da SQL Istanza gestita, quindi selezionare **Elimina**.
 
    ![Eliminare un database usando il portale di Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 

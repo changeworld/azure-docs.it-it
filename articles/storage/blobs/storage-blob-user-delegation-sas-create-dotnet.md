@@ -1,27 +1,27 @@
 ---
-title: Usare .NET per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB
+title: Usare .NET per creare una firma di accesso condiviso di delega utente per un contenitore, una directory o un BLOB
 titleSuffix: Azure Storage
 description: Informazioni su come creare una firma di accesso condiviso di delega utente con Azure Active Directory credenziali usando la libreria client .NET per archiviazione di Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 13491735f73cb1696f3c36f3434cc781a1e2b739
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199258"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526806"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con .NET
+# <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Creare una firma di accesso condiviso di delega utente per un contenitore, una directory o un BLOB con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con la libreria client di archiviazione di Azure per .NET versione 12.
+Questo articolo illustra come usare le credenziali Azure Active Directory (Azure AD) per creare una firma di accesso condiviso di delega utente per un contenitore, una directory o un BLOB con la libreria client di archiviazione di Azure per .NET versione 12.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -99,7 +99,7 @@ Nell'esempio seguente viene verificata la firma di accesso condiviso della deleg
 
 ## <a name="get-a-user-delegation-sas-for-a-directory"></a>Ottenere una firma di accesso condiviso di delega utente per una directory
 
-Nell'esempio di codice seguente viene illustrato come generare una firma di accesso condiviso di delega utente per una directory quando è abilitato uno spazio dei nomi gerarchico:
+L'esempio di codice seguente illustra come generare una firma di accesso condiviso di delega utente per una directory quando è abilitato uno spazio dei nomi gerarchico per l'account di archiviazione:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd64ca877f0bfd81597e091ef8ef000ad1b76992
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752208"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526433"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -244,8 +244,8 @@ Anche se l'iniziativa di sicurezza predefinita del Centro sicurezza è basata su
     <td class="tg-lboi"; width=55%>- È necessario abilitare i controlli applicazioni adattivi nelle macchine virtuali<br>- È necessario installare l'agente di monitoraggio nelle macchine virtuali<br>- È necessario installare l'agente di monitoraggio nei computer<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Windows (anteprima)<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Linux (anteprima)<br>- È necessario risolvere i problemi di integrità dell'agente di monitoraggio nei computer</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Applicare la classificazione dei dati (punteggio massimo 2)</p></strong>La classificazione dei dati dell'organizzazione in base a sensibilità e impatto aziendale consente di determinare e assegnare valore ai dati e fornisce la strategia e le basi per la governance.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> può supportare la classificazione dei dati. Usa la crittografia, l'identità e i criteri di autorizzazione per proteggere i dati e limitare l'accesso ai dati. Alcune classificazioni usate da Microsoft sono non aziendali, pubbliche, generali, riservate e altamente riservate.</td>
-    <td class="tg-lboi"; width=55%>- È necessario classificare i dati sensibili nei database SQL (anteprima)</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Applica classificazione dati (Punteggio massimo 0)</p></strong>La classificazione dei dati dell'organizzazione in base a sensibilità e impatto aziendale consente di determinare e assegnare valore ai dati e fornisce la strategia e le basi per la governance.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a> può supportare la classificazione dei dati. Usa la crittografia, l'identità e i criteri di autorizzazione per proteggere i dati e limitare l'accesso ai dati. Alcune classificazioni usate da Microsoft sono non aziendali, pubbliche, generali, riservate e altamente riservate.</td>
+    <td class="tg-lboi"; width=55%>- I dati sensibili nei database SQL devono essere classificati</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Proteggere le applicazioni da attacchi DDoS (punteggio massimo 2)</p></strong>Gli attacchi DDoS (Distributed Denial of Service) sovraccaricano le risorse e rendono inutilizzabili le applicazioni. Usare <a href="/azure/virtual-network/ddos-protection-overview">Protezione DDoS di Azure Standard</a> per difendere l'organizzazione dai tre tipi principali di attacchi DDoS:<br>- <strong>Attacchi volumetrici</strong>, che sovraccaricano la rete con traffico legittimo. Protezione DDoS Standard attenua questi attacchi mediante l'assorbimento o la pulitura automatica.<br>- <strong>Attacchi ai protocolli</strong>, che rendono inaccessibile una destinazione sfruttando una vulnerabilità nello stack di protocolli di livello 3 e 4. Protezione DDoS Standard mitiga questi attacchi bloccando il traffico dannoso.<br>- <strong>Attacchi a livello di risorsa (applicazione)</strong>, che interessano i pacchetti dell'applicazione Web. Difendersi da questo tipo di attacco con un web application firewall e Protezione DDoS Standard.</td>

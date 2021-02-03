@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ce0808bc53ae663b80da793bf33b5b371d881961
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 99e217c6d8065d19f7b03419306f4992735cb587
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222184"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526730"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -35,10 +35,10 @@ Il Centro sicurezza offre altre funzionalità di sicurezza del contenitore se si
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Livello gratuito|
 |Autorizzazioni e ruoli obbligatori:|**Proprietario** o **amministratore della sicurezza** per modificare un'assegnazione<br>**Lettore** per visualizzare le raccomandazioni|
-|Cluster supportati:|Kubernetes v 1.14 (o versione successiva) è obbligatorio<br>Nessuna risorsa PodSecurityPolicy (modello PSP precedente) nei cluster<br>I nodi di Windows non sono supportati|
+|Requisiti dell'ambiente:|Kubernetes v 1.14 (o versione successiva) è obbligatorio<br>Nessuna risorsa PodSecurityPolicy (modello PSP precedente) nei cluster<br>I nodi di Windows non sono supportati|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
@@ -52,6 +52,8 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 Per configurare le raccomandazioni, installare il  **componente aggiuntivo criteri di Azure per Kubernetes**. 
 
 - È possibile distribuire automaticamente questo componente aggiuntivo come descritto in [abilitare il provisioning automatico delle estensioni](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Con il provisioning automatico attivato per il componente aggiuntivo, l'estensione viene abilitata per impostazione predefinita in tutti i cluster esistenti e futuri che soddisfano i requisiti dell'installazione.
+
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Uso dello strumento di provisioning automatico del Centro sicurezza per installare il componente aggiuntivo dei criteri per Kubernetes":::
 
 - Per distribuire manualmente il componente aggiuntivo:
 

@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare e configurare insiemi di crede
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915727"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525975"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -71,6 +71,7 @@ Poiché questo processo è a livello di archiviazione, esistono [implicazioni](h
 >- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
 >- Attualmente CRR per le macchine virtuali di Azure è supportato solo per le macchine virtuali di Azure Resource Manager di Azure. Le macchine virtuali di Azure classiche non saranno supportate.  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
 >- Il ripristino tra aree **attualmente non può essere ripristinato** in GRS o con ridondanza locale una volta avviata la protezione per la prima volta.
+>- Attualmente, l'area secondaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) è fino a 12 ore dall'area primaria, anche se la replica con [ridondanza geografica e accesso in lettura (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) è 15 minuti.
 
 ### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree
 

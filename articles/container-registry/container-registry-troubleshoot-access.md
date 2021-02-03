@@ -3,12 +3,12 @@ title: Risolvere i problemi di rete con il registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro a un firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052162"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525077"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il registro di sistema
 
@@ -105,20 +105,20 @@ Collegamenti correlati:
 
 ### <a name="configure-service-access"></a>Configurare l'accesso al servizio
 
-Attualmente, il Centro sicurezza di Azure non è in grado di eseguire l' [analisi delle vulnerabilità delle immagini](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in un registro che limita l'accesso a endpoint privati, subnet selezionate o indirizzi IP. Inoltre, le risorse dei servizi seguenti non sono in grado di accedere a un registro contenitori con restrizioni di rete:
+Attualmente, l'accesso a un registro contenitori con restrizioni di rete non è consentito da diversi servizi di Azure:
 
-* Azure DevOps Services 
-* Istanze di Azure Container
-* Attività di Registro Azure Container
+* Il Centro sicurezza di Azure non può eseguire l' [analisi delle vulnerabilità delle immagini](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in un registro che limita l'accesso a endpoint privati, subnet selezionate o indirizzi IP. 
+* Le risorse di determinati servizi di Azure non sono in grado di accedere a un registro contenitori con restrizioni di rete, tra cui app Azure servizio e istanze di contenitore di Azure.
 
 Se è necessario l'accesso o l'integrazione di questi servizi di Azure con il registro contenitori, rimuovere la restrizione di rete. Ad esempio, rimuovere gli endpoint privati del registro di sistema oppure rimuovere o modificare le regole di accesso pubbliche del registro di sistema.
+
+A partire dal 2021 gennaio è possibile configurare un registro di sistema con restrizioni di rete per [consentire l'accesso](allow-access-trusted-services.md) da servizi attendibili selezionati.
 
 Collegamenti correlati:
 
 * [Analisi delle immagini del Container Registry di Azure per Centro sicurezza](../security-center/defender-for-container-registries-introduction.md)
 * Invia [commenti e suggerimenti](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Configurare le regole di rete IP pubblico](container-registry-access-selected-networks.md)
-* [Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure](container-registry-private-link.md)
+* [Consentire ai servizi attendibili di accedere in modo sicuro a un registro contenitori con restrizioni di rete](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Risoluzione dei problemi avanzata
@@ -140,5 +140,5 @@ Se non si risolve il problema, vedere le opzioni seguenti.
   * [Risolvere i problemi di accesso al registro](container-registry-troubleshoot-login.md) 
   * [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
 * Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
-* [Domande e risposte Microsoft](/answers/products/)
+* [Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/)

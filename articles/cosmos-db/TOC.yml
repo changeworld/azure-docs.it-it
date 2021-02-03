@@ -110,8 +110,38 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Quote dei servizi
       href: concepts-limits.md
-    - name: Idoneità aziendale - Conformità
-      href: compliance.md
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Introduzione a backup e ripristino
+          href: online-backup-and-restore.md
+        - name: Backup continuo
+          items:
+            - name: Backup continuo-introduzione
+              href: continuous-backup-restore-introduction.md
+            - name: Backup continuo-domande frequenti
+              href: continuous-backup-restore-frequently-asked-questions.md
+            - name: Backup continuo-modello di risorse
+              items:
+                - name: Panoramica del modello di risorsa
+                  href: continuous-backup-restore-resource-model.md
+                - name: Account ripristinabili-elenco
+                  href: restorable-database-accounts-list.md
+                - name: Account ripristinabili-elenco per località
+                  href: restorable-database-accounts-list-by-location.md
+                - name: Risorse SQL ripristinabili-elenco
+                  href: restorable-sql-resources-list.md
+                - name: Database SQL ripristinabili-elenco
+                  href: restorable-sql-databases-list.md
+                - name: Contenitori SQL ripristinabili-elenco
+                  href: restorable-sql-containers-list.md
+                - name: Risorse MongoDB ripristinabili-elenco
+                  href: restorable-mongodb-resources-list.md
+                - name: Raccolte MongoDB ripristinabili-elenco
+                  href: restorable-mongodb-collections-list.md
+                - name: Database MongoDB ripristinabili-elenco
+                  href: restorable-mongodb-databases-list.md
+        - name: Conformità
+          href: compliance.md
     - name: Raccomandazioni automatiche
       href: automated-recommendations.md
 - name: API SQL/Core
@@ -1365,8 +1395,20 @@
           href: how-to-setup-cmk.md
     - name: Soluzione pronta per l'azienda
       items:
-        - name: Backup online e ripristino su richiesta
-          href: online-backup-and-restore.md
+        - name: Gestisci backup continuo
+          items:
+            - name: 'Backup continuo: autorizzazioni e ruoli'
+              href: continuous-backup-restore-permissions.md
+            - name: Backup continuo-portale
+              href: continuous-backup-restore-portal.md
+            - name: Backup continuo-PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Backup continuo-interfaccia della riga di comando
+              href: continuous-backup-restore-command-line.md
+            - name: Backup continuo-ARM
+              href: continuous-backup-restore-template.md
+        - name: Gestire il backup periodico
+          href: configure-periodic-backup-restore.md
         - name: Richiedere l'aumento della quota
           href: create-support-request-quota-increase.md
     - name: Monitorare

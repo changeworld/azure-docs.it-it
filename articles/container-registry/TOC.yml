@@ -101,6 +101,8 @@
               href: container-registry-access-selected-networks.md
             - name: Limitare l'accesso con l'endpoint servizio (anteprima)
               href: container-registry-vnet.md
+            - name: Consenti l'accesso da servizi attendibili
+              href: allow-access-trusted-services.md
             - name: Crittografare con la chiave gestita dal cliente
               href: container-registry-customer-managed-keys.md
             - name: Accedere dietro a un firewall

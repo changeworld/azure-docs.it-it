@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ce9b60ead9aff792bf2e4e98841469d58620ccd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ed0ca069f29413083356a3147d4b97f1b6ed981
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754619"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525196"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurare l'iscrizione e l'accesso tramite telefono per i flussi utente (anteprima)
 
@@ -45,9 +45,9 @@ L'iscrizione tramite posta elettronica è abilitata per impostazione predefinita
 
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 
-4. In **Gestisci** selezionare **provider di identità**.
+4. In **Gestisci** selezionare **Provider di identità**.
 
-5. Nell'elenco provider di identità selezionare **account locale**.
+5. Nell'elenco dei provider di identità, selezionare **Account locale**.
 
    ![Provider di identità Selezione account locale](media/phone-authentication-user-flows/identity-provider-local-account.png)
 
@@ -75,7 +75,7 @@ Di seguito è riportato un esempio che illustra come aggiungere l'iscrizione tra
 
 5. Nella pagina **Crea un flusso utente** selezionare il flusso utente **Iscrizione e accesso**.
 
-    ![Selezionare una pagina flusso utente con il flusso di iscrizione e accesso evidenziato](./media/phone-authentication-user-flows/select-user-flow-type.png)
+    ![Pagina Selezionare un tipo di flusso utente con il flusso Iscrizione e accesso evidenziato](./media/phone-authentication-user-flows/select-user-flow-type.png)
 
 6. In **Selezionare una versione** selezionare **Consigliata**, quindi selezionare **Crea**. Per altre informazioni sulle versioni dei flussi utente, vedere [qui](user-flow-versions.md).
 
@@ -89,7 +89,7 @@ Di seguito è riportato un esempio che illustra come aggiungere l'iscrizione tra
 9. In **provider di identità di social** networking selezionare tutti gli altri provider di identità che si desidera consentire per questo flusso utente.
 
    > [!NOTE]
-   > Multi-factor authentication è disabilitato per impostazione predefinita. È possibile abilitare l'autenticazione a più fattori per un flusso utente di iscrizione tramite telefono, ma poiché viene usato un numero di telefono come identificatore primario, il codice di posta elettronica monouso è l'unica opzione disponibile per il secondo fattore di autenticazione.
+   > Multi-factor authentication è disabilitato per impostazione predefinita per i flussi utente di iscrizione. È possibile abilitare l'autenticazione a più fattori per un flusso utente di iscrizione tramite telefono, ma poiché viene usato un numero di telefono come identificatore primario, il codice di posta elettronica monouso è l'unica opzione disponibile per il secondo fattore di autenticazione.
 
 1. Nella sezione **attributi utente e attestazioni token** scegliere le attestazioni e gli attributi che si desidera raccogliere e inviare dall'utente durante l'iscrizione. Ad esempio, selezionare **Mostra più** e quindi scegliere gli attributi e le attestazioni per **Paese/Area geografica**, **Nome visualizzato** e **Codice postale**. Selezionare **OK**.
 
@@ -129,9 +129,9 @@ Quando si Abilita l'iscrizione e l'accesso tramite telefono per i flussi utente,
 
 Dopo aver abilitato l'iscrizione e l'accesso tramite telefono e il messaggio di posta elettronica di ripristino nel flusso utente, è possibile usare **Esegui flusso utente** per testare l'esperienza utente.
 
-1. Selezionare **criteri**  >  **flussi utente** e quindi selezionare il flusso utente creato. Nella pagina Panoramica flusso utente selezionare **Esegui flusso utente**.
+1. Selezionare **Criteri** > **Flussi utente** e quindi selezionare il flusso utente creato. Nella pagina Panoramica del flusso utente, selezionare **Esegui il flusso utente**.
 
-2. Per **applicazione**, selezionare l'applicazione Web registrata nel passaggio 1. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+2. Per **Applicazione** selezionare l'applicazione Web registrata al passaggio 1. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 
 3. Selezionare **Esegui flusso utente** e verificare il comportamento seguente:
 

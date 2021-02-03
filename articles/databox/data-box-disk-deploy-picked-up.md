@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029890"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526297"
 ---
 ::: zone target="docs"
 
@@ -30,7 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md).
+Prima di iniziare, assicurarsi di aver completato l' [esercitazione: copiare i dati in Azure Data Box disk e verificare](data-box-disk-deploy-copy-data.md).
 
 ## <a name="ship-data-box-disk-back"></a>Restituire i dischi di Data Box
 
@@ -63,7 +63,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
 
     - Chiamare il servizio UPS locale (numero verde specifico del paese o area).
     - Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sull'etichetta stampata.
-    - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
+    - Se non si specifica il numero di tracciabilità, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
     - Anziché pianificare il ritiro, è anche possibile consegnare Data Box Disk al più vicino punto di consegna.
 
 
@@ -83,7 +83,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo in Europa o nel 
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per il ritiro in Australia.
 
-1. Usare l'etichetta di spedizione per reso fornita e verificare che vi sia scritto il codice TAU (numero di riferimento). Se l'etichetta di spedizione fornita è mancante o per qualsiasi altro problema, inviare un messaggio di posta elettronica a [Data Box Asia Operations](mailto:adbo@microsoft.com). Specificare il nome dell'ordine nell'intestazione dell'oggetto e fornire i dettagli del problema riscontrato.
+1. Usare l'etichetta di spedizione per reso fornita e verificare che vi sia scritto il codice TAU (numero di riferimento). Se l'etichetta di spedizione fornita è mancante o per qualsiasi altro problema, inviare un messaggio di posta elettronica a [Data Box Asia Operations](mailto:adbo@microsoft.com). Specificare il nome dell'ordine nell'intestazione dell'oggetto e i dettagli del problema.
 2. Applicare l'etichetta sulla scatola.
 3. Prenotare un ritiro online facendo clic sul collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
 
@@ -119,13 +119,13 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 1. Assicurarsi di includere la lettera di vettura per il reso.
 2. Per richiedere il prelievo quando è presente la lettera di vettura:
     1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio per organizzare il ritiro.  
-    2. Se il numero dell'assistenza clienti è occupato, inviare un messaggio di posta elettronica all'indirizzo `microsoft@rocketparcel.com` con l'oggetto *Ritiro Microsoft Azure* e il numero della richiesta di servizio come riferimento.
-    3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo.
+    2. Se la hotline è occupata, inviare un messaggio di posta elettronica [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) con l'oggetto del messaggio di posta elettronica *Microsoft Azure pickup* e il numero di richiesta del servizio per riferimento
+    3. Se il corriere non arriva per la raccolta, chiamare *Quantium Solutions International* hotline per le disposizioni alternative.
     4. Si riceverà una conferma tramite posta elettronica con la pianificazione del prelievo.
-3. Eseguire questo passaggio solo se la lettera di vettura non è presente. Per richiedere il ritiro:
-    1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio per organizzare il ritiro. Specificare che è necessaria una nuova lettera di vettura per organizzare un prelievo. Specificare il mittente (cliente), le informazioni sul destinatario (data center di Azure) e il numero di riferimento (numero della richiesta di servizio). 
-    2. Se il numero dell'assistenza clienti è occupato, inviare un messaggio di posta elettronica all'indirizzo `microsoft@rocketparcel.com` con l'oggetto *Ritiro Microsoft Azure* e il numero della richiesta di servizio come riferimento.
-    3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo.
+3. Eseguire questo passaggio solo se la nota di confirma non è presente. Per richiedere il ritiro:
+    1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio per organizzare il ritiro. Specificare che è necessaria una nuova lettera di vettura per organizzare un prelievo. Specificare il mittente (cliente), le informazioni sul destinatario (data center di Azure) e il numero di riferimento (numero della richiesta di servizio).
+    2. Se la hotline è occupata, inviare un messaggio di posta elettronica [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) con l'oggetto del messaggio di posta elettronica *Microsoft Azure pickup* e il numero della richiesta di servizio come riferimento
+    3. Se il corriere non arriva per la raccolta, chiamare *Quantium Solutions International* hotline per le disposizioni alternative.
     4. Se la richiesta viene eseguita tramite telefono, si riceverà una conferma verbale.
 
 ### <a name="singapore"></a>[Singapore](#tab/in-singapore)
@@ -152,7 +152,7 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
    > * Prima delle 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 9:00 e le 13:00.
    > * Dopo le 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 14:00 e le 18:00.
 
-   In caso di problemi, contattare Data Box Operations Asia all'indirizzo adbo@microsoft.com. Specificare il nome del processo nell'intestazione dell'oggetto e il problema riscontrato.
+   In caso di problemi, contattare Data Box Operations Asia all'indirizzo [adbo@microsoft.com](mailto:adbo@microsoft.com) . Specificare il nome del processo nell'intestazione dell'oggetto e il problema riscontrato.
 
 3. Consegnare la scatola al corriere.
 
@@ -185,7 +185,7 @@ Eseguire questa procedura se si restituisce il dispositivo in Sudafrica.
 
     * In alternativa, consegnare il pacchetto al punto di ritiro DHL più vicino.
 
-5. Se si verificano problemi, inviare un messaggio di posta elettronica a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) specificando i dettagli dei problemi riscontrati e indicando nell'oggetto il numero di lettera di vettura. È anche possibile chiamare il numero +27(0)119213902.
+5. Se si verificano problemi, inviare un messaggio di posta elettronica all'indirizzo [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) specificando i dettagli dei problemi riscontrati e indicando nell'oggetto il numero di lettera di vettura. È anche possibile chiamare il numero +27(0)119213902.
 
 ### <a name="china"></a>[Cina](#tab/in-china)
 
@@ -205,7 +205,7 @@ Eseguire questa procedura se si restituisce il dispositivo in Cina.
 
 3. Ricevere una conferma tramite posta elettronica da FedEx dopo il completamento della prenotazione del prelievo.  
 
-4. Se si verificano problemi, inviare un messaggio di posta elettronica a [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) specificando i dettagli del problema rilevato e indicando nell'oggetto il nome dell'ordine.
+4. Se si verificano problemi, inviare un messaggio di posta elettronica [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) con i dettagli del problema e inserire il nome dell'ordine nella riga oggetto:.
 
 #### <a name="premier-customer-care-contact-information"></a>Informazioni di contatto per il servizio clienti Premier
 
@@ -229,20 +229,20 @@ Eseguire questa procedura se si restituisce il dispositivo in Cina.
 
 ### <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged)
 
-Se si usa Data Box Disk nelle aree Governo degli Stati Uniti, Giappone, Singapore, Corea, Europa occidentale, Sudafrica o India ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni.
+Se si usa Data Box Disk negli Stati Uniti, in Giappone, Singapore, Corea, Regno Unito, Europa occidentale, Australia, Sudafrica o India ed è stata selezionata l'opzione di spedizione autonoma durante la creazione dell'ordine, seguire queste istruzioni.
 
 1. Passare al pannello **Panoramica** dell'ordine nel portale di Azure. Seguire le istruzioni visualizzate quando si seleziona **Pianifica ritiro**. Verrà visualizzato un codice di autorizzazione da usare per la consegna dell'ordine.
 
-2. Quando si è pronti per restituire il dispositivo, inviare un messaggio di posta elettronica al team delle operazioni di Azure Data Box usando il modello seguente.
+2. Inviare un messaggio di posta elettronica al team di Azure Data Box Operations usando il modello seguente quando si è pronti per restituire il dispositivo.
 
     ```
     To: adbops@microsoft.com
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body:
      a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
     ```
-3. Il team delle operazioni di Azure Data Box collaborerà con l'utente per organizzare la consegna presso il data center di Azure.
+3. Azure Data Box team operativo collaborerà con l'utente per disporre l'elenco a discesa per il Data Center di Azure.
 
 ---
 
@@ -256,7 +256,7 @@ In questa esercitazione sono stati illustrati argomenti relativi ad Azure Data B
 >
 > * Spedire i dischi di Data Box a Microsoft
 
-Passare alla guida pratica successiva per informazioni su come verificare il caricamento dei dati da Data Box Disk all'account di archiviazione di Azure.
+Passare alla procedura seguente per informazioni su come verificare il caricamento dei dati da Data Box Disk all'account di archiviazione di Azure.
 
 > [!div class="nextstepaction"]
 > [Verificare il caricamento dei dati da Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)

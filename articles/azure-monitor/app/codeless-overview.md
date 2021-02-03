@@ -6,27 +6,27 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: efa951ce5a15460e3eacfd4c7abecfac17106b4e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fe57174f1b090cbaa2196930f5ddd252074f1978
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880509"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526450"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Che cos'è la strumentazione automatica o la connessione non codificata-monitoraggio di Azure Application Insights?
 
 La strumentazione automatica o la connessione senza codice consente di abilitare il monitoraggio dell'applicazione con Application Insights senza modificare il codice.  
 
-Application Insights è integrato con vari provider di risorse e funziona in ambienti diversi. In pratica, è sufficiente abilitare e, in alcuni casi, configurare l'agente, in modo da raccogliere i dati di telemetria predefiniti. In pochissimo tempo verranno visualizzate le metriche, i dati e le dipendenze nella risorsa Application Insights, che consente di individuare l'origine dei potenziali problemi prima che si verifichino e analizzare la causa principale con la visualizzazione delle transazioni end-to-end.
+Application Insights è integrato con vari provider di risorse e funziona in ambienti diversi. In pratica, è sufficiente abilitare e, in alcuni casi, configurare l'agente, in modo da raccogliere automaticamente i dati di telemetria. In pochissimo tempo verranno visualizzate le metriche, i dati e le dipendenze nella risorsa Application Insights, che consente di individuare l'origine dei potenziali problemi prima che si verifichino e analizzare la causa principale con la visualizzazione delle transazioni end-to-end.
 
 ## <a name="supported-environments-languages-and-resource-providers"></a>Ambienti, linguaggi e provider di risorse supportati
 
-Con l'aggiunta di più integrazioni, la matrice di funzionalità di strumentazione automatica diventa complessa. La tabella seguente mostra lo stato attuale della faccenda per quanto riguarda il supporto per vari provider di risorse, linguaggi e ambienti.
+Con l'aggiunta di altre integrazioni, la matrice di funzionalità di strumentazione automatica diventa complessa. La tabella seguente mostra lo stato attuale della faccenda per quanto riguarda il supporto per vari provider di risorse, linguaggi e ambienti.
 
 |Ambiente/provider di risorse          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Servizio app Azure per Windows           | GA, OnBD *       | GA, consenso esplicito      | Anteprima privata | Anteprima privata | Non supportato   |
-|Servizio app di Azure in Linux             | N/D             | Non supportato   | Anteprima privata | Anteprima pubblica  | Non supportato   |
+|Servizio app Azure per Windows           | GA, OnBD *       | GA, consenso esplicito      | In corso     | In corso     | Non supportato   |
+|Servizio app di Azure in Linux             | N/D             | Non supportato   | In corso     | Anteprima pubblica  | Non supportato   |
 |Servizio app Azure su AKS               | N/D             | In progettazione       | In progettazione       | In progettazione       | Non supportato   |
 |Funzioni di Azure-di base                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
 |Dipendenze di Windows di funzioni di Azure | Non supportato   | Non supportato   | Anteprima pubblica  | Non supportato   | Non supportato   |
@@ -41,11 +41,31 @@ Con l'aggiunta di più integrazioni, la matrice di funzionalità di strumentazio
 
 ### <a name="windows"></a>Windows
 
-[Il monitoraggio delle applicazioni nel servizio app Azure](./azure-web-apps.md?tabs=net) è disponibile per l'applicazione .NET ed è abilitato per impostazione predefinita, è possibile abilitare .NET Core con un solo clic e Java e Node.js sono in anteprima privata.
+#### <a name="net"></a>.NET
+Il monitoraggio delle applicazioni nel servizio app Azure in Windows è disponibile per .NET .NET ed è [abilitato per impostazione](./azure-web-apps.md?tabs=net) predefinita.
 
-### <a name="linux"></a>Linux 
+#### <a name="netcore"></a>. NETCore
+Monitoraggio per [. Le applicazioni NETCore](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) possono essere abilitate con un solo clic.
 
-Il monitoraggio delle applicazioni Java e Node.js nel servizio app è in versione di anteprima pubblica e può essere abilitato in portale di Azure, disponibile in tutte le aree geografiche.
+#### <a name="java"></a>Java
+L'integrazione del portale per il monitoraggio delle applicazioni Java nel servizio app in Windows non è attualmente disponibile. Tuttavia, è possibile aggiungere Application Insights [agente autonomo java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) all'applicazione senza apportare modifiche al codice prima di distribuire le app nel servizio app. Application Insights agente Java 3,0 è disponibile a livello generale.
+
+#### <a name="nodejs"></a>Node.js
+Non è attualmente possibile abilitare il monitoraggio per le applicazioni di Node.js in Windows dal portale. Per monitorare Node.js applicazioni, usare l' [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+
+### <a name="linux"></a>Linux
+
+#### <a name="netcore"></a>. NETCore
+Per eseguire il monitoraggio. NETCore le applicazioni in esecuzione su Linux, usare l' [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+
+#### <a name="java"></a>Java 
+L'abilitazione del monitoraggio delle applicazioni Java per il servizio app in Linux dal portale non è disponibile, ma è possibile aggiungere [Application Insights agente java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) all'app prima di distribuire le app nel servizio app. Application Insights agente Java 3,0 è disponibile a livello generale.
+
+#### <a name="nodejs"></a>Node.js
+[Il monitoraggio Node.js applicazioni nel servizio app in Linux](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=nodejs) è in anteprima pubblica e può essere abilitato in portale di Azure, disponibile in tutte le aree geografiche. 
+
+#### <a name="python"></a>Python
+Usare l'SDK per [monitorare l'app Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python) 
 
 ## <a name="azure-functions"></a>Funzioni di Azure
 
@@ -57,7 +77,7 @@ La strumentazione senza codice del servizio Azure Kubernetes è attualmente disp
 
 ## <a name="azure-windows-vms-and-virtual-machine-scale-set"></a>VM Windows di Azure e set di scalabilità di macchine virtuali
 
-La [strumentazione automatica per le VM di Azure e il set di scalabilità di macchine virtuali](./azure-vm-vmss-apps.md) è disponibile per le applicazioni .NET 
+La strumentazione automatica per le VM di Azure e il set di scalabilità di macchine virtuali è disponibile per [.NET](./azure-vm-vmss-apps.md) e [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).  
 
 ## <a name="on-premises-servers"></a>Server locali
 È possibile abilitare facilmente il monitoraggio per i [server Windows locali per le applicazioni .NET](./status-monitor-v2-overview.md) e per le [app java](./java-in-process-agent.md).

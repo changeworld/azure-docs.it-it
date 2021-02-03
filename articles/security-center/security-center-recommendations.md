@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: dbda0aecdadd81da0f7681a5fc9b140157d5e8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756812"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526525"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
 
@@ -39,11 +39,19 @@ Ogni raccomandazione fornisce:
 
 ## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>In che modo Microsoft decide quali sono le esigenze di sicurezza e protezione avanzata?
 
-Le raccomandazioni del Centro sicurezza sono basate sul benchmark di sicurezza di Azure. 
+Le raccomandazioni del Centro sicurezza sono basate sul benchmark di sicurezza di Azure. Quasi ogni raccomandazione ha un criterio sottostante derivato da un requisito nel benchmark.
 
-Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
+Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud. Altre informazioni su [Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-Altre informazioni su [Azure Security Benchmark](../security/benchmarks/introduction.md).
+Quando si esaminano i dettagli di una raccomandazione, è spesso utile poter visualizzare i criteri sottostanti. Per ogni raccomandazione supportata da un criterio, usare il collegamento **Visualizza definizione criteri** della pagina dei dettagli della raccomandazione per passare direttamente alla voce relativa ai criteri di Azure per i criteri pertinenti:
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Collegamento alla pagina Criteri di Azure per i criteri specifici che supportano una raccomandazione":::
+
+Usare questo collegamento per visualizzare la definizione dei criteri ed esaminare la logica di valutazione. 
+
+Se si sta esaminando l'elenco di raccomandazioni nella Guida di [riferimento](recommendations-reference.md)per le raccomandazioni sulla sicurezza, verranno visualizzati anche i collegamenti alle pagine di definizione dei criteri:
+
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accesso alla pagina dei criteri di Azure per un criterio specifico direttamente dalla pagina di riferimento consigli del Centro sicurezza di Azure":::
 
 ## <a name="monitor-recommendations"></a>Monitorare le raccomandazioni <a name="monitor-recommendations"></a>
 
@@ -63,9 +71,12 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificar
 
     La pagina include:
 
-    1. **Applicare** e **negare** i pulsanti sulle raccomandazioni supportate (vedere Impedisci configurazioni non configurate [con le raccomandazioni Imponi/nega](prevent-misconfigurations.md))
+    1. Per consigli supportati, la barra degli strumenti superiore mostra uno o tutti i pulsanti seguenti:
+        - **Imponi** e **Nega** (vedere [Impedisci configurazioni errate con le raccomandazioni Imponi/nega](prevent-misconfigurations.md))
+        - **Visualizzare la definizione dei criteri** per passare direttamente alla voce relativa ai criteri di Azure per i criteri sottostanti
     1. **Indicatore di gravità**
-    1. **Intervallo di aggiornamento**  (se pertinente) 
+    1. **Intervallo di aggiornamento** (se pertinente)
+    1. **Conteggio delle risorse esentate** se esistono esenzioni per questa raccomandazione, viene visualizzato il numero di risorse esentate
     1. **Descrizione** : breve descrizione del problema
     1. **Passaggi correttivi** -Descrizione dei passaggi manuali necessari per correggere il problema di sicurezza sulle risorse interessate. Per consigli con la correzione rapida, è possibile selezionare **Visualizza la logica di monitoraggio e aggiornamento** prima di applicare la correzione consigliata alle risorse. 
     1. **Risorse interessate** : le risorse sono raggruppate in schede:

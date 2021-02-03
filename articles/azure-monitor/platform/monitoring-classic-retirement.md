@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368ab1bc6a1fc13c3001b437c3c2a8be2bbb9c04
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848126"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525992"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
 Monitoraggio di Azure è ora diventato un servizio di monitoraggio unificato dell'intero stack che supporta metriche unificate e avvisi unificati per tutte le risorse. Per altre informazioni, vedere il [post di blog sul nuovo servizio Monitoraggio di Azure](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Le nuove piattaforme di monitoraggio e avviso di Azure sono state create per essere più veloci, intelligenti ed estendibili, per tenere il passo con la continua crescita del cloud computing e in linea con la filosofia Microsoft di cloud intelligente.
 
-Con la nuova piattaforma di monitoraggio e avviso di Azure, gli avvisi classici in monitoraggio di Azure vengono ritirati, anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. La data di ritiro per tali avvisi è stata estesa ulteriormente. Una nuova data verrà annunciata a breve per la migrazione degli avvisi rimanenti, il [cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md)e [Azure Cina 21ViaNet](https://docs.azure.cn/).
+Con la nuova piattaforma di monitoraggio e avviso di Azure, gli avvisi classici in monitoraggio di Azure vengono ritirati per gli utenti del cloud pubblico, anche se sono ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. La data di ritiro per tali avvisi è stata estesa ulteriormente. Una nuova data verrà annunciata a breve per la migrazione degli avvisi rimanenti, il [cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md)e [Azure Cina 21ViaNet](https://docs.azure.cn/).
 
- ![Avviso classico nel portale di Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
+ ![Avviso classico nel portale di Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Gli utenti sono invitati a iniziare a usare la nuova piattaforma e ricreare al suo interno gli avvisi.
 
@@ -48,7 +48,7 @@ Le nuove metriche per le risorse di Azure sono disponibili come:
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Ritiro della piattaforma classica di monitoraggio e avviso
 
-Come indicato in precedenza, il monitoraggio e gli avvisi classici meno recenti vengono ritirati; inclusa la chiusura di API correlate, portale di Azure interfaccia e servizi, anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. In particolare, queste funzionalità verranno deprecate:
+Come affermato in precedenza, il monitoraggio e gli avvisi classici meno recenti vengono ritirati per gli utenti del cloud pubblico; inclusa la chiusura di API correlate, portale di Azure interfaccia e servizi, anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. In particolare, queste funzionalità verranno deprecate:
 
 - Metriche e avvisi precedenti (versione classica) per le risorse di Azure attualmente disponibili tramite la [sezione Avvisi (versione classica)](./alerts-classic.overview.md) del portale di Azure, accessibili come risorsa [microsoft.insights/alertrules](/rest/api/monitor/alertrules)
 - Piattaforma e metriche personalizzate precedenti (versione classica) per Azure Application Insights, oltre agli avvisi attualmente disponibili tramite la [sezione Avvisi (versione classica)](./alerts-classic.overview.md) del portale di Azure e accessibili come risorsa [microsoft.insights/alertrules](/rest/api/monitor/alertrules)

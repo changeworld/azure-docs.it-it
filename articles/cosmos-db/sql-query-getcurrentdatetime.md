@@ -1,19 +1,19 @@
 ---
 title: GetCurrentDateTime in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL GetCurrentDateTime in Azure Cosmos DB.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.author: girobins
+ms.date: 02/03/2021
+ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 03a3183fe3001008cdd3f3caae1b8c3af81668fe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b48237b5a7eb836c495612758eeb9eaa45029b26
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340210"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526586"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ GetCurrentDateTime ()
   |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
-  |mm|minuti a due cifre (da 00 a 59)|
+  |MM|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|
   |. fffffff|secondi frazionari a sette cifre|
   |Z|Indicatore UTC (Coordinated Universal Time)||
@@ -48,9 +48,10 @@ GetCurrentDateTime ()
 
 GetCurrentDateTime () è una funzione non deterministica. Il risultato restituito è UTC. La precisione è 7 cifre, con un'accuratezza di 100 nanosecondi.
 
-Questa funzione di sistema non utilizzerà l'indice.
+> [!NOTE]
+> Questa funzione di sistema non utilizzerà l'indice. Se è necessario confrontare i valori con l'ora corrente, ottenere l'ora corrente prima dell'esecuzione della query e usare tale valore stringa costante nella `WHERE` clausola.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene illustrato come ottenere la data e ora UTC correnti utilizzando la funzione predefinita GetCurrentDateTime ().
   
