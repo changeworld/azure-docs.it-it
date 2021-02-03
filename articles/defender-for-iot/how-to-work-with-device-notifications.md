@@ -1,5 +1,5 @@
 ---
-title: Usare le notifiche dei dispositivi
+title: Gestire le notifiche sui dispositivi
 description: Le notifiche forniscono informazioni sulle attività di rete che potrebbero richiedere attenzione, oltre a indicazioni per la gestione di questa attività.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d113805322bd45584987460d57ad6bdba241ec10
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840557"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509032"
 ---
-# <a name="work-with-device-notifications"></a>Usare le notifiche dei dispositivi
+# <a name="work-with-device-notifications"></a>Gestire le notifiche sui dispositivi
 
 Le notifiche forniscono informazioni sulle attività di rete che potrebbero richiedere attenzione, oltre a indicazioni per la gestione di questa attività. Ad esempio, è possibile ricevere una notifica relativa a:
 
@@ -60,13 +60,13 @@ Nella tabella seguente vengono descritti i tipi di evento di notifica che è pos
 
 | Tipi di evento di notifica | Descrizione | Risposte |
 |--|--|--|
-| Nuovi indirizzi IP | Al dispositivo è associato un nuovo indirizzo IP. Potrebbero essere rilevati cinque scenari: <br /><br /> Un indirizzo IP aggiuntivo è stato associato a un dispositivo. Questo dispositivo è associato anche a un indirizzo MAC esistente.<br /><br /> È stato rilevato un nuovo indirizzo IP per un dispositivo che usa un indirizzo MAC esistente. Attualmente il dispositivo non comunica utilizzando un indirizzo IP.<br /> <br /> È stato rilevato un nuovo indirizzo IP per un dispositivo che usa un nome NetBIOS. <br /><br /> È stato rilevato un indirizzo IP come interfaccia di gestione per un dispositivo associato a un indirizzo MAC. <br /><br /> È stato rilevato un nuovo indirizzo IP per un dispositivo che usa un indirizzo IP virtuale. | **Imposta IP aggiuntivo sul dispositivo** (Unisci dispositivi) <br /> <br />**Sostituisci IP esistente** <br /> <br /> **Elimina**<br /> Rimuovere la notifica. |
+| Nuovo IP rilevato | Al dispositivo è associato un nuovo indirizzo IP. Potrebbero essere rilevati cinque scenari: <br /><br /> Un indirizzo IP aggiuntivo è stato associato a un dispositivo. Questo dispositivo è associato anche a un indirizzo MAC esistente.<br /><br /> È stato rilevato un nuovo indirizzo IP per un dispositivo che usa un indirizzo MAC esistente. Attualmente il dispositivo non comunica utilizzando un indirizzo IP.<br /> <br /> È stato rilevato un nuovo indirizzo IP per un dispositivo che usa un nome NetBIOS. <br /><br /> È stato rilevato un indirizzo IP come interfaccia di gestione per un dispositivo associato a un indirizzo MAC. <br /><br /> È stato rilevato un nuovo indirizzo IP per un dispositivo che usa un indirizzo IP virtuale. | **Imposta IP aggiuntivo sul dispositivo** (Unisci dispositivi) <br /> <br />**Sostituisci IP esistente** <br /> <br /> **Elimina**<br /> Rimuovere la notifica. |
 | Dispositivi inattivi | Il traffico non è stato rilevato in un dispositivo per più di 60 giorni. | **Elimina** <br /> Se il dispositivo non fa parte della rete, rimuoverlo. <br /><br />**Elimina** <br /> Rimuovere la notifica se il dispositivo fa parte della rete. Se il dispositivo è inattivo, ad esempio perché è erroneamente disconnesso dalla rete, chiudere la notifica e riconnettere il dispositivo. |
-| Nuovo dispositivo OT | Una subnet include un dispositivo OT non definito in una subnet ICS. <br /><br /> Ogni subnet che contiene almeno un dispositivo OT può essere definita come subnet ICS. Ciò consente di distinguere tra dispositivi OT e IT sulla mappa. | **Imposta come subnet ICS** <br /> <br /> **Elimina** <br />Rimuovere la notifica se il dispositivo non fa parte della subnet. |
+| Nuovi dispositivi OT | Una subnet include un dispositivo OT non definito in una subnet ICS. <br /><br /> Ogni subnet che contiene almeno un dispositivo OT può essere definita come subnet ICS. Ciò consente di distinguere tra dispositivi OT e IT sulla mappa. | **Imposta come subnet ICS** <br /> <br /> **Elimina** <br />Rimuovere la notifica se il dispositivo non fa parte della subnet. |
 | Nessuna subnet configurata | Non sono attualmente configurate subnet nella rete. <br /><br /> Configurare le subnet per una migliore rappresentazione nella mappa e la possibilità di distinguere tra dispositivi OT e IT. | **Aprire la configurazione subnet** e configurare le subnet. <br /><br />**Elimina** <br /> Rimuovere la notifica. |
 | Modifiche del sistema operativo | Uno o più nuovi sistemi operativi sono stati associati al dispositivo. | Selezionare il nome del nuovo sistema operativo che si vuole associare al dispositivo.<br /><br /> **Elimina** <br /> Rimuovere la notifica. |
-| Sono state rilevate subnet | Sono state individuate nuove subnet. | **Learn**<br />Aggiungere automaticamente la subnet.<br />**Apri configurazione subnet**<br />Aggiungere tutte le informazioni sulla subnet mancanti.<br />**Elimina**<br />Rimuovere la notifica. |
-| È stata rilevata una modifica del tipo di dispositivo | Al dispositivo è stato associato un nuovo tipo di dispositivo. | **Imposta come {...}**<br />Associare il nuovo tipo al dispositivo.<br />**Elimina**<br />Rimuovere la notifica. |
+| Nuove subnet | Sono state individuate nuove subnet. | **Learn**<br />Aggiungere automaticamente la subnet.<br />**Apri configurazione subnet**<br />Aggiungere tutte le informazioni sulla subnet mancanti.<br />**Elimina**<br />Rimuovere la notifica. |
+| Modifiche al tipo di dispositivo | Al dispositivo è stato associato un nuovo tipo di dispositivo. | **Imposta come {...}**<br />Associare il nuovo tipo al dispositivo.<br />**Elimina**<br />Rimuovere la notifica. |
 
 ## <a name="respond-to-many-notifications-simultaneously"></a>Rispondere a molte notifiche simultaneamente
 
@@ -98,6 +98,6 @@ Esaminare le raccomandazioni per migliorare la classificazione del sistema opera
 
 Quando si accetta una raccomandazione, le informazioni sul tipo di sistema operativo verranno aggiornate nel sensore.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Visualizzare gli avvisi](how-to-view-alerts.md)

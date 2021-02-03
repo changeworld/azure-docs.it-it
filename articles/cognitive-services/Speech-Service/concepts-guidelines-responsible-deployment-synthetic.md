@@ -10,24 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 715c09ef65358b21e78cfde204b4819db0c7875d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 371ad2220b2b2b1b73e5611c5abef74454a548ad
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428420"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508270"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Linee guida per la distribuzione responsabile della tecnologia Voice sintetica
 
-## <a name="general-considerations-to-keep-in-mind-when-implementing-ai-systems"></a>Considerazioni generali da tenere presenti quando si implementano i sistemi di intelligenza artificiale 
-
-Questo articolo illustra in modo specifico il discorso sintetico e la voce neurale personalizzata e le considerazioni principali per l'uso responsabile di questa tecnologia. In generale, tuttavia, è necessario prendere in considerazione diversi aspetti quando si decide come usare e implementare prodotti e funzionalità basati su intelligenza artificiale: 
-
-* Questo prodotto o funzionalità verrà eseguito correttamente nello scenario? Prima di distribuire AI nello scenario, testare il modo in cui viene eseguito usando i dati reali e assicurarsi che sia in grado di fornire l'accuratezza necessaria. 
-* Sono disponibili per identificare e rispondere agli errori? I prodotti e le funzionalità basati su intelligenza artificiale non sempre sono accurati al 100%, quindi considerare come identificare e rispondere a eventuali errori che possono verificarsi. 
-
-## <a name="general-guidelines-for-using-synthetic-voice-technology"></a>Linee guida generali per l'uso della tecnologia Voice sintetica 
-Ecco le linee guida di progettazione generali di Microsoft per l'uso della tecnologia Voice sintetica. Queste sono state sviluppate in studi che Microsoft ha condotto con il talento vocale, i consumatori, nonché singoli utenti con problemi di sintesi vocale per guidare lo sviluppo responsabile della voce sintetica.
+In questo articolo vengono fornite informazioni sulle linee guida di progettazione generali di Microsoft per l'utilizzo della tecnologia Voice sintetica. Queste linee guida sono state sviluppate in studi che Microsoft ha condotto con il talento vocale, i consumatori e gli utenti con problemi di sintesi vocale per guidare lo sviluppo responsabile delle voci sintetiche.
 
 Per la distribuzione della tecnologia sintesi vocale sintetica, le linee guida seguenti si applicano alla maggior parte degli scenari.
 
@@ -39,10 +31,12 @@ Microsoft richiede ai clienti di divulgare la natura sintetica della voce neural
 * Prendere in considerazione la divulgazione corretta a elementi padre o ad altre parti con casi di utilizzo progettati per i minorenni e gli elementi figlio. se il caso d'uso è destinato a minorenni o bambini, è necessario assicurarsi che i genitori o i tutori legali siano in grado di comprendere la divulgazione sull'utilizzo di supporti sintetici e prendere la decisione giusta per i minorenni o i figli per l'utilizzo 
 
 ### <a name="select-appropriate-voice-types-for-your-scenario"></a>Selezionare i tipi vocali appropriati per lo scenario
-Valutare con attenzione il contesto di utilizzo e i potenziali danni associati all'uso della voce sintetica. Ad esempio, le voci sintetiche ad alta fedeltà potrebbero non essere appropriate negli scenari ad alto rischio, ad esempio per la messaggistica personale, le transazioni finanziarie o situazioni complesse che richiedono adattabilità umana o empatia. Gli utenti possono anche avere aspettative diverse per i tipi di voce. Ad esempio, quando si è in ascolto di notizie riservate lette da una voce sintetica, alcuni utenti preferiscono una lettura più empatica e simile a quella umana, mentre altri preferiscono una voce più monotona, non distorta. Provare a testare l'applicazione per comprendere meglio le preferenze dell'utente.
+Valutare con attenzione il contesto di utilizzo e i potenziali danni associati all'uso della voce sintetica. Ad esempio, le voci sintetiche ad alta fedeltà potrebbero non essere appropriate negli scenari ad alto rischio, ad esempio per la messaggistica personale, le transazioni finanziarie o situazioni complesse che richiedono adattabilità umana o empatia. 
+
+Gli utenti possono anche avere aspettative diverse per i tipi di voce. Ad esempio, quando si è in ascolto di notizie riservate lette da una voce sintetica, alcuni utenti preferiscono un tono più empatico e simile a quello umano, mentre altri preferiscono una voce non distorta. Provare a testare l'applicazione per comprendere meglio le preferenze dell'utente.
 
 ### <a name="be-transparent-about-capabilities-and-limitations"></a>Essere trasparente sulle funzionalità e le limitazioni
-È più probabile che gli utenti abbiano aspettative più elevate durante l'interazione con agenti vocali sintetici ad alta fedeltà. Di conseguenza, quando le funzionalità di sistema non soddisfano tali aspettative, l'attendibilità può soffrire e può comportare esperienze spiacevoli o persino dannose.
+È più probabile che gli utenti abbiano aspettative più elevate durante l'interazione con agenti vocali sintetici ad alta fedeltà. Quando le funzionalità di sistema non soddisfano tali aspettative, l'attendibilità può soffrire e può comportare esperienze spiacevoli o persino dannose.
 
 ### <a name="provide-optional-human-support"></a>Fornire supporto umano facoltativo
 In scenari ambigui e transazionali, ad esempio un Call Support Center, gli utenti non considerano sempre attendibile un agente computer per rispondere in modo appropriato alle richieste. In queste situazioni può essere necessario il supporto umano, indipendentemente dalla qualità realistica della voce o della capacità del sistema.
@@ -59,7 +53,7 @@ Un talento vocale non è a conoscenza dei potenziali usi dannosi della tecnologi
 Quando si lavora con utenti con problemi di sintesi vocale, per creare o distribuire la tecnologia vocale sintetica, si applicano le linee guida seguenti.
 
 ### <a name="provide-guidelines-to-establish-contracts"></a>Fornire linee guida per stabilire i contratti
-Fornire linee guida per la definizione di contratti con singoli utenti che utilizzano la voce sintetica per assistenza nella comunicazione. Il contratto deve considerare la possibilità di specificare le entità che possiedono la voce, la durata dell'utilizzo, i criteri di trasferimento della proprietà, le procedure per eliminare il carattere vocale e come impedire l'accesso non autorizzato. Inoltre, è possibile abilitare il trasferimento contrattuale della proprietà del tipo di carattere vocale dopo la morte ai membri della famiglia se tale persona ha concesso l'autorizzazione.
+Fornire linee guida per la definizione di contratti con singoli utenti che utilizzano la voce sintetica per assistenza nella comunicazione. Il contratto deve considerare la possibilità di specificare le entità che possiedono la voce, la durata dell'utilizzo, i criteri di trasferimento della proprietà, le procedure per eliminare il carattere vocale e come impedire l'accesso non autorizzato. Inoltre, è possibile abilitare il trasferimento della proprietà del tipo di carattere voce dopo la morte ai membri della famiglia, se è stata assegnata l'autorizzazione.
 
 ### <a name="account-for-inconsistencies-in-speech-patterns"></a>Account per le incoerenze nei modelli di riconoscimento vocale
 Per i singoli utenti con problemi di sintesi vocale che registrano i propri tipi di carattere vocali, le incoerenze nel modello di riconoscimento vocale (i residui o l'impossibilità di pronunciare determinate parole) potrebbero complicare il processo di registrazione. In questi casi, le sessioni di registrazione e tecnologia della voce sintetica dovrebbero adattarsi (ovvero fornire interruzioni e un numero aggiuntivo di sessioni di registrazione).
@@ -71,7 +65,6 @@ Gli utenti con problemi di riconoscimento vocale desiderano apportare aggiorname
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
 * [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Cenni preliminari sul controllo](concepts-gating-overview.md)
 * [Come divulgare](concepts-disclosure-guidelines.md)
 * [Schemi di progettazione della divulgazione](concepts-disclosure-patterns.md)
 

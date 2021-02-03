@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803512"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508744"
 ---
 # <a name="manage-alert-events"></a>Gestione degli eventi di avviso
 
@@ -45,7 +45,7 @@ In alcune situazioni, potrebbe non essere necessario che un sensore apprenda un 
 
 Dopo aver eseguito la mitigazione o l'analisi, è possibile indicare al sensore di nascondere l'avviso selezionando **conferma**. Se l'evento viene nuovamente rilevato, l'avviso verrà riattivato.
 
-Per nascondere l'avviso:
+Per cancellare l'avviso:
 
   - Selezionare **conferma**.
 
@@ -72,7 +72,7 @@ In queste situazioni, l'apprendimento non è disponibile. Quando non è possibil
 
 Uno scenario disattivato include i dispositivi di rete e il traffico rilevato per un evento. Il titolo dell'avviso descrive il traffico che viene disattivato.
 
-Il dispositivo o i dispositivi da disattivare verranno visualizzati come immagine nell'avviso. Se vengono visualizzati due dispositivi, il traffico tra di essi verrà disattivato.
+Il dispositivo o i dispositivi da disattivare verranno visualizzati come immagine nell'avviso. Se vengono visualizzati due dispositivi, il traffico di avviso specifico tra di essi verrà disattivato.
 
 **Esempio 1**
 

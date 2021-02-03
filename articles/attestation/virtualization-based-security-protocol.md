@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 38012c5b4bb9338c1200d9583256193ee8402c98
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610013"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507880"
 ---
 # <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Protocollo di attestazione dell'enclave del Trusted Platform Module (TPM) e della protezione basata sulla virtualizzazione (VBS) 
 
@@ -55,7 +55,7 @@ Attestazione di Azure-client >
 
 **Challenge** (BASE64URL (ottetti)): valore casuale emesso dal servizio.
 
-**service_context** (BASE64URL (ottetti)): contesto opaco, crittografato creato dal servizio, che include, tra gli altri, la richiesta e una data di scadenza per la richiesta. 
+**service_context** (BASE64URL (ottetti)): contesto opaco creato dal servizio.
 
 
 ### <a name="request-message"></a>Messaggio di richiesta
@@ -236,7 +236,7 @@ Esempio di TPM e di enclave VBS:
 
 - **value_type (String)**: tipo di dati del valore dell'attestazione
 
-**service_context** (BASE64URL (ottetti)): contesto opaco, crittografato creato dal servizio che include, tra gli altri, la richiesta e la data di scadenza per la richiesta.
+**service_context** (BASE64URL (ottetti)): contesto opaco creato dal servizio.
 
 ### <a name="report-message"></a>Messaggio del report
 

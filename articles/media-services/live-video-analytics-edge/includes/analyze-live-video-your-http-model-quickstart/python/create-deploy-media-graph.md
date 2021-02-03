@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1b5dd2fb4ef8cb3f6fd169477d9ee82e912c146e
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7cbb9a09a6f8eae6a9325f060664d50c5725e09f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956306"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508530"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Esaminare e modificare i file di esempio
 
@@ -16,16 +16,13 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 
 1. Passare alla cartella *src/cloud-to-device-console-app*. Sono inclusi il file *appsettings.json* e alcuni altri file:
 
-    * ***c2d-console-app.csproj** _ - Il file di progetto per Visual Studio Code.
-    _ ***operations.json** _ - Un elenco di operazioni che il programma dovrà eseguire.
-    _ ***Program.cs** _ - Il codice del programma di esempio. Questo codice:
+    * operations.json: un elenco di operazioni che il programma dovrà eseguire.
+    * main.py: il codice del programma di esempio. Questo codice:
 
-        _ Carica le impostazioni dell'app.
-        * Richiama i metodi diretti esposti dal modulo Analisi video live in IoT Edge. È possibile usare il modulo per analizzare i flussi video live richiamando i [metodi diretti](../../../direct-methods.md).
+        * Carica le impostazioni dell'app.
+        * Richiama i metodi diretti esposti dal modulo Analisi video live in IoT Edge. È possibile usare il modulo per analizzare i flussi video live richiamando i metodi diretti.
         * Sospende l'esecuzione per consentire di esaminare l'output del programma nella finestra **TERMINAL** e gli eventi generati dal modulo nella finestra **OUTPUT**.
-        * Richiama i metodi diretti per pulire le risorse.
-
-
+        * Richiama i metodi diretti per pulire le risorse.  
 1. Modificare il file *operations.json*:
     * Cambiare il collegamento alla topologia del grafo:
 

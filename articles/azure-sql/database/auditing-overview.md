@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620992"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509588"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -273,6 +273,11 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Crea o aggiorna i criteri di controllo *esteso* del server](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Ottenere i criteri di controllo *esteso* del database](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ottenere i criteri di controllo *estesi* del server](/rest/api/sql/server%20auditing%20settings/get)
+
+### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+
+- [Gestire i criteri di controllo di un server](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [Gestire i criteri di controllo di un database](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso di modelli di Azure Resource Manager
 

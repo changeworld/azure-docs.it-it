@@ -14,8 +14,6 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Quote e limiti
       href: speech-services-quotas-and-limits.md
-    - name: Novità della documentazione
-      href: whats-new.md
 - name: Riconoscimento vocale
   items:
     - name: Documentazione del riconoscimento vocale
@@ -113,22 +111,10 @@
           href: long-audio-api.md
     - name: Personalizzazione
       items:
-        - name: Distribuzione responsabile
-          items:
-            - name: Controllo di Voce personalizzata
-              href: concepts-gating-overview.md
-            - name: Distribuzione della tecnologia sintetica
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Informativa per speaker
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
-            - name: Linee guida sulla progettazione di informative
-              href: concepts-disclosure-guidelines.md
-            - name: Schemi progettuali per le informative
-              href: concepts-disclosure-patterns.md
-            - name: Codice di comportamento
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: Portale di Voce personalizzata
           items:
+            - name: Che cos'è la voce neurale personalizzata?
+              href: custom-neural-voice.md
             - name: Introduzione a Voce personalizzata
               displayName: 'custom voice, neural voice'
               href: how-to-custom-voice.md
@@ -142,6 +128,32 @@
           items:
             - name: Creazione di contenuti audio
               href: how-to-audio-content-creation.md
+    - name: Uso responsabile dell'intelligenza artificiale
+      items:
+        - name: Voce neurale personalizzata
+          items:
+            - name: Nota sulla trasparenza
+              items:
+                - name: Casi d'uso per la voce neurale personalizzata
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Caratteristiche e limitazioni
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Integrazione e uso responsabile
+              items:
+                - name: Accesso limitato
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Distribuzione responsabile di sintesi vocale sintetica
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: Informativa per speaker
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: Linee guida sulla progettazione di informative
+                  href: concepts-disclosure-guidelines.md
+                - name: Schemi progettuali per le informative
+                  href: concepts-disclosure-patterns.md
+                - name: Codice di comportamento
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: 'Dati, privacy e sicurezza'
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
     - name: Informazioni di riferimento
       items:
         - name: C++
@@ -545,7 +557,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md

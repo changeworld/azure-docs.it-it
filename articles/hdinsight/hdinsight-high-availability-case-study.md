@@ -5,12 +5,12 @@ keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945365"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508592"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Architettura della soluzione a disponibilità elevata di Azure HDInsight case study
 
@@ -71,7 +71,7 @@ La figura seguente illustra l'architettura di ripristino di emergenza a disponib
 
 **Hive e Spark** usano i modelli [di replica secondaria attiva, su richiesta,](hdinsight-business-continuity-architecture.md#apache-spark) durante i periodi normali. Il processo di replica hive viene eseguito periodicamente e accompagna la replica dell'account di archiviazione hive e del Metastore hive di Azure SQL. L'account di archiviazione Spark viene periodicamente replicato tramite DistCP di ADF. La natura temporanea di questi cluster consente di ottimizzare i costi. Le repliche vengono pianificate ogni 4 ore per giungere a un RPO entro il requisito di cinque ore.
 
-La replica di **HBase** usa il modello [leader – follower](hdinsight-business-continuity-architecture.md#apache-hbase) durante i periodi normali per garantire che i dati vengano sempre serviti indipendentemente dall'area e che RPO sia zero.
+La replica di **HBase** usa il modello [leader – follower](hdinsight-business-continuity-architecture.md#apache-hbase) durante i periodi normali per garantire che i dati vengano sempre serviti indipendentemente dall'area e il RPO è molto basso.
 
 Se si verifica un errore a livello di area nell'area primaria, la pagina Web e il contenuto back-end vengono serviti dall'area secondaria per 5 ore con un certo grado di obsolescenza. Se il dashboard di integrità dei servizi di Azure non indica un'ETA di ripristino nella finestra di cinque ore, contoso Retail creerà il livello di trasformazione hive e Spark nell'area secondaria, quindi punterà tutte le origini dati upstream nell'area secondaria. Rendere scrivibile l'area secondaria potrebbe causare un processo di failback che prevede la replica nel database primario.
 

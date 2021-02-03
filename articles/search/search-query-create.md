@@ -1,5 +1,5 @@
 ---
-title: Creare una query di base
+title: Creare una query
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come creare una richiesta di query in ricerca cognitiva, gli strumenti e le API da usare per il test e il codice e il modo in cui le decisioni relative alle query iniziano con la progettazione degli indici.
 manager: nitinme
@@ -7,74 +7,80 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 9bee391ddb0fa6c270c6d833fb7e81d5f4880497
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 02/03/2021
+ms.openlocfilehash: 9419e5f419a358be50fbb3b8478d62dfe6e3dff0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118643"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509351"
 ---
-# <a name="create-a-query-in-azure-cognitive-search"></a>Creare una query in Azure ricerca cognitiva
+# <a name="creating-queries-in-azure-cognitive-search"></a>Creazione di query in Azure ricerca cognitiva
 
-Se si compila una query per la prima volta, in questo articolo vengono descritti gli strumenti e le API necessari, i metodi utilizzati per creare una query e il modo in cui la struttura e il contenuto dell'indice possono influito sui risultati delle query. Per un'introduzione all'aspetto di una richiesta di query, iniziare con i [tipi di query e le composizioni](search-query-overview.md).
+Se si compila una query per la prima volta, in questo articolo vengono descritti gli approcci e i metodi per la configurazione delle query. Viene inoltre introdotta una richiesta di query e viene illustrato come gli attributi di campo e gli analizzatori linguistici possono influito sui risultati delle query.
 
-## <a name="choose-tools-and-apis"></a>Scegliere gli strumenti e le API
+## <a name="whats-a-query-request"></a>Che cos'è una richiesta di query?
 
-Per creare una query è necessario uno strumento o un'API. I suggerimenti seguenti sono utili per i carichi di lavoro di test e produzione.
+Una query è una richiesta di sola lettura per la raccolta docs di un singolo indice di ricerca. Specifica un oggetto ' queryType ' e un'espressione di query anche se il parametro ' Search '. L'espressione di query potrebbe avere termini di ricerca, una frase racchiusa tra virgolette e operatori.
 
-| Metodologia | Descrizione |
-|-------------|-------------|
-| Portale| [Esplora ricerche (portale)](search-explorer.md) è un'interfaccia di query nel portale di Azure che esegue query sugli indici nel servizio di ricerca sottostante. Il portale esegue le chiamate API REST dietro le quinte all'operazione di [ricerca dei documenti](/rest/api/searchservice/search-documents) , ma non può richiamare il completamento automatico, i suggerimenti o la ricerca di documenti.<br/><br/> È possibile selezionare qualsiasi indice e la versione dell'API REST, inclusa l'anteprima. Una stringa di query può usare una sintassi semplice o completa, con supporto per tutti i parametri di query (Filter, Select, searchFields e così via). Quando si apre un indice nel portale, è possibile usare Esplora ricerche insieme alla definizione JSON dell'indice nelle schede affiancate per semplificare l'accesso agli attributi dei campi. Verifica i campi disponibili per la ricerca, l'ordinamento, il filtraggio e il facet durante il test delle query. <br/>Consigliato per le prime indagini, i test e la convalida. [Altre informazioni.](search-explorer.md) |
-| Strumenti di test Web| Il [post](search-get-started-rest.md) o il [Visual Studio Code](search-get-started-vs-code.md) sono scelte sicure per formulare una richiesta di [ricerca dei documenti](/rest/api/searchservice/search-documents) e qualsiasi altra richiesta, in REST. Le API REST supportano tutte le operazioni a livello di codice disponibili in Azure ricerca cognitiva e quando si usa uno strumento come l'utente o la Visual Studio Code, è possibile inviare le richieste in modo interattivo per comprendere il funzionamento della funzionalità prima di investire nel codice. Uno strumento di test Web è una scelta ottimale se non si dispone dei diritti di collaboratore o di amministratore nella portale di Azure. Fino a quando si dispone di un URL di ricerca e una chiave API di query, è possibile utilizzare gli strumenti per eseguire query su un indice esistente. |
-| Azure SDK | Quando si è pronti a scrivere il codice, è possibile usare le librerie client di Azure.Search.Document negli SDK di Azure per .NET, Python, JavaScript o Java. Ogni SDK si trova nella propria pianificazione di rilascio, ma è possibile creare ed eseguire query sugli indici in tutti gli SDK. <br/><br/>È possibile usare [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) per eseguire query su un indice di ricerca in C#.  [Altre informazioni.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) può essere usato per eseguire query in un indice di ricerca in Python. [Altre informazioni.](search-get-started-python.md)<br/><br/>[SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) può essere usato per eseguire query in un indice di ricerca in JavaScript. [Altre informazioni.](search-get-started-javascript.md) |
-
-## <a name="set-up-a-search-client"></a>Configurare un client di ricerca
-
-Un client di ricerca esegue l'autenticazione al servizio di ricerca, invia le richieste e gestisce le risposte. Indipendentemente dallo strumento o dall'API usata, un client di ricerca deve avere gli elementi seguenti:
-
-| Proprietà | Descrizione |
-|------------|-------------|
-| Endpoint | Un servizio di ricerca è indirizzabile all'URL nel formato seguente: `https://[service-name].search.windows.net` . |
-| Chiave di accesso API (amministrazione o query) | Autentica la richiesta al servizio di ricerca. |
-| Nome dell'indice | Le query vengono sempre indirizzate alla raccolta Documents di un singolo indice. Non è possibile unire gli indici o creare strutture di dati personalizzate o temporanee come destinazione della query. |
-| Versione dell'API | Le chiamate REST richiedono in modo esplicito nella `api-version` richiesta. Al contrario, le librerie client in Azure SDK vengono sottoposizioni a una versione specifica dell'API REST. Per gli SDK, `api-version` è implicito. |
-
-### <a name="in-the-portal"></a>Nel portale
-
-Esplora ricerche e altri strumenti del portale hanno una connessione client incorporata al servizio, con indici di accesso diretto e altri oggetti dalle pagine del portale. L'accesso a strumenti, procedure guidate e oggetti richiede l'appartenenza al ruolo di collaboratore o superiore nel servizio. 
-
-### <a name="using-rest"></a>Uso di REST
-
-Per le chiamate REST, è possibile usare il [post o strumenti simili](search-get-started-rest.md) come il client per specificare una richiesta di [ricerca di documenti](/rest/api/searchservice/search-documents) . Ogni richiesta è autonoma, pertanto è necessario fornire l'endpoint, il nome dell'indice e la versione dell'API a ogni richiesta. Altre proprietà, Content-Type e chiave API, vengono passate nell'intestazione della richiesta. 
-
-È possibile utilizzare POST o GET per eseguire una query su un indice. Il POST, con i parametri specificati nel corpo della richiesta, è più semplice da usare. Se si utilizza POST, assicurarsi di includere `docs/search` nell'URL:
+Una query può anche avere ' count ' per restituire il numero di corrispondenze trovate nell'indice,' Select ' per scegliere i campi restituiti nei risultati della ricerca è OrderBy ' per ordinare i risultati. Negli esempi seguenti viene illustrata una richiesta di query con un subset dei parametri disponibili. Per altre informazioni sulla composizione di query, vedere [tipi di query e composizioni](search-query-overview.md) e [cercare documenti (REST)](/rest/api/searchservice/search-documents).
 
 ```http
-POST https://myservice.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
-    "queryType": "simple",
-    "search": "*"
+    "queryType": "simple"
+    "search": "`New York` +restaurant",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-### <a name="using-azure-sdks"></a>Uso di Azure SDK
+## <a name="choose-a-client"></a>Scegliere un client
 
-Se si usa Azure SDK, il client verrà creato nel codice. Tutti gli SDK forniscono client di ricerca che possono rendere permanente lo stato, consentendo il riutilizzo della connessione. Per le operazioni di query, è necessario creare un'istanza di **`SearchClient`** e assegnare valori per le proprietà seguenti: endpoint, Key, index. È quindi possibile chiamare il metodo **`Search method`** per passare la stringa di query. 
+È necessario uno strumento o un'API per creare una query, ad esempio portale di Azure o postazione, oppure il codice che crea un'istanza di un client di query. È consigliabile usare le API portale di Azure o REST per i test iniziali di sviluppo e di prova.
 
-| Lingua | Client | Esempio |
-|----------|--------|---------|
-| C# e .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [Inviare la prima query di ricerca in C #](/dotnet/api/overview/azure/search.documents-readme#send-your-first-search-query) |
-| Python      | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [Inviare la prima query di ricerca in Python](/python/api/overview/azure/search-documents-readme#send-your-first-search-request) |
-| Java        | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [Inviare la prima query di ricerca in Java](/java/api/overview/azure/search-documents-readme#send-your-first-search-query)  |
-| JavaScript  | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [Invia la prima query di ricerca in JavaScript](/javascript/api/overview/azure/search-documents-readme#send-your-first-search-query)  |
+### <a name="permissions"></a>Autorizzazioni
 
-## <a name="choose-a-parser-simple--full"></a>Scegliere un parser: semplice | completo
+Qualsiasi operazione, incluse le richieste di query, funzionerà con una [chiave API di amministrazione](search-security-api-keys.md), ma le richieste di query possono facoltativamente usare una [chiave API di query](search-security-api-keys.md#create-query-keys). Le chiavi API di query sono fortemente consigliate. È possibile creare fino a 50 per servizio e assegnare chiavi diverse a diverse applicazioni.
 
-Se la query è una ricerca full-text, verrà utilizzato un parser per elaborare il contenuto del parametro di ricerca. Azure ricerca cognitiva offre due parser di query. Il parser semplice riconosce la [sintassi di query semplice](query-simple-syntax.md). Questo parser è stato selezionato come valore predefinito per la velocità e l'efficacia nelle query di testo in formato libero. La sintassi supporta gli operatori di ricerca comuni (AND, OR, NOT) per le ricerche di termini e frasi e la ricerca di prefisso ( `*` ) (come in "Sea *" per Seattle e Seaside). Una raccomandazione generale è provare prima il parser semplice e quindi passare al parser completo se i requisiti dell'applicazione richiedono query più potenti.
+In portale di Azure, l'accesso a strumenti, procedure guidate e oggetti richiede l'appartenenza al ruolo Collaboratore o superiore nel servizio. 
 
-La [sintassi di query Lucene completa](query-Lucene-syntax.md#bkmk_syntax), abilitata quando si aggiunge `queryType=full` alla richiesta, è basata sul [parser Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+### <a name="use-azure-portal-to-query-an-index"></a>Utilizzare portale di Azure per eseguire una query su un indice
+
+[Esplora ricerche (portale)](search-explorer.md) è un'interfaccia di query nel portale di Azure che esegue query sugli indici nel servizio di ricerca sottostante. Internamente, il portale esegue le richieste di [ricerca nei documenti](/rest/api/searchservice/search-documents) , ma non può richiamare il completamento automatico, i suggerimenti o la ricerca di documenti. 
+
+È possibile selezionare qualsiasi indice e la versione dell'API REST, inclusa l'anteprima. Una stringa di query può usare una sintassi semplice o completa, con supporto per tutti i parametri di query (Filter, Select, searchFields e così via). Quando si apre un indice nel portale, è possibile usare Esplora ricerche insieme alla definizione JSON dell'indice nelle schede affiancate per semplificare l'accesso agli attributi dei campi. Verifica i campi disponibili per la ricerca, l'ordinamento, il filtraggio e il facet durante il test delle query.
+
+### <a name="use-a-rest-client"></a>Usare un client REST
+
+Sia il post che la Visual Studio Code (con estensione per Azure ricerca cognitiva) possono fungere da client di query. Utilizzando uno degli strumenti, è possibile connettersi al servizio di ricerca e inviare richieste [Rest (Search Documents)](/rest/api/searchservice/search-documents) . Numerose esercitazioni ed esempi illustrano i client REST per l'esecuzione di query sull'indicizzazione. 
+
+Per informazioni su ogni client (incluse le istruzioni per le query), iniziare con uno di questi articoli:
+
++ [Creare un indice di ricerca con REST e postazione](search-get-started-rest.md)
++ [Introduzione a Visual Studio Code e a Ricerca cognitiva di Azure](search-get-started-vs-code.md)
+
+Ogni richiesta è autonoma, pertanto è necessario fornire l'endpoint, il nome dell'indice e la versione dell'API a ogni richiesta. Altre proprietà, Content-Type e chiave API, vengono passate nell'intestazione della richiesta. Per ulteriori informazioni, vedere la pagina relativa alla [ricerca di documenti (REST)](/rest/api/searchservice/search-documents) per informazioni sulla formulazione di richieste di query.
+
+### <a name="use-an-sdk"></a>Usare un SDK
+
+Per ricerca cognitiva, gli SDK di Azure implementano le funzionalità disponibili a livello generale. Di conseguenza, è possibile usare uno qualsiasi degli SDK per eseguire una query su un indice. Tutti forniscono un **SearchClient** che dispone di metodi per l'interazione con un indice, dal caricamento di un indice con i documenti di ricerca per la formulazione delle richieste di query.
+
+| Azure SDK | Client | Esempio |
+|-----------|--------|----------|
+| .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) |
+| Java | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample. Java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |
+| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [readonlyQuery.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) |
+| Python | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query. py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
+
+## <a name="choose-a-query-type-simple--full"></a>Scegliere un tipo di query: semplice | completo
+
+Se la query è una ricerca full-text, verrà usato un parser di query per elaborare qualsiasi testo passato come termini e frasi di ricerca. Azure ricerca cognitiva offre due parser di query. 
+
++ Il parser semplice riconosce la [sintassi di query semplice](query-simple-syntax.md). Questo parser è stato selezionato come valore predefinito per la velocità e l'efficacia nelle query di testo in formato libero. La sintassi supporta gli operatori di ricerca comuni (AND, OR, NOT) per le ricerche di termini e frasi e la ricerca di prefisso ( `*` ) (come in "Sea *" per Seattle e Seaside). Una raccomandazione generale è provare prima il parser semplice e quindi passare al parser completo se i requisiti dell'applicazione richiedono query più potenti.
+
++ La [sintassi di query Lucene completa](query-Lucene-syntax.md#bkmk_syntax), abilitata quando si aggiunge `queryType=full` alla richiesta, è basata sul [parser Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
 La sintassi completa e la sintassi semplice si sovrappongono alla dimensione che supportano entrambe le stesse operazioni di prefisso e booleano, ma la sintassi completa fornisce più operatori. In completo sono presenti più operatori per le espressioni booleane e più operatori per query avanzate, ad esempio ricerca fuzzy, ricerca con caratteri jolly, ricerca di prossimità ed espressioni regolari.
 
@@ -92,7 +98,7 @@ La ricerca è fondamentalmente un esercizio guidato dall'utente, in cui i termin
 
 ## <a name="know-your-field-attributes"></a>Conosce gli attributi dei campi
 
-Se in precedenza sono state esaminate le [nozioni di base di una richiesta di query](search-query-overview.md), è possibile ricordare che i parametri nella richiesta di query dipendono dalla modalità con cui i campi vengono attribuiti in un indice. Ad esempio, per essere utilizzato in una query, in un filtro o in un ordinamento, un campo deve essere *ricercabile*, *filtrabile* e *ordinabile*. Analogamente, nei risultati possono essere visualizzati solo i campi contrassegnati come *recuperabili* . Quando si inizia a specificare i `search` `filter` parametri, e `orderby` nella richiesta, assicurarsi di controllare gli attributi Man mano che si procede per evitare risultati imprevisti.
+Se in precedenza sono stati rivisti i [tipi di query e la composizione](search-query-overview.md), è possibile ricordare che i parametri nella richiesta di query dipendono dalla modalità con cui i campi vengono attribuiti in un indice. Ad esempio, per essere utilizzato in una query, in un filtro o in un ordinamento, un campo deve essere *ricercabile*, *filtrabile* e *ordinabile*. Analogamente, nei risultati possono essere visualizzati solo i campi contrassegnati come *recuperabili* . Quando si inizia a specificare i `search` `filter` parametri, e `orderby` nella richiesta, assicurarsi di controllare gli attributi Man mano che si procede per evitare risultati imprevisti.
 
 Nella schermata del portale riportata di seguito nell' [indice di esempio degli Alberghi](search-get-started-portal.md), solo gli ultimi due campi "LastRenovationDate" e "rating" possono essere usati in una `"$orderby"` sola clausola.
 
@@ -102,13 +108,21 @@ Per una descrizione degli attributi dei campi, vedere [create index (API REST)](
 
 ## <a name="know-your-tokens"></a>Conosce i token
 
-Durante l'indicizzazione, il motore di query utilizza un analizzatore per eseguire analisi del testo sulle stringhe, massimizzando la possibilità di corrispondenza in fase di query. Come minimo, le stringhe sono in minuscolo, ma possono anche essere sottoposte a lemmatizzazione e interrompere la rimozione delle parole. Stringhe più grandi o parole composte vengono in genere interrotte da spazi vuoti, trattini o trattini e indicizzate come token separati. 
+Durante l'indicizzazione, il motore di ricerca usa un analizzatore per eseguire analisi del testo sulle stringhe, massimizzando la possibilità di corrispondenza in fase di query. Come minimo, le stringhe sono in minuscolo, ma possono anche essere sottoposte a lemmatizzazione e interrompere la rimozione delle parole. Stringhe più grandi o parole composte vengono in genere interrotte da spazi vuoti, trattini o trattini e indicizzate come token separati. 
 
 Il punto da considerare è che ciò che si ritiene venga contenuto nell'indice e che cosa è in realtà, può essere diverso. Se le query non restituiscono risultati previsti, è possibile ispezionare i token creati dall'analizzatore tramite il [testo di analisi (API REST)](/rest/api/searchservice/test-analyzer). Per altre informazioni sulla suddivisione in token e sull'effetto sulle query, vedere [ricerca a termini parziali e modelli con caratteri speciali](search-query-partial-matching.md).
 
+## <a name="about-queries-per-second-qps"></a>Informazioni sulle query al secondo (query al secondo)
+
+A causa dell'elevato numero di fattori che influiscono sulle prestazioni delle query, Microsoft non pubblica i numeri query al secondo previsti. Le stime query al secondo devono essere sviluppate in modo indipendente da ogni cliente usando i costrutti del livello di servizio, della configurazione, dell'indice e della query validi per l'applicazione. Le dimensioni e la complessità dell'indice, le dimensioni e la complessità della query e la quantità di traffico sono i fattori principali in base ai quali è possibile determinare il numero di query al secondo. Non è possibile fornire stime significative se questi fattori sono sconosciuti.
+
+Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca cognitiva di Azure](search-performance-optimization.md).
+
+Per i livelli Ottimizzato per l'archiviazione (L1 e L2), sono previste una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli Standard.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver acquisito familiarità con le modalità di costruzione di una richiesta di query, provare le guide introduttive seguenti per un'esperienza pratica.
+Ora che si è in grado di comprendere meglio il funzionamento delle richieste di query, provare le guide introduttive seguenti per un'esperienza pratica.
 
 + [Esplora ricerche](search-explorer.md)
 + [Come eseguire query in REST](search-get-started-rest.md)

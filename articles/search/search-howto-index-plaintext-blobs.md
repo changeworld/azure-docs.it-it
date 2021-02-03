@@ -8,25 +8,25 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 422346430e32ccb8745d5a5d829c5d61089a99c6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b8881d3fa7ade08da103c5af4b828a12e74cc355
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430429"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509453"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Come indicizzare i BLOB in testo normale in Azure ricerca cognitiva
 
-Quando si usa un [indicizzatore BLOB](search-howto-indexing-azure-blob-storage.md) per estrarre il testo ricercabile per la ricerca full-text, è possibile richiamare varie modalità di analisi per ottenere risultati di indicizzazione migliori. Per impostazione predefinita, l'indicizzatore analizza il contenuto del BLOB come singolo blocco di testo. Tuttavia, se tutti i BLOB contengono testo normale nella stessa codifica, è possibile migliorare significativamente le prestazioni di indicizzazione usando la `text` modalità di analisi.
+Quando si usa un [indicizzatore BLOB](search-howto-indexing-azure-blob-storage.md) per estrarre il testo BLOB ricercabile per la ricerca full-text, è possibile assegnare una modalità di analisi per ottenere risultati di indicizzazione migliori. Per impostazione predefinita, l'indicizzatore analizza il contenuto del BLOB come singolo blocco di testo. Tuttavia, se tutti i BLOB contengono testo normale nella stessa codifica, è possibile migliorare significativamente le prestazioni di indicizzazione usando la `text` modalità di analisi.
 
-Usare la modalità di `text` analisi quando:
+Le indicazioni per l'uso dell' `text` analisi includono:
 
 + Il tipo di file è. txt
 + I file sono di qualsiasi tipo, ma il contenuto stesso è un testo, ad esempio codice sorgente del programma, HTML, XML e così via. Per i file in un linguaggio di contrassegno, qualsiasi carattere di sintassi viene attraversato come testo statico.
 
-Ricordare che gli indicizzatori serializzano in JSON. Il contenuto dell'intero file di testo verrà indicizzato in un unico campo di grandi dimensioni come `"content": "<file-contents>"` . La nuova riga e le istruzioni return sono espresse come `\r\n\` .
+Ricordare che tutti gli indicizzatori serializzano in JSON. Per impostazione predefinita, il contenuto dell'intero file di testo verrà indicizzato all'interno di un campo di grandi dimensioni come `"content": "<file-contents>"` . Le nuove istruzioni di riga e di ritorno vengono incorporate nel campo del contenuto ed espresse come `\r\n\` .
 
-Se si desidera un risultato più granulare, prendere in considerazione le soluzioni seguenti:
+Se si desidera un risultato più granulare e se il tipo di file è compatibile, prendere in considerazione le soluzioni seguenti:
 
 + [`delimitedText`](search-howto-index-csv-blobs.md) modalità di analisi, se l'origine è CSV
 + [ `jsonArray` o `jsonLines` ](search-howto-index-json-blobs.md), se l'origine è JSON

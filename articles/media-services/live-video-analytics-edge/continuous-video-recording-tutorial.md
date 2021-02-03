@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione continua di video nel cloud e riproduzione 
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per registrare i video in modo continuo nel cloud ed eseguirne lo streaming di qualsiasi parte usando Servizi multimediali di Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 2db59b9c2b2893cad9a613257b4b7c1bafe3e333
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 898e7a07007d50d848f78c32b8763bf727e4cdcb
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491606"
+ms.locfileid: "99508287"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione continua di video nel cloud e riproduzione dal cloud
 
@@ -183,7 +183,7 @@ Quando si usa il modulo Analisi video live in IoT Edge per registrare il flusso 
 1. Passare a src/cloud-to-device-console-app/operations.json.
 1. Nel nodo **GraphTopologySet** modificare quanto segue:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json" `
 1. Quindi, nei nodi **GraphInstanceSet** e **GraphTopologyDelete** assicurarsi che il valore di **topologyName** corrisponda al valore della proprietà **name** nella topologia del grafo precedente:
 
     `"topologyName" : "CVRToAMSAsset"`  

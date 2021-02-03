@@ -63,5 +63,5 @@
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
     - name: Risolvere i problemi
       href: troubleshoot-guide.md
-    - name: Protocollo dell'attestazione VBS
+    - name: TPM e protocollo di attestazione VBS
       href: virtualization-based-security-protocol.md

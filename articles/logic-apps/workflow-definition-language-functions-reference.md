@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 01/13/2021
-ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234223"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507249"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -569,10 +569,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 Questo esempio aggiunge 10 giorni al timestamp specificato:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-E viene restituito questo risultato: `"2018-03-25T00:00:0000000Z"`
+E viene restituito questo risultato: `"2018-03-25T00:00:00.0000000Z"`
 
 *Esempio 2*
 
@@ -582,7 +582,7 @@ Questo esempio sottrae cinque giorni dal timestamp specificato:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-E viene restituito questo risultato: `"2018-03-10T00:00:0000000Z"`
+E viene restituito questo risultato: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -614,7 +614,7 @@ Questo esempio aggiunge 10 ore al timestamp specificato:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-E viene restituito questo risultato: `"2018-03-15T10:00:0000000Z"`
+Restituisce quindi il risultato seguente:' "2018-03-15T10:00:00.0000000 Z"
 
 *Esempio 2*
 
@@ -624,7 +624,7 @@ Questo esempio sottrae cinque ore dal timestamp specificato:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-E viene restituito questo risultato: `"2018-03-15T10:00:0000000Z"`
+E viene restituito questo risultato: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -2263,7 +2263,7 @@ guid('<format>')
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | string | [Identificatore di formato](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) singolo per il GUID restituito. Per impostazione predefinita, il formato è "D", ma è possibile usare "N", "D", "B", "P" o "X". |
+| <*format*> | No | string | [Identificatore di formato](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) singolo per il GUID restituito. Per impostazione predefinita, il formato è "D", ma è possibile usare "N", "D", "B", "P" o "X". |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -2761,7 +2761,7 @@ Se il valore della stringa o della sottostringa è vuoto, si verifica il comport
 
 * Se solo il valore della sottostringa è vuoto, la funzione restituisce la lunghezza della stringa meno 1.
 
-*Esempi*
+*esempi*
 
 In questo esempio viene trovato il valore di indice iniziale per l'ultima occorrenza della sottostringa della sottostringa `world` nella stringa `hello world hello world` . Il risultato restituito è `18` :
 
@@ -4011,7 +4011,7 @@ Questo esempio sottrae un giorno dal timestamp:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-E viene restituito questo risultato: `"2018-01-01T00:00:00:0000000Z"`
+E viene restituito questo risultato: `"2018-01-01T00:00:00.0000000Z"`
 
 *Esempio 2*
 
@@ -4063,7 +4063,7 @@ E vengono restituiti questi risultati:
 
 ### <a name="ticks"></a>ticks
 
-Restituisce il numero di tick, ovvero intervalli di 100 nanosecondi, a partire dal 1° gennaio, 0001 12:00:00 mezzanotte (o DateTime.Ticks in C#) fino al timestamp specificato. Per altre informazioni, vedere questo argomento: [Proprietà DateTime.Ticks (Sistema)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Restituisce il numero di tick, ovvero intervalli di 100 nanosecondi, a partire dal 1° gennaio, 0001 12:00:00 mezzanotte (o DateTime.Ticks in C#) fino al timestamp specificato. Per altre informazioni, vedere questo argomento: [Proprietà DateTime.Ticks (Sistema)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')

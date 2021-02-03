@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 735b1ce4391598d05a1bf0b4486503092f4de37d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840629"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509078"
 ---
 # <a name="the-dashboard"></a>Dashboard
 
@@ -28,7 +28,7 @@ Il dashboard consente di visualizzare rapidamente lo stato di sicurezza della re
 
 - Avvisi
 
-- I due misuratori al centro della pagina indicano i pacchetti al secondo (PPS) e gli avvisi non riconosciuti (UA). **PPS** è il numero di pacchetti riconosciuti dal sistema al secondo. **UA** è il numero di avvisi che non sono stati ancora riconosciuti.
+- I due indicatori al centro della pagina mostrano i pacchetti al secondo (PPS) e gli avvisi non riconosciuti (UA). **PPS** è il numero di pacchetti riconosciuti dal sistema al secondo. **UA** è il numero di avvisi che non sono stati ancora riconosciuti.
 
 - Elenco di avvisi non riconosciuti con la relativa descrizione.
 
@@ -78,28 +78,28 @@ Selezionare la freccia rivolta verso il basso nella parte inferiore di una casel
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/extended-alert-screen.png" alt-text="Informazioni sui dispositivi e sulla voce di avviso":::
 
-- Selezionare il dispositivo o **visualizzare i dispositivi** per visualizzare la mappa in modalità fisica. I dispositivi soggetti sono evidenziati.
+- Selezionare il dispositivo per visualizzare la mappa in modalità fisica. I dispositivi soggetti sono evidenziati.
+
+- Fare clic in un punto qualsiasi della casella di avviso per visualizzare ulteriori dettagli relativi all'avviso. Un popup viene visualizzato in modo simile a quello riportato di seguito
 
 - Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/excel-icon.png" alt-text="Excel"::: per esportare un file CSV sull'avviso.
 
 - Solo amministratori e analisti della sicurezza: selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="conferma tutti"::: per **confermare tutti gli** avvisi associati.
 
-- Selezionare la voce di avviso per visualizzare il tipo e la descrizione dell'avviso:
-
 - Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pdf-icon.png" alt-text="PDF":::per scaricare un report degli avvisi come file PDF.
 
-- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Aggiungi":::per aggiungere o Rimuovi l'avviso.
+- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Aggiungi":::per aggiungere o Rimuovi l'avviso. Se si seleziona il PIN, questo verrà aggiunto alla finestra **avvisi bloccati** nella schermata **avvisi** .
 
-- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="download"::: per esaminare l'avviso scaricando il file pcap contenente un'analisi del protocollo di rete.
+- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="download"::: per esaminare l'avviso scaricando il file PCAP correlato contenente un'analisi del protocollo di rete.
 
-- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="cloud"::: per scaricare un file PCAP filtrato contenente solo i pacchetti rilevanti per gli avvisi, riducendo così le dimensioni del file di output e consentendo un'analisi più mirata. È possibile visualizzarlo usando [Wireshark](https://www.wireshark.org/).
+- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="cloud"::: per scaricare un file PCAP filtrato correlato contenente solo i pacchetti rilevanti per gli avvisi, riducendo così le dimensioni del file di output e consentendo un'analisi più mirata. È possibile visualizzarlo usando [Wireshark](https://www.wireshark.org/).
 
-- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="navigazione"::: per passare alla sequenza temporale dell'evento al momento dell'avviso richiesto.
+- Selezionare :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="navigazione"::: per passare alla sequenza temporale dell'evento al momento dell'avviso richiesto. In questo modo è possibile valutare altri eventi che potrebbero verificarsi intorno all'avviso specifico.
 
 - Solo amministratori e analisti di sicurezza: modificare lo stato dell'avviso da non riconosciuto a riconosciuto. Selezionare Learn per approvare l'attività rilevata.
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="È stata rilevata una connettività Internet non autorizzata":::
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Usare gli avvisi sul sensore](how-to-work-with-alerts-on-your-sensor.md)

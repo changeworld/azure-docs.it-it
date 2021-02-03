@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 02/02/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498983"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509402"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure con JavaScript SDK
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Per iniziare, aprire VS Code e il relativo [terminale integrato](https://code.vi
     npm install @azure/search-documents
     ```
 
-4. Installare `dotenv`, che viene usato per importare le variabili di ambiente, come il nome del servizio e la chiave API.
+4. Installare `dotenv` , che viene usato per importare le variabili di ambiente, ad esempio il nome del servizio e la chiave API.
     ```cmd
     npm install dotenv
     ```
@@ -169,7 +169,7 @@ A questo punto è possibile creare un indice.
 
 ## <a name="1---create-index"></a>1 - Creare l'indice 
 
-Creare un file **hotels_quickstart_index.json**.  Questo file definisce il funzionamento di Ricerca cognitiva di Azure con i documenti che verranno caricati nel passaggio successivo. Ogni campo verrà identificato da un elemento `name` e avrà un elemento `type` specifico. Ogni campo dispone anche di una serie di attributi di indice che specificano se Ricerca cognitiva di Azure può eseguire ricerche, applicare filtri, eseguire l'ordinamento e applicare facet nel campo. Quasi tutti i campi sono tipi di dati semplici, ma alcuni come `AddressType` sono tipi complessi che consentono di creare strutture di dati avanzate nell'indice.  È possibile leggere altre informazioni sui [tipi di dati supportati](/rest/api/searchservice/supported-data-types) e sugli [attributi degli indici](./search-what-is-an-index.md#index-attributes). 
+Creare un file **hotels_quickstart_index.json**.  Questo file definisce il funzionamento di Ricerca cognitiva di Azure con i documenti che verranno caricati nel passaggio successivo. Ogni campo verrà identificato da un elemento `name` e avrà un elemento `type` specifico. Ogni campo dispone anche di una serie di attributi di indice che specificano se Ricerca cognitiva di Azure può eseguire ricerche, applicare filtri, eseguire l'ordinamento e applicare facet nel campo. Quasi tutti i campi sono tipi di dati semplici, ma alcuni come `AddressType` sono tipi complessi che consentono di creare strutture di dati avanzate nell'indice.  Altre informazioni sui tipi di [dati supportati](/rest/api/searchservice/supported-data-types) e sugli attributi di indice descritti in [create index (REST)](/rest/api/searchservice/create-index). 
 
 Aggiungere il codice seguente a **hotels_quickstart_index.json** oppure [scaricare il file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 
@@ -599,7 +599,7 @@ Eseguire il programma con `node index.js`. A questo punto, in aggiunta ai passag
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. Le risorse che rimangono in esecuzione hanno un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
 Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cb984ca1a74d8b3838b857f2f5679264d1445187
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621929"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508609"
 ---
 # <a name="basic-concepts"></a>Concetti fondamentali 
 
@@ -20,9 +20,9 @@ Questo articolo descrive i vantaggi principali di Azure Defender per l'it.
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>Distribuzione rapida non invasiva e monitoraggio passivo
 
-Il Defender per i sensori Internet si connette a una porta di intervallo o a un TAP di rete e inizia immediatamente a raccogliere il traffico di rete ICS tramite il monitoraggio passivo (senza agenti) L'ispezione Deep Packet (DPI) viene usata per dissezionare il traffico da apparecchiature di rete di controllo seriale e Ethernet. Defender for Internet ha un effetto zero sulle reti OT perché non è inserito nel percorso dei dati e non esegue l'analisi attiva dei dispositivi OT. 
+Defender per i sensori di Internet delle cose si connette alle porte dell'intervallo di commutazione (mirror) e ai rubinetti di rete e inizia immediatamente a raccogliere il traffico di rete ICS tramite il monitoraggio passivo (senza agenti) L'ispezione Deep Packet (DPI) viene usata per dissezionare il traffico da apparecchiature di rete di controllo seriale e Ethernet. Defender for Internet ha un effetto zero sulle reti OT perché non è inserito nel percorso dei dati e non esegue l'analisi attiva dei dispositivi OT. 
 
-Per fornire snapshot istantanei delle informazioni dettagliate sui dispositivi, Defender per il sensore Internet integra il monitoraggio passivo con un componente attivo facoltativo. Questo componente usa i comandi sicuri e approvati dal fornitore per eseguire query sui dispositivi Windows e controller per i dettagli del dispositivo, come spesso o con una frequenza minore.
+Per fornire snapshot istantanei delle informazioni dettagliate sui dispositivi Windows, è possibile configurare Defender per il sensore Internet per integrare il monitoraggio passivo con un componente attivo facoltativo. Questo componente usa i comandi sicuri e approvati dal fornitore per eseguire query sui dispositivi Windows per i dettagli del dispositivo, come spesso o con una frequenza minore.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Conoscenza incorporata di protocolli, dispositivi e applicazioni ICS
 
@@ -73,7 +73,7 @@ Defender per le cose offre una visualizzazione consolidata di tutti i dispositiv
 
 Defender per le cose consente la gestione efficace di più distribuzioni e una visualizzazione unificata completa della rete. Defender for Internet viene ottimizzato per la gestione degli avvisi e il controllo della sicurezza della rete operativa.
 
-La console di gestione locale è una piattaforma di amministrazione basata sul Web che consente di monitorare e controllare le attività delle installazioni dei sensori globali. Oltre a gestire i dati ricevuti dai sensori distribuiti, la console di gestione locale integra facilmente i dati da un'ampia gamma di risorse aziendali: CMDBs, DNS, firewall, API Web e molto altro.
+La console di gestione locale è una piattaforma di amministrazione basata sul Web che consente di monitorare e controllare le attività delle installazioni dei sensori globali. Oltre a gestire i dati ricevuti dai sensori distribuiti, la console di gestione locale integra facilmente i dati di diverse risorse aziendali: CMDBs, DNS, firewall, API Web e altro ancora.
 
 :::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="Visualizzazione della console di gestione locale.":::
 
@@ -97,7 +97,7 @@ Le integrazioni riducono la complessità ed eliminano i silo e i silo integrando
 
 ## <a name="complete-protocol-support"></a>Supporto completo del protocollo
 
-Oltre al supporto per i protocolli incorporati, è possibile proteggere i dispositivi Internet e i dispositivi ICS che eseguono protocolli proprietari e personalizzati oppure protocolli che deviano da qualsiasi standard. Utilizzando l'SDK dell'ambiente di sviluppo open Horizon (ODE), gli sviluppatori possono creare plug-in di dissettore che decodificano il traffico di rete in base a protocolli definiti. I servizi analizzano il traffico per offrire monitoraggio completo, avvisi e report. USA orizzonte per:
+Oltre al supporto per i protocolli incorporati, è possibile proteggere i dispositivi Internet e i dispositivi ICS che eseguono protocolli proprietari e personalizzati oppure protocolli che deviano da qualsiasi standard. Utilizzando l'SDK dell'ambiente di sviluppo open Horizon (ODE), gli sviluppatori possono creare plug-in di dissettore che decodificano il traffico di rete in base a protocolli definiti. Services analizza il traffico per offrire monitoraggio completo, avvisi e report. USA orizzonte per:
 
 - Espandi visibilità e controllo senza la necessità di eseguire l'aggiornamento a nuove versioni.
 

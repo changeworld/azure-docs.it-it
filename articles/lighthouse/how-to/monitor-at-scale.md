@@ -1,14 +1,14 @@
 ---
 title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
-ms.date: 01/07/2021
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: b214f63fba9a5d13aac0f4bf86ce0810f16f0c9c
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131152"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509470"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
@@ -49,7 +49,7 @@ Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro
 
 È possibile visualizzare gli [avvisi](../../azure-monitor/platform/alerts-overview.md) per le sottoscrizioni delegate nei tenant dei clienti gestiti dall'utente.
 
-PER aggiornare automaticamente gli avvisi tra più clienti, usare una query di [Azure Resource Graph](../../governance/resource-graph/overview.md) per filtrare gli avvisi. È possibile aggiungere la query al dashboard e selezionare tutti i clienti e le sottoscrizioni appropriati.
+Per aggiornare automaticamente gli avvisi tra più clienti, usare una query di [Azure Resource Graph](../../governance/resource-graph/overview.md) per filtrare gli avvisi. È possibile aggiungere la query al dashboard e selezionare tutti i clienti e le sottoscrizioni appropriati.
 
 Nella query di esempio seguente vengono visualizzati gli avvisi di gravità 0 e 1, con aggiornamento ogni 60 minuti.
 

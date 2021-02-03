@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 81ae46a7b6c19557eeadd2d5b28ad2fa46e77115
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28ec6659430cfdbc81533f05863ccb0ddc560e32
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881368"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508033"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introduzione ad Azure Defender per SQL
 
@@ -72,7 +72,6 @@ Gli avvisi includono i dettagli dell'evento imprevisto che li ha attivati e racc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state fornite informazioni su Azure Defender per SQL.
+In questo articolo sono state fornite informazioni su Azure Defender per SQL. Per usare i servizi che sono stati descritti:
 
-> [!div class="nextstepaction"]
-> [Analizzare i server SQL con Azure Defender per rilevare vulnerabilità](defender-for-sql-usage.md)
+- Usare Azure Defender per SQL Server nei computer per [analizzare le vulnerabilità di SQL Server](defender-for-sql-usage.md)

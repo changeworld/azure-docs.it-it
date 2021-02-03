@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ade5880a6b06f448df23eb77d81201a521f1d240
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430046"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509385"
 ---
-# <a name="create-a-search-indexer"></a>Creare un indicizzatore di ricerca
+# <a name="creating-indexers-in-azure-cognitive-search"></a>Creazione di indicizzatori in Azure ricerca cognitiva
 
 Un indicizzatore di ricerca fornisce un flusso di lavoro automatizzato per il trasferimento di documenti e contenuto da un'origine dati esterna a un indice di ricerca nel servizio di ricerca. Come originariamente progettato, estrae testo e metadati da un'origine dati di Azure, serializza i documenti in JSON e passa i documenti risultanti a un motore di ricerca per l'indicizzazione. Poiché è stato esteso per supportare l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) per l'elaborazione approfondita di contenuti. 
 
@@ -99,7 +99,7 @@ Lo screenshot seguente mostra dove è possibile trovare queste funzionalità nel
 
 ### <a name="use-a-rest-client"></a>Usare un client REST
 
-Sia l'utente che la Visual Studio Code (con estensione per Azure ricerca cognitiva) possono fungere da client di indicizzatore. Utilizzando uno degli strumenti, è possibile connettersi al servizio di ricerca e inviare richieste per la creazione di indicizzatori e altri oggetti. Sono disponibili numerose esercitazioni ed esempi che illustrano i client REST per la creazione di oggetti. 
+Sia l'utente che la Visual Studio Code (con estensione per Azure ricerca cognitiva) possono fungere da client di indicizzatore. Utilizzando uno degli strumenti, è possibile connettersi al servizio di ricerca e inviare richieste di [creazione indicizzatore (REST)](/rest/api/searchservice/create-indexer) . Sono disponibili numerose esercitazioni ed esempi che illustrano i client REST per la creazione di oggetti. 
 
 Per informazioni su ogni client, iniziare con uno di questi articoli:
 
@@ -110,7 +110,7 @@ Per informazioni sulla formulazione di richieste di indicizzatore, vedere [opera
 
 ### <a name="use-an-sdk"></a>Usare un SDK
 
-Per ricerca cognitiva, gli SDK di Azure implementano le funzionalità disponibili a livello generale. Di conseguenza, è possibile usare uno qualsiasi degli SDK per creare oggetti correlati all'indicizzatore. Tutti implementano un **SearchIndexerClient** che fornisce metodi per la creazione di indicizzatori e di oggetti correlati, incluso skillsets.
+Per ricerca cognitiva, gli SDK di Azure implementano le funzionalità disponibili a livello generale. Di conseguenza, è possibile usare uno qualsiasi degli SDK per creare oggetti correlati all'indicizzatore. Tutti forniscono un **SearchIndexerClient** che dispone di metodi per la creazione di indicizzatori e di oggetti correlati, incluso skillsets.
 
 | Azure SDK | Client | Esempio |
 |-----------|--------|----------|

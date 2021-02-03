@@ -1,5 +1,5 @@
 ---
-title: Rilevare le attività dei sensori
+title: Rilevare l'attività dei sensori
 description: La sequenza temporale dell'evento presenta una cronologia delle attività rilevate sulla rete, inclusi avvisi e azioni di gestione degli avvisi, eventi di rete e operazioni dell'utente, ad esempio l'accesso utente e l'eliminazione dell'utente.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3895e01b1fbfcde79ff91bd1eade8d902c33b852
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840720"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509100"
 ---
-# <a name="track-sensor-activity"></a>Rilevare le attività dei sensori
+# <a name="track-sensor-activity"></a>Rilevare l'attività dei sensori
 
 ## <a name="event-timeline"></a>Sequenza temporale eventi
 
@@ -59,13 +59,13 @@ Per filtrare la sequenza temporale:
 
 2. Impostare i filtri per gli eventi, come indicato di seguito:
 
-   - **Includi indirizzo**: Visualizza dispositivi specifici per gli eventi.
+   - **Includi indirizzo**: Visualizza gli eventi per dispositivi specifici.
 
-   - **Escludi indirizzo**: Nascondi dispositivi specifici per gli eventi.
+   - **Escludi indirizzo**: Nascondi gli eventi per dispositivi specifici.
 
    - **Includi tipi di evento**: Visualizza tipi di eventi specifici.
 
-   - **Escludi tipi di evento**: Nascondi tipi di evento specifici.
+   - **Escludi tipi di eventi**: Nascondi tipi di eventi specifici.
 
    - **Gruppo di dispositivi**: selezionare un gruppo di dispositivi, così come è stato definito nella mappa del dispositivo. Vengono presentati solo gli eventi del gruppo.
 
@@ -87,8 +87,8 @@ Per filtrare la sequenza temporale:
 
     - Selezionare il **file PCAP** per scaricare il file PCAP (se esistente) che contiene un'acquisizione di pacchetti dell'intera rete in un momento specifico. 
     
-      Il file PCAP contiene informazioni tecniche che consentono ai tecnici di determinare esattamente dove si trovava l'evento e cosa sta accadendo. È possibile analizzare il file PCAP con un analizzatore del protocollo di rete, ad esempio Wireshark, un'applicazione gratuita.
+      Il file PCAP contiene informazioni tecniche che consentono ai tecnici di rete di determinare i parametri esatti dell'evento. È possibile analizzare il file PCAP con un analizzatore del protocollo di rete, ad esempio Wireshark, un'applicazione open source.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Visualizzare gli avvisi](how-to-view-alerts.md)

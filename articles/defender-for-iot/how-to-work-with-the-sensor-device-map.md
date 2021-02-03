@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976759"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509049"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Esaminare i rilevamenti dei sensori nella mappa del dispositivo
 
@@ -63,7 +63,7 @@ Nella figura seguente è illustrata una subnet IT compressa con 27 elementi di r
 
 Per abilitare la funzionalità di compressione delle reti IT:
 
-- Nella finestra delle impostazioni di sistema verificare che la funzionalità reti IT sia abilitata.
+- Nella finestra **Impostazioni sistema** verificare che la funzionalità di raggruppamento attiva/Nascondi reti IT sia abilitata.
 
 :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="Finestra Impostazioni sistema":::
 
@@ -76,7 +76,7 @@ Per espandere una subnet IT:
 
    :::image type="content" source="media/how-to-work-with-maps/subnet-list.png" alt-text="Configurazione delle subnet":::
 
-2. Nella finestra di configurazione modifica subnet deselezionare la subnet ICS per ogni subnet che si vuole definire come subnet IT. Le subnet IT appaiono compresse nella mappa dei dispositivi con le notifiche per i dispositivi ICS, ad esempio un controller o un PLC, nelle reti IT.
+2. Nella finestra di **configurazione modifica subnet** deselezionare la casella di controllo **subnet ICS** per ogni subnet che si desidera definire come subnet it. Le subnet IT appaiono compresse nella mappa dei dispositivi con le notifiche per i dispositivi ICS, ad esempio un controller o un PLC, nelle reti IT.
 
    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Modificare la configurazione delle subnet":::
 
@@ -86,7 +86,7 @@ Per espandere una subnet IT:
 
 4. Viene visualizzata una finestra di conferma che informa che non è possibile ripetere la modifica del layout.
 
-5. Seleziona **OK**. Gli elementi della subnet IT vengono visualizzati sulla mappa.
+5. Selezionare **OK**. Gli elementi della subnet IT vengono visualizzati sulla mappa.
 
    :::image type="content" source="media/how-to-work-with-maps/fixed-map.png" alt-text="OK":::
 
@@ -106,13 +106,13 @@ L'icona Comprimi viene aggiornata con il numero aggiornato di subnet IT espanse.
 
 ## <a name="view-or-highlight-device-groups"></a>Visualizzare o evidenziare i gruppi di dispositivi
 
-È possibile personalizzare la visualizzazione della mappa in base ai gruppi di dispositivi. Ad esempio, gruppi di dispositivi associati a una VLAN o una subnet specifica. Sono disponibili gruppi predefiniti e è possibile creare gruppi personalizzati.
+È possibile personalizzare la visualizzazione della mappa in base ai gruppi di dispositivi. Ad esempio, gruppi di dispositivi associati a un protocollo OT, una VLAN o una subnet specifica. Sono disponibili gruppi predefiniti e è possibile creare gruppi personalizzati.
 
 Visualizza gruppi per:
 
   - **Evidenziazione:** Evidenziare i dispositivi che appartengono a un gruppo specifico in blu.
 
-  - **Filtro:** Consente di visualizzare solo i dispositivi della mappa che appartengono a un gruppo specifico.
+  - **Filtro:** Visualizza solo i dispositivi che appartengono a un gruppo specifico.
 
 :::image type="content" source="media/how-to-work-with-maps/port-standard.png" alt-text="Visualizzazione standard della porta":::
 
@@ -120,17 +120,18 @@ Sono disponibili i gruppi predefiniti seguenti:
 
 | Nome gruppo | Descrizione |
 |--|--|
-| **Applicazioni note o porte non standard (impostazione predefinita)** | Dispositivi che utilizzano porte riservate, ad esempio TCP. Dispositivi che utilizzano porte o porte non standard a cui non è stato assegnato un alias. |
-| **Protocolli OT (impostazione predefinita)** | Dispositivi che gestiscono il traffico OT. |
-| **Authorization (impostazione predefinita)** | Dispositivi individuati in rete durante il processo di apprendimento o aggiunti ufficialmente alla rete |
+| **Applicazioni note** | Dispositivi che utilizzano porte riservate, ad esempio TCP.  |
+| **porte non standard (impostazione predefinita)** | Dispositivi che utilizzano porte o porte non standard a cui non è stato assegnato un alias. |
+| **Protocolli OT (impostazione predefinita)** | Dispositivi che gestiscono il traffico OT noto. |
+| **Authorization (impostazione predefinita)** | Dispositivi che sono stati individuati nella rete durante il processo di apprendimento o sono stati ufficialmente autorizzati in rete. |
 | **Filtri inventario dispositivi** | Dispositivi raggruppati in base ai filtri salvati nella tabella inventario dispositivo. |
 | **Intervalli di polling** | Dispositivi raggruppati in base a intervalli di polling. Gli intervalli di polling vengono generati automaticamente in base a canali ciclici o punti. Ad esempio, 15,0 secondi, 3,0 secondi, 1,5 secondi o qualsiasi intervallo. La revisione di queste informazioni consente di apprendere se i sistemi eseguono il polling troppo rapidamente o lentamente. |
-| **Programmazione** | Stazioni di progettazione e controller programmati |
+| **Programmazione** | Stazioni di progettazione e computer di programmazione. |
 | **Subnet** | Dispositivi che appartengono a una subnet specifica. |
 | **VLAN** | Dispositivi associati a un ID VLAN specifico. |
-| **Connessione tra subnet** | Dispositivi associati a una connessione tra subnet. |
+| **Connessioni tra subnet** | Dispositivi che comunicano da una subnet a un'altra subnet. |
 | **Avvisi bloccati** | Dispositivi per i quali l'utente ha aggiunto un avviso. |
-| **Simulazioni di vettori di attacco** | Dispositivi vulnerabili rilevati nei report vettoriali di attacco. Per visualizzare questi dispositivi sulla mappa, selezionare la casella di controllo **Visualizza nella mappa del dispositivo** durante la generazione del vettore di attacco. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Aggiungere simulazioni vettori di attacco"::: |
+| **Simulazioni di vettori di attacco** | Dispositivi vulnerabili rilevati nei report vettoriali di attacco. Per visualizzare questi dispositivi sulla mappa, selezionare la casella di controllo **Visualizza nella mappa del dispositivo** durante la generazione del vettore di attacco. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Aggiungere simulazioni vettoriali di attacco":::. |
 | **Ultima visualizzazione** | Dispositivi raggruppati in base all'intervallo di tempo in cui sono stati visualizzati, ad esempio: un'ora, sei ore, un giorno, sette giorni. |
 | **Non in Active Directory** | Tutti i dispositivi non PLC che non comunicano con il Active Directory. |
 
@@ -142,7 +143,7 @@ Per evidenziare o filtrare i dispositivi:
 
 3. Dal riquadro gruppi selezionare il gruppo che si desidera evidenziare o filtrare i dispositivi.
 
-4. Selezionare **evidenzia** o **Filtra**.
+4. Selezionare **evidenzia** o **Filtra**. Consente di impostare la stessa selezione per rimuovere l'evidenziazione o il filtro.
 
 ## <a name="define-custom-groups"></a>Definire gruppi personalizzati
 
@@ -155,20 +156,20 @@ Per creare un gruppo:
 
 1. Selezionare **dispositivi** dal menu laterale. Viene visualizzata la mappa del dispositivo.
 
-2. Selezionare :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="impostazione gruppo"::: per visualizzare le impostazioni dei gruppi.
+1. Selezionare :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="impostazione gruppo"::: per visualizzare le impostazioni dei gruppi.
 
-3. Selezionare :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="gruppi"::: per creare un nuovo gruppo personalizzato.
+1. Selezionare :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="gruppi"::: per creare un nuovo gruppo personalizzato.
 
 :::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Creare una schermata di gruppo personalizzata":::
 
-4. Aggiungere il nome del gruppo, usare un massimo di 30 caratteri.
+1. Aggiungere il nome del gruppo, usare un massimo di 30 caratteri.
 
-5. Selezionare i dispositivi pertinenti, come indicato di seguito:
+1. Selezionare i dispositivi pertinenti, come indicato di seguito:
 
    - Aggiungere i dispositivi da questo menu selezionandola dall'elenco (selezionare il pulsante freccia),<br /> Oppure <br /> 
    - Aggiungere i dispositivi da questo menu copiando tali dispositivi da un gruppo selezionato (selezionare il pulsante freccia)
 
-6. Selezionare **Aggiungi gruppi**.
+1. Selezionare **Aggiungi gruppo** per aggiungere gruppi esistenti a gruppi personalizzati.
 
 ### <a name="add-devices-to-a-custom-group"></a>Aggiungere dispositivi a un gruppo personalizzato
 
@@ -176,13 +177,13 @@ Per creare un gruppo:
 
 1. Fare clic con il pulsante destro del mouse su uno o più dispositivi sulla mappa.
 
-2. Selezionare **Aggiungi al gruppo**.
+1. Selezionare **Aggiungi al gruppo**.
 
-3. Immettere un nome di gruppo nel campo gruppo e selezionare +. Viene visualizzato il nuovo gruppo. Se il gruppo esiste già, verrà aggiunto al gruppo personalizzato esistente.
+1. Immettere un nome di gruppo nel campo gruppo e selezionare +. Viene visualizzato il nuovo gruppo. Se il gruppo esiste già, verrà aggiunto al gruppo personalizzato esistente.
 
    :::image type="content" source="media/how-to-work-with-maps/groups-section-v2.png" alt-text="Nome gruppo":::
 
-4. Aggiungere i dispositivi a un gruppo ripetendo i passaggi 1-3.
+1. Aggiungere i dispositivi a un gruppo ripetendo i passaggi 1-3.
 
 ## <a name="map-zoom-views"></a>Viste Zoom mappa
 
@@ -319,12 +320,12 @@ Le informazioni seguenti possono essere aggiornate manualmente. Le informazioni 
 | Basic Information | Informazioni di base necessarie. |
 | Nome | Nome del dispositivo. <br /> Per impostazione predefinita, il sensore individua il nome del dispositivo come definito nella rete. Ad esempio, un nome definito nel server DNS. <br /> Se non è stato definito alcun nome di questo tipo, l'indirizzo IP del dispositivo viene visualizzato in questo campo. <br /> È possibile modificare manualmente il nome di un dispositivo. Assegnare ai dispositivi nomi significativi che riflettono le proprie funzionalità. |
 | Tipo | Il tipo di dispositivo rilevato dal sensore. <br /> Per altre informazioni, vedere [visualizzare i tipi di dispositivi](#view-device-types). |
-| Vendor | Fornitore del dispositivo. |
-| Sistema operativo | Sistema operativo del dispositivo. |
+| Vendor | Fornitore del dispositivo. Questa operazione è determinata dai caratteri iniziali dell'indirizzo MAC del dispositivo. Questo campo è di sola lettura. |
+| Sistema operativo | Sistema operativo del dispositivo rilevato dal sensore. |
 | Livello Purdue | Il livello Purdue identificato dal sensore per questo dispositivo, tra cui: <br /> -Automatico <br /> -Controllo processo <br /> -Supervisione <br /> - Enterprise |
 | Descrizione | Un campo di testo libero. <br /> Aggiungere altre informazioni sul dispositivo. |
 | Attributi | Tutte le informazioni aggiuntive individuate sul dispositivo durante il periodo di apprendimento e non appartenenti ad altre categorie vengono visualizzate nella sezione attributi. <br /> Le informazioni sono RO. |
-| Impostazioni | È possibile modificare manualmente le impostazioni del dispositivo per evitare falsi positivi: <br /> - **Dispositivo autorizzato**: durante il periodo di apprendimento tutti i dispositivi individuati nella rete vengono identificati come dispositivi autorizzati. Quando un dispositivo viene individuato dopo il periodo di apprendimento, viene visualizzato come dispositivo non autorizzato per impostazione predefinita. Questa definizione può essere modificata manualmente. <br /> - **Noto come scanner**: abilitare questa opzione se si è certi che questo dispositivo è noto come scanner e non è necessario segnalarlo. <br /> - **Device Programming**: abilitare questa opzione se si è certi che questo dispositivo è noto come dispositivo di programmazione e non è necessario segnalarlo. |
+| Impostazioni | È possibile modificare manualmente le impostazioni del dispositivo per evitare falsi positivi: <br /> - **Dispositivo autorizzato**: durante il periodo di apprendimento tutti i dispositivi individuati nella rete vengono identificati come dispositivi autorizzati. Quando un dispositivo viene individuato dopo il periodo di apprendimento, viene visualizzato come dispositivo non autorizzato per impostazione predefinita. Questa definizione può essere modificata manualmente. <br /> - **Noto come scanner**: abilitare questa opzione se si è certi che questo dispositivo è noto come scanner e non è necessario segnalarlo. <br /> - **Device Programming**: abilitare questa opzione se si è certi che questo dispositivo è noto come dispositivo di programmazione e viene usato per apportare modifiche alla programmazione. L'identificazione come un dispositivo di programmazione impedirà agli avvisi di programmare modifiche provenienti da questo asset. |
 | Gruppi personalizzati | Gruppi personalizzati nella mappa del dispositivo a cui partecipa questo dispositivo. |
 | State | Sicurezza e stato di autorizzazione del dispositivo: <br /> -Lo stato è `Secured` quando non sono presenti avvisi <br /> -Quando sono presenti avvisi relativi al dispositivo, viene visualizzato il numero di avvisi <br /> -Lo stato `Unauthorized` viene visualizzato per i dispositivi aggiunti alla rete dopo il periodo di apprendimento. È possibile definire manualmente il dispositivo come `Authorized Device` nelle impostazioni <br /> -Se l'indirizzo del dispositivo è definito come indirizzo dinamico, `DHCP` viene aggiunto allo stato. |
 
@@ -369,7 +370,7 @@ Per visualizzare le informazioni sul dispositivo:
 
 2. Fare clic con il pulsante destro del mouse su un dispositivo e scegliere **Visualizza proprietà**. Viene visualizzata la Finestra Proprietà del dispositivo.
 
-3. Selezionare l'avviso richiesto nella parte inferiore della finestra per visualizzare informazioni dettagliate sugli avvisi relativi a questo dispositivo.
+3. Selezionare l'avviso richiesto per visualizzare informazioni dettagliate sugli avvisi per il dispositivo.
 
 ### <a name="backplane-properties"></a>Proprietà backplane
 
@@ -429,7 +430,7 @@ Migliorare le analisi forensi visualizzando gli eventi di programmazione eseguit
 
 È possibile visualizzare un dispositivo programmato e scorrere le varie modifiche di programmazione eseguite da altri dispositivi.
 
-Consente di visualizzare il codice aggiunto, modificato, rimosso o non modificato dal dispositivo di programmazione. Cercare le modifiche di programmazione in base a tipi di file, date o orari di interesse.
+Consente di visualizzare il codice aggiunto, modificato, rimosso o ricaricato dal dispositivo di programmazione. Cercare le modifiche di programmazione in base a tipi di file, date o orari di interesse.
 
 ### <a name="when-to-review-programming-activity"></a>Quando esaminare l'attività di programmazione 
 
@@ -443,7 +444,7 @@ Potrebbe essere necessario esaminare l'attività di programmazione:
 
 :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programmazione del log delle modifiche":::
 
-Opzioni aggiuntive consentono di:
+Altre opzioni consentono di:
 
   - Contrassegnare gli eventi di interesse con una stella.
 
@@ -476,7 +477,7 @@ Gli avvisi vengono attivati quando i dispositivi di programmazione non autorizza
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Avvisi di programmazione non autorizzati":::
 
 > [!NOTE]
-> È anche possibile visualizzare le informazioni di programmazione di base nel Finestra Proprietà del dispositivo e nell'inventario dei dispositivi. Vedere [informazioni sulla programmazione dei dispositivi: ulteriori percorsi](#device-programming-information-additional-locations) per i dettagli.
+> È anche possibile visualizzare le informazioni di programmazione di base nel Finestra Proprietà del dispositivo e nell'inventario dei dispositivi.
 
 ### <a name="working-in-the-programming-timeline-window"></a>Uso della finestra sequenza temporale di programmazione
 
@@ -539,7 +540,7 @@ Per confrontare:
 
 5. Il file selezionato dal riquadro eventi/file recenti viene sempre visualizzato a destra.
 
-### <a name="device-programming-information-additional-locations"></a>Informazioni sulla programmazione dei dispositivi: posizioni aggiuntive
+### <a name="device-programming-information-other-locations"></a>Informazioni sulla programmazione del dispositivo: altre località
 
 Oltre a esaminare i dettagli nella sequenza temporale di programmazione, è possibile accedere alle informazioni di programmazione nel Finestra Proprietà del dispositivo e nell'inventario dei dispositivi.
 
@@ -556,7 +557,7 @@ Il sensore non aggiorna né influisca sui dispositivi direttamente nella rete. L
 
 Potrebbe essere necessario eliminare un dispositivo se le informazioni apprese non sono rilevanti. Ad esempio,
 
-  - Un appaltatore partner presso una workstation di progettazione si connette per eseguire gli aggiornamenti della configurazione. Al termine dell'attività, il dispositivo non dovrebbe più essere monitorato.
+  - Un appaltatore partner presso una workstation di progettazione si connette temporaneamente per eseguire gli aggiornamenti della configurazione. Al termine dell'attività, il dispositivo viene rimosso.
 
   - A causa delle modifiche apportate alla rete, alcuni dispositivi non sono più connessi.
 
@@ -566,7 +567,7 @@ Se non si elimina il dispositivo, il sensore continuerà a monitorarlo. Dopo 60 
 
 Il dispositivo verrà rimosso dai report mapping dispositivi, inventario dispositivi e data mining. Altre informazioni, ad esempio, le informazioni archiviate nei widget verranno mantenute.
 
-Il dispositivo deve essere attivo per almeno 10 minuti per eliminarlo.
+Il dispositivo deve essere inattivo per almeno 10 minuti per eliminarlo.
 
 Per eliminare un dispositivo dalla mappa del dispositivo:
 
@@ -576,15 +577,17 @@ Per eliminare un dispositivo dalla mappa del dispositivo:
 
 ### <a name="merge-devices"></a>Unisci dispositivi
 
-In alcuni casi, potrebbe essere necessario unire i dispositivi. Questa operazione può essere necessaria se il sensore ha individuato entità di rete separate che sono un dispositivo univoco. Ad esempio,
+In alcuni casi, potrebbe essere necessario unire i dispositivi. Questa operazione può essere necessaria se il sensore ha individuato entità di rete separate associate a un dispositivo univoco. Ad esempio,
 
-  - Un PLC con quattro schede di rete
+  - Un PLC con quattro schede di rete.
 
-  - Un portatile con Wi-Fi e scheda fisica
+  - Un portatile con Wi-Fi e scheda fisica.
+  
+  - Una workstation con due o più schede di rete.
 
 Quando si esegue il merge, si indica al sensore di combinare le proprietà del dispositivo di due dispositivi in una sola. Quando si esegue questa operazione, i report del dispositivo Finestra Proprietà e del sensore verranno aggiornati con i dettagli della nuova proprietà del dispositivo.
 
-Se, ad esempio, si uniscono due dispositivi con un indirizzo IP, entrambi gli indirizzi IP verranno visualizzati come interfacce separate nel Finestra Proprietà del dispositivo. È possibile unire solo i dispositivi autorizzati.
+Se, ad esempio, si uniscono due dispositivi, ognuno con un indirizzo IP, entrambi gli indirizzi IP verranno visualizzati come interfacce separate nel Finestra Proprietà del dispositivo. È possibile unire solo i dispositivi autorizzati.
 
 :::image type="content" source="media/how-to-work-with-maps/device-properties-v2.png" alt-text="Finestra Proprietà del dispositivo":::
 
@@ -596,7 +599,7 @@ Non è possibile annullare l'Unione di un dispositivo. Se sono stati erroneament
 
 Per unire i dispositivi:
 
-1. Selezionare due dispositivi e fare clic con il pulsante destro del mouse su uno di essi.
+1. Selezionare due dispositivi (fare clic con il tasto MAIUSC), quindi fare clic con il pulsante destro del mouse su uno di essi.
 
 2. Selezionare **merge** per unire i dispositivi. L'operazione di merge può richiedere fino a 2 minuti.
 
@@ -622,7 +625,7 @@ Se si sposta un dispositivo sulla mappa o si modificano manualmente le propriet�
 
 #### <a name="unauthorized-devices---attack-vectors-and-risk-assessment-reports"></a>Dispositivi non autorizzati-vettori di attacco e report di valutazione dei rischi
 
-I dispositivi non autorizzati vengono calcolati inclusi nei report di valutazione dei rischi e nei vettori di attacco.
+I dispositivi non autorizzati sono inclusi nei report di valutazione dei rischi e nei report sui vettori di attacco.
 
 - **Report vettoriali di attacco:** I dispositivi contrassegnati come non autorizzati vengono risolti nel vettore di attacco come sospetti dispositivi non autorizzati che potrebbero costituire una minaccia per la rete.
 
@@ -706,6 +709,6 @@ Per esportare:
 
 1. Selezionare un'opzione di esportazione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Esaminare i rilevamenti dei sensori nell'inventario dei dispositivi](how-to-investigate-sensor-detections-in-a-device-inventory.md)

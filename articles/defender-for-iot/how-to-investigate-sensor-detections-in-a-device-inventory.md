@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625432"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508863"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Esaminare i rilevamenti dei sensori in un inventario dei dispositivi
 
@@ -32,18 +32,18 @@ Gli attributi seguenti vengono visualizzati nella tabella inventario dispositivo
 
 | Parametro | Descrizione |
 |--|--|
-| Nome | Nome del dispositivo come rilevato dal sensore. |
-| Type | Tipo di dispositivo. |
+| Nome | Nome del dispositivo come sensore individuato o immesso dall'utente. |
+| Tipo | Tipo di dispositivo determinato dal sensore o immesso dall'utente. |
 | Vendor | Nome del fornitore del dispositivo, come definito nell'indirizzo MAC. |
-| Sistema operativo | Sistema operativo del dispositivo. |
-| Firmware | Il firmware del dispositivo. |
-| Indirizzo IP | Indirizzo IP del dispositivo. |
+| Sistema operativo | Sistema operativo del dispositivo, se rilevato. |
+| Versione del firmware | Il firmware del dispositivo, se rilevato. |
+| Indirizzo IP | Indirizzo IP del dispositivo in cui è definito. |
 | VLAN | VLAN del dispositivo. Per informazioni dettagliate su come indicare al sensore di individuare le VLAN, vedere [definire i nomi VLAN](how-to-manage-the-on-premises-management-console.md#define-vlan-names). (How-to-define-Management-Console-Network-Settings. MD # define-VLAN-names). |
 | Indirizzo MAC | Indirizzo MAC del dispositivo. |
 | Protocolli | Protocolli usati dal dispositivo. |
 | Avvisi non riconosciuti | Numero di avvisi non riconosciuti associati a questo dispositivo. |
 | Autorizzato | Stato di autorizzazione definito dall'utente:<br />- **True**: il dispositivo è stato autorizzato.<br />- **False**: il dispositivo non è stato autorizzato. |
-| È noto come scanner | Definito come dispositivo di analisi da parte dell'utente. |
+| È noto come scanner | Definito come dispositivo di analisi della rete da parte dell'utente. |
 | È un dispositivo di programmazione | Definito come un dispositivo di programmazione autorizzato dall'utente. <br />- **True**: il dispositivo esegue attività di programmazione per PLC, RTU e controller, rilevanti per le stazioni di progettazione. <br />- **False**: il dispositivo non è un dispositivo di programmazione. |
 | Gruppi | Gruppi a cui partecipa questo dispositivo. |
 | Ultima attività | Ultima attività eseguita dal dispositivo. |
@@ -111,7 +111,7 @@ Quando si passa alla visualizzazione mappa, i dispositivi filtrati vengono evide
 
 ## <a name="learn-windows-registry-details"></a>Informazioni sui dettagli del registro di sistema di Windows
 
-Oltre ad acquisire familiarità con i dispositivi, è possibile individuare i dispositivi IT, tra cui workstation e server Microsoft Windows. Questi dispositivi vengono visualizzati anche nell'inventario dei dispositivi. Dopo aver apprendere i dispositivi, è possibile arricchire l'inventario dei dispositivi con informazioni dettagliate su Windows, ad esempio:
+Oltre ad acquisire familiarità con i dispositivi, è possibile individuare le workstation e i server Microsoft Windows. Questi dispositivi vengono visualizzati anche nell'inventario dei dispositivi. Dopo aver apprendere i dispositivi, è possibile arricchire l'inventario dei dispositivi con informazioni dettagliate su Windows, ad esempio:
 
 - Versione di Windows installata
 
@@ -217,7 +217,7 @@ Per importare:
 
 ## <a name="export-device-inventory-information"></a>Esporta informazioni inventario dispositivo
 
-È possibile esportare le informazioni di inventario dei dispositivi in un file di Excel. Le informazioni importate sovrascrivono le informazioni correnti.
+È possibile esportare le informazioni di inventario dei dispositivi in un file di Excel.
 
 Per esportare un file CSV:
 

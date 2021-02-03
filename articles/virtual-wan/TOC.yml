@@ -4,6 +4,15 @@
   items:
     - name: Che cos'è una rete WAN virtuale?
       href: virtual-wan-about.md
+- name: Avvi rapidi
+  expanded: true
+  items:
+    - name: Modelli di Gestione risorse di Azure
+      expanded: true
+      items:
+        - name: Routing any-to-any
+          displayName: Resource Manager Any-to-any routing
+          href: quickstart-any-to-any-template.md
 - name: Esercitazioni
   expanded: true
   items:

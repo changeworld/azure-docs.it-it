@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: fde82dde7df3fa9756c145940178f35ed255ce37
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 93eb2ab4df77afd3c2a55a04db2d39591a46e726
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986548"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507786"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -48,6 +48,8 @@ Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 Per questo argomento di avvio rapido è consigliabile usare lo [script di configurazione delle risorse di Analisi video live](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) per distribuire le risorse necessarie nella sottoscrizione di Azure. A questo scopo, attenersi alla procedura seguente:
 
 1. Passare a [portale di Azure](https://portal.azure.com) e selezionare l'icona cloud Shell.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Se si usa Cloud Shell per la prima volta, verrà chiesto di selezionare una sottoscrizione, oltre che di creare un account di archiviazione e una condivisione di File di Microsoft Azure. Selezionare **Crea risorsa di archiviazione** per creare un account di archiviazione per le informazioni della sessione Cloud Shell. Questo account di archiviazione è distinto da quello che verrà creato dallo script per l'uso con l'account di Servizi multimediali di Azure.
 1. Nel menu a discesa sul lato sinistro della finestra di Cloud Shell selezionare **Bash** come ambiente.
 
@@ -76,10 +78,10 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
 Nell'output dello script una tabella di risorse include il nome dell'hub IoT. Cercare il tipo di risorsa **`Microsoft.Devices/IotHubs`** e prendere nota del nome. Servirà nel passaggio successivo.  
 
 > [!NOTE]
-> Lo script genera anche alcuni file di configurazione nella directory **_~/clouddrive/lva-sample/_* _. Questi file saranno necessari più avanti in questo argomento.
+> Lo script genera anche alcuni file di configurazione nella directory ***~/clouddrive/lva-sample/*** . Questi file saranno necessari più avanti in questo argomento.
 
 > [!TIP]
-> Se si verificano problemi con le risorse di Azure create, vedere la _ *[guida alla risoluzione dei problemi](troubleshoot-how-to.md#common-error-resolutions)* * più comuni rilevati.
+> Se si verificano problemi con le risorse di Azure create, vedere la **[guida alla risoluzione dei problemi](troubleshoot-how-to.md#common-error-resolutions)** più comuni rilevati.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Distribuire i moduli nel dispositivo perimetrale
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4803691a82a97cd2be5fa3beafd4419010e7a9c9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840680"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509071"
 ---
 # <a name="view-alerts"></a>Visualizzare gli avvisi
 
@@ -84,7 +84,7 @@ Quando nessuna delle opzioni è selezionata, vengono visualizzati tutti gli avvi
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Sicurezza nella schermata avvisi.":::
 
-## <a name="alert-window-options"></a>Opzioni della finestra di avviso
+## <a name="alert-page-options"></a>Opzioni pagina avviso
 
 I messaggi di avviso forniscono le seguenti azioni:
 
@@ -101,6 +101,8 @@ I messaggi di avviso forniscono le seguenti azioni:
 - Selezionare :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: per apprendere e riconoscere tutti gli avvisi.
 
 - Selezionare :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: questa opzione per esportare l'elenco degli avvisi in un file CSV e selezionare l'opzione Esporta. Scegliere **Esporta avvisi** per l'opzione normale da esportare a CSV. In alternativa, scegliere **Esporta avvisi estesi** per poter aggiungere righe separate per ulteriori informazioni su un avviso nel file CSV.
+
+## <a name="alert-pop-up-window-options"></a>Opzioni finestra popup avviso
 
 - Selezionare l' :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: icona per scaricare un report degli avvisi come file PDF.
 
@@ -120,6 +122,6 @@ I messaggi di avviso forniscono le seguenti azioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Gestire l'evento di avviso](how-to-manage-the-alert-event.md)
+[Gestire gli eventi degli avvisi](how-to-manage-the-alert-event.md)
 
 [Accelerare i flussi di lavoro degli avvisi](how-to-accelerate-alert-incident-response.md)

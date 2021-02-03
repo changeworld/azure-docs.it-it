@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56751adedfc01b3927acc65f47910c3b1281f09c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811675"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507571"
 ---
 # <a name="sensor-data-mining-queries"></a>Query data mining sensori
 
@@ -55,11 +55,11 @@ Le query di data mining create vengono aggiornate dinamicamente ogni volta che v
 
 È possibile usare le query per gestire un'ampia gamma di esigenze di sicurezza per i diversi team di sicurezza:
 
-- **Risposta agli eventi imprevisti SOC**: consente di generare un report in tempo reale per gestire la risposta immediata agli eventi imprevisti. Ad esempio, generare un report per un elenco di dispositivi che potrebbero richiedere l'applicazione di patch.
+- **Risposta agli eventi imprevisti SOC**: consente di generare un report in tempo reale per gestire la risposta immediata agli eventi imprevisti. Ad esempio, il data mining può generare un report per un elenco di dispositivi che potrebbero richiedere l'applicazione di patch.
 
 - **Forensics**: genera un report basato sui dati cronologici per i report investigativi.
 
-- **Integrità della rete it**: genera un report che consente di migliorare la sicurezza complessiva della rete. Ad esempio, generare un report che elenca i dispositivi con credenziali di autenticazione vulnerabili.
+- **Integrità della rete it**: genera un report che consente di migliorare la sicurezza complessiva della rete. Ad esempio, è possibile generare un report che elenca i dispositivi con credenziali di autenticazione vulnerabili.
 
 - **Visibilità**: genera un report che copre tutti gli elementi della query per visualizzare tutti i parametri di base della rete.
 

@@ -3,12 +3,12 @@ title: Monitoraggio e registrazione-Azure
 description: Questo articolo fornisce una panoramica del monitoraggio e della registrazione di analisi video in tempo reale su IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878105"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507820"
 ---
 # <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
@@ -254,14 +254,14 @@ Seguire questa procedura per abilitare la raccolta di metriche dall'analisi vide
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Assicurarsi di sostituire le variabili nel file con estensione toml. Le variabili sono identificate da parentesi graffe ( `{}` ).
 
-1. Nella stessa cartella creare un oggetto `.dockerfile` che contiene i comandi seguenti:
+1. Nella stessa cartella creare un Dockerfile che contenga i comandi seguenti:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -305,12 +305,27 @@ Seguire questa procedura per abilitare la raccolta di metriche dall'analisi vide
      `AZURE_CLIENT_SECRET`: Specifica il segreto dell'app da usare.  
      
      >[!TIP]
-     > È possibile assegnare all'entità servizio il ruolo **server di pubblicazione metriche di monitoraggio** .
+     > È possibile assegnare all'entità servizio il ruolo **server di pubblicazione metriche di monitoraggio** . Eseguire la procedura descritta in **[creare un'entità servizio](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** per creare l'entità servizio e assegnare il ruolo.
 
 1. Una volta distribuiti i moduli, le metriche verranno visualizzate in monitoraggio di Azure in un singolo spazio dei nomi. I nomi delle metriche corrisponderanno a quelli emessi da Prometheus. 
 
    In questo caso, nella portale di Azure passare all'hub Internet e selezionare **metriche** nel riquadro sinistro. Verranno visualizzate le metriche.
 
+Con Prometeo insieme a [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)è possibile generare e [monitorare le metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , ad esempio CPUPercent, MemoryUsedPercent e così via. Usando il linguaggio di query di Kusto, è possibile scrivere query come riportato di seguito e ottenere la percentuale di CPU usata dai moduli di Edge.
+```kusto
+let cpu_metrics = promMetrics_CL
+| where Name_s == "edgeAgent_used_cpu_percent"
+| extend dimensions = parse_json(Tags_s)
+| extend module_name = tostring(dimensions.module_name)
+| where module_name in ("lvaEdge","yolov3","tinyyolov3")
+| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+cpu_metrics
+| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+| extend module_name = "Total"
+| union cpu_metrics
+```
+
+[![Diagramma che mostra le metriche usando la query kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Registrazione
 
 Come per gli altri moduli IoT Edge, è anche possibile [esaminare i log del contenitore](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) nel dispositivo perimetrale. È possibile configurare le informazioni scritte nei log usando le proprietà [gemelle del modulo seguenti](module-twin-configuration-schema.md) :

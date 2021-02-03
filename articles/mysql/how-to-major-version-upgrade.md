@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: 62faaed3672f721b26587d1bca3ddb0947f733e7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220837"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509571"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Aggiornamento della versione principale nel server singolo database di Azure per MySQL
 
@@ -121,15 +121,7 @@ La GA di questa funzionalità è pianificata prima del ritiro di MySQL v 5.6. Tu
 
 ### <a name="will-this-cause-downtime-of-the-server-and-if-so-how-long"></a>Questa operazione causerà tempi di inattività del server e, in caso affermativo, per quanto tempo?
 
-Sì, il server non sarà disponibile durante il processo di aggiornamento, pertanto si consiglia di eseguire questa operazione durante la finestra di manutenzione pianificata. Il tempo di inattività stimato dipende dalla dimensione del database, dalle dimensioni di archiviazione di cui è stato effettuato il provisioning (IOPs con provisioning) e dal numero di tabelle nel database. Il tempo di aggiornamento è direttamente proporzionale al numero di tabelle nel server. Gli aggiornamenti dei server SKU Basic dovrebbero richiedere più tempo, perché si trova nella piattaforma di archiviazione standard. Per stimare il tempo di inattività per l'ambiente server, è consigliabile eseguire prima l'aggiornamento sulla copia ripristinata del server.  
-
-### <a name="it-is-noted-that-it-is-not-supported-on-replica-server-yet-what-does-that-mean-concrete"></a>Si noti che non è ancora supportata nel server di replica. Che cosa significa concreto?
-
-Attualmente, l'aggiornamento della versione principale non è supportato per il server di replica, pertanto non è consigliabile eseguirlo per i server che interessano la replica, ovvero il server di origine o di replica. Se si desidera testare l'aggiornamento dei server che coinvolgono la replica prima di aggiungere il supporto della replica per la funzionalità di aggiornamento, è consigliabile seguire questa procedura:
-
-1. Durante la manutenzione pianificata, [arrestare la replica ed eliminare il server di replica](howto-read-replicas-portal.md) dopo aver acquisito il nome e tutte le informazioni di configurazione (impostazioni del firewall, configurazione dei parametri del server se è diversa da quella del server di origine).
-2. Eseguire l'aggiornamento del server di origine.
-3. Eseguire il provisioning di un nuovo server di replica di lettura con le stesse impostazioni di configurazione e nome acquisite nel passaggio 1. Il nuovo server di replica sarà automaticamente in v 5.7 dopo l'aggiornamento del server di origine a v 5.7.
+Sì, il server non sarà disponibile durante il processo di aggiornamento, pertanto si consiglia di eseguire questa operazione durante la finestra di manutenzione pianificata. Il tempo di inattività stimato dipende dalla dimensione del database, dalle dimensioni di archiviazione di cui è stato effettuato il provisioning (IOPs con provisioning) e dal numero di tabelle nel database. Il tempo di aggiornamento è direttamente proporzionale al numero di tabelle nel server. Gli aggiornamenti dei server SKU Basic dovrebbero richiedere più tempo, perché si trova nella piattaforma di archiviazione standard. Per stimare il tempo di inattività per l'ambiente server, è consigliabile eseguire prima l'aggiornamento sulla copia ripristinata del server. Prendere [in considerazione l'aggiornamento della versione principale del tempo di inattività minimo da mysql 5,6 a mysql 5,7 con la replica di lettura.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
 ### <a name="what-will-happen-if-we-do-not-choose-to-upgrade-our-mysql-v56-server-before-february-5-2021"></a>Cosa accade se non si sceglie di aggiornare il server MySQL v 5.6 prima del 5 febbraio 2021?
 

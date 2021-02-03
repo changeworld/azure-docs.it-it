@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623590"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509520"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Attivare e configurare il sensore
 
@@ -81,7 +81,7 @@ Per accedere e attivare:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender per il sensore Internet.":::
 
-1. Immettere le credenziali definite durante l'installazione del sensore. Se è stato acquistato un sensore preconfigurato dalla freccia, generare prima una password. Per altre informazioni sul ripristino delle password, vedere [esaminare l'errore della password all'accesso iniziale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
+1. Immettere le credenziali definite durante l'installazione del sensore oppure selezionare l'opzione per il **ripristino della password** . Se è stato acquistato un sensore preconfigurato dalla freccia, generare prima una password. Per altre informazioni sul ripristino delle password, vedere [esaminare l'errore della password all'accesso iniziale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
 1. Dopo aver eseguito l'accesso, viene visualizzata la finestra di dialogo di **attivazione** . Selezionare **carica** e passare al file di attivazione scaricato durante l'onboarding del sensore.
 
@@ -152,7 +152,7 @@ Definire le impostazioni di sistema del sensore. Ad esempio:
 
 - Se DHCP è in uso, definire intervalli DHCP legittimi.
 
-- Definire l'integrazione con Active Directory e i server di posta elettronica.
+- Definire l'integrazione con Active Directory e il server di posta elettronica in base alle esigenze.
 
 ### <a name="disable-learning-mode"></a>Disabilitare la modalità di apprendimento
 
@@ -181,7 +181,7 @@ Prima di eseguire l'accesso, verificare di avere:
 | -----------|--|--|
 | Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Visualizzare uno snapshot intuitivo dello stato della sicurezza della rete. |
 | Mappa dei dispositivi | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Visualizzare i dispositivi di rete, le connessioni del dispositivo e le proprietà del dispositivo in una mappa. Per la visualizzazione della rete sono disponibili diverse opzioni di zoom, evidenziazione e filtro. |
-| Inventario dei dispositivi | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | L'inventario del dispositivo Visualizza un'ampia gamma di attributi del dispositivo rilevati da questo sensore. Sono disponibili opzioni per: <br /> -Filtrare le informazioni in base ai campi della tabella e visualizzare le informazioni filtrate visualizzate. <br /> -Esportare le informazioni in un file CSV. <br /> -Importa i dettagli del registro di sistema di Windows.|
+| Inventario dei dispositivi | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | L'inventario del dispositivo visualizza un elenco di attributi del dispositivo rilevati dal sensore. Sono disponibili opzioni per: <br /> -Ordinare o filtrare le informazioni in base ai campi della tabella e visualizzare le informazioni filtrate visualizzate. <br /> -Esportare le informazioni in un file CSV. <br /> -Importa i dettagli del registro di sistema di Windows.|
 | Avvisi | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Visualizza gli avvisi quando si verificano violazioni dei criteri, si verificano deviazioni dal comportamento della linea di base o viene rilevato qualsiasi tipo di attività sospetta nella rete. |
 | Report | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | Visualizzazione di report basati sulle query di data mining. |
 
@@ -196,7 +196,7 @@ Prima di eseguire l'accesso, verificare di avere:
 | Finestra | Icona | Descrizione |
 |---|---|---|
 | Data mining | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Genera informazioni complete e granulari sui dispositivi della rete a vari livelli. |
-| Tendenze e statistiche | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Visualizzare tendenze e statistiche in un'ampia gamma di widget. |
+| Analisi | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Visualizzare tendenze e statistiche in un'ampia gamma di widget. |
 | Valutazione dei rischi | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Visualizzare la finestra **vulnerabilità** . |
 
 **Admin**
@@ -204,7 +204,7 @@ Prima di eseguire l'accesso, verificare di avere:
 | Finestra | Icona | Descrizione |
 |---|---|---|
 | Utenti | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Definire utenti e ruoli con diversi livelli di accesso. |
-| Inoltro | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Invia le informazioni sugli avvisi ai partner che si integrano con Defender per tutto, per gli indirizzi di posta elettronica, i server webhook e altro ancora. <br /> Per informazioni dettagliate, vedere [trasmettere informazioni sugli avvisi](how-to-forward-alert-information-to-partners.md) . |
+| Inoltro | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Invia le informazioni sugli avvisi ai partner e alle origini interne (ad esempio, Sentinel), integrando con Defender per l'it, per gli indirizzi di posta elettronica, i server webhook e altro ancora. <br /> Per informazioni dettagliate, vedere [trasmettere informazioni sugli avvisi](how-to-forward-alert-information-to-partners.md) . |
 | Impostazioni di sistema | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Configurare le impostazioni di sistema. Ad esempio, definire le impostazioni DHCP, fornire i dettagli del server di posta o creare alias di porta. |
 | Importare impostazioni | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Visualizzare la finestra **Importa impostazioni** . È possibile eseguire modifiche manuali nelle informazioni di un dispositivo.<br /> Per informazioni dettagliate, vedere [importare informazioni sul dispositivo](how-to-import-device-information.md) . |
 

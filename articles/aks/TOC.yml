@@ -179,7 +179,7 @@
         - name: Distribuire servizio Azure Kubernetes con Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Visualizzazione di risorse Kubernetes nel portale di Azure
+        - name: portale di Azure visualizzazione risorse Kubernetes
           href: kubernetes-portal.md
         - name: Usare il dashboard di Kubernetes
           href: kubernetes-dashboard.md

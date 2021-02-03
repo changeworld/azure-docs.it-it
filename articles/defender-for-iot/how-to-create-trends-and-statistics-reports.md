@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8bfbacc77843c7978bcb1d364bd93f5e09381144
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811665"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509487"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Tendenze dei sensori e report statistici
 
@@ -26,19 +26,29 @@ ms.locfileid: "98811665"
 Il dashboard è costituito da widget che descrivono graficamente i tipi di informazioni seguenti:
 
 - Traffico per porta
+- Traffico principale per porta
 - Larghezza di banda del canale
 - Larghezza di banda totale
 - Connessione TCP attiva
+- Larghezza di banda superiore per VLAN
 - Dispositivi:
   - Nuovi dispositivi
   - Dispositivi occupati
   - Dispositivi per fornitore
   - Dispositivi per sistema operativo
+  - Numero di dispositivi per VLAN
   - Dispositivi disconnessi
-- Riduzione della connettività per ore
+- Connettività riduzioni per ore
 - Avvisi per eventi imprevisti per tipo
 - Accesso alla tabella di database
 - Widget di dissezione del protocollo
+- DELTAV
+  - Distribuzione delle operazioni Roc DeltaV
+  - Eventi Roc DeltaV per nome
+  - DeltaV eventi in base all'ora
+- AMS
+  - Traffico AMS per porta server
+  - Traffico AMS per comando
 - Ethernet e indirizzo IP:
   - Traffico di indirizzi IP e Ethernet per servizio CIP
   - Traffico di indirizzi IP e Ethernet per classe CIP
@@ -49,6 +59,15 @@ Il dashboard è costituito da widget che descrivono graficamente i tipi di infor
 - S7 Siemens:
   - Traffico S7 per funzione di controllo
   - Traffico S7 per sottofunzione
+- VLAN
+  - Numero di dispositivi per VLAN
+  - Larghezza di banda superiore per VLAN
+- 60870-5-104
+  - Traffico IEC-60870 per ASDU
+- BACNET
+  - Servizi BACnet
+- DNP3
+  - DNP3 il traffico per funzione
 - SRTP
   - Traffico SRTP per codice del servizio
   - Errori di SRTP per giorno

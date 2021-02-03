@@ -302,10 +302,10 @@
               href: knowledge-store-projections-examples.md
     - name: Query
       items:
-        - name: Tipi di query e composizione
-          href: search-query-overview.md
         - name: Creare una query di base
           href: search-query-create.md
+        - name: Tipi di query e composizione
+          href: search-query-overview.md
         - name: Usare la sintassi semplice (esempi)
           href: search-query-simple-examples.md
         - name: Usare la sintassi Lucene completa (esempi)

@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d544d884a82a7532bf343f38049102dfccae342f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491300"
+ms.locfileid: "99507275"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
@@ -173,7 +173,8 @@ Configura l'attestazione `groups` rilasciata in un token di accesso utente oppur
 - `"None"`
 - `"SecurityGroup"` (per gruppi di sicurezza e ruoli di Azure AD)
 - `"ApplicationGroup"` Questa opzione include solo i gruppi assegnati all'applicazione.
-- `"All"` (verranno restituiti tutti i gruppi di sicurezza, i gruppi di distribuzione e i ruoli della directory di Azure AD a cui appartiene l'utente connesso).
+- `"DirectoryRole"` (Ottiene i ruoli della directory Azure AD di cui l'utente è membro)
+- `"All"` Questa operazione otterrà tutti i gruppi di sicurezza, i gruppi di distribuzione e i ruoli di Azure AD directory di cui l'utente connesso è membro.
 
 Esempio:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4dd1941e6a749c2ccf7ca082ab89ef2a70baa0d6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131475"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509537"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,6 +25,7 @@ Sono supportate le seguenti versioni di Sincronizzazione file di Azure Agent:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
+| Versione 11.2- [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | 2 febbraio 2021 | Supporto per il volo |
 | Versione 11.1- [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Supportato |
 | Versione 10.1- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 giugno 2020 | Supportato |
 | Aggiornamento cumulativo di maggio 2020 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 maggio 2020 | Supportato |
@@ -48,6 +49,32 @@ Le seguenti versioni di Sincronizzazione file di Azure Agent sono scadute e non 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-11200"></a>Versione dell'agente 11.2.0.0
+Le note sulla versione seguenti sono relative alla versione 11.2.0.0 dell'agente Sincronizzazione file di Azure rilasciato il 2 febbraio 2021. Queste note si aggiungono alle note sulla versione elencate per la versione 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Miglioramenti e problemi risolti 
+- Se una sessione di sincronizzazione viene annullata a causa di un numero elevato di errori per elemento, la sincronizzazione può attraversare la riconciliazione quando viene avviata una nuova sessione se il servizio Sincronizzazione file di Azure determina che è necessaria una sessione di sincronizzazione personalizzata per correggere gli errori per singolo elemento.
+- La registrazione di un server con il cmdlet Register-AzStorageSyncServer potrebbe non riuscire con l'errore "eccezione non gestita".
+- Nuovo cmdlet di PowerShell (Add-StorageSyncAllowedServerEndpointPath) per configurare i percorsi degli endpoint server consentiti in un server. Questo cmdlet è utile per gli scenari in cui la distribuzione di Sincronizzazione file di Azure viene gestita da un provider di soluzioni cloud (CSP) o da un provider di servizi e il cliente desidera configurare i percorsi degli endpoint server consentiti in un server. Quando si crea un endpoint server, se il percorso specificato non è presente nell'elenco Consenti, la creazione dell'endpoint del server avrà esito negativo. Si noti che si tratta di una funzionalità facoltativa e tutti i percorsi supportati sono consentiti per impostazione predefinita durante la creazione di un endpoint server.  
+
+    
+    - Per aggiungere un percorso dell'endpoint server consentito, eseguire i comandi di PowerShell seguenti nel server:
+
+    ```powershell
+    Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
+    Add-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
+
+    - Per ottenere l'elenco dei percorsi supportati, eseguire il comando PowerShell seguente:
+    
+    ```powershell
+    Get-StorageSyncAllowedServerEndpointPath
+    ```     
+    - Per rimuovere un percorso, eseguire il comando PowerShell seguente:
+    
+    ```powershell
+    Remove-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
 ## <a name="agent-version-11100"></a>Versione dell'agente 11.1.0.0
 Le note sulla versione seguenti sono relative alla versione 11.1.0.0 dell'agente di Sincronizzazione file di Azure (rilasciato il 4 novembre 2020).
 

@@ -6,16 +6,16 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a7464216649d6b482893693a1f182af5cf6e77ac
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941900"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508998"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
-[Collegamento privato di Azure](../../private-link/private-link-overview.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati. Per molti servizi, è sufficiente configurare un endpoint per ogni risorsa. Tuttavia, Monitoraggio di Azure è un insieme di diversi servizi interconnessi che interagiscono tra loro per monitorare i carichi di lavoro. Di conseguenza, è stata creata una risorsa denominata ambito collegamento privato di Monitoraggio di Azure (AMPLS, Azure Monitor Private Link Scope) che consente di definire i limiti della rete di monitoraggio e connettersi alla rete virtuale. Questo articolo illustra quando usare e come configurare un ambito collegamento privato di Monitoraggio di Azure.
+[Collegamento privato di Azure](../../private-link/private-link-overview.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati. Per molti servizi, è sufficiente configurare un endpoint per ogni risorsa. Tuttavia, Monitoraggio di Azure è un insieme di diversi servizi interconnessi che interagiscono tra loro per monitorare i carichi di lavoro. Di conseguenza, è stata creata una risorsa denominata ambito di collegamento privato di monitoraggio di Azure (AMPLS). AMPLS consente di definire i limiti della rete di monitoraggio e di connettersi alla rete virtuale. Questo articolo illustra quando usare e come configurare un ambito collegamento privato di Monitoraggio di Azure.
 
 ## <a name="advantages"></a>Vantaggi
 
@@ -31,65 +31,59 @@ Per altre informazioni, vedere [Vantaggi principali del collegamento privato](..
 
 ## <a name="how-it-works"></a>Funzionamento
 
-L'ambito collegamento privato di Monitoraggio di Azure è una risorsa di raggruppamento per connettere uno o più endpoint privati (e quindi le reti virtuali in cui sono contenuti) a una o più risorse di Monitoraggio di Azure. Le risorse includono le aree di lavoro Log Analytics e i componenti di Application Insights.
+L'ambito del collegamento privato di monitoraggio di Azure (AMPLS) connette gli endpoint privati (e i reti virtuali in essi contenuti) a una o più risorse di monitoraggio di Azure, Log Analytics aree di lavoro e componenti Application Insights.
 
-![Diagramma della topologia delle risorse](./media/private-link-security/private-link-topology-1.png)
+![Diagramma della topologia di risorse di base](./media/private-link-security/private-link-basic-topology.png)
 
 > [!NOTE]
 > Una singola risorsa di Monitoraggio di Azure può appartenere a più AMPLS, ma non è possibile connettere una singola rete virtuale a più di un AMPLS. 
 
-## <a name="planning-based-on-your-network"></a>Pianificazione basata sulla rete
+### <a name="the-issue-of-dns-overrides"></a>Il problema degli override DNS
+Log Analytics e Application Insights usano gli endpoint globali per alcuni servizi, ovvero servono richieste destinate a qualsiasi area di lavoro/componente. Ad esempio, Application Insights usa un endpoint globale per l'inserimento dei log e sia Application Insights che Log Analytics usano un endpoint globale per le richieste di query.
 
-Prima di configurare le risorse AMPLS, prendere in considerazione i requisiti di isolamento rete. Valutare l'accesso delle reti virtuali all’Internet pubblico e le restrizioni di accesso di ognuna delle risorse di Monitoraggio di Azure, ovvero i componenti di Application Insights e le aree di lavoro Log Analytics.
+Quando si configura una connessione a un collegamento privato, il DNS viene aggiornato per eseguire il mapping degli endpoint di monitoraggio di Azure a indirizzi IP privati dall'intervallo IP di VNet. Questa modifica sostituisce qualsiasi mapping precedente di questi endpoint, che può avere implicazioni significative, esaminato di seguito. 
+
+## <a name="planning-based-on-your-network-topology"></a>Pianificazione basata sulla topologia di rete
+
+Prima di configurare la configurazione del collegamento privato di monitoraggio di Azure, prendere in considerazione la topologia di rete e in particolare la topologia di routing DNS. 
+
+### <a name="azure-monitor-private-link-applies-to-all-azure-monitor-resources---its-all-or-nothing"></a>Il collegamento privato di monitoraggio di Azure si applica a tutte le risorse di monitoraggio di Azure. tutto o niente
+Poiché alcuni endpoint di monitoraggio di Azure sono globali, non è possibile creare una connessione di collegamento privato per un componente o un'area di lavoro specifica. Al contrario, quando si configura un collegamento privato a un singolo componente Application Insights, i record DNS vengono aggiornati per **tutti i** componenti Application Insights. Qualsiasi tentativo di inserire o eseguire una query su un componente tenterà di passare attraverso il collegamento privato e probabilmente avrà esito negativo. Analogamente, se si configura un collegamento privato a una singola area di lavoro, tutte le query Log Analytics passano attraverso l'endpoint della query di collegamento privato (ma non le richieste di inserimento, che hanno endpoint specifici dell'area di lavoro).
+
+![Diagramma degli override DNS in un singolo VNet](./media/private-link-security/dns-overrides-single-vnet.png)
+
+Questo vale non solo per un VNet specifico, ma per tutti reti virtuali che condividono lo stesso server DNS (vedere [il problema degli override DNS](#the-issue-of-dns-overrides)). Quindi, ad esempio, la richiesta di inserimento dei log in qualsiasi Application Insights componente verrà sempre inviata tramite la route di collegamento privata. I componenti che non sono collegati a AMPLS non riusciranno a eseguire la convalida del collegamento privato e non passano attraverso.
+
+**In realtà, è necessario connettere tutte le risorse di monitoraggio di Azure nella rete a un collegamento privato (aggiungerle a AMPLS) o nessuna di esse.**
+
+### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Il collegamento privato di monitoraggio di Azure si applica all'intera rete
+Alcune reti sono costituite da più reti virtuali. Se questi reti virtuali usano lo stesso server DNS, eseguiranno l'override dei mapping DNS degli altri ed eventualmente interromperanno le comunicazioni con monitoraggio di Azure (vedere [il problema degli override DNS](#the-issue-of-dns-overrides)). Infine, solo l'ultimo VNet sarà in grado di comunicare con monitoraggio di Azure, poiché il DNS eseguirà il mapping degli endpoint di monitoraggio di Azure a indirizzi IP privati da questo intervallo di reti virtuali (che potrebbero non essere raggiungibili da altri reti virtuali).
+
+![Diagramma degli override DNS in più reti virtuali](./media/private-link-security/dns-overrides-multiple-vnets.png)
+
+Nel diagramma precedente, VNet 10.0.1. x si connette prima di tutto a AMPLS1 ed esegue il mapping degli endpoint globali di monitoraggio di Azure agli indirizzi IP dall'intervallo. Successivamente, VNet 10.0.2. x si connette a AMPLS2 ed esegue l'override del mapping DNS degli *stessi endpoint globali* con IP dal relativo intervallo. Poiché non viene eseguito il peering di questi reti virtuali, il primo VNet ora non riesce a raggiungere questi endpoint.
+
+**È necessario eseguire il peering di reti virtuali che usano lo stesso DNS, direttamente o tramite un VNet Hub. Reti virtuali di cui non è stato usato il peering devono usare anche un server DNS diverso, server d'inoltri DNS o un altro meccanismo per evitare conflitti di DNS.**
+
+### <a name="hub-spoke-networks"></a>Reti hub-spoke
+Le topologie hub-spoke possono evitare il problema degli override DNS impostando un collegamento privato nell'hub (Main) VNet, invece di configurare un collegamento privato per ogni VNet separatamente. Questa configurazione ha senso soprattutto se le risorse di monitoraggio di Azure usate dal reti virtuali spoke sono condivise. 
+
+![Hub-and-spoke-singolo PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 > [!NOTE]
-> Le reti hub-spoke, o qualsiasi altra topologia di reti con peering, possono configurare un collegamento privato tra VNet Hub (Main) e le risorse di monitoraggio di Azure pertinenti, anziché configurare un collegamento privato per ogni VNet. Questa operazione è particolarmente sensata se le risorse di monitoraggio di Azure usate da tali reti sono condivise. Tuttavia, se si vuole consentire a ogni VNet di accedere a un set separato di risorse di monitoraggio, creare un collegamento privato a un AMPLS dedicato per ogni rete.
+> È possibile che si preferisca intenzionalmente creare collegamenti privati distinti per i reti virtuali spoke, ad esempio per consentire a ogni VNet di accedere a un set limitato di risorse di monitoraggio. In questi casi, è possibile creare un endpoint privato dedicato e AMPLS per ogni VNet, ma è necessario verificare anche che non condividono lo stesso server DNS per evitare sostituzioni DNS.
 
-### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Valutare quali reti virtuali devono connettersi a un collegamento privato
-
-Per iniziare, valutare quali reti virtuali hanno accesso limitato a Internet. Le reti virtuali con Internet gratuito potrebbero non richiedere un collegamento privato per accedere alle risorse di Monitoraggio di Azure. Le risorse di monitoraggio a cui si connettono le reti virtuali possono limitare il traffico in ingresso e richiedere una connessione di collegamento privato (per query o inserimento log). In questi casi, anche una rete virtuale che ha accesso all’Internet pubblico deve connettersi a queste risorse con un collegamento privato e tramite un AMPLS.
-
-### <a name="evaluate-which-azure-monitor-resources-should-have-a-private-link"></a>Valutare quali risorse di Monitoraggio di Azure devono avere un collegamento privato
-
-Esaminare ogni risorsa di Monitoraggio di Azure:
-
-- La risorsa deve consentire l'inserimento di log solo da risorse posizionate su determinate reti virtuali?
-- È necessario che la risorsa venga sottoposta a query solo da client posizionati su determinate reti virtuali?
-
-Se la risposta a una di queste domande è affermativa, impostare le restrizioni come illustrato in [Configurazione di aree di lavoro Log Analytics](#configure-log-analytics) e [Configurazione di componenti di Application Insights](#configure-application-insights), quindi associare tali risorse a una o più risorse AMPLS. Le reti virtuali che devono accedere a queste risorse di monitoraggio devono disporre di un endpoint privato che si connette alla risorsa AMPLS pertinente.
-Tenere presente che è possibile connettere le stesse aree di lavoro o applicazioni a più risorse AMPLS per fare in modo che vengano raggiunte da reti diverse.
-
-### <a name="group-together-monitoring-resources-by-network-accessibility"></a>Raggruppare le risorse di monitoraggio in base all'accessibilità di rete
-
-Poiché ogni rete virtuale può connettersi a una sola risorsa AMPLS, è necessario raggruppare le risorse di monitoraggio che devono essere accessibili alle stesse reti. Il modo più semplice per gestire questo raggruppamento consiste nel creare una risorsa AMPLS per ogni rete virtuale e selezionare le risorse per connettersi alla rete. Tuttavia, per ridurre le risorse e migliorare la gestibilità, è consigliabile riutilizzare una risorsa AMPLS per le varie reti.
-
-Ad esempio, se le reti virtuali interne VNet1 e VNet2 devono connettersi alle aree di lavoro Workspace1 e Workspace2 e al componente di Application Insights Application Insights 3, associare tutte e tre le risorse alla stessa risorsa AMPLS. Se VNet3 deve accedere solo a Workspace1, creare un'altra risorsa AMPLS, associarvi Workspace1 e connettere VNet3 come illustrato nei diagrammi seguenti:
-
-![Diagramma della topologia AMPLS A](./media/private-link-security/ampls-topology-a-1.png)
-
-![Diagramma della topologia AMPLS B](./media/private-link-security/ampls-topology-b-1.png)
 
 ### <a name="consider-limits"></a>Considerare i limiti
 
-Quando si pianifica la configurazione del collegamento privato, è necessario prendere in considerazione alcuni limiti:
-
-* Un VNet può connettersi solo a un oggetto AMPLS. Ciò significa che l'oggetto AMPLS deve fornire l'accesso a tutte le risorse di monitoraggio di Azure a cui VNet deve avere accesso.
-* Una risorsa di monitoraggio di Azure (area di lavoro o componente Application Insights) può connettersi al massimo 5 AMPLSs.
-* Un oggetto AMPLS può connettersi alla maggior parte delle risorse di monitoraggio di Azure 50.
-* Un oggetto AMPLS può connettersi al massimo da 10 endpoint privati.
-
-Nella topologia seguente:
+Come elencato in [restrizioni e limitazioni](#restrictions-and-limitations), l'oggetto AMPLS presenta diversi limiti, descritti nella topologia seguente:
 * Ogni VNet si connette a **un** solo oggetto AMPLS.
-* AMPLS B è connesso a endpoint privati di due reti virtuali (VNet2 e VNet3), usando 2/10 (20%) delle possibili connessioni agli endpoint privati.
-* AMPLS A si connette a due aree di lavoro e a un componente Application Insights, utilizzando 3/50 (6%) delle connessioni possibili per le risorse di monitoraggio di Azure.
-* Workspace2 si connette a AMPLS A e AMPLS B, usando 2/5 (40%) delle possibili connessioni AMPLS.
+* AMPLS B è connesso a endpoint privati di due reti virtuali (VNet2 e VNet3), usando 2 delle 10 possibili connessioni a endpoint privato.
+* AMPLS A si connette a due aree di lavoro e a un componente Application Insight, usando 3 delle 50 possibili connessioni di monitoraggio di Azure.
+* Workspace2 si connette a AMPLS A e AMPLS B, usando 2 delle 5 connessioni AMPLS possibili.
 
 ![Diagramma dei limiti di AMPLS](./media/private-link-security/ampls-limits.png)
 
-> [!NOTE]
-> In alcune topologie di rete (principalmente hub-spoke) è possibile raggiungere rapidamente il limite di 10 reti virtuali per un singolo AMPLS. In questi casi è consigliabile usare una connessione a un collegamento privato condiviso invece di quelle separate. Creare un singolo endpoint privato nella rete Hub, collegarlo alla rete di AMPLS ed eseguire il peering delle reti pertinenti alla rete Hub.
-
-![Hub-and-spoke-singolo PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>Connessione di esempio
 
@@ -99,21 +93,21 @@ Per iniziare, creare una risorsa ambito collegamento privato di Monitoraggio di 
 
    ![Trova ambito collegamento privato di monitoraggio di Azure](./media/private-link-security/ampls-find-1c.png)
 
-2. Fare clic su **Create** (Crea).
+2. Selezionare **Crea**.
 3. Selezionare un gruppo di sottoscrizioni e risorse.
-4. Assegnare un nome alla risorsa AMPLS. È preferibile usare un nome che indichi chiaramente lo scopo e il limite di sicurezza per cui verrà usato l'ambito, in modo che qualcuno non interrompa accidentalmente i limiti di sicurezza della rete. Ad esempio, "AppServerProdTelem".
-5. Fare clic su **Rivedi e crea**. 
+4. Assegnare un nome alla risorsa AMPLS. È preferibile usare un nome significativo e chiaro, ad esempio "AppServerProdTelem".
+5. Selezionare **Rivedi e crea**. 
 
    ![Creare un ambito di collegamento privato di monitoraggio di Azure](./media/private-link-security/ampls-create-1d.png)
 
-6. Superare la convalida, quindi fare clic su **Crea**.
+6. Consentire il passaggio della convalida, quindi selezionare **Crea**.
 
 ### <a name="connect-azure-monitor-resources"></a>Connettere le risorse di Monitoraggio di Azure
 
 Connettere le risorse di monitoraggio di Azure (Log Analytics le aree di lavoro e i componenti Application Insights) a AMPLS.
 
-1. Nell'ambito collegamento privato di Monitoraggio di Azure fare clic su **Risorse di Monitoraggio di Azure** nel menu a sinistra. Fare clic su **Add** .
-2. Aggiungere l'area di lavoro o il componente. Facendo clic sul pulsante **Aggiungi** viene visualizzata una finestra di dialogo in cui è possibile selezionare le risorse di Monitoraggio di Azure. È possibile esplorare le sottoscrizioni e i gruppi di risorse oppure digitarne il nome per filtrarli. Selezionare l'area di lavoro o il componente e fare clic su **Applica** per aggiungerli all'ambito.
+1. Nell'ambito del collegamento privato di monitoraggio di Azure selezionare **risorse di monitoraggio di Azure** nel menu a sinistra. Fare clic sul pulsante **Aggiungi**.
+2. Aggiungere l'area di lavoro o il componente. Se si seleziona il pulsante **Aggiungi** , viene visualizzata una finestra di dialogo in cui è possibile selezionare risorse di monitoraggio di Azure. È possibile esplorare le sottoscrizioni e i gruppi di risorse oppure digitarne il nome per filtrarli. Selezionare l'area di lavoro o il componente e selezionare **applica** per aggiungerli all'ambito.
 
     ![Screenshot di selezione dell’esperienza utente di ambito](./media/private-link-security/ampls-select-2.png)
 
@@ -124,13 +118,13 @@ Connettere le risorse di monitoraggio di Azure (Log Analytics le aree di lavoro 
 
 Ora che sono disponibili delle risorse connesse alla risorsa AMPLS, creare un endpoint privato per connettere la rete. È possibile eseguire questa attività nel [Centro collegamento privato del portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) o all'interno dell'ambito collegamento privato di Monitoraggio di Azure, come in questo esempio.
 
-1. Nella risorsa ambito fare clic su **Connessioni a endpoint privati** nel menu delle risorse a sinistra. Fare clic su **Endpoint privato** per avviare il processo di creazione dell'endpoint. È anche possibile approvare le connessioni avviate nel Centro collegamento privato selezionandole e facendo clic su **Approva**.
+1. Nella risorsa ambito selezionare **connessioni endpoint privato** nel menu delle risorse a sinistra. Selezionare **endpoint privato** per avviare il processo di creazione dell'endpoint. È anche possibile approvare le connessioni avviate in centro collegamenti privati, selezionando le connessioni e selezionando **approva**.
 
     ![Screenshot dell’esperienza utente di connessioni all'endpoint privato](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
 2. Selezionare la sottoscrizione, il gruppo di risorse, il nome dell'endpoint e l'area in cui deve risiedere. L'area deve essere la stessa area della rete virtuale a cui verrà connesso.
 
-3. Fare clic su **Avanti: Risorsa**. 
+3. Selezionare **Avanti: Risorsa**. 
 
 4. Nella schermata Risorsa,
 
@@ -140,7 +134,7 @@ Ora che sono disponibili delle risorse connesse alla risorsa AMPLS, creare un en
 
    c. Dal menu a discesa **Risorsa** scegliere l’ambito collegamento privato creato in precedenza. 
 
-   d. Fare clic su **Avanti: Configurazione >** .
+   d. Selezionare **Next: Configuration >**.
       ![Screenshot di selezione di Crea endpoint privato](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
 
 5. Nel riquadro di configurazione,
@@ -151,27 +145,27 @@ Ora che sono disponibili delle risorse connesse alla risorsa AMPLS, creare un en
    > [!NOTE]
    > Se si sceglie **No** e si preferisce gestire i record DNS manualmente, completare prima di tutto la configurazione del collegamento privato, inclusi questo endpoint privato e la configurazione AMPLS. Quindi configurare il DNS seguendo le istruzioni riportate in [Configurazione del DNS dell'endpoint privato di Azure](../../private-link/private-endpoint-dns.md). Assicurarsi di non creare record vuoti come preparazione per la configurazione del collegamento privato. I record DNS creati possono sostituire le impostazioni esistenti e influire sulla connettività con Monitoraggio di Azure.
  
-   c.    Fare clic su **Rivedi e crea**.
+   c.    Selezionare **Rivedi e crea**.
  
    d.    Superare la convalida. 
  
-   e.    Fare clic su **Crea**. 
+   e.    Selezionare **Crea**. 
 
     ![Screenshot di selezione di Crea endpoint privato 2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
-A questo punto è stato creato un nuovo endpoint privato connesso a questo ambito collegamento privato di Monitoraggio di Azure.
+A questo punto è stato creato un nuovo endpoint privato connesso a questo AMPLS.
 
 ## <a name="configure-log-analytics"></a>Configurare Log Analytics
 
-Accedere al portale di Azure. Nella risorsa dell'area di lavoro Log Analytics è presente una voce di menu **isolamento rete** sul lato sinistro. Da questo menu è possibile controllare due stati diversi.
+Accedere al portale di Azure. Nel menu delle risorse dell'area di lavoro Log Analytics è presente un elemento denominato **isolamento rete** sul lato sinistro. Da questo menu è possibile controllare due stati diversi.
 
 ![Isolamento rete LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 ### <a name="connected-azure-monitor-private-link-scopes"></a>Ambiti di collegamento privato di monitoraggio di Azure connessi
-Tutti gli ambiti connessi a questa area di lavoro vengono visualizzati in questa schermata. La connessione agli ambiti (AMPLSs) consente il traffico di rete dalla rete virtuale connessa a ogni AMPLS per raggiungere questa area di lavoro. La creazione di una connessione tramite qui ha lo stesso effetto della configurazione nell'ambito, come è stato fatto per [connettere le risorse di monitoraggio di Azure](#connect-azure-monitor-resources). Per aggiungere una nuova connessione, fare clic su **Aggiungi** e selezionare l'ambito del collegamento privato di monitoraggio di Azure. Fare clic su **Applica** per connetterlo. Si noti che un'area di lavoro può connettersi a 5 oggetti AMPLS, come illustrato in [considerare i limiti](#consider-limits). 
+Tutti gli ambiti connessi a questa area di lavoro vengono visualizzati in questa schermata. La connessione agli ambiti (AMPLSs) consente il traffico di rete dalla rete virtuale connessa a ogni AMPLS per raggiungere questa area di lavoro. La creazione di una connessione tramite qui ha lo stesso effetto della configurazione nell'ambito, come è stato fatto per [connettere le risorse di monitoraggio di Azure](#connect-azure-monitor-resources). Per aggiungere una nuova connessione, selezionare **Aggiungi** e selezionare l'ambito del collegamento privato di monitoraggio di Azure. Selezionare **applica** per connettersi. Si noti che un'area di lavoro può connettersi a 5 oggetti AMPLS, come indicato in [restrizioni e limitazioni](#restrictions-and-limitations). 
 
 ### <a name="access-from-outside-of-private-links-scopes"></a>Accesso dall'esterno degli ambiti dei collegamenti privati
-Le impostazioni nella parte inferiore di questa pagina controllano l'accesso dalle reti pubbliche, vale a dire reti non connesse tramite gli ambiti sopra elencati. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro, pertanto non saranno in grado di eseguire query sui dati dell'area di lavoro. Sono incluse le query in cartelle di lavoro, dashboard, esperienze client basate su API, informazioni dettagliate nel portale di Azure e altro ancora. Le esperienze in esecuzione al di fuori dell'portale di Azure e la query Log Analytics dati devono essere in esecuzione anche all'interno di VNET collegati a privati.
+Le impostazioni nella parte inferiore di questa pagina controllano l'accesso dalle reti pubbliche, vale a dire reti non connesse tramite gli ambiti sopra elencati. **L'impostazione Consenti accesso alla rete pubblica per l'** inserimento **non** blocca l'inserimento di log da computer esterni agli ambiti connessi. **L'impostazione Consenti accesso alla rete pubblica per le query** **non** blocca le query provenienti da computer esterni agli ambiti. Sono incluse le query eseguite tramite cartelle di lavoro, dashboard, esperienze client basate su API, informazioni dettagliate nel portale di Azure e altro ancora. Le esperienze in esecuzione al di fuori dell'portale di Azure e la query Log Analytics dati devono essere in esecuzione anche all'interno di VNET collegati a privati.
 
 ### <a name="exceptions"></a>Eccezioni
 La limitazione dell'accesso, come illustrato in precedenza, non si applica alla Azure Resource Manager e pertanto presenta le limitazioni seguenti:
@@ -194,11 +188,11 @@ Per consentire all'agente di Log Analytics di scaricare i pacchetti di soluzioni
 
 ## <a name="configure-application-insights"></a>Configura Application Insights
 
-Accedere al portale di Azure. Nella risorsa componente di Application Insights di Monitoraggio di Azure è disponibile una voce di menu **Isolamento rete** sul lato sinistro. Da questo menu è possibile controllare due stati diversi.
+Accedere al portale di Azure. Nel monitoraggio di Azure Application Insights risorsa componente, è una voce di menu **isolamento rete** sul lato sinistro. Da questo menu è possibile controllare due stati diversi.
 
 ![Isolamento rete intelligenza artificiale](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Innanzitutto, è possibile connettere questa risorsa Application Insights agli ambiti collegamento privato di Monitoraggio di Azure a cui si ha accesso. Fare clic su **Aggiungi** e selezionare l'**ambito collegamento privato di Monitoraggio di Azure**. Fare clic su Applica per connetterlo. Tutti gli ambiti connessi vengono visualizzati in questa schermata. Se si effettua questa connessione, il traffico di rete nelle reti virtuali connesse raggiungerà questo componente. Questa connessione ha lo stesso effetto della connessione dall'ambito effettuata in [Connessione delle risorse di Monitoraggio di Azure](#connect-azure-monitor-resources). 
+Innanzitutto, è possibile connettere questa risorsa Application Insights agli ambiti collegamento privato di Monitoraggio di Azure a cui si ha accesso. Selezionare **Aggiungi** e selezionare l' **ambito del collegamento privato di monitoraggio di Azure**. Selezionare Applica per connettersi. Tutti gli ambiti connessi vengono visualizzati in questa schermata. Se si effettua questa connessione, il traffico di rete nelle reti virtuali connesse raggiungerà il componente e avrà lo stesso effetto della connessione dall'ambito come per la [connessione delle risorse di monitoraggio di Azure](#connect-azure-monitor-resources). 
 
 In secondo luogo, è possibile controllare il modo in cui questa risorsa può essere raggiunta dall'esterno degli ambiti collegamento privato elencati in precedenza. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer o gli SDK esterni agli ambiti connessi non possono caricare dati in questo componente. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa risorsa Application Insights. Questi dati includono l'accesso ai log APM, alle metriche e al flusso metriche attive, oltre a esperienze integrate come cartelle di lavoro, dashboard, esperienze client basate su API di query, informazioni dettagliate nel portale di Azure e altro ancora. 
 
@@ -215,19 +209,29 @@ Questo tipo di limitazione dell'accesso si applica solo ai dati nella risorsa Ap
 
 ## <a name="use-apis-and-command-line"></a>Usare le API e la riga di comando
 
-È possibile automatizzare il processo descritto in precedenza usando modelli di Azure Resource Manager, REST e interfacce della riga di comando.
+È possibile automatizzare il processo descritto in precedenza utilizzando modelli di Azure Resource Manager, REST e interfacce della riga di comando.
 
 Per creare e gestire ambiti di collegamento privati, usare l' [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) o l'interfaccia della riga di comando di [Azure (AZ monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
 Per gestire l'accesso alla rete, usare i flag `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` in [Aree di lavoro Log Analytics](/cli/azure/monitor/log-analytics/workspace) o [Componenti Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
-## <a name="collect-custom-logs-over-private-link"></a>Raccogli log personalizzati sul collegamento privato
+## <a name="collect-custom-logs-and-iis-log-over-private-link"></a>Raccogli i log personalizzati e il collegamento di log su IIS privato
 
 Gli account di archiviazione vengono usati nel processo di inserimento dei log personalizzati. Per impostazione predefinita, vengono usati gli account di archiviazione gestiti dal servizio. Tuttavia, per inserire i log personalizzati nei collegamenti privati, è necessario usare gli account di archiviazione personali e associarli alle aree di lavoro Log Analytics. Per ulteriori informazioni su come configurare tali account, utilizzare la [riga di comando](/cli/azure/monitor/log-analytics/workspace/linked-storage).
 
 Per altre informazioni sull'uso di account di archiviazione personali, vedere [Account di archiviazione di proprietà del cliente per l'inserimento dei log](private-storage.md)
 
 ## <a name="restrictions-and-limitations"></a>Restrizioni e limitazioni
+
+### <a name="ampls"></a>AMPLS
+Quando si pianifica la configurazione del collegamento privato, l'oggetto AMPLS presenta diversi limiti da considerare:
+
+* Un VNet può connettersi solo a un oggetto AMPLS. Ciò significa che l'oggetto AMPLS deve fornire l'accesso a tutte le risorse di monitoraggio di Azure a cui VNet deve avere accesso.
+* Una risorsa di monitoraggio di Azure (area di lavoro o componente Application Insights) può connettersi al massimo 5 AMPLSs.
+* Un oggetto AMPLS può connettersi alla maggior parte delle risorse di monitoraggio di Azure 50.
+* Un oggetto AMPLS può connettersi al massimo da 10 endpoint privati.
+
+Vedere [considerare i limiti](#consider-limits) per una revisione più approfondita di questi limiti e come pianificare la configurazione del collegamento privato di conseguenza.
 
 ### <a name="agents"></a>Agenti
 

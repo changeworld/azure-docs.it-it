@@ -3,12 +3,12 @@ title: Concetti-interconnettività di rete
 description: Informazioni sugli aspetti chiave e i casi d'uso di rete e interconnettività nella soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 49261f34f879c68f21b57f9256a58a9b0a44d637
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475421"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509283"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Concetti relativi alla rete e alla connettività della soluzione VMware di Azure
 
@@ -59,10 +59,11 @@ Per l'interconnettività completa con il cloud privato, abilitare ExpressRoute C
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Ora che sono stati trattati questi concetti di rete e di interconnettività, è possibile ottenere informazioni su:
+Ora che sono stati illustrati i concetti relativi alla rete della soluzione VMware di Azure e all'interconnettività, è possibile acquisire familiarità con:
 
 - [Concetti relativi all'archiviazione della soluzione VMware di Azure](concepts-storage.md).
-- [Concetti di identità della soluzione VMware di Azure](concepts-identity.md)
+- [Concetti di identità della soluzione VMware di Azure](concepts-identity.md).
+- [Come abilitare la risorsa della soluzione VMware di Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

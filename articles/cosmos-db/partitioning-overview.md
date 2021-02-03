@@ -6,17 +6,17 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a70cfc7ab01dabd3d740d878acb453b4d1e76b5f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080833"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507419"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB usa il partizionamento per ridimensionare i singoli contenitori di un database per soddisfare le esigenze di prestazioni dell'applicazione. Nel partizionamento gli elementi in un contenitore sono divisi in subset distinti denominati *partizioni logiche* . Le partizioni logiche vengono formate in base al valore di una *chiave di partizione* associata a ogni elemento in un contenitore. Tutti gli elementi in una partizione logica hanno lo stesso valore della chiave di partizione.
+Azure Cosmos DB usa il partizionamento per ridimensionare i singoli contenitori di un database per soddisfare le esigenze di prestazioni dell'applicazione. Nel partizionamento gli elementi in un contenitore sono divisi in subset distinti denominati *partizioni logiche*. Le partizioni logiche vengono formate in base al valore di una *chiave di partizione* associata a ogni elemento in un contenitore. Tutti gli elementi in una partizione logica hanno lo stesso valore della chiave di partizione.
 
 Un contenitore, ad esempio, include gli elementi. Ogni elemento ha un valore univoco per la `UserID` Proprietà. Se `UserID` funge da chiave di partizione per gli elementi nel contenitore e sono presenti 1.000 valori univoci `UserID` , vengono create 1.000 partizioni logiche per il contenitore.
 
@@ -36,10 +36,13 @@ Non esiste alcun limite al numero di partizioni logiche nel contenitore. Ogni pa
 
 Un contenitore viene ridimensionato distribuendo i dati e la velocità effettiva tra le partizioni fisiche. Internamente, viene eseguito il mapping di una o più partizioni logiche a una singola partizione fisica. In genere i contenitori più piccoli hanno molte partizioni logiche, ma richiedono solo una singola partizione fisica. Diversamente dalle partizioni logiche, le partizioni fisiche sono un'implementazione interna del sistema e sono completamente gestite da Azure Cosmos DB.
 
-Il numero di partizioni fisiche nel contenitore dipende dalla configurazione seguente:
+Il numero di partizioni fisiche nel contenitore dipende da quanto segue:
 
 * Il numero di velocità effettiva di cui è stato effettuato il provisioning (ogni singola partizione fisica può fornire una velocità effettiva massima di 10.000 unità richiesta al secondo).
 * Archiviazione dati totale (ogni singola partizione fisica può archiviare fino a 50 GB di dati).
+
+> [!NOTE]
+> Le partizioni fisiche sono un'implementazione interna del sistema e sono completamente gestite da Azure Cosmos DB. Quando si sviluppano le soluzioni, non concentrarsi sulle partizioni fisiche perché non è possibile controllarle anziché concentrarsi sulle chiavi di partizione. Se si sceglie una chiave di partizione che distribuisce in modo uniforme l'utilizzo della velocità effettiva tra partizioni logiche, si garantisce che l'utilizzo della velocità effettiva tra le partizioni fisiche sia bilanciato.
 
 Non esiste alcun limite al numero totale di partizioni fisiche nel contenitore. Man mano che la velocità effettiva con provisioning o la dimensione dei dati aumenta, Azure Cosmos DB creerà automaticamente nuove partizioni fisiche suddividendo quelle esistenti. Le divisioni di partizioni fisiche non influiscano sulla disponibilità dell'applicazione. Dopo la suddivisione della partizione fisica, tutti i dati all'interno di una singola partizione logica verranno comunque archiviati nella stessa partizione fisica. Una suddivisione della partizione fisica crea semplicemente un nuovo mapping delle partizioni logiche alle partizioni fisiche.
 
@@ -49,12 +52,9 @@ La velocità effettiva con provisioning per un contenitore è divisa uniformemen
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Visualizzazione del numero di partizioni fisiche" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-Nello screenshot precedente, un contenitore ha `/foodGroup` come chiave di partizione. Ognuna delle tre barre nel grafico rappresenta una partizione fisica. Nell'immagine l' **intervallo di chiavi di partizione** è identico a quello di una partizione fisica. La partizione fisica selezionata contiene tre partizioni logiche: `Beef Products` , `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` .
+Nello screenshot precedente, un contenitore ha `/foodGroup` come chiave di partizione. Ognuna delle tre barre nel grafico rappresenta una partizione fisica. Nell'immagine l' **intervallo di chiavi di partizione** è identico a quello di una partizione fisica. La partizione fisica selezionata contiene le prime 3 partizioni logiche di dimensioni più significative: `Beef Products` , `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` .
 
 Se si effettua il provisioning di una velocità effettiva di 18.000 unità richiesta al secondo (UR/sec), ciascuna delle tre partizioni fisiche può utilizzare 1/3 della velocità effettiva totale con provisioning. All'interno della partizione fisica selezionata, le chiavi `Beef Products` 6.000 di partizione logiche, `Vegetable and Vegetable Products` e `Soups, Sauces, and Gravies` possono, collettivamente, utilizzare le UR/sec con provisioning della partizione fisica. Poiché la velocità effettiva con provisioning è divisa uniformemente tra le partizioni fisiche del contenitore, è importante scegliere una chiave di partizione che distribuisca equamente l'utilizzo della velocità effettiva [scegliendo la chiave di partizione logica corretta](#choose-partitionkey). 
-
-> [!NOTE]
-> Se si sceglie una chiave di partizione che distribuisce in modo uniforme l'utilizzo della velocità effettiva tra partizioni logiche, si garantisce che l'utilizzo della velocità effettiva tra le partizioni fisiche sia bilanciato.
 
 ## <a name="managing-logical-partitions"></a>Gestione di partizioni logiche
 
@@ -74,11 +74,11 @@ In genere i contenitori più piccoli richiedono solo una singola partizione fisi
 
 La figura seguente mostra come le partizioni logiche vengono mappate alle partizioni fisiche distribuite a livello globale:
 
-:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Visualizzazione del numero di partizioni fisiche" border="false":::
+:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Immagine che illustra il partizionamento Azure Cosmos DB" border="false":::
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Scelta di una chiave di partizione
 
-Una chiave di partizione ha due componenti: il **percorso della chiave di partizione** e il valore della chiave di **partizione** . Si consideri, ad esempio, un elemento {"userId": "Andrew", "lavora per": "Microsoft"} Se si sceglie "userId" come chiave di partizione, di seguito sono riportati i due componenti chiave di partizione:
+Una chiave di partizione ha due componenti: il **percorso della chiave di partizione** e il valore della chiave di **partizione**. Si consideri, ad esempio, un elemento {"userId": "Andrew", "lavora per": "Microsoft"} Se si sceglie "userId" come chiave di partizione, di seguito sono riportati i due componenti chiave di partizione:
 
 * Percorso della chiave di partizione, ad esempio: "/userId". Il percorso della chiave di partizione accetta caratteri alfanumerici e di sottolineatura (_). È inoltre possibile utilizzare gli oggetti annidati utilizzando la notazione del percorso standard (/).
 
@@ -114,20 +114,20 @@ Se il contenitore può raggiungere più di alcune partizioni fisiche, è necessa
 
 ## <a name="using-item-id-as-the-partition-key"></a>Uso dell'ID elemento come chiave di partizione
 
-Se il contenitore dispone di una proprietà con un'ampia gamma di valori possibili, probabilmente si tratta di una scelta ottimale per la chiave di partizione. Un esempio possibile di tale proprietà è l' *ID dell'elemento* . Per i contenitori di piccole dimensioni o con un elevato numero di operazioni di scrittura, l' *ID dell'elemento* è naturalmente un'ottima scelta per la chiave di partizione.
+Se il contenitore dispone di una proprietà con un'ampia gamma di valori possibili, probabilmente si tratta di una scelta ottimale per la chiave di partizione. Un esempio possibile di tale proprietà è l' *ID dell'elemento*. Per i contenitori di piccole dimensioni o con un elevato numero di operazioni di scrittura, l' *ID dell'elemento* è naturalmente un'ottima scelta per la chiave di partizione.
 
-L' *ID elemento* della proprietà di sistema esiste in ogni elemento del contenitore. Potrebbero essere presenti altre proprietà che rappresentano un ID logico dell'elemento. In molti casi, si tratta anche di opzioni di chiave di partizione eccezionali per gli stessi motivi dell' *ID dell'elemento* .
+L' *ID elemento* della proprietà di sistema esiste in ogni elemento del contenitore. Potrebbero essere presenti altre proprietà che rappresentano un ID logico dell'elemento. In molti casi, si tratta anche di opzioni di chiave di partizione eccezionali per gli stessi motivi dell' *ID dell'elemento*.
 
 L' *ID dell'elemento* è un'ottima scelta per le chiavi di partizione per i motivi seguenti:
 
 * È disponibile un'ampia gamma di valori possibili, ovvero un *ID* univoco per ogni elemento.
 * Poiché è presente un *ID di elemento* univoco per ogni elemento, l' *ID dell'elemento* ha un ottimo lavoro per bilanciare uniformemente il consumo di ur e l'archiviazione dei dati.
-* È possibile eseguire facilmente letture di punti efficienti, poiché si conosce sempre la chiave di partizione di un elemento se si conosce l' *ID elemento* .
+* È possibile eseguire facilmente letture di punti efficienti, poiché si conosce sempre la chiave di partizione di un elemento se si conosce l' *ID elemento*.
 
 Di seguito sono riportati alcuni aspetti da considerare quando si seleziona l' *ID elemento* come chiave di partizione:
 
 * Se l' *ID dell'elemento* è la chiave di partizione, diventerà un identificatore univoco nell'intero contenitore. Non sarà possibile avere elementi con un *ID elemento* duplicato.
-* Se si dispone di un contenitore con elevato numero di operazioni di lettura con numerose [partizioni fisiche](partitioning-overview.md#physical-partitions), le query saranno più efficienti se hanno un filtro di uguaglianza con l' *ID dell'elemento* .
+* Se si dispone di un contenitore con elevato numero di operazioni di lettura con numerose [partizioni fisiche](partitioning-overview.md#physical-partitions), le query saranno più efficienti se hanno un filtro di uguaglianza con l' *ID dell'elemento*.
 * Non è possibile eseguire stored procedure o trigger su più partizioni logiche.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621215"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508761"
 ---
 # <a name="manage-individual-sensors"></a>Gestire singoli sensori
 
@@ -367,9 +367,9 @@ Per modificare il nome:
 
 1. Eliminare il sensore dalla finestra di **gestione del sensore** .
 
-1. Eseguire la registrazione con il nuovo nome.
+1. Ripetere la registrazione con il nuovo nome.
 
-1. Scaricare e il nuovo file di attivazione.
+1. Scaricare il nuovo file di attivazione.
 
 1. Accedere al sensore e caricare il nuovo file di attivazione.
 
