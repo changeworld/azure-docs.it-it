@@ -8,12 +8,12 @@ ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475727"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524308"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -206,12 +206,15 @@ La maggior parte delle funzioni di sistema utilizza gli indici. Ecco un elenco d
 - Sinistra
 - Substring-ma solo se il primo num_expr è 0
 
-Di seguito sono riportate alcune funzioni di sistema comuni che non usano l'indice e che devono caricare ogni documento:
+Di seguito sono riportate alcune funzioni di sistema comuni che non utilizzano l'indice e che devono caricare ciascun documento se utilizzato in una `WHERE` clausola:
 
 | **Funzione di sistema**                     | **Suggerimenti per l'ottimizzazione**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | Anziché usare la funzione di sistema per normalizzare i dati per i confronti, normalizzare le maiuscole e minuscole al momento dell'inserimento. Una query come ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` diventa ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Superiore/inferiore                         | Anziché usare la funzione di sistema per normalizzare i dati per i confronti, normalizzare le maiuscole e minuscole al momento dell'inserimento. Una query come ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` diventa ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calcola l'ora corrente prima dell'esecuzione della query e usa tale valore stringa nella `WHERE` clausola. |
 | Funzioni matematiche (non aggregate) | Se nella query è necessario calcolare spesso un valore specifico, è consigliabile memorizzare il valore come proprietà nel documento JSON. |
+
+Quando vengono utilizzate nella `SELECT` clausola, le funzioni di sistema inefficienti non influiscono sul modo in cui le query possono utilizzare gli indici.
 
 ### <a name="improve-string-system-function-execution"></a>Migliorare l'esecuzione della funzione di sistema stringa
 

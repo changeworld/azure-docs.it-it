@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/11/2021
+ms.date: 02/02/2021
 ms.author: timlt
-ms.openlocfilehash: 286f00318715764a5943387e6b362b3c8e69a82e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 93278a2c8e83541f49ca76542de1c352fbc02239
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808152"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524245"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Panoramica
-Microsoft Azure StorSimple è una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Microsoft Azure. StorSimple è una soluzione SAN (storage area network) efficiente, dai costi contenuti e facilmente gestibile che elimina molti problemi e spese associati agli archivi dell'organizzazione e alla protezione dei dati. Usa il dispositivo proprietario serie StorSimple 8000, si integra con i servizi cloud e fornisce un set di strumenti di gestione integrati per offrire una visualizzazione semplice di tutti gli archivi dell'organizzazione, inclusa l'archiviazione cloud. Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Se si utilizza un dispositivo di serie StorSimple 5000/7000, andare alla [Guida di StorSimple](http://onlinehelp.storsimple.com/).)
+Microsoft Azure StorSimple è una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Microsoft Azure. StorSimple è una soluzione di rete di archiviazione (SAN) efficiente, conveniente e facile da gestire che elimina molti problemi e spese associati all'archiviazione e alla protezione dei dati aziendali. Usa il dispositivo proprietario serie StorSimple 8000, si integra con i servizi cloud e fornisce un set di strumenti di gestione integrati per offrire una visualizzazione semplice di tutti gli archivi dell'organizzazione, inclusa l'archiviazione cloud. Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Se si utilizza un dispositivo di serie StorSimple 5000/7000, andare alla [Guida di StorSimple](http://onlinehelp.storsimple.com/).)
 
-StorSimple utilizza la [suddivisione in livelli](#automatic-storage-tiering) di archiviazione per gestire i dati archiviati in vari supporti di memorizzazione. Il working set corrente è archiviato localmente su unità a stato solido, i dati utilizzati meno frequentemente vengono archiviati su unità a disco rigido e i dati di archiviazione vengono spostati nel cloud. Inoltre, StorSimple utilizza la deduplicazione e la compressione per ridurre la quantità di spazio di archiviazione che i dati utilizzano. Per ulteriori informazioni, vedere [Deduplicazione e compressione](#deduplication-and-compression). Per le definizioni di altri termini e concetti chiave utilizzati nella documentazione della serie 8000 StorSimple, visitare [Terminologia di StorSimple](#storsimple-terminology) alla fine di questo articolo.
+StorSimple utilizza la [suddivisione in livelli](#automatic-storage-tiering) di archiviazione per gestire i dati archiviati in vari supporti di memorizzazione. Il working set corrente viene archiviato in locale in unità SSD (Solid State Drive). I dati utilizzati meno frequentemente vengono archiviati in unità disco rigido (HDD) e i dati di archiviazione vengono inseriti nel cloud. Inoltre, StorSimple utilizza la deduplicazione e la compressione per ridurre la quantità di spazio di archiviazione che i dati utilizzano. Per ulteriori informazioni, vedere [Deduplicazione e compressione](#deduplication-and-compression). Per le definizioni di altri termini e concetti chiave usati nella documentazione della serie StorSimple 8000, vedere la [terminologia di StorSimple](#storsimple-terminology) alla fine di questo articolo.
 
 Oltre alla gestione dell'archiviazione, le funzioni di protezione dei dati di StorSimple consentono di creare backup su richiesta e pianificati e quindi di archiviarli in locale o nel cloud. I backup vengono eseguiti sotto forma di snapshot incrementali, il che significa che possono essere creati e ripristinati rapidamente. Gli snapshot cloud possono essere fondamentali in scenari di ripristino di emergenza perché sostituiscono i sistemi di archiviazione secondaria (come il backup su nastro) e consentono di ripristinare i dati nel data center o in siti alternativi, se necessario.
 
@@ -41,7 +41,7 @@ Nella tabella seguente vengono descritti alcuni dei vantaggi principali forniti 
 
 | Funzionalità | Vantaggi |
 | --- | --- |
-| Integrazione trasparente |Usare il protocollo iSCSI per collegare in modo invisibile le strutture di archiviazione dati. Questo assicura che i dati archiviati nel cloud, nel data center o in server remoti appaiano come archiviati in un'unica posizione. |
+| Integrazione trasparente |Usare il protocollo iSCSI per collegare in modo invisibile le strutture di archiviazione dati. I dati archiviati nel cloud, nel Data Center o in server remoti sembrano archiviati in un'unica posizione. |
 | Riduzione dei costi di archiviazione |Assegna una quantità di memoria locale o cloud sufficiente a soddisfare le richieste correnti ed estende la memoria cloud solo quando è necessario. Riduce ulteriormente i requisiti e le spese di archiviazione eliminando le versioni ridondanti degli stessi dati (deduplicazione) e usando la compressione. |
 | Gestione dell'archiviazione semplificata |Offre strumenti di amministrazione di sistema per configurare e gestire i dati archiviati in locale, su un server remoto e nel cloud. Inoltre, è possibile gestire backup e ripristino di funzioni da uno snap-in Microsoft Management Console (MMC).|
 | Miglioramento del ripristino di emergenza e della conformità |Non richiede tempi eccessivi per il ripristino. Al contrario, i dati vengono ripristinati in base alle esigenze, in modo che le normali operazioni possano continuare con un'interferenza minima. È anche possibile configurare criteri per specificare le pianificazioni dei backup e la conservazione dei dati. |
@@ -49,7 +49,7 @@ Nella tabella seguente vengono descritti alcuni dei vantaggi principali forniti 
 | Continuità aziendale |Consente agli utenti delle serie StorSimple 5000-7000 di eseguire la migrazione dei dati in un dispositivo StorSimple serie 8000. |
 | Disponibilità nel portale di Azure Government |StorSimple è disponibile nel portale di Azure per enti pubblici. Per altre informazioni, vedere l'articolo relativo alla [distribuzione di un dispositivo StorSimple locale nel portale di Azure per enti pubblici](storsimple-8000-deployment-walkthrough-gov-u2.md). |
 | Disponibilità e protezione dei dati |StorSimple serie 8000 supporta l'archiviazione con ridondanza della zona (ZRS) oltre all'archiviazione con ridondanza locale (LRS) e all'archiviazione con ridondanza geografica (GRS). Fare riferimento a questo [articolo sulle opzioni di ridondanza dell'archiviazione di Azure](../storage/common/storage-redundancy.md) per informazioni dettagliate sull'archiviazione con ridondanza della zona. |
-| Supporto per applicazioni critiche |StorSimple consente di identificare i volumi appropriati come aggiunti in locale e questo assicura che i dati richiesti dalle applicazioni critiche non siano suddivisi su più livelli nel cloud. I volumi aggiunti in locale non sono soggetti a latenze cloud o a problemi di connettività. Per altre informazioni sui volumi aggiunti in locale, vedere [Use the StorSimple Device Manager service to manage volumes](storsimple-8000-manage-volumes-u2.md) (Usare il servizio Gestione dispositivi StorSimple per gestire i volumi). |
+| Supporto per applicazioni critiche |StorSimple consente di identificare i volumi appropriati come aggiunti in locale per garantire che i dati richiesti dalle applicazioni critiche non siano suddivisi in livelli nel cloud. I volumi aggiunti in locale non sono soggetti a latenze cloud o a problemi di connettività. Per altre informazioni sui volumi aggiunti in locale, vedere [Use the StorSimple Device Manager service to manage volumes](storsimple-8000-manage-volumes-u2.md) (Usare il servizio Gestione dispositivi StorSimple per gestire i volumi). |
 | Bassa latenza e alte prestazioni |È possibile creare appliance cloud che sfruttano le funzionalità di bassa latenza e alte prestazioni dell'archiviazione Premium di Azure. Per altre informazioni sulle appliance cloud Premium StorSimple, vedere [Distribuire e gestire un'appliance cloud StorSimple in Azure](storsimple-8000-cloud-appliance-u2.md). |
 
 
@@ -57,7 +57,7 @@ Nella tabella seguente vengono descritti alcuni dei vantaggi principali forniti 
 La soluzione Microsoft Azure StorSimple include i componenti seguenti:
 
 * **Dispositivo Microsoft Azure StorSimple** : array di archiviazione ibrida locale contenente unità SSD e unità disco rigido, oltre a controller ridondanti e funzionalità di failover automatico. I controller gestiscono il tiering di archiviazione, inserendo i dati attualmente usati (o hot data) nella risorsa di archiviazione locale (nel dispositivo o nei server locali) e spostando nel cloud i dati usati meno di frequente.
-* **Cloud appliance StorSimple**: nota anche come appliance virtuale StorSimple, è una versione software del dispositivo StorSimple che replica l'architettura e la maggior parte delle funzionalità del dispositivo di archiviazione ibrida fisico. L'appliance cloud StorSimple viene eseguita su un singolo nodo in una macchina virtuale di Azure. I dispositivi virtuali Premium, che sfruttano i vantaggi dell'archiviazione Premium di Azure, sono disponibili nell'aggiornamento 2 e versioni successive.
+* **Appliance cloud StorSimple** , nota anche come appliance virtuale StorSimple. Una versione software del dispositivo StorSimple che replica l'architettura e la maggior parte delle funzionalità del dispositivo di archiviazione ibrido fisico. L'appliance cloud StorSimple viene eseguita su un singolo nodo in una macchina virtuale di Azure. I dispositivi virtuali Premium, che sfruttano i vantaggi dell'archiviazione Premium di Azure, sono disponibili nell'aggiornamento 2 e versioni successive.
 * **Servizio Gestione dispositivi StorSimple**: estensione del portale di Azure che consente di gestire un dispositivo StorSimple o un'appliance cloud StorSimple da una singola interfaccia Web. È possibile usare il servizio Gestione dispositivi StorSimple per creare e gestire servizi, visualizzare e gestire dispositivi, visualizzare avvisi, gestire volumi e visualizzare e gestire criteri di backup e il catalogo di backup.
 * **Windows PowerShell per StorSimple** – Un’interfaccia della riga di comando che può essere usata per gestire il dispositivo StorSimple. Windows PowerShell per StorSimple include funzionalità che permettono di registrare il dispositivo StorSimple, configurare l'interfaccia di rete nel dispositivo, installare determinati tipi di aggiornamento, risolvere i problemi del dispositivo tramite l'accesso alla sessione di supporto e modificare lo stato del dispositivo. È possibile accedere a Windows PowerShell per StorSimple connettendosi alla console seriale o usando la comunicazione remota di Windows PowerShell.
 * **i cmdlet PowerShell di azure StorSimple** – un insieme di cmdlet Windows PowerShell che consente di automatizzare le attività a livello di servizio e la migrazione dalla riga di comando. Per altre informazioni sui cmdlet di Azure PowerShell per StorSimple, visitare la [Documentazione di riferimento relativa ai cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true#azure).
@@ -68,7 +68,7 @@ Nel diagramma seguente viene fornita una panoramica di alto livello dell'archite
 
 ![Architettura di StorSimple](./media/storsimple-overview/overview-big-picture.png)
 
-Le sezioni seguenti descrivono dettagliatamente ciascuno dei componenti e illustrano il modo in cui la soluzione organizza i dati, alloca le risorse di archiviazione e facilita la gestione dell'archiviazione e la protezione dei dati. Nell'ultima sezione vengono fornite le definizioni di alcuni termini e concetti importanti relativi ai componenti StorSimple e della loro gestione.
+Le sezioni seguenti descrivono dettagliatamente ciascuno dei componenti e illustrano il modo in cui la soluzione organizza i dati, alloca le risorse di archiviazione e facilita la gestione dell'archiviazione e la protezione dei dati. Nell'ultima sezione vengono fornite le definizioni di alcuni dei termini e dei concetti importanti correlati ai componenti di StorSimple e alla relativa gestione.
 
 ## <a name="storsimple-device"></a>Dispositivo StorSimple
 Il dispositivo Microsoft Azure StorSimple è un array di archiviazione ibrido locale che fornisce archiviazione primaria e accesso iSCSI ai dati archiviati su di esso. Gestisce le comunicazioni con l'archiviazione cloud e consente di garantire la sicurezza e la riservatezza di tutti i dati archiviati nella soluzione Microsoft Azure StorSimple.
@@ -111,7 +111,7 @@ Microsoft Azure StorSimple offre l'accesso a un'interfaccia utente basata sul We
 * Monitorare le prestazioni.
 * Rivedere le impostazioni di sistema e identificare possibili problemi.
 
-È possibile usare il servizio Gestione dispositivi StorSimple per eseguire tutte le attività amministrative, ad eccezione di quelle che richiedono un tempo di inattività del sistema, ad esempio la configurazione iniziale e l'installazione di aggiornamenti.
+È possibile utilizzare il servizio Gestione dispositivi StorSimple per eseguire tutte le attività amministrative, ad eccezione delle attività che richiedono tempi di inattività del sistema, ad esempio la configurazione iniziale e l'installazione degli aggiornamenti.
 
 Per altre informazioni, vedere l'articolo [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md) (Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple).
 
@@ -182,11 +182,14 @@ Il processo di suddivisione in livelli di archiviazione avviene nel modo seguent
 6. Microsoft Azure crea più repliche dei dati nel data center e in un data center remoto, assicurando che i dati possono essere recuperati in caso di emergenza.
 7. Quando il file server richiede i dati archiviati nel cloud, StorSimple li restituisce facilmente e ne archivia una copia nel livello SSD del dispositivo StorSimple.
 
+> [!IMPORTANT]
+> Quando si usa StorSimple, non convertire i BLOB in archivio, anche se il dispositivo è in fase di eliminazione. Per recuperare i dati dal dispositivo, è necessario riattivare i BLOB dall'archivio al tipo frequente o ad accesso sporadico, che comporta costi significativi.
+
 #### <a name="how-storsimple-manages-cloud-data"></a>In che modo StorSimple gestisce i dati del cloud
 
 StorSimple deduplica i dati dei clienti in tutte le snapshot e i dati primari (dati scritti dall'host). La deduplicazione è ideale per l'efficienza di archiviazione, ma può impedire la comprensione di ciò che è presente nel cloud. I dati primari e i dati della snapshot sono disposti su più livelli e si sovrappongono tra loro. Un singolo blocco di dati nel cloud può essere usato come dati primari a più livelli e anche usato come riferimento da più snapshot. Ogni snapshot cloud garantisce che una copia di tutti i dati temporizzati sia bloccata nel cloud fino a quando tale snapshot viene eliminata.
 
-I dati vengono eliminati dal cloud solo quando non sono più presenti riferimenti a tali dati. Ad esempio, se si prende una snapshot cloud di tutti i dati nel dispositivo StorSimple e quindi si eliminano alcuni dati primari, i _dati primari_ verranno eliminati immediatamente. I _dati del cloud_, che includono i dati a livelli e i backup, rimangono invariati. Ciò accade perché esiste ancora una snapshot che fa riferimento ai dati cloud. Dopo l'eliminazione della snapshot cloud e di qualsiasi altra snapshot che fa riferimento agli stessi dati, il consumo del cloud si riduce. Prima di rimuovere i dati cloud, è necessario controllare che non esistano altre snapshot che ancora fanno riferimento a tali dati. Questo processo è denominato _Garbage Collection_; si tratta di un servizio in background in esecuzione sul dispositivo. La rimozione dei dati cloud non è immediata, poiché il servizio Garbage Collection controlla la presenza di altri riferimenti a tali dati prima dell'eliminazione. La velocità del servizio dipende dal numero totale di snapshot e dai dati complessivi. In genere, i dati cloud vengono eliminati in meno di una settimana.
+I dati vengono eliminati dal cloud solo quando non sono più presenti riferimenti a tali dati. Ad esempio, se si è preso uno snapshot cloud di tutti i dati presenti nel dispositivo StorSimple e quindi sono stati eliminati alcuni dati primari, il rilascio dei _dati primari_ verrà immediatamente visualizzato. I _dati del cloud_, che includono i dati a livelli e i backup, rimangono invariati perché uno snapshot fa ancora riferimento ai dati del cloud. Dopo l'eliminazione della snapshot cloud e di qualsiasi altra snapshot che fa riferimento agli stessi dati, il consumo del cloud si riduce. Prima di rimuovere i dati cloud, è necessario controllare che non esistano altre snapshot che ancora fanno riferimento a tali dati. Questo processo è denominato _Garbage Collection_; si tratta di un servizio in background in esecuzione sul dispositivo. La rimozione dei dati cloud non è immediata, poiché il servizio Garbage Collection controlla la presenza di altri riferimenti a tali dati prima dell'eliminazione. La velocità del servizio dipende dal numero totale di snapshot e dai dati complessivi. In genere, i dati cloud vengono eliminati in meno di una settimana.
 
 
 ### <a name="thin-provisioning"></a>Thin provisioning
@@ -268,7 +271,7 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 | file del catalogo di backup |File contenente un elenco di snapshot disponibili attualmente archiviati nel database di backup di Gestione snapshot StorSimple. |
 | criterio di backup |Selezione di volumi, tipo di backup e orari che consente di creare backup in base a una pianificazione predefinita. |
 | BLOB (Binary Large Object) |Raccolta di dati binari archiviati come singola entità in un sistema di gestione database. I BLOB sono in genere immagini, audio o altri oggetti multimediali, anche se a volte il codice eseguibile binario viene archiviato come BLOB. |
-| CHAP (Challenge Handshake Authentication Protocol) |Protocollo utilizzato per autenticare il peer di una connessione, in base al peer che condivide una password o un segreto. CHAP può essere unidirezionale o reciproco. Con CHAP unidirezionale, la destinazione autentica un iniziatore. Per l'autenticazione CHAP reciproca è necessario che la destinazione autentichi l'iniziatore e viceversa. |
+| CHAP (Challenge Handshake Authentication Protocol) |Protocollo utilizzato per autenticare il peer di una connessione, in base al peer che condivide una password o un segreto. CHAP può essere unidirezionale o reciproco. Con CHAP unidirezionale, la destinazione autentica un iniziatore. Per l'autenticazione CHAP reciproca è necessario che la destinazione autentichi l'initiator e che l'iniziatore autentichi la destinazione. |
 | clone |Copia duplicata di un volume. |
 | CaaT (Cloud as a Tier) |Archiviazione cloud integrata come livello nell'architettura di archiviazione in modo che tutta la memoria sia parte di una rete di archiviazione aziendale. |
 | provider di servizi cloud  (CSP) |Provider di servizi di cloud computing. |
