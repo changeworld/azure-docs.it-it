@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 29a31948c5bfc9b5fd3a31f39144d186dbfe4885
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 99ae35aca485ac928f7c5ef9f98295eed4bc1245
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026919"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500425"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Creare le risorse di Azure di supporto per la funzione
 
 Prima di distribuire il codice della funzione in Azure, è necessario creare tre risorse:
 
-- Un gruppo di risorse, ovvero un contenitore logico di risorse correlate.
-- Un account di archiviazione, che mantiene lo stato e altre informazioni sui progetti.
+- Un [gruppo di risorse](../articles/azure-resource-manager/management/overview.md), che è un contenitore logico per le risorse correlate.
+- Un [account di archiviazione](../articles/storage/common/storage-account-create.md), usato per gestire lo stato e altre informazioni sulle funzioni.
 - Un'app per le funzioni, che fornisce l'ambiente per l'esecuzione del codice della funzione. Un'app per le funzioni si collega al progetto di funzione locale e consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione di risorse.
 
 Usare i comandi seguenti per creare questi elementi. Sono supportati sia l'interfaccia della riga di comando di Azure che PowerShell.

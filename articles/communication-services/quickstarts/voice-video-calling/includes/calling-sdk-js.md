@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c51316b445471c58ae88237b370f5a25fdedf373
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 2c894ea4bcb9701b8b65bcb9cd0b4b82c1898448
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98605193"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500267"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -469,7 +469,7 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### <a name="enumerate-local-devices"></a>Enumerare i dispositivi locali
 
-Per accedere ai dispositivi locali, è possibile usare i metodi di enumerazione sul Device Manager. L'enumerazione è un'azione sincrona.
+Per accedere ai dispositivi locali, è possibile usare i metodi di enumerazione sul Gestione dispositivi. L'enumerazione è un'azione sincrona.
 
 ```js
 
@@ -510,7 +510,7 @@ await deviceManager.setSpeaker(AudioDeviceInfo);
 È possibile usare `DeviceManager` e `Renderer` per avviare il rendering dei flussi dalla fotocamera locale. Questo flusso non verrà inviato ad altri partecipanti; si tratta di un feed di anteprima locale. Si tratta di un'azione asincrona.
 
 ```js
-const localVideoDevice = deviceManager().getCameraList()[0];
+const localVideoDevice = deviceManager.getCameraList()[0];
 const localCameraStream = new LocalVideoStream(localVideoDevice);
 const renderer = new Renderer(localCameraStream);
 const view = await renderer.createView();

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: af0082ef04416d6b3700bbcd96995a154614e0d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b451e2509ee618ac0996fd91191a7d59dcfd9fc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798587"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500401"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>La rete WAN virtuale di Azure è disponibile a livello generale?
 
@@ -140,6 +140,10 @@ Sono supportate fino a 1.000 connessioni per ogni hub virtuale. Ogni connessione
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Che cosa si intende per connessione da dispositivo di ramo alla rete WAN virtuale di Azure?
 
 Una connessione da un dispositivo ramo o VPN nella rete WAN virtuale di Azure non è altro che una connessione VPN che connette virtualmente il sito VPN e il gateway VPN di Azure in un hub virtuale.
+
+### <a name="what-happens-if-the-on-premise-vpn-device-only-has-1-tunnel-to-a-azure-virtual-wan-vpn-gateway"></a>Cosa accade se il dispositivo VPN locale ha solo un tunnel per un gateway VPN WAN virtuale di Azure?
+
+Una connessione WAN virtuale di Azure è costituita da 2 tunnel. Un gateway VPN WAN virtuale viene distribuito nell'hub virtuale in modalità attivo-attivo, che indica che sono presenti tunnel distinti da dispositivi locali che terminano in isntances separati. si tratta dell'indicazione per tutti gli utenti. Tuttavia, se l'utente sceglie di avere solo 1 tunnel per una delle istanze del gateway VPN WAN virtuale, se per qualsiasi motivo (manutenzione, patch e così via)  l'istanza del gateway deve essere portata offline, il tunnel verrà spostato nell'istanza attiva secondaria e l'utente può riscontrare una riconnessione. Inoltre, tenere presente che la sessione BGP non verrà spostata tra le istanze.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Il dispositivo VPN locale può connettersi a più hub?
 

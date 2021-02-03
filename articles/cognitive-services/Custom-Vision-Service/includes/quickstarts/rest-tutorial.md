@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: cea3db080865727ab9b425f14a172041a54a5414
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fd845778df5ff2f545463e9cb984a739e35f6773
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948228"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500255"
 ---
 Introduzione all'API REST Visione personalizzata. Seguire questa procedura per chiamare l'API e creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'app di riconoscimento immagini personalizzata.
 
@@ -104,7 +104,7 @@ Viene restituita una risposta JSON simile alla seguente. Salvare il valore `"id"
 Scaricare quindi le immagini di esempio per questo progetto. Salvare il contenuto della [cartella immagini di esempio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) nel dispositivo locale.
 
 > [!NOTE]
-> Trove, un progetto Microsoft Garage, consente di raccogliere e acquistare set di immagini a scopo di training. Una volta raccolte le immagini, è possibile scaricarle e quindi importarle nel progetto di Visione personalizzata nel modo consueto. Per altre informazioni, visitare la [pagina di Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
+> Per completare la formazione è necessario un set più ampio di immagini? Trove, un progetto Microsoft Garage, consente di raccogliere e acquistare set di immagini a scopo di training. Una volta raccolte le immagini, è possibile scaricarle e quindi importarle nel progetto di Visione personalizzata nel modo consueto. Per altre informazioni, visitare la [pagina di Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
 
 Usare il comando seguente per caricare le immagini e applicare i tag, tutti in una volta per le immagini "Hemlock" e separatamente per le immagini "Japanese Cherry". Per altre opzioni, vedere l'API [Create Images From Data](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5).
 

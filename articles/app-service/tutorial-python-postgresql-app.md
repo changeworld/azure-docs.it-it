@@ -3,7 +3,7 @@ title: "Esercitazione: Distribuire un'app Python Django con Postgres"
 description: Creare un'app Web Python con un database PostgreSQL e distribuirla in Azure. L'esercitazione usa il framework Django e l'app è ospitata nel Servizio app di Azure in Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/02/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
-ms.translationtype: HT
+ms.openlocfilehash: 05bdbd6c9d5dc3862c3191e4564a79e7a44bc0b8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898590"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494057"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Django con PostgreSQL nel Servizio app di Azure
 
@@ -39,7 +39,7 @@ In questa esercitazione verrà usata l'interfaccia della riga di comando di Azur
 
 1. Avere a disposizione un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Installare <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o versioni successive</a>.
-1. Installare l'<a href="/cli/azure/install-azure-cli" target="_blank">interfaccia della riga di comando di Azure</a> 2.0.80 o versione successiva, con cui si eseguono i comandi in qualsiasi shell per il provisioning e la configurazione delle risorse di Azure.
+1. Installare l' <a href="/cli/azure/install-azure-cli" target="_blank">interfaccia</a> della riga di comando di Azure 2.18.0 o versione successiva, con cui si eseguono i comandi in qualsiasi shell per il provisioning e la configurazione delle risorse
 
 Aprire una finestra del terminale e verificare che la versione di Python sia 3.6 o successiva:
 
@@ -63,11 +63,13 @@ py -3 --version
 
 ---
 
-Verificare anche che la versione dell'interfaccia della riga di comando di Azure sia 2.0.80 o successiva:
+Verificare che la versione dell'interfaccia della riga di comando di Azure sia 2.18.0 o successiva:
 
 ```azurecli
 az --version
 ```
+
+Se è necessario eseguire l'aggiornamento, provare il `az upgrade` comando (richiede la versione 2.11 +) o vedere <a href="/cli/azure/install-azure-cli" target="_blank">installare l'interfaccia della riga di</a>comando di Azure.
 
 Quindi accedere ad Azure tramite l'interfaccia della riga di comando:
 
@@ -229,7 +231,7 @@ Le migrazioni di database Django assicurano che lo schema nel database PostgreSQ
 
     Sostituire `<app-name>` con il nome usato in precedenza nel comando `az webapp up`.
 
-    In macOS e Linux è anche possibile connettersi a una sessione SSH con il comando [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh).
+    In alternativa, è possibile connettersi a una sessione SSH con il [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) comando. In Windows questo comando richiede l'interfaccia della riga di comando di Azure 2.18.0 o versione successiva.
 
     Se non è possibile connettersi alla sessione SSH, significa che l'avvio dell'app stessa non è riuscito. [Controllare i log di diagnostica](#6-stream-diagnostic-logs) per i dettagli. Ad esempio, se nella sezione precedente non sono state create le impostazioni dell'app necessarie, i log indicheranno `KeyError: 'DBNAME'`.
 
@@ -239,8 +241,11 @@ Le migrazioni di database Django assicurano che lo schema nel database PostgreSQ
     # Change to the app folder
     cd $APP_PATH
     
-    # Activate the venv (requirements.txt is installed automatically)
+    # Activate the venv
     source /antenv/bin/activate
+
+    # Install requirements
+    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -398,6 +403,7 @@ Aprire di nuovo una sessione SSH nel browser passando a `https://<app-name>.scm.
 ```
 cd $APP_PATH
 source /antenv/bin/activate
+pip instal -r requirements.txt
 python manage.py migrate
 ```
 

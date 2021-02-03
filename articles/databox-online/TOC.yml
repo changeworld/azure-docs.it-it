@@ -278,6 +278,8 @@
           items:
             - name: Uso dei grafici delle metriche
               href: azure-stack-edge-monitor.md
+            - name: Gestire gli avvisi degli eventi del dispositivo
+              href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md
             - name: Uso del dashboard di Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
             - name: Uso di Monitoraggio di Azure

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 50ab5a0d47292e36216a565a5bd39fbe7e850131
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735000"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494015"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creare un controller di dati di Azure ARC usando il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -269,6 +269,8 @@ Dopo aver eseguito il comando, continuare con il [monitoraggio dello stato di cr
 Azure Red Hat OpenShift richiede un vincolo di contesto di sicurezza.
 
 #### <a name="apply-the-security-context"></a>Applicare il contesto di sicurezza
+
+Prima di creare il controller dati in Azure Red Hat OpenShift, è necessario applicare specifici vincoli del contesto di sicurezza (SCC). Per la versione di anteprima, questi vincoli di sicurezza sono attenuati. Le versioni future forniranno il SCC aggiornato.
 
 [!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 

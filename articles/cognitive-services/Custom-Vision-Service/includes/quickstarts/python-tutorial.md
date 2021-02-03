@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 11e41437d21ef1e56930934b5b9850f74a269224
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ee806b9c1dac128da543e4aa07dace58e8ba8f1a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948364"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500359"
 ---
 Introduzione alla libreria client di Visione personalizzata per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
 
@@ -110,7 +110,7 @@ Per aggiungere tag di classificazione al progetto, aggiungere il codice seguente
 Scaricare prima di tutto le immagini di esempio per questo progetto. Salvare il contenuto della [cartella immagini di esempio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) nel dispositivo locale.
 
 > [!NOTE]
-> Trove, un progetto Microsoft Garage, consente di raccogliere e acquistare set di immagini a scopo di training. Una volta raccolte le immagini, è possibile scaricarle e quindi importarle nel progetto di Visione personalizzata nel modo consueto. Per altre informazioni, visitare la [pagina di Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
+> Per completare la formazione è necessario un set più ampio di immagini? Trove, un progetto Microsoft Garage, consente di raccogliere e acquistare set di immagini a scopo di training. Una volta raccolte le immagini, è possibile scaricarle e quindi importarle nel progetto di Visione personalizzata nel modo consueto. Per altre informazioni, visitare la [pagina di Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
 
 Per aggiungere le immagini di esempio al progetto, inserire il codice seguente dopo la creazione dei tag. Questo codice carica ogni immagine con il tag corrispondente. È possibile caricare fino a 64 immagini in un singolo batch.
 

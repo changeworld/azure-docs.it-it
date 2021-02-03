@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
-ms.openlocfilehash: caa17a02305c9e9fcba30cf8c39c4288d83d3da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92688051cf591470246094dd0d8ea1d436a8efb1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419401"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500483"
 ---
 Connettersi alla macchina virtuale usando l'indirizzo IP privato passato durante la creazione della macchina virtuale.
 
@@ -17,7 +17,7 @@ Aprire una sessione SSH per connettersi con l'indirizzo IP.
 
 `ssh -l <username> <ip address>`
 
-Quando richiesto, specificare la password usata durante la creazione della macchina virtuale.
+Quando richiesto, immettere la password usata durante la creazione della macchina virtuale.
 
 Se è necessario specificare la chiave SSH, usare questo comando.
 

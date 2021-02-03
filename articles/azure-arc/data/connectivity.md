@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7bff21a17af3c908caeed6a1e60de8e2fe4efc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d148509af45b93dce8dbd99b9afc674276b149b6
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287589"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493973"
 ---
-# <a name="connectivity-modes-and-requirements"></a>Modalità di connettività e requisiti
+# <a name="connectivity-modes-and-requirements"></a>Modalità e requisiti di connettività
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,7 +24,7 @@ ms.locfileid: "93287589"
 
 Sono disponibili più opzioni per il grado di connettività dall'ambiente dei servizi dati abilitati per Azure Arc ad Azure. Poiché i requisiti variano in base ai criteri aziendali, al regolamento governativo o alla disponibilità della connettività di rete ad Azure, è possibile scegliere tra le modalità di connettività seguenti.
 
-Azure Arc Enabled Data Services offre la possibilità di connettersi ad Azure con due diverse *modalità di connettività* : 
+Azure Arc Enabled Data Services offre la possibilità di connettersi ad Azure con due diverse *modalità di connettività*: 
 
 - Connessione diretta 
 - Connesso indirettamente
@@ -37,12 +37,10 @@ Inoltre, è possibile usare il controllo di accesso Azure Active Directory e Azu
 
 Alcuni servizi collegati ad Azure sono disponibili solo quando è possibile raggiungerli direttamente, ad esempio Azure Defender Security Services, container Insights e backup di Azure nell'archivio BLOB.
 
-Attualmente, nell'anteprima solo la modalità connessa indirettamente è supportata. 
-
 ||**Connesso indirettamente**|**Connessione diretta**|**Mai connesso**|
 |---|---|---|---|
 |**Descrizione**|La modalità connessa indirettamente offre la maggior parte dei servizi di gestione localmente nell'ambiente senza connessione diretta ad Azure.  È necessario inviare una quantità minima di dati ad Azure _solo_ a scopo di inventario e fatturazione. Viene esportato in un file e caricato in Azure almeno una volta al mese.  Non è necessaria alcuna connessione diretta o continua ad Azure.  Alcune funzionalità e servizi che richiedono una connessione ad Azure non saranno disponibili.|La modalità connessa direttamente offre tutti i servizi disponibili quando è possibile stabilire una connessione diretta con Azure. Le connessioni vengono sempre avviate _dall'_ ambiente in Azure e usano porte e protocolli standard, ad esempio https/443.|Non è possibile inviare dati da o verso Azure in alcun modo.|
-|**Disponibilità corrente**| disponibilità in anteprima.|Pianificato per l'anteprima in futuro.|Non è attualmente supportato.|
+|**Disponibilità corrente**| disponibilità in anteprima.|disponibilità in anteprima.|Non è attualmente supportato.|
 |**Casi d'uso tipici**|Data Center locali che non consentono la connettività all'interno o all'esterno dell'area dati del data center a causa di criteri di conformità aziendali o normativi o di problemi di attacchi esterni o di exfiltration di dati.  Esempi tipici: istituti finanziari, assistenza sanitaria, enti pubblici. <br/><br/>Percorsi del sito perimetrale in cui il sito Edge non dispone in genere di connettività a Internet.  Esempi tipici: applicazioni per campi petroliferi, gas o militari.  <br/><br/>Località del sito Edge con connettività intermittente con lunghi periodi di interruzioni.  Esempi tipici: stadi, Cruise Ships. | Organizzazioni che usano cloud pubblici.  Esempi tipici: Azure, AWS o Google Cloud.<br/><br/>Località del sito Edge in cui la connettività Internet è in genere presente e consentita.  Esempi tipici: negozi al dettaglio, produzione.<br/><br/>Data center aziendali con criteri più permissivi per la connettività a/dall'area dati del Data Center a Internet.  Esempi tipici: le aziende non regolamentate, le aziende di piccole e medie dimensioni|Ambienti realmente "gapped" in cui nessun dato in nessuna circostanza può provenire o andare dall'ambiente dei dati. Esempi tipici: principali strutture per enti pubblici.|
 |**Modalità di invio dei dati ad Azure**|Sono disponibili tre opzioni per il modo in cui è possibile inviare i dati di fatturazione e inventario ad Azure:<br><br> 1) i dati vengono esportati dall'area dati tramite un processo automatizzato dotato di connettività all'area dati protetta e ad Azure.<br><br>2) i dati vengono esportati dall'area dati tramite un processo automatizzato all'interno dell'area dati, copiati automaticamente in un'area meno sicura e un processo automatizzato nell'area meno sicura carica i dati in Azure.<br><br>3) i dati vengono esportati manualmente da un utente all'interno dell'area protetta, portati manualmente dall'area protetta e caricati manualmente in Azure. <br><br>Le prime due opzioni sono un processo continuo automatico che può essere pianificato per l'esecuzione frequente, in modo da garantire un ritardo minimo nel trasferimento dei dati in Azure soggetto solo alla connettività disponibile ad Azure.|I dati vengono inviati in modo automatico e continuo ad Azure.|I dati non vengono mai inviati ad Azure.|
 
@@ -70,13 +68,13 @@ Attualmente, nell'anteprima solo la modalità connessa indirettamente è support
 
 |**Tipo di dati**|**Direzione**|**Obbligatorio/facoltativo**|**Costi aggiuntivi**|**Modalità obbligatoria**|**Note**|
 |---|---|---|---|---|---|
-|**Immagini contenitore**|Microsoft Container Registry-> cliente|Obbligatoria|No|Indiretta o diretta|Le immagini del contenitore sono il metodo per distribuire il software.  In un ambiente che è in grado di connettersi a Microsoft Container Registry (di Microsoft) tramite Internet, le immagini del contenitore possono essere estratte direttamente da.  Nel caso in cui l'ambiente di distribuzione non disponga di connettività diretta, è possibile eseguire il pull delle immagini da e inserirle in un registro contenitori privato nell'ambiente di distribuzione.  Al momento della creazione, è possibile configurare il processo di creazione per effettuare il pull dal registro contenitori privato anziché da. Questo vale anche per gli aggiornamenti automatici.|
-|**Inventario delle risorse**|Ambiente del cliente-> Azure|Obbligatoria|No|Indiretta o diretta|Un inventario dei controller dati, delle istanze di database (PostgreSQL e SQL) viene mantenuto in Azure a scopo di fatturazione e anche per la creazione di un inventario di tutti i controller di dati e delle istanze di database in un'unica posizione, particolarmente utile se si dispone di più di un ambiente con i servizi dati di Azure Arc.  Quando viene eseguito il provisioning delle istanze, il deprovisioning, la scalabilità orizzontale e orizzontale, l'inventario viene aggiornato in Azure.|
-|**Dati di telemetria di fatturazione**|Ambiente del cliente-> Azure|Obbligatoria|No|Indiretta o diretta|L'utilizzo delle istanze di database deve essere inviato ad Azure per finalità di fatturazione.  Non è previsto alcun costo per i servizi dati abilitati per Azure Arc durante il periodo di anteprima.|
+|**Immagini contenitore**|Microsoft Container Registry-> cliente|Necessario|No|Indiretta o diretta|Le immagini del contenitore sono il metodo per distribuire il software.  In un ambiente che è in grado di connettersi a Microsoft Container Registry (di Microsoft) tramite Internet, le immagini del contenitore possono essere estratte direttamente da.  Nel caso in cui l'ambiente di distribuzione non disponga di connettività diretta, è possibile eseguire il pull delle immagini da e inserirle in un registro contenitori privato nell'ambiente di distribuzione.  Al momento della creazione, è possibile configurare il processo di creazione per effettuare il pull dal registro contenitori privato anziché da. Questo vale anche per gli aggiornamenti automatici.|
+|**Inventario delle risorse**|Ambiente del cliente-> Azure|Necessario|No|Indiretta o diretta|Un inventario dei controller dati, delle istanze di database (PostgreSQL e SQL) viene mantenuto in Azure a scopo di fatturazione e anche per la creazione di un inventario di tutti i controller di dati e delle istanze di database in un'unica posizione, particolarmente utile se si dispone di più di un ambiente con i servizi dati di Azure Arc.  Quando viene eseguito il provisioning delle istanze, il deprovisioning, la scalabilità orizzontale e orizzontale, l'inventario viene aggiornato in Azure.|
+|**Dati di telemetria di fatturazione**|Ambiente del cliente-> Azure|Necessario|No|Indiretta o diretta|L'utilizzo delle istanze di database deve essere inviato ad Azure per finalità di fatturazione.  Non è previsto alcun costo per i servizi dati abilitati per Azure Arc durante il periodo di anteprima.|
 |**Monitoraggio di dati e log**|Ambiente del cliente-> Azure|Facoltativo|Probabilmente a seconda del volume dei dati (vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/en-us/pricing/details/monitor/))|Indiretta o diretta|È possibile inviare i log e i dati di monitoraggio raccolti localmente a monitoraggio di Azure per aggregare i dati in più ambienti in un'unica posizione e anche per usare i servizi di monitoraggio di Azure, come gli avvisi, usando i dati in Azure Machine Learning e così via.|
 |**Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**|Ambiente del cliente: ambiente del cliente > Azure >|Facoltativo|No|Solo diretta|Se si vuole usare il controllo degli accessi in base al ruolo di Azure, è necessario stabilire la connettività sempre con Azure.  Se non si vuole usare il controllo degli accessi in base al ruolo di Azure, è possibile usare local Kubernetes RBAC.  **Disponibilità in sospeso della modalità di connessione diretta**|
 |**Azure Active Directory (AD)**|Ambiente del cliente: ambiente del cliente > Azure >|Facoltativo|Forse, ma è possibile che si stia già pagando Azure AD|Solo diretta|Se si vuole usare Azure AD per l'autenticazione, è necessario stabilire la connettività con Azure in qualsiasi momento. Se non si vuole usare Azure AD per l'autenticazione, è possibile Active Directory Federation Services (ADFS) per Active Directory. **Disponibilità in sospeso della modalità di connessione diretta**|
-|**Backup e ripristino**|Ambiente del cliente-> ambiente del cliente|Obbligatoria|No|Diretta o indiretta|Il servizio di backup e ripristino può essere configurato in modo da puntare alle classi di archiviazione locali. |
+|**Backup e ripristino**|Ambiente del cliente-> ambiente del cliente|Necessario|No|Diretta o indiretta|Il servizio di backup e ripristino può essere configurato in modo da puntare alle classi di archiviazione locali. |
 |**Backup di Azure: conservazione a lungo termine**| Ambiente del cliente-> Azure | Facoltativo| Sì per archiviazione di Azure | Solo diretta |È possibile inviare i backup che vengono eseguiti localmente in backup di Azure per la conservazione a lungo termine e fuori sede dei backup e riportarli nell'ambiente locale per il ripristino. **Disponibilità in sospeso della modalità di connessione diretta**|
 |**Servizi di sicurezza di Azure Defender**|Ambiente del cliente: ambiente del cliente > Azure >|Facoltativo|Sì|Solo diretta|**Disponibilità in sospeso della modalità di connessione diretta**|
 |**Provisioning e modifiche di configurazione da portale di Azure**|Ambiente del cliente: ambiente del cliente > Azure >|Facoltativo|No|Solo diretta|È possibile eseguire il provisioning e le modifiche alla configurazione localmente utilizzando Azure Data Studio o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .  In modalità con connessione diretta sarà anche possibile effettuare il provisioning e apportare modifiche alla configurazione dalla portale di Azure. **Disponibilità in sospeso della modalità di connessione diretta**|
@@ -87,7 +85,7 @@ Attualmente, nell'anteprima solo la modalità connessa indirettamente è support
 Attualmente, nella fase di anteprima è supportata solo la modalità indirettamente connessa. In questa modalità sono necessarie solo tre connessioni per i servizi disponibili su Internet. Le connessioni includono:
 
 - [Microsoft Container Registry](#microsoft-container-registry-mcr)
-- [API Azure Resource Manager](#azure-resource-manager-apis)
+- [API di Azure Resource Manager](#azure-resource-manager-apis)
 - [API di monitoraggio di Azure](#azure-monitor-apis)
 
 Tutte le connessioni HTTPS ad Azure e a Microsoft Container Registry vengono crittografate con SSL/TLS utilizzando certificati ufficialmente firmati e verificabili.
@@ -122,7 +120,7 @@ Sì
 
 nessuno
 
-### <a name="azure-resource-manager-apis"></a>API Azure Resource Manager
+### <a name="azure-resource-manager-apis"></a>API di Azure Resource Manager
 Azure Data Studio [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] e l'interfaccia della riga di comando di Azure si connettono alle api Azure Resource Manager per inviare e recuperare dati da e verso Azure per alcune funzionalità.
 
 #### <a name="connection-source"></a>Origine della connessione

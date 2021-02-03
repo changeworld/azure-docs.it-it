@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: ceb560a3f0c56a13b9f8da6c867f513b2b08e59b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962227"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500329"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Servizio metadati dell'istanza di Azure (IMDS)
 
@@ -78,7 +78,7 @@ Qualsiasi richiesta che non soddisfi **entrambi** questi requisiti verrà rifiut
 IMDS non è progettato per essere usato dietro un proxy e questa operazione **non** è supportata. La maggior parte dei client HTTP fornisce un'opzione per disabilitare i proxy sulle richieste e questa funzionalità deve essere utilizzata durante la comunicazione con IMDS. Per informazioni dettagliate, vedere la documentazione del client.
 
 > [!IMPORTANT]
-> Anche se non si è a conoscenza di alcuna configurazione proxy nell'ambiente, **è comunque necessario eseguire l'override di tutte le impostazioni proxy client predefinite**. Le configurazioni proxy possono essere individuate automaticamente e il mancato bypass di tali configurazioni espone i rischi di indignazione in caso di modifica della configurazione del computer in futuro.
+> Anche se non si è a conoscenza di alcuna configurazione proxy nell'ambiente, **è comunque necessario eseguire l'override di tutte le impostazioni proxy client predefinite**. Le configurazioni proxy possono essere individuate automaticamente e il mancato bypass di tali configurazioni espone i rischi di interruzione in caso di modifica della configurazione del computer in futuro.
 
 ## <a name="rate-limiting"></a>Limitazione della frequenza
 
@@ -268,7 +268,7 @@ L'endpoint radice è `http://169.254.169.254/metadata` .
 
 L'API IMDS contiene più categorie di endpoint che rappresentano origini dati diverse, ognuna delle quali contiene uno o più endpoint. Per informazioni dettagliate, vedere ogni categoria.
 
-| Radice categoria | Description | Versione introdotta |
+| Radice categoria | Descrizione | Versione introdotta |
 |---------------|-------------|--------------------|
 | `/metadata/attested` | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
 | `/metadata/identity` | Vedere [identità gestita tramite IMDS](#managed-identity) | 2018-02-01
@@ -317,7 +317,7 @@ GET /metadata/instance
 
 #### <a name="parameters"></a>Parametri
 
-| Nome | Obbligatorio/facoltativo | Description |
+| Nome | Obbligatorio/facoltativo | Descrizione |
 |------|-------------------|-------------|
 | `api-version` | Obbligatoria | Versione utilizzata per il servizio della richiesta.
 | `format` | Opzionale | Formato `json` o `text` della risposta. * Nota: potrebbe essere necessario quando si usano i parametri della richiesta
@@ -330,7 +330,7 @@ Questo endpoint supporta il filtraggio della risposta tramite [parametri di rout
 
 Suddivisione schema:
 
-**Calcolo**
+**Compute**
 
 | Data | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
@@ -451,7 +451,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 ---
 
-**Response**.
+**Risposta**
 
 ```
 5c08b38e-4d57-4c23-ac45-aca61037f084
@@ -479,7 +479,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 ---
 
-**Response**.
+**Risposta**
 
 ```
 0
@@ -630,7 +630,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 ---
 
-**Response**.
+**Risposta**
 
 ```
 AzurePublicCloud
@@ -664,7 +664,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 ---
 
-**Response**.
+**Risposta**
 
 ```json
 {
@@ -721,7 +721,7 @@ GET /metadata/attested/document
 
 #### <a name="parameters"></a>Parametri
 
-| Nome | Obbligatorio/facoltativo | Description |
+| Nome | Obbligatorio/facoltativo | Descrizione |
 |------|-------------------|-------------|
 | `api-version` | Obbligatoria | Versione utilizzata per il servizio della richiesta.
 | `nonce` | Facoltativo | Stringa a 10 cifre che funge da nonce crittografico. Se non viene specificato alcun valore, IMDS usa il timestamp UTC corrente.
