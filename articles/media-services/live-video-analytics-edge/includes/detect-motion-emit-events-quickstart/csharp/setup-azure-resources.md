@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 67d6155d35f366429bf0210f18f052d9b6187820
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 9503d93afbf14be159e6b982d9be5977717349ac
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99213616"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531517"
 ---
 Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 
@@ -16,6 +16,8 @@ Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 Per questo argomento di avvio rapido è consigliabile usare lo [script di configurazione delle risorse di Analisi video live](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) per distribuire le risorse necessarie nella sottoscrizione di Azure. A questo scopo, attenersi alla procedura seguente:
 
 1. Aprire [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Se si usa Cloud Shell per la prima volta, verrà chiesto di selezionare una sottoscrizione, oltre che di creare un account di archiviazione e una condivisione di File di Microsoft Azure. Selezionare **Crea risorsa di archiviazione** per creare un account di archiviazione per le informazioni della sessione Cloud Shell. Questo account di archiviazione è distinto da quello che verrà creato dallo script per l'uso con l'account di Servizi multimediali di Azure.
 1. Nel menu a discesa sul lato sinistro della finestra di Cloud Shell selezionare **Bash** come ambiente.
 
@@ -42,12 +44,12 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
 
 1. Al termine dello script, selezionare le parentesi graffe per esporre la struttura della cartella. Vengono visualizzati alcuni file nella directory *~/clouddrive/lva-sample*. I file rilevanti per questo avvio rapido sono:
 
-     * * **~/clouddrive/lva-sample/edge-deployment/.env** _ - Questo file contiene le proprietà usate da Visual Studio Code per distribuire moduli a un dispositivo perimetrale.
-     _ * **~/clouddrive/lva-sample/appsetting.json** _ - Visual Studio Code usa questo file per eseguire il codice di esempio.
+     * ***~/clouddrive/lva-sample/edge-deployment/.env*** - Questo file contiene le proprietà usate da Visual Studio Code per distribuire i moduli in un dispositivo perimetrale.
+     * ***~/clouddrive/lva-sample/appsetting.json*** - Visual Studio Code usa questo file per l'esecuzione del codice di esempio.
      
     Questi file saranno necessari per configurare l'ambiente di sviluppo in Visual Studio Code nella sezione successiva. È consigliabile copiarli in un file locale per il momento.
     
     ![Impostazioni app](../../../media/quickstarts/clouddrive.png)
 
 > [!TIP]
-> Se si verificano problemi con le risorse di Azure create, vedere la _ *[guida alla risoluzione dei problemi](../../../troubleshoot-how-to.md#common-error-resolutions)* * più comuni rilevati.
+> Se si verificano problemi con le risorse di Azure create, vedere la **[guida alla risoluzione dei problemi](../../../troubleshoot-how-to.md#common-error-resolutions)** più comuni rilevati.

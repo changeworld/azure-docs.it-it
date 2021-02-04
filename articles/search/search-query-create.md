@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 9419e5f419a358be50fbb3b8478d62dfe6e3dff0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509351"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536833"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Creazione di query in Azure ricerca cognitiva
 
@@ -23,7 +23,7 @@ Se si compila una query per la prima volta, in questo articolo vengono descritti
 
 Una query è una richiesta di sola lettura per la raccolta docs di un singolo indice di ricerca. Specifica un oggetto ' queryType ' e un'espressione di query anche se il parametro ' Search '. L'espressione di query potrebbe avere termini di ricerca, una frase racchiusa tra virgolette e operatori.
 
-Una query può anche avere ' count ' per restituire il numero di corrispondenze trovate nell'indice,' Select ' per scegliere i campi restituiti nei risultati della ricerca è OrderBy ' per ordinare i risultati. Negli esempi seguenti viene illustrata una richiesta di query con un subset dei parametri disponibili. Per altre informazioni sulla composizione di query, vedere [tipi di query e composizioni](search-query-overview.md) e [cercare documenti (REST)](/rest/api/searchservice/search-documents).
+Una query può anche avere ' count ' per restituire il numero di corrispondenze trovate nell'indice,' Select ' per scegliere i campi restituiti nei risultati della ricerca è OrderBy ' per ordinare i risultati. L'esempio seguente fornisce un'idea generale di una richiesta di query mostrando un subset dei parametri disponibili. Per altre informazioni sulla composizione di query, vedere [tipi di query e composizioni](search-query-overview.md) e [cercare documenti (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -38,7 +38,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="choose-a-client"></a>Scegliere un client
 
-È necessario uno strumento o un'API per creare una query, ad esempio portale di Azure o postazione, oppure il codice che crea un'istanza di un client di query. È consigliabile usare le API portale di Azure o REST per i test iniziali di sviluppo e di prova.
+È necessario uno strumento come portale di Azure o postazione oppure il codice che crea un'istanza di un client di query usando le API. È consigliabile usare le API portale di Azure o REST per i test iniziali di sviluppo e di prova.
 
 ### <a name="permissions"></a>Autorizzazioni
 
@@ -111,14 +111,6 @@ Per una descrizione degli attributi dei campi, vedere [create index (API REST)](
 Durante l'indicizzazione, il motore di ricerca usa un analizzatore per eseguire analisi del testo sulle stringhe, massimizzando la possibilità di corrispondenza in fase di query. Come minimo, le stringhe sono in minuscolo, ma possono anche essere sottoposte a lemmatizzazione e interrompere la rimozione delle parole. Stringhe più grandi o parole composte vengono in genere interrotte da spazi vuoti, trattini o trattini e indicizzate come token separati. 
 
 Il punto da considerare è che ciò che si ritiene venga contenuto nell'indice e che cosa è in realtà, può essere diverso. Se le query non restituiscono risultati previsti, è possibile ispezionare i token creati dall'analizzatore tramite il [testo di analisi (API REST)](/rest/api/searchservice/test-analyzer). Per altre informazioni sulla suddivisione in token e sull'effetto sulle query, vedere [ricerca a termini parziali e modelli con caratteri speciali](search-query-partial-matching.md).
-
-## <a name="about-queries-per-second-qps"></a>Informazioni sulle query al secondo (query al secondo)
-
-A causa dell'elevato numero di fattori che influiscono sulle prestazioni delle query, Microsoft non pubblica i numeri query al secondo previsti. Le stime query al secondo devono essere sviluppate in modo indipendente da ogni cliente usando i costrutti del livello di servizio, della configurazione, dell'indice e della query validi per l'applicazione. Le dimensioni e la complessità dell'indice, le dimensioni e la complessità della query e la quantità di traffico sono i fattori principali in base ai quali è possibile determinare il numero di query al secondo. Non è possibile fornire stime significative se questi fattori sono sconosciuti.
-
-Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca cognitiva di Azure](search-performance-optimization.md).
-
-Per i livelli Ottimizzato per l'archiviazione (L1 e L2), sono previste una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli Standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5f070f59df69bb186041af450e6ca922469d960
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: df8841cb2dcac6335b09a5e7715f42c508c69e76
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043745"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536816"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Eseguire l'aggiornamento ad Azure ricerca cognitiva .NET SDK versione 11
 
@@ -80,7 +80,7 @@ Oltre alle differenze dei client (annotate in precedenza e quindi omesse qui), p
 | [StandardTokenizer](/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (anche `StandardTokenizerV2` a `LuceneStandardTokenizerV2` ) |
 | [TokenInfo](/dotnet/api/microsoft.azure.search.models.tokeninfo) | [AnalyzedTokenInfo](/dotnet/api/azure.search.documents.indexes.models.analyzedtokeninfo) |
 | [Tokenizer](/dotnet/api/microsoft.azure.search.models.tokenizer) | [LexicalTokenizer](/dotnet/api/azure.search.documents.indexes.models.lexicaltokenizer) (anche `TokenizerName` a `LexicalTokenizerName` ) |
-| [SynonymMap. Format](/dotnet/api/microsoft.azure.search.models.synonymmap.format) | Nessuno. Rimuovere i riferimenti a `Format` . |
+| [SynonymMap. Format](/dotnet/api/microsoft.azure.search.models.synonymmap.format) | Nessuna. Rimuovere i riferimenti a `Format` . |
 
 Le definizioni dei campi sono semplificate: [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield), [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield), [ComplexField](/dotnet/api/azure.search.documents.indexes.models.complexfield) sono nuove API per la creazione di definizioni di campo.
 
@@ -168,8 +168,8 @@ La versione 11,1 aggiunge gli elementi seguenti:
 
 Le seguenti funzionalità della versione 10 non sono ancora disponibili nella versione 11. Se queste funzionalità sono necessarie, è necessario tener conto della migrazione fino a quando non sono supportate.
 
-+ tipi geospaziali
 + [Knowledge store](knowledge-store-concept-intro.md)
++ Tipi geospaziali: il supporto di prima classe per i tipi geospaziali è ancora in corso. Per il momento, è possibile usare il pacchetto [Microsoft. Spatial](https://www.nuget.org/packages/Microsoft.Spatial/) per supportare le operazioni geografiche. Sono disponibili esempi per [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) e [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
 
 <a name="UpgradeSteps"></a>
 
@@ -236,7 +236,7 @@ I passaggi seguenti consentono di iniziare a eseguire una migrazione del codice 
 
 <a name="ListOfChanges"></a>
 
-## <a name="breaking-changes"></a>Modifiche di rilievo
+## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 Date le modifiche apportate alle librerie e alle API, un aggiornamento alla versione 11 non è semplice e costituisce una modifica sostanziale nel senso che il codice non sarà più compatibile con le versioni precedenti. Per una revisione approfondita delle differenze, vedere il [log delle modifiche](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) per `Azure.Search.Documents` .
 
