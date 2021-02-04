@@ -1,15 +1,18 @@
 - name: Documentazione di Database di Azure per MariaDB
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
     - name: Informazioni su Database di Azure per MariaDB
       href: overview.md
     - name: Quale opzione di MariaDB scegliere?
       href: select-right-deployment-type.md
-    - name: Aggiornamenti del servizio
-      items:
-        - name: Scadenza del certificato radice SSL
-          href: concepts-certificate-rotation.md
+    - name: Versioni supportate
+      href: concepts-supported-versions.md
+    - name: Piani tariffari
+      href: concepts-pricing-tiers.md
+    - name: Pagare in anticipo la capacità riservata
+      href: concept-reserved-pricing.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -28,7 +31,29 @@
       items:
         - name: MySQL Workbench
           href: connect-workbench.md
-- name: Esercitazioni
+        - name: Stringhe di connessione
+          items:
+            - name: Connettere le applicazioni
+              href: howto-connection-string.md
+            - name: Azure PowerShell
+              href: howto-connection-string-powershell.md
+        - name: Connettersi con reindirizzamento
+          href: howto-redirection.md
+    - name: Configurare SSL
+      href: howto-configure-ssl.md
+    - name: Creare gli utenti
+      href: howto-create-users.md
+    - name: Configurare i parametri del server
+      items:
+        - name: Portale di Azure
+          href: howto-server-parameters.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-parameters-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
+    - name: Monitorare il server
+      href: howto-alert-metric.md
+- name: Sviluppo applicazioni
   items:
     - name: Progettare un database
       items:
@@ -38,134 +63,26 @@
           href: tutorial-design-database-cli.md
         - name: Azure PowerShell
           href: tutorial-design-database-using-powershell.md
-- name: Esempi
+    - name: Esempi
+      items:
+        - name: Interfaccia della riga di comando di Azure
+          href: sample-scripts-azure-cli.md
+    - name: Compatibilità di driver e strumenti
+      href: concepts-compatibility.md
+    - name: Resilienza delle connessioni
+      href: concepts-connectivity.md
+- name: Gestione server
   items:
-    - name: Interfaccia della riga di comando di Azure
-      href: sample-scripts-azure-cli.md
-- name: Concetti
-  items:
-    - name: Database e server
-      items:
-        - name: Server
-          href: concepts-servers.md
-        - name: Versioni supportate
-          href: concepts-supported-versions.md
-        - name: Disponibilità elevata
-          href: concepts-high-availability.md
-    - name: Risorse
-      items:
-        - name: Piani tariffari
-          href: concepts-pricing-tiers.md
-        - name: Pagare in anticipo la capacità riservata
-          href: concept-reserved-pricing.md
-        - name: Limitazioni
-          href: concepts-limits.md
-    - name: Accesso ai dati e sicurezza
-      items:
-        - name: Panoramica della sicurezza
-          href: concepts-security.md
-        - name: Configurazione di SSL
-          href: concepts-ssl-connection-security.md
-        - name: Architettura della connettività
-          href: concepts-connectivity-architecture.md
-        - name: Regole del firewall
-          href: concepts-firewall-rules.md
-        - name: Rete virtuale
-          href: concepts-data-access-security-vnet.md
-        - name: Collegamento privato
-          href: concepts-data-access-security-private-link.md
-        - name: Advanced Threat Protection
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: Controlli di sicurezza in base a Criteri di Azure
-          displayName: 'regulatory, compliance, standards, domains'
-          href: ./security-controls-policy.md
-        - name: Baseline di sicurezza
-          href: security-baseline.md
-    - name: Manutenzione pianificata
-      href: concepts-planned-maintenance-notification.md
-    - name: Continuità aziendale
-      items:
-        - name: Introduzione alla continuità aziendale
-          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
-          href: concepts-business-continuity.md
-        - name: Backup e ripristino
-          href: concepts-backup.md
-    - name: Monitorare e ottimizzare
-      items:
-        - name: Monitorare
-          href: concepts-monitoring.md
-        - name: Log query lente
-          href: concepts-server-logs.md
-        - name: Log di controllo
-          href: concepts-audit-logs.md
-        - name: Archivio query
-          href: concepts-query-store.md
-        - name: Informazioni dettagliate prestazioni query
-          href: concepts-query-performance-insight.md
-        - name: Raccomandazioni per le prestazioni
-          href: concepts-performance-recommendations.md
-        - name: Parametri del server
-          href: concepts-server-parameters.md
-    - name: Sviluppo
-      items:
-        - name: Compatibilità di driver e strumenti
-          href: concepts-compatibility.md
-        - name: Resilienza delle connessioni
-          href: concepts-connectivity.md
-    - name: Replica
-      items:
-        - name: Replica dei dati in ingresso
-          href: concepts-data-in-replication.md
-        - name: Repliche in lettura
-          href: concepts-read-replicas.md
-- name: Guide pratiche
-  items:
+    - name: Concetti relativi ai server
+      href: concepts-servers.md
+    - name: Limitazioni
+      href: concepts-limits.md
+    - name: Parametri del server
+      href: concepts-server-parameters.md
     - name: Gestire un server
       items:
         - name: Portale di Azure
           href: howto-create-manage-server-portal.md
-    - name: Regole del firewall
-      items:
-        - name: Portale di Azure
-          href: howto-manage-firewall-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: howto-manage-firewall-cli.md
-    - name: Ripristinare un server
-      items:
-        - name: Portale di Azure
-          href: howto-restore-server-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: howto-restore-server-cli.md
-        - name: Azure PowerShell
-          href: howto-restore-server-powershell.md
-    - name: Eseguire la migrazione di un database
-      items:
-        - name: Dump e ripristino
-          href: howto-migrate-dump-restore.md
-    - name: Connettere le applicazioni
-      items:
-        - name: Creare gli utenti
-          href: howto-create-users.md
-        - name: Stringhe di connessione
-          items:
-            - name: Connettere le applicazioni
-              href: howto-connection-string.md
-            - name: Azure PowerShell
-              href: howto-connection-string-powershell.md
-        - name: Configurare SSL
-          href: howto-configure-ssl.md
-        - name: Configurare TLS
-          href: howto-tls-configurations.md
-        - name: Connettersi con reindirizzamento
-          href: howto-redirection.md
-    - name: Configurare i parametri del server
-      items:
-        - name: Portale di Azure
-          href: howto-server-parameters.md
-        - name: Interfaccia della riga di comando di Azure
-          href: howto-configure-server-parameters-cli.md
-        - name: Azure PowerShell
-          href: howto-configure-server-parameters-using-powershell.md
     - name: Aumento automatico delle dimensioni di archiviazione
       items:
         - name: Portale di Azure
@@ -174,60 +91,6 @@
           href: howto-auto-grow-storage-cli.md
         - name: Azure PowerShell
           href: howto-auto-grow-storage-powershell.md
-    - name: Negare l'accesso alla rete pubblica
-      items:
-        - name: Portale di Azure
-          href: howto-deny-public-network-access.md
-    - name: Accesso ai log server
-      items:
-        - name: Log query lente
-          items:
-            - name: Portale di Azure
-              href: howto-configure-server-logs-portal.md
-            - name: Interfaccia della riga di comando di Azure
-              href: howto-configure-server-logs-cli.md
-        - name: Log di controllo
-          items:
-            - name: Portale di Azure
-              href: howto-configure-audit-logs-portal.md
-            - name: Interfaccia della riga di comando di Azure
-              href: howto-configure-audit-logs-cli.md
-    - name: Monitorare
-      items:
-        - name: Creare avvisi relativi alle metriche
-          href: howto-alert-metric.md
-    - name: Replica
-      items:
-        - name: Configurare la replica dei dati in ingresso
-          href: howto-data-in-replication.md
-        - name: Creare repliche in lettura nel portale di Azure
-          href: howto-read-replicas-portal.md
-        - name: Creare repliche in lettura con l'interfaccia della riga di comando di Azure e l'API REST
-          href: howto-read-replicas-cli.md
-        - name: Creare repliche in lettura in Azure PowerShell
-          href: howto-read-replicas-powershell.md
-    - name: Risolvere problemi
-      items:
-        - name: Risolvere gli errori di connessione
-          href: howto-troubleshoot-common-connection-issues.md
-        - name: Risoluzione dei problemi di prestazioni delle query
-          href: howto-troubleshoot-query-performance.md
-    - name: Advanced Threat Protection
-      items:
-        - name: Portale di Azure
-          href: howto-database-threat-protection-portal.md
-    - name: Rete virtuale
-      items:
-        - name: Portale di Azure
-          href: howto-manage-vnet-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: howto-manage-vnet-cli.md
-    - name: Collegamento privato
-      items:
-        - name: Portale di Azure
-          href: howto-configure-privatelink-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: howto-configure-privatelink-cli.md
     - name: Riavviare il server
       items:
         - name: Portale di Azure
@@ -236,10 +99,134 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
-    - name: Spostamento tra aree
+    - name: Spostare il server tra le aree
+      href: howto-move-regions-portal.md
+- name: Disponibilità elevata
+  items:
+    - name: Introduzione alla continuità aziendale
+      displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
+      href: concepts-business-continuity.md
+    - name: Concetti relativi alla disponibilità elevata
+      href: concepts-high-availability.md
+- name: Rete
+  items:
+    - name: Architettura della connettività
+      href: concepts-connectivity-architecture.md
+    - name: Concetti relativi alle regole del firewall
+      href: concepts-firewall-rules.md
+    - name: Configurazione delle regole del firewall
+      items:
+        - name: Configurazione delle regole del firewall tramite portale di Azure
+          href: howto-manage-firewall-portal.md
+        - name: Configurazione delle regole del firewall tramite l'interfaccia della riga di comando
+          href: howto-manage-firewall-cli.md
+    - name: Rete virtuale
+      href: concepts-data-access-security-vnet.md
+    - name: Configurazione della rete virtuale
+      items:
+        - name: Uso del portale di Azure
+          href: howto-manage-vnet-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-manage-vnet-cli.md
+    - name: Collegamento privato
+      href: concepts-data-access-security-private-link.md
+    - name: Collegamento privato
+      items:
+        - name: Configurazione del collegamento privato con portale di Azure
+          href: howto-configure-privatelink-portal.md
+        - name: Configurazione del collegamento privato con l'interfaccia della riga di comando
+          href: howto-configure-privatelink-cli.md
+    - name: Negare l'accesso alla rete pubblica
       items:
         - name: Portale di Azure
-          href: howto-move-regions-portal.md
+          href: howto-deny-public-network-access.md
+- name: Sicurezza
+  items:
+    - name: Panoramica della sicurezza
+      href: concepts-security.md
+    - name: Baseline di sicurezza
+      href: security-baseline.md
+    - name: Controlli di sicurezza in base a Criteri di Azure
+      displayName: 'regulatory, compliance, standards, domains'
+      href: ./security-controls-policy.md
+    - name: Configurazione della sicurezza di rete tramite SSL
+      href: concepts-ssl-connection-security.md
+    - name: Configurare TLS
+      href: howto-tls-configurations.md
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md
+    - name: Configurazione di Advanced Threat Protection
+      href: howto-database-threat-protection-portal.md
+    - name: Concetti di controllo
+      href: concepts-audit-logs.md
+    - name: Configurazione dei log di controllo
+      items:
+        - name: Portale di Azure
+          href: howto-configure-audit-logs-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-audit-logs-cli.md
+- name: Manutenzione del servizio
+  items:
+    - name: Manutenzione pianificata
+      href: concepts-planned-maintenance-notification.md
+    - name: Scadenza del certificato radice SSL
+      href: concepts-certificate-rotation.md
+- name: Backup e ripristino
+  items:
+    - name: Concetti
+      href: concepts-backup.md
+    - name: Ripristinare un server
+      items:
+        - name: Portale di Azure
+          href: howto-restore-server-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
+- name: Monitorare e ottimizzare
+  items:
+    - name: Concetti
+      href: concepts-monitoring.md
+    - name: Log query lente
+      href: concepts-server-logs.md
+    - name: Accedere ai log di query lente
+      items:
+        - name: Portale di Azure
+          href: howto-configure-server-logs-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-logs-cli.md
+    - name: Archivio query
+      href: concepts-query-store.md
+    - name: Informazioni dettagliate prestazioni query
+      href: concepts-query-performance-insight.md
+    - name: Raccomandazioni per le prestazioni
+      href: concepts-performance-recommendations.md
+- name: Replica
+  items:
+    - name: Replica dei dati in ingresso
+      href: concepts-data-in-replication.md
+    - name: Configurazione della replica dei dati
+      href: howto-data-in-replication.md
+    - name: Repliche in lettura
+      href: concepts-read-replicas.md
+    - name: Creare repliche di lettura
+      items:
+        - name: Creare repliche in lettura nel portale di Azure
+          href: howto-read-replicas-portal.md
+        - name: Creare repliche in lettura con l'interfaccia della riga di comando di Azure e l'API REST
+          href: howto-read-replicas-cli.md
+        - name: Creare repliche in lettura in Azure PowerShell
+          href: howto-read-replicas-powershell.md
+- name: Migrazione
+  items:
+    - name: Eseguire la migrazione di un server
+      href: howto-migrate-dump-restore.md
+- name: Risoluzione dei problemi
+  items:
+    - name: Risolvere gli errori di connessione
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: Risoluzione dei problemi di prestazioni delle query
+      href: howto-troubleshoot-query-performance.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

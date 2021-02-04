@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: 57c6caea2de9063b133d4d5d643629184e412dad
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ad0f0e9bdc4398af150874d398968d1116578350
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957691"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550692"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -637,12 +637,16 @@ Ripetere la procedura precedente per il secondo nodo del cluster.
 
 Dopo aver modificato le autorizzazioni per le macchine virtuali, è possibile configurare i dispositivi STONITH nel cluster.
 
+> [!NOTE]
+> L'opzione ' pcmk_host_map ' è obbligatoria solo nel comando, se i nomi host e i nomi delle macchine virtuali di Azure non sono identici. Specificare il mapping nel formato **hostname: VM-Name**.
+> Vedere la sezione in grassetto nel comando.
+
 <pre><code>sudo crm configure property stonith-enabled=true
 crm configure property concurrent-fencing=true
 # replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
-  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
   op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900

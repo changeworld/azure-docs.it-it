@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: HT
+ms.openlocfilehash: 0233e58a404721586af0ae2fbdf78dbab6d424ed
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95996262"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550387"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app HoloLens Unity usando Ancoraggi nello spazio di Azure
 
@@ -140,36 +140,13 @@ Successivamente, aggiungere un modo per aggiungere un'Azione alla Coda. Aggiunge
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Ottenere l'SDK degli Ancoraggi nello spazio di Azure
 
-## <a name="via-unity-package-manager-upm-package"></a>[Tramite il pacchetto Unity Package Manager (UPM)](#tab/UPMPackage)
+### <a name="download-packages"></a>Download dei pacchetti
+[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-Questo metodo è compatibile con le versioni di Unity a partire dalla 2019.1.
+### <a name="import-packages"></a>Importare pacchetti
+[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-### <a name="add-the-registry-to-your-unity-project"></a>Aggiungere il registro al progetto Unity
-
-1. In Esplora file passare alla cartella `Packages` del progetto Unity. Aprire il file manifesto del progetto `manifest.json` in un editor di testo.
-2. Nella parte iniziale del file, allo stesso livello della sezione `dependencies`, aggiungere la voce seguente per includere il registro di ancoraggi nello spazio di Azure nel progetto. La voce `scopedRegistries` indica a Unity dove cercare i pacchetti di Azure Spatial Anchors SDK.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
-
-### <a name="add-the-sdk-package-to-your-unity-project"></a>Aggiungere il pacchetto dell'SDK al progetto Unity
-
-1. Aggiungere una voce con il nome del pacchetto (`com.microsoft.azure.spatial-anchors-sdk.windows`) e la versione del pacchetto Windows SDK degli ancoraggi nello spazio di Azure alla sezione `dependencies` nel manifesto del progetto. Per un esempio, vedere di seguito.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-20&highlight=12)]
-
-2. Salvare e chiudere il file `manifest.json`. Quando si torna a Unity, Unity rileva automaticamente la modifica del manifesto del progetto e recupera i pacchetti specificati. È possibile espandere la cartella `Packages` nella visualizzazione del progetto per verificare che i pacchetti corretti siano stati importati.
-
-## <a name="via-unity-asset-package"></a>[Tramite Unity Asset Package](#tab/UnityAssetPackage)
-
-> [!WARNING]
-> La distribuzione di Unity Asset Package di Azure Spatial Anchors SDK verrà deprecata dopo la versione 2.5.0 dell'SDK.
-
-Scaricare quindi Azure Spatial Anchors SDK. Passare alla [pagina delle versioni di GitHub per gli Ancoraggi nello spazio di Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). In **Assets** (Asset) scaricare **AzureSpatialAnchors.unitypackage**. In Unity passare ad **Assets** (Asset) selezionare **Import Package** > **Custom Package...** (Importa pacchetto > Pacchetto personalizzato). Passare al pacchetto e selezionare **Apri**.
-
-Nella nuova finestra **Import Unity Package** (Importa pacchetto Unity) deselezionare **Plugins** (Plug-in) e quindi selezionare **Import** (Importa) nell'angolo in basso a destra.
-
----
-
+### <a name="prepare-code"></a>Preparare il codice
 Nella soluzione **Visual Studio**, aggiungere l'importazione seguente in `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]

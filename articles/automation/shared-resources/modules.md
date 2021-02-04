@@ -3,14 +3,14 @@ title: Gestire i moduli in Automazione di Azure
 description: Questo articolo descrive come usare i moduli di PowerShell per abilitare i cmdlet nei runbook e le risorse DSC nelle configurazioni DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936633"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548773"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in Automazione di Azure
 
@@ -40,7 +40,11 @@ Si tratta di limitazioni note con la sandbox. La soluzione alternativa consiglia
 
 ## <a name="default-modules"></a>Moduli predefiniti
 
-La tabella seguente elenca i moduli importati da Automazione di Azure per impostazione predefinita quando si crea l'account di Automazione. Automazione può importare versioni più recenti di questi moduli. Non è tuttavia possibile rimuovere la versione originale dall'account di Automazione, anche se si elimina la versione più recente. Si noti che questi moduli predefiniti includono diversi moduli AzureRM. 
+La tabella seguente elenca i moduli importati da Automazione di Azure per impostazione predefinita quando si crea l'account di Automazione. Automazione può importare versioni più recenti di questi moduli. Non è tuttavia possibile rimuovere la versione originale dall'account di Automazione, anche se si elimina la versione più recente. Si noti che questi moduli predefiniti includono diversi moduli AzureRM.
+
+I moduli predefiniti sono noti anche come moduli globali. Nel portale di Azure la proprietà del **modulo globale** sarà **true** quando si visualizza un modulo importato al momento della creazione dell'account.
+
+![Screenshot della proprietà del modulo globale nel portale di Azure](../media/modules/automation-global-modules.png)
 
 Automazione non importa automaticamente il modulo Az radice negli account di Automazione nuovi o esistenti. Per altre informazioni sull'uso di questi moduli, vedere [Migrazione a moduli Az](#migrate-to-az-modules).
 

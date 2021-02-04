@@ -3,12 +3,12 @@ title: Configurazione app Azure come origine griglia di eventi
 description: Questo articolo descrive come usare la configurazione di app Azure come origine evento di griglia di eventi. Offre lo schema e i collegamenti ad articoli di esercitazione e procedure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d305236e8408052be4be28ec003f4e545119fc59
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116999"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550675"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configurazione app Azure come origine di griglia di eventi
 Questo articolo fornisce le proprietà e lo schema per gli eventi di configurazione app Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Viene inoltre visualizzato un elenco di guide introduttive ed esercitazioni per utilizzare app Azure configurazione come origine evento.
@@ -92,10 +92,10 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 |Titolo | Descrizione |
 |---------|---------|
 | [Reagire agli eventi di configurazione di app Azure tramite griglia di eventi](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di app Azure configurazione con griglia di eventi. |
-| [Guida introduttiva: indirizzare eventi di configurazione app Azure a un endpoint Web personalizzato con l'interfaccia della riga di comando](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare eventi di configurazione app Azure a un webhook. |
+| [Usa griglia di eventi per le notifiche di modifica dei dati](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Informazioni su come usare le sottoscrizioni di eventi di configurazione app Azure per inviare eventi di modifica chiave-valore a un endpoint Web. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](overview.md)
 * Per altre informazioni sulla creazione di una sottoscrizione di Griglia di eventi di Azure, vedere [Schema di sottoscrizione per Griglia di eventi](subscription-creation-schema.md).
-* Per un'introduzione all'uso di eventi di configurazione di app Azure, vedere [Route app Azure Configuration Events-interfaccia della riga](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json)di comando di Azure. 
+* Per un'introduzione all'uso di eventi di configurazione app Azure, vedere [usare griglia di eventi per le notifiche di modifica dei dati](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

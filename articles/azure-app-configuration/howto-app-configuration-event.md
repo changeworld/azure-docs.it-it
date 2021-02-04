@@ -1,5 +1,5 @@
 ---
-title: Inviare eventi a un endpoint Web usando la configurazione di app Azure
+title: Usa griglia di eventi per le notifiche di modifica dei dati di configurazione dell'app
 description: Informazioni su come usare le sottoscrizioni di eventi di configurazione app Azure per inviare eventi di modifica chiave-valore a un endpoint Web
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e005d2f929fd615080d22e93a102a7cc5c1174a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: c188a4b7fe8e9223faa1cdeb52ae01ed83b94d84
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696117"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549780"
 ---
-# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Instradare gli eventi di Configurazione app di Azure a un endpoint Web con l'interfaccia della riga di comando di Azure
+# <a name="use-event-grid-for-app-configuration-data-change-notifications"></a>Usa griglia di eventi per le notifiche di modifica dei dati di configurazione dell'app
 
 In questo articolo viene illustrato come configurare le sottoscrizioni di eventi di configurazione app Azure per inviare eventi di modifica chiave-valore a un endpoint Web. App Azure configurazione gli utenti possono sottoscrivere gli eventi generati ogni volta che vengono modificati i valori chiave. Questi eventi possono attivare gli hook Web, le funzioni di Azure, le code di archiviazione di Azure o qualsiasi altro gestore eventi supportato da griglia di eventi di Azure. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 

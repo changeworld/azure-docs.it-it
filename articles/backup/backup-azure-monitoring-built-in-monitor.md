@@ -4,18 +4,29 @@ description: Questo articolo illustra le funzionalità di monitoraggio e notific
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174000"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550345"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
 Backup di Azure offre più soluzioni di backup in base al requisito di backup e alla topologia dell'infrastruttura (in locale rispetto ad Azure). Tutti gli utenti o gli amministratori di backup dovrebbero vedere cosa accade in tutte le soluzioni e possono prevedere di ricevere notifiche in scenari importanti. Questo articolo descrive in dettaglio le funzionalità di monitoraggio e notifica fornite dal servizio backup di Azure.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Elementi di backup nell'insieme di credenziali di servizi di ripristino
+
+È possibile monitorare tutti gli elementi di backup tramite un insieme di credenziali di servizi di ripristino. Passando alla sezione **elementi di backup** nell'insieme di credenziali si apre una visualizzazione che fornisce il numero di elementi di backup di ogni tipo di carico di lavoro associato all'insieme di credenziali. Quando si fa clic su una riga, viene aperta una visualizzazione dettagliata che elenca tutti gli elementi di backup del tipo di carico di lavoro specificato, con informazioni sull'ultimo stato di backup per ogni elemento, sul punto di ripristino più recente disponibile e così via.
+
+![Elementi di backup dell'insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> Per gli elementi di cui è stato eseguito il backup in Azure con DPM, l'elenco mostrerà tutte le origini dati protette (sia disco che online) usando il server DPM. Se la protezione viene arrestata per l'origine dati con i dati di backup conservati, l'origine dati sarà ancora elencata nel portale. È possibile passare ai dettagli dell'origine dati per verificare se i punti di ripristino sono presenti nel disco, in linea o in entrambi. Inoltre, le origini dati per cui viene arrestata la protezione online ma vengono conservati i dati, la fatturazione per i punti di ripristino online continua fino a quando i dati non vengono eliminati completamente.
+>
+> Per visualizzare gli elementi di backup nel portale dell'insieme di credenziali di servizi di ripristino, la versione di DPM deve essere DPM 1807 (5.1.378.0) o DPM 2019 (versione 10.19.58.0 o successiva).
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Processi di backup nell'insieme di credenziali di servizi di ripristino
 
@@ -68,7 +79,7 @@ Per le soluzioni di backup del carico di lavoro di Azure, ad esempio SQL e SAP H
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Eccezioni quando non viene generato un avviso
 
-Quando un avviso non viene generato in caso di errore, si verificano alcune eccezioni. ovvero:
+Quando un avviso non viene generato in caso di errore, si verificano alcune eccezioni. Ad esempio:
 
 - L'utente ha annullato esplicitamente il processo in esecuzione
 - Il processo ha esito negativo perché è in corso un altro processo di backup (non è necessario agire da qui perché è sufficiente attendere il completamento del processo precedente)

@@ -6,20 +6,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 652986c4850a0b51fc86b84133d7e93813423c9a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919528"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550320"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizzare le risposte ai trigger del Centro sicurezza
 
 Ogni programma di sicurezza include più flussi di lavoro per la risposta agli eventi imprevisti. Questi processi possono includere la notifica a stakeholder di rilievo, l'avvio di un processo di gestione delle modifiche e l'applicazione di procedure di correzione specifiche. Gli esperti di sicurezza raccomandano di automatizzare quante più procedure possibili. L'automazione riduce i costi. Consente inoltre di migliorare la sicurezza garantendo che i passaggi del processo vengano eseguiti rapidamente, in modo coerente e in base ai requisiti predefiniti.
 
-Questo articolo descrive la funzionalità di automazione del flusso di lavoro del Centro sicurezza di Azure. Questa funzionalità può attivare app per la logica su avvisi di sicurezza e raccomandazioni. Ad esempio, potrebbe essere necessario che il Centro sicurezza invii un messaggio di posta elettronica a un utente specifico quando si verifica un avviso. Si apprenderà anche come creare app per la logica usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md).
+Questo articolo descrive la funzionalità di automazione del flusso di lavoro del Centro sicurezza di Azure. Questa funzionalità può attivare app per la logica in avvisi di sicurezza, consigli e modifiche alla conformità normativa. Ad esempio, potrebbe essere necessario che il Centro sicurezza invii un messaggio di posta elettronica a un utente specifico quando si verifica un avviso. Si apprenderà anche come creare app per la logica usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="availability"></a>Disponibilità
@@ -70,10 +70,12 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
     La finestra di progettazione dell'app per la logica supporta questi trigger del Centro sicurezza:
 
-    * **Quando viene creata o attivata una raccomandazione del Centro sicurezza di Azure** , se l'app per la logica si basa su una raccomandazione che viene deprecata o sostituita, l'automazione smetterà di funzionare ed è necessario aggiornare il trigger. Per tenere traccia delle modifiche apportate alle raccomandazioni, vedere [Note sulla versione del Centro sicurezza di Azure](release-notes.md).
+    - **Quando viene creata o attivata una raccomandazione del Centro sicurezza di Azure** , se l'app per la logica si basa su una raccomandazione che viene deprecata o sostituita, l'automazione smetterà di funzionare ed è necessario aggiornare il trigger. Per tenere traccia delle modifiche apportate alle raccomandazioni, vedere [Note sulla versione del Centro sicurezza di Azure](release-notes.md).
 
-    * **Quando viene creato o attivato un avviso del Centro sicurezza di Azure** , è possibile personalizzare il trigger in modo che si riferisca solo agli avvisi con i livelli di gravità che interessano.
+    - **Quando viene creato o attivato un avviso del Centro sicurezza di Azure** , è possibile personalizzare il trigger in modo che si riferisca solo agli avvisi con i livelli di gravità che interessano.
     
+    - **Quando viene creata o attivata una valutazione della conformità normativa del Centro sicurezza** , le automazioni vengono attivate in base agli aggiornamenti delle valutazioni di conformità normative.
+
     > [!NOTE]
     > Se si usa il trigger legacy "quando viene attivata una risposta a un avviso del Centro sicurezza di Azure", le app per la logica non verranno avviate dalla funzionalità di automazione del flusso di lavoro. Usare invece uno dei trigger indicati in precedenza. 
 

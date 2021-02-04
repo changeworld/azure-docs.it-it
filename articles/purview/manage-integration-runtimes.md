@@ -6,17 +6,20 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d365787ea3603ef0adb8ad0b48bef9792ffb003
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 02/03/2021
+ms.openlocfilehash: 72efcacf20b0d67c9d6a8255426a09f9813f17b4
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96552505"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550499"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Creare e gestire un runtime di integrazione self-hosted
 
-Questo articolo descrive come creare e gestire un runtime di integrazione self-hosted per semplificare l'analisi delle origini dati.
+Questo articolo descrive come creare e gestire un runtime di integrazione self-hosted che consente di analizzare le origini dati in Azure.
+
+> [!NOTE]
+> Il Integration Runtime di competenza non può essere condiviso con un'analisi di sinapsi di Azure o Azure Data Factory Integration Runtime nello stesso computer. Deve essere installato in un computer separato.
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 
@@ -24,31 +27,31 @@ Questo articolo descrive come creare e gestire un runtime di integrazione self-h
 
 2. In **origini e analisi** nel riquadro sinistro selezionare Runtime di **integrazione**, quindi selezionare **+ nuovo**.
 
-    :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="fare clic su IR.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Fare clic su IR.":::
 
 3. Nella pagina di **installazione di Integration Runtime** selezionare **self-hosted** per creare un Self-Hosted IR e quindi selezionare **continue (continua**).
 
-    :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="Crea nuovo.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="Crea nuovo.":::
 
 4. Immettere un nome per il runtime di integrazione e selezionare Crea.
 
 5. Nella pagina **impostazioni Integration Runtime** seguire i passaggi descritti nella sezione **installazione manuale** . Sarà necessario scaricare il runtime di integrazione dal sito di download in una macchina virtuale o in un computer in cui si intende eseguirlo.
 
-    :::image type="content" source="media/manage-integration-runtimes/integration-runtime-settings.png" alt-text="Ottieni chiave":::
+   :::image type="content" source="media/manage-integration-runtimes/integration-runtime-settings.png" alt-text="Ottieni chiave":::
 
-    a. Copiare e incollare la chiave di autenticazione.
-        
-    b. Scaricare il runtime di integrazione self-hosted da [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) in un computer Windows locale. Eseguire il programma di installazione.
-        
-    c. Nella pagina **register Integration Runtime (self-hosted)** incollare uno dei due tasti salvati in precedenza e selezionare **Register (registra**).
+   - Copiare e incollare la chiave di autenticazione.
 
-    :::image type="content" source="media/manage-integration-runtimes/register-integration-runtime.png" alt-text="chiave di input.":::
+   - Scaricare il runtime di integrazione self-hosted da [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) in un computer Windows locale. Eseguire il programma di installazione.
 
-    d. Nella pagina **Nuovo nodo di Integration Runtime (self-hosted)** fare clic su **Fine**.
+   - Nella pagina **register Integration Runtime (self-hosted)** incollare una delle due chiavi salvate in precedenza e selezionare **Register (registra**).
+
+     :::image type="content" source="media/manage-integration-runtimes/register-integration-runtime.png" alt-text="chiave di input.":::
+
+   - Nella pagina **Nuovo nodo di Integration Runtime (self-hosted)** fare clic su **Fine**.
 
 6. Una volta completata la registrazione del runtime di integrazione self-hosted, viene visualizzata la finestra seguente:
 
-    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="registrazione completata.":::
+   :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="registrazione completata.":::
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Gestire un runtime di integrazione self-hosted
 
@@ -62,4 +65,4 @@ Questo articolo descrive come creare e gestire un runtime di integrazione self-h
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come le analisi rilevano gli asset eliminati](concept-detect-deleted-assets.md)
+[Come vengono rilevati gli asset eliminati tramite le analisi](concept-detect-deleted-assets.md)

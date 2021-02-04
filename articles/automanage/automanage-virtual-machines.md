@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695671"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550785"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -42,7 +42,6 @@ Infine, l'esperienza è incredibilmente semplice.
 È necessario prendere in considerazione diversi prerequisiti prima di provare ad abilitare la gestione automatici di Azure nelle macchine virtuali.
 
 - Solo macchine virtuali Windows Server
-- Le macchine virtuali devono essere in esecuzione
 - Le macchine virtuali devono trovarsi in un'area supportata (vedere il paragrafo seguente)
 - L'utente deve disporre delle autorizzazioni corrette (vedere il paragrafo seguente)
 - Il servizio di gestione delle sottoscrizioni sandbox al momento non è supportato

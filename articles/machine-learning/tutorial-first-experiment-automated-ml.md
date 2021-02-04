@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879782"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549187"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 
@@ -102,8 +102,8 @@ Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro
         Intestazioni di colonna| Indica come verranno considerate le intestazioni del set di dati, se presenti.| Tutti i file hanno le stesse intestazioni
         Ignora righe | Indica quante righe vengono eventualmente ignorate nel set di dati.| nessuno
 
-    1. Il modulo **Schema** consente di configurare ulteriormente i dati per questo esperimento. Per questo esempio, non vengono effettuate selezioni. Selezionare **Avanti**.
-
+    1. Il modulo **Schema** consente di configurare ulteriormente i dati per questo esperimento. Per questo esempio, selezionare l'opzione di attivazione/disattivazione per il **DAY_OF_WEEK**, in modo da non includerla. Selezionare **Avanti**.
+         ![Form dello schema](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. Nel modulo **Conferma dettagli** verificare che le informazioni corrispondano a quelle con cui erano stati precedentemente popolati i moduli **Informazioni di base, Selezione archivio dati e file** e **Impostazioni e anteprima**.
     
     1. Selezionare **Crea** per completare la creazione del set di dati.
@@ -170,12 +170,6 @@ Dopo aver caricato e configurato i dati, è possibile configurare l'esperimento.
         
         Selezionare **Salva**.
     
-    1. Selezionare **Visualizza impostazioni di definizione delle funzionalità**. Per questo esempio, selezionare l'interruttore relativo alla funzionalità **day_of_week** in modo da non includerla per la definizione delle funzionalità in questo esperimento.
-
-        ![Selezione della definizione delle funzionalità](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Selezionare **Salva**.
-
 1. Selezionare **Fine** per eseguire l'esperimento. Verrà visualizzata la schermata **Dettagli esecuzione** con **Stato dell'esecuzione** nella parte superiore quando inizia la preparazione dell'esperimento. Questo stato viene aggiornato man mano che l'esperimento procede. Nell'angolo in alto a destra dello studio vengono anche visualizzare alcune notifiche che indicano lo stato dell'esperimento.
 
 >[!IMPORTANT]

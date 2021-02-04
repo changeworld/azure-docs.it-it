@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/15/2018
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: bb5a785cba4a560fc15963363d4e5f6b811af97a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071901"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548832"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche
 
@@ -27,7 +27,7 @@ ms.locfileid: "99071901"
 
 - È possibile creare un elenco di accesso consentito o un elenco di accesso negato. Non è consentita la configurazione di entrambi i tipi di elenchi. Per impostazione predefinita, i domini non inclusi nell'elenco di accesso consentito vengono inclusi nell'elenco di accesso negato e viceversa. 
 - È possibile creare un solo criterio per organizzazione. È possibile aggiornare il criterio per includere ulteriori domini oppure eliminarlo per crearne uno nuovo. 
-- Il numero di domini che è possibile aggiungere a un elenco Consenti o nega è limitato solo dalla dimensione del criterio. La dimensione massima dell'intero criterio è di 25 KB (25.000 caratteri), che include l'elenco Consenti o nega e tutti gli altri parametri configurati per altre funzionalità.
+- Il numero di domini che è possibile aggiungere a un elenco Consenti o nega è limitato solo dalla dimensione del criterio. Questo limite si applica al numero di caratteri, in modo che sia possibile avere domini più brevi o meno domini più lunghi. La dimensione massima dell'intero criterio è di 25 KB (25.000 caratteri), che include l'elenco Consenti o nega e tutti gli altri parametri configurati per altre funzionalità.
 - Questo elenco funziona in modo indipendente dagli elenchi di accesso consentito/bloccato di OneDrive for Business e SharePoint Online. Se si vuole limitare la condivisione di singoli file in SharePoint Online, è necessario impostare un elenco di accesso consentito o un elenco di accesso negato per OneDrive for Business e SharePoint Online. Per altre informazioni, vedere [Condivisione di domini con restrizioni in SharePoint Online e OneDrive for Business](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - L'elenco non si applica a utenti esterni che hanno già riscattato l'invito. L'elenco verrà applicato dopo la configurazione. Se un invito di un utente è in sospeso e si imposta un criterio che blocca il suo dominio, il tentativo dell'utente di accettare l'invito avrà esito negativo.
 

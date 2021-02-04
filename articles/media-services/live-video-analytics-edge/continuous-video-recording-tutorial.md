@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione continua di video nel cloud e riproduzione 
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per registrare i video in modo continuo nel cloud ed eseguirne lo streaming di qualsiasi parte usando Servizi multimediali di Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 6956539595c5997569dc92b5c62e2396cb5fdd9c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 8659bd2e029da13870b50dd6535e959bc90c81a7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524398"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551061"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione continua di video nel cloud e riproduzione dal cloud
 
@@ -140,6 +140,12 @@ Il manifesto della distribuzione definisce i moduli che vengono distribuiti in u
 1. Impostare la stringa di connessione dell'hub IoT facendo clic sull'icona **Altre azioni** accanto al riquadro **HUB IOT DI AZURE** nell'angolo in basso a sinistra. Copiare la stringa dal file src/cloud-to-device-console-app/appsettings.json. 
 
     ![Impostare la stringa di connessione dell'hub IoT](./media/quickstarts/set-iotconnection-string.png)
+    > [!NOTE]
+    > Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 1. Fare clic con il pulsante destro del mouse sul file src/edge/deployment.template.json e scegliere **Generate IoT Edge Deployment Manifest** (Genera manifesto della distribuzione di IoT Edge). Visual Studio Code usa i valori del file .env per sostituire le variabili individuate nel file modello di distribuzione. Questa azione crea un file manifesto nella cartella src/edge/config denominato **deployment.amd64.json**.
 
    ![Generate IoT Edge deployment manifest (Genera manifesto della distribuzione di IoT Edge)](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -163,11 +169,11 @@ Quando si usa il modulo Analisi video live in IoT Edge per registrare il flusso 
 
     ![Avvia monitoraggio endpoint eventi predefinito](./media/quickstarts/start-monitoring-iothub-events.png)
 
-> [!NOTE]
-> Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 ## <a name="run-the-program"></a>Eseguire il programma 
 

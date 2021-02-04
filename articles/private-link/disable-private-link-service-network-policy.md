@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7528d12dcbfba09b4dae4ac07a5c683a7c11bd88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744341"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548800"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Disabilitare i criteri di rete per l'indirizzo IP di origine del servizio di collegamento privato
 
 Per scegliere un indirizzo IP di origine per il servizio di collegamento privato, `privateLinkServiceNetworkPolicies` nella subnet è necessaria un'impostazione di disabilitazione esplicita. Questa impostazione è applicabile solo per l'indirizzo IP privato specifico scelto come IP di origine del servizio di collegamento privato. Per altre risorse nella subnet, l'accesso viene controllato in base alla definizione delle regole di sicurezza dei gruppi di sicurezza di rete (NSG). 
  
-Quando si usa un client di Azure (PowerShell, CLI o modelli), è necessario un passaggio aggiuntivo per modificare questa proprietà. È possibile disabilitare il criterio usando cloud shell dalla portale di Azure o dalle installazioni locali di Azure PowerShell, dall'interfaccia della riga di comando di Azure o usare modelli di Azure Resource Manager.  
+Quando si usa il portale per creare un servizio di collegamento privato, questa impostazione viene disabilitata automaticamente come parte del processo di creazione. Le distribuzioni che usano qualsiasi client di Azure (PowerShell, interfaccia della riga di comando o modelli) richiedono un passaggio aggiuntivo per modificare questa proprietà. È possibile disabilitare il criterio usando cloud shell dalla portale di Azure o dalle installazioni locali di Azure PowerShell, dall'interfaccia della riga di comando di Azure o usare modelli di Azure Resource Manager.  
  
 Attenersi alla procedura seguente per disabilitare i criteri di rete del servizio di collegamento privato per una rete virtuale denominata *myVirtualNetwork* con una subnet *predefinita* ospitata in un gruppo di risorse denominato *myResourceGroup*. 
 

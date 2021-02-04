@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: ab4b8f5a691bc8e4091e9f3f01b709391deeddb0
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222816"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550709"
 ---
 # <a name="common-questions"></a>Domande frequenti
 
@@ -49,6 +49,10 @@ Tramite Spostamento risorse è attualmente possibile spostare tra aree le risors
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>È possibile spostare le risorse tra le sottoscrizioni quando si spostano in aree diverse?
 
 È possibile modificare la sottoscrizione dopo aver spostato le risorse nell'area di destinazione. [Altre](../azure-resource-manager/management/move-resource-group-and-subscription.md) informazioni sullo stato di trasferimento delle risorse in una sottoscrizione diversa. 
+
+### <a name="does-azure-resource-move-service-store-customer-data"></a>Il servizio di spostamento delle risorse di Azure archivia i dati dei clienti? 
+No. Il servizio di spostamento delle risorse non archivia i dati dei clienti, ma archivia solo le informazioni sui metadati che facilitano il rilevamento e lo stato di avanzamento delle risorse selezionate per lo spostamento da parte del cliente.
+
 
 ### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Dove vengono archiviati i metadati per lo stato di trasferimento tra aree?
 

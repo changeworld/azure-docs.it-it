@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429467"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549899"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -202,6 +202,13 @@ L'operazione è bloccata perché è stato raggiunto il limite per il numero di o
 |---|---|---|
 L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore viene in genere visualizzato quando sono presenti operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza del caso di CloudDosAbsoluteLimitReached, non è possibile eseguire molte operazioni per risolvere questo stato. In realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio, se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ciascuno degli elementi protetti e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+Operazione di estensione del carico di lavoro AzureBackup non riuscita. | La macchina virtuale è stata arrestata (o) la macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet.| -Assicurarsi che la macchina virtuale sia in esecuzione e che disponga della connettività Internet.<br>- [Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
@@ -212,7 +219,7 @@ La macchina virtuale non è in grado di contattare il servizio backup di Azure a
 
 Prima di attivare l'operazione di ripetizione della registrazione, verificare la presenza di uno o più dei sintomi seguenti:
 
-- Tutte le operazioni, ad esempio backup, ripristino e configurazione del backup, non riescono nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Tutte le operazioni, ad esempio backup, ripristino e configurazione del backup, non riescono nella macchina virtuale con uno dei codici di errore seguenti: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Se nell'area **Stato backup** relativa all'elemento di backup è visualizzato il messaggio **Non raggiungibile**, escludere tutte le altre cause che potrebbero comportare lo stesso stato:
 
   - Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale.

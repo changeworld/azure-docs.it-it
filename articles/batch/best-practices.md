@@ -1,14 +1,14 @@
 ---
 title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732412"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550862"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -169,6 +169,8 @@ Se si nota un problema che interessa il comportamento di un nodo o di attività 
 
 Per gli account batch in modalità sottoscrizione utente, gli aggiornamenti automatici del sistema operativo possono interrompere lo stato dell'attività, soprattutto se le attività hanno un'esecuzione prolungata. La [creazione di attività idempotente](#build-durable-tasks) può aiutare a ridurre gli errori causati da tali interruzioni. Si consiglia inoltre [di pianificare gli aggiornamenti delle immagini del sistema operativo per i periodi in cui non è prevista l'esecuzione delle attività](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
+Per i pool di Windows, `enableAutomaticUpdates` è impostato su per `true` impostazione predefinita. È consigliabile consentire gli aggiornamenti automatici, ma è possibile impostare questo valore su `false` se è necessario assicurarsi che un aggiornamento del sistema operativo non avvenga in modo imprevisto.
+
 ## <a name="isolation-security"></a>Sicurezza dell'isolamento
 
 Se lo scenario richiede l'isolamento dei processi uno dall'altro, inserirli in pool separati. Un pool rappresenta il limite di isolamento di sicurezza in Batch e, per impostazione predefinita, due pool non sono visibili o sono in grado di comunicare tra loro. Evitare di usare account Batch distinti come mezzo di isolamento.
@@ -189,8 +191,7 @@ Esaminare le linee guida seguenti relative alla connettività nelle soluzioni ba
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Gruppi di sicurezza di rete (NSG) e route definite dall'utente
 
-Quando si effettua il provisioning di [pool di Batch in una rete virtuale](batch-virtual-network.md), assicurarsi di seguire attentamente le linee guida relative all'uso del tag di servizio `BatchNodeManagement`, delle porte, dei protocolli e della direzione della regola.
-L'uso del tag di servizio è altamente consigliato al posto degli indirizzi IP sottostanti del servizio Batch. Il motivo è che gli indirizzi IP possono cambiare nel corso del tempo. L'uso diretto degli indirizzi IP del servizio Batch può generare instabilità, interruzioni o disservizi per i pool di Batch.
+Quando si effettua il provisioning di [pool di Batch in una rete virtuale](batch-virtual-network.md), assicurarsi di seguire attentamente le linee guida relative all'uso del tag di servizio `BatchNodeManagement`, delle porte, dei protocolli e della direzione della regola. L'uso del tag di servizio è altamente consigliato al posto degli indirizzi IP sottostanti del servizio Batch. Il motivo è che gli indirizzi IP possono cambiare nel corso del tempo. L'uso diretto degli indirizzi IP del servizio Batch può generare instabilità, interruzioni o disservizi per i pool di Batch.
 
 Per le route definite dall'utente, assicurarsi di implementare un processo per aggiornare periodicamente gli indirizzi IP del servizio Batch nella tabella di route, perché questi indirizzi cambiano nel corso del tempo. Per informazioni su come ottenere l'elenco degli indirizzi IP del servizio Batch, vedere [Tag del servizio in locale](../virtual-network/service-tags-overview.md). Gli indirizzi IP del servizio Batch verranno associati al tag del servizio `BatchNodeManagement` (o alla variante locale corrispondente all'area dell'account Batch).
 

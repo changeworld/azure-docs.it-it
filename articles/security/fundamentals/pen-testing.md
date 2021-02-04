@@ -4,8 +4,7 @@ description: Questo articolo fornisce una panoramica del processo di test di pen
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,22 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2020
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 9f65133f622c71189f35a1533e278ca09ab02085
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968943"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550202"
 ---
 # <a name="penetration-testing"></a>Test di penetrazione
 
 Uno dei vantaggi che si ottengono usando Azure per il test e la distribuzione delle applicazioni consiste nella creazione rapida degli ambienti. Non è necessario richiedere, acquistare e installare il proprio hardware locale.
 
 La creazione rapida di ambienti è un'ottima soluzione, ma è comunque necessario assicurarsi di eseguire la normale sicurezza dovuta alla diligenza. Una delle operazioni che probabilmente si desidera eseguire è il test di penetrazione delle applicazioni distribuite in Azure.
-
-Forse si è già a conoscenza del fatto che Microsoft esegue [il test di penetrazione dell'ambiente di Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e), Questo test è utile per ottenere miglioramenti in Azure.
 
 I test di penetrazione dell'applicazione non vengono eseguiti per l'utente, ma è importante comprendere che si vuole ed è necessario eseguire il test delle applicazioni. Questo è un aspetto positivo, perché quando si migliora la sicurezza delle applicazioni, è possibile rendere più sicuro l'intero ecosistema di Azure.
 

@@ -1,10 +1,10 @@
 ---
-title: Rilevamento delle minacce avanzato in Azure | Microsoft Docs
-description: Informazioni sulle funzionalità di rilevamento delle minacce avanzate predefinite per Azure, ad esempio il servizio Azure AD Identity Protection.
+title: Azure Threat Protection | Microsoft Docs
+description: Informazioni sulle funzionalità predefinite di protezione dalle minacce per Azure, ad esempio il servizio Azure AD Identity Protection.
 services: security
 documentationcenter: na
-author: UnifyCloud
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
-ms.author: TomSh
-ms.openlocfilehash: c8fbb2f6d858b2f654ff404bef3b415bf170ab37
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.date: 02/03/2021
+ms.author: terrylan
+ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747274"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549934"
 ---
-# <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
+# <a name="azure-threat-protection"></a>Azure Threat Protection
 
-Azure offre funzionalità predefinite di rilevamento avanzato delle minacce attraverso servizi quali Azure Active Directory (Azure AD), log di Monitoraggio di Azure e Centro sicurezza di Azure. Questa raccolta di servizi e funzionalità di sicurezza offre un modo semplice e veloce per comprendere ciò che accade all'interno delle distribuzioni di Azure.
+Azure offre funzionalità integrate di protezione dalle minacce tramite servizi come Azure Active Directory (Azure AD), log di monitoraggio di Azure e il Centro sicurezza di Azure. Questa raccolta di servizi e funzionalità di sicurezza offre un modo semplice e veloce per comprendere ciò che accade all'interno delle distribuzioni di Azure.
 
 Azure offre una vasta gamma di opzioni per configurare e personalizzare la sicurezza e soddisfare i requisiti delle distribuzioni di app. Questo articolo illustra come soddisfare questi requisiti.
 
@@ -84,23 +84,9 @@ Oltre a offrire importanti servizi in sé, i log di Monitoraggio di Azure posson
 
 ### <a name="holistic-security-and-compliance-posture"></a>Approccio olistico a sicurezza e conformità
 
-Il [dashboard Sicurezza e controllo di Log Analytics](../../security-center/security-center-introduction.md) offre una panoramica completa dell'infrastruttura di sicurezza IT dell'organizzazione con query di ricerca predefinite per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard Sicurezza e controllo è la schermata iniziale per tutti gli elementi correlati alla sicurezza nei log di Monitoraggio di Azure. Fornire una visione generale lo stato di sicurezza dei computer. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
+Il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md) offre una panoramica completa sulla situazione della sicurezza IT dell'organizzazione, con query di ricerca predefinite per i problemi rilevanti che richiedono attenzione. Fornire una visione generale lo stato di sicurezza dei computer. È anche possibile visualizzare tutti gli eventi delle ultime 24 ore, 7 giorni o qualsiasi altro intervallo di tempo personalizzato.
 
 I log di Monitoraggio di Azure consentono di comprendere rapidamente e facilmente l'approccio complessivo alla sicurezza di qualsiasi ambiente, tutto nel contesto delle operazioni IT, tra cui la valutazione dell'aggiornamento software, la valutazione antimalware e le linee di base di configurazione. I dati del log di sicurezza sono facilmente accessibili per semplificare i processi di controllo di sicurezza e conformità.
-
-![Dashboard Sicurezza e controllo di Log Analytics](./media/threat-detection/azure-threat-detection-fig3.jpg)
-
-Il dashboard Sicurezza e controllo di Log Analytics è organizzato in quattro categorie principali:
-
--   **Domini di sicurezza**: consente di esplorare ulteriormente i record di sicurezza nel tempo, accedere alla valutazione della presenza di malware, aggiornare la valutazione, verificare la sicurezza della rete, controllare identità e accesso alle informazioni, visualizzare i computer con eventi di sicurezza e accedere rapidamente al dashboard del Centro sicurezza di Azure.
-
--   **Errori rilevanti**: consente di identificare rapidamente il numero di problemi attivi e la relativa gravità.
-
--   **Rilevamenti (anteprima)** : consente di identificare i modelli di attacco mostrando gli avvisi di sicurezza relativi alle risorse non appena vengono generati.
-
--   **Intelligence per le minacce**: consente di identificare i modelli di attacco mostrando il numero totale di server con traffico IP dannoso in uscita, il tipo di minaccia e una mappa delle posizioni degli indirizzi IP.
-
--   **Query comuni sulla sicurezza**: elenca le query più comuni sulla sicurezza che è possibile usare per monitorare l'ambiente. Quando si seleziona una qualsiasi query, il riquadro di ricerca apre e mostra i risultati della query.
 
 ### <a name="insight-and-analytics"></a>Informazioni dettagliate e analisi
 Al centro dei [log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) si trova il repository, ospitato da Azure.
@@ -109,21 +95,16 @@ Al centro dei [log di Monitoraggio di Azure](../../azure-monitor/log-query/log-q
 
 I dati vengono raccolti nel repository da origini connesse configurando le origini dati e aggiungendo soluzioni alla sottoscrizione.
 
-![Dashboard dei log di Monitoraggio di Azure](./media/threat-detection/azure-threat-detection-fig5.png)
-
 Origini dati e soluzioni creano tipi di record distinti con il proprio set di proprietà, ma è comunque possibile analizzarli insieme nelle query al repository. Questa funzionalità consente di usare gli stessi strumenti e metodi per lavorare con diversi tipi di dati raccolti da diverse origini.
-
 
 La maggior parte delle interazioni con i log di Monitoraggio di Azure avviene attraverso il portale di Azure che viene eseguito in qualsiasi browser e consente all'utente l'accesso alle impostazioni e a più strumenti di configurazione per analizzare e agire in base ai dati raccolti. Nel portale è possibile usare:
 * [Ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in cui si creano query per analizzare i dati raccolti.
 * [Dashboard](../../azure-monitor/learn/tutorial-logs-dashboards.md), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
 * [Soluzioni](../../azure-monitor/insights/solutions.md), che forniscono ulteriori funzionalità e strumenti di analisi.
 
-![Strumenti di analisi](./media/threat-detection/azure-threat-detection-fig6.png)
-
 Le soluzioni aggiungono funzionalità ai log di Monitoraggio di Azure. Vengono eseguite principalmente nel cloud e offrono un'analisi dei dati raccolti nel repository di analisi dei log. Le soluzioni possono anche definire nuovi tipi di record da raccogliere, che possono essere analizzati con ricerche di log o con l'interfaccia utente aggiuntiva offerta dalla soluzione nel dashboard di analisi dei log.
 
-Il dashboard Sicurezza e controllo è un esempio di questo tipo di soluzioni.
+Il Centro sicurezza è un esempio di questi tipi di soluzioni.
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automazione e controllo: avvisi di deviazione dalla configurazione di sicurezza
 
@@ -216,7 +197,7 @@ Il Centro sicurezza di Azure opera insieme a team dedicati alle ricerche sulla s
 
 Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è possibile trarre vantaggio immediatamente, senza che sia richiesta alcuna azione.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Funzionalità avanzate di rilevamento delle minacce: Altri servizi di Azure
+## <a name="threat-protection-features-other-azure-services"></a>Funzionalità di protezione dalle minacce: altri servizi di Azure
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Macchine virtuali: Microsoft Antimalware
 
@@ -367,7 +348,7 @@ Cloud App Security integra la visibilità con il cloud tramite:
 
 Durante la raccolta di dati da queste origini, Cloud App Security esegue analisi complesse su di essi. Segnala immediatamente le attività anomale e offre una visibilità dettagliata nell'ambiente cloud. È possibile configurare criteri in Cloud App Security e usarli per proteggere tutti i dati nell'ambiente cloud.
 
-## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Funzionalità di rilevamento avanzato delle minacce di terze parti tramite Azure Marketplace
+## <a name="third-party-threat-protection-capabilities-through-the-azure-marketplace"></a>Funzionalità di protezione dalle minacce di terze parti tramite Azure Marketplace
 
 ### <a name="web-application-firewall"></a>Web application firewall
 

@@ -3,12 +3,12 @@ title: Distribuire Analisi video live in Azure Stack Edge
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: cc3dcfaa96034e807d3d82e75eedc0f6a82eff08
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019597"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551009"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Distribuire Analisi video live in Azure Stack Edge
 
@@ -24,7 +24,7 @@ Per l'analisi di video in tempo reale, si distribuirà tramite l'hub tutto, ma l
 * Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](../../role-based-access-control/built-in-roles.md#owner).
 * Una risorsa [Azure stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md)
    
-* [Un hub Internet delle cose](../../iot-hub/iot-hub-create-through-portal.md)
+* [Un hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
 * Un' [entità servizio](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) per il modulo Live Video Analytics.
 
    Usare una di queste aree in cui è disponibile l'hub Internet: Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali, Giappone orientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
@@ -42,38 +42,7 @@ Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di cal
 * [Creazione di risorse Azure Stack Edge/Data Box Gateway](../../databox-online/azure-stack-edge-deploy-prep.md)
 * [Installazione e configurazione](../../databox-online/azure-stack-edge-deploy-install.md)
 * [Connessione e attivazione](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
-
-### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Alleghi un hub Internet all'Azure Stack Edge
-
-1. Nella [portale di Azure](https://ms.portal.azure.com)passare alla risorsa di Azure stack Edge e fare clic su panoramica. Nel riquadro Calcolo a destra selezionare Inizia subito.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge.png" alt-text="Azure Stack Edge":::
-1. Nel riquadro Configura calcolo Edge selezionare Configura calcolo.
-1. Nel pannello Configura calcolo Edge immettere quanto segue:
-    
-    | Campo|valore|
-    |---|---|
-    |Hub IoT|Scegliere Nuovo o Esistente.<br/>Per impostazione predefinita, per creare una risorsa IoT viene usato un livello Standard (S1). Per usare una risorsa IoT di un livello gratuito, crearne uno e quindi selezionare la risorsa esistente.<br/>In ogni caso, la risorsa hub Internet usa la stessa sottoscrizione e il gruppo di risorse usato per la risorsa Azure Stack Edge.|
-    |Nome|Immettere un nome per la risorsa hub IoT.|
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
-1. Selezionare **Create** (Crea). La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza calcolo** nel riquadro **Configura calcolo**.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
-
-    > [!NOTE]
-    > Se la finestra di dialogo Configura calcolo viene chiusa prima che l'hub Internet sia associato alla risorsa Azure Stack Edge, l'hub Internet viene creato, ma non viene visualizzato nella configurazione di calcolo. Ricaricare la pagina dopo alcuni minuti e visualizzarne la visualizzazione.
-    
-    Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Un runtime di IoT Edge è in esecuzione anche sul dispositivo IoT Edge. Attualmente per il dispositivo IoT Edge è disponibile solo la piattaforma Linux.
-    
-    Una volta completate tutte le informazioni, verrà visualizzata la scheda Configura bordo di calcolo simile alla seguente:
-    
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
- 
+* [Alleghi un hub Internet all'Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-compute#configure-compute)
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Abilitare i prerequisiti di calcolo nell'interfaccia utente locale di Azure Stack Edge
 
 Prima di continuare, verificare che:
@@ -89,7 +58,7 @@ Prima di continuare, verificare che:
         * Selezionare Applica. questa operazione dovrebbe richiedere circa 2 minuti.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge":::
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Prerequisiti di calcolo nell'interfaccia utente locale di Azure Stack Edge":::
 
         * Se DNS non è configurato per l'API Kubernetes e la risorsa Azure Stack Edge, è possibile aggiornare il file host della finestra.
         
@@ -146,7 +115,8 @@ A questo proposito, verranno eseguiti solo passaggi specifici per la [distribuzi
       ```
 
       > [!NOTE]
-      > La sezione "binds" nel file JSON include 2 voci. È possibile aggiornare le associazioni del dispositivo perimetrale, ma assicurarsi che tali directory esistano.
+      > La sezione "binds" nel file JSON include 2 voci. Le directory elencate nella sezione precedente bind verranno create automaticamente da LVA.  
+        È possibile aggiornare le associazioni del dispositivo perimetrale, ma in questo caso assicurarsi che tali directory esistano nel dispositivo.
     
     * "/var/lib/azuremediaservices:/var/lib/azuremediaservices": viene usato per associare i dati di configurazione dell'applicazione permanenti dal contenitore e archiviarli sul dispositivo perimetrale.
     * "/var/media:/var/media": associa le cartelle multimediali tra il dispositivo perimetrale e il contenitore. Viene usato per archiviare le registrazioni video quando si esegue una topologia del grafico multimediale che supporta l'archiviazione di clip video sul dispositivo perimetrale.
@@ -169,13 +139,14 @@ Questi passaggi illustrano la creazione di un utente del gateway e la configuraz
 1. Aprire portale di Azure e passare alla risorsa Azure Stack Edge.
 1. Creare un **utente del gateway** che possa accedere alle condivisioni.
     
-    1. Nel riquadro di spostamento a sinistra fare clic su **gateway->utenti**.
-    1. Fare clic su **+ Aggiungi utente** per impostare il nome utente e la password. (Scelta consigliata: `lvauser` ).
+    1. Nel riquadro di spostamento a sinistra fare clic su **Cloud Storage Gateway**.
+    1. Fare clic su **utenti** nel riquadro di spostamento a sinistra.
+    1. Fare clic su Ion **+ Aggiungi utente** per impostare nome utente e password. (Scelta consigliata: `lvauser` ).
     1. Fare clic su **Aggiungi**.
     
 1. Creare una **condivisione locale** per la persistenza di analisi video in tempo reale.
 
-    1. Fare clic su **gateway->condivisioni**.
+    1. Fare clic su **Cloud Storage Gateway->shares**.
     1. Fare clic su **+ Aggiungi condivisioni**.
     1. Impostare un nome di condivisione. (Scelta consigliata: `lva` ).
     1. Mantieni il tipo di condivisione come SMB.
@@ -185,12 +156,15 @@ Questi passaggi illustrano la creazione di un utente del gateway e la configuraz
     1. Fare clic su **Crea**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
-    
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Condivisione locale":::  
+
+    > [!TIP]
+    > Utilizzando il client Windows connesso al Azure Stack Edge, connettersi alle condivisioni SMB attenendosi alla procedura descritta [in questo documento](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
+
 1. Creare una condivisione remota per l'archiviazione di sincronizzazione file.
 
-    1. Creare innanzitutto un account di archiviazione BLOB nella stessa area.
-    1. Fare clic su **gateway->condivisioni**.
+    1. Per prima cosa, creare un account di archiviazione BLOB nella stessa area facendo clic su **Cloud Storage Gateway->account di archiviazione**.
+    1. Fare clic su **Cloud Storage Gateway->shares**.
     1. Fare clic su **+ Aggiungi condivisioni**.
     1. Impostare un nome di condivisione. (Scelta consigliata: supporti).
     1. Mantieni il tipo di condivisione come SMB.
@@ -203,10 +177,30 @@ Questi passaggi illustrano la creazione di un utente del gateway e la configuraz
     1. Fare clic su **Crea**.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
-            }]
-        }
-    }
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Condivisione remota":::
+    
+    
+1. Aggiornare le opzioni di creazione del contenitore del modulo Edge di analisi video in tempo reale (vedere il punto 4 in [aggiungere il documento moduli](deploy-iot-edge-device.md#add-modules)) per usare i montaggi del volume.
+
+   ```json
+      "createOptions": 
+         {
+             "HostConfig": 
+             {
+                 "Binds": 
+                 [
+                     "/var/lib/azuremediaservices:/var/lib/azuremediaservices"
+                 ],
+                 "Mounts": 
+                 [
+                     {
+                         "Target": "/var/media",
+                         "Source": "media",
+                         "Type": "volume"
+                     }
+                 ]
+             }
+         }
     ```
 
 ### <a name="verify-that-the-module-is-running"></a>Verificare che il modulo sia in esecuzione
@@ -219,7 +213,7 @@ Per verificare che il modulo sia in esecuzione, eseguire queste operazioni:
 1. Selezionare il riquadro moduli. Verrà visualizzato il pannello Moduli. Nell'elenco dei moduli identificare il modulo che è stato distribuito. Lo stato di runtime del modulo aggiunto sarà in esecuzione.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Modulo personalizzato":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Configurare l'estensione Azure IoT Tools
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986684"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548865"
 ---
-# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzazione del set di standard nel dashboard di conformità alle normative
+# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzare il set di standard nel dashboard conformità normativa
 
 Il Centro sicurezza di Azure confronta continuamente la configurazione delle risorse con i requisiti di standard del settore, normative e benchmark. Il **Dashboard conformità normativa** fornisce informazioni approfondite sul comportamento di conformità in base al modo in cui si soddisfano i requisiti di conformità specifici.
 
@@ -123,5 +123,5 @@ In questo articolo si è appreso come **aggiungere gli standard di conformità**
 Per materiale correlato, vedere le pagine seguenti:
 
 - [Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Dashboard di conformità alle normative del Centro sicurezza](security-center-compliance-dashboard.md)
+- [Dashboard conformità normativa del Centro sicurezza](security-center-compliance-dashboard.md) : informazioni su come tenere traccia ed esportare i dati di conformità normativi con il Centro sicurezza e gli strumenti esterni
 - [Uso dei criteri di sicurezza](tutorial-security-policy.md)

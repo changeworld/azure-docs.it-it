@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942041"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551077"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -244,7 +244,7 @@ Installare i driver per gli archivi dati di origine e di destinazione nel runtim
  
 Se il traffico non può passare attraverso la rete tra due archivi dati (ad esempio, sono configurati in due reti virtuali), è possibile che non si completi la copia in un'attività anche con il runtime di integrazione installato. Se non è possibile completare la copia in un'unica attività, è possibile creare due attività di copia con due IRs, ciascuna in uno sfogo: 
 * Copiare un runtime di integrazione dall'archivio dati 1 all'archivio BLOB di Azure
-* Copiare un altro IR dall'archiviazione BLOB di Azure a ddatastore 2. 
+* Copiare un altro IR dall'archiviazione BLOB di Azure all'archivio dati 2. 
 
 Questa soluzione potrebbe simulare la necessità di usare il runtime di integrazione per creare un Bridge che connette due archivi dati disconnessi.
 
@@ -710,7 +710,7 @@ Questa notifica si applica agli scenari seguenti:
 
 Come determinare se si è interessati:
 
-- *Non* si è interessati se si definiscono regole del firewall basate su nomi di dominio completi (FQDN) che usano l'approccio descritto in [configurare una configurazione del firewall e consentire l'elenco degli indirizzi IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- *Non* si è interessati se si definiscono regole del firewall basate su nomi di dominio completi (FQDN) che usano l'approccio descritto in [configurare una configurazione del firewall e consentire l'elenco degli indirizzi IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - Si *è interessati se si Abilita* in modo esplicito l'elenco Consenti per gli IP in uscita nel firewall aziendale.
 

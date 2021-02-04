@@ -2,13 +2,13 @@
 title: Risparmiare sui costi con l'istanza riservata della soluzione VMware di Azure
 description: Informazioni su come acquistare un'istanza riservata per la soluzione VMware di Azure.
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/03/2021
+ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600873"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550976"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Salva i costi con la soluzione VMware di Azure
 
@@ -22,7 +22,7 @@ Le istanze riservate sono disponibili con alcune eccezioni.
 
 -   **Quota insufficiente** : nella sottoscrizione per la nuova istanza riservata è necessario che nella sottoscrizione sia disponibile una quota di host per una sola sottoscrizione condivisa. Per risolvere il problema, è possibile [creare una richiesta di aumento della quota](enable-azure-vmware-solution.md) .
 
--   **Idoneità** per l'offerta: è necessario un [Enterprise Agreement di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
+-   **Idoneità** per l'offerta: è necessario un [contratto Enterprise di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 
 -   **Restrizioni di capacità** : in rari casi, Azure limita l'acquisto di nuove prenotazioni per gli SKU dell'host della soluzione VMware di Azure a causa di una capacità ridotta in un'area.
 
@@ -54,7 +54,7 @@ Questi requisiti si applicano all'acquisto di un'istanza host dedicata riservata
 
    | Campo        |  Descrizione |
    | ------------ | ------------ |
-   | Subscription | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P), un contratto per i clienti Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo prepagato di Azure (in precedenza denominato impegno monetario), se disponibile, o addebitato come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito della sottoscrizione o su un metodo di pagamento con fattura. |
+   | Subscription | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P), un contratto per i clienti Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo del pagamento anticipato di Azure (in precedenza detto impegno monetario), se disponibile, oppure vengono applicati come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito della sottoscrizione o su un metodo di pagamento con fattura. |
    | Ambito        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
    | Region       | Area di Azure coperta dalla prenotazione.   |
    | Dimensioni host    | AV36    |
@@ -123,7 +123,7 @@ Per informazioni dettagliate sulle prenotazioni gestite da CSP, vedere [Sell Mic
 > - Area della prenotazione esistente
 > - SKU
 > - Quantità
-> - Durata
+> - Duration
 >
 >Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 
@@ -132,3 +132,12 @@ Per informazioni dettagliate sulle prenotazioni gestite da CSP, vedere [Sell Mic
 È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 I CSP possono annullare, scambiare o rimborsare le prenotazioni, con determinate limitazioni, acquistate per i clienti. Per ulteriori informazioni, vedere [gestione, annullamento, scambio o rimborso Microsoft Azure prenotazioni per i clienti](/partner-center/azure-reservations-manage).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Ora che è stato descritto come acquistare un'istanza riservata della soluzione VMware di Azure, è possibile ottenere informazioni su:
+
+- [Creazione di una valutazione della soluzione VMware di Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md).
+- [Gestione di DHCP per la soluzione VMware di Azure](manage-dhcp.md).
+- [Gestione del ciclo di vita delle macchine virtuali della soluzione VMware di Azure](lifecycle-management-of-azure-vmware-solution-vms.md).
+ 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
-ms.openlocfilehash: 89e64b6e8018fafb22820e8594bc2b3c888bb04a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43b783d9462205b01d3ac4de0c5779fdc9864470
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732157"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550455"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>Esercitazione: configurare i Forts Change cloud per il provisioning utenti automatico
 
@@ -50,11 +50,11 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="step-2-configure-fortes-change-cloud-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Forts Change cloud per supportare il provisioning con Azure AD
 
-1. Accedere con l'account amministratore a Forts Change cloud. Fare clic sull' **icona Settings (impostazioni** ) e quindi passare a **scim Settings (impostazioni**).
+1. Accedere con l'account amministratore a Forts Change cloud. Fare clic sull' **icona Impostazioni** , quindi passare a **provisioning utenti (SCIM)**.
 
     [![Impostazione ](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png) di SCIM per la modifica di Forts cloud](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png#lightbox)
 
-2. Nella nuova finestra copiare e salvare il **token primario**. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione per la modifica del cloud di Fortes nel portale di Azure.
+2. Nella nuova finestra copiare e salvare l'URL del **tenant** e il **token primario**. L'URL del tenant verrà immesso nel campo **tenant URL** * e il token primario verrà immesso nel campo **Secret** * token nella scheda provisioning dell'applicazione per la modifica del cloud di Fortes nel portale di Azure.
      
       [![Il token primario del cloud Change Forts](media/fortes-change-cloud-provisioning-tutorial/primary-token.png)](media/fortes-change-cloud-provisioning-tutorial/primary-token.png#lightbox)
 

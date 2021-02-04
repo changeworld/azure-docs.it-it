@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72518369"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548950"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilità condivisa nel cloud
 
@@ -50,4 +50,4 @@ Il diagramma seguente illustra un approccio tradizionale in cui molte responsabi
 Nell'approccio abilitato per il cloud, è anche possibile sfruttare le funzionalità di sicurezza basate sul cloud per una maggiore efficacia e usare l'Intelligence per il cloud per migliorare il rilevamento delle minacce e il tempo di risposta. Passando le responsabilità al provider di servizi cloud, le organizzazioni possono godere di una sicurezza più ampia e possono così riallocare le relative risorse e i relativi budget ad altre priorità aziendali.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sulla divisione di responsabilità tra l'utente e Microsoft in una distribuzione SaaS, PaaS e IaaS, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Per ulteriori informazioni sulla divisione di responsabilità tra l'utente e Microsoft in una distribuzione SaaS, PaaS e IaaS, vedere [responsabilità condivise per cloud computing](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/).

@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione di video basata su eventi nel cloud e ripro
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per eseguire una registrazione di video basata su eventi nel cloud e riprodurla dal cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: f54659cc279b68113150f2f49d18e938f2500030
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: fda727a1abb488910d52b756455d2b6843e0e8b1
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526264"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550253"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione di video basata su eventi nel cloud e riproduzione dal cloud
 
@@ -195,6 +195,12 @@ Per visualizzare gli eventi del modulo ObjectCounter e del modulo Analisi video 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Avvia monitoraggio endpoint eventi predefinito":::
+
+    > [!NOTE]
+    > Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 ## <a name="run-the-program"></a>Eseguire il programma
 
@@ -210,7 +216,7 @@ Per visualizzare gli eventi del modulo ObjectCounter e del modulo Analisi video 
 1. <!--In Visual Studio Code, go-->Passare a src/cloud-to-device-console-app/operations.json.
 1. Nel nodo **GraphTopologySet** modificare quanto segue:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/2.0/topology.json"`
     
 1. Quindi, nei nodi **GraphInstanceSet** e **GraphTopologyDelete** modificare:
 

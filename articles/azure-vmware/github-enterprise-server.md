@@ -2,13 +2,13 @@
 title: Configurare GitHub Enterprise Server nel cloud privato della soluzione VMware di Azure
 description: Informazioni su come configurare GitHub Enterprise Server nel cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 00b3acf721dd7f7a1a15bcd0d24eccf3ca27ff58
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/03/2021
+ms.openlocfilehash: 2b05e352fd8a81d6d180d4c60e67ab48465b284f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326914"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549103"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Configurare GitHub Enterprise Server nel cloud privato della soluzione VMware di Azure
 
@@ -61,7 +61,7 @@ Applicare le impostazioni.  Quando l'istanza viene riavviata, è possibile conti
 
 Dopo il riavvio dell'istanza, creare un nuovo account amministratore nell'istanza di. Assicurarsi di prendere nota anche della password di questo utente.
 
-### <a name="additional-configuration-steps"></a>Passaggi di configurazione aggiuntivi
+### <a name="other-configuration-steps"></a>Altri passaggi di configurazione
 
 Per la protezione avanzata dell'istanza per l'uso in produzione, è consigliabile effettuare le seguenti operazioni di configurazione facoltative:
 
@@ -182,7 +182,7 @@ In questo articolo verrà reso disponibile a tutte le organizzazioni, ma è anch
 
 ## <a name="optional-configuring-github-connect"></a>Opzionale Configurazione di GitHub Connect
 
-Sebbene questo passaggio sia facoltativo, è consigliabile se si prevede di utilizzare le azioni open source disponibili in GitHub.com. In questo modo è possibile creare il lavoro di altri facendo riferimento a queste azioni riutilizzabili nei flussi di lavoro.
+Sebbene questo passaggio sia facoltativo, è consigliabile se si prevede di utilizzare azioni open source disponibili in GitHub.com. Consente di compilare il lavoro di altri facendo riferimento a queste azioni riutilizzabili nei flussi di lavoro.
 
 Per abilitare la connessione a GitHub, seguire la procedura descritta in [Abilitazione dell'accesso automatico alle azioni github.com tramite GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
@@ -223,14 +223,12 @@ Se tutti gli elementi sono stati eseguiti correttamente, verrà visualizzato un 
 
 Congratulazioni! È stato appena completato il primo flusso di lavoro azioni su GitHub Enterprise Server, in esecuzione nel cloud privato della soluzione VMware di Azure.
 
-Stiamo solo grattando la superficie di ciò che è possibile fare con le azioni di GitHub. Per ulteriori informazioni, vedere l'elenco delle azioni sul [Marketplace di GitHub](https://github.com/marketplace)o [crearne di personalizzate](https://docs.github.com/en/actions/creating-actions).
+In questo articolo viene configurata una nuova istanza di GitHub Enterprise Server, l'equivalente self-hosted di GitHub.com, nella parte superiore del cloud privato della soluzione VMware di Azure. Questa istanza include il supporto per le azioni di GitHub e usa l'archivio BLOB di Azure per la persistenza di log e artefatti. Ma stiamo semplicemente rilasciando la superficie di ciò che è possibile fare con le azioni di GitHub. Vedere l'elenco delle azioni sul [Marketplace di GitHub](https://github.com/marketplace)o [crearne di personalizzate](https://docs.github.com/en/actions/creating-actions).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo viene configurata una nuova istanza di GitHub Enterprise Server, l'equivalente self-hosted di GitHub.com, nella parte superiore del cloud privato della soluzione VMware di Azure. Questa istanza include il supporto per le azioni di GitHub e usa l'archivio BLOB di Azure per la persistenza di log e artefatti. Si tratta di un'ottima combinazione per un'esperienza di sviluppo software moderna, collaborativa e sicura. Si basa su una solida base della soluzione VMware di Azure, che consente di sfruttare le risorse cloud in un'impostazione familiare.
+Ora che si è appreso come configurare GitHub Enterprise Server nel cloud privato della soluzione VMware di Azure, è possibile ottenere informazioni su: 
 
-Per ulteriori informazioni, vedere le risorse seguenti:
-
-- [Introduzione alle azioni di GitHub](https://docs.github.com/en/actions)
-- [Partecipa al programma beta](https://resources.github.com/beta-signup/)
-- [Altre informazioni sull'amministrazione di GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started)
+- Introduzione [alle azioni di GitHub](https://docs.github.com/en/actions).
+- [Aggiunta al programma beta](https://resources.github.com/beta-signup/).
+- [Amministrazione di GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started).

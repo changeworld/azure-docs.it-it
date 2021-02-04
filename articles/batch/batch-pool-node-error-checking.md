@@ -3,28 +3,28 @@ title: Verificare la presenza di errori in pool e nodi
 description: Questo articolo illustra le operazioni in background che possono verificarsi, assieme agli errori a cui prestare attenzione e come evitarli durante la creazione di pool e nodi.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/23/2019
+ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8901877ab3055c02dfc8c129fb35864418cd19d8
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85979918"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549136"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
-Durante la creazione e la gestione di pool di Azure Batch, alcune operazioni vengono eseguite immediatamente, mentre altre sono asincrone e vengono eseguite in background, richiedendo alcuni minuti per il completamento.
+Durante la creazione e la gestione di pool di Azure Batch, alcune operazioni vengono eseguite immediatamente, Il rilevamento degli errori per queste operazioni è in genere semplice, perché vengono restituiti immediatamente dall'API, dall'interfaccia della riga di comando o dall'interfaccia utente. mentre altre sono asincrone e vengono eseguite in background, richiedendo alcuni minuti per il completamento.
 
-Rilevare gli errori per le operazioni che si verificano immediatamente è semplice, in quanto tutti gli eventuali errori vengono restituiti immediatamente dall'API, dall'interfaccia della riga di comando o dall'interfaccia utente.
+Verificare di aver impostato le applicazioni per implementare il controllo completo degli errori, in particolare per le operazioni asincrone. Questo può essere utile per identificare e diagnosticare tempestivamente i problemi.
 
-Questo articolo illustra le operazioni in background che possono verificarsi per pool e nodi di pool e spiega come rilevare ed evitare gli errori.
+Questo articolo descrive come rilevare ed evitare errori nelle operazioni in background che possono verificarsi per i pool e i nodi del pool.
 
 ## <a name="pool-errors"></a>Errori dei pool
 
 ### <a name="resize-timeout-or-failure"></a>Timeout ridimensionamento o errore
 
-Durante la creazione di un nuovo pool o il ridimensionamento di un pool esistente, si specifica il numero di nodi di destinazione.  L'operazione di creazione o ridimensionamento viene completata immediatamente, ma l'effettiva allocazione dei nuovi nodi o la rimozione dei nodi esistenti potrebbe richiedere diversi minuti.  Il timeout dell'operazione di ridimensionamento viene specificato nell'API di [creazione](/rest/api/batchservice/pool/add) o [ridimensionamento](/rest/api/batchservice/pool/resize). Se Batch non è in grado di ottenere il numero di nodi di destinazione durante il periodo di timeout del ridimensionamento, il pool entra in uno stato stabile e segnala errori di ridimensionamento.
+Durante la creazione di un nuovo pool o il ridimensionamento di un pool esistente, si specifica il numero di nodi di destinazione. L'operazione di creazione o ridimensionamento viene completata immediatamente, ma l'effettiva allocazione dei nuovi nodi o la rimozione dei nodi esistenti potrebbe richiedere diversi minuti. È possibile specificare il timeout di ridimensionamento della camma nell'API [Crea](/rest/api/batchservice/pool/add) o [Ridimensiona](/rest/api/batchservice/pool/resize) . Se batch non è in grado di ottenere il numero di nodi di destinazione durante il periodo di timeout di ridimensionamento, il pool entra in uno stato stabile e segnala gli errori di ridimensionamento.
 
 La proprietà [ResizeError](/rest/api/batchservice/pool/get#resizeerror) relativa alla valutazione più recente elenca gli errori che si sono verificati.
 
@@ -44,23 +44,25 @@ Ecco alcune cause comuni degli errori di ridimensionamento:
 
 ### <a name="automatic-scaling-failures"></a>Errori di ridimensionamento automatico
 
-Si può anche impostare Azure Batch in modo da ridimensionare automaticamente il numero di nodi in un pool. A questo scopo occorre definire i parametri per la [formula di ridimensionamento automatico per un pool](./batch-automatic-scaling.md). Il servizio Batch usa quindi la formula per valutare periodicamente il numero di nodi nel pool e impostare un nuovo numero di destinazione. Possono verificarsi i tipi di problemi seguenti:
+È possibile impostare Azure Batch per ridimensionare automaticamente il numero di nodi in un pool. A questo scopo occorre definire i parametri per la [formula di ridimensionamento automatico per un pool](./batch-automatic-scaling.md). Il servizio batch utilizzerà quindi la formula per valutare periodicamente il numero di nodi nel pool e impostare un nuovo numero di destinazione.
+
+Quando si usa il ridimensionamento automatico, possono verificarsi i tipi di problemi seguenti:
 
 - La valutazione del ridimensionamento automatico non riesce.
 - L'operazione di ridimensionamento risultante non riesce con conseguente timeout.
 - Un problema nella formula di ridimensionamento automatico genera valori di destinazione dei nodi non corretti. Il ridimensionamento riesce oppure raggiunge il timeout.
 
-È possibile ottenere informazioni sull'ultima valutazione del ridimensionamento automatico usando la proprietà [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Questa proprietà indica il periodo della valutazione, i valori e il risultato, oltre agli eventuali errori di prestazioni.
+Per ottenere informazioni sull'ultima valutazione di scalabilità automatica, usare la proprietà [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) . Questa proprietà indica il periodo della valutazione, i valori e il risultato, oltre agli eventuali errori di prestazioni.
 
 L'[evento di completamento del ridimensionamento del pool](./batch-pool-resize-complete-event.md) acquisisce le informazioni su tutte le valutazioni.
 
-### <a name="delete"></a>Delete
+### <a name="pool-deletion-failures"></a>Errori di eliminazione del pool
 
-Quando si elimina un pool che contiene nodi, Batch elimina prima di tutto i nodi, quindi l'oggetto pool stesso. L'eliminazione dei nodi del pool può richiedere alcuni minuti.
+Quando si elimina un pool che contiene nodi, Batch elimina prima di tutto i nodi, Questa operazione può richiedere alcuni minuti. Successivamente, batch Elimina l'oggetto pool stesso.
 
 Lo [stato del pool](/rest/api/batchservice/pool/get#poolstate) viene impostato su **deleting** durante il processo di eliminazione. L'applicazione chiamante può rilevare se l'eliminazione del pool richiede troppo tempo usando le proprietà **state** e **stateTransitionTime**.
 
-## <a name="pool-compute-node-errors"></a>Errori dei nodi di calcolo dei pool
+## <a name="node-errors"></a>Errori del nodo
 
 Anche se Batch alloca correttamente i nodi in un pool, vari problemi possono compromettere l'integrità di alcuni nodi e impedire l'esecuzione di attività. Questi nodi continuano a prevedere un addebito, per cui è importante rilevare i problemi per evitare di pagare per i nodi che non possono essere usati. Oltre agli errori comuni relativi ai nodi, conoscere lo [stato del processo](/rest/api/batchservice/job/get#jobstate) corrente è utile per la risoluzione dei problemi.
 
@@ -74,7 +76,7 @@ Se il nodo è stato configurato in modo da attendere che l'attività di avvio ve
 
 Se un'attività di avvio non riesce, inoltre, Batch imposta lo [stato](/rest/api/batchservice/computenode/get#computenodestate) del nodo su **starttaskfailed**, se la proprietà **waitForSuccess** è impostata su **true**.
 
-Come per qualsiasi attività, l'esito negativo di un'attività di avvio può essere riconducibile a vari fattori.  Per risolvere il problema, controllare i file stdout, stderr e qualsiasi altro file di log specifico dell'attività.
+Come per qualsiasi attività, è possibile che si verifichino molte cause per un errore di avvio dell'attività. Per risolvere il problema, controllare i file stdout, stderr e qualsiasi altro file di log specifico dell'attività.
 
 Le attività di avvio devono essere rientranti, perché è possibile che l'attività di avvio venga eseguita più volte sullo stesso nodo; l'attività di avvio viene eseguita quando viene ricreata l'immagine di un nodo o questo viene riavviato. In casi rari, viene eseguita un'attività di avvio dopo un evento che ha causato il riavvio di un nodo, in cui è stata ricreata l'immagine di uno solo tra il disco del sistema operativo e quello temporaneo. Poiché le attività di avvio di Batch, come tutte le attività di Batch, vengono eseguite dal disco temporaneo, non si tratta in genere di un problema, ma in alcuni casi in cui l'attività di avvio installa un'applicazione nel disco del sistema operativo e mantiene altri dati sul disco temporaneo, ciò può causare problemi perché gli elementi non sono sincronizzati. Proteggere l'applicazione di conseguenza se si usano entrambi i dischi.
 
@@ -87,6 +89,10 @@ La proprietà [Errors](/rest/api/batchservice/computenode/get#computenodeerror) 
 ### <a name="container-download-failure"></a>Errore di download del contenitore
 
 È possibile specificare uno o più riferimenti a contenitori in un pool. Batch scarica i contenitori specificati in ogni nodo. La proprietà [Errors](/rest/api/batchservice/computenode/get#computenodeerror) del nodo segnala un errore di download di un contenitore e imposta lo stato del nodo su **Inutilizzabile**.
+
+### <a name="node-os-updates"></a>Aggiornamenti del sistema operativo del nodo
+
+Per i pool di Windows, `enableAutomaticUpdates` è impostato su per `true` impostazione predefinita. È consigliabile consentire gli aggiornamenti automatici, ma è possibile interrompere l'avanzamento dell'attività, soprattutto se le attività hanno un'esecuzione prolungata. È possibile impostare questo valore su `false` se è necessario assicurarsi che un aggiornamento del sistema operativo non avvenga in modo imprevisto.
 
 ### <a name="node-in-unusable-state"></a>Nodo in stato inutilizzabile
 
@@ -116,7 +122,7 @@ Il processo dell'agente Batch in esecuzione in ogni nodo del pool può fornire f
 
 ### <a name="node-disk-full"></a>Disco del nodo pieno
 
-L'unità temporanea per una macchina virtuale del nodo del pool viene usata da Batch per file di processo, file delle attività e file condivisi.
+L'unità temporanea per una macchina virtuale del nodo del pool viene utilizzata da batch per i file di processo, i file delle attività e i file condivisi, come nel seguente esempio:
 
 - File dei pacchetti dell'applicazione
 - File di risorse dell'attività
@@ -135,23 +141,17 @@ Le dimensioni dell'unità temporanea dipendono dalle dimensioni della macchina v
 
 Per i file scritti dalle singole attività, è possibile specificare un periodo di conservazione per ogni attività, che determini per quanto tempo i file dell'attività debbano essere conservati prima di essere eliminati automaticamente. Il tempo di conservazione può essere ridotto per ridurre i requisiti di archiviazione.
 
-
 Se lo spazio sul disco temporaneo si esaurisce (o quasi), il nodo passerà allo stato [Inutilizzabile](/rest/api/batchservice/computenode/get#computenodestate) e verrà segnalato un errore del nodo per informare che il disco è pieno.
 
-### <a name="what-to-do-when-a-disk-is-full"></a>Operazioni da eseguire quando un disco è pieno
+Se non si è certi di cosa sta occupando spazio nel nodo, provare a eseguire la comunicazione remota al nodo ed esaminare manualmente la posizione in cui lo spazio è andato. È anche possibile usare l'[API dei file di elenco processi batch](/rest/api/batchservice/file/listfromcomputenode) per esaminare i file nelle cartelle gestite da Batch (ad esempio, gli output delle attività). Si noti che questa API elenca solo i file nelle directory gestite da batch. Se le attività hanno creato file altrove, non verranno visualizzati.
 
-Determinare il motivo per cui il disco è pieno: Se non si è certi di cosa occupi spazio nel nodo, è consigliabile eseguire una procedura remota nel nodo ed esaminare manualmente i punti in cui lo spazio è esaurito. È anche possibile usare l'[API dei file di elenco processi batch](/rest/api/batchservice/file/listfromcomputenode) per esaminare i file nelle cartelle gestite da Batch (ad esempio, gli output delle attività). Si noti che questa API elenca solo i file inclusi nelle directory gestite da Batch; se le attività hanno creato file altrove, questi non verranno visualizzati.
+Assicurarsi che tutti i dati necessari siano stati recuperati dal nodo o caricati in un archivio durevole, quindi eliminare i dati necessari per liberare spazio.
 
-Assicurarsi che tutti i dati necessari siano stati recuperati dal nodo o caricati in un archivio durevole. La mitigazione del problema di esaurimento spazio sul disco comporta sempre l'eliminazione di dati per liberare spazio.
+È possibile eliminare i vecchi processi completati o le precedenti attività completate, i cui dati attività sono ancora presenti nei nodi. Esaminare la [raccolta RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) nel nodo o nei [file del nodo](/rest/api/batchservice/file/listfromcomputenode). L'eliminazione di un processo comporterà l'eliminazione di tutte le attività nel processo. l'eliminazione delle attività nel processo attiverà i dati nelle directory delle attività nel nodo da eliminare, liberando così spazio. Dopo avere liberato spazio sufficiente, riavviare il nodo, che uscirà dallo stato "Inutilizzabile" per tornare a quello "Inattivo".
 
-### <a name="recovering-the-node"></a>Recupero del nodo
-
-1. Se il pool è del tipo [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), è possibile ricreare l'immagine del nodo tramite l'[API di nuova creazione immagine Batch](/rest/api/batchservice/computenode/reimage). L'intero disco verrà pulito. La nuova creazione dell'immagine non è attualmente supportata per i pool [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
-
-2. Se il pool è del tipo [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), è possibile rimuovere il nodo dal pool tramite l'[l'API di rimozione nodi](/rest/api/batchservice/pool/removenodes). Sarà quindi possibile aumentare di nuovo il pool per sostituire il nodo errato con uno aggiornato.
-
-3.  Eliminare le attività o i processi completati in precedenza i cui dati delle attività sono ancora presenti nei nodi. Per un suggerimento relativo ai processi o ai dati delle attività nei nodi, è possibile consultare la [raccolta RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) nel nodo o i [file nel nodo](/rest/api/batchservice/file/listfromcomputenode). Eliminando il processo verranno eliminate tutte le attività ad esso relative; l'eliminazione delle attività nel processo attiverà i dati nelle directory delle attività nel nodo da eliminare, liberando così spazio. Dopo avere liberato spazio sufficiente, riavviare il nodo, che uscirà dallo stato "Inutilizzabile" per tornare a quello "Inattivo".
+Per ripristinare un nodo inutilizzabile nei pool [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) , è possibile rimuovere un nodo dal pool usando l' [API Remove nodes](/rest/api/batchservice/pool/removenodes). Sarà quindi possibile aumentare di nuovo il pool per sostituire il nodo errato con uno aggiornato. Per i pool [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) è possibile ricreare l'immagine del nodo tramite l' [API di rielaborazione batch](/rest/api/batchservice/computenode/reimage). L'intero disco verrà pulito. La nuova creazione dell'immagine non è attualmente supportata per i pool [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Assicurarsi di aver configurato l'applicazione in modo da implementare un sistema completo di controllo degli errori, specialmente per le operazioni asincrone. Rilevare e diagnosticare tempestivamente i problemi può avere un'importanza fondamentale.
+- Informazioni sul [controllo degli errori di attività e processi](batch-job-task-error-checking.md).
+- Informazioni sulle [procedure](best-practices.md) consigliate per l'utilizzo di Azure batch.

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 02a6e934b517cdd118b6175d9cfef73bee4c996d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7d0c83f1ae18d36557a7a5b0222aee2905e05cb7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223007"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550236"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Guida introduttiva: creare un indirizzo IP pubblico usando il portale di Azure
 
 Questo articolo illustra come creare una risorsa indirizzo IP pubblico usando il portale di Azure. Per altre informazioni sulle risorse a cui questo può essere associato, sulla differenza tra lo SKU Basic e standard e altre informazioni correlate, vedere [indirizzi IP pubblici](./public-ip-addresses.md).  Per questo esempio, si concentrerà solo sugli indirizzi IPv4; per altre informazioni sugli indirizzi IPv6, vedere [IPv6 per Azure VNet](./ipv6-overview.md).
 
-# <a name="standard-sku---using-zones"></a>[**SKU standard-uso di zone**](#tab/option-create-public-ip-standard-zones)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-create-public-ip-standard-zones)
 
 Usare la procedura seguente per creare un indirizzo IP pubblico con ridondanza della zona standard denominato **myStandardZRPublicIP**.
 
@@ -43,10 +43,10 @@ Usare la procedura seguente per creare un indirizzo IP pubblico con ridondanza d
     | Etichetta del nome DNS          | Lasciare vuoto il valore    |
     | Subscription            | Selezionare la propria sottoscrizione.   |
     | Resource group          | Selezionare **Crea nuovo** , immettere myResourceGroup, quindi fare clic su **OK** . |
-    | Location                | Seleziona **Stati Uniti orientali 2**      |
-    | Zona di disponibilità       | Selezionare la zona con **ridondanza della zona** o seleziona zona specifica (vedere la nota sotto) |
+    | Location                | Selezionare **Stati Uniti orientali 2**      |
+    | Zona di disponibilità       | Selezionare la zona con **ridondanza della zona**, nessuna zona o seleziona zona specifica (vedere la nota sotto) |
 
-Si noti che queste sono solo selezioni valide nelle aree con [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  È anche possibile selezionare una zona specifica in queste aree, anche se non sarà resiliente agli errori di zona.
+Si noti che queste sono solo selezioni valide nelle aree con [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  È anche possibile selezionare una zona specifica in queste aree, anche se non sarà resiliente agli errori di zona.  Per altre informazioni sulle zone di disponibilità, vedere [Cenni preliminari sulle zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 \* = Il livello è correlato alla funzionalità di [Load Balancer tra aree](../load-balancer/cross-region-overview.md) , attualmente in anteprima.
 
@@ -70,7 +70,7 @@ Usare la procedura seguente per creare un indirizzo IP pubblico statico di base 
     | Etichetta del nome DNS          | Lasciare vuoto il valore    |
     | Subscription            | Selezionare la propria sottoscrizione.   |
     | Resource group          | Selezionare **Crea nuovo** , immettere myResourceGroup, quindi fare clic su **OK** . |
-    | Location                | Seleziona **Stati Uniti orientali 2**      |
+    | Location                | Selezionare **Stati Uniti orientali 2**      |
 
 Se è accettabile che l'indirizzo IP cambi nel tempo, è possibile selezionare Assegnazione IP **dinamica** .
 

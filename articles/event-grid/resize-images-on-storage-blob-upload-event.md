@@ -3,12 +3,12 @@ title: 'Esercitazione: Usare Griglia di eventi di Azure per automatizzare il rid
 description: 'Esercitazione: Griglia di eventi di Azure può attivare i caricamenti BLOB in Archiviazione di Azure. Ciò consente di inviare file di immagini caricati in Archiviazione di Azure ad altri servizi, ad esempio a Funzioni di Azure, perché vengano ridimensionati o migliorati.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326559"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550516"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -43,7 +43,7 @@ Per completare questa esercitazione:
 
 È necessario aver completato l'esercitazione precedente sull'archiviazione BLOB: [Caricare i dati immagine nel cloud con Archiviazione di Azure][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+È necessaria una [sottoscrizione di Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). Questa esercitazione non funziona con la sottoscrizione **gratuita** . 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -263,7 +263,7 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
 
 1.  Selezionare **Integrazione**, quindi scegliere **Trigger griglia di eventi** e infine selezionare **Crea sottoscrizione di Griglia di eventi**.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Scegliere la funzione Anteprima nel portale" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Passare ad Aggiungi sottoscrizione di Griglia di eventi nel portale di Azure" :::
 
 1. Usare le impostazioni della sottoscrizione di eventi specificate nella tabella.
     
@@ -283,7 +283,7 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
 
 1. Passare alla scheda **Filtri** ed eseguire le azioni seguenti:
     1. Selezionare l'opzione **Abilita filtro per l'oggetto**.
-    1. Per **L'oggetto inizia con** immettere il valore seguente: **/blobServices/default/containers/images/blobs/** .
+    1. Per **Subject inizia con**, immettere il valore seguente: **/blobServices/default/Containers/images/**.
 
         ![Specificare un filtro per la sottoscrizione di eventi](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 702ca4f4c3fc92eca70479ba02b1ddc8f6858857
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223228"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549661"
 ---
 # <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 
@@ -54,7 +54,7 @@ Indirizzi IP pubblici con SKU standard:
 - Caratterizzati da un timeout di inattività per i flussi in ingresso modificabile di 4-30 minuti, con un valore predefinito di 4 minuti, e da un timeout di inattività per i flussi in uscita fisso di 4 minuti.
 - Sicurezza per impostazione predefinita e chiusa al traffico in ingresso. Consentire il traffico in ingresso elenco con un [gruppo di sicurezza di rete](./network-security-groups-overview.md#network-security-groups).
 - Assegnati a interfacce di rete, bilanciamenti del carico pubblico standard o gateway applicazione. Per altre informazioni sul servizio di bilanciamento del carico standard, vedere [Load Balancer standard di Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Può essere con ridondanza della zona (pubblicizzato da tutte e 3 le zone) o di zona (è possibile creare una zona e garantirla in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Gli IP con ridondanza della zona possono essere creati solo in aree in cui sono attive [3 zone di disponibilità](../availability-zones/az-region.md) .** Gli IP creati prima che le zone siano Live non saranno con ridondanza della zona.
+- Può essere con ridondanza della zona (pubblicizzato da tutte le 3 zone), Zonal (garantita in una determinata zona di disponibilità preselezionata) o senza area (non associata a una zona di disponibilità pre-selezionata specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Gli IP con ridondanza della zona possono essere creati solo in aree in cui sono attive [3 zone di disponibilità](../availability-zones/az-region.md) .** Gli IP creati prima che le zone siano Live non saranno con ridondanza della zona.
 - Può essere usato come IP front-end anycast per i [bilanciamenti del carico tra aree](../load-balancer/cross-region-overview.md) (funzionalità di anteprima).
  
 > [!NOTE]
@@ -179,7 +179,7 @@ Il [firewall di Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2f
 
 La tabella seguente illustra la proprietà tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di primo livello e ai possibili metodi di allocazione.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | Statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | Static |
 | --- | --- | --- | --- |
 | Macchina virtuale |Interfaccia di rete |Sì |Sì |
 | Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |

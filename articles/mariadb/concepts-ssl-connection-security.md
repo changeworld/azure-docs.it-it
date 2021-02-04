@@ -3,15 +3,15 @@ title: Connettività SSL/TLS-database di Azure per MariaDB
 description: Informazioni per la configurazione di Database di Azure per MariaDB e delle applicazioni associate per usare correttamente le connessioni SSL
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 7ada6f5a7b7ece9b8b36ea1bd2e52b5ad7efd12d
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 6c4ee8c6d12a6350c319e40bbe30046af4932311
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662492"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550641"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Connettività SSL/TLS nel database di Azure per MariaDB
 Database di Azure per MariaDB supporta la connessione del server di database alle applicazioni client mediante Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
@@ -62,7 +62,7 @@ Per informazioni su come impostare l'impostazione TLS per il database di Azure p
 
 ## <a name="cipher-support-by-azure-database-for-mariadb"></a>Supporto di crittografia da database di Azure per MariaDB
 
-Come parte della comunicazione SSL/TLS, i pacchetti di crittografia sono convalidati e supportano solo i pacchetti di crittografia che possono comunicare con il database server. La convalida del pacchetto di crittografia viene controllata nel [livello gateway](concepts-connectivity-architecture.md#connectivity-architecture) e non in modo esplicito nel nodo stesso. Se i pacchetti di crittografia non corrispondono a uno dei gruppi elencati di seguito, le connessioni client in ingresso verranno rifiutate.
+Come parte della comunicazione SSL/TLS, i pacchetti di crittografia sono convalidati e sono consentiti solo i adattatori crittografici per la comunicazione con il server di database. La convalida del pacchetto di crittografia viene controllata nel [livello gateway](concepts-connectivity-architecture.md#connectivity-architecture) e non in modo esplicito nel nodo stesso. Se i pacchetti di crittografia non corrispondono a uno dei gruppi elencati di seguito, le connessioni client in ingresso verranno rifiutate.
 
 ### <a name="cipher-suite-supported"></a>Pacchetto di crittografia supportato
 

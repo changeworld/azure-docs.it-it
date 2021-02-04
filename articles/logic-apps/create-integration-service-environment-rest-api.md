@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/30/2020
-ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.date: 02/03/2021
+ms.openlocfilehash: d4500229800fa5d1743779b29927637777647e47
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967039"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550658"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Creare un ambiente del servizio di integrazione (ISE) usando l'API REST App per la logica
 
@@ -188,17 +188,28 @@ Questo corpo della richiesta di esempio mostra i valori di esempio:
 
 ## <a name="add-custom-root-certificates"></a>Aggiungere certificati radice personalizzati
 
-Spesso si usa ISE per connettersi ai servizi personalizzati nella rete virtuale o in locale. Questi servizi personalizzati sono spesso protetti da un certificato emesso da un'autorità di certificazione radice personalizzata, ad esempio un'autorità di certificazione aziendale o un certificato autofirmato. Per ulteriori informazioni sull'utilizzo di certificati autofirmati, vedere [accesso protetto e accesso ai dati per le chiamate in uscita ad altri servizi e sistemi](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Per la corretta connessione di ISE a questi servizi tramite Transport Layer Security (TLS), ISE deve accedere a questi certificati radice. Per aggiornare ISE con un certificato radice trusted personalizzato, effettuare questa richiesta HTTPS `PATCH` :
+Spesso si usa ISE per connettersi ai servizi personalizzati nella rete virtuale o in locale. Questi servizi personalizzati sono spesso protetti da un certificato emesso da un'autorità di certificazione radice personalizzata, ad esempio un'autorità di certificazione aziendale o un certificato autofirmato. Per ulteriori informazioni sull'utilizzo di certificati autofirmati, vedere [accesso protetto e accesso ai dati per le chiamate in uscita ad altri servizi e sistemi](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Per la corretta connessione di ISE a questi servizi tramite Transport Layer Security (TLS), ISE deve accedere a questi certificati radice.
 
-`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+#### <a name="considerations-for-adding-custom-root-certificates"></a>Considerazioni per l'aggiunta di certificati radice personalizzati
 
-Prima di eseguire questa operazione, esaminare le considerazioni seguenti:
+Prima di aggiornare ISE con un certificato radice attendibile personalizzato, esaminare le considerazioni seguenti:
 
 * Assicurarsi di caricare il certificato radice *e* tutti i certificati intermedi. Il numero massimo di certificati è 20.
 
 * Il caricamento dei certificati radice è un'operazione di sostituzione in cui il caricamento più recente sovrascrive i caricamenti precedenti. Se ad esempio si invia una richiesta di caricamento di un certificato e quindi si invia un'altra richiesta di caricamento di un altro certificato, ISE utilizzerà solo il secondo certificato. Se è necessario usare entrambi i certificati, aggiungerli insieme nella stessa richiesta.  
 
 * Il caricamento dei certificati radice è un'operazione asincrona che potrebbe richiedere del tempo. Per controllare lo stato o il risultato, è possibile inviare una `GET` richiesta utilizzando lo stesso URI. Il messaggio di risposta ha un `provisioningState` campo che restituisce il `InProgress` valore quando l'operazione di caricamento è ancora in funzione. Quando `provisioningState` value è `Succeeded` , l'operazione di caricamento è stata completata.
+
+#### <a name="request-syntax"></a>Sintassi della richiesta
+
+Per aggiornare ISE con un certificato radice trusted personalizzato, inviare la richiesta di PATCH HTTPS seguente all' [URL Azure Resource Manager, che differisce dall'ambiente Azure](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane), ad esempio:
+
+| Ambiente | URL Azure Resource Manager |
+|-------------|----------------------------|
+| Azure globale (multi-tenant) | `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Azure Government | `PATCH https://management.usgovcloudapi.net/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| 21Vianet per Microsoft Azure Cina | `PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+|||
 
 #### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>Sintassi del corpo della richiesta per l'aggiunta di certificati radice personalizzati
 

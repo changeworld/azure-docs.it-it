@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442049"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548662"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
 
@@ -67,6 +66,16 @@ L'API offre le funzionalità seguenti:
     "invitedUserType": "Member"
     ```
 
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>Determinare se un utente è già stato invitato alla directory
+
+È possibile usare l'API di invito per determinare se un utente esiste già nel tenant delle risorse. Questa operazione può essere utile quando si sviluppa un'app che usa l'API di invito per invitare un utente. Se l'utente esiste già nella directory delle risorse, non riceverà un invito, quindi è possibile eseguire prima una query per determinare se l'indirizzo di posta elettronica esiste già come UPN o come altra proprietà di accesso.
+
+1. Verificare che il dominio di posta elettronica dell'utente non faccia parte del dominio verificato del tenant della risorsa.
+2. Nel tenant delle risorse usare la query Get User seguente, in cui {0} è l'indirizzo di posta elettronica che si sta invitando:
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## <a name="authorization-model"></a>Modello di autorizzazione
 
@@ -115,7 +124,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Verificare di avere la versione più recente del modulo di AzureAD PowerShell o del modulo PowerShell AzureADPreview. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 Vedere le informazioni di riferimento sulle API di invito in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
 

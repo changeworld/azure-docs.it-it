@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: cdc29f89307a986b2d71604ca495eac45458632b
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: fe031fa6de86b8059ba175fc4e1df6385ca7e796
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526620"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551026"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -37,7 +37,8 @@ Gli aggiornamenti in febbraio includono:
 
 - [Consigli sulla protezione del carico di lavoro Kubernetes rilasciati per la disponibilità generale (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Collegamento diretto ai criteri dalla pagina dei dettagli delle raccomandazioni](#direct-link-to-policy-from-recommendation-details-page)
-- [La raccomandazione per la classificazione dati SQL non influisce più sul punteggio sicuro](#sql-data-classification-recommendation-no-longer-affect-your-secure-score)
+- [La raccomandazione per la classificazione dati SQL non influisca più sul punteggio sicuro](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
+- [Le automazione dei flussi di lavoro possono essere attivate dalle modifiche apportate alle valutazioni di conformità normative (anteprima)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Consigli sulla protezione del carico di lavoro Kubernetes rilasciati per la disponibilità generale (GA)
 
@@ -65,13 +66,19 @@ Usare questo collegamento per visualizzare la definizione dei criteri ed esamina
 
 Se si sta esaminando l'elenco di raccomandazioni nella Guida di [riferimento](recommendations-reference.md)per le raccomandazioni sulla sicurezza, verranno visualizzati anche i collegamenti alle pagine di definizione dei criteri:
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accesso alla pagina dei criteri di Azure per un criterio specifico direttamente dalla pagina di riferimento consigli del Centro sicurezza di Azure":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accesso alla pagina dei criteri di Azure per un criterio specifico direttamente dalla pagina di riferimento consigli del Centro sicurezza di Azure" lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
 
 
-### <a name="sql-data-classification-recommendation-no-longer-affect-your-secure-score"></a>La raccomandazione per la classificazione dati SQL non influisce più sul punteggio sicuro
+### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>La raccomandazione per la classificazione dati SQL non influisca più sul punteggio sicuro
 
 I **dati sensibili ai consigli nei database SQL devono essere classificati in modo da** non influire più sul punteggio sicuro. Si tratta dell'unica raccomandazione nel controllo di sicurezza **applica classificazione dati** , in modo che il controllo disponga ora di un valore di Punteggio sicuro pari a 0.
 
+
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>Le automazione dei flussi di lavoro possono essere attivate dalle modifiche apportate alle valutazioni di conformità normative (anteprima)
+
+È stato aggiunto un terzo tipo di dati alle opzioni trigger per le automazioni del flusso di lavoro: modifiche alle valutazioni di conformità normative.
+
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Uso delle modifiche alle valutazioni della conformità normativa per attivare un'automazione del flusso di lavoro" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 ## <a name="january-2021"></a>Gennaio 2021
@@ -111,7 +118,7 @@ Le raccomandazioni esistenti non sono interessate e, man mano che aumenta il ben
 Per ulteriori informazioni, vedere le pagine seguenti:
 
 - [Altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Personalizzazione del set di standard nel dashboard di conformità alle normative](update-regulatory-compliance-packages.md)
+- [Personalizzare il set di standard nel dashboard conformità normativa](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>La valutazione della vulnerabilità per computer locali e più cloud viene rilasciata per la disponibilità a livello generale
 
@@ -499,7 +506,7 @@ Collegamenti correlati:
 
 Lo standard NIST SP 800-171 R2 è ora disponibile come iniziativa predefinita per l'uso nel dashboard di conformità alle normative del Centro sicurezza di Azure. I mapping per i controlli sono descritti in [Dettagli dell'iniziativa predefinita di conformità alle normative per NIST SP 800-171 R2](../governance/policy/samples/nist-sp-800-171-r2.md). 
 
-Per applicare lo standard alle sottoscrizioni e monitorare continuamente lo stato di conformità, attenersi alle istruzioni riportate in [Personalizzazione del set di standard nel dashboard di conformità alle normative](update-regulatory-compliance-packages.md).
+Per applicare lo standard alle sottoscrizioni e monitorare continuamente lo stato di conformità, seguire le istruzioni in [personalizzare il set di standard nel dashboard conformità normativa](update-regulatory-compliance-packages.md).
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Standard NIST SP 800 171 R2 nel dashboard di conformità alle normative del Centro sicurezza":::
 

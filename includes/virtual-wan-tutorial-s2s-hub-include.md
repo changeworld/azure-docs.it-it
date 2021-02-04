@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 31cfb321a60e700aecfdc1288ccdd379b89658ba
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 5630eba4f1be9aead6ff1a89bc036bcc548c3646
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99531455"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99541190"
 ---
 1. Individuare la rete WAN virtuale creata. Nella pagina della rete WAN virtuale selezionare **Hub** nella sezione **Connettività**.
 2. Nella pagina Hub selezionare **+Nuovo hub** per aprire la pagina **Crea hub virtuale**.
@@ -25,7 +25,7 @@ ms.locfileid: "99531455"
 
    * Regione (precedentemente denominata Posizione)
    * Nome
-   * Spazio di indirizzi privato dell'hub. Lo spazio di indirizzi minimo per la creazione di un hub è /24; qualsiasi intervallo compreso tra /25 e /32 genererà pertanto un errore durante la creazione. Tuttavia, si consiglia di allocare uno o più spazi di indirizzi/23 per assicurarsi che siano disponibili indirizzi IP sufficienti per supportare i servizi futuri che possono essere distribuiti nell'hub virtuale. La rete WAN virtuale di Azure è un servizio gestito di Microsoft che crea nell'hub virtuale le subnet appropriate per i diversi gateway/servizi, ad esempio gateway VPN, gateway ExpressRoute, gateway VPN utente/da punto a sito, firewall, routing e così via. Non è necessario che l'utente pianifichi in modo esplicito lo spazio degli indirizzi della subnet per i servizi nell'hub virtuale, poiché Microsoft esegue questa operazione come parte del servizio.
+   * Spazio di indirizzi privato dell'hub. Lo spazio di indirizzi minimo per la creazione di un hub è /24; qualsiasi intervallo compreso tra /25 e /32 genererà pertanto un errore durante la creazione. La rete WAN virtuale di Azure, che è un servizio gestito da Microsoft, crea le subnet appropriate nell'hub virtuale per i diversi gateway/Servizi, ad esempio gateway VPN, gateway ExpressRoute, gateway VPN utente/gateway da punto a sito, firewall, routing e così via. Non è necessario che l'utente pianifichi in modo esplicito lo spazio degli indirizzi della subnet per i servizi nell'hub virtuale, poiché Microsoft esegue questa operazione come parte del servizio.
 4. Selezionare **Avanti: Da sito a sito**.
 
     ![Screenshot del riquadro Crea hub virtuale con l'opzione Da sito a sito selezionata.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Da sito a sito")

@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 99703acc4965a38337a39fe23cc19cafddd1531d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791121"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550879"
 ---
 # <a name="what-is-azure-sql"></a>Che cos'è SQL di Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 SQL di Azure è una famiglia di prodotti gestiti, sicuri e intelligenti che usano il motore di database di SQL Server nel cloud di Azure.
 
-- **Database SQL di Azure** : Supporta applicazioni cloud moderne in un servizio di database gestito intelligente, che include il calcolo serverless. 
-- **Istanza gestita di SQL di Azure** : modernizza su larga scala le applicazioni SQL Server esistenti con un'istanza intelligente completamente gestita come servizio, con quasi il 100% di parità delle funzionalità con il motore di database di SQL Server. È l'ideale per la maggior parte delle migrazioni al cloud.
-- **SQL Server in VM di Azure** : trasferisce in modalità lift-and-shift i carichi di lavoro di SQL Server con facilità e mantiene il 100% della compatibilità e dell'accesso a livello di sistema operativo di SQL Server. 
+- **Database SQL di Azure**: Supporta applicazioni cloud moderne in un servizio di database gestito intelligente, che include il calcolo serverless. 
+- **Istanza gestita di SQL di Azure**: modernizza su larga scala le applicazioni SQL Server esistenti con un'istanza intelligente completamente gestita come servizio, con quasi il 100% di parità delle funzionalità con il motore di database di SQL Server. È l'ideale per la maggior parte delle migrazioni al cloud.
+- **SQL Server in VM di Azure**: trasferisce in modalità lift-and-shift i carichi di lavoro di SQL Server con facilità e mantiene il 100% della compatibilità e dell'accesso a livello di sistema operativo di SQL Server. 
  
 Poiché SQL di Azure si basa sul noto motore di SQL Server, è possibile eseguire la migrazione delle applicazioni con facilità e continuare a usare gli strumenti, i linguaggi e le risorse con cui si ha familiarità. Poiché le competenze e l'esperienza acquisite sono applicabili anche al cloud, è possibile ottenere risultati ancora più efficaci con le risorse già disponibili. 
 
@@ -53,7 +53,7 @@ Una delle prime cose da comprendere in una discussione in cui Azure viene confro
 
 Azure monitora continuamente i dati per individuare eventuali minacce. Con SQL di Azure è possibile:
 
-- Correggere le potenziali minacce in tempo reale con il [rilevamento delle minacce avanzato](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) e gli avvisi di valutazione proattiva delle vulnerabilità. 
+- Correggere le potenziali minacce in tempo reale con il [rilevamento delle minacce avanzato](../security/fundamentals/threat-detection.md#threat-protection-features-other-azure-services) e gli avvisi di valutazione proattiva delle vulnerabilità. 
 - Ottenere la protezione a più livelli leader di settore con i [controlli di sicurezza predefiniti](https://azure.microsoft.com/overview/security/), inclusi T-SQL, autenticazione, rete e gestione delle chiavi. 
 - Sfruttare la massima copertura della [conformità](https://azure.microsoft.com/overview/trusted-cloud/compliance/) di qualsiasi servizio di database cloud. 
 
@@ -132,7 +132,7 @@ Sia il **database SQL** che **Istanza gestita di SQL** attualmente venduti come 
 
 Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale. È possibile modificare in modo dinamico i livelli di servizio e le dimensioni di calcolo per soddisfare le diverse esigenze di velocità effettiva dell'applicazione.
 
-Con il **database SQL** e **Istanza gestita di SQL** , Azure configura automaticamente il software del database, applica le patch ed esegue l'aggiornamento, riducendo quindi i costi amministrativi. Le funzionalità di [backup predefinite](database/automated-backups-overview.md) consentono anche di ottenere una significativa riduzione dei costi, specialmente per un numero elevato di database.
+Con il **database SQL** e **Istanza gestita di SQL**, Azure configura automaticamente il software del database, applica le patch ed esegue l'aggiornamento, riducendo quindi i costi amministrativi. Le funzionalità di [backup predefinite](database/automated-backups-overview.md) consentono anche di ottenere una significativa riduzione dei costi, specialmente per un numero elevato di database.
 
 Con **SQL in macchine virtuali di Azure** è possibile usare un'immagine di SQL Server fornita dalla piattaforma, che include una licenza, oppure la propria licenza di SQL Server. Sono disponibili tutte le versioni (2008 R2, 2012, 2014, 2016, 2017, 2019) e le edizioni (Developer, Express, Web, Standard, Enterprise) supportate di SQL Server. Sono anche disponibili le versioni BYOL (Bring Your Own License) delle immagini. Quando si usano le immagini fornite da Azure, il costo operativo dipende dalle dimensioni della macchina virtuale e dalla versione di SQL Server scelta. Indipendentemente dalle dimensioni della macchina virtuale o dall'edizione di SQL Server, si paga il costo al minuto della licenza di SQL Server e Windows o Linux Server, insieme al costo di Archiviazione di Azure per i dischi delle VM. L'opzione di fatturazione al minuto consente di usare SQL Server per tutto il tempo necessario, senza dover acquistare licenze di SQL Server aggiuntive. Se si usa la funzionalità Bring Your Own License per SQL Server in Azure, vengono addebitati solo i costi per il server e l'archiviazione. Per altre informazioni sulla funzionalità Bring Your Own License, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale.
 
@@ -146,11 +146,11 @@ Per altre informazioni sui prezzi, vedere le seguenti risorse:
 - [Prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) per [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
 - [Calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
 
-## <a name="administration"></a>coda
+## <a name="administration"></a>Amministrazione
 
 Per molte aziende, la decisione di passare a un servizio cloud riguarda sia la possibilità di ridurre la complessità dell'amministrazione sia i costi. Con IaaS e PaaS, Azure amministra l'infrastruttura sottostante e replica automaticamente tutti i dati per fornire il ripristino di emergenza, configura e aggiorna il software del database, gestisce il bilanciamento del carico ed esegue un failover trasparente in caso di errore del server all'interno di un data center.
 
-- Con il **database SQL** e **Istanza gestita di SQL** , è possibile continuare ad amministrare il database, ma non è più necessario gestire il motore di database, il sistema operativo o l'hardware. Gli esempi di elementi che è possibile continuare a gestire includono i database e gli account di accesso, l'ottimizzazione dell'indice e delle query, nonché il controllo e la sicurezza. Inoltre, la configurazione della disponibilità elevata per un altro data center richiede una configurazione e un'amministrazione minime.
+- Con il **database SQL** e **Istanza gestita di SQL**, è possibile continuare ad amministrare il database, ma non è più necessario gestire il motore di database, il sistema operativo o l'hardware. Gli esempi di elementi che è possibile continuare a gestire includono i database e gli account di accesso, l'ottimizzazione dell'indice e delle query, nonché il controllo e la sicurezza. Inoltre, la configurazione della disponibilità elevata per un altro data center richiede una configurazione e un'amministrazione minime.
 - Con **SQL in una macchina virtuale di Azure** si ha il pieno controllo del sistema operativo e della configurazione dell'istanza di SQL Server. Con una macchina virtuale l'utente può decidere quando aggiornare il sistema operativo e il software del database e quando installare eventuale software aggiuntivo, come l'antivirus. Sono disponibili alcune funzionalità automatizzate che semplificano notevolmente la disponibilità elevata, il backup e l'applicazione di patch. Inoltre, è possibile controllare le dimensioni della macchina virtuale, il numero di dischi e le relative configurazioni di archiviazione. Azure consente di modificare le dimensioni di una macchina virtuale in base alle esigenze. Per informazioni, vedere [Dimensioni delle macchine virtuali e del servizio cloud per Azure](../virtual-machines/sizes.md).
 
 ## <a name="service-level-agreement-sla"></a>Contratto di servizio
