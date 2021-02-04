@@ -3,13 +3,13 @@ title: Concetti-monitoraggio e ripristino di cloud privati della soluzione VMwar
 description: Scopri in che modo la soluzione VMware di Azure monitora e ripristina VMware ESXi Server in un cloud privato della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 11/20/2020
-ms.openlocfilehash: 7f367a6ef9b86f235a16a698735cfb58a11f6862
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 02/03/2021
+ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033596"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538959"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorare e ripristinare i cloud privati della soluzione VMware di Azure
 
@@ -43,10 +43,7 @@ Il processo di monitoraggio e aggiornamento dell'host inizia con l'aggiunta di u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Di seguito sono riportati alcuni argomenti per cui è possibile ottenere ulteriori informazioni su:
+Ora che è stato illustrato il modo in cui la soluzione VMware di Azure monitora e ripristina i cloud privati, è possibile ottenere informazioni su:
 
-- [Aggiornamenti del cloud privato della soluzione VMware di Azure](concepts-upgrades.md)
-- [Gestione del ciclo di vita delle VM della soluzione VMware di Azure](lifecycle-management-of-azure-vmware-solution-vms.md)
-- [Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure](azure-security-integration.md)
-- [Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure](backup-azure-vmware-solution-virtual-machines.md)
-- [Completare il ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure](disaster-recovery-for-virtual-machines.md)
+- [Aggiornamenti del cloud privato della soluzione VMware di Azure](concepts-upgrades.md).
+- [Come abilitare la risorsa della soluzione VMware di Azure](enable-azure-vmware-solution.md).

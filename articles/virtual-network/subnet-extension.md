@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
 ms.author: anupand
-ms.openlocfilehash: f718471c3f79e9a33b0e03b088f8c8d2ae0231d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 555c903dc3375080a8b0d006d2aac7216854c939
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73587511"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539299"
 ---
 # <a name="subnet-extension"></a>Estensione della subnet
 La migrazione del carico di lavoro al cloud pubblico richiede un'attenta pianificazione e coordinamento. Una delle considerazioni principali può essere la possibilità di mantenere gli indirizzi IP. Ciò può essere importante soprattutto se le applicazioni hanno una dipendenza di indirizzi IP o se sono presenti requisiti di conformità per l'uso di indirizzi IP specifici. Rete virtuale di Azure risolve questo problema consentendo di creare VNet e subnet usando un intervallo di indirizzi IP di propria scelta.
@@ -31,7 +31,7 @@ Una soluzione al problema precedente è l'estensione della subnet. L'estensione 
 
 Mentre l'estensione della rete non è una procedura consigliata in generale, i casi d'uso possono essere necessari.
 
-- **Migrazione**in più fasi: lo scenario più comune è che si vuole eseguire una fase della migrazione. Si desidera trasferire prima alcune applicazioni e nel tempo eseguire la migrazione di altre applicazioni in Azure.
+- **Migrazione** in più fasi: lo scenario più comune è che si vuole eseguire una fase della migrazione. Si desidera trasferire prima alcune applicazioni e nel tempo eseguire la migrazione di altre applicazioni in Azure.
 - **Latenza**: i requisiti di bassa latenza possono essere un altro motivo per mantenere alcune applicazioni in locale per assicurarsi che siano il più vicino possibile al proprio Data Center.
 - **Conformità**: un altro caso di utilizzo è che potrebbero essere presenti requisiti di conformità per la conservazione di alcune applicazioni locali.
  

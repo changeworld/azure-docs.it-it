@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702786"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537222"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Stimare e gestire la capacità di un servizio ricerca cognitiva di Azure
 
@@ -207,6 +207,14 @@ Le indicazioni generali per la disponibilità elevata sono:
 I contratti di servizio per Azure ricerca cognitiva sono destinati a operazioni di query e a aggiornamenti degli indici che includono l'aggiunta, l'aggiornamento o l'eliminazione di documenti.
 
 Il livello Basic prevede una partizione e fino a tre repliche. Se si vuole avere la flessibilità necessaria per rispondere immediatamente alle fluttuazioni della richiesta di indicizzazione e velocità effettiva di query, prendere in considerazione uno dei piani Standard.  Se i requisiti di archiviazione aumentano molto più rapidamente rispetto alla velocità effettiva delle query, prendere in considerazione uno dei livelli ottimizzati per l'archiviazione.
+
+## <a name="about-queries-per-second-qps"></a>Informazioni sulle query al secondo (query al secondo)
+
+A causa dell'elevato numero di fattori che influiscono sulle prestazioni delle query, Microsoft non pubblica i numeri query al secondo previsti. Le stime query al secondo devono essere sviluppate in modo indipendente da ogni cliente usando i costrutti del livello di servizio, della configurazione, dell'indice e della query validi per l'applicazione. Le dimensioni e la complessità dell'indice, le dimensioni e la complessità della query e la quantità di traffico sono i fattori principali in base ai quali è possibile determinare il numero di query al secondo. Non è possibile fornire stime significative se questi fattori sono sconosciuti.
+
+Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca cognitiva di Azure](search-performance-optimization.md).
+
+Per i livelli Ottimizzato per l'archiviazione (L1 e L2), sono previste una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli Standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

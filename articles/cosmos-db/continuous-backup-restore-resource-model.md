@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 64033182356e66d6a69bd47c1780b7081416019e
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527557"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538503"
 ---
-# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature"></a>Modello di risorsa per la funzionalità di ripristino temporizzato di Azure Cosmos DB
+# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modello di risorsa per la funzionalità di ripristino temporizzato di Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Questo articolo illustra il modello di risorse per la funzionalità di ripristino temporizzato Azure Cosmos DB. Vengono illustrati i parametri che supportano il backup continuo e le risorse che possono essere ripristinate in Azure Cosmos DB API per gli account SQL e MongoDB.
+> [!IMPORTANT]
+> La funzionalità di ripristino temporizzato (modalità di backup continuo) per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Questo articolo illustra il modello di risorse per la funzionalità di ripristino temporizzato di Azure Cosmos DB (anteprima). Vengono illustrati i parametri che supportano il backup continuo e le risorse che possono essere ripristinate in Azure Cosmos DB API per gli account SQL e MongoDB.
 
 ## <a name="database-accounts-resource-model"></a>Modello di risorsa dell'account di database
 

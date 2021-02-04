@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/03/2021
 ms.author: ricmart
-ms.openlocfilehash: a0655ce1d2e9939981bb4fd3280af80e359ea1e1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 82161ac92566f6589ebfb64dddc221e296ec0992
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737745"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539129"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>Creare una connessione VPN tra Azure e AWS usando le soluzioni gestite
 
@@ -219,4 +219,6 @@ In questa sezione viene creata una seconda connessione per garantire la disponib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul supporto di AWS per IKEv2, vedere l' [articolo AWS](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+* Per altre informazioni sul supporto di AWS per IKEv2, vedere l' [articolo AWS](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+
+* Per ulteriori informazioni sulla creazione di una rete VPN multicloud su larga scala, vedere il video su come creare una rete [VPN Multicloud migliore su larga scala](https://www.youtube.com/watch?v=p7h-frLDFE0).

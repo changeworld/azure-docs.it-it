@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: af2c848fe06d9ebc44443bdcce61af0c8de08b2d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474999"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537002"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metodi di autenticazione nei token di Azure Active Directory
 
@@ -33,7 +33,7 @@ Alcuni token hardware OATH TOTP sono programmabili, ovvero non contengono una ch
 
 Azure AD supporta l'uso di token SHA-1 OATH-TOTP che aggiornano i codici ogni 30 o 60 secondi. I clienti possono acquistare questi token dal fornitore preferito.
 
-I token hardware OATH TOTP sono in genere dotati di una chiave privata o di un seme pre-programmato nel token. Queste chiavi devono essere inserite in Azure AD come descritto nella procedura seguente. Le chiavi private sono limitate a 128 caratteri e ciò potrebbe non essere compatibile con tutti i token. La chiave privata può contenere solo i caratteri *a-z* o *A-Z* e i numeri *1-7* e deve essere codificata in *Base32*.
+I token hardware OATH TOTP sono in genere dotati di una chiave privata o di un seme pre-programmato nel token. Queste chiavi devono essere inserite in Azure AD come descritto nella procedura seguente. Le chiavi private sono limitate a 128 caratteri e ciò potrebbe non essere compatibile con tutti i token. La chiave privata può contenere solo i caratteri *a-z* , *a-z* e digits *2-7* e deve essere codificata in *Base32*.
 
 I token hardware OATH TOTP programmabili di cui è possibile generare un nuovo seme possono anche essere configurati con Azure AD nel flusso di configurazione del token software.
 
@@ -45,7 +45,7 @@ Dopo aver acquisito i token, è necessario caricarli in un formato di file con v
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]

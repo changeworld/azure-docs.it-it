@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 9ebf95f0a9c5cfc059f38a13ad99a545dd863d21
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525032"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537358"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Esercitazione: Restituire Azure Data Box
 
@@ -172,6 +172,24 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
 Se si verificano problemi, inviare un messaggio di posta elettronica a Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) indicando il nome del processo nell'oggetto e specificando il problema riscontrato.
 
+## <a name="united-arab-emirates"></a>[Emirati Arabi Uniti](#tab/in-uae)
+
+1. Conservare la scatola originale usata per spedire il dispositivo da restituire.
+2. Assicurarsi che la copia dei dati nel dispositivo sia stata completata e che il **prepara per la spedizione** passaggio sia stato completato correttamente.
+3. Prendere nota del numero di riferimento nella pagina **prepara per la spedizione** dell'interfaccia utente Web locale del dispositivo.
+4. Spegnere il dispositivo e rimuovere i cavi. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
+6. Imballare il dispositivo da spedire per la restituzione nella scatola originale.
+7. Inviare tramite posta elettronica [Azure Data Box operazioni](mailto:adbops@microsoft.com) per ottenere un ID che verrà utilizzato per identificare il pacchetto quando viene restituito nel Data Center.
+8. Annotare l'ID nell'etichetta di spedizione stampata, accanto all'indirizzo restituito in modo che sia chiaramente visibile.  
+9. Per prenotare un pickup online, passare a [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab)  >  **pianificare un pickup**.
+   - Immettere il numero di riferimento dalla pagina **prepara per la spedizione** dell'interfaccia utente Web locale del dispositivo nel campo numero vettura.
+   - Le prenotazioni vengono accettate da 9:00 AM – 2:00 PM sei giorni alla settimana (esclusi ven e festivi pubblici).
+   - Le richieste di prelievo devono essere inserite almeno 90 minuti prima dell'ora di chiusura del cliente.
+10. Se si verificano problemi con lo strumento di prenotazione di DHL, è possibile contattare DHL usando uno dei metodi seguenti:
+    - Chiamare 04-2924545.
+    - Inviare [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) un messaggio di posta elettronica con i dettagli dei problemi e inserire il numero vettura nella riga Subject:.
+    - Rivolgersi al supporto tecnico di DHL al 600 567567.
+
 ## <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged)
 
 Se si usa Data Box in Giappone, Singapore, Corea, India, Sudafrica, Regno Unito, Europa occidentale o Australia ed è stata selezionata l'opzione self-Managed shipping durante la creazione dell'ordine, seguire queste istruzioni.
@@ -209,5 +227,3 @@ Per informazioni su come gestire il Data Box, passare all'articolo successivo.
 
 > [!div class="nextstepaction"]
 > [Gestire Data Box tramite il portale di Azure](./data-box-portal-admin.md)
-
-

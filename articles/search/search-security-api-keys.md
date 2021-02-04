@@ -1,55 +1,55 @@
 ---
-title: Creare, gestire e proteggere chiavi API di amministrazione e query
+title: Autenticazione con chiave API
 titleSuffix: Azure Cognitive Search
-description: Una chiave API controlla l'accesso all'endpoint del servizio. Le chiavi amministratore concedono l'accesso in scrittura. Le chiavi di query possono essere create per l'accesso in sola lettura.
+description: Una chiave API controlla l'accesso in ingresso all'endpoint del servizio. Le chiavi amministratore concedono l'accesso in scrittura. Le chiavi di query possono essere create per l'accesso in sola lettura.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 29a314553584843ed6241b9311e9d72b42ec8705
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.date: 02/03/2021
+ms.openlocfilehash: 8b2e85744923fb2e7e474e049df1536aebc56f3c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516410"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536934"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure
 
-Per tutte le richieste a un servizio di ricerca è necessario un oggetto di sola lettura `api-key` che è stato generato in modo specifico per il servizio. `api-key`È l'unico meccanismo per autenticare l'accesso all'endpoint del servizio di ricerca e deve essere incluso in ogni richiesta. 
+Per tutte le richieste a un servizio di ricerca è necessaria una chiave API di sola lettura generata in modo specifico per il servizio. La chiave API è l'unico meccanismo per autenticare le richieste in ingresso all'endpoint del servizio di ricerca ed è necessario per ogni richiesta. 
 
-+ Nelle [soluzioni Rest](search-get-started-rest.md)la chiave API viene in genere specificata in un'intestazione di richiesta
++ Nelle [soluzioni Rest](search-get-started-rest.md), `api-key` viene in genere specificato in un'intestazione di richiesta
 
 + Nelle [soluzioni .NET](search-howto-dotnet-sdk.md)una chiave viene spesso specificata come impostazione di configurazione e quindi passata come [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
-Le chiavi vengono create con il servizio di ricerca durante il provisioning del servizio. È possibile visualizzare e ottenere valori di chiave nel [portale di Azure](https://portal.azure.com).
+È possibile visualizzare e gestire le chiavi API nell' [portale di Azure](https://portal.azure.com)o tramite [PowerShell](/powershell/module/az.search), l' [interfaccia](/cli/azure/search)della riga di comando di Azure o l' [API REST](/rest/api/searchmanagement/).
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Pagina del portale, recuperare le impostazioni, sezione chiavi" border="false":::
 
 ## <a name="what-is-an-api-key"></a>Che cos'è una chiave API?
 
-Una chiave API è una stringa composta da lettere e numeri generati casualmente. Tramite [autorizzazioni basate sui ruoli](search-security-rbac.md) è possibile eliminare o leggere le chiavi, ma non è possibile sostituire una chiave con una password definita dall'utente o usare Active Directory come metodologia di autenticazione principale per l'accesso alle operazioni di ricerca. 
+Una chiave API è una stringa univoca composta da numeri e lettere generati in modo casuale, che vengono passati a ogni richiesta al servizio di ricerca. Il servizio accetterà la richiesta, se la richiesta stessa e la chiave sono valide. 
 
 Per accedere al servizio di ricerca vengono usati due tipi di chiavi: amministratore (di lettura-scrittura) e query (di sola lettura).
 
 |Chiave|Descrizione|Limiti|  
 |---------|-----------------|------------|  
-|Amministratore|Concede diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati.<br /><br /> Due chiavi amministratore, chiamate chiave *primaria* e *secondaria* nel portale, vengono generate quando il servizio viene creato e possono essere generate di nuovo singolarmente su richiesta. Avere due chiavi consente di eseguire il rollover di una chiave mentre si usa la seconda per l'accesso continuo al servizio.<br /><br /> Le chiavi amministratore vengono specificate solo nelle intestazioni delle richieste HTTP. Non è possibile inserire un elemento api-key amministratore in un URL.|Un massimo di 2 per servizio|  
-|Query|Concede l'accesso in sola lettura agli indici e ai documenti e viene in genere distribuita alle applicazioni client che inviano richieste di ricerca.<br /><br /> Le chiavi di query vengono create su richiesta. È possibile crearle manualmente nel portale o a livello di codice tramite l'[API REST di gestione](/rest/api/searchmanagement/).<br /><br /> Le chiavi di query possono essere specificate nell'intestazione di una richiesta HTTP per un'operazione di ricerca o suggerimento. In alternativa, è possibile passare una chiave di query come parametro in un URL. A seconda di come l'applicazione client formula la richiesta, può risultare più semplice passare la chiave come parametro di query:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 per servizio|  
+|Amministrativi|Concede diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati.<br /><br /> Due chiavi amministratore, chiamate chiave *primaria* e *secondaria* nel portale, vengono generate quando il servizio viene creato e possono essere generate di nuovo singolarmente su richiesta. Avere due chiavi consente di eseguire il rollover di una chiave mentre si usa la seconda per l'accesso continuo al servizio.<br /><br /> Le chiavi amministratore vengono specificate solo nelle intestazioni delle richieste HTTP. Non è possibile inserire una chiave API di amministrazione in un URL.|Un massimo di 2 per servizio|  
+|Query|Concede l'accesso in sola lettura agli indici e ai documenti e viene in genere distribuita alle applicazioni client che inviano richieste di ricerca.<br /><br /> Le chiavi di query vengono create su richiesta.<br /><br /> Le chiavi di query possono essere specificate nell'intestazione di una richiesta HTTP per un'operazione di ricerca o suggerimento. In alternativa, è possibile passare una chiave di query come parametro in un URL. A seconda di come l'applicazione client formula la richiesta, può risultare più semplice passare la chiave come parametro di query:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 per servizio|  
 
- Non esiste alcuna distinzione visiva tra una chiave amministratore o una chiave di query. Entrambe le chiavi sono stringhe composte da 32 caratteri alfanumerici generati in modo casuale. Se si è persa traccia del tipo di chiave specificato nell'applicazione, è possibile [controllare i valori delle chiavi nel portale](https://portal.azure.com) o usare l'[API REST](/rest/api/searchmanagement/) per restituire il valore e il tipo di chiave.  
+ Non esiste alcuna distinzione visiva tra una chiave amministratore o una chiave di query. Entrambe le chiavi sono stringhe composte da 32 caratteri alfanumerici generati in modo casuale. Se si perde la traccia del tipo di chiave specificata nell'applicazione, è possibile [controllare i valori delle chiavi nel portale](https://portal.azure.com).  
 
 > [!NOTE]  
->  Passare dati sensibili, ad esempio un elemento `api-key`, nell'URI della richiesta è considerato una procedura di sicurezza non ottimale. Per questo motivo, Azure ricerca cognitiva accetta solo una chiave di query come `api-key` nella stringa di query ed è consigliabile evitare di eseguire questa operazione a meno che i contenuti dell'indice non debbano essere disponibili pubblicamente. Come regola generale, è consigliabile passare l'elemento `api-key` come intestazione della richiesta.  
+> Si tratta di una procedura di sicurezza scadente per passare dati sensibili, ad esempio un oggetto, `api-key` nell'URI della richiesta. Per questo motivo, Azure ricerca cognitiva accetta solo una chiave di query come `api-key` nella stringa di query ed è consigliabile evitare di eseguire questa operazione a meno che i contenuti dell'indice non debbano essere disponibili pubblicamente. Come regola generale, è consigliabile passare l'elemento `api-key` come intestazione della richiesta.  
 
 ## <a name="find-existing-keys"></a>Trova chiavi esistenti
 
-È possibile ottenere le chiavi di accesso nel portale o tramite l'[API REST di gestione](/rest/api/searchmanagement/). Per altre informazioni, vedere [Manage admin and query api-keys](search-security-api-keys.md) (Gestione di chiavi API query e amministratore).
+È possibile ottenere le chiavi di accesso nel portale o tramite [PowerShell](/powershell/module/az.search), l'interfaccia della riga di comando di [Azure](/cli/azure/search)o l' [API REST](/rest/api/searchmanagement/).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
-3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni**  > **chiavi** per visualizzare le chiavi di query e di amministrazione.
+1. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
+1. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni**  > **chiavi** per visualizzare le chiavi di query e di amministrazione.
 
    :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Pagina del portale, Visualizza impostazioni, sezione chiavi" border="false":::
 
@@ -68,7 +68,7 @@ La limitazione dell'accesso e delle operazioni nelle app client è essenziale pe
    :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Creare o usare una chiave di query" border="false":::
 
 > [!Note]
-> Un esempio di codice che illustra l'utilizzo della chiave di query è disponibile in [eseguire una query su un indice ricerca cognitiva di Azure in C#](./search-get-started-dotnet.md).
+> Un esempio di codice che illustra l'utilizzo della chiave di query si trova in [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
 <a name="regenerate-admin-keys"></a>
 
@@ -77,29 +77,28 @@ La limitazione dell'accesso e delle operazioni nelle app client è essenziale pe
 Vengono create due chiavi amministratore per ogni servizio, in modo che sia possibile ruotare una chiave primaria, usando la chiave secondaria per la continuità aziendale.
 
 1. Nella pagina **Impostazioni**  > **chiavi** copiare la chiave secondaria.
-2. Per tutte le applicazioni, aggiornare le impostazioni relative alle chiavi API per usare la chiave secondaria.
+2. Per tutte le applicazioni, aggiornare le impostazioni della chiave API per usare la chiave secondaria.
 3. Riscrivere la chiave primaria.
 4. Aggiornare tutte le applicazioni affinché usino la nuova chiave primaria.
 
 Se si rigenerano inavvertitamente entrambe le chiavi contemporaneamente, tutte le richieste client che utilizzano tali chiavi avranno esito negativo con HTTP 403 non consentito. Tuttavia, il contenuto non viene eliminato e non viene bloccato definitivamente. 
 
-È comunque possibile accedere al servizio tramite il portale o il livello di gestione ([API REST](/rest/api/searchmanagement/), [PowerShell](./search-manage-powershell.md)o Azure Resource Manager). Le funzioni di gestione sono operative tramite un ID sottoscrizione non una chiave API del servizio e pertanto sono ancora disponibili anche se le chiavi API non lo sono. 
+È comunque possibile accedere al servizio tramite il portale o a livello di codice. Le funzioni di gestione sono operative tramite un ID sottoscrizione non una chiave API del servizio e pertanto sono ancora disponibili anche se le chiavi API non lo sono. 
 
 Dopo aver creato nuove chiavi tramite il portale o il livello di gestione, l'accesso viene ripristinato nel contenuto (indici, indicizzatori, origini dati, mappe sinonimi) dopo avere creato le nuove chiavi e fornire tali chiavi alle richieste.
 
-## <a name="secure-api-keys"></a>Proteggere le chiavi API
+## <a name="secure-api-keys"></a>Chiavi API sicure
 
-La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale o le interfacce di Resource Manager (PowerShell o interfaccia della riga di comando). Come indicato, gli amministratori delle sottoscrizioni possono visualizzare e rigenerare tutte le chiavi API. Per precauzione, esaminare le assegnazioni di ruolo per sapere chi ha accesso alle chiavi amministratore.
+Tramite [autorizzazioni basate sui ruoli](search-security-rbac.md) è possibile eliminare o leggere le chiavi, ma non è possibile sostituire una chiave con una password definita dall'utente o usare Active Directory come metodologia di autenticazione principale per l'accesso alle operazioni di ricerca. 
+
+La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale o le interfacce di Resource Manager (PowerShell o interfaccia della riga di comando). Come indicato, gli amministratori della sottoscrizione possono visualizzare e rigenerare tutte le chiavi API. Per precauzione, esaminare le assegnazioni di ruolo per sapere chi ha accesso alle chiavi amministratore.
 
 + Nella dashboard del servizio, fare clic su **Controllo di accesso (IAM)** e quindi sulla scheda **Assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo per il servizio.
 
 I membri dei ruoli seguenti possono visualizzare e ricreare una chiave: proprietario, collaboratore, [collaboratore Servizio di ricerca](../role-based-access-control/built-in-roles.md#search-service-contributor)
 
-> [!Note]
-> Per gli accessi in base al ruolo sui risultati della ricerca è possibile creare filtri di sicurezza per vagliare i risultati in base all'identità, rimuovendo eventuali documenti a cui il richiedente non dovrebbe avere accesso. Per altre informazioni, vedere [Filtri di sicurezza](search-security-trimming-for-azure-search.md) e [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md) (Protezione mediante Active Directory).
+## <a name="see-also"></a>Vedi anche
 
-## <a name="see-also"></a>Vedere anche
-
++ [Sicurezza in Azure ricerca cognitiva](search-security-overview.md)
 + [Controllo degli accessi in base al ruolo di Azure in Azure ricerca cognitiva](search-security-rbac.md)
 + [Gestire usando PowerShell](search-manage-powershell.md) 
-+ [Articolo su prestazioni e ottimizzazione](search-performance-optimization.md)

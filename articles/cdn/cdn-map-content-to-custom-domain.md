@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 03ed47ee97f52aca708118f202fad583753549bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
-ms.translationtype: HT
+ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331234"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537747"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint
 
@@ -83,7 +83,7 @@ Per aggiungere un record alias per l'endpoint della rete CDN di Azure:
 
 4. In **Aggiungi set di record** immettere o selezionare le informazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome  | Immettere l'alias da usare per l'endpoint della rete CDN. ad esempio **www**. |
     | Type  | Selezionare **CNAME**. |
@@ -163,6 +163,10 @@ Per creare un record CNAME per il dominio personalizzato:
 
 Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo all'endpoint della rete CDN. 
 
+
+---
+# <a name="azure-portal"></a>[**Portale di Azure**](#tab/azure-portal)
+
 1. Accedere al [portale di Azure](https://portal.azure.com/) e passare al profilo della rete CDN contenente l'endpoint di cui si vuole eseguire il mapping a un dominio personalizzato.
     
 2. Nella pagina **Profilo CDN** selezionare l'endpoint della rete CDN da associare al dominio personalizzato.
@@ -189,7 +193,43 @@ Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo all'en
     - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
     - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata in 10 minuti.   
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
 
+1. Accedere a Azure PowerShell:
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. Usare [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) per eseguire il mapping del dominio personalizzato all'endpoint della rete CDN. 
+
+    * Sostituire **myendpoint8675.azureedge.NET** con l'URL dell'endpoint.
+    * Sostituire **myendpoint8675** con il nome dell'endpoint della rete CDN.
+    * Sostituire **www.contoso.com** con il nome di dominio personalizzato.
+    * Sostituire **myCDN** con il nome del profilo di rete CDN.
+    * Sostituire **myResourceGroupCDN** con il nome del gruppo di risorse.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+Azure verifica l'esistenza del record CNAME per il nome di dominio personalizzato immesso. Se il record CNAME è corretto, il dominio personalizzato verrà convalidato. 
+
+   La propagazione delle impostazioni del nuovo dominio personalizzato a tutti i nodi perimetrali della rete CDN può richiedere tempo: 
+
+- La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Microsoft** viene in genere completata in 10 minuti. 
+- La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
+- La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata in 10 minuti.   
+
+
+---
 ## <a name="verify-the-custom-domain"></a>Verificare il dominio personalizzato
 
 Dopo aver completato la registrazione del dominio personalizzato, verificare che il dominio personalizzato faccia riferimento all'endpoint della rete CDN.
@@ -200,6 +240,9 @@ Dopo aver completato la registrazione del dominio personalizzato, verificare che
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
+---
+# <a name="azure-portal"></a>[**Portale di Azure**](#tab/azure-portal-cleanup)
+
 Se non si vuole più associare l'endpoint a un dominio personalizzato, seguire questa procedura per rimuovere il dominio personalizzato:
  
 1. Nel profilo della rete CDN selezionare l'endpoint con il dominio personalizzato che si vuole rimuovere.
@@ -208,6 +251,29 @@ Se non si vuole più associare l'endpoint a un dominio personalizzato, seguire q
 
    Il dominio personalizzato viene dissociato dell'endpoint.
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell-cleanup)
+
+Se non si vuole più associare l'endpoint a un dominio personalizzato, seguire questa procedura per rimuovere il dominio personalizzato:
+
+1. Usare [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) per rimuovere il dominio personalizzato dall'endpoint:
+
+    * Sostituire **myendpoint8675** con il nome dell'endpoint della rete CDN.
+    * Sostituire **www.contoso.com** con il nome di dominio personalizzato.
+    * Sostituire **myCDN** con il nome del profilo di rete CDN.
+    * Sostituire **myResourceGroupCDN** con il nome del gruppo di risorse.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono state illustrate le procedure per:

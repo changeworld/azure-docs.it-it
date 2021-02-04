@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524993"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539112"
 ---
 ::: zone target="docs"
 
@@ -267,6 +267,35 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
     ```
 
 Se si verificano problemi, inviare un messaggio di posta elettronica a Data Box Operations Asia all'indirizzo [adbo@microsoft.com](mailto:adbo@microsoft.com) specificando i dettagli dei problemi riscontrati e indicando nell'oggetto il nome del processo.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Cancellare i dati dal Data Box
+ 
+
+::: zone-end
+
+## <a name="united-arab-emirates"></a>[Emirati Arabi Uniti](#tab/in-uae)
+
+1. Conservare la scatola originale usata per spedire il dispositivo da restituire.
+2. Assicurarsi che la copia dei dati nel dispositivo sia stata completata e che il **prepara per la spedizione** passaggio sia stato completato correttamente.
+3. Prendere nota del numero di riferimento nella pagina **prepara per la spedizione** dell'interfaccia utente Web locale del dispositivo.
+4. Spegnere il dispositivo e rimuovere i cavi. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
+6. Imballare il dispositivo da spedire per la restituzione nella scatola originale.
+7. Inviare tramite posta elettronica [Azure Data Box operazioni](mailto:adbops@microsoft.com) per ottenere un ID che verrà utilizzato per identificare il pacchetto quando viene restituito nel Data Center.
+8. Annotare l'ID nell'etichetta di spedizione stampata, accanto all'indirizzo restituito in modo che sia chiaramente visibile.  
+9. Per prenotare un pickup online, passare a [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab)  >  **pianificare un pickup**.
+   - Immettere il numero di riferimento dalla pagina **prepara per la spedizione** dell'interfaccia utente Web locale del dispositivo nel campo numero vettura.
+   - Le prenotazioni vengono accettate da 9:00 AM – 2:00 PM sei giorni alla settimana (esclusi ven e festivi pubblici).
+   - Le richieste di prelievo devono essere inserite almeno 90 minuti prima dell'ora di chiusura del cliente.
+10. Se si verificano problemi con lo strumento di prenotazione di DHL, è possibile contattare DHL usando uno dei metodi seguenti:
+    - Chiamare 04-2924545.
+    - Inviare [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) un messaggio di posta elettronica con i dettagli dei problemi e inserire il numero vettura nella riga Subject:.
+    - Rivolgersi al supporto tecnico di DHL al 600 567567.
 
 ::: zone target="chromeless"
 

@@ -2,13 +2,13 @@
 title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: 6a2bb0f41bb1809d0f43b08c71766acc914c0689
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509266"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538925"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concetti relativi ai cluster e al cloud privato della soluzione VMware di Azure
 

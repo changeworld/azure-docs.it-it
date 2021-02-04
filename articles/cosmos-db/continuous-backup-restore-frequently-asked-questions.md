@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7a41eb8bdd573ac08b0c76eb9a6c2b0724637c39
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527721"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539183"
 ---
-# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature"></a>Domande frequenti sulla Azure Cosmos DB funzionalità di ripristino temporizzato
+# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Domande frequenti sulla Azure Cosmos DB funzionalità di ripristino temporizzato (anteprima)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Questo articolo elenca le domande frequenti sulla Azure Cosmos DB funzionalità di ripristino temporizzato che si ottengono usando la modalità di backup continuo.
+> [!IMPORTANT]
+> La funzionalità di ripristino temporizzato (modalità di backup continuo) per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Questo articolo elenca le domande frequenti sulla Azure Cosmos DB funzionalità di ripristino temporizzato (anteprima) ottenibile usando la modalità di backup continuo.
 
 ## <a name="how-much-time-does-it-takes-to-restore"></a>Quanto tempo è necessario per il ripristino?
 Durata del ripristino dipendente dalla dimensione dei dati.

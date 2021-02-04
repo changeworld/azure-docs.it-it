@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 64288f67728e59c32c662a6640d60daf52c53fe1
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 5ebb0a23822074f61a16bf1d7652dba589399542
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527692"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537511"
 ---
 # <a name="list-restorable-databases-in-azure-cosmos-db-api-for-mongodb-using-rest-api"></a>Elencare i database ripristinabili nell'API Azure Cosmos DB per MongoDB usando l'API REST
+
+> [!IMPORTANT]
+> La funzionalità di ripristino temporizzato (modalità di backup continuo) per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Mostra il feed di eventi di tutte le mutazioni eseguite su tutti i Azure Cosmos DB database MongoDB con l'account ripristinabile. Questo consente uno scenario in cui il database è stato eliminato accidentalmente per ottenere l'ora di eliminazione. Questa API richiede l' `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` autorizzazione
 

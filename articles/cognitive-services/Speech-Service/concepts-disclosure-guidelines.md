@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: b001b109df7c4b52b61f226a164db232b620a2c6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: f1889d49d1eb4981e59af6248817a6a9b6e2002d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508541"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537256"
 ---
 # <a name="disclosure-design-guidelines"></a>Linee guida sulla progettazione di informative
 Scopri come creare e gestire l'attendibilità dei clienti grazie alla trasparenza della natura sintetica dell'esperienza vocale.
@@ -74,11 +74,8 @@ Usare il diagramma seguente per determinare se l'esperienza della voce sintetica
 
   ![Diagramma di valutazione della divulgazione](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Documentazione di riferimento
-
-* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)
-
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 * [Schemi progettuali per le informative](concepts-disclosure-patterns.md)
+* [Divulgazione per il talento vocale](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)

@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d38990289169412f06b0c7e4bcbdf67f688da7
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568081"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539010"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Individuare le risorse di Azure da gestire in Privileged Identity Management
 
@@ -66,7 +66,7 @@ Quando si configurano per la prima volta Privileged Identity Management per le r
 
     ![Riquadro individuazione con una risorsa selezionata e l'opzione Gestisci risorsa evidenziata](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Se viene visualizzato un messaggio per confermare l'onboarding della risorsa selezionata per la gestione, selezionare **Sì**.
+1. Se viene visualizzato un messaggio per confermare l'onboarding della risorsa selezionata per la gestione, selezionare **Sì**. PIM verrà quindi configurato per gestire tutti gli oggetti figlio nuovi ed esistenti sotto la risorsa o le risorse.
 
     ![Messaggio che conferma l'onboarding delle risorse selezionate per la gestione](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 

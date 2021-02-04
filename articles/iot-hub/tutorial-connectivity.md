@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: d9ca9dd345be7fb8f1a2b613386bdca7bdcd835a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070380"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538701"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
 
@@ -66,15 +66,15 @@ Un dispositivo deve eseguire l'autenticazione con l'hub prima di qualsiasi scamb
 
 Accedere al portale e passare all'hub IoT. Passare quindi allo strumento **Dispositivi IoT**:
 
-![Strumento Dispositivi IoT](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="Strumento Dispositivi IoT":::
 
-Per registrare un nuovo dispositivo, fare clic su **+ Aggiungi**, impostare **ID dispositivo** su **MyTestDevice** e fare clic su **Salva**:
+Per registrare un nuovo dispositivo, fare clic su **+ nuovo**, impostare **ID dispositivo** su **MyTestDevice** e fare clic su **Salva**.
 
-![Aggiungere un nuovo dispositivo](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Aggiungere un nuovo dispositivo":::
 
-Per recuperare la stringa di connessione per **MyTestDevice**, fare clic su di essa nell'elenco dei dispositivi e quindi copiare il valore di **Stringa di connessione - chiave primaria**. La stringa di connessione include la *chiave di accesso condiviso* per il dispositivo.
+Per recuperare la stringa di connessione per **MyTestDevice**, fare clic su di essa nell'elenco dei dispositivi, quindi copiare il valore della **stringa di connessione primaria** . La stringa di connessione include la *chiave di accesso condiviso* per il dispositivo.
 
-![Recuperare la stringa di connessione del dispositivo](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Recuperare la stringa di connessione del dispositivo}":::
 
 Per simulare l'invio dei dati di telemetria da **MyTestDevice** all'hub IoT, eseguire l'applicazione del dispositivo simulato di Node.js scaricata in precedenza.
 
@@ -218,7 +218,7 @@ Il dispositivo simulato stampa un messaggio nella console quando riceve una chia
 
 ![Il dispositivo simulato riceve una chiamata al metodo diretto](media/tutorial-connectivity/receive-method-call.png)
 
-Quando il dispositivo simulato riceve correttamente la chiamata al metodo diretto, invia nuovamente un acknowledgement all'hub:
+Quando il dispositivo simulato riceve correttamente la chiamata al metodo diretto, invia un riconoscimento all'hub:
 
 ![Ricezione dell'acknowledgement del metodo diretto](media/tutorial-connectivity/method-acknowledgement.png)
 

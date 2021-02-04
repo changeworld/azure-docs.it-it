@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 442f7e3abdf065377c78f71f003733ee295b312a
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 71aafc756e5291e148c3b162f8946544b6e3c2d0
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527661"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537578"
 ---
 # <a name="list-restorable-database-accounts-using-azure-cosmos-db-rest-api"></a>Elencare gli account di database ripristinabili usando Azure Cosmos DB API REST
+
+> [!IMPORTANT]
+> La funzionalità di ripristino temporizzato (modalità di backup continuo) per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Elenca tutti gli account di database Azure Cosmos DB ripristinabili disponibili nella sottoscrizione. Questa chiamata richiede l' `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` autorizzazione.
 

@@ -7,17 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 3614a85a6df2e793a73a2609d6f5762e4dc873fb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9d30f5325162b9ea447d54aadc092dbd9aa29132
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527621"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538756"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gestire le autorizzazioni per ripristinare un account di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB consente di isolare e limitare le autorizzazioni di ripristino per l'account di backup continuo a un ruolo specifico o a un'entità. Il proprietario dell'account può attivare un ripristino e assegnare un ruolo ad altre entità per eseguire l'operazione di ripristino. Queste autorizzazioni possono essere applicate nell'ambito della sottoscrizione o in modo più granulare nell'ambito dell'account di origine, come illustrato nell'immagine seguente:
+> [!IMPORTANT]
+> La funzionalità di ripristino temporizzato (modalità di backup continuo) per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Cosmos DB consente di isolare e limitare le autorizzazioni di ripristino per l'account di backup continuo (anteprima) a un ruolo specifico o a un'entità. Il proprietario dell'account può attivare un ripristino e assegnare un ruolo ad altre entità per eseguire l'operazione di ripristino. Queste autorizzazioni possono essere applicate nell'ambito della sottoscrizione o in modo più granulare nell'ambito dell'account di origine, come illustrato nell'immagine seguente:
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="Elenco dei ruoli necessari per eseguire l'operazione di ripristino." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 

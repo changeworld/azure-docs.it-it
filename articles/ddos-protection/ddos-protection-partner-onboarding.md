@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: f6cba0118a98ea50e8020b91b9c2064299ca4ccf
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: a7a21dcaea22ed0d1c077d0c42ddb5b4bd50d24f
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019160"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539333"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Partnership con protezione DDoS di Azure standard
 Questo articolo descrive le opportunità di collaborazione abilitate dallo standard di protezione DDoS di Azure. Questo articolo è stato progettato per aiutare i responsabili dei prodotti e i ruoli di sviluppo aziendali a comprendere i percorsi di investimento e fornire informazioni sulle proposte di valore per i partner.
@@ -80,7 +80,7 @@ Per configurare l'integrazione con protezione DDoS di Azure standard, è necessa
 - [Informazioni di riferimento sulle API protezione DDoS di Azure](/rest/api/virtualnetwork/ddosprotectionplans)
 - [Informazioni di riferimento sulle API di rete virtuale di Azure](/rest/api/virtualnetwork/virtualnetworks)
 
-### <a name="get-help"></a>Ottenere aiuto
+### <a name="get-help"></a>Ottieni supporto
 
 - In caso di domande sull'integrazione di applicazioni, servizi o prodotti con protezione DDoS di Azure standard, contattare la community di [sicurezza di Azure](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
 - Segui le discussioni su [stack overflow](https://stackoverflow.com/tags/azure-ddos/).
@@ -94,3 +94,4 @@ Per configurare l'integrazione con protezione DDoS di Azure standard, è necessa
 Visualizzazione delle integrazioni partner esistenti:
 
 - [Barracuda WAF-As-a-Service](https://www.barracuda.com/waf-as-a-service)
+- [Azure cloud WAF da Radware](https://www.radware.com/resources/microsoft-azure/)

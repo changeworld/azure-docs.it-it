@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 26012b23a10f560158e3ba3919e12f5c15759189
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555900"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539316"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrare e analizzare un'istanza di SQL Server locale
 
@@ -50,21 +50,17 @@ Azure non supporta l'analisi delle [visualizzazioni](/sql/relational-databases/v
 
 ### <a name="sql-authentication"></a>Autenticazione SQL
 
-L'identità SQL deve avere accesso al database primario. Questo percorso è `sys.databases` archiviato. Lo scanner di competenza deve enumerare per `sys.databases` trovare tutte le istanze di database SQL nel server.
+L'account SQL deve avere accesso al database **Master** . Questo è dovuto al fatto che `sys.databases` è presente nel database master. Lo scanner di competenza deve enumerare per `sys.databases` trovare tutti i database SQL nel server.
 
 #### <a name="using-an-existing-server-administrator"></a>Uso di un amministratore server esistente
 
 Se si prevede di usare un utente amministratore del server esistente per analizzare l'istanza di SQL Server locale, verificare quanto segue:
 
-1. `sa` non è un tipo di autenticazione di Windows.
+1. `sa` non è un account di autenticazione di Windows.
 
-2. L'utente a livello di server che si intende utilizzare deve disporre dei ruoli server public e sysadmin. Per verificarlo, passare a SQL Server Management Studio (SSMS), connettersi al server, passare alla sicurezza, selezionare l'account di accesso che si intende utilizzare, fare clic con il pulsante destro del mouse su **Proprietà** e quindi scegliere **ruoli server**.
+2. L'account di accesso a livello di server che si prevede di utilizzare deve disporre dei ruoli server public e sysadmin. È possibile verificare questo problema connettendosi al server, passando a SQL Server Management Studio (SSMS), passando alla sicurezza, selezionando l'account di accesso che si intende utilizzare, facendo clic con il pulsante destro del mouse su **Proprietà** e quindi selezionando **ruoli server**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Account di accesso a livello di server.":::
-
-3. Per i database viene eseguito il mapping a un utente che dispone almeno dell'accesso a livello di db_datareader per ogni database.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="mapping utente per SA.":::
 
 #### <a name="creating-a-new-login-and-user"></a>Creazione di un nuovo account di accesso e di un utente
 
@@ -74,9 +70,9 @@ Se si desidera creare un nuovo account di accesso e un nuovo utente per poter es
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Creare un nuovo account di accesso e un nuovo utente.":::
 
-2. Selezionare ruoli server nel percorso di spostamento a sinistra e selezionare sia public che sysadmin.
+2. Selezionare ruoli server nel percorso di spostamento a sinistra e assicurarsi che sia assegnato il ruolo public.
 
-3. Selezionare mapping utenti nel percorso di spostamento a sinistra e selezionare tutti i database nella mappa.
+3. Selezionare mapping utenti nel percorso di spostamento a sinistra, selezionare tutti i database nella mappa e selezionare il ruolo del database: **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="mapping utente.":::
 
@@ -88,8 +84,7 @@ Se si desidera creare un nuovo account di accesso e un nuovo utente per poter es
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Archiviazione della password dell'account di accesso di SQL in un insieme di credenziali delle chiavi e creazione di credenziali in ambito
 
-1. Passare all'insieme di credenziali delle chiavi nel portale di Azure
-1. Selezionare **Impostazioni > Segreti**
+1. Passare all'insieme di credenziali delle chiavi nella Portal1 di Azure. Selezionare **Impostazioni > Segreti**
 1. Selezionare **+ genera/importa** e immettere il **nome** e il **valore** come *password* dell'account di accesso di SQL Server
 1. Selezionare **Crea** per completare
 1. Se l'insieme di credenziali delle chiavi non è ancora connesso a Purview, sarà necessario [creare una nuova connessione dell'insieme di credenziali delle chiavi](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)

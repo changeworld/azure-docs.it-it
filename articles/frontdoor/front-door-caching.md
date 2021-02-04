@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535832"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538052"
 ---
 # <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
 Il documento seguente specifica i comportamenti per la porta anteriore con le regole di routing che hanno abilitato la memorizzazione nella cache. La porta anteriore è una rete per la distribuzione di contenuti (CDN) moderna con accelerazione sito dinamico e bilanciamento del carico, supporta anche i comportamenti di memorizzazione nella cache esattamente come qualsiasi altra rete CDN.
@@ -24,13 +24,13 @@ Il documento seguente specifica i comportamenti per la porta anteriore con le re
 ## <a name="delivery-of-large-files"></a>Recapito di file di grandi dimensioni
 Il front-end di Azure recapita file di grandi dimensioni senza copertura per le dimensioni dei file. Frontdoor di Azure usa una tecnica chiamata suddivisione degli oggetti in blocchi. Quando viene richiesto un file di grandi dimensioni, Frontdoor recupera piccole parti del file dal back-end. Dopo la ricezione di una richiesta di file completa o di intervallo di byte, l'ambiente della porta anteriore richiede il file dal back-end in blocchi di 8 MB.
 
-</br>Una volta che il blocco raggiunge l'ambiente di sportello anteriore, viene memorizzato nella cache e servito immediatamente all'utente. Frontdoor esegue la prelettura del blocco successivo in parallelo. Questa prelettura fa sì che il contenuto resti in anticipo di un blocco rispetto all'utente, riducendo la latenza. Questo processo continua fino a quando non viene scaricato l'intero file (se richiesto) o il client chiude la connessione.
+Una volta che il blocco raggiunge l'ambiente di sportello anteriore, viene memorizzato nella cache e servito immediatamente all'utente. Frontdoor esegue la prelettura del blocco successivo in parallelo. Questa prelettura fa sì che il contenuto resti in anticipo di un blocco rispetto all'utente, riducendo la latenza. Questo processo continua fino a quando non viene scaricato l'intero file (se richiesto) o il client chiude la connessione.
 
-</br>Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 La porta anteriore memorizza nella cache tutti i blocchi Man mano che vengono ricevuti, in modo che l'intero file non debba essere memorizzato nella cache della porta anteriore. Le richieste successive per il file o gli intervalli di byte vengono gestite dalla cache. Se i blocchi non sono tutti memorizzati nella cache, il recupero preliminare viene usato per richiedere i blocchi dal back-end. Questa ottimizzazione si basa sulla capacità del back-end di supportare le richieste di intervalli di byte. Se il back-end non supporta le richieste di intervalli di byte, questa ottimizzazione non è efficace.
 
 ## <a name="file-compression"></a>Compressione di file
-La porta anteriore può comprimere dinamicamente il contenuto sul perimetro, ottenendo tempi di risposta più piccoli e veloci ai client. Tutti i file sono idonei alla compressione. Tuttavia, un file deve essere di tipo MIME per essere idoneo per la compressione. Attualmente, la porta anteriore non consente la modifica di questo elenco. L'elenco corrente consiste in:</br>
+La porta anteriore può comprimere dinamicamente il contenuto sul perimetro, ottenendo tempi di risposta più piccoli e veloci ai client. Affinché un file sia idoneo per la compressione, la memorizzazione nella cache deve essere abilitata e il file deve essere di tipo MIME per essere idoneo per la compressione. Attualmente, la porta anteriore non consente la modifica di questo elenco. L'elenco corrente consiste in:
 - "application/eot"
 - "application/font"
 - "application/font-sfnt"
@@ -93,7 +93,7 @@ La porta anteriore memorizza nella cache gli asset fino alla scadenza della dura
 
 La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL. Frontdoor recupera immediatamente i nuovi asset per le richieste client successive. A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati. Il motivo potrebbe essere causato da aggiornamenti all'applicazione Web o per aggiornare rapidamente asset che contengono informazioni non corrette.
 
-Selezionare gli asset che si vuole ripulire dai nodi perimetrali. Per cancellare tutti gli asset, selezionare **Ripulisci tutto**. In caso contrario, in **percorso**immettere il percorso di ogni asset che si desidera eliminare.
+Selezionare gli asset che si vuole ripulire dai nodi perimetrali. Per cancellare tutti gli asset, selezionare **Ripulisci tutto**. In caso contrario, in **percorso** immettere il percorso di ogni asset che si desidera eliminare.
 
 Questi formati sono supportati negli elenchi di percorsi da eliminare:
 

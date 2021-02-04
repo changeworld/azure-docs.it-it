@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: d9f4ba48a7dc6cdcf6d60e4e9da5f68fcc6b1f28
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509334"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539095"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Creazione di indici di ricerca in Azure ricerca cognitiva
 
-Un indice di ricerca archivia contenuto ricercabile usato per le query full-text e filtrate. Un indice viene definito da uno schema e salvato nel servizio, con l'importazione dei dati successiva come secondo passaggio. 
+Ricerca cognitiva archivia contenuto ricercabile usato per le query full-text e filtrate in un *indice di ricerca*. Un indice viene definito da uno schema e salvato nel servizio, con l'importazione dei dati successiva come secondo passaggio. 
 
-Gli indici contengono *documenti*. A livello concettuale, un documento è un singola unità di dati ricercabili nell'indice. Un rivenditore potrebbe avere un documento per ogni prodotto, un'organizzazione di notizie potrebbe avere un documento per ogni articolo e così via. Mapping di questi concetti a più familiari equivalenti di database: un *indice di ricerca* equivale a una *tabella* e i *documenti* sono approssimativamente equivalenti alle *righe* di una tabella.
+Gli indici contengono *documenti di ricerca*. A livello concettuale, un documento è un singola unità di dati ricercabili nell'indice. Un rivenditore potrebbe avere un documento per ogni prodotto, un'organizzazione di notizie potrebbe avere un documento per ogni articolo e così via. Mapping di questi concetti a più familiari equivalenti di database: un *indice di ricerca* equivale a una *tabella* e i *documenti* sono approssimativamente equivalenti alle *righe* di una tabella.
 
 ## <a name="whats-an-index-schema"></a>Che cos'è uno schema di indice?
 
@@ -106,7 +106,9 @@ Per ricerca cognitiva, gli SDK di Azure implementano le funzionalità disponibil
 | JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [Indici](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations. py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
-## <a name="defining-fields"></a>Definizione di campi
+## <a name="define-fields"></a>Definire i campi
+
+Un documento di ricerca viene definito dalla `fields` raccolta. Sono necessari campi per query e chiavi. Probabilmente saranno necessari anche campi per supportare filtri, facet e ordinamenti. Potrebbero inoltre essere necessari campi per i dati che non vengono mai rilevati da un utente. ad esempio, è possibile che si desiderino campi per i margini di profitto o promozioni di marketing che è possibile utilizzare per modificare la classificazione di
 
 Un campo di tipo EDM. String deve essere designato come chiave del documento. Viene usato per identificare in modo univoco ogni documento di ricerca. È possibile recuperare un documento in base alla relativa chiave per popolare una pagina di dettagli.  
 
@@ -146,9 +148,11 @@ Lo screenshot seguente illustra i modelli di archiviazione dell'indice derivanti
 
 ![Dimensioni dell'indice basate sulla selezione degli attributi](./media/search-what-is-an-index/realestate-index-size.png "Dimensioni dell'indice basate sulla selezione degli attributi")
 
-Sebbene queste varianti di indice siano artificiali, è possibile farvi riferimento per una considerazione generale sul modo in cui gli attributi influiscono sull'archiviazione. L'impostazione "recuperabile" aumenta le dimensioni dell'indice? No. L'aggiunta di campi a un **Suggerimento** aumenta le dimensioni dell'indice? Sì.
+Sebbene queste varianti di indice siano artificiali, è possibile farvi riferimento per una considerazione generale sul modo in cui gli attributi influiscono sull'archiviazione. L'impostazione "recuperabile" aumenta le dimensioni dell'indice? No. L'aggiunta di campi a un **Suggerimento** aumenta le dimensioni dell'indice? Sì. 
 
-Gli indici che supportano filtro e ordinamento sono proporzionalmente più grandi rispetto agli indici che supportano solo la ricerca full-text. Ciò è dovuto al fatto che le operazioni di filtro e ordinamento analizzano le corrispondenze esatte, richiedendo la presenza di stringhe di testo Verbatim. Al contrario, i campi ricercabili che supportano le query full-text utilizzano indici invertiti, che vengono popolati con termini in formato token che utilizzano meno spazio rispetto ai documenti interi. 
+La creazione di un campo filtrabile o ordinabile aggiunge anche il consumo di spazio di archiviazione perché i campi filtrati e ordinati non vengono suddivisi in token in modo che le sequenze di caratteri possano corrispondere alla lettera.
+
+Inoltre, la tabella precedente non riflette l'effetto degli [analizzatori](search-analyzers.md). Se si usa il tokenizer edgeNgram per archiviare sequenze di caratteri Verbatim (a, AB, ABC, ABCD), le dimensioni dell'indice saranno maggiori rispetto a quando si usa un analizzatore standard.
 
 > [!Note]
 > L'architettura di archiviazione è considerata un dettaglio di implementazione di Azure ricerca cognitiva e può cambiare senza preavviso. Non è garantito che il comportamento attuale verrà mantenuto in futuro.
@@ -169,9 +173,9 @@ Per CORS è possibile impostare le opzioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile acquisire dimestichezza con la creazione di un indice usando praticamente qualsiasi esempio o procedura dettagliata per ricerca cognitiva. È possibile scegliere una qualsiasi delle guide introduttive dal sommario per iniziare.
+È possibile acquisire dimestichezza con la creazione di un indice usando praticamente qualsiasi esempio o procedura dettagliata per ricerca cognitiva. Per i principianti, è possibile scegliere una qualsiasi delle guide introduttive dal sommario.
 
-Sarà inoltre necessario acquisire familiarità con le metodologie per il caricamento di un indice con i dati. La definizione dell'indice e il popolamento vengono eseguiti insieme. Negli articoli seguenti vengono fornite ulteriori informazioni.
+È tuttavia necessario acquisire familiarità con le metodologie per il caricamento di un indice con i dati. La definizione dell'indice e le strategie di importazione dei dati sono definite in tandem. Negli articoli seguenti vengono fornite ulteriori informazioni sul caricamento di un indice.
 
 + [Panoramica dell'importazione dei dati](search-what-is-data-import.md)
 

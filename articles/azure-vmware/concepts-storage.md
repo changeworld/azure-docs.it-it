@@ -2,13 +2,13 @@
 title: Concetti-archiviazione
 description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: da5117de4b066fd9872558fa6d018ab898a576f4
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 522e4f651b36532ac0c144b3889b2b67c91dc77b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509219"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536951"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Concetti relativi all'archiviazione della soluzione VMware di Azure
 
@@ -32,7 +32,7 @@ per impostazione predefinita, i datastore rete VSAN usano la crittografia dei da
 
 ## <a name="scaling"></a>Ridimensionamento
 
-La capacità di archiviazione del cluster nativa viene ridimensionata aggiungendo host a un cluster. Per i cluster che usano host, la capacità a livello di cluster non elaborata viene aumentata di 15,4 TB con ogni host aggiuntivo. I cluster compilati con gli host GP hanno una capacità non elaborata aumentata di 7,7 TB con ogni host aggiuntivo. In entrambi i tipi di cluster, gli host importano circa 10 minuti per essere aggiunti a un cluster. Per istruzioni sulla scalabilità dei cluster, vedere l' [esercitazione scalare un cloud privato][tutorial-scale-private-cloud].
+La capacità di archiviazione del cluster nativa viene ridimensionata aggiungendo host a un cluster. Per i cluster che usano host, la capacità a livello di cluster non elaborata viene aumentata di 15,4 TB con ogni host aggiunto. I cluster compilati con gli host GP hanno una capacità non elaborata aumentata di 7,7 TB con ogni host aggiunto. In entrambi i tipi di cluster, gli host importano circa 10 minuti per essere aggiunti a un cluster. Per istruzioni sulla scalabilità dei cluster, vedere l' [esercitazione scalare un cloud privato][tutorial-scale-private-cloud].
 
 ## <a name="azure-storage-integration"></a>Integrazione di archiviazione di Azure
 

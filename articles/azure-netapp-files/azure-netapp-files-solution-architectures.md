@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/03/2021
 ms.author: b-juche
-ms.openlocfilehash: 5984727f123da6e1d35d862c3f396bd85ce9e7f2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 390b025ec039d5b04cead3f6bb22fedd0e987673
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881453"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537780"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architetture di soluzioni con Azure NetApp Files
 Questo articolo fornisce i riferimenti alle procedure consigliate che consentono di comprendere le architetture della soluzione per l'uso di Azure NetApp Files.  
@@ -73,6 +73,7 @@ Questa sezione fornisce i riferimenti alle soluzioni SAP in Azure.
 ### <a name="sap-hana"></a>SAP HANA 
 
 * [Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+* [Volumi NFS v4.1 in Azure NetApp Files per SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [Disponibilità elevata di SAP HANA scalabilità verticale con Azure NetApp Files in Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
 * [SAP HANA la scalabilità orizzontale con il nodo standby in macchine virtuali di Azure con Azure NetApp Files in SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
 * [SAP HANA la scalabilità orizzontale con il nodo standby in macchine virtuali di Azure con Azure NetApp Files in Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)

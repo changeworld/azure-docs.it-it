@@ -7,17 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 735e85683bc72cb8d0ddc0d18d16f10f72ba7641
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2e09542cbe56df7c8d6984a98fe77142f543ec03
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527472"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539195"
 ---
-# <a name="configure-and-manage-continuous-backup-and-point-in-time-restore---using-azure-cli"></a>Configurare e gestire il backup continuo e il ripristino temporizzato con l'interfaccia della riga di comando di Azure
+# <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-cli"></a>Configurare e gestire il backup continuo e il ripristino temporizzato (anteprima) con l'interfaccia della riga di comando di Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-La funzionalità di ripristino temporizzato di Azure Cosmos DB consente di eseguire il ripristino da una modifica accidentale all'interno di un contenitore, di ripristinare un account, un database o un contenitore eliminato oppure di eseguire il ripristino in qualsiasi area (in cui erano presenti backup). La modalità di backup continuo consente di eseguire il ripristino in qualsiasi momento negli ultimi 30 giorni.
+> [!IMPORTANT]
+> La funzionalità di ripristino temporizzato (modalità di backup continuo) per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+La funzionalità di ripristino temporizzato di Azure Cosmos DB (anteprima) consente di eseguire il ripristino da una modifica accidentale all'interno di un contenitore, di ripristinare un account, un database o un contenitore eliminato o di eseguire il ripristino in qualsiasi area (in cui erano presenti backup). La modalità di backup continuo consente di eseguire il ripristino in qualsiasi momento negli ultimi 30 giorni.
 
 Questo articolo descrive come eseguire il provisioning di un account con backup continuo e ripristino dei dati usando l'interfaccia della riga di comando
 

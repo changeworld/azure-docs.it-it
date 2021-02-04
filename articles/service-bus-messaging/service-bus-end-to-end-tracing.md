@@ -2,14 +2,14 @@
 title: Diagnostica e analisi end-to-end di Azure Service Bus | Microsoft Docs
 description: Panoramica della diagnostica del client del bus di servizio e della traccia end-to-end (client tramite tutti i servizi interessati nell'elaborazione).
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601258"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539214"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 
@@ -134,13 +134,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In questo esempio il listener registra durata, risultato, identificatore univoco e ora di inizio di ogni operazione del bus di servizio.
 
-### <a name="events"></a>Events
-Per ogni operazione vengono inviati due eventi, ovvero 'Start' e 'Stop'. Probabilmente si è interessati solo agli eventi "Stop". Forniscono il risultato dell'operazione e l'ora di inizio e la durata come proprietà dell'attività.
-
-Il payload dell'evento fornisce a un listener con il contesto dell'operazione, replicando il valore restituito e i parametri in arrivo dell'API. Il payload dell'evento 'Stop' contiene tutte le proprietà del payload dell'evento 'Start', di conseguenza è possibile ignorare completamente l'evento 'Start'.
-
-Per ogni evento 'Stop' esiste una proprietà `Status` con l'operazione asincrona `TaskStatus` con cui è stata completata. Per semplicità anche tale proprietà non figura nella tabella seguente.
-
+### <a name="events"></a>Eventi
 Tutti gli eventi avranno le proprietà seguenti conformi alla specifica di telemetria aperta: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md .
 
 - `message_bus.destination` -percorso coda/argomento/sottoscrizione
@@ -316,7 +310,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In questo esempio il listener registra durata, risultato, identificatore univoco e ora di inizio di ogni operazione del bus di servizio.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>Eventi
 
 Per ogni operazione vengono inviati due eventi, ovvero 'Start' e 'Stop'. Probabilmente si è interessati solo agli eventi "Stop". Forniscono il risultato dell'operazione e l'ora di inizio e la durata come proprietà dell'attività.
 

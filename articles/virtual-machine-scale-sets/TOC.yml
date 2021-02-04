@@ -63,6 +63,8 @@
       items:
         - name: Creare un set di scalabilità di macchine virtuali
           href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Creare e gestire un set di scalabilità di macchine virtuali
+          href: ./scripts/cli-sample-manage-scale-set.md
         - name: Creare un set di scalabilità da un'immagine di VM personalizzata
           href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
         - name: Installare applicazioni in un set di scalabilità
