@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: 2dd60d1962734f7a4264587fd1b5b0d2a03c9ff0
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
-ms.translationtype: HT
+ms.openlocfilehash: 37ba5fc7ce118e2e8532ea4db18634265aaacb64
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359745"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556863"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,7 @@ Creazione rapida con API open source, più SDK, dati senza schema e analisi senz
 - Creazione di app nell'API Core (SQL) usando i linguaggi preferiti con gli SDK per .NET, Java, Node.js e Python oppure i driver preferiti per le altre API di database.
 - Esecuzione di analisi senza estrazione, trasformazione e caricamento sui dati operativi near-real time archiviati in Azure Cosmos DB con Azure Synapse Analytics.
 - Il feed di modifiche semplifica il rilevamento e la gestione delle modifiche apportate ai contenitori di database e la creazione di eventi attivati con Funzioni di Azure.
-- Il servizio senza schema di Azure Cosmos DB indicizza automaticamente tutti i dati, indipendentemente dal modello di dati, fino al recapito di query velocissime.
+- Il servizio senza schema di Azure Cosmos DB indicizza automaticamente tutti i dati, indipendentemente dal modello di dati, per fornire query velocissime.
 
 ### <a name="mission-critical-ready"></a>Supporto di carichi di lavoro cruciali
 

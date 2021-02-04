@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per Backup di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Backup di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3c113b5a4c1ab984835b9f4b3ce4863b715a3939
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: bbc293241557b6cb4c4c0212108156d12927d17a
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217959"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558059"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-backup"></a>Definizioni predefinite di Criteri di Azure per Backup di Azure
 

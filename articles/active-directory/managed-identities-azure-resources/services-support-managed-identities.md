@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 520d572478074a86c9b5cececacd34d7cd41539d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 31ca126c75d5c2e3fa7fd91f3398202fad418183
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071614"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555603"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -307,8 +307,8 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 |Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
-| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Anteprima | ![Disponibile][check] |
-| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Anteprima | ![Disponibile][check] |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] |
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il set di scalabilità di macchine virtuali di Azure (nelle aree in cui è disponibile):
 
@@ -324,8 +324,8 @@ Vedere l'elenco seguente per configurare l'identità gestita per il set di scala
 
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
-| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Anteprima | ![Disponibile][check] |
-| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Anteprima | ![Disponibile][check] |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] |
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] |
 
 Vedere l'elenco seguente per configurare l'identità gestita per le macchine virtuali di Azure (nelle aree in cui è disponibile):
 

@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549899"
+ms.locfileid: "99557736"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -206,14 +206,14 @@ L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-Operazione di estensione del carico di lavoro AzureBackup non riuscita. | La macchina virtuale è stata arrestata (o) la macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet.| -Assicurarsi che la macchina virtuale sia in esecuzione e che disponga della connettività Internet.<br>- [Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+Operazione di estensione del carico di lavoro AzureBackup non riuscita. | La macchina virtuale viene arrestata o la macchina virtuale non riesce a contattare il servizio backup di Azure a causa di problemi di connettività Internet.| <li> Assicurarsi che la macchina virtuale sia in esecuzione e che disponga della connettività Internet.<li> [Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
 
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| -Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita al servizio backup di Azure e allo stesso modo per i servizi di Azure ad (*AzureActiveDirectory*) e archiviazione di Azure (*archiviazione*). Per concedere l'accesso, seguire questa [procedura](./backup-sql-server-database-azure-vms.md#nsg-tags) .<br>-Assicurarsi che DNS stia risolvendo gli endpoint di Azure.<br>-Verificare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà.<br>-Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
+La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| <li> Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita al servizio backup di Azure e allo stesso modo per i servizi di Azure ad (*AzureActiveDirectory*) e archiviazione di Azure (*archiviazione*). Per concedere l'accesso, seguire questa [procedura](./backup-sql-server-database-azure-vms.md#nsg-tags) . <li> Verificare che il DNS stia risolvendo gli endpoint di Azure. <li> Controllare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà. <li> Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
 
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 

@@ -1,5 +1,5 @@
 ---
-title: Usare watchlists di Sentinel di Azure
+title: Usare le watchlist di Azure Sentinel
 description: Questo articolo descrive come usare Azure Sentinel watchlists per esaminare le minacce, importare dati aziendali, creare elenchi Consenti e arricchire i dati degli eventi.
 services: sentinel
 author: yelevin
@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797365"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555649"
 ---
-# <a name="use-azure-sentinel-watchlists"></a>Usare watchlists di Sentinel di Azure
+# <a name="use-azure-sentinel-watchlists"></a>Usare le watchlist di Azure Sentinel
 
 > [!IMPORTANT]
 > La funzionalità watchlists è attualmente in fase di **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
@@ -28,7 +28,7 @@ Gli scenari comuni per l'uso di watchlists includono:
 
 - **Analisi delle minacce** e risposta tempestiva agli eventi imprevisti con l'importazione rapida di indirizzi IP, hash di file e altri dati da file CSV. Una volta importato, è possibile usare le coppie nome/valore di Watch List per join e filtri in regole di avviso, caccia di minacce, cartelle di lavoro, notebook e query generali.
 
-- **Importazione di dati di business** come watchlists. Importare, ad esempio, gli elenchi di utenti con privilegi di accesso al sistema o i dipendenti terminati, quindi utilizzare l'elenco di controllo per creare elenchi Consenti e nega utilizzati per rilevare o impedire a tali utenti di accedere alla rete.
+- **Importazione di dati aziendali** come un controllo. Importare, ad esempio, gli elenchi di utenti con privilegi di accesso al sistema o i dipendenti terminati, quindi utilizzare l'elenco di controllo per creare elenchi Consenti e nega utilizzati per rilevare o impedire a tali utenti di accedere alla rete.
 
 - **Riduzione della fatica** per gli avvisi. Creare gli elenchi Consenti per eliminare gli avvisi da un gruppo di utenti, ad esempio gli utenti di indirizzi IP autorizzati che eseguono attività che normalmente generano l'avviso e impediscono che eventi benigni diventino avvisi.
 

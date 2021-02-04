@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757644"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556431"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizzare i gruppi di gestione, le sottoscrizioni e la visibilità a livello di tenant
 
@@ -81,12 +81,14 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Concedere autorizzazioni a livello di tenant a se stessi
 
-Un utente con il ruolo **Amministratore globale** di Azure Active Directory potrebbe avere responsabilità a livello di tenant ma non avere le autorizzazioni di Azure per visualizzare queste informazioni nell'intera organizzazione in Azure Active Directory. 
+Un utente con il ruolo di Azure Active Directory (AD) dell' **amministratore globale** potrebbe avere responsabilità a livello di tenant, ma non dispone delle autorizzazioni di Azure per visualizzare le informazioni a livello di organizzazione nel centro sicurezza di Azure. L'elevazione delle autorizzazioni è necessaria perché le assegnazioni di ruolo Azure AD non concedono l'accesso alle risorse di Azure. 
 
 > [!TIP]
-> Se l'organizzazione gestisce l'accesso alle risorse con [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)o qualsiasi altro strumento PIM, il ruolo amministratore globale deve essere attivo per le modifiche apportate dall'utente.
+> Altre informazioni sull'elevazione delle autorizzazioni per il ruolo di amministratore globale in [elevate Access per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 Per assegnare autorizzazioni a livello di tenant:
+
+1. Se l'organizzazione gestisce l'accesso alle risorse con [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)o qualsiasi altro strumento PIM, il ruolo di amministratore globale deve essere attivo per l'utente attenendosi alla procedura riportata di seguito.
 
 1. In qualità di utente amministratore globale senza assegnazione sul gruppo di gestione radice del tenant, aprire la pagina **Panoramica** del Centro sicurezza e selezionare il collegamento **visibilità a livello di tenant** nel banner. 
 

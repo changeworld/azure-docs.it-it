@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8ef0fedcbf7ce06063db22fb345a0711acddcb4d
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526382"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555135"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -33,6 +33,7 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 - [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Miglioramenti alla raccomandazione di classificazione dei dati SQL](#enhancements-to-sql-data-classification-recommendation)
+- [Deprecazione di 11 avvisi di Azure Defender](#deprecation-of-11-azure-defender-alerts)
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti 
 
@@ -53,6 +54,37 @@ Per ulteriori informazioni su questi consigli, vedere la pagina di riferimento r
 **Data stimata per la modifica:** Q2 2021
 
 I **dati sensibili ai consigli nei database SQL devono essere classificati** nel controllo **applica sicurezza classificazione dati** verranno sostituiti con una nuova versione più allineata alla strategia di classificazione dei dati di Microsoft. Di conseguenza, anche l'ID dell'indicazione cambierà (attualmente b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
+### <a name="deprecation-of-11-azure-defender-alerts"></a>Deprecazione di 11 avvisi di Azure Defender
+
+**Data stimata per la modifica:** 2021 marzo
+
+Il mese prossimo, gli undici avvisi di Azure Defender elencati di seguito saranno deprecati.
+
+- I nuovi avvisi sostituiranno questi due avvisi e forniranno una copertura migliore:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | ANTEPRIMA: è stata rilevata l'esecuzione della funzione "Get-AzureDomainInfo" del Toolkit microrompi |
+    | ARM_MicroBurstRunbook    | ANTEPRIMA: è stata rilevata l'esecuzione della funzione "Get-AzurePasswords" del Toolkit microrompi  |
+    |                          |                                                                          |
+
+- Questi nove avvisi sono correlati a un connettore Azure Active Directory Identity Protection che è già stato deprecato:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Proprietà di accesso insolite |
+    | AnonymousLogin      | Indirizzo IP anonimo          |
+    | InfectedDeviceLogin | Indirizzo IP collegato a malware     |
+    | ImpossibleTravel    | Trasferimento atipico               |
+    | MaliciousIP         | Indirizzo IP dannoso          |
+    | LeakedCredentials   | Credenziali perse            |
+    | PasswordSpray       | Spray password                |
+    | LeakedCredentials   | Intelligence per le minacce di Azure AD  |
+    | AADAI               | Azure AD AI                   |
+    |                     |                               |
+ 
 
 
 

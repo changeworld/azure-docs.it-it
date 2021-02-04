@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: f5d7094920a21af630e10aec2aa759ce9c505050
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550585"
+ms.locfileid: "99557696"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modificare le coppie di QnA nella Knowledge base
 
@@ -38,6 +38,8 @@ Le impostazioni **facoltative** per una coppia includono:
 ![Knowledge base di QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
 ## <a name="add-an-editorial-qna-pair"></a>Aggiungere una coppia QnA editoriale
+
+Se non si dispone di contenuto preesistente per popolare la Knowledge base, è possibile aggiungere le coppie QnA in modo editoriale nel portale di QnA Maker.
 
 1. Accedere al portale di [QnA](https://www.qnamaker.ai/), quindi selezionare la Knowledge base a cui aggiungere la coppia di QnA.
 1. Nella pagina **modifica** della Knowledge Base selezionare **Aggiungi coppia QnA** per aggiungere una nuova coppia di QnA.

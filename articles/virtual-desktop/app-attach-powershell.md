@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8aa6a2168bff6e90d636770804900fa93f081ced
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1196982fedc7321805e36cceed27c90e43a6e705
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425876"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558338"
 ---
 # <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configurare la connessione all'app MSIX (anteprima) con PowerShell
 
@@ -30,6 +30,7 @@ Ecco cosa occorre per configurare la connessione all'app MSIX:
 
 - Una distribuzione di Desktop virtuale Windows funzionante. Per informazioni su come distribuire desktop virtuale di Windows (versione classica), vedere [creare un tenant in un desktop virtuale di Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Per informazioni su come distribuire desktop virtuale di Windows con l'integrazione di Azure Resource Manager, vedere [creare un pool host con l'portale di Azure](./create-host-pools-azure-marketplace.md).
 - Un pool host di desktop virtuali Windows con almeno un host sessione attiva.
+- Questo pool host deve trovarsi nell'ambiente di convalida.
 - Un gruppo di app Remote Desktop.
 - Strumento per la creazione di pacchetti MSIX.
 - Un'applicazione in pacchetto MSIX è stata espansa in un'immagine MSIX che viene caricata in una condivisione file.

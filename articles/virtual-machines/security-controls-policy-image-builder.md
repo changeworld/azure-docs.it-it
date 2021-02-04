@@ -1,19 +1,19 @@
 ---
 title: Controlli di conformità normativi di criteri di Azure per Generatore immagini di Azure
 description: Elenca i controlli di conformità normativi di criteri di Azure disponibili per Generatore immagini di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 01/27/2021
+ms.date: 02/04/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a6d1d54d0e28e0b8e27224943a4e31f8a36d017f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 2a43353c78d94b5a196fb357765394d68fbea77a
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055429"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557773"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Controlli di conformità normativi di criteri di Azure per Generatore immagini di Azure
 

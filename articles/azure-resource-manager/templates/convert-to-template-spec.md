@@ -2,31 +2,21 @@
 title: Converti modello di portale in Specifica modello
 description: Viene descritto come convertire un modello esistente nella raccolta portale di Azure in una specifica del modello.
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 8fe02f55348f2cdcabb43e05bb547819d4b51228
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c59275fca1eb3037b48b7293fc9e507df46b7fcb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739108"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555938"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>Convertire la raccolta di modelli nel portale in specifiche di modello
 
-Il portale di Azure consente di archiviare modelli di Azure Resource Manager (modelli ARM) nell'account. **Questa funzionalità è in fase di deprecazione.** Per continuare a usare i modelli in questa raccolta, convertirli in [specifiche del modello](template-specs.md).
+Il portale di Azure consente di archiviare modelli di Azure Resource Manager (modelli ARM) nell'account. Tuttavia, le [specifiche del modello](template-specs.md) offrono un modo più semplice per condividere i modelli con gli utenti dell'organizzazione e collegarsi ad altri modelli. Questo articolo illustra come convertire i modelli esistenti nella raccolta di modelli in specifiche del modello.
 
-Questo articolo illustra come convertire i modelli esistenti nella raccolta di modelli in specifiche del modello.
-
-Nel portale la funzionalità deprecata è chiamata **Templates (anteprima)**. Per verificare se sono presenti modelli da convertire, visualizzare la [raccolta di modelli nel portale](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Questi modelli hanno il tipo di risorsa `Microsoft.Gallery/myareas/galleryitems` .
-
-## <a name="deprecation-of-portal-feature"></a>Funzionalità del portale deprecate
-
-La raccolta di modelli nel portale verrà deprecata il 21 gennaio 2021. È possibile continuare a usarlo fino al 21 febbraio. A partire dal 22 febbraio, non è possibile creare nuovi modelli nella raccolta del portale, ma è comunque possibile visualizzare e distribuire i modelli esistenti.
-
-Il 22 giugno la funzionalità verrà rimossa dal portale e tutte le operazioni API verranno bloccate. Non sarà possibile visualizzare o distribuire modelli dalla raccolta.
-
-Prima del 22 giugno è necessario eseguire la migrazione di tutti i modelli che si desidera continuare a utilizzare. Per eseguire la migrazione dei modelli, è possibile usare uno dei metodi illustrati in questo articolo. Una volta rimossa la funzionalità, sarà necessario aprire un caso di supporto per ottenere i modelli di cui non è stata eseguita la migrazione.
+Per verificare se sono presenti modelli da convertire, visualizzare la [raccolta di modelli nel portale](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Questi modelli hanno il tipo di risorsa `Microsoft.Gallery/myareas/galleryitems` .
 
 ## <a name="convert-with-powershell-script"></a>Converti con script di PowerShell
 
