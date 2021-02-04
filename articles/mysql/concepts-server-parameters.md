@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951311"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539485"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametri del server nel database di Azure per MySQL
 
@@ -31,7 +31,7 @@ Vedere le sezioni seguenti per altre informazioni sui limiti dei diversi paramet
 
 ### <a name="thread-pools"></a>Pool di thread
 
-MySQL assegna tradizionalmente un thread per ogni connessione client. Con l'aumentare del numero di utenti simultanei, esiste un calo di forma corrispondente. Molti thread attivi possono influire significativamente sulle prestazioni a causa di un aumento del cambio del contesto, della contesa dei thread e della località non valida per le cache della CPU.
+MySQL assegna tradizionalmente un thread per ogni connessione client. Con l'aumentare del numero di utenti simultanei, si verifica un calo delle prestazioni corrispondente. Molti thread attivi possono influire significativamente sulle prestazioni a causa di un aumento del cambio del contesto, della contesa dei thread e della località non valida per le cache della CPU.
 
 I pool di thread, una funzionalità lato server e diversi dal pool di connessioni, ottimizzano le prestazioni introducendo un pool dinamico di thread di lavoro che possono essere usati per limitare il numero di thread attivi in esecuzione sul server e ridurre al minimo la varianza dei thread. Ciò consente di garantire che un aumento delle connessioni non provochi l'esaurimento delle risorse del server o l'arresto anomalo del sistema con un errore di memoria insufficiente. I pool di thread sono più efficienti per query brevi e carichi di lavoro con utilizzo intensivo della CPU, ad esempio carichi di lavoro OLTP.
 

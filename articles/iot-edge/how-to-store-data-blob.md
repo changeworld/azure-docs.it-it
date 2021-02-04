@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108671"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539434"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge
 
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-Esempio:
+Ad esempio:
 
 ```powershell
 $creds = Get-Credential
@@ -136,7 +136,7 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-Esempio:
+Ad esempio:
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
@@ -184,10 +184,11 @@ La documentazione di archiviazione BLOB di Azure include il codice di esempio de
 Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge, quindi è possibile distribuirli come moduli IoT Edge insieme al modulo di archiviazione BLOB:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * L'archivio BLOB di Azure in 1.4.0 Edge Module v e versioni precedenti sono compatibili con WindowsAzure. storage 9.3.3 SDK e la versione 1.4.1 supportano anche Azure. storage. Blobs 12.8.0 SDK.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Le versioni precedenti alla versione 2.1 di Python SDK hanno un problema noto in cui il modulo non restituisce la data e l'ora di creazione del BLOB. A causa di questo problema, alcuni metodi come i BLOB di elenco non funzionano. Come soluzione alternativa, impostare in modo esplicito la versione dell'API nel client BLOB su "2017-04-17". Esempio: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Esempio di Accodamento BLOB](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)
@@ -292,7 +293,7 @@ Questo archivio BLOB di Azure in IoT Edge modulo offre ora l'integrazione con gr
 
 ## <a name="release-notes"></a>Note sulla versione
 
-Di seguito sono riportate le [Note sulla versione nell'hub Docker](https://hub.docker.com/_/microsoft-azure-blob-storage) per questo modulo
+Di seguito sono riportate le [Note sulla versione nell'hub Docker](https://hub.docker.com/_/microsoft-azure-blob-storage) per questo modulo. Potrebbe essere possibile trovare altre informazioni relative alle correzioni di bug e alla correzione nelle note sulla versione di una versione specifica.
 
 ## <a name="suggestions"></a>Suggerimenti
 

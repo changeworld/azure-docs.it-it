@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: d3d72cff5fcfeed17d60e2f856be4adc1a983819
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 218a39a2bf8e9269e43c4876c1654d94be886997
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527517"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539502"
 ---
 # <a name="list-restorable-sql-api-databases-in-azure-cosmos-db-using-rest-api"></a>Elencare i database delle API SQL ripristinabili in Azure Cosmos DB usando l'API REST
+
+> [!IMPORTANT]
+> La funzionalità di ripristino temporizzato (modalità di backup continuo) per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Mostra il feed di eventi di tutte le mutazioni eseguite su tutti i database SQL di Azure Cosmos DB con l'account ripristinabile. Questo consente uno scenario in cui il database è stato eliminato accidentalmente per ottenere l'ora di eliminazione. Questa API richiede l' `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` autorizzazione
 

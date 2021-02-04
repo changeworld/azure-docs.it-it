@@ -4,15 +4,15 @@ description: Vengono descritti le origini dati e i connettori supportati per i m
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2b4ae4aa8f6b08b273088c98d120d339db7deadb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493821"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539451"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -36,7 +36,7 @@ Le origini dati e i connettori visualizzati per l'opzione Recupera dati o l'Impo
 **Note:**
 
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.  
-<a name="azprovider">2</a> - Quando l'origine dati viene specificata come origine dati del *provider* nei modelli tabulari 1200 e superiori, sia i modelli in memoria che DirectQuery richiedono Microsoft OLE DB Driver per SQL Server MSOLEDBSQL (consigliato), SQL Server Native Client 11.0 o il provider di dati .NET Framework per SQL Server.  
+<a name="azprovider">2</a> -se specificato come origine dati del *provider* nei modelli tabulari 1200 e versioni successive, sia i modelli in memoria che DirectQuery richiedono il Driver Microsoft OLE DB per SQL Server MSOLEDBSQL (scelta consigliata) o .NET Framework provider di dati per SQL Server.  
 <a name="azsqlmanaged">3</a> -istanza gestita SQL di Azure è supportata. Poiché SQL Istanza gestita viene eseguito all'interno di Azure VNet con un indirizzo IP privato, è necessario abilitare l'endpoint pubblico nell'istanza. Se non è abilitato, è necessario un [gateway dati locale](analysis-services-gateway.md).  
 <a name="databricks">4</a> - Azure Databricks con il connettore Spark non è attualmente supportato.  
 <a name="gen2">5</a> - Il connettore ADLS Gen2 non è attualmente supportato, tuttavia è possibile usare il connettore di Archiviazione BLOB di Azure con un'origine dati ADLS Gen2.

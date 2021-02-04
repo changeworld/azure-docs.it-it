@@ -1,36 +1,35 @@
 ---
 title: Informazioni sui set di risorse
 description: Questo articolo illustra i set di risorse e il modo in cui vengono creati da Azure.
-author: yaronyg
-ms.author: yarong
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 55efa9443fd59b66a7677c9c460e473715f201df
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 02/03/2021
+ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96552709"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539468"
 ---
 # <a name="understanding-resource-sets"></a>Informazioni sui set di risorse
 
 Questo articolo illustra come Azure asset usa i set di risorse per eseguire il mapping degli asset di dati alle risorse logiche.
-
 ## <a name="background-info"></a>Informazioni di base
 
 I sistemi di elaborazione dati su larga scala in genere archiviano una singola tabella su un disco come più file. Questo concetto è rappresentato in Azure ambito usando i set di risorse. Un set di risorse è un singolo oggetto nel catalogo che rappresenta un numero elevato di asset nello spazio di archiviazione.
 
-Si supponga, ad esempio, che il cluster Spark abbia reso permanente un frame di dati in un'origine dati ADLS Gen2. Sebbene in Spark la tabella abbia un aspetto simile a una singola risorsa logica, sul disco sono probabilmente presenti migliaia di file parquet, ciascuno dei quali rappresenta una partizione del contenuto del frame di dati totale. I dati e i dati del log Web hanno la stessa sfida. Si supponga di avere un sensore che restituisce i file di log più volte al secondo. Non sarà necessario molto tempo fino a quando non si dispone di centinaia di migliaia di file di log da quel singolo sensore.
+Si supponga, ad esempio, che il cluster Spark abbia reso permanente un frame di dati in un'origine dati Gen2 di Azure Datal Lake Storage (ADLS). Sebbene in Spark la tabella abbia un aspetto simile a una singola risorsa logica, sul disco sono probabilmente presenti migliaia di file parquet, ciascuno dei quali rappresenta una partizione del contenuto del frame di dati totale. I dati e i dati del log Web hanno la stessa sfida. Si supponga di avere un sensore che restituisce i file di log più volte al secondo. Non sarà necessario molto tempo fino a quando non si dispone di centinaia di migliaia di file di log da quel singolo sensore.
 
 Per risolvere il problema del mapping di un numero elevato di asset di dati a una singola risorsa logica, Azure ambito usa i set di risorse.
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Modalità di rilevamento di set di risorse in Azure.
 
-Azure competenza supporta il rilevamento di set di risorse solo nei BLOB, ADLS Gen1 e ADLS Gen2 di Azure.
+Azure competenza supporta il rilevamento di set di risorse nell'archiviazione BLOB di Azure, ADLS Gen1 e ADLS Gen2.
 
-Azure competenza rileva automaticamente i set di risorse usando una funzionalità denominata individuazione automatica dei set di risorse. Questa funzionalità esamina tutti i dati inseriti tramite l'analisi e li confronta con un set di modelli definiti.
+Azure competenza rileva automaticamente i set di risorse durante l'analisi. Questa funzionalità esamina tutti i dati inseriti tramite l'analisi e li confronta con un set di modelli definiti.
 
 Si supponga, ad esempio, di eseguire l'analisi di un'origine dati il cui URL è `https://myaccount.blob.core.windows.net/mycontainer/machinesets/23/foo.parquet` . Azure ambito esamina i segmenti di percorso e determina se corrispondono a qualsiasi modello incorporato. Include modelli predefiniti per GUID, numeri, formati di data, codici di localizzazione (ad esempio, en-US) e così via. In questo caso, il modello di numeri corrisponde a *23*. Azure competenza presuppone che questo file faccia parte di un set di risorse denominato `https://myaccount.blob.core.windows.net/mycontainer/machinesets/{N}/foo.parquet` .
 
@@ -42,12 +41,9 @@ Con questa strategia, Azure competenza eseguirà il mapping delle risorse seguen
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
-> [!Note]
-> Azure Data Lake Storage Gen2 è ora disponibile a livello generale. È consigliabile iniziare a usarlo oggi stesso. Per altre informazioni, vedere la [pagina del prodotto](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
-
 ## <a name="file-types-that-azure-purview-will-not-detect-as-resource-sets"></a>Tipi di file che Azure non rileva come set di risorse
 
-La competenza non tenta intenzionalmente di classificare la maggior parte dei tipi di file di documento come Word, Excel o PDF come set di risorse. L'eccezione è CSVs poiché si tratta di un formato di file partizionato comune.
+La competenza non tenta intenzionalmente di classificare la maggior parte dei tipi di file di documento come Word, Excel o PDF come set di risorse. L'eccezione è il formato CSV poiché si tratta di un formato di file partizionato comune.
 
 ## <a name="how-azure-purview-scans-resource-sets"></a>Analisi degli insiemi di risorse in Azure.
 
@@ -66,16 +62,47 @@ Oltre a singoli schemi e classificazioni, Azure ambito archivia le informazioni 
 ## <a name="built-in-resource-set-patterns"></a>Modelli predefiniti di set di risorse
 
 Azure competenza supporta i modelli di set di risorse seguenti. Questi modelli possono essere visualizzati come nome in una directory o come parte di un nome file.
+### <a name="regex-based-patterns"></a>Modelli basati su espressioni regolari
 
 | Nome modello | Nome visualizzato | Descrizione |
 |--------------|--------------|-------------|
-| GUID         | GUID       | Identificatore univoco globale, come definito nella [specifica RFC 4122](https://tools.ietf.org/html/rfc4122). |
-| Numero       | N          | Una o più cifre. |
-| Formati di data/ora | N     | Azure competenza supporta diversi tipi di formati di data/ora, ma tutti vengono ridotti a una serie di {N} s. |
-| 4ByteHex     | ESADECIMALE        | Numero esadecimale a quattro cifre. |
-| Localizzazione | LOC        | Un tag di lingua, come definito in [BCP 47](https://tools.ietf.org/html/bcp47). Azure competenza supporta tag che contengono un trattino (-) o un carattere di sottolineatura (_). Ad esempio, en_ca e en-ca. |
+| Guid         | GUID       | Identificatore univoco globale come definito nella [specifica RFC 4122](https://tools.ietf.org/html/rfc4122) |
+| Number       | N          | Una o più cifre |
+| Formati di data/ora | Anno Mese Giorno N     | Sono supportati diversi formati di data/ora, ma tutti sono rappresentati con {Year} [Delimiter] {month} [Delimiter] {Day} o serie di {N} s. |
+| 4ByteHex     | ESADECIMALE        | Numero ESADECIMALe a 4 cifre. |
+| Localizzazione | LOC        | Un tag di lingua come definito in [BCP 47](https://tools.ietf.org/html/bcp47), i nomi-e _ sono supportati (ad esempio, EN_CA e en-CA) |
 
-## <a name="issues-with-resource-sets"></a>Problemi con i set di risorse
+### <a name="complex-patterns"></a>Modelli complessi
+
+| Nome modello | Nome visualizzato | Descrizione |
+|--------------|--------------|-------------|
+| SparkPath    | {SparkPartitions} | Identificatore del file di partizione Spark |
+| Instradamento data (aaaa/mm/gg)  | {Year}/{Month}/{Day} | Schema anno/mese/giorno con più cartelle |
+
+
+## <a name="how-resource-sets-are-displayed-in-the-azure-purview-catalog"></a>Come vengono visualizzati i set di risorse nel catalogo delle competenze di Azure
+
+Quando Azure competenza corrisponde a un gruppo di asset in un set di risorse, tenta di estrarre le informazioni più utili da usare come nome visualizzato nel catalogo. Di seguito sono riportati alcuni esempi della convenzione di denominazione predefinita applicata: 
+
+### <a name="example-1"></a>Esempio 1
+
+Nome completo: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+
+Nome visualizzato: "nome dell'output Spark"
+
+### <a name="example-2"></a>Esempio 2
+
+Nome completo: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+
+Nome visualizzato: "dati partizionati"
+
+### <a name="example-3"></a>Esempio 3
+
+Nome completo: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+
+Nome visualizzato: "dati"
+
+## <a name="known-issues-with-resource-sets"></a>Problemi noti relativi ai set di risorse
 
 Sebbene i set di risorse funzionino correttamente nella maggior parte dei casi, è possibile che si verifichino i problemi seguenti, in cui Azure competenza:
 
@@ -85,4 +112,4 @@ Sebbene i set di risorse funzionino correttamente nella maggior parte dei casi, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare Data Catalog, vedere [Guida introduttiva: creare un account Azure](create-catalog-portal.md).
+Per iniziare a usare Azure, vedere [Guida introduttiva: creare un account Azure per la competenza](create-catalog-portal.md).
