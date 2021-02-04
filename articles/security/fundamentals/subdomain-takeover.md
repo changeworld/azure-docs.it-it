@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409893"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559242"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
 Questo articolo descrive le minacce alla sicurezza comuni di acquisizione dei sottodomini e i passaggi da eseguire per attenuare il problema.
 
 
-## <a name="what-is-subdomain-takeover"></a>Che cos'è l'acquisizione di sottodomini?
+## <a name="what-is-a-subdomain-takeover"></a>Che cos'è un'acquisizione di sottodominio?
 
 Le acquisizioni di sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni che creano regolarmente ed eliminano molte risorse. L'acquisizione di un sottodominio può verificarsi quando si dispone di un [record DNS](../../dns/dns-zones-records.md#dns-records) che punta a una risorsa di Azure di cui è stato effettuato il provisioning. Tali record DNS sono noti anche come voci "DNS in sospeso". I record CNAME sono particolarmente vulnerabili a questa minaccia. Le acquisizioni di sottodominio consentono agli attori malintenzionati di reindirizzare il traffico destinato al dominio di un'organizzazione a un sito che esegue attività dannose.
 
@@ -144,6 +144,15 @@ Assicurarsi che l'organizzazione abbia implementato i processi per impedire che 
 
 Alcuni servizi di Azure offrono funzionalità per semplificare la creazione di misure preventive e sono descritte in dettaglio di seguito. Altri metodi per evitare questo problema devono essere stabiliti tramite le procedure consigliate dell'organizzazione o le procedure operative standard.
 
+### <a name="enable-azure-defender-for-app-service"></a>Abilitare Azure Defender per il servizio app
+
+Azure Defender, la piattaforma di protezione dei carichi di lavoro cloud integrata del Centro sicurezza di Azure (CWPP), offre una gamma di piani per proteggere le risorse e i carichi di lavoro di Azure, ibridi e cloud.
+
+**Azure Defender per il piano di servizio app** include il rilevamento DNS in sospeso. Con questo piano abilitato, si otterranno avvisi di sicurezza se si ritira un sito Web del servizio app, ma non si rimuove il dominio personalizzato dal registrar DNS.
+
+La protezione DNS in sospeso di Azure Defender è disponibile indipendentemente dal fatto che i domini siano gestiti con DNS di Azure o un registrar di dominio esterno e si applichino al servizio app in Windows e Linux.
+
+Scopri di più su questo e altri vantaggi di questo piano di Azure Defender in [Introduzione ad Azure Defender per il servizio app](../../security-center/defender-for-app-service-introduction.md).
 
 ### <a name="use-azure-dns-alias-records"></a>Usare i record di alias DNS di Azure
 
@@ -201,6 +210,8 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui servizi correlati e sulle funzionalità di Azure che è possibile usare per la difesa dall'acquisizione dei sottodomini, vedere le pagine seguenti.
+
+- [Abilitare Azure Defender per il servizio app](../../security-center/defender-for-app-service-introduction.md) : per ricevere avvisi quando vengono rilevate voci DNS in sospeso
 
 - [Impedisci record DNS in sospeso con DNS di Azure](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

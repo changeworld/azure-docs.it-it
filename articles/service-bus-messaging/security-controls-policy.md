@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per la messaggistica del bus di servizio di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per la messaggistica del bus di servizio di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 763fede6ca471be7384d85890f066205cd74723a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 205f5a3d37bf57c9d281418aafa50f64325bf10e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094268"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560419"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Controlli di conformità alle normative di Criteri di Azure per la messaggistica del bus di servizio di Azure
 

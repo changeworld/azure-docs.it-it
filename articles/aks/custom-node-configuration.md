@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735265"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559429"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalizzare la configurazione dei nodi per i pool di nodi del servizio Kubernetes di Azure (AKS) (anteprima)
 
@@ -166,7 +166,7 @@ Creare un `linuxosconfig.json` file con il contenuto seguente:
 }
 ```
 
-Creare un nuovo cluster specificando le configurazioni di kublet e del sistema operativo usando i file JSON creati nel passaggio precedente. 
+Creare un nuovo cluster specificando le configurazioni di kubelet e del sistema operativo usando i file JSON creati nel passaggio precedente. 
 
 > [!NOTE]
 > Quando si crea un cluster, è possibile specificare la configurazione kubelet, la configurazione del sistema operativo o entrambi. Se durante la creazione di un cluster si specifica una configurazione, viene applicata solo la configurazione dei nodi nel pool iniziale del nodo. Le impostazioni non configurate nel file JSON manterranno il valore predefinito.

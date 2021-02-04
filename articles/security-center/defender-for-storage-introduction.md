@@ -3,19 +3,18 @@ title: Azure Defender per Archiviazione - Vantaggi e funzionalità
 description: Informazioni sui vantaggi e sulle funzionalità di Azure Defender per Archiviazione.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: eb1635cec2b0bcf7f2c13101b2aeab25a869dc66
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916422"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558572"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introduzione ad Azure Defender per Archiviazione
-
 
 **Azure Defender per Archiviazione** offre un livello di intelligence di sicurezza nativo di Azure che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Sfrutta le funzionalità avanzate di intelligenza artificiale e di [intelligence sulle minacce Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684) per fornire avvisi e raccomandazioni contestuali sulla sicurezza.
 
@@ -68,7 +67,40 @@ Se sospetta che un file contenga malware, il Centro sicurezza visualizza un avvi
 >
 > È possibile abilitare **Azure Defender per Archiviazione** a livello di sottoscrizione o di risorsa.
 
+## <a name="trigger-a-test-alert-for-azure-defender-for-storage"></a>Attivare un avviso di test per Azure Defender per l'archiviazione
 
+Per testare gli avvisi di sicurezza da Azure Defender per l'archiviazione nell'ambiente, generare l'avviso "accesso da un nodo di uscita Tor a un account di archiviazione" con i passaggi seguenti:
+
+1. Aprire un account di archiviazione con Azure Defender per l'archiviazione abilitata.
+1. Dalla barra laterale selezionare "contenitori" e aprire un contenitore esistente o crearne uno nuovo.
+
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Apertura di un contenitore BLOB da un account di archiviazione di Azure" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+
+1. Caricare un file in tale contenitore.
+
+    > [!CAUTION]
+    > Non caricare un file contenente dati riservati.
+
+1. Usare il menu di scelta rapida del file caricato per selezionare "genera SAS".
+
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="Opzione genera firma di accesso condiviso per un file in un contenitore BLOB":::
+
+1. Lasciare le opzioni predefinite e selezionare **genera token SAS e URL**.
+
+1. Copiare l'URL SAS generato.
+
+1. Nel computer locale aprire il browser Tor.
+
+    > [!TIP]
+    > È possibile scaricare Tor dal sito del progetto Tor [https://www.torproject.org/download/](https://www.torproject.org/download/) .
+
+1. Nel browser Tor passare all'URL di firma di accesso condiviso.
+
+1. Scaricare il file caricato nel passaggio 3.
+
+    Entro due ore si otterrà il seguente avviso di sicurezza dal centro sicurezza:
+
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Avviso di sicurezza relativo all'accesso da un nodo di uscita Tor":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

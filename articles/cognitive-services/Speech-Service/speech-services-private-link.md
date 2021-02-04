@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786843"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559658"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Usare i servizi di riconoscimento vocale tramite un endpoint privato
 
@@ -216,7 +216,7 @@ Per creare endpoint privati, usare uno degli articoli seguenti. Questi articoli 
 
 Usare questi parametri anziché i parametri nell'articolo scelto:
 
-| Impostazione             | valore                                    |
+| Impostazione             | Valore                                    |
 |---------------------|------------------------------------------|
 | Tipo di risorsa       | **Microsoft. CognitiveServices/accounts** |
 | Risorsa            | **\<your-speech-resource-name>**         |
@@ -268,8 +268,6 @@ Se si prevede di accedere alla risorsa usando solo un endpoint privato, è possi
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. Verificare che l'indirizzo IP corrisponda all'indirizzo IP dell'endpoint privato.
-
 > [!NOTE]
 > L'indirizzo IP risolto punta a un endpoint proxy della rete virtuale, che invia il traffico di rete all'endpoint privato per la risorsa Servizi cognitivi. Il comportamento sarà diverso per una risorsa con un nome di dominio personalizzato ma *senza* endpoint privati. Per informazioni dettagliate, vedere [questa sezione](#dns-configuration) .
 
@@ -311,6 +309,10 @@ Si tratta di un URL di richiesta di esempio:
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> Vedere [questo articolo](sovereign-clouds.md) per gli endpoint di Azure per enti pubblici e Azure Cina.
+
 Dopo aver abilitato un dominio personalizzato per una risorsa vocale (necessaria per gli endpoint privati), tale risorsa userà il modello di nome DNS seguente per l'endpoint API REST di base: <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 Ciò significa che, in questo esempio, il nome dell'endpoint dell'API REST sarà: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -334,42 +336,35 @@ L' [API REST per sintesi vocale per l'audio breve](rest-speech-to-text.md#speech
 - [Endpoint regionali di servizi cognitivi](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) per la comunicazione con l'API REST di servizi cognitivi per ottenere un token di autorizzazione
 - Endpoint speciali per tutte le altre operazioni
 
-In [questa sottosezione](#general-principles) viene fornita una descrizione dettagliata degli endpoint speciali e del modo in cui l'URL deve essere trasformato per una risorsa di riconoscimento vocale abilitata per l'endpoint privato in merito all'utilizzo con l'SDK di riconoscimento vocale. Lo stesso principio descritto per l'SDK si applica per l'API REST di sintesi vocale v 1.0 e l'API REST di sintesi vocale.
+> [!NOTE]
+> Vedere [questo articolo](sovereign-clouds.md) per gli endpoint di Azure per enti pubblici e Azure Cina.
+
+In [questa sottosezione](#construct-endpoint-url) viene fornita una descrizione dettagliata degli endpoint speciali e del modo in cui l'URL deve essere trasformato per una risorsa di riconoscimento vocale abilitata per l'endpoint privato in merito all'utilizzo con l'SDK di riconoscimento vocale. Lo stesso principio descritto per l'SDK si applica all'API REST di sintesi vocale per l'audio breve e l'API REST di sintesi vocale.
 
 Acquisire familiarità con il materiale nella sottosezione indicata nel paragrafo precedente e vedere l'esempio seguente. Nell'esempio viene descritta l'API REST di sintesi vocale. L'uso dell'API REST di sintesi vocale per l'audio breve è completamente equivalente.
 
 > [!NOTE]
-> Quando si usa l'API REST di riconoscimento vocale per l'audio breve negli scenari di endpoint privati, usare un token di autorizzazione [passato attraverso](rest-speech-to-text.md#request-headers) l' `Authorization` [intestazione](rest-speech-to-text.md#request-headers). Il passaggio di una chiave di sottoscrizione vocale all'endpoint speciale tramite l' `Ocp-Apim-Subscription-Key` intestazione *non* funzionerà e genererà l'errore 401.
+> Quando si usa l'API REST di riconoscimento vocale per l'API REST per audio e sintesi vocale brevi negli scenari di endpoint privati, usare una chiave di sottoscrizione passata attraverso l' `Ocp-Apim-Subscription-Key` intestazione. (Vedere i dettagli per l' [API REST di sintesi vocale per](rest-speech-to-text.md#request-headers) l' [API REST](rest-text-to-speech.md#request-headers)per audio breve e sintesi vocale)
+>
+> Usare un token di autorizzazione e passarlo all'endpoint speciale tramite l' `Authorization` intestazione funzionerà *solo* se è stata abilitata l'opzione accesso a **tutte le reti** nella sezione **rete** della risorsa di riconoscimento vocale. In altri casi, si otterrà `Forbidden` `BadRequest` un errore o quando si tenta di ottenere un token di autorizzazione.
 
 **Esempio di utilizzo dell'API REST di sintesi vocale**
 
 L'Europa occidentale verrà usata come area di Azure di esempio e `my-private-link-speech.cognitiveservices.azure.com` come nome DNS della risorsa vocale di esempio (dominio personalizzato). Il nome di dominio personalizzato `my-private-link-speech.cognitiveservices.azure.com` nell'esempio appartiene alla risorsa vocale creata nell'area Europa occidentale.
 
-Per ottenere l'elenco delle voci supportate nell'area, eseguire le due operazioni seguenti:
+Per ottenere l'elenco delle voci supportate nell'area, eseguire la richiesta seguente:
 
-- Ottenere un token di autorizzazione:
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- Usando il token, ottenere l'elenco di voci:
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-Per ulteriori informazioni sui passaggi precedenti, vedere la [documentazione dell'API REST di sintesi vocale](rest-text-to-speech.md).
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+Per altri dettagli, vedere la [documentazione dell'API REST di sintesi vocale](rest-text-to-speech.md).
 
-Per la risorsa di riconoscimento vocale abilitata per l'endpoint privato, è necessario modificare gli URL dell'endpoint per la stessa sequenza di operazioni. La stessa sequenza sarà simile alla seguente:
+Per la risorsa di riconoscimento vocale abilitata per l'endpoint privato, è necessario modificare l'URL dell'endpoint per la stessa operazione. La stessa richiesta sarà simile alla seguente:
 
-- Ottenere un token di autorizzazione:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  Vedere la spiegazione dettagliata nella sottosezione precedente dell' [API REST per il testo in lingua v 3.0](#speech-to-text-rest-api-v30) .
-
-- Utilizzando il token ottenuto, ottenere l'elenco di voci:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  Vedere una spiegazione dettagliata nella sottosezione [principi generali](#general-principles) per l'SDK di riconoscimento vocale.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+Vedere una spiegazione dettagliata nella sottosezione dell' [URL di costruzione dell'endpoint](#construct-endpoint-url) per l'SDK di riconoscimento vocale.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Risorsa vocale con un nome di dominio personalizzato e un endpoint privato: utilizzo con l'SDK di riconoscimento vocale
 
@@ -377,9 +372,9 @@ L'uso dell'SDK di riconoscimento vocale con un nome di dominio personalizzato e 
 
 `my-private-link-speech.cognitiveservices.azure.com`Per questa sezione verrà usato come nome DNS della risorsa vocale di esempio (dominio personalizzato).
 
-##### <a name="general-principles"></a>Principi generali
+##### <a name="construct-endpoint-url"></a>Costruisci URL endpoint
 
-In genere negli scenari SDK (oltre che negli scenari dell'API REST di sintesi vocale), le risorse vocali usano gli endpoint regionali dedicati per le diverse offerte di servizio. Il formato del nome DNS per questi endpoint è:
+In genere negli scenari SDK (nonché nell'API REST di sintesi vocale per gli scenari di API REST per audio e sintesi vocale brevi), le risorse vocali usano gli endpoint regionali dedicati per le diverse offerte di servizio. Il formato del nome DNS per questi endpoint è:
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -387,7 +382,7 @@ Un nome DNS di esempio è:
 
 `westeurope.stt.speech.microsoft.com`
 
-Tutti i valori possibili per l'area (primo elemento del nome DNS) sono elencati nelle [aree supportate del servizio voce](regions.md). La tabella seguente presenta i valori possibili per l'offerta di servizi vocali (secondo elemento del nome DNS):
+Tutti i valori possibili per l'area (primo elemento del nome DNS) sono elencati nelle [aree supportate del servizio voce](regions.md). (Vedere [questo articolo](sovereign-clouds.md) per gli endpoint di Azure per enti pubblici e Azure Cina). La tabella seguente presenta i valori possibili per l'offerta di servizi vocali (secondo elemento del nome DNS):
 
 | Valore nome DNS | Offerta di servizi vocali                                    |
 |----------------|-------------------------------------------------------------|
@@ -459,7 +454,7 @@ Per modificare il codice, attenersi alla procedura seguente:
 
 2. Creare un' `SpeechConfig` istanza di utilizzando un URL completo dell'endpoint:
 
-   1. Modificare l'endpoint appena determinato, come descritto nella sezione [principi generali](#general-principles) precedenti.
+   1. Modificare l'endpoint appena determinato, come descritto nella sezione precedente costruire l' [URL dell'endpoint](#construct-endpoint-url) .
 
    1. Modificare la modalità di creazione dell'istanza di `SpeechConfig` . È probabile che l'applicazione stia usando un codice simile al seguente:
       ```csharp
@@ -537,70 +532,28 @@ L'utilizzo dell'API REST di sintesi vocale v 3.0 è completamente equivalente al
 
 ##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST per sintesi vocale per le API REST brevi audio e sintesi vocale
 
-In questo caso, l'uso dell'API REST di sintesi vocale per l'audio breve e l'utilizzo dell'API REST di sintesi vocale non presenta alcuna differenza rispetto al caso generale, con un'eccezione per l'API REST di sintesi vocale per l'audio breve. Vedere la nota seguente. È necessario usare entrambe le API come descritto nell' [API REST di riconoscimento vocale per la documentazione di breve audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e dell' [API REST](rest-text-to-speech.md) di sintesi vocale.
+In questo caso, l'utilizzo dell'API REST di sintesi vocale per l'audio breve e l'utilizzo dell'API REST di sintesi vocale non presenta alcuna differenza rispetto al caso generale, con un'eccezione. Vedere la nota seguente. È necessario usare entrambe le API come descritto nell' [API REST di riconoscimento vocale per la documentazione di breve audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e dell' [API REST](rest-text-to-speech.md) di sintesi vocale.
 
 > [!NOTE]
-> Quando si usa l'API REST di sintesi vocale per l'audio breve negli scenari di dominio personalizzato, usare un token di autorizzazione [passato tramite](rest-speech-to-text.md#request-headers) un' `Authorization` [intestazione](rest-speech-to-text.md#request-headers). Il passaggio di una chiave di sottoscrizione vocale all'endpoint speciale tramite l' `Ocp-Apim-Subscription-Key` intestazione *non* funzionerà e genererà l'errore 401.
+> Quando si usa l'API REST di riconoscimento vocale per l'API REST per audio e sintesi vocale brevi negli scenari di dominio personalizzati, usare una chiave di sottoscrizione passata attraverso l' `Ocp-Apim-Subscription-Key` intestazione. (Vedere i dettagli per l' [API REST di sintesi vocale per](rest-speech-to-text.md#request-headers) l' [API REST](rest-text-to-speech.md#request-headers)per audio breve e sintesi vocale)
+>
+> Usare un token di autorizzazione e passarlo all'endpoint speciale tramite l' `Authorization` intestazione funzionerà *solo* se è stata abilitata l'opzione accesso a **tutte le reti** nella sezione **rete** della risorsa di riconoscimento vocale. In altri casi, si otterrà `Forbidden` `BadRequest` un errore o quando si tenta di ottenere un token di autorizzazione.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Risorsa vocale con un nome di dominio personalizzato e senza endpoint privati: utilizzo con l'SDK di riconoscimento vocale
 
-L'uso dell'SDK di riconoscimento vocale con risorse vocali abilitate per il dominio personalizzato *senza* endpoint privati richiede la revisione e probabilmente le modifiche al codice dell'applicazione. Si noti che queste modifiche sono diverse dal caso di una [risorsa di riconoscimento vocale abilitata per l'endpoint privato](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk). Stiamo lavorando a un supporto più trasparente per gli scenari di endpoint privato e di dominio personalizzato.
+L'uso dell'SDK di riconoscimento vocale con risorse vocali abilitate per il dominio personalizzato *senza* endpoint privati è equivalente al caso generale, come descritto nella [documentazione di Speech SDK](speech-sdk.md).
 
-`my-private-link-speech.cognitiveservices.azure.com`Per questa sezione verrà usato come nome DNS della risorsa vocale di esempio (dominio personalizzato).
+Nel caso in cui sia stato modificato il codice per l'uso di con una [risorsa di riconoscimento vocale abilitata per endpoint privato](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), tenere presente quanto segue.
 
 Nella sezione sulle [risorse vocali abilitate per gli endpoint privati](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk)è stato illustrato come determinare l'URL dell'endpoint, modificarlo e fare in modo che funzioni con l'inizializzazione "from endpoint"/"with endpoint" dell' `SpeechConfig` istanza della classe.
 
 Tuttavia, se si tenta di eseguire la stessa applicazione dopo la rimozione di tutti gli endpoint privati (per un certo periodo di tempo per il nuovo provisioning dei record DNS), si otterrà un errore interno del servizio (404). Il motivo è che il [record DNS](#dns-configuration) punta ora all'endpoint di servizi cognitivi regionali anziché al proxy della rete virtuale e i percorsi URL come `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` non verranno trovati.
 
-Se si esegue il rollback dell'applicazione alla creazione di un'istanza standard di `SpeechConfig` nello stile del codice seguente, l'applicazione verrà terminata con l'errore di autenticazione (401):
+È necessario eseguire il rollback dell'applicazione alla creazione di un'istanza standard di `SpeechConfig` nello stile del codice seguente:
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
-
-##### <a name="modifying-applications"></a>Modifica di applicazioni
-
-Per consentire all'applicazione di usare una risorsa vocale con un nome di dominio personalizzato e senza endpoint privati, attenersi alla procedura seguente:
-
-1. Richiedere un token di autorizzazione dall'API REST di servizi cognitivi. [Questo articolo](../authentication.md#authenticate-with-an-authentication-token) illustra come ottenere il token.
-
-   Usare il nome di dominio personalizzato nell'URL dell'endpoint. In questo esempio, l'URL è:
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > Questo URL è reperibile nella portale di Azure. Nella pagina delle risorse vocali, sotto il gruppo **Gestione risorse** , selezionare **chiavi ed endpoint**.
-
-1. Creare un' `SpeechConfig` istanza di utilizzando il token di autorizzazione ottenuto nella sezione precedente. Si supponga che siano state definite le variabili seguenti:
-
-   - `token`: token di autorizzazione ottenuto nella sezione precedente
-   - `azureRegion`: nome dell' [area](regions.md) della risorsa vocale (esempio: `westeurope` )
-   - `outError`: (solo per il caso [C Objective](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) )
-
-   Creare un' `SpeechConfig` istanza come la seguente:
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> Il chiamante deve verificare che il token di autorizzazione sia valido. Prima della scadenza del token di autorizzazione, il chiamante deve aggiornarlo chiamando questo Setter con un nuovo token valido. Poiché i valori di configurazione vengono copiati durante la creazione di un nuovo riconoscimento o di un sintetizzatore, il nuovo valore del token non verrà applicato ai riconoscitori o ai sintetizzatori già creati.
->
-> Per questi elementi, impostare il token di autorizzazione del riconoscimento o del sintetizzatore corrispondente per aggiornare il token. Se non si aggiorna il token, il riconoscimento o il sintetizzatore rileverà errori durante il funzionamento.
-
-Dopo questa modifica, l'applicazione dovrebbe funzionare con le risorse vocali che usano un nome di dominio personalizzato senza endpoint privati.
 
 ## <a name="pricing"></a>Prezzi
 
@@ -610,5 +563,5 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 
 * [Collegamento privato di Azure](../../private-link/private-link-overview.md)
 * [Speech SDK](speech-sdk.md)
-* [API REST per sintesi vocale](rest-speech-to-text.md)
+* [API REST di riconoscimento vocale](rest-speech-to-text.md)
 * [API REST di sintesi vocale](rest-text-to-speech.md)

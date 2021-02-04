@@ -1,19 +1,19 @@
 ---
 title: Definizioni di criteri predefinite per Azure Stack Edge
 description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per Azure Stack Edge. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 ms.subservice: edge
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: 072c19f1c2f0306a6fcc55b73748a014a7c998f3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: de447c6e3edf0bd5bb9103de41370cbd44b47a2b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217908"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559021"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stack-edge"></a>Definizioni predefinite di criteri di Azure per Azure Stack Edge
 
