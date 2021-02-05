@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887219"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576532"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Accedere all'applicazione in una rete privata
 
 In questo documento viene illustrato come accedere a un endpoint per l'applicazione in una rete privata.  Per ottenere l'accesso, è necessario creare una zona di **DNS privato di Azure** nella sottoscrizione per tradurre/risolvere il nome di dominio completo (FQDN) privato nel relativo indirizzo IP.
 
-Quando si distribuisce un **endpoint** per le applicazioni in un'istanza del servizio cloud di Azure Spring nella rete virtuale, l'endpoint è un FQDN privato. Il dominio è accessibile solo nella rete privata. App e servizi usano l'endpoint dell'applicazione. Includono l' **endpoint di test** descritto in [verificare la distribuzione di gestione temporanea](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment). Il flusso di **log**, descritto in [trasmettere i log delle app di Azure Spring cloud in tempo reale](spring-cloud-howto-log-streaming.md), funziona anche solo all'interno della rete privata.
+Quando si distribuisce un **endpoint** per le applicazioni in un'istanza del servizio cloud di Azure Spring nella rete virtuale, l'endpoint è un FQDN privato. Il dominio è accessibile solo nella rete privata. App e servizi usano l'endpoint dell'applicazione. Includono l' **endpoint di test** descritto in [visualizzare le app e le distribuzioni](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). Il flusso di **log**, descritto in [trasmettere i log delle app di Azure Spring cloud in tempo reale](spring-cloud-howto-log-streaming.md), funziona anche solo all'interno della rete privata.
 
 ## <a name="create-a-private-dns-zone"></a>Creare una zona DNS privato
 

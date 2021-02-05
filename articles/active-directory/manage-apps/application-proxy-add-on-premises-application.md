@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Aggiungere un'app locale - Proxy di applicazione in Azure AD"
+title: Esercitazione-aggiungere un'applicazione locale-proxy applicazione in Azure Active Directory
 description: Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione illustra come preparare l'ambiente per l'uso con il proxy di applicazione. Viene quindi usato il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
 services: active-directory
 author: kenwith
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 02/04/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 04b3dd51aab9686d102b6b94324f89396a268e7d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: f18126448f5a6dca29e798ad80cb53a8760689d8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260080"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576516"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
-Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
+Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD. Per **visualizzare le app e iniziare rapidamente a usare** la gestione delle app in Azure, vedere la [serie di avvio rapido](view-applications-portal.md).
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagramma di panoramica del proxy di applicazione" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 

@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3035e0036e5d35729637e35ad8cb1412a0da959f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: dac50d8e35080a083e42891732512e012fae8fbd
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091033"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576448"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creare o eliminare un contenitore in archiviazione di Azure con .NET
 
-I BLOB in archiviazione di Azure sono organizzati in contenitori. Prima di caricare un BLOB, è necessario innanzitutto creare un contenitore. Questo articolo illustra come creare ed eliminare contenitori con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage).
+I BLOB in Archiviazione di Azure sono organizzati in contenitori. Prima di caricare un BLOB, è necessario innanzitutto creare un contenitore. Questo articolo illustra come creare ed eliminare contenitori con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="name-a-container"></a>Assegnare un nome a un contenitore
 
@@ -38,10 +38,10 @@ Per creare un contenitore, chiamare uno dei metodi seguenti:
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-- [Creare](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
-- [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
-- [CreateIfNotExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
-- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+- [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
+- [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
+
+Questi metodi generano un'eccezione se esiste già un contenitore con lo stesso nome.
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -49,11 +49,12 @@ Per creare un contenitore, chiamare uno dei metodi seguenti:
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
----
 
 I metodi **create** e **CreateAsync** generano un'eccezione se esiste già un contenitore con lo stesso nome.
 
 I metodi **CreateIfNotExists** e **CreateIfNotExistsAsync** restituiscono un valore booleano che indica se il contenitore è stato creato. Se esiste già un contenitore con lo stesso nome, questi metodi restituiscono **false** per indicare che non è stato creato un nuovo contenitore.
+
+---
 
 I contenitori vengono creati immediatamente sotto l'account di archiviazione. Non è possibile annidare un contenitore in un altro.
 

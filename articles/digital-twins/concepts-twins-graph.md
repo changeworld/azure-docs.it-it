@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071716"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576549"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
@@ -58,9 +58,9 @@ Di seguito è riportato un frammento di codice client che usa le [API DigitalTwi
 
 ### <a name="create-relationships"></a>Creare relazioni
 
-Di seguito è riportato un esempio di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare una relazione tra un gemello digitale di tipo *floor* denominato *pianterreno* e un gemello digitale di tipo *room* chiamato *Cafe*.
+Di seguito è riportato un esempio di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare una relazione da un gemello digitale (il "di origine") a un altro gemello digitale (il gemello "destinazione").
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>Rappresentazioni JSON degli elementi del grafico
 

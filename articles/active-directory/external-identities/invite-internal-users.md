@@ -5,40 +5,35 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/12/2020
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 802307a21873d15242c2e387ec0defe35f50bb20
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015760"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576431"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Invitare gli utenti interni alla collaborazione B2B
 
-> [!NOTE]
-> Invitare gli utenti interni a usare la collaborazione B2B è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Prima della disponibilità di Azure AD collaborazione B2B, le organizzazioni potevano collaborare con i distributori, i fornitori, i fornitori e gli altri utenti Guest impostando le relative credenziali interne. Se sono presenti utenti Guest interni come questi, è possibile invitare loro a usare la collaborazione B2B. Questi utenti Guest B2B saranno in grado di usare le proprie identità e credenziali per l'accesso e non sarà necessario gestire le password o gestire i cicli di vita dell'account.
 
-Prima della disponibilità di Azure AD collaborazione B2B, le organizzazioni potevano collaborare con i distributori, i fornitori, i fornitori e gli altri utenti Guest impostando le relative credenziali interne. Se gli utenti Guest interni sono simili a questo, è possibile invitare gli utenti a usare la collaborazione B2B per poter sfruttare i vantaggi di Azure AD B2B. Gli utenti Guest B2B saranno in grado di usare le proprie identità e credenziali per l'accesso e non sarà necessario gestire le password o gestire i cicli di vita dell'account.
+L'invio di un invito a un account interno esistente consente di mantenere l'ID oggetto, l'UPN, l'appartenenza ai gruppi e le assegnazioni di app dell'utente. Non è necessario eliminare manualmente e invitare di nuovo l'utente o riassegnare le risorse. Per invitare l'utente, usare l'API di invito per passare l'oggetto utente interno e l'indirizzo di posta elettronica dell'utente Guest insieme all'invito. Quando l'utente accetta l'invito, il servizio B2B imposta l'oggetto utente interno esistente su un utente B2B. In futuro, l'utente deve accedere ai servizi risorse cloud usando le credenziali B2B.
 
-L'invio di un invito a un account interno esistente consente di mantenere l'ID oggetto, l'UPN, l'appartenenza ai gruppi e le assegnazioni di app dell'utente. Non è necessario eliminare manualmente e invitare di nuovo l'utente o riassegnare le risorse. Per invitare l'utente, si userà l'API di invito per passare l'oggetto utente interno e l'indirizzo di posta elettronica dell'utente Guest insieme all'invito. Quando l'utente accetta l'invito, il servizio B2B imposta l'oggetto utente interno esistente su un utente B2B. In futuro, l'utente deve accedere ai servizi risorse cloud usando le credenziali B2B. Possono comunque usare le proprie credenziali interne per accedere alle risorse locali, ma è possibile evitare questo problema reimpostando o modificando la password nell'account interno.
+## <a name="things-to-consider"></a>Aspetti da considerare
 
-> [!NOTE]
-> L'invito è unidirezionale. È possibile invitare gli utenti interni a usare la collaborazione B2B, ma non è possibile rimuovere le credenziali B2B dopo che sono state aggiunte. Per ripristinare un utente solo interno, è necessario eliminare l'oggetto utente e crearne uno nuovo.
+- **Accesso alle risorse locali**: dopo che l'utente è stato invitato per la collaborazione B2B, può comunque usare le credenziali interne per accedere alle risorse locali. Per evitare questo problema, è possibile reimpostare o modificare la password per l'account interno. L'eccezione è l' [autenticazione del codice di posta elettronica](one-time-passcode.md)monouso. Se il metodo di autenticazione dell'utente viene modificato in una sola volta, non sarà più possibile usare le proprie credenziali interne.
 
-Durante l'anteprima pubblica, il metodo descritto in questo articolo per invitare gli utenti interni alla collaborazione B2B non può essere usato nelle istanze seguenti:
+- **Fatturazione**: questa funzionalità non modifica la UserType per l'utente, quindi non passa automaticamente il modello di fatturazione dell'utente a [identità esterne prezzi utente attivo (Mau)](external-identities-pricing.md). Per attivare i prezzi di MAU per l'utente, impostare UserType per l'utente su `guest` . Si noti anche che il tenant di Azure AD deve essere [collegato a una sottoscrizione di Azure](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription) per attivare la fatturazione di Mau.
 
-- All'utente interno è assegnata una licenza di Exchange.
-- L'utente è da un dominio configurato per la Federazione diretta nella directory.
-- L'utente interno è un account solo cloud e il relativo account principale non è in Azure AD.
+- L' **invito è unidirezionale**: è possibile invitare gli utenti interni a usare la collaborazione B2B, ma non è possibile rimuovere le credenziali B2B dopo che sono state aggiunte. Per ripristinare un utente solo interno, è necessario eliminare l'oggetto utente e crearne uno nuovo.
 
-In questi casi, se l'utente interno deve essere modificato in un utente B2B, è necessario eliminare l'account interno e inviare all'utente un invito per la collaborazione B2B.
+- **Teams**: quando l'utente accede ai team con le proprie credenziali esterne, il tenant non sarà disponibile inizialmente nella selezione tenant del team. L'utente può accedere ai team usando un URL che contiene il contesto del tenant, ad esempio: `https://team.microsoft.com/?tenantId=<TenantId>` . Successivamente, il tenant diventerà disponibile nella selezione tenant del team.
 
-**Utenti sincronizzati locali**: per gli account utente sincronizzati tra l'ambiente locale e il cloud, la directory locale rimane l'origine dell'autorità dopo che questi sono stati invitati a usare la collaborazione B2B. Qualsiasi modifica apportata all'account locale verrà sincronizzata con l'account cloud, inclusa la disabilitazione o l'eliminazione dell'account. Pertanto, non è possibile impedire all'utente di accedere al proprio account locale mantenendo il proprio account cloud semplicemente eliminando l'account locale. È invece possibile impostare la password dell'account locale su un GUID casuale o un altro valore sconosciuto.
+- **Utenti sincronizzati locali**: per gli account utente sincronizzati tra l'ambiente locale e il cloud, la directory locale rimane l'origine dell'autorità dopo che questi sono stati invitati a usare la collaborazione B2B. Qualsiasi modifica apportata all'account locale verrà sincronizzata con l'account cloud, inclusa la disabilitazione o l'eliminazione dell'account. Pertanto, non è possibile impedire all'utente di accedere al proprio account locale mantenendo il proprio account cloud semplicemente eliminando l'account locale. È invece possibile impostare la password dell'account locale su un GUID casuale o un altro valore sconosciuto.
 
 ## <a name="how-to-invite-internal-users-to-b2b-collaboration"></a>Come invitare gli utenti interni alla collaborazione B2B
 
@@ -50,15 +45,15 @@ In questi casi, se l'utente interno deve essere modificato in un utente B2B, è 
 Per impostazione predefinita, l'invito invierà all'utente un messaggio di posta elettronica che informa che è stato invitato, ma è possibile eliminarlo e inviare il proprio messaggio.
 
 > [!NOTE]
-> Per inviare un messaggio di posta elettronica o un'altra comunicazione, è possibile usare New-AzureADMSInvitation con-SendInvitationMessage: $false per invitare gli utenti in modalità invisibile all'utente e quindi inviare un messaggio di posta elettronica all'utente convertito. Vedere [Azure ad API di collaborazione B2B e personalizzazione](customize-invitation-api.md).
+> Per inviare un messaggio di posta elettronica o un'altra comunicazione, è possibile usare `New-AzureADMSInvitation` con `-SendInvitationMessage:$false` per invitare gli utenti in modalità invisibile all'utente e quindi inviare un messaggio di posta elettronica all'utente convertito. Vedere [Azure ad API di collaborazione B2B e personalizzazione](customize-invitation-api.md).
 
 ## <a name="use-powershell-to-send-a-b2b-invitation"></a>Usare PowerShell per inviare un invito B2B
 
-Usare il comando seguente per invitare l'utente a collaborare B2B:
+È necessario Azure AD modulo PowerShell versione 2.0.2.130 o successiva. Usare il comando seguente per eseguire l'aggiornamento al modulo AzureAD di PowerShell più recente e invitare l'utente interno a collaborare B2B:
 
 ```powershell
-Uninstall-Module AzureADPreview
-Install-Module AzureADPreview
+Uninstall-Module AzureAD
+Install-Module AzureAD
 $ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
@@ -95,7 +90,6 @@ ContentType: application/json
 ```
 
 La risposta all'API è la stessa che si ottiene quando si invita un nuovo utente guest nella directory.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)

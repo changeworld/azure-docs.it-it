@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: locale, OCR, Docker, contenitore
-ms.openlocfilehash: a9eae2e547b347c88f8e745742ed34194c37a3b2
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 2298c7b931a5bb51d5067a9f789135ecf86ef3e5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862477"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576821"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installare i contenitori Docker per l'OCR di lettura (anteprima) 
 
@@ -32,17 +32,17 @@ Il contenitore OCR *Read* consente di estrarre testo stampato e scritto a mano d
 > [!NOTE]
 > Il contenitore Read 3,0-Preview è stato deprecato. 
 
-Il contenitore Read 3,2-Preview fornisce:
+Il contenitore OCR Read 3,2-Preview fornisce:
 * Nuovi modelli per una maggiore accuratezza.
-* Supporto per più lingue nello stesso documento
-* Supporto per: olandese, inglese, francese, tedesco, italiano, portoghese e spagnolo.
+* Supporto per più lingue nello stesso documento.
+* Supporto per un totale di 73 lingue. Vedere l'elenco completo dei [linguaggi supportati dall'OCR](./language-support.md#optical-character-recognition-ocr).
 * Una singola operazione per documenti e immagini.
 * Supporto per documenti e immagini di dimensioni maggiori.
-* Punteggi di confidenza da 0 a 1.
-* Supporto per documenti con testo stampato e scritto a mano
-* Supporto per il cinese semplificato e il giapponese.
-* punteggi di confidenza ed etichette per testo stampato e scritto a mano. 
+* Punteggi di confidenza.
+* Supporto per documenti con testo stampato e scritto a mano.
 * Possibilità di estrarre il testo solo da una o più pagine selezionate in un documento.
+* Scegliere l'ordine di output della riga di testo da predefinito a un ordine di lettura più naturale.
+* Classificazione della riga di testo come stile manoscritto o non solo per le lingue latine.
 
 Se si usa attualmente la lettura di contenitori 2,0, vedere la [Guida alla migrazione](read-container-migration-guide.md) per informazioni sulle modifiche apportate alle nuove versioni.
 
@@ -50,7 +50,7 @@ Se si usa attualmente la lettura di contenitori 2,0, vedere la [Guida alla migra
 
 Prima di usare i contenitori, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatorio|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -207,7 +207,7 @@ Usare l'host `http://localhost:5000` per le API del contenitore. È possibile vi
 È possibile usare le `POST /vision/v3.2/read/analyze` `GET /vision/v3.2/read/operations/{operationId}` operazioni e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un oggetto `operationId` che viene usato come identificatore per la richiesta HTTP Get.
 
 
-Dall'interfaccia utente di spavalderia selezionare il `asyncBatchAnalyze` per espanderlo nel browser. Quindi selezionare **try it out**  >  **Choose file**. In questo esempio si userà l'immagine seguente:
+Dall'interfaccia utente di spavalderia selezionare il `Analyze` per espanderlo nel browser. Quindi selezionare **try it out**  >  **Choose file**. In questo esempio si userà l'immagine seguente:
 
 ![tabulazioni e spazi](media/tabs-vs-spaces.png)
 
@@ -225,51 +225,99 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:30:14Z",
-  "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
+  "createdDateTime": "2021-02-04T06:32:08.2752706+00:00",
+  "lastUpdatedDateTime": "2021-02-04T06:32:08.7706172+00:00",
   "analyzeResult": {
     "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
-        "angle": 2.12,
+        "angle": 2.1243,
         "width": 502,
         "height": 252,
         "unit": "pixel",
-        "language": "",
         "lines": [
           {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
+            "boundingBox": [
+              58,
+              42,
+              314,
+              59,
+              311,
+              123,
+              56,
+              121
+            ],
             "text": "Tabs vs",
             "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.999
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.96
+              }
             },
             "words": [
               {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
+                "boundingBox": [
+                  68,
+                  44,
+                  225,
+                  59,
+                  224,
+                  122,
+                  66,
+                  123
+                ],
                 "text": "Tabs",
-                "confidence": 0.981
+                "confidence": 0.933
               },
               {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
+                "boundingBox": [
+                  241,
+                  61,
+                  314,
+                  72,
+                  314,
+                  123,
+                  239,
+                  122
+                ],
                 "text": "vs",
-                "confidence": 0.958
+                "confidence": 0.977
               }
             ]
           },
           {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
+            "boundingBox": [
+              286,
+              171,
+              415,
+              165,
+              417,
+              197,
+              287,
+              201
+            ],
             "text": "paces",
             "appearance": {
-              "style": "print",
-              "styleConfidence": 0.603
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.746
+              }
             },
             "words": [
               {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
+                "boundingBox": [
+                  286,
+                  179,
+                  404,
+                  166,
+                  405,
+                  198,
+                  290,
+                  201
+                ],
                 "text": "paces",
-                "confidence": 0.918
+                "confidence": 0.938
               }
             ]
           }

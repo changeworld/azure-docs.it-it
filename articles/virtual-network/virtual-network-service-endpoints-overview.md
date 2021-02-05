@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097423"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576668"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -126,7 +126,7 @@ Gli endpoint di servizio possono essere configurati in reti virtuali indipendent
 
 Per altre informazioni sui ruoli predefiniti, vedere [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per altre informazioni sull'assegnazione di autorizzazioni specifiche ai ruoli personalizzati, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Le reti virtuali e le risorse dei servizi di Azure possono trovarsi nella stessa sottoscrizione o in sottoscrizioni diverse. Se la rete virtuale e le risorse dei servizi di Azure si trovano in sottoscrizioni diverse, le risorse devono trovarsi nello stesso tenant di Active Directory (AD). 
+Le reti virtuali e le risorse dei servizi di Azure possono trovarsi nella stessa sottoscrizione o in sottoscrizioni diverse. Alcuni servizi di Azure (non tutti), ad esempio archiviazione di Azure e Azure Key Vault supportano anche gli endpoint di servizio in diversi tenant di Active Directory (AD), ad esempio la rete virtuale e la risorsa del servizio di Azure possono trovarsi in tenant di Active Directory (AD) diversi. Per ulteriori informazioni, consultare la documentazione del servizio.  
 
 ## <a name="pricing-and-limits"></a>Prezzi e limiti
 
