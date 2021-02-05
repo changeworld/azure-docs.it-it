@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 080d7c29a9e6950117fe475445458a84fb092e94
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090205"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584214"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -52,8 +52,8 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
     1. Passare al [profilo partner](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verificare che: 
         - L'ID MPN sia corretto. 
         - Non siano visualizzati errori o "azioni in sospeso" e lo stato di verifica nel profilo di business legale e nelle informazioni sul partner sia "autorizzato" o "operazione riuscita".
-    1. Passare alla [pagina di gestione del tenant di MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e verificare che il tenant in cui è registrata l'app e di cui si sta usando un account utente per l'accesso sia incluso nell'elenco dei tenant associati. Se è necessario aggiungere un tenant aggiuntivo, seguire le istruzioni riportate [qui](/partner-center/multi-tenant-account). Tenere presente che a tutti gli amministratori globali di qualsiasi tenant aggiunto verranno concessi privilegi di amministratore globale per l'account del centro per i partner.
-    1. Passare alla [pagina Gestione utenti MPN](https://partner.microsoft.com/pcv/users) e verificare che l'utente che si sta eseguendo l'accesso sia un amministratore globale, un amministratore MPN o un account amministratore. Se è necessario aggiungere un utente a un ruolo in centro per i partner, seguire le istruzioni riportate [qui](/partner-center/create-user-accounts-and-set-permissions).
+    1. Passare alla [pagina di gestione del tenant di MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e verificare che il tenant in cui è registrata l'app e di cui si sta usando un account utente per l'accesso sia incluso nell'elenco dei tenant associati. Per aggiungere un tenant aggiuntivo, seguire le istruzioni riportate [qui](/partner-center/multi-tenant-account). Tenere presente che a tutti gli amministratori globali di qualsiasi tenant aggiunto verranno concessi privilegi di amministratore globale per l'account del centro per i partner.
+    1. Passare alla [pagina Gestione utenti MPN](https://partner.microsoft.com/pcv/users) e verificare che l'utente che si sta eseguendo l'accesso sia un amministratore globale, un amministratore MPN o un account amministratore. Per aggiungere un utente a un ruolo in centro per i partner, seguire le istruzioni riportate [qui](/partner-center/create-user-accounts-and-set-permissions).
 
 - **Quando si accede al portale di Azure AD, non viene visualizzata alcuna app registrata. Perché?** 
     È possibile che le registrazioni dell'app siano state create usando un account utente diverso in questo tenant, un account personale/utente o un tenant diverso. Assicurarsi di aver eseguito l'accesso con l'account corretto nel tenant in cui sono state create le registrazioni dell'app.

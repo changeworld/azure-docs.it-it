@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7e80123f21efded92ab6d59d550965ca72427b1c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 60ce3d32ffa20fc9117890528eac053d1af9fdf2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064658"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583909"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializzazione della cache dei token in MSAL.NET
 Dopo l' [acquisizione](msal-acquire-cache-tokens.md), un token viene memorizzato nella cache da Microsoft Authentication Library (MSAL).  Il codice dell'applicazione deve tentare di ottenere un token dalla cache prima di acquisire un token con un altro metodo.  Questo articolo illustra la serializzazione predefinita e personalizzata della cache dei token in MSAL.NET.
@@ -34,7 +34,7 @@ In MSAL.NET viene fornita per impostazione predefinita una cache dei token in me
 
 ## <a name="custom-serialization-for-windows-desktop-apps-and-web-appsweb-apis"></a>Serializzazione personalizzata per app desktop di Windows e app Web/API Web
 
-Tenere presente che la serializzazione personalizzata non è disponibile nelle piattaforme per dispositivi mobili (UWP, Xamarin.iOS e Xamarin.Android). MSAL definisce già un meccanismo di serializzazione sicuro e ad alte prestazioni per queste piattaforme. Le applicazioni desktop .NET e .NET Core, tuttavia, avranno differenti architetture e MSAL non può implementare un meccanismo di serializzazione per utilizzo generico. Ad esempio, i siti Web possono scegliere di archiviare i token in una cache Redis o le app desktop possono archiviare i token in un file crittografato. Pertanto, la serializzazione non è fornita in modo predefinito. Per disporre di un'applicazione persistente della cache dei token in .NET desktop o .NET Core, è necessario personalizzare la serializzazione.
+Tenere presente che la serializzazione personalizzata non è disponibile nelle piattaforme per dispositivi mobili (UWP, Xamarin.iOS e Xamarin.Android). MSAL definisce già un meccanismo di serializzazione sicuro e ad alte prestazioni per queste piattaforme. Le applicazioni desktop .NET e .NET Core, tuttavia, avranno differenti architetture e MSAL non può implementare un meccanismo di serializzazione per utilizzo generico. Ad esempio, i siti Web possono scegliere di archiviare i token in una cache Redis o le app desktop possono archiviare i token in un file crittografato. Pertanto, la serializzazione non è fornita in modo predefinito. Per avere un'applicazione cache dei token persistente in .NET desktop o .NET Core, personalizzare la serializzazione.
 
 Le classi e le interfacce seguenti sono usate nella serializzazione della cache dei token:
 
@@ -281,7 +281,7 @@ MSAL.NET fornisce la serializzazione della cache di token personalizzata nelle s
 
 [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web) Library fornisce un pacchetto NuGet di anteprima [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) che contiene la serializzazione della cache dei token:
 
-| Metodo di estensione | Spazio dei nomi Microsoft. Identity. Web | Description  |
+| Metodo di estensione | Spazio dei nomi Microsoft. Identity. Web | Descrizione  |
 | ---------------- | --------- | ------------ |
 | `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | Serializzazione della cache del token di memoria. Questa implementazione è ideale negli esempi. È anche utile nelle applicazioni di produzione a condizione che non si ricordi se la cache dei token viene persa quando l'app Web viene riavviata. `AddInMemoryTokenCaches` accetta un parametro facoltativo di tipo `MsalMemoryTokenCacheOptions` che consente di specificare la durata dopo la quale la voce della cache scadrà a meno che non venga usata.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | La cache del token è associata alla sessione utente. Questa opzione non è ideale se il token ID contiene molte attestazioni perché il cookie diventa troppo grande.
@@ -331,7 +331,7 @@ Il loro utilizzo è disponibile nell' [esercitazione ASP.NET Core app Web](/aspn
 
 Gli esempi seguenti illustrano la serializzazione della cache dei token.
 
-| Esempio | Piattaforma | Description|
+| Esempio | Piattaforma | Descrizione|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Applicazione .NET per Windows Desktop (WPF) che chiama l'API Microsoft Graph. ![Il diagramma mostra una topologia con app desktop W P TodoListClient che scorre in Azure A D acquisendo un token in modo interattivo e Microsoft Graph.](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Console) | Set di soluzioni di Visual Studio che illustrano la migrazione delle applicazioni Azure AD v 1.0 (usando ADAL.NET) alle applicazioni della piattaforma Microsoft Identity (tramite MSAL.NET). In particolare, vedere [migrazione della cache di token](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

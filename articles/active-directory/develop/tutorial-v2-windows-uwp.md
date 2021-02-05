@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4c4158fe9c976ca214409ef4c0c9833c610ee34c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232336"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584332"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Esercitazione: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -292,7 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-MSAL.NET usa metodi asincroni per acquisire i token o modificare gli account. È necessario supportare le azioni dell'interfaccia utente nel thread di interfaccia utente. È per questo motivo che viene effettuata la chiamata a `Dispatcher.RunAsync` e vengono adottate le precauzioni per chiamare `ConfigureAwait(false)`.
+MSAL.NET usa metodi asincroni per acquisire i token o modificare gli account. Di conseguenza, supportano le azioni dell'interfaccia utente nel thread UI. È per questo motivo che viene effettuata la chiamata a `Dispatcher.RunAsync` e vengono adottate le precauzioni per chiamare `ConfigureAwait(false)`.
 
 #### <a name="more-information-about-signing-out"></a>Altre informazioni sulla disconnessione<a name="more-information-on-sign-out"></a>
 
@@ -343,7 +343,7 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="register-your-application"></a>Registrare l'applicazione
 
-A questo punto è necessario registrare l'applicazione:
+A questo punto, registrare l'applicazione:
 
 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.

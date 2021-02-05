@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845573"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585076"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
@@ -107,7 +107,7 @@ Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Inv
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Provare le proprie fatture ed esempi nell' [interfaccia utente di esempio di riconoscimento moduli](https://fott-preview.azurewebsites.net/).
-- Completare una [Guida introduttiva](quickstarts/client-library.md) per il riconoscimento dei moduli per iniziare a scrivere un'app per l'elaborazione delle fatture con il riconoscimento del modulo nel linguaggio scelto.
+- Completare una [Guida introduttiva](quickstarts/client-library.md) per il riconoscimento dei moduli per iniziare a scrivere un'app per l'elaborazione delle fatture con il riconoscimento del modulo nel linguaggio di sviluppo preferito.
 
 ## <a name="see-also"></a>Vedere anche
 

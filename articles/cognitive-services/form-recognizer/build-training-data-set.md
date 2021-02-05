@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845592"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585110"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creazione di un set di dati di training per un modello personalizzato
 
 Quando si usa il modello personalizzato di riconoscimento form, si forniscono i propri dati di training all'operazione di training del [modello personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) , in modo che il modello sia in grado di eseguire il training ai moduli specifici del settore. Seguire questa guida per informazioni su come raccogliere e preparare i dati per eseguire il training del modello in modo efficace.
 
-Se si sta eseguendo il training senza etichette manuali, è possibile usare cinque moduli compilati o un modulo vuoto (è necessario includere la parola "Empty" nel nome file) più due moduli compilati. Anche se si dispone di un numero sufficiente di moduli compilati, l'aggiunta di un modulo vuoto al set di dati di training può migliorare l'accuratezza del modello.
+Sono necessari almeno cinque forme compilate dello stesso tipo.
 
-Se si desidera utilizzare i dati di training con etichette manuali, è necessario iniziare con almeno cinque forme compilate dello stesso tipo. È comunque possibile usare moduli senza etichetta e un modulo vuoto oltre al set di dati richiesto.
+Se si desidera utilizzare i dati di training con etichette manuali, è necessario iniziare con almeno cinque forme compilate dello stesso tipo. È comunque possibile usare i moduli senza etichetta oltre al set di dati richiesto.
 
 ## <a name="custom-model-input-requirements"></a>Requisiti di input del modello personalizzato
 

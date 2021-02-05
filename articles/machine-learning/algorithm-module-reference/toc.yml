@@ -28,8 +28,6 @@
       href: convert-to-dataset.md
     - name: Eseguire la conversione in valori di indicatori
       href: convert-to-indicator-values.md
-    - name: Pulire i dati mancanti
-      href: clean-missing-data.md
     - name: Modificare i metadati
       href: edit-metadata.md
     - name: Raggruppare i dati in contenitori

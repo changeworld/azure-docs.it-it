@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131127"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585093"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modello per il riconoscimento delle schede business predefinite 
 
@@ -31,11 +31,11 @@ L'API del business card predefinita estrae i campi chiave dai biglietti da visit
 
 ### <a name="fields-extracted"></a>Campi estratti:
 
-|Nome| Type | Descrizione | Testo | 
+|Nome| Tipo | Descrizione | Testo | 
 |:-----|:----|:----|:----|
 | ContactNames | matrice di oggetti | Nome del contatto Estratto dal biglietto da lavoro | [{"FirstName": "John", "LastName": "Doe"}] |
 | FirstName | string | Primo (dato) nome del contatto | "John" | 
-| LastName | string | Cognome (famiglia) del contatto |   "Doe" | 
+| LastName | string | Cognome (famiglia) del contatto |     "Doe" | 
 | CompanyName | matrice di stringhe | Nome della società Estratto dal biglietto da lavoro | ["Contoso"] | 
 | Departments | matrice di stringhe | Reparto o organizzazione del contatto | ["R&D"] | 
 | JobTitles | matrice di stringhe | Titolo del processo elencato del contatto | ["Ingegnere del software"] | 
@@ -45,7 +45,7 @@ L'API del business card predefinita estrae i campi chiave dai biglietti da visit
 | Cellulari | matrice dei numeri di telefono | Numero di telefono cellulare Estratto dal biglietto da lavoro | ["+ 19876543210"] |
 | Fax | matrice dei numeri di telefono | Numero di telefono del fax Estratto dal biglietto da lavoro | ["+ 19876543211"] |
 | WorkPhones | matrice dei numeri di telefono | Numero di telefono dell'ufficio Estratto dal biglietto da lavoro | ["+ 19876543231"] |
-| OtherPhones    | matrice dei numeri di telefono | Altro numero di telefono Estratto dal biglietto da lavoro | ["+ 19876543233"] |
+| OtherPhones     | matrice dei numeri di telefono | Altro numero di telefono Estratto dal biglietto da lavoro | ["+ 19876543233"] |
 
 
 L'API del business card può restituire anche tutto il testo riconosciuto dal biglietto da business. Questo output OCR è incluso nella risposta JSON.  
@@ -66,7 +66,7 @@ La [scheda analizza business](https://westcentralus.dev.cognitive.microsoft.com/
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business card result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione analizza business card. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 

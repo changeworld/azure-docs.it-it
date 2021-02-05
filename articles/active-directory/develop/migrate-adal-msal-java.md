@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 620f77655f8281919ba0831a7e53af8cd28bc5f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754982"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583994"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guida alla migrazione da ADAL a MSAL per Java
 
@@ -80,7 +80,7 @@ MSAL per Java aggiunge una [cache di token](msal-acquire-cache-tokens.md) per se
 
 In v 1.0, se si usa l' `https://login.microsoftonline.com/common` autorità, gli utenti possono accedere con qualsiasi account di Azure Active Directory (AAD) (per qualsiasi organizzazione).
 
-Se si usa l' `https://login.microsoftonline.com/common` autorità nella versione 2.0, gli utenti possono accedere con qualsiasi organizzazione AAD o anche un account Microsoft personale (MSA). In MSAL per Java, se si vuole limitare l'accesso a qualsiasi account di AAD, è necessario usare l' `https://login.microsoftonline.com/organizations` autorità, che è lo stesso comportamento di ADAL4J. Per specificare un'autorità, impostare il `authority` parametro nel metodo [PublicClientApplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) quando si crea la `PublicClientApplication` classe.
+Se si usa l' `https://login.microsoftonline.com/common` autorità nella versione 2.0, gli utenti possono accedere con qualsiasi organizzazione AAD o anche un account Microsoft personale (MSA). In MSAL per Java, se si vuole limitare l'accesso a qualsiasi account AAD, usare l' `https://login.microsoftonline.com/organizations` autorità (che è lo stesso comportamento di ADAL4J). Per specificare un'autorità, impostare il `authority` parametro nel metodo [PublicClientApplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) quando si crea la `PublicClientApplication` classe.
 
 ## <a name="v10-and-v20-tokens"></a>Token v1.0 e v2.0
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323788"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584941"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -57,14 +57,14 @@ Usare questo modulo per misurare l'accuratezza di un modello sottoposto a traini
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito il modulo **Evaluate Model** selezionarlo per aprire il riquadro di spostamento **Evaluate Model** a destra.  Quindi, scegliere la scheda **Outputs + logs** , in cui la sezione **Data Outputs** contiene diverse icone. L'icona **Visualize** presenta un'icona a forma di grafico a barre, che rappresenta il primo modo per vedere i risultati.
+Dopo aver eseguito il modulo **Evaluate Model** selezionarlo per aprire il riquadro di spostamento **Evaluate Model** a destra.  Quindi, scegliere la scheda **Outputs + logs**, in cui la sezione **Data Outputs** contiene diverse icone. L'icona **Visualize** presenta un'icona a forma di grafico a barre, che rappresenta il primo modo per vedere i risultati.
 
 Per la classificazione binaria, dopo aver fatto clic sull'icona **Visualizza** è possibile visualizzare la matrice di confusione binaria.
 Per la classificazione a più livelli, è possibile trovare il file del tracciato della matrice di confusione nella scheda **output + log** , come indicato di seguito:
 > [!div class="mx-imgBorder"]
 > ![Anteprima dell'immagine caricata](media/module/multi-class-confusion-matrix.png)
 
-Se si connettono i set di dati a entrambi gli input di **Evaluate Model** , i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
+Se si connettono i set di dati a entrambi gli input di **Evaluate Model**, i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
 Il modello o i dati collegati alla porta sinistra vengono presentati prima nel report, poi nelle metriche per il set di dati o il modello collegato alla porta destra.  
 
 Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due modelli di clustering basati sugli stessi dati, ma con parametri diversi.  
@@ -75,7 +75,7 @@ Poiché si tratta di un modello di clustering, i risultati della valutazione son
 
 ## <a name="metrics"></a>Metriche
 
-Questa sezione descrive le metriche restituite per i tipi specifici di modelli supportati per l'uso con **Evaluate Model** :
+Questa sezione descrive le metriche restituite per i tipi specifici di modelli supportati per l'uso con **Evaluate Model**:
 
 + [Modelli di classificazione](#metrics-for-classification-models)
 + [Modelli di regressione](#metrics-for-regression-models)
@@ -86,15 +86,15 @@ Questa sezione descrive le metriche restituite per i tipi specifici di modelli s
 
 Quando si valutano i modelli di classificazione binaria, vengono restituite le metriche seguenti.
   
--   **Accuratezza** : misura la validità di un modello di classificazione come percentuale dei risultati effettivi rispetto al numero totale di casi.  
+-   **Accuratezza**: misura la validità di un modello di classificazione come percentuale dei risultati effettivi rispetto al numero totale di casi.  
   
--   **Precisione** : rappresenta la percentuale di risultati effettivi rispetto a tutti i risultati positivi. Precisione = TP/(TP + FP)  
+-   **Precisione**: rappresenta la percentuale di risultati effettivi rispetto a tutti i risultati positivi. Precisione = TP/(TP + FP)  
   
 -   **Richiama** è la frazione della quantità totale di istanze rilevanti effettivamente recuperate. Richiamo = TP/(TP + FN)  
   
 -   Il **Punteggio F1** viene calcolato come media ponderata della precisione e richiama tra 0 e 1, dove il valore del Punteggio F1 ideale è 1.  
   
--   **Area sotto la curva** : misura l'area sotto la curva tracciata con i veri positivi sull'asse Y e i falsi positivi sull'asse X. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi.  
+-   **Area sotto la curva**: misura l'area sotto la curva tracciata con i veri positivi sull'asse Y e i falsi positivi sull'asse X. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi. AUC è la classificazione-soglia-invariante. Misura la qualità delle stime del modello indipendentemente dalla soglia di classificazione scelta.
 
 
 ### <a name="metrics-for-regression-models"></a>Metriche per i modelli di regressione
@@ -113,7 +113,7 @@ Le metriche restituite per i modelli di regressione sono progettate per stimare 
   
 
   
-- **Coefficiente di determinazione** : spesso definito R <sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile interpretare con cautela i valori di R<sup>2</sup>, in quanto i valori bassi possono essere perfettamente normali e i valori alti possono essere sospetti.
+- **Coefficiente di determinazione**: spesso definito R <sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile interpretare con cautela i valori di R<sup>2</sup>, in quanto i valori bassi possono essere perfettamente normali e i valori alti possono essere sospetti.
 
 ###  <a name="metrics-for-clustering-models"></a>Metriche per i modelli di clustering
 
@@ -133,7 +133,7 @@ Per la valutazione dei modelli di clustering, vengono segnalate le metriche segu
   
      Se il numero di punti dati assegnati ai cluster è minore del numero totale di punti dati disponibili, significa che a un cluster non è stato possibile assegnare punti dati.  
   
--   I punteggi nella colonna, **distanza massima da cluster Center** , rappresentano il numero massimo di distanze tra ogni punto e il baricentro del cluster del punto.  
+-   I punteggi nella colonna, **distanza massima da cluster Center**, rappresentano il numero massimo di distanze tra ogni punto e il baricentro del cluster del punto.  
   
      Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. Per determinare la distribuzione del cluster, è necessario esaminare questa statistica insieme al punteggio **Average Distance to Cluster Center**.   
 

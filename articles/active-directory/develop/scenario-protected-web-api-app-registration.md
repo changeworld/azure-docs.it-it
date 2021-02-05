@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756452"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584381"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
 
@@ -58,7 +58,7 @@ Altre impostazioni specifiche delle API Web sono l'API esposta e gli ambiti o i 
 
 Gli ambiti in genere hanno il formato `resourceURI/scopeName` . Per Microsoft Graph, gli ambiti dispongono di tasti di scelta rapida. Ad esempio, `User.Read` è un tasto di scelta rapida per `https://graph.microsoft.com/user.read` .
 
-Durante la registrazione dell'app, è necessario definire i parametri seguenti:
+Durante la registrazione dell'app, definire i parametri seguenti:
 
 - URI della risorsa
 - Uno o più ambiti
@@ -68,7 +68,7 @@ Per impostazione predefinita, il portale di registrazione delle applicazioni con
 
 Per le applicazioni client, gli ambiti vengono visualizzati come autorizzazioni *delegate* e i ruoli app vengono visualizzati come *autorizzazioni dell'applicazione* per l'API Web.
 
-Gli ambiti vengono visualizzati anche nella finestra di consenso presentata agli utenti dell'app. Quindi, è necessario fornire le stringhe corrispondenti che descrivono l'ambito:
+Gli ambiti vengono visualizzati anche nella finestra di consenso presentata agli utenti dell'app. Fornire pertanto le stringhe corrispondenti che descrivono l'ambito:
 
 - Come osservato da un utente.
 - Come osservato da un amministratore del tenant, che può concedere il consenso dell'amministratore.
@@ -99,7 +99,7 @@ Questa sezione illustra come registrare l'API Web protetta in modo che le app da
 
 #### <a name="exposing-application-permissions-app-roles"></a>Esposizione delle autorizzazioni dell'applicazione (ruoli app)
 
-Per esporre le autorizzazioni dell'applicazione, è necessario modificare il manifesto.
+Per esporre le autorizzazioni dell'applicazione, modificare il manifesto.
 
 1. Nella registrazione dell'applicazione per l'applicazione selezionare **manifesto**.
 1. Per modificare il manifesto, trovare l' `appRoles` impostazione e aggiungere i ruoli applicazione. Le definizioni di ruolo sono disponibili nel blocco JSON di esempio seguente.

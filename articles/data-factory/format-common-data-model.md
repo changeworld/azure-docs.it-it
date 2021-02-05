@@ -5,14 +5,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: a08457ba041fa39fda367976498a4a89930c56e3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854007"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585161"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato Common Data Model in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,22 +32,22 @@ Common Data Model è disponibile come set di dati [inline](data-flow-source.md#i
 
 La tabella seguente elenca le proprietà supportate da un'origine CDM. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
 
-| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
 | Formato metadati | Dove si trova il riferimento all'entità nei dati. Se si usa CDM versione 1,0, scegliere manifesto. Se si usa una versione CDM prima del 1,0, scegliere model.json. | Sì | `'manifest'` o `'model'` | manifestType |
 | Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
 | Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
-| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | No | string | entityPath |
+| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | no | string | entityPath |
 | File manifesto: nome del manifesto | Nome del file manifesto. Il valore predefinito è' default '  | No | string | manifestName |
-| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No | Timestamp | modifiedAfter <br> modifiedBefore | 
+| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Servizio collegato schema | Il servizio collegato in cui si trova il Corpus | Sì, se si usa il manifesto | `'adlsgen2'` o `'github'` | corpusStore | 
 | Contenitore di riferimento all'entità | Il corpo del contenitore è in | Sì, se si usano manifest e Corpus in ADLS Gen2 | string | adlsgen2_fileSystem |
 | Repository di riferimento all'entità | Nome repository GitHub | Sì, se si usano manifest e Corpus in GitHub | string | github_repository |
 | Ramo di riferimento all'entità | Ramo del repository GitHub | Sì, se si usano manifest e Corpus in GitHub | string |  github_branch |
 | Cartella Corpus | posizione radice del Corpus | Sì, se si usa il manifesto | string | corpusPath |
 | Entità Corpus | Percorso del riferimento all'entità | sì | string | Entità |
-| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | No | `true` o `false` | ignoreNoFilesFound |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 Quando si seleziona "riferimento all'entità" nelle trasformazioni di origine e sink, è possibile selezionare una delle tre opzioni seguenti per il percorso del riferimento all'entità:
 
@@ -85,6 +85,7 @@ Quando si esegue il mapping delle colonne del flusso di dati alle proprietà del
 2. Trovare le partizioni. Proprietà Location 
 3. Modificare "blob.core.windows.net" in "dfs.core.windows.net"
 4. Correzione di qualsiasi codifica "% 2F" nell'URL per "/"
+5. Se si usano i flussi di dati di ADF, i caratteri speciali nel percorso del file di partizione devono essere sostituiti con valori alfanumerici oppure passare ai flussi di dati sinapsi
 
 ### <a name="cdm-source-data-flow-script-example"></a>Esempio di script del flusso di dati di origine CDM
 
@@ -114,12 +115,12 @@ source(output(
 
 La tabella seguente elenca le proprietà supportate da un sink CDM. È possibile modificare queste proprietà nella scheda **Impostazioni** .
 
-| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
 | Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
 | Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
-| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | No | string | entityPath |
+| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | no | string | entityPath |
 | File manifesto: nome del manifesto | Nome del file manifesto. Il valore predefinito è' default ' | No | string | manifestName |
 | Servizio collegato schema | Il servizio collegato in cui si trova il Corpus | sì | `'adlsgen2'` o `'github'` | corpusStore | 
 | Contenitore di riferimento all'entità | Il corpo del contenitore è in | Sì, se Corpus in ADLS Gen2 | string | adlsgen2_fileSystem |
@@ -127,11 +128,11 @@ La tabella seguente elenca le proprietà supportate da un sink CDM. È possibile
 | Ramo di riferimento all'entità | Ramo del repository GitHub | Sì, se Corpus in GitHub | string |  github_branch |
 | Cartella Corpus | posizione radice del Corpus | sì | string | corpusPath |
 | Entità Corpus | Percorso del riferimento all'entità | sì | string | Entità |
-| Percorso partizione | Posizione in cui verrà scritta la partizione | No | string | partitionPath |
-| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | No | `true` o `false` | truncate |
-| Tipo di formato | Scegliere di specificare il formato parquet | No | `parquet` Se specificato | sottoformati |
+| Percorso partizione | Posizione in cui verrà scritta la partizione | no | string | partitionPath |
+| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
+| Tipo di formato | Scegliere di specificare il formato parquet | no | `parquet` Se specificato | sottoformati |
 | Delimitatore di colonna | Se si scrive in DelimitedText, come delimitare le colonne | Sì, se si scrive in DelimitedText | string | columnDelimiter |
-| Prima riga come intestazione | Se si usa DelimitedText, se i nomi delle colonne vengono aggiunti come intestazione | No | `true` o `false` | columnNamesAsHeader |
+| Prima riga come intestazione | Se si usa DelimitedText, se i nomi delle colonne vengono aggiunti come intestazione | no | `true` o `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>Esempio di script del flusso di dati sink CDM
 

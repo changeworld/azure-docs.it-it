@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792083"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585042"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modello di ricezione predefinito del riconoscimento moduli
 
@@ -38,7 +38,7 @@ Il servizio di ricezione precompilato estrae il contenuto delle ricevute di vend
 
 ### <a name="fields-extracted"></a>Campi estratti
 
-|Nome| Type | Descrizione | Testo | Valore (output standardizzato) |
+|Nome| Tipo | Descrizione | Testo | Valore (output standardizzato) |
 |:-----|:----|:----|:----| :----|
 | ReceiptType | string | Tipo di ricevuta di vendita | Dettaglio |  |
 | MerchantName | string | Nome dell'esercente che rilascia la ricevuta | Contoso |  |
@@ -102,7 +102,7 @@ La [ricezione dell'analisi](https://westcentralus.dev.cognitive.microsoft.com/do
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di ricezione dell'analisi. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata. |
 | |  | Running: l'operazione di analisi è in corso. |
@@ -467,7 +467,7 @@ L'API di ricezione consente inoltre di alimentare la [funzionalità di elaborazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Completare una [Guida introduttiva](quickstarts/client-library.md) per il riconoscimento dei moduli per iniziare a scrivere un'app di elaborazione della ricevuta con il riconoscimento del modulo nel linguaggio preferito.
+- Completare una [Guida introduttiva](quickstarts/client-library.md) per il riconoscimento dei moduli per iniziare a scrivere un'app di elaborazione della ricevuta con il riconoscimento del modulo nel linguaggio di sviluppo preferito.
 
 ## <a name="see-also"></a>Vedere anche
 

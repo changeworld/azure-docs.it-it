@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756472"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584398"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Chiamare un'API Web da un'app per dispositivi mobili
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Effettuare diverse richieste API
 
-Se è necessario chiamare la stessa API più volte o chiamare più API, durante la creazione dell'app considerare gli argomenti seguenti.
+Per chiamare più volte la stessa API o chiamare più API, considerare gli argomenti seguenti quando si compila l'app:
 
 - **Consenso incrementale**: la piattaforma Microsoft Identity consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni anziché tutte all'inizio. Ogni volta che l'app è pronta per chiamare un'API, dovrà richiedere solo gli ambiti necessari.
 
@@ -125,7 +125,7 @@ Se è necessario chiamare la stessa API più volte o chiamare più API, durante 
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chiamare diverse API usando il consenso incrementale e l'accesso condizionale
 
-Se è necessario chiamare diverse API per lo stesso utente, dopo aver acquisito un token per l'utente è possibile evitare di chiedere ripetutamente le credenziali all'utente chiamando successivamente `AcquireTokenSilent` per ottenere un token:
+Per chiamare diverse API per lo stesso utente, dopo aver acquisito un token per l'utente, è possibile evitare di richiedere ripetutamente le credenziali chiamando in seguito `AcquireTokenSilent` per ottenere un token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

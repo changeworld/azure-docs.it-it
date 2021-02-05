@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064369"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584231"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -43,9 +43,9 @@ Si presuppone una conoscenza delle app a [tenant singolo](quickstart-register-ap
 
 ### <a name="app-types-impacted"></a>Tipi di app interessati
 
-Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore.  Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale.  L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
+Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore. Solo in alcuni casi, quando un'app richiede indirettamente o automaticamente un token per un servizio, un'app richiede modifiche al codice per gestire le richieste di accesso condizionale.  L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
 
-In particolare, gli scenari seguenti richiedono che il codice gestisca le richieste di accesso condizionale:
+In particolare, gli scenari seguenti richiedono il codice per gestire le esigenze di accesso condizionale:
 
 * App che eseguono il flusso on-behalf-of
 * App che accedono a più servizi o risorse
@@ -54,7 +54,7 @@ In particolare, gli scenari seguenti richiedono che il codice gestisca le richie
 
 I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare un criterio di accesso condizionale, vedere [Avvio rapido: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 
-A seconda dello scenario, un cliente aziendale può applicare e rimuovere i criteri di accesso condizionale in qualsiasi momento. Affinché l'app continui a funzionare quando vengono applicati nuovi criteri, è necessario implementare la gestione delle richieste. Gli esempi seguenti illustrano la gestione delle richieste.
+A seconda dello scenario, un cliente aziendale può applicare e rimuovere i criteri di accesso condizionale in qualsiasi momento. Affinché l'app continui a funzionare quando viene applicato un nuovo criterio, implementare la gestione delle richieste di verifica. Gli esempi seguenti illustrano la gestione delle richieste.
 
 ### <a name="conditional-access-examples"></a>Esempi di accesso condizionale
 

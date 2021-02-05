@@ -8,13 +8,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
+ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 6da9c6775a6d5c96bc52183fefc3e5330272e9ff
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542083"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585127"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitoraggio del riferimento ai dati di Azure Machine Learning
 
@@ -26,7 +27,7 @@ Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamen
 
 **Modello**
 
-| Metric | Unità | Descrizione |
+| Metrica | Unità | Descrizione |
 | ----- | ----- | ----- |
 | Distribuzione del modello non riuscita | Conteggio | Numero di distribuzioni di modelli non riuscite. |
 | Distribuzione modello avviata | Conteggio | Numero di distribuzioni di modelli avviate. |
@@ -38,7 +39,7 @@ Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamen
 
 Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di calcolo.
 
-| Metric | Unità | Descrizione |
+| Metrica | Unità | Descrizione |
 | ----- | ----- | ----- |
 | Core attivi | Conteggio | Numero di core di calcolo attivi. |
 | Nodi attivi | Conteggio | Numero di nodi attivi. |
@@ -56,7 +57,7 @@ Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di cal
 
 **Risorsa**
 
-| Metric | Unità | Descrizione |
+| Metrica | Unità | Descrizione |
 | ----- | ----- | ----- |
 | CpuUtilization | Percentuale | Percentuale di utilizzo della CPU per un determinato nodo durante un'esecuzione o un processo. Questa metrica viene pubblicata solo quando un processo è in esecuzione in un nodo. Un processo può usare uno o più nodi. Questa metrica è pubblicata per ogni nodo. |
 | GpuUtilization | Percentuale | Percentuale di utilizzo della GPU per un determinato nodo durante un'esecuzione o un processo. Un nodo può avere una o più GPU. Questa metrica è pubblicata per ogni GPU per ogni nodo. |
@@ -65,7 +66,7 @@ Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di cal
 
 Informazioni sulle esecuzioni di training.
 
-| Metric | Unità | Descrizione |
+| Metrica | Unità | Descrizione |
 | ----- | ----- | ----- |
 | Esecuzioni completate | Conteggio | Numero di esecuzioni completate. |
 | Esecuzioni non riuscite | Conteggio | Numero di esecuzioni non riuscite. |
@@ -178,7 +179,7 @@ Gli schemi seguenti sono utilizzati da Azure Machine Learning
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Editore | Server di pubblicazione del tipo di cluster |
+| Publisher | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -214,7 +215,7 @@ Gli schemi seguenti sono utilizzati da Azure Machine Learning
 | VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Editore | Autore dell'immagine della macchina virtuale. Ad esempio, Microsoft-dsvm |
+| Publisher | Autore dell'immagine della macchina virtuale. Ad esempio, Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -228,7 +229,7 @@ Gli schemi seguenti sono utilizzati da Azure Machine Learning
 | TotalE2ETimeInSeconds | Tempo totale nodo attivo |
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - Per una descrizione del monitoraggio Azure Machine Learning, vedere [Azure Machine Learning di monitoraggio](monitor-azure-machine-learning.md) .
 - Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md).

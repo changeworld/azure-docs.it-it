@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 460c96ddb06318cacd4e436190f459e4c060536e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012122"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583689"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Avvio rapido: Configurare un'applicazione client per l'accesso a un'API Web
 
@@ -110,7 +110,7 @@ Per alcune autorizzazioni, come quella *Files.Read.All* di Microsoft Graph, è r
 
 ### <a name="configure-client-credentials"></a>Configurare le credenziali del client
 
-Le app che usano le autorizzazioni dell'applicazione eseguono l'autenticazione con le proprie credenziali, senza richiedere alcuna interazione utente. Prima che l'applicazione (o l'API) possa accedere a Microsoft Graph, a un'API Web o a un'altra API usando le autorizzazioni dell'applicazione, è necessario configurare le credenziali dell'app client.
+Le app che usano le autorizzazioni dell'applicazione eseguono l'autenticazione con le proprie credenziali, senza richiedere alcuna interazione utente. Prima che l'applicazione (o l'API) possa accedere Microsoft Graph, un'API Web o un'altra API usando le autorizzazioni dell'applicazione, è necessario configurare le credenziali dell'app client.
 
 Per altre informazioni sulla configurazione delle credenziali di un'app, vedere la sezione [Aggiungere le credenziali](quickstart-register-app.md#add-credentials) di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
 

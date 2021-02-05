@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 60189b8ba952bc3315bf514c5d0786601840665a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 396e9cfeace8791a59dec4a9c9c7203212f57304
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756206"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584248"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedura: eseguire l'accesso SSO tra app ADAL e MSAL in macOS e iOS
 
@@ -34,7 +34,7 @@ In questa sezione vengono descritte le differenze SSO tra MSAL e ADAL 2.7. x
 
 ### <a name="cache-format"></a>Formato cache
 
-ADAL 2.7. x può leggere il formato della cache MSAL. Non è necessario eseguire alcuna operazione speciale per SSO tra app con la versione ADAL 2.7. x. Tuttavia, è necessario tenere presenti le differenze negli identificatori di account supportati da tali librerie.
+ADAL 2.7. x può leggere il formato della cache MSAL. Non è necessario eseguire alcuna operazione speciale per SSO tra app con la versione ADAL 2.7. x. Tuttavia, tenere presenti le differenze negli identificatori di account supportati da tali librerie.
 
 ### <a name="account-identifier-differences"></a>Differenze tra gli identificatori di account
 

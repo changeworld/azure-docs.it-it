@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: baa071c8967c97cb5df2b8f522b3737436bdb359
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4e09f9b8564c9319e68984df1c0f8db7a496a6d0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787706"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584805"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -63,117 +63,6 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
     La risorsa con il tipo di _Servizi cognitivi_ ha le chiavi di _sottoscrizione_ .
 
-### <a name="upgrade-qna-maker-sku"></a>Aggiornare QnA Maker SKU
-
-Per ulteriori domande e risposte nella Knowledge base, oltre al livello corrente, aggiornare il piano tariffario del servizio QnA Maker.
-
-Per aggiornare lo SKU di gestione di QnA Maker:
-
-1. Passare alla risorsa QnA Maker nel portale di Azure e selezionare **Piano tariffario**.
-
-    ![Risorsa QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
-
-1. Scegliere lo SKU appropriato e fare clic su **Seleziona**.
-
-    ![Prezzi di QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
-
-### <a name="upgrade-app-service"></a>Aggiornare il servizio app
-
- Quando la Knowledge base deve servire più richieste dall'app client, aggiornare il piano tariffario del servizio app.
-
-È possibile [aumentare](../../../app-service/manage-scale-up.md) o ridurre il servizio app.
-
-Passare alla risorsa del servizio app nel portale di Azure e selezionare l'opzione di **scalabilità verticale** o **orizzontale** secondo le esigenze.
-
-![Scalabilità del servizio app QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
-
-### <a name="get-the-latest-runtime-updates"></a>Ottenere gli aggiornamenti più recenti del runtime
-
-Il runtime di QnAMaker fa parte dell'istanza del servizio app Azure distribuita quando si [Crea un servizio QnAMaker](./set-up-qnamaker-service-azure.md) nel portale di Azure. Vengono applicati aggiornamenti periodici al runtime. L'istanza del servizio app QnA Maker è in modalità di aggiornamento automatico dopo la versione dell'estensione del sito aprile 2019 (versione 5 +). Questo aggiornamento è stato progettato per gestire il tempo di inattività durante gli aggiornamenti.
-
-È possibile controllare la versione corrente in https://www.qnamaker.ai/UserSettings . Se la versione è precedente alla versione 5. x, è necessario riavviare il servizio app per applicare gli aggiornamenti più recenti:
-
-1. Passare al servizio QnAMaker (gruppo di risorse) nell' [portale di Azure](https://portal.azure.com).
-
-    > [!div class="mx-imgBorder"]
-    > ![Gruppo di risorse di Azure per QnA Maker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
-
-1. Selezionare l'istanza del servizio app e aprire la sezione **Panoramica** .
-
-    > [!div class="mx-imgBorder"]
-    > ![Istanza del servizio app QnAMaker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
-
-
-1. Riavviare il servizio app. Il processo di aggiornamento dovrebbe terminare tra qualche secondo. Eventuali applicazioni dipendenti o bot che usano questo servizio QnAMaker non saranno disponibili per gli utenti finali durante questo periodo di riavvio.
-
-    ![Riavvio dell'istanza del servizio app QnAMaker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
-
-### <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configurare l'impostazione di inattività del servizio app per evitare il timeout
-
-Il servizio app, che serve il runtime di stima QnA Maker per una Knowledge base pubblicata, ha una configurazione del timeout di inattività, che per impostazione predefinita si timeout automaticamente se il servizio è inattivo. Per QnA Maker, ciò significa che l'API generateAnswer del runtime di stima scade occasionalmente dopo i periodi di assenza di traffico.
-
-Per poter caricare l'app dell'endpoint di stima anche quando non è disponibile traffico, impostare inattivo su Always on.
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare e selezionare il servizio app della risorsa QnA Maker. Avrà lo stesso nome della risorsa QnA Maker ma avrà un **tipo** diverso di servizio app.
-1. Individuare **le impostazioni** e quindi selezionare **configurazione**.
-1. Nel riquadro Configurazione selezionare **Impostazioni generali**, quindi trova **Always on** e selezionare **on** come valore.
-
-    > [!div class="mx-imgBorder"]
-    > ![Nel riquadro Configurazione selezionare * * Impostazioni generali * *, quindi trova * * always on * * e selezionare * * on * * come valore.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
-
-1. Selezionare **Save (Salva** ) per salvare la configurazione.
-1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Selezionare **Continua**.
-
-Altre informazioni su come configurare le [Impostazioni generali](../../../app-service/configure-common.md#configure-general-settings)del servizio app.
-
-### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurare ambiente del servizio app per ospitare QnA Maker servizio app
-Il ambiente del servizio app (ASE) può essere usato per ospitare QnA Maker servizio app. Eseguire i passaggi seguenti:
-
-1. Creare una ambiente del servizio app e contrassegnarla come "External". Per istruzioni, seguire l' [esercitazione](../../../app-service/environment/create-external-ase.md) .
-2.  Creare un servizio app all'interno del ambiente del servizio app.
-    * Controllare la configurazione del servizio app e aggiungere "PrimaryEndpointKey" come impostazione dell'applicazione. Il valore di ' PrimaryEndpointKey ' deve essere impostato su " \<app-name\> -PrimaryEndpointKey". Il nome dell'app è definito nell'URL del servizio app. Ad esempio, se l'URL del servizio app è "mywebsite.myase.p.azurewebsite.net", il nome dell'app è "sito Web". In questo caso, il valore di ' PrimaryEndpointKey ' deve essere impostato su "sito Web-PrimaryEndpointKey".
-    * Creare un servizio di ricerca di Azure.
-    * Verificare che le impostazioni di ricerca di Azure e app siano configurate in modo appropriato. 
-      Seguire questa [esercitazione](../reference-app-service.md?tabs=v1#app-service).
-3.  Aggiornare il gruppo di sicurezza di rete associato al ambiente del servizio app
-    * Aggiornare le regole di sicurezza in ingresso predefinite in base alle esigenze.
-    * Aggiungere una nuova regola di sicurezza in ingresso con origine come ' tag di servizio ' e tag del servizio di origine come ' CognitiveServicesManagement '.
-4.  Creare un'istanza del servizio cognitivo QnA Maker (Microsoft. CognitiveServices/accounts) usando Azure Resource Manager, in cui QnA Maker endpoint deve essere impostato sull'endpoint del servizio app creato in precedenza (https://mywebsite.myase.p.azurewebsite.net).
-
-### <a name="network-isolation-for-app-service"></a>Isolamento rete per il servizio app
-
-QnA Maker servizio cognitivo usa il tag del servizio: `CognitiveServicesManagement` . Per aggiungere gli intervalli di indirizzi IP a un oggetto Allow, attenersi alla procedura seguente:
-
-* Scaricare [gli intervalli IP per tutti i tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519).
-* Selezionare gli indirizzi IP di "CognitiveServicesManagement".
-* Passare alla sezione rete della risorsa del servizio app e fare clic sull'opzione "Configura restrizione di accesso" per aggiungere gli indirizzi IP a un oggetto allow.
-
-È anche presente uno script automatizzato per eseguire la stessa operazione per il servizio app. È possibile trovare lo [script di PowerShell per configurare un oggetto Allow](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) su GitHub. È necessario immettere l'ID sottoscrizione, il gruppo di risorse e il nome effettivo del servizio app come parametri dello script. Eseguendo lo script, gli IP verranno aggiunti automaticamente al servizio app allow.
-
-### <a name="business-continuity-with-traffic-manager"></a>Continuità aziendale con gestione traffico
-
-L'obiettivo primario del piano di continuità aziendale è creare un endpoint di Knowledge Base resiliente che garantisca l'assenza di tempi di inattività per il bot o l'applicazione che ne fa uso.
-
-> [!div class="mx-imgBorder"]
-> ![Piano di continuità aziendale QnA Maker](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
-
-L'idea generale è la seguente:
-
-1. Impostare due [servizi QnA Maker](set-up-qnamaker-service-azure.md) paralleli in [aree associate di Azure](../../../best-practices-availability-paired-regions.md).
-
-1. [Eseguire il backup](../../../app-service/manage-backup.md) del servizio app QnA Maker primario e [ripristinarlo](../../../app-service/web-sites-restore.md) nell'installazione secondaria. In questo modo, entrambe le configurazioni funzioneranno con lo stesso nome host e le stesse chiavi.
-
-1. Mantieni sincronizzati gli indici di ricerca di Azure primaria e secondaria. Usare l'esempio GitHub [qui](https://github.com/pchoudhari/QnAMakerBackupRestore) per informazioni su come eseguire il backup e ripristinare gli indici di Azure.
-
-1. Eseguire il backup di Application Insights usando l'[esportazione continua](../../../azure-monitor/app/export-telemetry.md).
-
-1. Una volta impostati gli stack primario e secondario, usare [Gestione traffico](../../../traffic-manager/traffic-manager-overview.md) per configurare i due endpoint e impostare un metodo di routing.
-
-1. È necessario creare un Transport Layer Security (TLS), noto in precedenza come Secure Sockets Layer (SSL), certificato per l'endpoint di gestione traffico. [Associare il certificato TLS/SSL](../../../app-service/configure-ssl-bindings.md) nei servizi app.
-
-1. Usare infine l'endpoint di Gestione traffico nel bot o nell'app.
-
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 Questa procedura consente di creare le risorse di Azure necessarie per gestire il contenuto della Knowledge base. Dopo aver completato questi passaggi, le chiavi della *sottoscrizione* sono disponibili nella pagina **chiavi** della risorsa nel portale di Azure.
@@ -216,9 +105,9 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
     ![Elenco di risorse QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Vai alle **chiavi**:
+2. Passare a **chiavi ed endpoint**:
 
-    ![Chiave di sottoscrizione](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![Chiave di sottoscrizione QnA Maker gestita (anteprima)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
 ### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Trovare le chiavi dell'endpoint di query nel portale di QnA Maker
 
@@ -256,9 +145,96 @@ Informazioni su come aggiornare le risorse utilizzate dalla Knowledge base. QnA 
 
 ---
 
-## <a name="upgrade-the-azure-cognitive-search-service"></a>Aggiornare il servizio Azure ricerca cognitiva
+### <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
+
+1. Proteggere la risorsa del servizio cognitivo dall'accesso pubblico [configurando la rete virtuale](../../cognitive-services-virtual-networks.md?tabs=portal).
+2. Proteggere il servizio app (Runtime QnA) dall'accesso pubblico.
+
+   ##### <a name="add-ips-to-app-service-allowlist"></a>Aggiungi indirizzi IP al servizio app consentiti
+
+    * Consentire il traffico solo da indirizzi IP del servizio cognitivi. Questi sono già inclusi nel tag del servizio `CognitiveServicesManagement` . Questa operazione è necessaria per la creazione di API (Create/Update KB) per richiamare il servizio app e aggiornare di conseguenza il servizio ricerca di Azure. Vedere [altre informazioni sui tag del servizio.](../../../virtual-network/service-tags-overview.md)
+    * Assicurarsi di consentire anche altri punti di ingresso come il servizio bot, il portale QnA Maker (potrebbe essere il Corpnet) e così via per l'accesso all'API "GenerateAnswer" per la stima.
+    * Per aggiungere gli intervalli di indirizzi IP a un oggetto Allow, attenersi alla procedura seguente:
+
+      * Scaricare [gli intervalli IP per tutti i tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519).
+      * Selezionare gli indirizzi IP di "CognitiveServicesManagement".
+      * Passare alla sezione rete della risorsa del servizio app e fare clic sull'opzione "Configura restrizione di accesso" per aggiungere gli indirizzi IP a un oggetto allow.
+
+    È anche presente uno script automatizzato per eseguire la stessa operazione per il servizio app. È possibile trovare lo [script di PowerShell per configurare un oggetto Allow](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) su GitHub. È necessario immettere l'ID sottoscrizione, il gruppo di risorse e il nome effettivo del servizio app come parametri dello script. Eseguendo lo script, gli IP verranno aggiunti automaticamente al servizio app allow.
+
+    ##### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurare ambiente del servizio app per ospitare QnA Maker servizio app
+    Il ambiente del servizio app (ASE) può essere usato per ospitare QnA Maker servizio app. Eseguire i passaggi seguenti:
+
+    1. Creare una ambiente del servizio app e contrassegnarla come "External". Per istruzioni, seguire l' [esercitazione](../../../app-service/environment/create-external-ase.md) .
+    2.  Creare un servizio app all'interno del ambiente del servizio app.
+        * Controllare la configurazione del servizio app e aggiungere "PrimaryEndpointKey" come impostazione dell'applicazione. Il valore di ' PrimaryEndpointKey ' deve essere impostato su " \<app-name\> -PrimaryEndpointKey". Il nome dell'app è definito nell'URL del servizio app. Ad esempio, se l'URL del servizio app è "mywebsite.myase.p.azurewebsite.net", il nome dell'app è "sito Web". In questo caso, il valore di ' PrimaryEndpointKey ' deve essere impostato su "sito Web-PrimaryEndpointKey".
+        * Creare un servizio di ricerca di Azure.
+        * Verificare che le impostazioni di ricerca di Azure e app siano configurate in modo appropriato. 
+          Seguire questa [esercitazione](../reference-app-service.md?tabs=v1#app-service).
+    3.  Aggiornare il gruppo di sicurezza di rete associato al ambiente del servizio app
+        * Aggiornare le regole di sicurezza in ingresso predefinite in base alle esigenze.
+        * Aggiungere una nuova regola di sicurezza in ingresso con origine come ' tag di servizio ' e tag del servizio di origine come ' CognitiveServicesManagement '.
+    4.  Creare un'istanza del servizio cognitivo QnA Maker (Microsoft. CognitiveServices/accounts) usando Azure Resource Manager, in cui QnA Maker endpoint deve essere impostato sull'endpoint del servizio app creato in precedenza (https://mywebsite.myase.p.azurewebsite.net).
+    
+3. Configurazione di ricerca cognitiva come endpoint privato all'interno di una VNET
+
+    Quando viene creata un'istanza di ricerca durante la creazione di una risorsa di QnA Maker, è possibile forzare ricerca cognitiva a supportare una configurazione di endpoint privato creata interamente all'interno di un VNet del cliente.
+
+    Per usare un endpoint privato, è necessario creare tutte le risorse nella stessa area.
+
+    * Risorsa QnA Maker
+    * nuova risorsa ricerca cognitiva
+    * nuova risorsa rete virtuale
+
+    Completare i passaggi seguenti nel [portale di Azure](https://portal.azure.com):
+
+    1. Creare una [risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
+    1. Creare una nuova risorsa ricerca cognitiva con la connettività endpoint (dati) impostata su _privata_. Creare la risorsa nella stessa area della risorsa QnA Maker creata nel passaggio 1. Altre informazioni sulla [creazione di una risorsa ricerca cognitiva](../../../search/search-create-service-portal.md), quindi usare questo collegamento per passare direttamente alla [pagina di creazione della risorsa](https://ms.portal.azure.com/#create/Microsoft.Search).
+    1. Creare una nuova [risorsa di rete virtuale](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
+    1. Configurare VNET nella risorsa del servizio app creata nel passaggio 1 di questa procedura.
+        1. Creare una nuova voce DNS in VNET per la nuova risorsa ricerca cognitiva creata nel passaggio 2. all'indirizzo IP del ricerca cognitiva.
+    1. [Associare il servizio app alla nuova risorsa ricerca cognitiva](#configure-qna-maker-to-use-different-cognitive-search-resource) creata nel passaggio 2. Quindi, è possibile eliminare la risorsa ricerca cognitiva originale creata nel passaggio 1.
+
+    Nel [portale di QnA Maker](https://www.qnamaker.ai/)creare la prima Knowledge base.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
+
+1. Proteggere la risorsa del servizio cognitivo dall'accesso pubblico [configurando la rete virtuale](../../cognitive-services-virtual-networks.md?tabs=portal).
+2. [Creare endpoint privati](../reference-private-endpoint.md) nella risorsa ricerca di Azure.
+
+---
+
+## <a name="upgrade-azure-resources"></a>Aggiornare le risorse di Azure
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
+
+### <a name="upgrade-qna-maker-sku"></a>Aggiornare QnA Maker SKU
+
+Per ulteriori domande e risposte nella Knowledge base, oltre al livello corrente, aggiornare il piano tariffario del servizio QnA Maker.
+
+Per aggiornare lo SKU di gestione di QnA Maker:
+
+1. Passare alla risorsa QnA Maker nel portale di Azure e selezionare **Piano tariffario**.
+
+    ![Risorsa QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
+
+1. Scegliere lo SKU appropriato e fare clic su **Seleziona**.
+
+    ![Prezzi di QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
+    
+### <a name="upgrade-app-service"></a>Aggiornare il servizio app
+
+Quando la Knowledge base deve servire più richieste dall'app client, aggiornare il piano tariffario del servizio app.
+
+È possibile [aumentare](../../../app-service/manage-scale-up.md) o ridurre il servizio app.
+
+Passare alla risorsa del servizio app nel portale di Azure e selezionare l'opzione di **scalabilità verticale** o **orizzontale** secondo le esigenze.
+
+![Scalabilità del servizio app QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
+
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Aggiornare il servizio Azure ricerca cognitiva
 
 Se si prevede di avere molte knowledge base, aggiornare il piano tariffario del servizio Ricerca cognitiva di Azure.
 
@@ -285,10 +261,40 @@ Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di r
 1. Riavviare l'istanza del servizio app.
 
     ![Riavvio dell'istanza del servizio app QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
+    
+### <a name="inactivity-policy-for-free-search-resources"></a>Criteri di inattività per le risorse di ricerca gratuita
 
-### <a name="cognitive-search-consideration"></a>Considerazione ricerca cognitiva
+Se non si usa una risorsa QnA Maker, è necessario rimuovere tutte le risorse. Se non si rimuovono le risorse inutilizzate, la Knowledge base smetterà di funzionare se è stata creata una risorsa di ricerca gratuita.
 
-Ricerca cognitiva, come risorsa separata, presenta alcune configurazioni diverse che è necessario conoscere.
+Le risorse di ricerca gratuite vengono eliminate dopo 90 giorni senza ricevere una chiamata API.
+    
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
+
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Aggiornare il servizio Azure ricerca cognitiva
+
+Se si prevede di avere molte knowledge base, aggiornare il piano tariffario del servizio Ricerca cognitiva di Azure.
+
+Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A questo scopo, seguire questa procedura:
+
+1. Creare una nuova risorsa di ricerca di Azure nella portale di Azure e selezionare lo SKU desiderato.
+
+    ![Risorsa di Ricerca di Azure QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
+
+1. Ripristinare gli indici dalla risorsa di Ricerca di Azure originale alla nuova risorsa. Vedere il [codice di esempio di ripristino del backup](https://github.com/pchoudhari/QnAMakerBackupRestore).
+
+1. Per collegare la nuova risorsa di ricerca di Azure al servizio QnA Maker gestito (anteprima), vedere l'argomento seguente.
+
+### <a name="inactivity-policy-for-free-search-resources"></a>Criteri di inattività per le risorse di ricerca gratuita
+
+Se non si usa una risorsa QnA Maker, è necessario rimuovere tutte le risorse. Se non si rimuovono le risorse inutilizzate, la Knowledge base smetterà di funzionare se è stata creata una risorsa di ricerca gratuita.
+
+Le risorse di ricerca gratuite vengono eliminate dopo 90 giorni senza ricevere una chiamata API.
+
+---
+
+## <a name="configure-azure-resources"></a>Configurare le risorse di Azure
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 ### <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configurare QnA Maker per l'uso di risorse ricerca cognitiva diverse
 
@@ -319,47 +325,70 @@ Se si crea un servizio QnA tramite modelli di Azure Resource Manager, è possibi
 
 Altre informazioni su come configurare le [impostazioni dell'applicazione](../../../app-service/configure-common.md#configure-app-settings)del servizio app.
 
-### <a name="configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet"></a>Configurazione di ricerca cognitiva come endpoint privato all'interno di una VNET
+### <a name="get-the-latest-runtime-updates"></a>Ottenere gli aggiornamenti più recenti del runtime
 
-Quando viene creata un'istanza di ricerca durante la creazione di una risorsa di QnA Maker, è possibile forzare ricerca cognitiva a supportare una configurazione di endpoint privato creata interamente all'interno di un VNet del cliente.
+Il runtime di QnAMaker fa parte dell'istanza del servizio app Azure distribuita quando si [Crea un servizio QnAMaker](./set-up-qnamaker-service-azure.md) nel portale di Azure. Vengono applicati aggiornamenti periodici al runtime. L'istanza del servizio app QnA Maker è in modalità di aggiornamento automatico dopo la versione dell'estensione del sito aprile 2019 (versione 5 +). Questo aggiornamento è stato progettato per gestire il tempo di inattività durante gli aggiornamenti.
 
-Per usare un endpoint privato, è necessario creare tutte le risorse nella stessa area.
+È possibile controllare la versione corrente in https://www.qnamaker.ai/UserSettings . Se la versione è precedente alla versione 5. x, è necessario riavviare il servizio app per applicare gli aggiornamenti più recenti:
 
-* Risorsa QnA Maker
-* nuova risorsa ricerca cognitiva
-* nuova risorsa rete virtuale
+1. Passare al servizio QnAMaker (gruppo di risorse) nell' [portale di Azure](https://portal.azure.com).
 
-Completare i passaggi seguenti nel [portale di Azure](https://portal.azure.com):
+    > [!div class="mx-imgBorder"]
+    > ![Gruppo di risorse di Azure per QnA Maker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
-1. Creare una [risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
-1. Creare una nuova risorsa ricerca cognitiva con la connettività endpoint (dati) impostata su _privata_. Creare la risorsa nella stessa area della risorsa QnA Maker creata nel passaggio 1. Altre informazioni sulla [creazione di una risorsa ricerca cognitiva](../../../search/search-create-service-portal.md), quindi usare questo collegamento per passare direttamente alla [pagina di creazione della risorsa](https://ms.portal.azure.com/#create/Microsoft.Search).
-1. Creare una nuova [risorsa di rete virtuale](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
-1. Configurare VNET nella risorsa del servizio app creata nel passaggio 1 di questa procedura.
-    1. Creare una nuova voce DNS in VNET per la nuova risorsa ricerca cognitiva creata nel passaggio 2. all'indirizzo IP del ricerca cognitiva.
-1. [Associare il servizio app alla nuova risorsa ricerca cognitiva](#configure-qna-maker-to-use-different-cognitive-search-resource) creata nel passaggio 2. Quindi, è possibile eliminare la risorsa ricerca cognitiva originale creata nel passaggio 1.
+1. Selezionare l'istanza del servizio app e aprire la sezione **Panoramica** .
 
-Nel [portale di QnA Maker](https://www.qnamaker.ai/)creare la prima Knowledge base.
+    > [!div class="mx-imgBorder"]
+    > ![Istanza del servizio app QnAMaker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
 
-### <a name="inactivity-policy-for-free-search-resources"></a>Criteri di inattività per le risorse di ricerca gratuita
+1. Riavviare il servizio app. Il processo di aggiornamento dovrebbe terminare tra qualche secondo. Eventuali applicazioni dipendenti o bot che usano questo servizio QnAMaker non saranno disponibili per gli utenti finali durante questo periodo di riavvio.
 
-Se non si usa una risorsa QnA Maker, è necessario rimuovere tutte le risorse. Se non si rimuovono le risorse inutilizzate, la Knowledge base smetterà di funzionare se è stata creata una risorsa di ricerca gratuita.
+    ![Riavvio dell'istanza del servizio app QnAMaker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-Le risorse di ricerca gratuite vengono eliminate dopo 90 giorni senza ricevere una chiamata API.
+### <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configurare l'impostazione di inattività del servizio app per evitare il timeout
+
+Il servizio app, che serve il runtime di stima QnA Maker per una Knowledge base pubblicata, ha una configurazione del timeout di inattività, che per impostazione predefinita si timeout automaticamente se il servizio è inattivo. Per QnA Maker, ciò significa che l'API generateAnswer del runtime di stima scade occasionalmente dopo i periodi di assenza di traffico.
+
+Per poter caricare l'app dell'endpoint di stima anche quando non è disponibile traffico, impostare inattivo su Always on.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Cercare e selezionare il servizio app della risorsa QnA Maker. Avrà lo stesso nome della risorsa QnA Maker ma avrà un **tipo** diverso di servizio app.
+1. Individuare **le impostazioni** e quindi selezionare **configurazione**.
+1. Nel riquadro Configurazione selezionare **Impostazioni generali**, quindi trova **Always on** e selezionare **on** come valore.
+
+    > [!div class="mx-imgBorder"]
+    > ![Nel riquadro Configurazione selezionare * * Impostazioni generali * *, quindi trova * * always on * * e selezionare * * on * * come valore.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
+
+1. Selezionare **Save (Salva** ) per salvare la configurazione.
+1. Viene chiesto se si vuole riavviare l'app per usare la nuova impostazione. Selezionare **Continua**.
+
+Altre informazioni su come configurare le [Impostazioni generali](../../../app-service/configure-common.md#configure-general-settings)del servizio app.
+
+### <a name="business-continuity-with-traffic-manager"></a>Continuità aziendale con gestione traffico
+
+L'obiettivo primario del piano di continuità aziendale è creare un endpoint di Knowledge Base resiliente che garantisca l'assenza di tempi di inattività per il bot o l'applicazione che ne fa uso.
+
+> [!div class="mx-imgBorder"]
+> ![Piano di continuità aziendale QnA Maker](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+L'idea generale è la seguente:
+
+1. Impostare due [servizi QnA Maker](set-up-qnamaker-service-azure.md) paralleli in [aree associate di Azure](../../../best-practices-availability-paired-regions.md).
+
+1. [Eseguire il backup](../../../app-service/manage-backup.md) del servizio app QnA Maker primario e [ripristinarlo](../../../app-service/web-sites-restore.md) nell'installazione secondaria. In questo modo, entrambe le configurazioni funzioneranno con lo stesso nome host e le stesse chiavi.
+
+1. Mantieni sincronizzati gli indici di ricerca di Azure primaria e secondaria. Usare l'esempio GitHub [qui](https://github.com/pchoudhari/QnAMakerBackupRestore) per informazioni su come eseguire il backup e ripristinare gli indici di Azure.
+
+1. Eseguire il backup di Application Insights usando l'[esportazione continua](../../../azure-monitor/app/export-telemetry.md).
+
+1. Una volta impostati gli stack primario e secondario, usare [Gestione traffico](../../../traffic-manager/traffic-manager-overview.md) per configurare i due endpoint e impostare un metodo di routing.
+
+1. È necessario creare un Transport Layer Security (TLS), noto in precedenza come Secure Sockets Layer (SSL), certificato per l'endpoint di gestione traffico. [Associare il certificato TLS/SSL](../../../app-service/configure-ssl-bindings.md) nei servizi app.
+
+1. Usare infine l'endpoint di Gestione traffico nel bot o nell'app.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
-
-Se si prevede di avere molte knowledge base, aggiornare il piano tariffario del servizio Ricerca cognitiva di Azure.
-
-Attualmente, non è possibile eseguire un aggiornamento sul posto dello SKU di ricerca di Azure. È tuttavia possibile creare una nuova risorsa di Ricerca di Azure con lo SKU desiderato, ripristinare i dati nella nuova risorsa e quindi collegarla allo stack di QnA Maker. A questo scopo, seguire questa procedura:
-
-1. Creare una nuova risorsa di ricerca di Azure nella portale di Azure e selezionare lo SKU desiderato.
-
-    ![Risorsa di Ricerca di Azure QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
-
-1. Ripristinare gli indici dalla risorsa di Ricerca di Azure originale alla nuova risorsa. Vedere il [codice di esempio di ripristino del backup](https://github.com/pchoudhari/QnAMakerBackupRestore).
-
-1. Per collegare la nuova risorsa di ricerca di Azure al servizio QnA Maker gestito (anteprima), vedere l'argomento seguente.
 
 ### <a name="configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource"></a>Configurare QnA Maker servizio gestito (anteprima) per l'uso di risorse ricerca cognitiva diverse
 
@@ -375,11 +404,6 @@ Se si crea un servizio QnA gestito (anteprima) e le relative dipendenze (ad esem
 
 > [!NOTE]
 > Se si modifica il servizio ricerca di Azure associato a QnA Maker, si perderà l'accesso a tutte le Knowledge base già presenti. Assicurarsi di esportare le Knowledge base esistenti prima di modificare il servizio ricerca di Azure.
-### <a name="inactivity-policy-for-free-search-resources"></a>Criteri di inattività per le risorse di ricerca gratuita
-
-Se non si usa una risorsa QnA Maker, è necessario rimuovere tutte le risorse. Se non si rimuovono le risorse inutilizzate, la Knowledge base smetterà di funzionare se è stata creata una risorsa di ricerca gratuita.
-
-Le risorse di ricerca gratuite vengono eliminate dopo 90 giorni senza ricevere una chiamata API.
 
 ---
 

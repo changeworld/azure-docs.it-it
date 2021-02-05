@@ -13,12 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064845"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583977"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Problemi noti sui browser di Internet Explorer (MSAL.js)
 
@@ -39,7 +39,7 @@ Questo perché Internet Explorer non supporta le promesse JavaScript in modo nat
 La distribuzione dell'applicazione in produzione (ad esempio in app Web di Azure) normalmente funziona correttamente, purché l'utente finale abbia accettato i popup. È stato testato con Internet Explorer 11.
 
 ### <a name="running-locally"></a>Esecuzione in locale
-Se si desidera eseguire ed eseguire il debug in locale dell'applicazione in esecuzione in Internet Explorer, è necessario tenere presenti le considerazioni seguenti (si supponga di voler eseguire l'applicazione come *http://localhost:1234* ):
+Se si desidera eseguire ed eseguire il debug in locale dell'applicazione in esecuzione in Internet Explorer, tenere presente le considerazioni seguenti (si supponga di voler eseguire l'applicazione come *http://localhost:1234* ):
 
 - Internet Explorer dispone di un meccanismo di sicurezza denominato "modalità protetta", che impedisce il corretto funzionamento di MSAL.js. Tra i sintomi, dopo l'accesso, è possibile reindirizzare la pagina a http://localhost:1234/null .
 

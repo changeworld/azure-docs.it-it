@@ -2,13 +2,13 @@
 title: Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure
 description: Informazioni su come proteggere le VM della soluzione VMware di Azure con gli strumenti di sicurezza nativi di Azure da un singolo dashboard nel centro sicurezza di Azure.
 ms.topic: how-to
-ms.date: 11/06/2020
-ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/04/2021
+ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061465"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584958"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure
 
@@ -36,7 +36,12 @@ Una volta raccolti i log dall'area di lavoro Log Analytics, è possibile configu
 
 - I servizi nativi di Azure possono essere usati per la sicurezza dell'ambiente ibrido in Azure, nella soluzione VMware di Azure e nei servizi locali.
 - Usando un'area di lavoro Log Analytics, è possibile raccogliere i dati o i log in un singolo punto e presentare gli stessi dati a diversi servizi nativi di Azure.
-- Il Centro sicurezza di Azure offre funzionalità di sicurezza quali il monitoraggio dell'integrità dei file, il rilevamento di attacchi senza file, la valutazione delle patch del sistema operativo, la valutazione della sicurezza e la valutazione di Endpoint Protection.
+- Il Centro sicurezza di Azure offre una serie di funzionalità, tra cui:
+    - Monitoraggio dell'integrità dei file
+    - Rilevamento di attacchi non file
+    - Valutazione patch del sistema operativo 
+    - Valutazione degli errori di configurazione della sicurezza
+    - Valutazione della protezione endpoint
 - Azure Sentinel consente di:
     - Raccogli i dati su scala cloud in tutti gli utenti, i dispositivi, le applicazioni e l'infrastruttura, sia in locale che in più cloud.
     - Rilevare le minacce precedentemente non rilevate.
@@ -183,7 +188,7 @@ Dopo aver connesso le origini dati ad Azure Sentinel, è possibile creare regole
 
 6. Nella scheda **Impostazioni evento imprevisto** abilitare **crea eventi imprevisti da avvisi attivati da questa regola di analisi** e selezionare **Avanti: risposta automatica >**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot della procedura guidata per le regole di analisi per la creazione di una nuova regola in Sentinel di Azure che mostra la creazione di eventi imprevisti dagli avvisi generati da questa regola di analisi come abilitata.":::
+    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot della creazione guidata regola di analisi per la creazione di una nuova regola in Sentinel di Azure. Mostra gli eventi imprevisti creati dagli avvisi attivati da questa regola come abilitati.":::
 
 7. Selezionare **Avanti: esaminare >**.
 
@@ -235,6 +240,8 @@ Dopo il terzo tentativo di accesso a Windows Server, la regola creata attiva un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare il [dashboard di Azure Defender](../security-center/azure-defender-dashboard.md).
-- Esplora la gamma completa di protezione offerta da [Azure Defender](../security-center/azure-defender.md).
-- Informazioni sul [rilevamento di attacchi multifase avanzati in Sentinel di Azure](../azure-monitor/learn/quick-create-workspace.md).
+Ora che è stata illustrata la protezione delle macchine virtuali della soluzione VMware di Azure, è possibile ottenere informazioni su:
+
+- Uso del [dashboard di Azure Defender](../security-center/azure-defender-dashboard.md).
+- [Rilevamento avanzato degli attacchi multifase in Sentinel di Azure](../azure-monitor/learn/quick-create-workspace.md).
+- [Gestione del ciclo di vita delle macchine virtuali della soluzione VMware di Azure](lifecycle-management-of-azure-vmware-solution-vms.md).

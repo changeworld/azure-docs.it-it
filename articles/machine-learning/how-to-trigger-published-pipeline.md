@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881738"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584864"
 ---
-# <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Attivare pipeline di Machine Learning con Azure Machine Learning SDK per Python
+# <a name="trigger-machine-learning-pipelines"></a>Attiva pipeline di Machine Learning
 
-In questo articolo si apprenderà come pianificare una pipeline per l'esecuzione in Azure a livello di codice. È possibile scegliere di creare una pianificazione in base al tempo trascorso o alle modifiche del file System. È possibile usare pianificazioni basate sul tempo per gestire le attività di routine, ad esempio il monitoraggio della deriva dei dati. È possibile utilizzare pianificazioni basate sulle modifiche per rispondere a modifiche irregolari o imprevedibili, ad esempio il caricamento di nuovi dati o la modifica dei dati obsoleti. Dopo aver appreso come creare pianificazioni, si apprenderà come recuperarli e disattivarli. Infine, si apprenderà come usare un'app per la logica di Azure per consentire un comportamento o una logica di trigger più complessa.
+In questo articolo si apprenderà come pianificare una pipeline per l'esecuzione in Azure a livello di codice. È possibile creare una pianificazione in base al tempo trascorso o alle modifiche del file System. È possibile usare pianificazioni basate sul tempo per gestire le attività di routine, ad esempio il monitoraggio della deriva dei dati. È possibile utilizzare pianificazioni basate sulle modifiche per rispondere a modifiche irregolari o imprevedibili, ad esempio il caricamento di nuovi dati o la modifica dei dati obsoleti. Dopo aver appreso come creare pianificazioni, si apprenderà come recuperarli e disattivarli. Infine, si apprenderà come usare altri servizi di Azure, app per la logica di Azure e Azure Data Factory per eseguire le pipeline. Un'app per la logica di Azure consente di attivare logica o comportamento più complesso. Azure Data Factory pipeline consentono di chiamare una pipeline di machine learning come parte di una pipeline di orchestrazione dati più ampia.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ In questo articolo si apprenderà come pianificare una pipeline per l'esecuzione
 
 * Un'area di lavoro Machine Learning con una pipeline pubblicata. È possibile usare quello creato in [creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Inizializzare l'area di lavoro & recuperare i dati
+## <a name="trigger-pipelines-with-azure-machine-learning-sdk-for-python"></a>Attivare pipeline con Azure Machine Learning SDK per Python
 
 Per pianificare una pipeline, è necessario un riferimento all'area di lavoro, l'identificatore della pipeline pubblicata e il nome dell'esperimento in cui si vuole creare la pianificazione. È possibile ottenere questi valori con il codice seguente:
 
@@ -81,7 +81,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>Creare una pianificazione basata sulle modifiche
 
-Le pipeline attivate dalle modifiche ai file possono essere più efficienti delle pianificazioni basate sul tempo. Ad esempio, è possibile eseguire un passaggio di pre-elaborazione quando un file viene modificato o quando viene aggiunto un nuovo file a una directory dei dati. È possibile monitorare le modifiche apportate a un archivio dati o alle modifiche all'interno di una directory specifica all'interno dell'archivio dati. Se si monitora una directory specifica, le modifiche apportate all'interno di sottodirectory della directory _non_ attiverà un'esecuzione.
+Le pipeline attivate dalle modifiche ai file possono essere più efficienti delle pianificazioni basate sul tempo. Quando si desidera eseguire un'operazione prima della modifica di un file o quando viene aggiunto un nuovo file a una directory dei dati, è possibile pre-elaborare il file. È possibile monitorare le modifiche apportate a un archivio dati o alle modifiche all'interno di una directory specifica all'interno dell'archivio dati. Se si monitora una directory specifica, le modifiche apportate all'interno di sottodirectory della directory _non_ attiverà un'esecuzione.
 
 Per creare un file reattivo `Schedule` , è necessario impostare il `datastore` parametro nella chiamata a [Schedule. Create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Per monitorare una cartella, impostare l' `path_on_datastore` argomento.
 
@@ -104,7 +104,7 @@ Oltre agli argomenti descritti in precedenza, è possibile impostare l' `status`
 
 Nella Web browser passare a Azure Machine Learning. Dalla sezione **endpoint** del pannello di navigazione scegliere **endpoint della pipeline**. Verrà quindi inviato un elenco delle pipeline pubblicate nell'area di lavoro.
 
-![Pagina pipeline di AML](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="Pagina pipeline di AML":::
 
 In questa pagina è possibile visualizzare informazioni di riepilogo su tutte le pipeline nell'area di lavoro: nomi, descrizioni, stato e così via. Eseguire il drill-through facendo clic sulla pipeline. Nella pagina risultante sono disponibili altri dettagli sulla pipeline ed è possibile eseguire il drill-down nelle singole esecuzioni.
 
@@ -161,23 +161,23 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
 
 1. Passare alla visualizzazione progettazione app per la logica e selezionare il modello app per la logica vuota. 
     > [!div class="mx-imgBorder"]
-    > ![Modello Vuoto](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="Modello Vuoto":::
 
 1. Nella finestra di progettazione cercare **BLOB**. Selezionare il trigger **quando un BLOB viene aggiunto o modificato (solo proprietà)** e aggiungere questo trigger all'app per la logica.
     > [!div class="mx-imgBorder"]
-    > ![Aggiunta di trigger](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="Aggiunta di trigger":::
 
 1. Immettere le informazioni di connessione per l'account di archiviazione BLOB da monitorare per le aggiunte o le modifiche ai BLOB. Consente di selezionare il contenitore da monitorare. 
  
     Scegliere l' **intervallo** e la **frequenza** di polling per gli aggiornamenti che funzionano.  
 
     > [!NOTE]
-    > Questo trigger eseguirà il monitoraggio del contenitore selezionato, ma non eseguirà il monitoraggio delle sottocartelle.
+    > Questo trigger monitorerà il contenitore selezionato ma non eseguirà il monitoraggio delle sottocartelle.
 
 1. Aggiungere un'azione HTTP che verrà eseguita quando viene rilevato un BLOB nuovo o modificato. Selezionare **+ nuovo passaggio**, quindi cercare e selezionare l'azione http.
 
   > [!div class="mx-imgBorder"]
-  > ![Cerca azione HTTP](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="Cerca azione HTTP":::
 
   Usare le impostazioni seguenti per configurare l'azione:
 
@@ -208,12 +208,18 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
     Usare l' `DataStoreName` aggiunta all'area di lavoro come [prerequisito](#prerequisites).
      
     > [!div class="mx-imgBorder"]
-    > ![Impostazioni HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="Impostazioni HTTP":::
 
 1. Selezionare **Save (Salva** ). la pianificazione è ora pronta.
 
 > [!IMPORTANT]
 > Se si usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alla pipeline, [impostare le autorizzazioni per lo scenario della pipeline (training o assegnazione del punteggio)](how-to-assign-roles.md#common-scenarios).
+
+## <a name="call-machine-learning-pipelines-from-azure-data-factory-pipelines"></a>Chiamare pipeline di machine learning da pipeline di Azure Data Factory
+
+In una pipeline di Azure Data Factory, l'attività *Esegui pipeline Machine Learning* esegue una pipeline di Azure Machine Learning. È possibile trovare questa attività nella pagina di creazione Data Factory nella categoria *Machine Learning* :
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Screenshot che mostra l'attività della pipeline ML nell'ambiente di creazione Azure Data Factory":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

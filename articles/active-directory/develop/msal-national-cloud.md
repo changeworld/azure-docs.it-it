@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 01a69dbf9230154b74145f932b678d6bbebbde08
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225817"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583960"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
 
@@ -40,7 +40,7 @@ Prima di iniziare, verificare che siano soddisfatti questi prerequisiti.
 
 ### <a name="choose-the-appropriate-identities"></a>Scegliere le identità appropriate
 
-Le applicazioni di [Azure per enti](../../azure-government/index.yml) pubblici possono usare Azure ad identità governative e Azure ad identità pubbliche per autenticare gli utenti. Poiché è possibile usare una di queste identità, è necessario decidere quale endpoint dell'autorità scegliere per lo scenario:
+Le applicazioni di [Azure per enti](../../azure-government/index.yml) pubblici possono usare Azure ad identità governative e Azure ad identità pubbliche per autenticare gli utenti. Poiché è possibile usare una di queste identità, decidere quale endpoint dell'autorità scegliere per lo scenario:
 
 - Azure AD public: comunemente usato se l'organizzazione dispone già di un Azure AD tenant pubblico per supportare Microsoft 365 (pubblico o GCC) o un'altra applicazione.
 - Azure AD Government: comunemente usato se l'organizzazione dispone già di un tenant di Azure AD Government per supportare Office 365 (GCC High o DoD) o sta creando un nuovo tenant in Azure AD Government.

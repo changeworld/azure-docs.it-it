@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione dati automatica, elaborazione di documenti, immissione automatica di dati, elaborazione di moduli
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044765"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584567"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -87,13 +87,13 @@ Riconoscimento modulo usa l'[API di layout](#layout-api) per riconoscere le dime
 Riconoscimento modulo include anche modelli predefiniti per l'elaborazione dati automatica di tipi di moduli univoci.
 
 ### <a name="prebuilt-invoice-model"></a>Modello predefinito di fattura
-Il modello predefinito di fattura estrae dati dalle fatture in un'ampia varietà di formati e restituisce dati strutturati. Questo modello estrae informazioni chiave come l'ID fattura, i dati del cliente e del fornitore, l'indirizzo di spedizione e di fatturazione, l'importo totale, le imposte, il subtotale e altro ancora. Il training del modello predefinito di fattura è stato inoltre eseguito in modo che possa riconoscere e restituire tutto il testo e le tabelle della fattura. Per altre informazioni, vedere la guida concettuale sulle [fatture](./concept-invoices.md).
+Il modello predefinito di fattura estrae dati dalle fatture in un'ampia varietà di formati e restituisce dati strutturati. Questo modello estrae informazioni chiave come l'ID fattura, i dati del cliente e del fornitore, l'indirizzo di spedizione e di fatturazione, l'importo totale, le imposte, il subtotale e altro ancora. Viene inoltre eseguito il training del modello di fattura predefinito per analizzare e restituire tutto il testo e le tabelle della fattura. Per altre informazioni, vedere la guida concettuale sulle [fatture](./concept-invoices.md).
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="Esempio di fattura" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>Modello di ricevuta predefinito
 
-Il modello di ricevuta predefinito viene usato per la lettura di ricevute di vendita in inglese di Australia, Canada, Gran Bretagna, India e Stati Uniti, il tipo usato da ristoranti, distributori di carburante, rivenditori e così via. Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del fornitore, gli importi delle imposte, gli articoli, i totali e altro ancora. Il training del modello di ricevute predefinito è stato inoltre eseguito in modo che il modello possa riconoscere e restituire tutto il testo di una ricevuta. Per altre informazioni, vedere [Concetti relativi alle ricevute](./concept-receipts.md).
+Il modello di ricevuta predefinito viene usato per la lettura di ricevute di vendita in inglese di Australia, Canada, Gran Bretagna, India e Stati Uniti, il tipo usato da ristoranti, distributori di carburante, rivenditori e così via. Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del fornitore, gli importi delle imposte, gli articoli, i totali e altro ancora. Inoltre, il modello di ricezione predefinito viene sottoposto a training per analizzare e restituire tutto il testo in una ricevuta. Per altre informazioni, vedere [Concetti relativi alle ricevute](./concept-receipts.md).
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="ricevuta di esempio" lightbox="./media/overview-receipt.jpg":::
 
@@ -171,4 +171,4 @@ Come per tutti i servizi cognitivi, gli sviluppatori che usano il servizio di ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Completare una [guida di avvio rapido](quickstarts/client-library.md) per apprendere come scrivere un'app di elaborazione moduli con Riconoscimento modulo nel linguaggio preferito.
+Completare una [Guida introduttiva](quickstarts/client-library.md) per iniziare a scrivere un'app di elaborazione moduli con il riconoscimento del modulo nel linguaggio di sviluppo preferito.

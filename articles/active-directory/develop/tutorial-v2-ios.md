@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9e4997ad08f2dd1d96dd442f80ad4203abf6261
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 5734844d91e95fe7d4081e5986095934ea02b4fd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015887"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584282"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Esercitazione: Accesso utenti e chiamata di Microsoft Graph da un'app iOS o macOS
 
@@ -155,7 +155,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-L'unico valore da modificare in precedenza è quello assegnato a `kClientID` per fare in modo che corrisponda a quello di [ID applicazione](./developer-glossary.md#application-id-client-id). Questo valore fa parte dei dati di configurazione di MSAL salvati durante il passaggio all'inizio di questa esercitazione per registrare l'applicazione nel portale di Azure.
+L'unico valore modificato in precedenza è il valore assegnato a come `kClientID` [ID applicazione](./developer-glossary.md#application-id-client-id). Questo valore fa parte dei dati di configurazione di MSAL salvati durante il passaggio all'inizio di questa esercitazione per registrare l'applicazione nel portale di Azure.
 
 ## <a name="configure-xcode-project-settings"></a>Configurare le impostazioni del progetto Xcode
 

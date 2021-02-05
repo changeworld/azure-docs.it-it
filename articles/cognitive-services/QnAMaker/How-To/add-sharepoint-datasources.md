@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 36724e518f1bae636c2d2602a227b53a11257591
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0832b54e02cabecb0b1f0e7af600b8adc621a8b0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791055"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584771"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Aggiungere un'origine dati di SharePoint protetta alla Knowledge base
 
@@ -132,8 +132,8 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 Esiste una soluzione alternativa per aggiungere il contenuto di SharePoint più recente tramite l'API usando l'archiviazione BLOB di Azure. di seguito sono riportati i passaggi: 
 1.  Scaricare i file di SharePoint localmente. L'utente che chiama l'API deve avere accesso a SharePoint. 
-1.  Caricarli nel stoarge BLOB di Azure. Verrà creato un accesso condiviso sicuro usando il [token SAS.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
-1. Passare l'URL del BLOB generato con il token di firma di accesso condiviso al API QnA Maker. Per consentire l'estrazione delle risposte alle domande dai file, è necessario aggiungere il tipo di file suffisso ' &EXT = PDF ' o ' &EXT = doc ' alla fine dell'URL prima di passarlo a API QnA Maker>  
+1.  Caricarli nell'archivio BLOB di Azure. Verrà creato un accesso condiviso sicuro usando il [token SAS.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
+1. Passare l'URL del BLOB generato con il token di firma di accesso condiviso al API QnA Maker. Per consentire l'estrazione delle risposte alle domande dai file, è necessario aggiungere il tipo di file suffisso ' &EXT = PDF ' o ' &EXT = doc ' alla fine dell'URL prima di passarlo a API QnA Maker.
 
 
 <!--

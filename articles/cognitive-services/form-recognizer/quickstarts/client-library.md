@@ -13,25 +13,25 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: elaborazione di moduli, elaborazione dati automatica
-ms.openlocfilehash: cc18cc9e54a5a8887ecd3e079285ba5130b88278
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: d468f40d9de7fd7efb4ac7d8021a667e0c6c31f6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218044"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584609"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Avvio rapido: Usare la libreria client o l'API REST di Riconoscimento modulo
 
-Iniziare a usare Riconoscimento modulo nel linguaggio preferito. Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare software di elaborazione dati automatica tramite la tecnologia di Machine Learning. Il servizio identifica ed estrae testo, coppie chiave-valore, dati delle tabelle e altro ancora dai moduli, quindi restituisce dati strutturati che includono le relazioni del file originale. È possibile usare Riconoscimento modulo tramite l'API REST o l'SDK. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base. 
+Inizia con il riconoscimento del modulo usando il linguaggio di sviluppo che preferisci. Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare software di elaborazione dati automatica tramite la tecnologia di Machine Learning. Il servizio identifica ed estrae testo, coppie chiave-valore, dati delle tabelle e altro ancora dai moduli, quindi restituisce dati strutturati che includono le relazioni del file originale. È possibile usare Riconoscimento modulo tramite l'API REST o l'SDK. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base. 
 
 Usare Riconoscimento modulo per:
 
 * [Analyze Layout](#analyze-layout)
-* [Analizzare ricevute](#analyze-receipts)
-* [Analizzare biglietti da visita](#analyze-business-cards)
 * [Analizzare fatture](#analyze-invoices)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
+* [Analizzare ricevute](#analyze-receipts)
+* [Analizzare biglietti da visita](#analyze-business-cards)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"

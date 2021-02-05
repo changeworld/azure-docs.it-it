@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
+ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: 183d8b415ccb35d22dcc23ccf11d0707ad0778dd
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: c9b7230ca734bba1527ec5ecd975e1bae141a9b4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963656"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584686"
 ---
 # <a name="monitor-azure-machine-learning"></a>Monitorare Azure Machine Learning
 
@@ -164,7 +165,7 @@ Di seguito sono riportate le query che è possibile usare per monitorare le riso
 
 La tabella seguente elenca le regole di avviso delle metriche comuni e consigliate per Azure Machine Learning:
 
-| Tipo di avviso | Condizione | Description |
+| Tipo di avviso | Condizione | Descrizione |
 |:---|:---|:---|
 | Model Deploy Failed (Distribuzione di modelli non riuscita) | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando una o più distribuzioni di modelli non sono riuscite |
 | Quota Utilization Percentage (Percentuale di utilizzo quota) | Tipo di aggregazione: media, operatore: maggiore di, valore soglia: 90| Quando la percentuale di utilizzo della quota è superiore al 90% |

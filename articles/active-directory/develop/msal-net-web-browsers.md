@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165822"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583740"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso dei Web browser (MSAL.NET)
 
@@ -41,7 +41,7 @@ Quando si acquisisce un token in modo interattivo, è importante comprendere che
 
 MSAL.NET è una libreria multiframework e contiene codice specifico del framework per ospitare un browser in un controllo dell'interfaccia utente (ad esempio, in .NET Classic usa WinForms, in Xamarin usa controlli per dispositivi mobili nativi e così via). Questo controllo viene chiamato interfaccia utente Web `embedded`. In alternativa, MSAL.NET può anche avviare il browser del sistema operativo.
 
-In genere, è consigliabile usare l'impostazione predefinita della piattaforma, ovvero il browser del sistema. Il browser di sistema offre prestazioni migliori nel ricordare gli utenti che hanno eseguito l'accesso in precedenza. Se è necessario modificare questo comportamento, usare `WithUseEmbeddedWebView(bool)`
+In genere, è consigliabile usare l'impostazione predefinita della piattaforma, ovvero il browser del sistema. Il browser di sistema offre prestazioni migliori nel ricordare gli utenti che hanno eseguito l'accesso in precedenza. Per modificare questo comportamento, usare `WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>Riepilogo
 
@@ -141,7 +141,7 @@ Per le applicazioni desktop, tuttavia, l'avvio di una visualizzazione Web di sis
 
 Gli sviluppatori che usano MSAL.NET per Xamarin possono scegliere di usare le visualizzazioni Web o i browser di sistema incorporati. Sarà necessario scegliere a seconda dell'esperienza utente che si vuole offrire e delle problematiche relative alla sicurezza.
 
-Attualmente, MSAL.NET non supporta ancora i broker per Android e iOS. Se è quindi necessario fornire l'accesso Single Sign-On (SSO), il browser di sistema sarà la migliore opzione disponibile. Il supporto dei broker con il Web browser incorporato è incluso nel backlog di MSAL.NET.
+Attualmente, MSAL.NET non supporta ancora i broker per Android e iOS. Pertanto, per fornire Single Sign-On (SSO), il browser di sistema potrebbe essere ancora un'opzione migliore. Il supporto dei broker con il Web browser incorporato è incluso nel backlog di MSAL.NET.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Differenze tra visualizzazioni Web incorporate e browser di sistema
 Esistono alcune differenze visive tra la visualizzazione Web incorporata e il browser di sistema in MSAL.NET.

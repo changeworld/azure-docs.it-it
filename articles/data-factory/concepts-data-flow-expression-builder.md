@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/04/2021
+ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145710"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584924"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Espressioni di compilazione nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Nel flusso di dati del mapping, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione. Il mapping dei flussi di dati offre un'esperienza dedicata per facilitare la creazione di queste espressioni, denominato **Generatore di espressioni** . Utilizzando il completamento del codice  [IntelliSense](/visualstudio/ide/using-intellisense) per l'evidenziazione, il controllo della sintassi e il completamento automatico, il generatore di espressioni è progettato per semplificare la creazione di flussi di dati. In questo articolo viene illustrato come utilizzare il generatore di espressioni per compilare efficacemente la logica di business.
+Nel flusso di dati del mapping, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione. Il mapping dei flussi di dati offre un'esperienza dedicata per facilitare la creazione di queste espressioni, denominato **Generatore di espressioni**. Utilizzando il completamento del codice  [IntelliSense](/visualstudio/ide/using-intellisense) per l'evidenziazione, il controllo della sintassi e il completamento automatico, il generatore di espressioni è progettato per semplificare la creazione di flussi di dati. In questo articolo viene illustrato come utilizzare il generatore di espressioni per compilare efficacemente la logica di business.
 
 ![Generatore di espressioni](media/data-flow/expresion-builder.png "Generatore di espressioni")
 
@@ -32,7 +32,7 @@ In alcune trasformazioni come [filtro](data-flow-filter.md), facendo clic su una
 
 ![Casella espressione blu](media/data-flow/expressionbox.png "Casella espressione blu")
 
-Quando si fa riferimento a colonne in una condizione di corrispondenza o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **colonna calcolata** .
+Quando si fa riferimento a colonne in una condizione di corrispondenza o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **colonna calcolata**.
 
 ![Opzione della colonna calcolata](media/data-flow/computedcolumn.png "Opzione della colonna calcolata")
 
@@ -73,7 +73,7 @@ Quando sono presenti nomi di colonna che includono caratteri speciali o spazi, r
 
 I parametri sono valori passati in un flusso di dati in fase di esecuzione da una pipeline. Per fare riferimento a un parametro, fare clic sul parametro nella visualizzazione **elementi espressione** o farvi riferimento con un segno di dollaro davanti al nome. Ad esempio, viene fatto riferimento a un parametro denominato parametro1 `$parameter1` . Per altre informazioni, vedere [parametrizzazione mapping di flussi di dati](parameters-data-flow.md).
 
-### <a name="cached-lookup"></a>Ricerca nella cache
+### <a name="cached-lookup"></a>Ricerca memorizzata nella cache
 
 Una ricerca memorizzata nella cache consente di eseguire una ricerca inline dell'output di un sink memorizzato nella cache. Sono disponibili due funzioni da usare in ogni sink, `lookup()` e `outputs()` . La sintassi per fare riferimento a queste funzioni è `cacheSinkName#functionName()` . Per ulteriori informazioni, vedere [sink della cache](data-flow-sink.md#cache-sink).
 
@@ -81,7 +81,7 @@ Una ricerca memorizzata nella cache consente di eseguire una ricerca inline dell
 
 `outputs()` non accetta parametri e restituisce l'intero sink della cache come matrice di colonne complesse. Questa operazione non può essere chiamata se le colonne chiave vengono specificate nel sink e devono essere usate solo se è presente un numero ridotto di righe nel sink della cache. Un caso d'uso comune è l'accodamento del valore massimo di una chiave di incremento. Se una singola riga aggregata memorizzata nella cache `CacheMaxKey` contiene una colonna `MaxKey` , è possibile fare riferimento al primo valore chiamando `CacheMaxKey#outputs()[1].MaxKey` .
 
-![Ricerca nella cache](media/data-flow/cached-lookup-example.png "Ricerca nella cache")
+![Ricerca memorizzata nella cache](media/data-flow/cached-lookup-example.png "Ricerca memorizzata nella cache")
 
 ### <a name="locals"></a>Variabili locali
 
@@ -106,6 +106,9 @@ Alcuni esempi di interpolazione di stringhe:
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> Quando si usa la sintassi di interpolazione di stringhe nelle query di origine SQL, la stringa di query deve trovarsi in una sola riga, senza '/n '.
 
 ## <a name="commenting-expressions"></a>Espressioni di commento
 

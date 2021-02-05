@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ddd676a1e0b3d8f554b007974b62eb8c0c2ca9c1
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 22e61ea767d781dc9da54d61143c1b2524e06e94
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226356"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584415"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>App desktop che chiama le API Web: passa all'ambiente di produzione
 
@@ -96,7 +96,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Questa chiamata ottiene un token di accesso per la prima API Web.
 
-Quando è necessario chiamare la seconda API Web, chiamare l' `AcquireTokenSilent` API.
+Quando si chiama la seconda API Web, chiamare l' `AcquireTokenSilent` API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

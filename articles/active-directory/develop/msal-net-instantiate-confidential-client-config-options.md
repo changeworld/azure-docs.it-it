@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063553"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583943"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Creare un'istanza di un'applicazione client riservata con le opzioni di configurazione usando MSAL.NET
 
@@ -60,7 +60,7 @@ Una configurazione dell'applicazione ASP.NET Core viene descritta in un *appsett
 
 A partire da MSAL.NET V3. x, è possibile configurare l'applicazione client riservata dal file di configurazione.
 
-Nella classe in cui si desidera configurare e creare un'istanza dell'applicazione, è necessario dichiarare un `ConfidentialClientApplicationOptions` oggetto.  Associare la configurazione letta dall'origine (incluso il appconfig.jssu file) all'istanza delle opzioni dell'applicazione, usando il `IConfigurationRoot.Bind()` Metodo dalla [Microsoft.Extensions.Configuration. Pacchetto NuGet Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Nella classe in cui si desidera configurare e creare un'istanza dell'applicazione, dichiarare un `ConfidentialClientApplicationOptions` oggetto.  Associare la configurazione letta dall'origine (incluso il appconfig.jssu file) all'istanza delle opzioni dell'applicazione, usando il `IConfigurationRoot.Bind()` Metodo dalla [Microsoft.Extensions.Configuration. Pacchetto NuGet Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -79,7 +79,7 @@ app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applica
 ```
 
 ## <a name="add-runtime-configuration"></a>Aggiungere la configurazione di runtime
-In un'applicazione client riservata, in genere è presente una cache per utente. Pertanto, sarà necessario ottenere la cache associata all'utente e informare il generatore di applicazioni che si desidera utilizzarla. Allo stesso modo, è possibile che si disponga di un URI di reindirizzamento calcolato dinamicamente. In questo caso il codice è il seguente:
+In un'applicazione client riservata, in genere è presente una cache per utente. Pertanto, sarà necessario ottenere la cache associata all'utente e informare il generatore di applicazioni che si desidera utilizzarla. Allo stesso modo, è possibile che si disponga di un URI di reindirizzamento calcolato dinamicamente. In questo caso, il codice è il seguente:
 
 ```csharp
 IConfidentialClientApplication app;

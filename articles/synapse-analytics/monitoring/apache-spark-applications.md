@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 00407b4a55b3c074fa77d4c3664f6e218c23fe21
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223126"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584539"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Usare sinapsi Studio per monitorare le applicazioni di Apache Spark
 
@@ -155,6 +155,26 @@ Aprire **monitoraggio**, quindi selezionare **Apache Spark applicazioni**. Per v
 6. Controllare le informazioni sull'errore.
 
    ![informazioni sul processo non riuscite](./media/how-to-monitor-spark-applications/failed-job-info.png)
+
+## <a name="compare-apache-spark-applications"></a>Confrontare applicazioni Apache Spark
+Fare clic sul pulsante **Confronta applicazioni** e scegliere un'applicazione per confrontare le prestazioni. gli utenti possono visualizzare in modo intuitivo la differenza tra le due applicazioni.
+
+![confrontare le applicazioni](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+1. Utilizzare il mouse per passare il puntatore del mouse su un'applicazione, quindi viene visualizzata l'icona **Confronta applicazioni** .
+
+2. Fare clic sull'icona **Confronta applicazioni** . viene visualizzata la pagina Confronta applicazioni.
+
+3. Fare clic sul pulsante **Scegli applicazione** per aprire la pagina **Scegli applicazione di confronto** .
+
+4. Quando si sceglie l'applicazione di confronto, gli utenti devono immettere l'URL dell'applicazione oppure sceglierne uno dall'elenco ricorrente. Quindi, fare clic sul pulsante **OK** . 
+
+   ![scegliere l'applicazione di confronto](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. Il risultato del confronto verrà visualizzato nella pagina Confronta applicazioni.
+
+   ![risultato del confronto](./media/how-to-monitor-spark-applications/comparison-result.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536767"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584991"
 ---
 # <a name="apply-math-operation"></a>Applicare operazioni matematiche
 
@@ -138,7 +138,7 @@ Restituisce e elevato alla potenza del valore nella colonna selezionata. Questa 
 
 Restituisce l'esponenziale in base 2 degli argomenti, risolvendo per y = x * 2<sup>t</sup> , dove t è una colonna di valori che contiene esponenti.  
 
-In  **Column set**selezionare la colonna che contiene i valori dell'esponente t.
+In  **Column set** selezionare la colonna che contiene i valori dell'esponente t.
 
 Per **exp2** è possibile specificare un secondo argomento x, che può essere una costante o un'altra colonna di valori. Nel **secondo tipo di argomento**, indicare se si fornirà il moltiplicatore x come costante o un valore in una colonna.  
 
@@ -162,7 +162,7 @@ Restituisce il logaritmo naturale per i valori nella colonna selezionata.
 
 Restituisce il logaritmo naturale più uno per i valori nella colonna selezionata.  
 
-### <a name="log"></a>File di log
+### <a name="log"></a>Log
 
 Restituisce il logaritmo dei valori nella colonna selezionata secondo la base specificata.  
 
@@ -181,7 +181,7 @@ Restituisce la radice ennesima del valore, usando un valore n specificato dall'u
 
 Selezionare le colonne per cui si desidera calcolare la radice utilizzando l'opzione **columnstore** .  
 
-In **secondo tipo di argomento**selezionare un'altra colonna contenente la radice oppure specificare una costante da usare come radice.  
+In **secondo tipo di argomento** selezionare un'altra colonna contenente la radice oppure specificare una costante da usare come radice.  
 
 Se il secondo argomento è una colonna, ogni valore della colonna viene utilizzato come valore di n per la riga corrispondente. Se il secondo argomento è una costante, digitare il valore di n nella casella di testo del **secondo argomento** .
 ### <a name="pow"></a>Pow
@@ -190,7 +190,7 @@ Calcola X elevato alla potenza di Y per ognuno dei valori della colonna selezion
 
 Selezionare innanzitutto le colonne che contengono la **base**, che deve essere un valore float, usando l'opzione **columnstore** .  
 
-In **secondo tipo di argomento**selezionare la colonna contenente l'esponente oppure specificare una costante da usare come esponente.  
+In **secondo tipo di argomento** selezionare la colonna contenente l'esponente oppure specificare una costante da usare come esponente.  
 
 Se il secondo argomento è una colonna, ogni valore della colonna viene usato come esponente per la riga corrispondente. Se il secondo argomento è una costante, digitare il valore dell'esponente nella casella di testo **secondo argomento** .  
 
@@ -249,22 +249,25 @@ Restituisce il valore minore, ovvero il valore in **Column set** o il valore nel
 
 Include le operazioni aritmetiche di base: addizione e sottrazione, divisione e moltiplicazione.  Poiché la maggior parte delle operazioni sono binarie, richiedendo due numeri, è necessario innanzitutto scegliere l'operazione e quindi scegliere la colonna o i numeri da usare nel primo e nel secondo argomento.
 
-L'ordine in cui si scelgono le colonne per divisione e sottrazione può sembrare poco intuitivo. Tuttavia, per semplificare la comprensione dei risultati, l'intestazione di colonna fornisce il nome dell'operazione e l'ordine in cui le colonne sono state utilizzate.
+L'ordine per divisione e sottrazione è il seguente: 
+- Subtract (Arg1_Arg2) = arg1-ARG 2
+- Divisione (Arg1_Arg2) = arg1/ARG 2
 
+La tabella seguente illustra alcuni esempi
 Operazione|Num1|Num2|Colonna risultati|Valore risultato|
 ----|----|----|----|----
-|Addizione|1|5|Aggiungi (Num2_Num1)| 4|
+|Addizione|1|5|Aggiungi (Num2_Num1)| 6|
 |Moltiplicazione|1|5|Più (Num2_Num1)|5|
-|Sottrazione|1|5|Sottrazione (Num2_Num1)|4|
-|Sottrazione|0|1|Sottrazione (Num2_Num1)|0|
-|Divisione|1|5|Divisione (Num2_Num1)|5|
-|Divisione|0|1|Divisione (Num2_Num1)|Infinito|
+|Sottrazione|5|1|Sottrazione (Num2_Num1)|4|
+|Sottrazione|0|1|Sottrazione (Num2_Num1)|-1|
+|Divisione|5|1|Divisione (Num2_Num1)|5|
+|Divisione|1|0|Divisione (Num2_Num1)|Infinito|
 
 ### <a name="add"></a>Add
 
-Specificare le colonne di origine utilizzando il **set di colonne**e quindi aggiungere a tali valori un numero specificato nel **secondo argomento**.  
+Specificare le colonne di origine utilizzando il **set di colonne** e quindi aggiungere a tali valori un numero specificato nel **secondo argomento**.  
 
-Per aggiungere i valori in due colonne, scegliere una o più colonne utilizzando **set**di colonne, quindi scegliere una seconda colonna utilizzando il **secondo argomento**.  
+Per aggiungere i valori in due colonne, scegliere una o più colonne utilizzando **set** di colonne, quindi scegliere una seconda colonna utilizzando il **secondo argomento**.  
 
 ### <a name="divide"></a>Divisione
 

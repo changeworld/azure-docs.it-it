@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c7abad31c9936729b8d9c19ed2efcb841ac103ca
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756241"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584298"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>App Web che esegue l'accesso agli utenti: passa alla produzione
 
-Ora che si è appreso come ottenere un token per chiamare le API Web, si apprenderà come spostarlo in produzione.
+Ora che si è appreso come ottenere un token per chiamare le API Web, di seguito sono riportati alcuni aspetti da considerare quando si trasferisce l'applicazione in produzione.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-
-> [!NOTE]
-> Quando gli utenti accedono all'applicazione Web per la prima volta, devono fornire il consenso. Tuttavia, in alcune organizzazioni, gli utenti possono visualizzare un messaggio simile al seguente:
->
-> *AppName richiede le autorizzazioni per accedere alle risorse dell'organizzazione che solo un amministratore può concedere. Chiedere a un amministratore di concedere l'autorizzazione per questa app prima di poterla usare.*
->
-> Questo perché l'amministratore tenant ha **disabilitato** la possibilità per gli utenti di fornire il consenso. In tal caso, è necessario contattare gli amministratori tenant in modo che eseguano il consenso dell'amministratore per gli ambiti richiesti dall'applicazione.
+Quando gli utenti accedono all'applicazione Web per la prima volta, devono fornire il consenso. Tuttavia, in alcune organizzazioni, gli utenti possono visualizzare un messaggio simile al seguente: *appname richiede le autorizzazioni per accedere alle risorse dell'organizzazione che solo un amministratore può concedere. Chiedere a un amministratore di concedere l'autorizzazione per questa app prima di poterla usare.*
+Questo perché l'amministratore tenant ha **disabilitato** la possibilità per gli utenti di fornire il consenso. In tal caso, contattare gli amministratori tenant in modo che eseguano il consenso dell'amministratore per gli ambiti richiesti dall'applicazione.
 
 ## <a name="same-site"></a>Stesso sito
 

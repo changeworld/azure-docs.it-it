@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063485"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583842"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usare Microsoft Authenticator o Portale aziendale Intune nelle applicazioni Novell
 
@@ -91,7 +91,7 @@ Questo metodo viene richiamato ogni volta che l'applicazione viene avviata. Vien
 
 ### <a name="step-4-set-uiviewcontroller"></a>Passaggio 4: impostare UIViewController ()
 
-Sempre nel file *AppDelegate.cs* , è necessario impostare una finestra degli oggetti. Non è in genere necessario impostare la finestra degli oggetti per Novell iOS, ma è necessaria una finestra oggetto per inviare e ricevere risposte dal broker.
+Sempre nel file *AppDelegate.cs* impostare una finestra degli oggetti. Non è in genere necessario impostare la finestra degli oggetti per Novell iOS, ma è necessaria una finestra oggetto per inviare e ricevere risposte dal broker.
 
 Per configurare la finestra oggetto:
 
@@ -237,9 +237,9 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Passaggio 4: aggiungere un URI di reindirizzamento alla registrazione dell'app
 
-MSAL usa gli URL per richiamare il broker e quindi tornare all'app. Per completare questa round trip, è necessario registrare un **URI di reindirizzamento** per l'app usando il [portale di Azure](https://portal.azure.com).
+MSAL usa gli URL per richiamare il broker e quindi tornare all'app. Per completare questa round trip, registrare un **URI di reindirizzamento** per l'app usando il [portale di Azure](https://portal.azure.com).
 
-Il formato dell'URI di reindirizzamento per l'applicazione dipende dal certificato usato per firmare l'APK. Esempio:
+Il formato dell'URI di reindirizzamento per l'applicazione dipende dal certificato usato per firmare l'APK. Ad esempio:
 
 ```
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=

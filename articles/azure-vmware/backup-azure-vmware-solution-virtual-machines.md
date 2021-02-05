@@ -2,13 +2,13 @@
 title: Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: d4273980a134fbdaabe64215aaf0b66a53253788
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.date: 02/04/2021
+ms.openlocfilehash: ea2164ba19703660e54879c25b975342d824662c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495695"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585025"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure
 
@@ -48,14 +48,14 @@ Per impostazione predefinita, il server di Backup di Azure comunica con i server
 
 1. Fare clic con il pulsante destro del mouse sul certificato radice e scegliere **Installa certificato**.
 
-1. Nell' **importazione guidata certificati**selezionare **computer locale** come destinazione per il certificato e fare clic su **Avanti**.
+1. Nell' **importazione guidata certificati** selezionare **computer locale** come destinazione per il certificato e fare clic su **Avanti**.
 
    ![Pagina iniziale della procedura guidata](../backup/media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
    > [!NOTE] 
    > Se richiesto, confermare che si desidera consentire le modifiche al computer.
 
-1. Selezionare **colloca tutti i certificati nel seguente archivio**e selezionare **Sfoglia** per scegliere l'archivio certificati.
+1. Selezionare **colloca tutti i certificati nel seguente archivio** e selezionare **Sfoglia** per scegliere l'archivio certificati.
 
    ![Archiviazione dei certificati](../backup/media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
@@ -133,7 +133,7 @@ In VMware 6,7 in poi è stato abilitato TLS come protocollo di comunicazione.
 
    ![Aprire l'Aggiunta guidata server di produzione](../backup/media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-1. Selezionare **server VMware**e fare clic su **Avanti**.
+1. Selezionare **server VMware** e fare clic su **Avanti**.
 
    ![Aggiunta guidata server di produzione](../backup/media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -197,10 +197,10 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
 
 1. Specificare per quanto tempo si desidera che i dati vengano sottoposti a backup su disco.
 
-   - Periodo di **mantenimento**dati: numero di giorni per cui vengono conservati i punti di ripristino del disco.
+   - Periodo di **mantenimento** dati: numero di giorni per cui vengono conservati i punti di ripristino del disco.
    - **Backup completo rapido**: la frequenza con cui vengono eseguiti i punti di ripristino del disco. Per modificare l'ora o le date in cui si verificano backup a breve termine, selezionare **modifica**.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Client Web vSphere":::
+   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Specificare gli obiettivi a breve termine per la protezione basata su disco":::
 
 1. Nella pagina **Verifica allocazione archiviazione su disco** verificare lo spazio su disco fornito per i backup delle macchine virtuali.
 
@@ -209,7 +209,7 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
    - **Spazio su disco:** Quantità di spazio su disco consigliata per il gruppo protezione dati. Se si vuole modificare questa impostazione, selezionare spazio leggermente maggiore rispetto alla quantità stimata per la crescita di ogni origine dati.
    - **Dettagli pool di archiviazione:** Mostra lo stato del pool di archiviazione, che include le dimensioni totali e rimanenti del disco.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Client Web vSphere":::
+   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Verificare lo spazio su disco specificato nel pool di archiviazione":::
 
    > [!NOTE]
    > In alcuni scenari, le dimensioni dei dati segnalate sono maggiori delle dimensioni effettive della macchina virtuale. Il problema è attualmente in fase di analisi.
@@ -221,7 +221,7 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
 
    ![Scelta del metodo per la creazione della replica](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. Per le **Opzioni di verifica coerenza**selezionare come e quando automatizzare le verifiche della coerenza e selezionare **Avanti**.
+1. Per le **Opzioni di verifica coerenza** selezionare come e quando automatizzare le verifiche della coerenza e selezionare **Avanti**.
 
    - È possibile eseguire verifiche della coerenza quando i dati di replica diventano incoerenti o in base a una pianificazione impostata.
    - Se non si desidera configurare le verifiche di coerenza automatiche, è possibile eseguire una verifica manuale facendo clic con il pulsante destro del mouse sul gruppo protezione dati **Esegui verifica coerenza**.
@@ -256,12 +256,12 @@ I gruppi protezione dati raccolgono più macchine virtuali e applicano le stesse
 Dopo aver configurato il gruppo protezione dati per eseguire il backup delle macchine virtuali della soluzione VMware di Azure, è possibile monitorare lo stato del processo di backup e l'avviso utilizzando la console di server di Backup di Azure. Ecco cosa è possibile monitorare.
 
 - Nell'area attività **monitoraggio** :
-   - In **avvisi**è possibile monitorare gli errori, gli avvisi e le informazioni generali.  È possibile visualizzare gli avvisi attivi e inattivi e configurare le notifiche di posta elettronica.
-   - In **processi**è possibile visualizzare i processi avviati da server di backup di Azure per un'origine dati protetta o un gruppo protezione dati specifico. È possibile seguire lo stato di avanzamento del processo o controllare le risorse utilizzate dai processi.
+   - In **avvisi** è possibile monitorare gli errori, gli avvisi e le informazioni generali.  È possibile visualizzare gli avvisi attivi e inattivi e configurare le notifiche di posta elettronica.
+   - In **processi** è possibile visualizzare i processi avviati da server di backup di Azure per un'origine dati protetta o un gruppo protezione dati specifico. È possibile seguire lo stato di avanzamento del processo o controllare le risorse utilizzate dai processi.
 - Nell'area attività **protezione** dati è possibile controllare lo stato dei volumi e delle condivisioni nel gruppo protezione dati. È anche possibile controllare le impostazioni di configurazione, ad esempio le impostazioni di ripristino, l'allocazione dei dischi e la pianificazione del backup.
-- Nell'area attività **gestione** è possibile visualizzare le schede **dischi, online**e **agenti** per verificare lo stato dei dischi nel pool di archiviazione, la registrazione in Azure e lo stato dell'agente DPM distribuito.
+- Nell'area attività **gestione** è possibile visualizzare le schede **dischi, online** e **agenti** per verificare lo stato dei dischi nel pool di archiviazione, la registrazione in Azure e lo stato dell'agente DPM distribuito.
 
-:::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Client Web vSphere":::
+:::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Monitorare lo stato dei processi di backup in server di Backup di Azure":::
 
 ## <a name="restore-vmware-virtual-machines"></a>Ripristinare macchine virtuali VMware
 
@@ -286,7 +286,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
 1. Prima di eseguire il ripristino da un punto di ripristino online, verificare che il percorso di gestione temporanea includa spazio libero sufficiente per ospitare le dimensioni complete non compresse della macchina virtuale da ripristinare. È possibile visualizzare o modificare il percorso di gestione temporanea eseguendo la **Configurazione guidata delle impostazioni di sottoscrizione**.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Client Web vSphere":::
+   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Impostazioni cartella di ripristino server di Backup di Azure":::
 
 1. Selezionare **Ripristina** per aprire il **Ripristino guidato**.
 
@@ -323,7 +323,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
 1. Nel riquadro **punti di ripristino per** usare il calendario per selezionare la data che contiene i punti di ripristino desiderati. A seconda di come è stato configurato il criterio di backup, le date possono avere più di un punto di ripristino. 
 
-1. Dopo aver selezionato il giorno in cui è stato creato il punto di ripristino, assicurarsi di scegliere l' **ora di ripristino**corretta. 
+1. Dopo aver selezionato il giorno in cui è stato creato il punto di ripristino, assicurarsi di scegliere l' **ora di ripristino** corretta. 
 
    > [!NOTE]
    > Se per la data selezionata esistono più punti di ripristino, scegliere il punto di ripristino selezionandolo nel menu a discesa **Ora ripristino**. 
@@ -337,7 +337,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
    ![Verifica selezione per ripristino](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 
-1. Dopo aver selezionato gli elementi per il ripristino, nella barra multifunzione dello strumento Console di amministrazione selezionare **Ripristina** per aprire il **Ripristino guidato**. Nel **Ripristino guidato**la schermata **Verifica selezione per ripristino** Mostra gli elementi selezionati da ripristinare.
+1. Dopo aver selezionato gli elementi per il ripristino, nella barra multifunzione dello strumento Console di amministrazione selezionare **Ripristina** per aprire il **Ripristino guidato**. Nel **Ripristino guidato** la schermata **Verifica selezione per ripristino** Mostra gli elementi selezionati da ripristinare.
 
 1. Nella schermata **Specifica opzioni di ripristino** eseguire una delle operazioni seguenti:
 
@@ -356,7 +356,7 @@ Nella server di Backup di Azure Console di amministrazione sono disponibili due 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per la risoluzione dei problemi durante la configurazione dei backup, vedere Risolvere i problemi del server di Backup di Azure.
+Ora che è stato spiegato come eseguire il backup delle macchine virtuali della soluzione VMware di Azure con server di Backup di Azure, è possibile ottenere informazioni su: 
 
-> [!div class="nextstepaction"]
-> [Guida alla risoluzione dei problemi per server di Backup di Azure](../backup/backup-azure-mabs-troubleshoot.md)
+- [Risoluzione dei problemi durante la configurazione di backup in server di backup di Azure](../backup/backup-azure-mabs-troubleshoot.md).
+- [Gestione del ciclo di vita delle macchine virtuali della soluzione VMware di Azure](lifecycle-management-of-azure-vmware-solution-vms.md).
