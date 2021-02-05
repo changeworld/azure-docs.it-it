@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210019"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593130"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -113,6 +113,9 @@ La funzionalità restrizioni di accesso basato su IP consente di limitare gli in
 * Limitare l'accesso al traffico in arrivo attraverso un servizio di bilanciamento del carico esterno o altre appliance di rete con indirizzi IP in uscita noti. 
 
 Per informazioni su come abilitare questa funzionalità, vedere [Configuring Access Restrictions][iprestrictions].
+
+> [!NOTE]
+> Le regole di restrizione dell'accesso basato su IP gestiscono solo gli intervalli di indirizzi della rete virtuale quando l'app si trova in un ambiente del servizio app. Se l'app si trova nel servizio multi-tenant, è necessario usare gli [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) per limitare il traffico per selezionare le subnet nella rete virtuale.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Regole di restrizione dell'accesso basate sugli endpoint di servizio 
 
@@ -256,7 +259,7 @@ Questo stile di distribuzione non fornisce un indirizzo dedicato per il traffico
 
 ### <a name="create-multitier-applications"></a>Creare applicazioni multilivello
 
-Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una rete virtuale. Questa operazione consentirà all'app Web di effettuare chiamate alla rete virtuale. Dopo che l'app front-end è connessa alla rete virtuale, è necessario decidere come bloccare l'accesso all'applicazione per le API. è possibile:
+Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una rete virtuale. Questa operazione consentirà all'app Web di effettuare chiamate alla rete virtuale. Dopo che l'app front-end è connessa alla rete virtuale, è necessario decidere come bloccare l'accesso all'applicazione per le API. È possibile:
 
 * Ospitare sia il front-end che l'app per le API nello stesso ambiente del servizio app ILB ed esporre l'app front-end a Internet usando un gateway applicazione.
 * Ospitare il front-end nel servizio multi-tenant e il back-end in un ambiente del servizio app ILB.
@@ -293,7 +296,7 @@ La configurazione degli endpoint privati esporrà le app in un indirizzo privato
 
 Se si analizza il servizio app, sono disponibili diverse porte esposte per le connessioni in ingresso. Non è possibile bloccare o controllare l'accesso a queste porte nel servizio multi-tenant. Ecco l'elenco delle porte esposte:
 
-| Usa | Porta o porte |
+| Uso | Porta o porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Gestione | 454, 455 |

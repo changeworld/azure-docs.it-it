@@ -1,14 +1,14 @@
 ---
 title: Panoramica della gestione di Azure - Governance di Azure
 description: Panoramica delle aree di gestione di applicazioni e risorse di Azure con collegamenti a contenuti sugli strumenti di gestione di Azure.
-ms.date: 09/09/2020
+ms.date: 02/05/2021
 ms.topic: overview
-ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
-ms.translationtype: HT
+ms.openlocfilehash: 754fe496b790a7ee32eb840109a60a04ee66ef97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949497"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593926"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Che cosa sono le aree di gestione di Azure?
 
@@ -33,7 +33,7 @@ Il monitoraggio comporta la raccolta e l'analisi dei dati per controllare le pre
 ## <a name="configure"></a>Configurare
 
 Per configurazione si intendono la distribuzione e la configurazione iniziali di risorse e manutenzione continuativa.
-L'automazione di queste attività consente di eliminare la ridondanza, riducendo al minimo il tempo e il lavoro richiesti, aumentando la precisione e l'efficienza. [Automazione di Azure](../automation/automation-intro.md) fornisce la maggior parte dei servizi per l'automazione delle attività di configurazione. Mentre i runbook gestiscono l'automazione dei processi, la configurazione e la gestione dell'aggiornamento assistono nel gestire la configurazione.
+L'automazione di queste attività consente di eliminare la ridondanza, riducendo al minimo il tempo e il lavoro richiesti, aumentando la precisione e l'efficienza. [Automazione di Azure](../automation/automation-intro.md) fornisce la maggior parte dei servizi per l'automazione delle attività di configurazione. Mentre manuali operativi gestiscono l'automazione dei processi, la gestione della configurazione e degli aggiornamenti consente di gestire la configurazione.
 
 ## <a name="govern"></a>Governance
 

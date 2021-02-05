@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095441"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593419"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ La versione con ridondanza della zona dell'architettura a disponibilità elevata
 ![Configurazione con ridondanza della zona per utilizzo generico](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Per informazioni aggiornate sulle aree che supportano i database con ridondanza della zona, vedere [supporto dei servizi in base all'area](../../availability-zones/az-region.md). La configurazione con ridondanza della zona è disponibile solo quando è selezionato l'hardware di calcolo quinta generazione. Questa funzionalità non è disponibile in SQL Istanza gestita.
+> La configurazione con ridondanza della zona è disponibile solo quando è selezionato l'hardware di calcolo quinta generazione. Questa funzionalità non è disponibile in SQL Istanza gestita. La configurazione con ridondanza della zona per il livello utilizzo generico è disponibile solo nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Asia sudorientale, Australia orientale, Giappone orientale, Regno Unito meridionale e Francia centrale.
 
 > [!NOTE]
 > Per utilizzo generico database con dimensioni pari a 80 Vcore può comportare un calo delle prestazioni con la configurazione con ridondanza della zona. Inoltre, le operazioni come il backup, il ripristino, la copia del database e la configurazione delle relazioni di ripristino di emergenza geografico possono comportare prestazioni più lente per i singoli database di dimensioni superiori a 1 TB. 

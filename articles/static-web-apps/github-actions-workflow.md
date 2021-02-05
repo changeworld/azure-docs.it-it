@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: acdb635dec5abd73341cc1dda4991b58b82a18c0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574517"
+ms.locfileid: "99593953"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flussi di lavoro di GitHub Actions per App Web statiche di Azure (anteprima)
 
@@ -197,12 +197,13 @@ jobs:
 
 ## <a name="monorepo-support"></a>Supporto di monorepo
 
-Un monorepository è un repository che contiene il codice per più di un'applicazione. Per impostazione predefinita, un file di flusso di lavoro di app Web statiche tiene traccia di tutti i file in un repository, ma è possibile modificarlo in modo che sia destinato a una singola app. Pertanto, per i monorepository, ogni sito statico dispone di un proprio file di configurazione che viene affiancato nella cartella *. git* del repository.
+Un monorepository è un repository che contiene il codice per più di un'applicazione. Per impostazione predefinita, un file di flusso di lavoro di app Web statiche tiene traccia di tutti i file in un repository, ma è possibile modificarlo in modo che sia destinato a una singola app. Pertanto, per i monorepository, ogni app statica dispone di un proprio file di configurazione che viene affiancato nella cartella *. github/workflows* del repository.
 
 ```files
-├── .git
-│   ├── azure-static-web-apps-purple-pond.yml
-│   └── azure-static-web-apps-yellow-shoe.yml
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
 │
 ├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
@@ -210,7 +211,7 @@ Un monorepository è un repository che contiene il codice per più di un'applica
 ├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
 │
-└── readme.md
+└── README.md
 ```
 
 Per fare riferimento a un file di flusso di lavoro a una singola app, è necessario specificare i percorsi nelle `push` `pull_request` sezioni e.
@@ -236,7 +237,7 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-In questo caso, solo le modifiche apportate ai file che seguono i file attivano una nuova compilazione:
+In questo caso, solo le modifiche apportate ai file seguenti attivano una nuova compilazione:
 
 - Tutti i file all'interno della cartella *App1*
 - Tutti i file all'interno della cartella *API1*

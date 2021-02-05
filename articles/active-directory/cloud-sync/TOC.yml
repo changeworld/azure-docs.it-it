@@ -18,7 +18,7 @@
       href: tutorial-pilot-aadc-aadccp.md
 - name: Concetti
   items:
-    - name: Come funziona
+    - name: Funzionamento
       href: concept-how-it-works.md
     - name: Che cos'è la sincronizzazione dell'hash delle password?
       href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
@@ -62,7 +62,7 @@
       items:
         - name: Trasformazioni
           href: how-to-transformation.md
-        - name: Sincronizzazione in ingresso con l'API MS Graph
+        - name: Configurare la sincronizzazione cloud a livello di codice usando MS API Graph
           href: how-to-inbound-synch-ms-graph.md
         - name: API di sincronizzazione di Azure AD
           href: /graph/api/resources/synchronization-overview

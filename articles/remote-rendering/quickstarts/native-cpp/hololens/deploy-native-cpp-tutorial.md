@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: d35d6e75b45c2ea263c2e986c5fc6f414cad16e4
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
-ms.translationtype: HT
+ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724970"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594028"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Avvio rapido: Distribuire un esempio di C++ nativo in HoloLens
 
@@ -61,26 +61,26 @@ Impostare la configurazione della build su *Debug* (o *Rilascio*) e *ARM64*. Ass
 
 ![Configurazione di Visual Studio](media/vs-config-native-cpp-tutorial.png)
 
-Poiché le credenziali dell'account sono hardcoded nel codice sorgente dell'esercitazione, sostituirle con credenziali valide. A tale scopo, aprire file `HolographicAppMain.cpp` all'interno di Visual Studio e modificare la parte in cui viene creato il front-end all'interno del costruttore della classe `HolographicAppMain`:
+Poiché le credenziali dell'account sono hardcoded nel codice sorgente dell'esercitazione, sostituirle con credenziali valide. Per aprire il file in `HolographicAppMain.cpp` Visual Studio e modificare la parte in cui viene creato il client all'interno del costruttore della classe `HolographicAppMain` :
 
 ```cpp
-// 2. Create front end
+// 2. Create Client
 {
     // Users need to fill out the following with their account data and model
-    RR::AzureFrontendAccountInfo init;
+    RR::SessionConfiguration init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
-    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
+    init.RemoteRenderingDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
-    m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+    m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
 }
 ```
 
 Nello specifico, modificare i valori seguenti:
-* `init.AccountId`, `init.AccountKey` e `init.AccountAuthenticationDomain` per usare i dati dell'account. Vedere il paragrafo relativo a come [recuperare le informazioni sull'account](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Specificare la posizione in cui creare la sessione di rendering remoto modificando la parte relativa all’area della stringa `init.AccountDomain` con altre aree diverse da `westus2`, ad esempio `"westeurope.mixedreality.azure.com"`.
+* `init.AccountId`, `init.AccountKey` e `init.AccountDomain` per usare i dati dell'account. Vedere il paragrafo relativo a come [recuperare le informazioni sull'account](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Specificare la posizione in cui creare la sessione di rendering remoto modificando la parte relativa all’area della stringa `init.RemoteRenderingDomain` con altre aree diverse da `westus2`, ad esempio `"westeurope.mixedreality.azure.com"`.
 * Inoltre, è possibile sostituire `m_sessionOverride` con un ID di sessione esistente. Le sessioni possono essere create all'esterno di questo esempio, ad esempio usando lo [script di PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o usando direttamente l'[API REST della sessione](../../../how-tos/session-rest-api.md#create-a-session).
 È consigliabile creare una sessione all'esterno dell'esempio quando l'esempio deve essere eseguito più volte. Se non viene passata alcuna sessione, l'esempio creerà una nuova sessione a ogni avvio, operazione che può richiedere diversi minuti.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 514ce0a43904048952f38edd6a9d38713f6ef8f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936673"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592841"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Panoramica dei criteri personalizzati Azure AD B2C
 
@@ -115,7 +115,7 @@ Ogni Starter Pack include i file seguenti:
 Il modello di ereditarietà è come segue:
 
 - Il criterio figlio a qualsiasi livello può ereditare dal criterio padre ed estenderlo aggiungendo nuovi elementi.
-- Per scenari più complessi, è possibile aggiungere più livelli di ereditarietà, fino a 5 in totale.
+- Per scenari più complessi, è possibile aggiungere più livelli di ereditarietà, fino a 10 in totale.
 - È possibile aggiungere altri criteri di relying party. Ad esempio, eliminare il mio account, modificare un numero di telefono, SAML relying party Policy e altro ancora.
 
 Il diagramma seguente mostra la relazione tra i file di criteri e le applicazioni relying party.

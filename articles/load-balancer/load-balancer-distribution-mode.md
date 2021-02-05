@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021
 ms.author: allensu
-ms.openlocfilehash: 7f2525b89f03e8bc1a2c3166b46c40b4dbb6ff17
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 22d7af4f307a99d2d2e29bc1f494d327394e4f10
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99562008"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594283"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurare la modalità di distribuzione per Azure Load Balancer
 
@@ -46,8 +46,8 @@ Questo articolo illustra come configurare la modalità di distribuzione per il A
 Sono disponibili le opzioni seguenti: 
 
 * **None (basato su hash)** : specifica che le richieste successive provenienti dallo stesso client possono essere gestite da qualsiasi macchina virtuale.
-* **IP client (affinità IP di origine 2-tupla)** : specifica che le richieste successive provenienti dallo stesso indirizzo IP client verranno gestite dalla stessa macchina virtuale.
-* **IP e protocollo client (affinità IP di origine 3-tupla)** : specifica che le richieste successive provenienti dalla stessa combinazione di indirizzo IP e protocollo client verranno gestite dalla stessa macchina virtuale.
+* **IP client (due Tuple affinità IP di origine)** : specifica che le richieste successive provenienti dallo stesso indirizzo IP client verranno gestite dalla stessa macchina virtuale.
+* **IP e protocollo client (affinità IP di origine a tre Tuple)** : specifica che le richieste successive provenienti dalla stessa combinazione di indirizzo IP e protocollo client verranno gestite dalla stessa macchina virtuale.
 
 5. Scegliere la modalità di distribuzione e quindi fare clic su **Salva**.
 
@@ -66,13 +66,36 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-Impostare il valore dell' `LoadDistribution` elemento per la quantità di bilanciamento del carico richiesta. 
+Impostare il valore dell' `LoadDistribution` elemento per il tipo di bilanciamento del carico richiesto. 
 
-Specificare **SourceIP** per il bilanciamento del carico a due Tuple (IP di origine e IP di destinazione). 
+* Specificare **SourceIP** per il bilanciamento del carico a due Tuple (IP di origine e IP di destinazione). 
 
-Specificare **sourceIPProtocol** per il bilanciamento del carico a tre Tuple (IP di origine, IP di destinazione e tipo di protocollo). 
+* Specificare **SourceIPProtocol** per il bilanciamento del carico a tre Tuple (IP di origine, IP di destinazione e tipo di protocollo). 
 
-Specificare **il comportamento predefinito del** bilanciamento del carico con cinque tuple.
+* Specificare **il comportamento predefinito del** bilanciamento del carico con cinque tuple.
+
+# <a name="cli"></a>[**CLI**](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Usare l'interfaccia della riga di comando di Azure per modificare le impostazioni di distribuzione del servizio di bilanciamento del carico in una regola di bilanciamento del carico esistente.  Il comando seguente aggiorna la modalità di distribuzione:
+
+```azurecli-interactive
+az network lb rule update \
+    --lb-name myLoadBalancer \
+    --load-distribution SourceIP \
+    --name myHTTPRule \
+    --resource-group myResourceGroupLB 
+```
+Impostare il valore di `--load-distribution` per il tipo di bilanciamento del carico richiesto.
+
+* Specificare **SourceIP** per il bilanciamento del carico a due Tuple (IP di origine e IP di destinazione). 
+
+* Specificare **SourceIPProtocol** per il bilanciamento del carico a tre Tuple (IP di origine, IP di destinazione e tipo di protocollo). 
+
+* Specificare **il comportamento predefinito del** bilanciamento del carico con cinque tuple.
+
+Per altre informazioni sul comando usato in questo articolo, vedere [AZ Network lb Rule Update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
 
 ---
 

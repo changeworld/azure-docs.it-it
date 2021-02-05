@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Creare un gruppo di gestione con l'API REST"
 description: In questo argomento di avvio rapido si usa l'API REST per creare un gruppo di gestione con cui organizzare le risorse in una gerarchia.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237001"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592501"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Avvio rapido: Creare un gruppo di gestione con l'API REST
 
@@ -20,7 +20,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 - Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-- Se non è già stato fatto, installare [ARMClient](https://github.com/projectkudu/ARMClient). È uno strumento che invia richieste HTTP alle API REST basate su Azure Resource Manager. In alternativa è possibile usare la funzionalità "Prova" nella documentazione di REST o strumenti come [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) di PowerShell o [Postman](https://www.postman.com).
+- Se non è già stato fatto, installare [ARMClient](https://github.com/projectkudu/ARMClient). È uno strumento che invia richieste HTTP alle API REST basate su Azure Resource Manager. È invece possibile usare la funzionalità "prova" nella documentazione REST o negli strumenti come PowerShell [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) o [postazione](https://www.postman.com).
 
 - Se la [protezione della gerarchia](./how-to/protect-resource-hierarchy.md#setting---require-authorization) non è abilitata, qualsiasi utente di Azure AD nel tenant può creare un gruppo di gestione senza avere autorizzazioni di scrittura assegnate per tale gruppo di gestione. Questo nuovo gruppo di gestione diventa un elemento figlio del gruppo di gestione radice o del [gruppo di gestione predefinito](./how-to/protect-resource-hierarchy.md#setting---default-management-group) e all'autore viene assegnato il ruolo "Proprietario". Il servizio del gruppo di gestione offre questa possibilità per evitare che siano necessarie assegnazioni di ruolo a livello di radice. Nessun utente ha accesso al gruppo di gestione radice quando viene creato. Per evitare il problema di reperire gli amministratori globali di Azure AD per iniziare a usare i gruppi di gestione, è consentita la creazione dei gruppi di gestione iniziali al livello radice.
 

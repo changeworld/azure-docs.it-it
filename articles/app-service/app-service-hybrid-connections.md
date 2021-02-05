@@ -4,15 +4,15 @@ description: Informazioni su come creare e usare connessioni ibride nel servizio
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575992"
+ms.locfileid: "99594232"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure
 
@@ -201,9 +201,16 @@ Chiunque abbia `Reader` accesso all'inoltro potrà _visualizzare_ la connessione
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi ##
 
-Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida è configurata con quella specifica connessione ed è in grado di raggiungere Azure. Se lo stato della connessione ibrida non è **Connesso**, la connessione ibrida non è configurata in alcuna istanza di Gestione connessione ibrida con accesso ad Azure.
+Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida è configurata con quella specifica connessione ed è in grado di raggiungere Azure. Se lo stato della connessione ibrida non è **Connesso**, la connessione ibrida non è configurata in alcuna istanza di Gestione connessione ibrida con accesso ad Azure. Quando la gestione connessione ibrida Mostra la **connessione** , è necessario verificare alcuni aspetti:
 
-Il motivo principale per cui i client non riescono a connettersi al relativo endpoint è perché l'endpoint è stato specificato usando un indirizzo IP anziché un nome DNS. Se l'app non riesce a raggiungere l'endpoint desiderato ed è stato specificato un indirizzo IP, usare un nome DNS valido nell'host in cui Gestione connessione ibrida è in esecuzione. È necessario controllare anche che il nome DNS venga risolto correttamente nell'host in cui Gestione connessione ibrida è in esecuzione e che vi sia connettività tra l'host in cui Gestione connessione ibrida è in esecuzione e l'endpoint della connessione ibrida.  
+* L'host ha accesso in uscita ad Azure sulla porta 443? È possibile eseguire il test dall'host HCM usando il comando PowerShell *test-NetConnection destinazione-P porta* 
+* Gestione connessione ibrida potenzialmente si trova in uno stato non valido? Provare a riavviare il servizio locale "Azure Gestione connessione ibrida Service".
+
+Se lo stato è **connesso** , ma l'app non è in grado di raggiungere l'endpoint,
+
+* Assicurarsi di usare un nome DNS nella connessione ibrida. Se si usa un indirizzo IP, la ricerca DNS del client richiesta potrebbe non avvenire. Se il client in esecuzione nell'app Web non esegue una ricerca DNS, la connessione ibrida non funzionerà
+* Verificare che il nome DNS usato nella connessione ibrida possa essere risolto dall'host HCM. Controllare la risoluzione usando *nslookup EndpointDNSname* dove EndpointDNSname è una corrispondenza esatta con ciò che viene usato nella definizione della connessione ibrida.
+* testare l'accesso dall'host HCM all'endpoint usando il comando PowerShell *test-NetConnection EndpointDNSname-P porta*  se non è possibile raggiungere l'endpoint dall'host HCM, quindi controllare i firewall tra i due host che includono eventuali firewall basati su host nell'host di destinazione.
 
 Nel servizio app, lo strumento da riga di comando **tcpping** può essere richiamato dalla console strumenti avanzati (kudu). Questo strumento indica se si dispone dell'accesso a un endpoint TCP, ma non se si dispone dell'accesso all'endpoint di una connessione ibrida. Quando lo strumento viene usato nella console per rilevare l'endpoint di una connessione ibrida, viene confermato solo che usa una combinazione host:porta.  
 

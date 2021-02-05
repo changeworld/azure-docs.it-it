@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 33f5314c80dc33dbec50dc21a71f4cb507979e12
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427429"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593950"
 ---
 # <a name="limitations"></a>Limitazioni
 
@@ -19,8 +19,8 @@ Diverse funzionalità prevedono delle limitazioni in termini di dimensioni, cont
 ## <a name="azure-frontend"></a>Front-end di Azure
 
 Per l'API front-end (C++ e C#) si applicano le limitazioni seguenti:
-* Totale istanze [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend) per processo: 16.
-* Totale istanze di [AzureSession](/dotnet/api/microsoft.azure.remoterendering.azuresession) per [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend): 16.
+* Totale istanze [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient) per processo: 16.
+* Totale istanze di [RenderingSession](/dotnet/api/microsoft.azure.remoterendering.renderingsession) per [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient): 16.
 
 ## <a name="objects"></a>Oggetti
 
@@ -32,7 +32,7 @@ Per l'API front-end (C++ e C#) si applicano le limitazioni seguenti:
 * **Animazione:** Le animazioni sono limitate all'animazione delle singole trasformazioni degli [oggetti di gioco](../concepts/entities.md). Le animazioni scheletriche con animazioni di skinning o vertici non sono supportate. Le tracce di animazione dal file di asset di origine non vengono mantenute. Al contrario, le animazioni di trasformazione degli oggetti devono essere gestite dal codice client.
 * **Shader personalizzati:** La creazione di shader personalizzati non è supportata. È possibile utilizzare solo [materiali colori](../overview/features/color-materials.md) o [materiali di PBR](../overview/features/pbr-materials.md) predefiniti.
 * **Numero massimo di materiali distinti** in un asset: 65.535. Per ulteriori informazioni sulla riduzione del numero di materiali automatico, vedere il capitolo [deduplicazione materiali](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
-* **Dimensione massima di una singola trama** : 16.384 x 16.384. Le trame di origine di dimensioni maggiori verranno ridotte in base al processo di conversione.
+* **Dimensione massima di una singola trama**: 16.384 x 16.384. Le trame di origine di dimensioni maggiori verranno ridotte in base al processo di conversione.
 
 ### <a name="overall-number-of-polygons"></a>Numero complessivo di poligoni
 

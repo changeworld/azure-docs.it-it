@@ -3,14 +3,14 @@ title: Distribuzione modelli simulazione
 description: Determinare quali modifiche si verificheranno nelle risorse prima di distribuire un modello di Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
-ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673971"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591625"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operazione di simulazione della distribuzione del modello di Resource Manager
 
@@ -21,10 +21,6 @@ Prima di distribuire un modello di Azure Resource Manager (modello ARM), è poss
 ## <a name="install-azure-powershell-module"></a>Installare il modulo Azure PowerShell
 
 Per usare simulazione in PowerShell, è necessario avere **la versione 4,2 o successiva del modulo AZ**.
-
-Tuttavia, prima di installare il modulo necessario, assicurarsi di avere PowerShell Core (6. x o 7. x). Se si dispone di PowerShell 5. x o versioni precedenti, [aggiornare la versione di PowerShell](/powershell/scripting/install/installing-powershell). Non è possibile installare il modulo richiesto in PowerShell 5. x o versioni precedenti.
-
-### <a name="install-latest-version"></a>Installare la versione più recente
 
 Per installare il modulo, usare:
 
@@ -326,7 +322,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 L'operazione di simulazione supporta l'uso della [modalità di distribuzione](deployment-modes.md). Quando viene impostata la modalità completa, le risorse non presenti nel modello vengono eliminate. Nell'esempio seguente viene distribuito un [modello privo di risorse definite](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in modalità completa.
 
-Per visualizzare in anteprima le modifiche prima di distribuire un modello, usare il parametro confirm switch con il comando di distribuzione. Se le modifiche corrispondono alle aspettative, confermare che si vuole completare la distribuzione.
+Per visualizzare in anteprima le modifiche prima di distribuire un modello, usare il parametro confirm switch con il comando di distribuzione. Se le modifiche sono quelle previste, rispondere che si desidera completare la distribuzione.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

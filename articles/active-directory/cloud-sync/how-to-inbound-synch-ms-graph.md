@@ -1,5 +1,5 @@
 ---
-title: Sincronizzazione in ingresso per la sincronizzazione cloud con MS API Graph
+title: Come configurare la sincronizzazione cloud a livello di codice usando MS API Graph
 description: Questo argomento descrive come abilitare la sincronizzazione in ingresso usando solo la API Graph
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682039"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593161"
 ---
-# <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>Sincronizzazione in ingresso per la sincronizzazione cloud con MS API Graph
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Come configurare la sincronizzazione cloud a livello di codice usando MS API Graph
 
 Il documento seguente descrive come replicare un profilo di sincronizzazione da zero usando solo le API MSGraph.  
 La struttura di questa procedura è costituita dai passaggi seguenti.  Ad esempio:
@@ -28,6 +28,7 @@ La struttura di questa procedura è costituita dai passaggi seguenti.  Ad esempi
 - [Crea processo di sincronizzazione](#create-sync-job)
 - [Aggiorna dominio di destinazione](#update-targeted-domain)
 - [Abilita hash delle password di sincronizzazione](#enable-sync-password-hashes-on-configuration-blade)
+- [Eliminazioni accidentali](#accidental-deletes)
 - [Avvia processo di sincronizzazione](#start-sync-job)
 - [Verifica stato](#review-status)
 
@@ -210,6 +211,71 @@ In questo caso, il valore "dominio" evidenziato è il nome del dominio Active Di
 ```
 
  Aggiungere lo schema nel corpo della richiesta. 
+
+## <a name="accidental-deletes"></a>Eliminazioni accidentali
+Questa sezione illustra come abilitare/disabilitare a livello di codice e usare [eliminazioni accidentali](how-to-accidental-deletes.md) a livello di codice.
+
+
+### <a name="enabling-and-setting-the-threshold"></a>Abilitazione e impostazione della soglia
+Sono disponibili due impostazioni per processo che è possibile usare:
+
+ - DeleteThresholdEnabled-Abilita la prevenzione accidentale dell'eliminazione per il processo quando è impostata su' true '. Per impostazione predefinita, impostare su' true '.
+ - DeleteThresholdValue: definisce il numero massimo di eliminazioni che saranno consentite in ogni esecuzione del processo quando è abilitata la prevenzione di eliminazioni accidentali. Per impostazione predefinita, il valore è impostato su 500.  Quindi, se il valore è impostato su 500, il numero massimo di eliminazioni consentite sarà 499 in ogni esecuzione.
+
+Le impostazioni soglia di eliminazione fanno parte di `SyncNotificationSettings` e possono essere modificate tramite Graph. 
+
+È necessario aggiornare il SyncNotificationSettings di destinazione di questa configurazione, quindi aggiornare i segreti.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Aggiungere la coppia chiave/valore seguente nella matrice di valori seguente in base a ciò che si sta tentando di eseguire:
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+L'impostazione "Enabled" nell'esempio precedente è per l'abilitazione o la disabilitazione dei messaggi di posta elettronica di notifica quando il processo viene messo in quarantena.
+
+
+Attualmente, non sono supportate richieste PATCH per i segreti, quindi è necessario aggiungere tutti i valori nel corpo della richiesta PUT, come nell'esempio precedente, per mantenere gli altri valori.
+
+È possibile recuperare i valori esistenti per tutti i segreti usando 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### <a name="allowing-deletes"></a>Consentire le eliminazioni
+Per consentire la propagazione delle eliminazioni dopo che il processo entra in quarantena, è necessario eseguire un riavvio solo con "ForceDeletes" come ambito. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
 
 ## <a name="start-sync-job"></a>Avvia processo di sincronizzazione
 Il processo può essere recuperato di nuovo tramite il comando seguente:

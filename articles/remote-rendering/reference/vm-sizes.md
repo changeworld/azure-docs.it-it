@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988049"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594401"
 ---
 # <a name="server-sizes"></a>Dimensioni dei server
 
@@ -30,26 +30,35 @@ Quando il renderer su una dimensione del server ' standard ' raggiunge questa li
 Il tipo desiderato di configurazione del server deve essere specificato al momento dell'inizializzazione della sessione di rendering. Non può essere modificato all'interno di una sessione in esecuzione. Negli esempi di codice seguenti viene illustrata la posizione in cui è necessario specificare le dimensioni del server:
 
 ```cs
-async void CreateRenderingSession(AzureFrontend frontend)
+async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
-    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+    RenderingSessionCreationOptions sessionCreationOptions = default;
+    sessionCreationOptions.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationOptions);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // do something with the session
+    }
 }
 ```
 
 ```cpp
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationParams sessionCreationParams;
-    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+    RenderingSessionCreationOptions sessionCreationOptions;
+    sessionCreationOptions.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    if (auto createSessionAsync = frontend->CreateNewRenderingSessionAsync(sessionCreationParams))
-    {
-        // ...
-    }
+    client->CreateNewRenderingSessionAsync(sessionCreationOptions, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // do something with the session
+        }
+    });
 }
+
 ```
 
 Per gli [script di PowerShell di esempio](../samples/powershell-example-scripts.md), è necessario specificare le dimensioni del server desiderate all'interno del `arrconfig.json` file:
@@ -76,8 +85,8 @@ Di conseguenza, è possibile scrivere un'applicazione destinata `standard` a dim
 ### <a name="how-to-determine-the-number-of-polygons"></a>Come determinare il numero di poligoni
 
 Esistono due modi per determinare il numero di poligoni di un modello o di una scena che contribuiscono al limite di budget della `standard` dimensione di configurazione:
-* Sul lato conversione del modello recuperare il [file JSON di output della conversione](../how-tos/conversion/get-information.md)e controllare la `numFaces` voce nella sezione [ *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* Se l'applicazione sta occupando contenuto dinamico, il numero di poligoni sottoposti a rendering può essere sottoposto a query in modo dinamico durante il Runtime. Usare una [query di valutazione delle prestazioni](../overview/features/performance-queries.md#performance-assessment-queries) e verificare la presenza del `polygonsRendered` membro nello `FrameStatistics` struct. Il `polygonsRendered` campo verrà impostato su `bad` quando il renderer raggiunge la limitazione del poligono. Lo sfondo della scacchiera viene sempre sbiadito con un certo ritardo per garantire che l'azione dell'utente possa essere eseguita dopo questa query asincrona. L'azione dell'utente può, ad esempio, nascondere o eliminare le istanze del modello.
+* Sul lato conversione del modello recuperare il [file JSON di output della conversione](../how-tos/conversion/get-information.md)e controllare la `numFaces` voce nella sezione [ *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section)
+* Se l'applicazione sta occupando contenuto dinamico, il numero di poligoni sottoposti a rendering può essere sottoposto a query in modo dinamico durante il Runtime. Usare una [query di valutazione delle prestazioni](../overview/features/performance-queries.md#performance-assessment-queries) e verificare la presenza del `polygonsRendered` membro nello `FrameStatistics` struct. Il `PolygonsRendered` campo verrà impostato su `bad` quando il renderer raggiunge la limitazione del poligono. Lo sfondo della scacchiera viene sempre sbiadito con un certo ritardo per garantire che l'azione dell'utente possa essere eseguita dopo questa query asincrona. L'azione dell'utente può, ad esempio, nascondere o eliminare le istanze del modello.
 
 ## <a name="pricing"></a>Prezzi
 

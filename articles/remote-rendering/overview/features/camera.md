@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: dbe86313054706af974ccb324a39e942e9b5ca44
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246282"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594130"
 ---
 # <a name="camera"></a>Fotocamera
 
@@ -57,14 +57,14 @@ I buffer di profondità registrano in genere i valori z in un intervallo a virgo
 L'API per il rendering remoto di Azure deve conoscere la convenzione del buffer di profondità del renderer locale per comporre correttamente la profondità remota nel buffer di profondità locale. Se l'intervallo del buffer di profondità è [0; 1] lasciare questo flag come `false` . Se si usa un buffer di profondità invertito con un intervallo [1; 0], impostare il `InverseDepth` flag su `true` .
 
 > [!NOTE]
-> Per Unity, l'impostazione corretta è già applicata da, `RemoteManager` quindi non è necessario l'intervento manuale.
+> Per Unity, l'impostazione corretta è già applicata da, `RenderingConnection` quindi non è necessario l'intervento manuale.
 
 La modifica delle impostazioni della fotocamera può essere eseguita come indicato di seguito:
 
 ```cs
-void ChangeCameraSetting(AzureSession session)
+void ChangeCameraSetting(RenderingSession session)
 {
-    CameraSettings settings = session.Actions.CameraSettings;
+    CameraSettings settings = session.Connection.CameraSettings;
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
@@ -73,9 +73,9 @@ void ChangeCameraSetting(AzureSession session)
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeCameraSetting(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();
+    ApiHandle<CameraSettings> settings = session->Connection()->GetCameraSettings();
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);

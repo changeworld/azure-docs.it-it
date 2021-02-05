@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcfa4c5ed57489c56ebf845d238198944150a96
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29952353b8c3452d95bcced163fafa81fe158f64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202889"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593402"
 ---
 # <a name="entities"></a>Entità
 
@@ -23,7 +23,7 @@ Le entità subiscono una trasformazione definita in termini di posizione, rotazi
 
 L'aspetto più importante dell'entità stessa è rappresentato dalla gerarchia e dalla trasformazione gerarchica risultante. Ad esempio, quando più entità sono collegate come elementi figlio a un'entità padre condivisa, tutte queste entità possono essere spostate, ruotate e ridimensionate all'unisono modificando la trasformazione dell'entità padre. È inoltre `enabled` possibile utilizzare lo stato dell'entità per disattivare la visibilità e le risposte ai cast di Ray per un sottografico completo della gerarchia.
 
-Un'entità è di proprietà esclusiva dell'elemento padre e ciò significa che, quando l'elemento padre viene eliminato definitivamente con `Entity.Destroy()`, vengono eliminati anche i relativi elementi figlio e tutti i [componenti](components.md) connessi. Pertanto, la rimozione di un modello dalla scena viene eseguita chiamando `Destroy` sul nodo radice di un modello, restituito da `AzureSession.Actions.LoadModelAsync()` o dalla relativa variante SAS `AzureSession.Actions.LoadModelFromSASAsync()`.
+Un'entità è di proprietà esclusiva dell'elemento padre e ciò significa che, quando l'elemento padre viene eliminato definitivamente con `Entity.Destroy()`, vengono eliminati anche i relativi elementi figlio e tutti i [componenti](components.md) connessi. Pertanto, la rimozione di un modello dalla scena viene eseguita chiamando `Destroy` sul nodo radice di un modello, restituito da `RenderingSession.Connection.LoadModelAsync()` o dalla relativa variante SAS `RenderingSession.Connection.LoadModelFromSasAsync()`.
 
 Le entità vengono create quando il server carica contenuti o quando l'utente desidera aggiungere un oggetto alla scena. Se, ad esempio, un utente desidera aggiungere un piano di taglio per visualizzare l'area interna di una mesh, può creare un'entità in cui deve esistere il piano e quindi aggiungervi il componente del piano tagliato.
 
@@ -32,19 +32,19 @@ Le entità vengono create quando il server carica contenuti o quando l'utente de
 Per aggiungere una nuova entità alla scena, ad esempio per passarla come oggetto radice per il caricamento di modelli o per alleghirvi componenti, usare il codice seguente:
 
 ```cs
-Entity CreateNewEntity(AzureSession session)
+Entity CreateNewEntity(RenderingSession session)
 {
-    Entity entity = session.Actions.CreateEntity();
+    Entity entity = session.Connection.CreateEntity();
     entity.Position = new LocalPosition(1, 2, 3);
     return entity;
 }
 ```
 
 ```cpp
-ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+ApiHandle<Entity> CreateNewEntity(ApiHandle<RenderingSession> session)
 {
     ApiHandle<Entity> entity(nullptr);
-    if (auto entityRes = session->Actions()->CreateEntity())
+    if (auto entityRes = session->Connection()->CreateEntity())
     {
         entity = entityRes.value();
         entity->SetPosition(Double3{ 1, 2, 3 });
@@ -106,33 +106,24 @@ I metadati sono dati aggiuntivi archiviati negli oggetti, che vengono ignorati d
 Le query sui metadati sono chiamate asincrone su un'entità specifica. La query restituisce solo i metadati di una singola entità, non le informazioni unite di un sottografico.
 
 ```cs
-MetadataQueryAsync metaDataQuery = entity.QueryMetaDataAsync();
-metaDataQuery.Completed += (MetadataQueryAsync query) =>
-{
-    if (query.IsRanToCompletion)
-    {
-        ObjectMetaData metaData = query.Result;
-        ObjectMetaDataEntry entry = metaData.GetMetadataByName("MyInt64Value");
-        System.Int64 intValue = entry.AsInt64;
-
-        // ...
-    }
-};
+Task<ObjectMetadata> metaDataQuery = entity.QueryMetadataAsync();
+ObjectMetadata metaData = await metaDataQuery;
+ObjectMetadataEntry entry = metaData.GetMetadataByName("MyInt64Value");
+System.Int64 intValue = entry.AsInt64;
+// ...
 ```
 
 ```cpp
-ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
-metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+entity->QueryMetadataAsync([](Status status, ApiHandle<ObjectMetadata> metaData) 
+{
+    if (status == Status::OK)
     {
-        if (query->GetIsRanToCompletion())
-        {
-            ApiHandle<ObjectMetaData> metaData = query->GetResult();
-            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->GetAsInt64();
+        ApiHandle<ObjectMetadataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+        int64_t intValue = *entry->GetAsInt64();
 
-            // ...
-        }
-    });
+        // ...
+    }
+});
 ```
 
 La query avrà esito positivo anche se l'oggetto non dispone di metadati.
@@ -140,9 +131,9 @@ La query avrà esito positivo anche se l'oggetto non dispone di metadati.
 ## <a name="api-documentation"></a>Documentazione dell'API
 
 * [Classe di entità C#](/dotnet/api/microsoft.azure.remoterendering.entity)
-* [C# RemoteManager. CreateEntity ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C# RenderingConnection. CreateEntity ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createentity)
 * [Classe di entità C++](/cpp/api/remote-rendering/entity)
-* [C++ RemoteManager:: CreateEntity ()](/cpp/api/remote-rendering/remotemanager#createentity)
+* [C++ RenderingConnection:: CreateEntity ()](/cpp/api/remote-rendering/renderingconnection#createentity)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

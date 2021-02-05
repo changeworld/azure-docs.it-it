@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 4e09f9b8564c9319e68984df1c0f8db7a496a6d0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beb45d0d650b07f6106a3307d2d3a955095ee8b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584805"
+ms.locfileid: "99592263"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -92,60 +92,10 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
     ![Risorsa ha creato un nuovo servizio QnA Maker gestito (anteprima)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     La risorsa con il tipo di _Servizi cognitivi_ ha le chiavi di _sottoscrizione_ .
-
+    
 ---
 
-## <a name="find-authoring-keys-in-the-azure-portal"></a>Trovare le chiavi di creazione nel portale di Azure
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
-
-È possibile visualizzare e reimpostare le chiavi di creazione dall'portale di Azure, in cui è stata creata la risorsa QnA Maker. Queste chiavi possono essere denominate chiavi di sottoscrizione.
-
-1. Passare alla risorsa QnA Maker nella portale di Azure e selezionare la risorsa con il tipo di _Servizi cognitivi_ :
-
-    ![Elenco di risorse QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
-
-2. Passare a **chiavi ed endpoint**:
-
-    ![Chiave di sottoscrizione QnA Maker gestita (anteprima)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Trovare le chiavi dell'endpoint di query nel portale di QnA Maker
-
-L'endpoint si trova nella stessa area della risorsa perché le chiavi dell'endpoint vengono utilizzate per effettuare una chiamata alla Knowledge base.
-
-Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qnamaker.ai).
-
-1. Accedere al portale di [QnA Maker](https://qnamaker.ai), passare al profilo e quindi selezionare **impostazioni del servizio**:
-
-    ![Chiave endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
-
-2. Visualizza o Reimposta le chiavi:
-
-    > [!div class="mx-imgBorder"]
-    > ![Gestione chiavi endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
-
-    >[!NOTE]
-    >Aggiornare le chiavi se si ritiene che siano state compromesse. Questa operazione può richiedere modifiche corrispondenti al codice del bot o dell'applicazione client.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
-
-È possibile visualizzare e reimpostare le chiavi di creazione dall'portale di Azure, in cui è stata creata la risorsa QnA Maker gestita (anteprima). Queste chiavi possono essere denominate chiavi di sottoscrizione.
-
-1. Passare alla risorsa QnA Maker Managed (Preview) nella portale di Azure e selezionare la risorsa con il tipo di *Servizi cognitivi* :
-
-    ![Elenco delle risorse di QnA Maker gestito (anteprima)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
-
-2. Passare a **chiavi ed endpoint**:
-
-    ![Chiave di sottoscrizione QnA Maker gestita (anteprima)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="update-the-resources"></a>Aggiornare le risorse
-
-Informazioni su come aggiornare le risorse utilizzate dalla Knowledge base. QnA Maker Managed (Preview) è **gratuito** durante la fase di anteprima. 
-
----
-
-### <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
+## <a name="recommended-settings-for-network-isolation"></a>Impostazioni consigliate per l'isolamento rete
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 

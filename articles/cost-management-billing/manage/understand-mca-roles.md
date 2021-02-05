@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/05/2021
 ms.author: banders
-ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.openlocfilehash: 00ac61567502984759c5db9837060c86aaee378d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673832"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593587"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per i contratti dei clienti Microsoft in Azure
 
@@ -100,6 +100,8 @@ Le tabelle seguenti indicano il ruolo necessario per completare le attività nel
 |Aggiornare le proprietà del profilo di fatturazione |✔|✔|✘|✘|✘|✘|✘|
 |Visualizzare i criteri applicati al profilo di fatturazione, come l'abilitazione degli acquisti di prenotazioni di Azure, l'abilitazione degli acquisti in Azure Marketplace e altri|✔|✔|✔|✔|✔|✔|✔|
 |Applicare criteri al profilo di fatturazione |✔|✔|✘|✘|✘|✘|✘|
+|Gestisci ordini di prenotazione |✔|✔|✘|✘|✘|✘|✘|
+|Visualizza ordini di prenotazione |✔|✔|✔|✘|✘|✘|✘|
 
 ### <a name="manage-invoices-for-billing-profile"></a>Gestire le fatture per il profilo di fatturazione
 

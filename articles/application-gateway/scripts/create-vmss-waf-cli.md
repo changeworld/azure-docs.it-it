@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 39750465008be586c58d9da309ffe435b2030c59
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: HT
+ms.openlocfilehash: e9201f41c9552b6a60f9ccd8eacda60ac46f89eb
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397010"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591636"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Limitare il traffico Web con l'interfaccia della riga di comando di Azure
 
@@ -48,8 +48,8 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Crea una rete virtuale. |
 | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Crea una subnet in una rete virtuale. |
-| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | Crea l'indirizzo IP pubblico per il gateway applicazione. |
-| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | Creare un gateway applicazione. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Crea l'indirizzo IP pubblico per il gateway applicazione. |
+| [az network application-gateway create](/cli/azure/network/application-gateway) | Creare un gateway applicazione. |
 | [az vmss create](/cli/azure/vmss#az-vmss-create) | Crea un set di scalabilità di macchine virtuali. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione. |
 | [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | Crea un account di archiviazione. |

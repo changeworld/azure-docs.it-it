@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
-ms.translationtype: HT
+ms.openlocfilehash: cec97134173cfc7879baf1d914d8f224a0736430
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559134"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593045"
 ---
 # <a name="tutorial-manipulating-models"></a>Esercitazione: Manipolazione dei modelli
 
@@ -37,7 +37,7 @@ I limiti di un modello sono definiti dal riquadro che lo contiene interamente, e
 1. Creare un nuovo script nella stessa directory di **RemoteRenderedModel** e assegnargli il nome **RemoteBounds**.
 1. Sostituire il contenuto dello script con il codice seguente:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -51,8 +51,6 @@ I limiti di un modello sono definiti dal riquadro che lo contiene interamente, e
     {
         //Remote bounds works with a specific remotely rendered model
         private BaseRemoteRenderedModel targetModel = null;
-
-        private BoundsQueryAsync remoteBoundsQuery = null;
 
         private RemoteBoundsState currentBoundsState = RemoteBoundsState.NotReady;
 
@@ -94,14 +92,8 @@ I limiti di un modello sono definiti dal riquadro che lo contiene interamente, e
             }
         }
 
-        // Create a query using the model entity
-        private void QueryBounds()
-        {
-            //Implement me
-        }
-
-        // Check the result and apply it to the local Unity bounding box if it was successful
-        private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
+        // Create an async query using the model entity
+        async private void QueryBounds()
         {
             //Implement me
         }
@@ -113,31 +105,21 @@ I limiti di un modello sono definiti dal riquadro che lo contiene interamente, e
 
     Questo script deve essere aggiunto allo stesso GameObject dello script che implementa **BaseRemoteRenderedModel**. In questo caso, significa **RemoteRenderedModel**. Analogamente agli script precedenti, questo codice iniziale gestirà tutte le modifiche di stato, gli eventi e i dati correlati ai limiti remoti.
 
-    Rimangono due metodi da implementare: **QueryBounds** e **ProcessQueryResult**. **QueryBounds** recupera i limiti e **ProcessQueryResult** acquisisce il risultato della query e lo applica all'oggetto **BoxCollider** locale.
+    È rimasto un solo metodo da implementare: **QueryBounds**. **QueryBounds** recupera i limiti in modo asincrono, accetta il risultato della query e lo applica al **BoxCollider** locale.
 
-    Il metodo **QueryBounds** è semplice: invia una query alla sessione di rendering remota e resta in ascolto dell'evento `Completed`.
+    Il metodo **QueryBounds** è semplice: Invia una query alla sessione di rendering remoto e attende il risultato.
 
 1. Sostituire il metodo **QueryBounds** con il metodo completato seguente:
 
-    ```csharp
+    ```cs
     // Create a query using the model entity
-    private void QueryBounds()
+    async private void QueryBounds()
     {
         remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
-        remoteBoundsQuery.Completed += ProcessQueryResult;
-    }
-    ```
+        await remoteBounds;
 
-    Anche **ProcessQueryResult** è semplice. Controllare il risultato per verificare se è riuscito. In caso affermativo, convertire e applicare i limiti restituiti in un formato accettabile da **BoxCollider**.    
-
-1. Sostituire il metodo **ProcessQueryResult** con il metodo completato seguente:
-
-    ```csharp
-    // Check the result and apply it to the local Unity bounding box if it was successful
-    private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
-    {
-        if (remoteBounds.IsRanToCompletion)
+        if (remoteBounds.IsCompleted)
         {
             var newBounds = remoteBounds.Result.toUnity();
             BoundsBoxCollider.center = newBounds.center;
@@ -151,6 +133,8 @@ I limiti di un modello sono definiti dal riquadro che lo contiene interamente, e
         }
     }
     ```
+
+    Si verificherà il risultato della query per verificare se l'operazione è riuscita. In caso affermativo, convertire e applicare i limiti restituiti in un formato accettabile da **BoxCollider**.
 
 A questo punto, quando lo script **RemoteBounds** viene aggiunto allo stesso GameObject di **RemoteRenderedModel**, se necessario viene aggiunto un oggetto **BoxCollider** e quando il modello raggiunge lo stato `Loaded`, i limiti verranno sottoposti automaticamente a query e applicati a **BoxCollider**.
 
@@ -198,7 +182,7 @@ Creare prima di tutto un wrapper statico intorno alle query di raycast remoto. Q
 
 1. Creare un nuovo script denominato **RemoteRaycaster** e sostituirne l'intero contenuto con il codice seguente:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -220,7 +204,8 @@ Creare prima di tutto un wrapper statico intorno alle query di raycast remoto. Q
             if(RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected)
             {
                 var rayCast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), maxDistance, hitPolicy);
-                return await RemoteRenderingCoordinator.CurrentSession.Actions.RayCastQueryAsync(rayCast).AsTask();
+                var result = await RemoteRenderingCoordinator.CurrentSession.Connection.RayCastQueryAsync(rayCast);
+                return result.Hits;
             }
             else
             {
@@ -243,7 +228,7 @@ Creare prima di tutto un wrapper statico intorno alle query di raycast remoto. Q
 
 1. Creare un nuovo script denominato **RemoteRayCastPointerHandler** e sostituire il codice con il codice seguente:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -314,7 +299,7 @@ Al termine di un raycast in **RemoteRayCastPointerHandler**, il risultato `Entit
 
 1. Creare un nuovo script denominato **RemoteEntityHelper** e sostituirne il contenuto con il seguente:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
     
@@ -359,7 +344,7 @@ Lo stesso processo può essere eseguito a livello di codice ed è il primo passa
 
 1. Modificare lo script **RemoteEntityHelper** in modo che contenga anche il metodo seguente:
 
-    ```csharp
+    ```cs
     public void MakeSyncedGameObject(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746105"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592756"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità del back-end nel gateway applicazione
 ==================================================
@@ -24,7 +24,7 @@ Per impostazione predefinita, il gateway applicazione di Azure verifica tramite 
 
 ### <a name="how-to-check-backend-health"></a>Come controllare l'integrità del back-end
 
-Per controllare l'integrità del pool back-end, è possibile usare la pagina **Integrità back-end** nel portale di Azure. In alternativa, è possibile usare [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0) l'[interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) o l'[API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
+Per controllare l'integrità del pool back-end, è possibile usare la pagina **Integrità back-end** nel portale di Azure. In alternativa, è possibile usare [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth) l'[interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health) o l'[API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 Lo stato recuperato da questi diversi metodi può essere uno dei seguenti:
 
@@ -119,7 +119,7 @@ Per aumentare il valore di timeout, seguire questa procedura:
 
 1.  Se si usa il server DNS predefinito di Azure, contattare il registrar per verificare che sia stato completato il mapping di un record A o CNAME appropriato.
 
-1.  Se il dominio è privato o interno, provare a risolverlo da una macchina virtuale nella stessa rete virtuale. Se è possibile risolverlo, riavviare il gateway applicazione e verificare di nuovo. Per riavviare il gateway applicazione, è necessario [arrestarlo](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [avviarlo](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) usando i comandi di PowerShell descritti in queste risorse collegate.
+1.  Se il dominio è privato o interno, provare a risolverlo da una macchina virtuale nella stessa rete virtuale. Se è possibile risolverlo, riavviare il gateway applicazione e verificare di nuovo. Per riavviare il gateway applicazione, è necessario [arrestarlo](/powershell/module/azurerm.network/stop-azurermapplicationgateway) e [avviarlo](/powershell/module/azurerm.network/start-azurermapplicationgateway) usando i comandi di PowerShell descritti in queste risorse collegate.
 
 #### <a name="tcp-connect-error"></a>Errore di connessione TCP
 

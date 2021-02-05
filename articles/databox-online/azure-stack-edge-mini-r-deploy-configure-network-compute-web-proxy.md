@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465028"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594452"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Esercitazione: Configurare la rete per Azure Stack Edge Mini R
 
@@ -108,7 +108,7 @@ Seguire questa procedura per configurare la rete per il dispositivo.
 
     ![Impostazioni di rete (Wi-Fi porta) nell'interfaccia utente Web locale - 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
-6. Selezionare il profilo Wi-Fi aggiunto nel passaggio precedente e quindi selezionare **Applica**. 
+6. Selezionare il profilo Wi-Fi aggiunto nel passaggio precedente e selezionare **applica**. 
 
     ![Impostazioni di rete (Wi-Fi porta) nell'interfaccia utente Web locale - 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
@@ -126,6 +126,7 @@ Seguire questa procedura per configurare la rete per il dispositivo.
    - Se nell'ambiente è abilitato il DHCP, le interfacce di rete vengono configurate automaticamente. Di conseguenza, vengono assegnati automaticamente anche un indirizzo IP, una subnet, un gateway e un DNS.
    - Se il protocollo DHCP non è abilitato, è possibile assegnare indirizzi IP statici (se necessario).
    - È possibile configurare l'interfaccia di rete come IPv4.
+   - Il gruppo NIC (Network Interface Card) o l'aggregazione di collegamenti non è supportato con Azure Stack Edge.
    - Il numero di serie di qualsiasi porta corrisponde al numero di serie del nodo. Per un dispositivo serie K viene visualizzato solo un numero di serie.
 
      >[!NOTE] 
@@ -152,7 +153,7 @@ Seguire questa procedura per abilitare il calcolo e configurare la rete di calco
     > Kubernetes in Azure Stack Edge usa la subnet 172.27.0.0/16 per il pod e la subnet 172.28.0.0/16 per il servizio. Assicurarsi che non siano in uso nella rete. Se queste subnet sono già in uso nella rete, è possibile cambiarle eseguendo il cmdlet `Set-HcsKubeClusterNetworkInfo` dall'interfaccia di PowerShell del dispositivo. Per altre informazioni, vedere [Cambiare le subnet del pod e del servizio Kubernetes](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Assegnare gli **indirizzi IP del servizio esterno Kubernetes**. Questi sono anche gli indirizzi IP di bilanciamento del carico. Questi indirizzi IP contigui sono per i servizi che si vogliono esporre all'esterno del cluster Kubernetes e si specifica l'intervallo di indirizzi IP statici a seconda del numero di servizi esposti. 
+1. Assegnare gli **indirizzi IP del servizio esterno Kubernetes**. Si tratta anche degli indirizzi IP di bilanciamento del carico. Questi indirizzi IP contigui sono per i servizi che si desidera esporre all'esterno del cluster Kubernetes e si specifica l'intervallo di indirizzi IP statici a seconda del numero di servizi esposti. 
     
     > [!IMPORTANT]
     > Per accedere ai moduli di calcolo, è consigliabile specificare almeno un indirizzo IP per il servizio Hub di Azure Stack Edge Mini R. È quindi possibile specificare facoltativamente indirizzi IP aggiuntivi per altri moduli di servizi/IoT Edge (1 per servizio/modulo) a cui è necessario accedere dall'esterno del cluster. Gli indirizzi IP del servizio possono essere aggiornati in un secondo momento. 

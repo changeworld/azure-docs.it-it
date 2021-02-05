@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e9908c106e57801cb1b7def8b3353a983cc97de0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555567"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591940"
 ---
 # <a name="pbr-materials"></a>Materiali PBR
 
@@ -51,7 +51,7 @@ Queste proprietà sono comuni a tutti i materiali:
 
 ## <a name="pbr-material-properties"></a>Proprietà del materiale PBR
 
-Il concetto di base del rendering fisico consiste nell'usare le proprietà *BaseColor* , *metality* e *roughity* per emulare un'ampia gamma di materiali reali. Una descrizione dettagliata di PBR esula dall'ambito di questo articolo. Per ulteriori informazioni su PBR, vedere [altre origini](http://www.pbr-book.org). Le proprietà seguenti sono specifiche per i materiali PBR:
+Il concetto di base del rendering fisico consiste nell'usare le proprietà *BaseColor*, *metality* e *roughity* per emulare un'ampia gamma di materiali reali. Una descrizione dettagliata di PBR esula dall'ambito di questo articolo. Per ulteriori informazioni su PBR, vedere [altre origini](http://www.pbr-book.org). Le proprietà seguenti sono specifiche per i materiali PBR:
 
 * **BaseColor:** Nei materiali di PBR, il *colore dell'albedo* viene definito colore di *base*. Nel rendering remoto di Azure la proprietà del *colore albedo* è già presente tramite le proprietà del materiale comune, quindi non esiste alcuna proprietà del colore di base aggiuntiva.
 
@@ -92,9 +92,9 @@ Non è sempre possibile eseguire la conversione da *speculare-lucentezza* a *met
 ## <a name="api-documentation"></a>Documentazione dell'API
 
 * [C# PbrMaterial (classe)](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# RemoteManager. CreateMaterial ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection. CreateMaterial ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [Classe C++ PbrMaterial](/cpp/api/remote-rendering/pbrmaterial)
-* [C++ RemoteManager:: CreateMaterial ()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection:: CreateMaterial ()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

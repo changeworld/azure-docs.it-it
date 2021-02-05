@@ -1,14 +1,14 @@
 ---
 title: Creare un gruppo di gestione con il portale
 description: In questo argomento di avvio rapido si usa il portale di Azure per creare un gruppo di gestione con cui organizzare le risorse in una gerarchia.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
-ms.translationtype: HT
+ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661738"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592433"
 ---
 # <a name="quickstart-create-a-management-group"></a>Avvio rapido: Creare un gruppo di gestione
 
@@ -39,7 +39,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
    - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché viene usato nell'intero sistema di Azure per identificare questo gruppo. Il [gruppo di gestione radice](./overview.md#root-management-group-for-each-directory) viene creato automaticamente con un ID che corrisponde all'ID di Azure Active Directory. Per tutti gli altri gruppi di gestione, assegnare un ID univoco.
    - Il nome visualizzato è il nome che viene visualizzato nel portale di Azure. Un nome visualizzato separato è un campo facoltativo al momento della creazione del gruppo di gestione e può essere modificato in qualsiasi momento.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot della pagina Gruppi di gestione che illustra le sottoscrizioni e i gruppi di gestione figlio.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot delle opzioni di &quot;Aggiungi gruppo di gestione&quot; per la creazione di un nuovo gruppo di gestione.":::
 
 1. Selezionare **Salva**.
 

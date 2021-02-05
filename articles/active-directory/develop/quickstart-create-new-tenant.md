@@ -13,58 +13,63 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 41d70b20708f0f355fab5b5a06790c1c0c6530c6
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 815947b7c1774fb58ca4e3d20a4d1d2b43099cd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583553"
+ms.locfileid: "99593079"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
-Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
+Per compilare app che usano la piattaforma Microsoft Identity per la gestione delle identità e dell'accesso, è necessario accedere a un *tenant* di Azure Active Directory (Azure ad). Si trova nel tenant Azure AD che si registrano e gestiscono le app, si configura l'accesso ai dati in Microsoft 365 e altre API Web e si abilitano funzionalità come l'accesso condizionale.
 
-Un tenant è una rappresentazione di un'organizzazione. È un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft, come l'iscrizione ad Azure, Microsoft Intune o Microsoft 365.
+Un tenant rappresenta un'organizzazione. Si tratta di un'istanza dedicata di Azure AD che un'organizzazione o uno sviluppatore di app riceve all'inizio di una relazione con Microsoft. Questa relazione può iniziare con l'iscrizione ad Azure, Microsoft Intune o Microsoft 365, ad esempio.
 
-Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e possiede una propria rappresentazione di identità aziendali e dell'istituto di istruzione, identità di consumer (se si tratta di un tenant di Azure AD B2C) e registrazioni di app. La registrazione di un'app all'interno del tenant può consentire le autenticazioni dagli account solo all'interno del tenant o in tutti i tenant.
+Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD. Ha una propria rappresentazione delle identità aziendali e dell'Istituto di istruzione, delle identità degli utenti (se si tratta di un tenant Azure AD B2C) e delle registrazioni dell'app. Una registrazione dell'app all'interno del tenant può consentire l'autenticazione solo da account all'interno del tenant o di tutti i tenant.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="determining-environment-type"></a>Scelta del tipo di ambiente
+## <a name="determining-the-environment-type"></a>Determinazione del tipo di ambiente
 
-È possibile creare due tipi di ambienti. La decisione del tipo più adatto si basa unicamente sui tipi di utenti che eseguiranno l'autenticazione nell'app:
+È possibile creare due tipi di ambienti. L'ambiente dipende esclusivamente dai tipi di utenti che l'app eseguirà l'autenticazione. 
 
-* account aziendali, e dell'istituto di istruzione (account di Azure AD) o account Microsoft (ad esempio outlook.com e live.com).
-* Account di social e locali (Azure AD B2C)
+Questa Guida introduttiva affronta due scenari per il tipo di app che si vuole compilare:
 
-La guida introduttiva è suddivisa in due scenari a seconda del tipo di app che si vuole creare.
+* Account aziendali e dell'Istituto di istruzione (Azure AD) o account Microsoft (ad esempio Outlook.com e Live.com)
+* Account social e locali (Azure AD B2C)
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Account aziendali e dell'istituto di istruzione o account Microsoft personali
 
-### <a name="use-an-existing-tenant"></a>Usare un tenant esistente
+Per creare un ambiente per account aziendali o dell'Istituto di istruzione o account Microsoft personali, è possibile usare un tenant di Azure AD esistente o crearne uno nuovo.
+### <a name="use-an-existing-azure-ad-tenant"></a>Usare un tenant Azure AD esistente
 
-Molti sviluppatori dispongono già di tenant attraverso sottoscrizioni o servizi associati ai tenant di Azure AD, ad esempio gli abbonamenti di Microsoft 365 o le sottoscrizioni di Azure.
+Molti sviluppatori hanno già tenant attraverso servizi o sottoscrizioni collegati a Azure AD tenant, ad esempio Microsoft 365 o sottoscrizioni di Azure.
 
-1. Per controllare il tenant, accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> con l'account da usare per gestire l'applicazione.
-1. Controllare nell'angolo in alto a destra. Se si dispone già di un tenant, verrà effettuata automaticamente la connessione e si vedrà il nome del tenant direttamente sotto il nome dell'account.
-   * Se si passa il puntatore sul nome dell'account nella parte superiore destra del portale di Azure, verranno visualizzati il nome utente, l'indirizzo di posta elettronica, un ID di directory/tenant (GUID) e il dominio.
+Per controllare il tenant:
+
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Usare l'account che verrà usato per gestire l'applicazione.
+1. Controllare l'angolo superiore destro. Se si dispone di un tenant, l'accesso verrà eseguito automaticamente. Il nome del tenant viene visualizzato direttamente sotto il nome dell'account.
+   * Passare il puntatore del mouse sul nome dell'account per visualizzare il nome, l'indirizzo di posta elettronica, la directory o l'ID tenant (GUID) e il dominio.
    * Se l'account è associato a più tenant, è possibile selezionare il nome dell'account per aprire un menu che consente di spostarsi tra i tenant. Ogni tenant ha un proprio ID.
 
 > [!TIP]
 > Per trovare l'ID tenant, è possibile:
-> * Passare il mouse sul nome dell'account per ottenere l'ID directory/tenant oppure
-> * Cercare e selezionare **Azure Active Directory > Proprietà > ID tenant** nel portale di Azure
+> * Passare il puntatore del mouse sul nome dell'account per ottenere la directory o l'ID tenant.
+> * Cercare e selezionare **Azure Active Directory**  >  **proprietà**  >  **ID tenant** nell'portale di Azure.
 
-Se all'account non è associato un tenant, verrà visualizzato un GUID sotto il nome dell'account e non sarà possibile eseguire operazioni come la registrazione di app finché non si applica la procedura descritta nella sezione seguente.
+Se non si dispone di un tenant associato all'account, verrà visualizzato un GUID sotto il nome dell'account. Non sarà possibile eseguire azioni come la registrazione di app fino a quando non si crea un tenant di Azure AD.
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Creare un nuovo tenant Azure AD
 
-Se non si ha già un tenant di Azure AD o si vuole crearne uno nuovo per lo sviluppo, vedere l'[argomento di avvio rapido](../fundamentals/active-directory-access-create-new-tenant.md) o semplicemente seguire l'[esperienza di creazione della directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Per creare il nuovo tenant, sarà necessario specificare le informazioni seguenti:
+Se non si ha già un tenant di Azure AD o se si vuole crearne uno nuovo per lo sviluppo, vedere [creare un nuovo tenant in Azure ad](../fundamentals/active-directory-access-create-new-tenant.md). In alternativa, usare l' [esperienza di creazione della directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) nella portale di Azure. 
+
+Per creare il nuovo tenant, verranno fornite le informazioni seguenti:
 
 - **Nome organizzazione**
-- **Dominio iniziale**: farà parte di *.onmicrosoft.com. È possibile personalizzare il dominio in un secondo momento.
+- **Dominio iniziale** : questo dominio fa parte di *. onmicrosoft.com. È possibile personalizzare il dominio in un secondo momento.
 - **Paese o area geografica**
 
 > [!NOTE]
@@ -72,7 +77,7 @@ Se non si ha già un tenant di Azure AD o si vuole crearne uno nuovo per lo svil
 
 ## <a name="social-and-local-accounts"></a>Account di social e locali
 
-Per iniziare a creare app che consentono l'accesso agli account di social e locali, è necessario creare un tenant di Azure AD B2C. Per iniziare, seguire la procedura descritta in [Creazione di un tenant di Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
+Per iniziare a creare app che consentono di accedere ad account social e locali, creare un tenant di Azure AD B2C. Per iniziare, vedere [creare un tenant di Azure ad B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

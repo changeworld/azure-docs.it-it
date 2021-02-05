@@ -6,12 +6,12 @@ ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5809494fb8b619569316a24816a2e5d943dee6b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a739907ce0a3b0b6dfcb8791b51d0ea5e7e76e7
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013130"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594011"
 ---
 # <a name="stage-space"></a>Spazio della fase
 
@@ -27,15 +27,15 @@ I motivi tipici per lo spazio di gestione temporanea sono [gli strumenti di bloc
 > SPERIMENTAle: questa funzionalità è sperimentale e cambierà nel tempo. In questo modo, l'aggiornamento alle versioni più recenti dell'SDK client può richiedere ulteriore lavoro per aggiornare il codice. L'implementazione corrente interrompe l'allineamento del contenuto locale/remoto per un breve momento quando si modifica l'origine dello spazio della fase.
 Pertanto, attualmente è destinato solo a essere utilizzato per scopi di blocco del mondo come gli ancoraggi che presentano solo modifiche molto piccole nel tempo.
 
-Per informare il server che un'ulteriore trasformazione viene applicata allo spazio della fase, è necessario inviare la relativa origine definita da una posizione e una rotazione nello spazio globale. È possibile accedere a questa impostazione tramite l' *impostazione dello spazio*di staging.
+Per informare il server che un'ulteriore trasformazione viene applicata allo spazio della fase, è necessario inviare la relativa origine definita da una posizione e una rotazione nello spazio globale. È possibile accedere a questa impostazione tramite l' *impostazione dello spazio* di staging.
 
 > [!IMPORTANT]
 > Nella [simulazione del desktop](../../concepts/graphics-bindings.md) la posizione dello spazio globale della fotocamera viene fornita dall'applicazione utente. In questo caso, l'impostazione dell'origine dello spazio di gestione temporanea deve essere ignorata perché è già moltiplicata nella trasformazione della fotocamera.
 
 ```cs
-void ChangeStageSpace(AzureSession session)
+void ChangeStageSpace(RenderingSession session)
 {
-    StageSpaceSettings settings = session.Actions.StageSpaceSettings;
+    StageSpaceSettings settings = session.Connection.StageSpaceSettings;
 
     // Set position and rotation to the world-space transform of the stage space.
     settings.Position = new Double3(0, 0, 0);
@@ -44,9 +44,9 @@ void ChangeStageSpace(AzureSession session)
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeStageSpace(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<StageSpaceSettings> settings = session->Actions()->GetStageSpaceSettings();
+    ApiHandle<StageSpaceSettings> settings = session->Connection()->GetStageSpaceSettings();
 
     // Set position and rotation to the world-space transform of the stage space.
     settings->SetPosition({0, 0, 0});

@@ -1,15 +1,15 @@
 ---
 title: 'Avvio rapido: Creare un gruppo di gestione con JavaScript'
 description: In questo argomento di avvio rapido si usa JavaScript per creare un gruppo di gestione con cui organizzare le risorse in una gerarchia.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-ms.translationtype: HT
+ms.openlocfilehash: 25fd93e51c1b49519bb315aab28cdfc44a2a0c58
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886601"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593977"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Avvio rapido: Creare un gruppo di gestione con JavaScript
 
@@ -21,7 +21,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 - Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-- Prima di iniziare verificare che sia installata almeno la versione 12 di [Node.js](https://nodejs.org/).
+- Prima di iniziare, verificare che sia installata almeno la versione 12 del [Node.js](https://nodejs.org/) .
 
 - Se la [protezione della gerarchia](./how-to/protect-resource-hierarchy.md#setting---require-authorization) non è abilitata, qualsiasi utente di Azure AD nel tenant può creare un gruppo di gestione senza avere autorizzazioni di scrittura assegnate per tale gruppo di gestione. Questo nuovo gruppo di gestione diventa un elemento figlio del gruppo di gestione radice o del [gruppo di gestione predefinito](./how-to/protect-resource-hierarchy.md#setting---default-management-group) e all'autore viene assegnato il ruolo "Proprietario". Il servizio del gruppo di gestione offre questa possibilità per evitare che siano necessarie assegnazioni di ruolo a livello di radice. Nessun utente ha accesso al gruppo di gestione radice quando viene creato. Per evitare il problema di reperire gli amministratori globali di Azure AD per iniziare a usare i gruppi di gestione, è consentita la creazione dei gruppi di gestione iniziali al livello radice.
 

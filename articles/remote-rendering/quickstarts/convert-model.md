@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
-ms.translationtype: HT
+ms.openlocfilehash: c9b5d525954e7f0742cd13fe4d64a73df64ea854
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281356"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594468"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Avvio rapido: Convertire un modello per il rendering
 
@@ -70,7 +70,7 @@ Se si fa clic su questo pulsante, verrà visualizzata la schermata seguente con 
 Compilare il modulo nel modo seguente:
 
 * Creare un nuovo gruppo di risorse dal collegamento sotto la casella di riepilogo a discesa e denominarlo **ARR_Tutorial**
-* Immettere un nome univoco in **Nome account di archiviazione** . **Questo nome deve essere univoco a livello globale** . In caso contrario, verrà visualizzato un messaggio che informa che il nome è già in uso. Nell'ambito di questo avvio rapido verrà usato il nome **arrtutorialstorage** . Di conseguenza, è necessario sostituirlo con il proprio nome per qualsiasi occorrenza in questo avvio rapido.
+* Immettere un nome univoco in **Nome account di archiviazione**. **Questo nome deve essere univoco a livello globale**. In caso contrario, verrà visualizzato un messaggio che informa che il nome è già in uso. Nell'ambito di questo avvio rapido verrà usato il nome **arrtutorialstorage**. Di conseguenza, è necessario sostituirlo con il proprio nome per qualsiasi occorrenza in questo avvio rapido.
 * Selezionare una **posizione** nelle vicinanze. Idealmente, usare la stessa posizione usata per configurare il rendering nell'altro argomento di avvio rapido.
 * **Prestazioni** deve essere impostato su 'Standard'.
 * **Tipo di account** deve essere impostato su 'Archiviazione V2 (utilizzo generico v2)'
@@ -87,17 +87,17 @@ Il sito Web informa ora lo stato di avanzamento della distribuzione e riporta in
 
 Sono quindi necessari due contenitori BLOB, uno per l'input e uno per l'output.
 
-Dal pulsante **"Vai alla risorsa"** mostrato sopra, si accede a una pagina con un pannello a sinistra che contiene un menu elenco. In tale elenco sotto la categoria " **servizio BLOB** " fare clic sul pulsante **"Contenitori"** :
+Dal pulsante **"Vai alla risorsa"** mostrato sopra, si accede a una pagina con un pannello a sinistra che contiene un menu elenco. In tale elenco sotto la categoria "**servizio BLOB**" fare clic sul pulsante **"Contenitori"** :
 
 ![Azure - Aggiungere contenitori](./media/azure-add-containers.png)
 
-Premere il pulsante **"+ Contenitore"** per creare il contenitore di archiviazione BLOB di **input** .
+Premere il pulsante **"+ Contenitore"** per creare il contenitore di archiviazione BLOB di **input**.
 Usare le impostazioni seguenti durante la creazione:
   
 * Nome = arrInput
 * Livello di accesso pubblico = Privato
 
-Dopo aver creato il contenitore, fare di nuovo clic su **+ Contenitore** e ripetere con queste impostazioni per il contenitore di **output** :
+Dopo aver creato il contenitore, fare di nuovo clic su **+ Contenitore** e ripetere con queste impostazioni per il contenitore di **output**:
 
 * Nome = arroutput
 * Livello di accesso pubblico = Privato
@@ -117,7 +117,7 @@ Lo [strumento per gli asset di Rendering remoto di Azure basato su interfaccia u
 
 ### <a name="2-conversion-via-a-powershell-script"></a>2. Conversione tramite uno script di PowerShell
 
-Per semplificare la chiamata al servizio di conversione degli asset, viene fornito uno script di utilità. Si trova nella cartella *Script* e viene chiamato **Conversion.ps1** .
+Per semplificare la chiamata al servizio di conversione degli asset, viene fornito uno script di utilità. Si trova nella cartella *Script* e viene chiamato **Conversion.ps1**.
 
 In particolare, questo script
 
@@ -126,7 +126,7 @@ In particolare, questo script
 1. esegue il polling dell'API di stato della conversione con l'ID conversione recuperato fino a quando il processo di conversione non termina con esito positivo o negativo
 1. recupera un collegamento all'asset convertito nell'archiviazione di output
 
-Lo script legge la configurazione dal file *Scripts\arrconfig.json* . Aprire il file JSON in un editor di testo.
+Lo script legge la configurazione dal file *Scripts\arrconfig.json*. Aprire il file JSON in un editor di testo.
 
 ```json
 {
@@ -155,16 +155,16 @@ Lo script legge la configurazione dal file *Scripts\arrconfig.json* . Aprire il 
 
 La configurazione all'interno del gruppo **accountSettings** (ID e chiave dell'account) deve essere compilata in modo analogo alle credenziali nell'argomento di [avvio rapido Eseguire il rendering di un modello con Unity](render-model.md).
 
-All'interno del gruppo **assetConversionSettings** assicurarsi di modificare **resourceGroup** , **blobInputContainerName** e **blobOutputContainerName** come illustrato in precedenza.
+All'interno del gruppo **assetConversionSettings** assicurarsi di modificare **resourceGroup**, **blobInputContainerName** e **blobOutputContainerName** come illustrato in precedenza.
 Si noti che il valore di **arrtutorialstorage** deve essere sostituito con il nome univoco scelto durante la creazione dell'account di archiviazione.
 
 Impostare **localAssetDirectoryPath** in modo che punti alla directory sul disco che contiene il modello da convertire. Assicurarsi di inserire correttamente le barre rovesciate di escape ("\\") nel percorso usando due barre rovesciate ("\\\\").
 
-Tutti i dati del percorso specificato in **localAssetDirectoryPath** verranno caricati nel contenitore BLOB **blobInputContainerName** in un sottopercorso specificato da **inputFolderPath** . Quindi, nella configurazione di esempio illustrata sopra il contenuto della directory "D:\\tmp\\robot" verrà caricato nel contenitore BLOB "arrInput" dell'account di archiviazione "arrtutorialstorage" nel percorso "robotConversion". I file già esistenti verranno sovrascritti.
+Tutti i dati del percorso specificato in **localAssetDirectoryPath** verranno caricati nel contenitore BLOB **blobInputContainerName** in un sottopercorso specificato da **inputFolderPath**. Quindi, nella configurazione di esempio illustrata sopra il contenuto della directory "D:\\tmp\\robot" verrà caricato nel contenitore BLOB "arrInput" dell'account di archiviazione "arrtutorialstorage" nel percorso "robotConversion". I file già esistenti verranno sovrascritti.
 
 Modificare **inputAssetPath** nel percorso del modello da convertire. Il percorso è relativo a localAssetDirectoryPath. Usare "/" invece di "\\" come separatore di percorso. Quindi, per un file "robot.fbx" che si trova direttamente in "D:\\tmp\\robot", usare "robot.fbx".
 
-Una volta convertito, il modello verrà scritto di nuovo nel contenitore di archiviazione fornito da **blobOutputContainerName** . È possibile specificare un sottopercorso fornendo il valore **outputFolderPath** facoltativo. Nell'esempio precedente l'oggetto "robot. arrAsset" risultante verrà copiato nel contenitore BLOB di output in "converted/robot".
+Una volta convertito, il modello verrà scritto di nuovo nel contenitore di archiviazione fornito da **blobOutputContainerName**. È possibile specificare un sottopercorso fornendo il valore **outputFolderPath** facoltativo. Nell'esempio precedente l'oggetto "robot. arrAsset" risultante verrà copiato nel contenitore BLOB di output in "converted/robot".
 
 L'impostazione di configurazione **outputAssetFileName** determina il nome dell'asset convertito. Il parametro è facoltativo e in caso contrario il nome del file di output verrà dedotto dal nome del file di input.
 
@@ -188,8 +188,8 @@ Verrà visualizzata una schermata analoga alla seguente: ![Conversion.ps1](./med
 ### <a name="3-conversion-via-api-calls"></a>3. Conversione tramite chiamate API
 
 Le API in C# e in C++ forniscono un punto di ingresso per interagire con il servizio:
-* [AzureFrontend.StartAssetConversionAsync() in C#](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
-* [AzureFrontend::StartAssetConversionAsync() in C++](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+* [C# RemoteRenderingClient. StartAssetConversionAsync ()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient:: StartAssetConversionAsync ()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
 
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Inserire un nuovo modello nell'app di esempio della guida di avvio rapido
@@ -205,8 +205,8 @@ Lo script di conversione genera un URI di *firma di accesso condiviso* per il mo
 L'URI di firma di accesso condiviso creato dallo script di conversione sarà valido solo per 24 ore. Tuttavia, dopo la scadenza non è necessario ripetere la conversione del modello. È invece possibile creare una nuova firma di accesso condiviso nel portale, come descritto nei passaggi successivi:
 
 1. Accedere al [portale di Azure](https://www.portal.azure.com)
-1. Fare clic sulla risorsa **Account di archiviazione** : ![Screenshot che evidenzia la risorsa dell'account di archiviazione selezionata.](./media/portal-storage-accounts.png)
-1. Nella schermata seguente fare clic su **Storage Explorer** nel pannello a sinistra e trovare il modello di output (file *.arrAsset* ) nel contenitore di archiviazione BLOB *arroutput* . Fare clic con il pulsante destro del mouse sul file e scegliere **Ottieni firma di accesso condiviso** nel menu di scelta rapida: ![Accesso con firma](./media/portal-storage-explorer.png)
+1. Fare clic sulla risorsa **Account di archiviazione**: ![Screenshot che evidenzia la risorsa dell'account di archiviazione selezionata.](./media/portal-storage-accounts.png)
+1. Nella schermata seguente fare clic su **Storage Explorer** nel pannello a sinistra e trovare il modello di output (file *.arrAsset*) nel contenitore di archiviazione BLOB *arroutput*. Fare clic con il pulsante destro del mouse sul file e scegliere **Ottieni firma di accesso condiviso** nel menu di scelta rapida: ![Accesso con firma](./media/portal-storage-explorer.png)
 1. Verrà visualizzata una nuova schermata in cui è possibile selezionare una data di scadenza. Premere **Crea** e copiare l'URI visualizzato nella finestra di dialogo successiva. Questo nuovo URI sostituisce l'URI temporaneo creato dallo script.
 
 ## <a name="next-steps"></a>Passaggi successivi

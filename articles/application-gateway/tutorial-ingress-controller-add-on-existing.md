@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 9d1aa54ba1e3f3a589df8f694e340909c4e24ecc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: d491b714c7d553fbd89d72315f46e6927d437717
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183686"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593815"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione per un cluster del servizio Azure Kubernetes esistente con un gateway applicazione esistente tramite l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -67,7 +67,7 @@ Nell'esempio seguente verrà distribuito un nuovo cluster del servizio Azure Kub
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-Per configurare parametri aggiuntivi per il comando `az aks create`, vedere [questi argomenti di riferimento](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Per configurare parametri aggiuntivi per il comando `az aks create`, vedere [questi argomenti di riferimento](/cli/azure/aks#az-aks-create). 
 
 ## <a name="deploy-a-new-application-gateway"></a>Distribuire un nuovo gateway applicazione 
 

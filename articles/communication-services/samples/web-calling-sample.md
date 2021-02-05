@@ -9,42 +9,34 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763049"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592790"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introduzione all'esempio di chiamata Web
+
+L'esempio di chiamata Web è un'applicazione Web che funge da procedura dettagliata per le varie funzionalità fornite dalla libreria client per le chiamate Web di Servizi di comunicazione. 
+
+Questo esempio è stato creato per gli sviluppatori e offre un modo molto semplice per iniziare a familiarizzare con Servizi di comunicazione. La sua interfaccia utente è suddivisa in più sezioni, ognuna con un pulsante "Show code" (Mostra codice) che consente di copiare il codice direttamente dal browser nell'applicazione di Servizi di comunicazione.
+
+## <a name="get-started-with-the-web-calling-sample"></a>Introduzione all'esempio di chiamata Web
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Questo esempio è disponibile su GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
-L'**esempio di chiamata Web** di Servizi di comunicazione di Azure illustra come usare la libreria client per le chiamate di Servizi di comunicazione per creare un'esperienza di chiamata con JavaScript.
-
-In questo avvio rapido viene illustrato il funzionamento dell'esempio prima dell'esecuzione sul computer locale. Si passerà quindi alla distribuzione dell'esempio in Azure tramite le risorse dei Servizi di comunicazione di Azure.
-
-## <a name="overview"></a>Panoramica
-
-L'esempio di chiamata Web è un'applicazione Web che funge da procedura dettagliata per le varie funzionalità fornite dalla libreria client per le chiamate Web di Servizi di comunicazione. 
-
-Questo esempio è stato creato per gli sviluppatori e offre un modo molto semplice per iniziare a familiarizzare con Servizi di comunicazione. La sua interfaccia utente è suddivisa in più sezioni, ognuna con un pulsante "Show code" (Mostra codice) che consente di copiare il codice direttamente dal browser nell'applicazione di Servizi di comunicazione.
-
-Quando si esegue l'[esempio di chiamata Web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) nel computer, viene visualizzata la pagina di destinazione seguente:
+Seguire le/Project/Readme.MD per configurare il progetto ed eseguirlo localmente nel computer.
+Quando l' [esempio di chiamata Web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) è in esecuzione nel computer, verrà visualizzata la pagina di destinazione seguente:
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Esercitazione chiamata Web 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Esercitazione chiamata Web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## <a name="user-provisioning-and-sdk-initialization"></a>Provisioning degli utenti e inizializzazione dell'SDK 
-
-Per iniziare a usare la demo, immettere la stringa di connessione dalla [risorsa di Servizi di comunicazione](../quickstarts/create-communication-resource.md) in `config.json`. Questa stringa verrà usata per effettuare il provisioning di un [token di accesso utente](../concepts/authentication.md) in modo da inizializzare l'SDK per le chiamate.
-
-Immettere il proprio identificatore personale nella casella di input dell'identità utente. Se non viene specificato alcun ID, verrà generata un'identità utente casuale. 
 
 Fare clic su "Provision user and initialize SDK" (Effettua il provisioning dell'utente e inizializza l'SDK) usando un token fornito dal servizio back-end di provisioning dei token. Questo servizio back-end è in `/project/webpack.config.js`.
 

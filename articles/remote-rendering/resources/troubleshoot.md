@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722233"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593334"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -191,9 +191,9 @@ Nel pacchetto NuGet C++ è presente un `microsoft.azure.remoterendering.Cpp.targ
 
 Se gli oggetti di cui è stato eseguito il rendering sembrano sportarsi con i movimenti della testa, potrebbe trattarsi di problemi con la *Riproiezione con ritardo della fase*. Per istruzioni su come affrontare una situazione di questo tipo, fare riferimento alla sezione in [Riproiezione con ritardo della fase](../overview/features/late-stage-reprojection.md).
 
-Gli ologrammi instabili (oscillazione, distorsione, tremolio o salto degli ologrammi) possono derivare anche da una connettività di rete insufficiente, in particolare da una larghezza di banda di rete insufficiente o una latenza troppo elevata. Un buon indicatore per la qualità della connessione di rete è il valore sulle [statistiche delle prestazioni](../overview/features/performance-queries.md)`ARRServiceStats.VideoFramesReused`. I fotogrammi riusati indicano situazioni in cui è necessario riusare un fotogramma video precedente sul lato client perché non è disponibile alcun nuovo fotogramma video, ad esempio a causa di una perdita di pacchetti o di variazioni nella latenza di rete. Se il valore `ARRServiceStats.VideoFramesReused` è spesso superiore a 0, significa che si è riscontrato un problema di rete.
+Gli ologrammi instabili (oscillazione, distorsione, tremolio o salto degli ologrammi) possono derivare anche da una connettività di rete insufficiente, in particolare da una larghezza di banda di rete insufficiente o una latenza troppo elevata. Un buon indicatore per la qualità della connessione di rete è il valore sulle [statistiche delle prestazioni](../overview/features/performance-queries.md)`ServiceStatistics.VideoFramesReused`. I fotogrammi riusati indicano situazioni in cui è necessario riusare un fotogramma video precedente sul lato client perché non è disponibile alcun nuovo fotogramma video, ad esempio a causa di una perdita di pacchetti o di variazioni nella latenza di rete. Se il valore `ServiceStatistics.VideoFramesReused` è spesso superiore a 0, significa che si è riscontrato un problema di rete.
 
-Un altro valore da esaminare è `ARRServiceStats.LatencyPoseToReceiveAvg`. Deve essere sempre inferiore a 100 ms. La visualizzazione di valori più alti potrebbe indicare che si è connessi a un data center troppo lontano.
+Un altro valore da esaminare è `ServiceStatistics.LatencyPoseToReceiveAvg`. Deve essere sempre inferiore a 100 ms. La visualizzazione di valori più alti potrebbe indicare che si è connessi a un data center troppo lontano.
 
 Per un elenco delle possibili mitigazioni, vedere le [Linee guida per la connettività di rete](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
