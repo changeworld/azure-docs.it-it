@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 421265bf1ee488c8e7d0c41e3ec9a250392d6f3d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: df04b767035dffb62fde89d1e74b808d62fcc943
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202787"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594485"
 ---
 # <a name="object-bounds"></a>Limiti degli oggetti
 
@@ -19,43 +19,45 @@ I limiti degli oggetti rappresentano il volume occupato da un'[entità](entities
 
 ## <a name="querying-object-bounds"></a>Esecuzione di query sui limiti degli oggetti
 
-È possibile eseguire query sul rettangolo delimitatore locale allineato all'asse di una [mesh](meshes.md) direttamente dalla risorsa mesh. Questi limiti possono essere trasformati nello spazio locale o nello spazio globale di un'entità usando la trasformazione dell'entità.
+Il rettangolo di delimitazione dell'asse locale di una [mesh](meshes.md) può essere sottoposto a query direttamente dalla risorsa mesh. Questi limiti possono essere trasformati nello spazio locale o nello spazio globale di un'entità usando la trasformazione dell'entità.
 
 Con questo metodo è possibile calcolare i limiti di un'intera gerarchia di oggetti, ma è necessario attraversare la gerarchia, eseguire query sui limiti di ogni mesh e unire tali limiti manualmente. È un'operazione noiosa e poco efficiente.
 
 Un metodo più efficiente consiste nel chiamare `QueryLocalBoundsAsync` o `QueryWorldBoundsAsync` su un'entità. Il calcolo viene quindi scaricato nel server e restituito in tempi brevi.
 
 ```cs
-private BoundsQueryAsync _boundsQuery = null;
-
-public void GetBounds(Entity entity)
+public async void GetBounds(Entity entity)
 {
-    _boundsQuery = entity.QueryWorldBoundsAsync();
-    _boundsQuery.Completed += (BoundsQueryAsync bounds) =>
+    try
     {
-        if (bounds.IsRanToCompletion)
-        {
-            Double3 aabbMin = bounds.Result.min;
-            Double3 aabbMax = bounds.Result.max;
-            // ...
-        }
-    };
+        Task<Bounds> boundsQuery = entity.QueryWorldBoundsAsync();
+        Bounds result = await boundsQuery;
+    
+        Double3 aabbMin = result.Min;
+        Double3 aabbMax = result.Max;
+        // ...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 
 ```cpp
 void GetBounds(ApiHandle<Entity> entity)
 {
-    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
-    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
-    {
-        if (bounds->GetIsRanToCompletion())
+    entity->QueryWorldBoundsAsync(
+        // completion callback:
+        [](Status status, Bounds bounds)
         {
-            Double3 aabbMin = bounds->GetResult().min;
-            Double3 aabbMax = bounds->GetResult().max;
-            // ...
+           if (status == Status::OK)
+            {
+                Double3 aabbMin = bounds.Min;
+                Double3 aabbMax = bounds.Max;
+                // ...
+            }
         }
-    });
+    );
 }
 ```
 

@@ -1,14 +1,14 @@
 ---
 title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951894"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594587"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
@@ -23,7 +23,7 @@ Per configurare le impostazioni della gerarchia, è necessario che nel gruppo di
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Queste operazioni consentono a un solo utente di leggere e aggiornare le impostazioni di gerarchia. Le operazioni non forniscono nessun altro accesso alla gerarchia del gruppo di gestione o alle risorse nella gerarchia. Entrambe queste operazioni sono disponibili nell' **amministratore delle impostazioni della gerarchia**dei ruoli predefiniti di Azure.
+Queste operazioni consentono a un solo utente di leggere e aggiornare le impostazioni di gerarchia. Le operazioni non forniscono nessun altro accesso alla gerarchia del gruppo di gestione o alle risorse nella gerarchia. Entrambe queste operazioni sono disponibili nell' **amministratore delle impostazioni della gerarchia** dei ruoli predefiniti di Azure.
 
 ## <a name="setting---default-management-group"></a>Impostazione - Gruppo di gestione predefinito
 
@@ -39,7 +39,7 @@ Per configurare questa impostazione in portale di Azure, attenersi alla procedur
 
 1. Nel gruppo di gestione radice selezionare **Dettagli** accanto al nome del gruppo di gestione.
 
-1. In **Impostazioni**selezionare **Impostazioni gerarchia**.
+1. In **Impostazioni** selezionare **Impostazioni gerarchia**.
 
 1. Selezionare il pulsante **modifica gruppo di gestione predefinito** .
 
@@ -82,7 +82,7 @@ Per configurare questa impostazione in portale di Azure, attenersi alla procedur
 
 1. Nel gruppo di gestione radice selezionare **Dettagli** accanto al nome del gruppo di gestione.
 
-1. In **Impostazioni**selezionare **Impostazioni gerarchia**.
+1. In **Impostazioni** selezionare **Impostazioni gerarchia**.
 
 1. Abilitare o disabilitare le **autorizzazioni Richiedi per la creazione di nuovi gruppi di gestione.** opzione su on.
 
