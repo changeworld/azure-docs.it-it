@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932798"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573246"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configurare il firewall IP per Azure ricerca cognitiva
 
@@ -31,7 +31,7 @@ Per impostare i criteri di controllo di accesso IP nel portale di Azure, passare
 Il portale di Azure consente di specificare gli indirizzi IP e gli intervalli di indirizzi IP nel formato CIDR. Un esempio di notazione CIDR è 8.8.8.0/24, che rappresenta gli IP che variano da 8.8.8.0 a 8.8.8.255.
 
 > [!NOTE]
-> Dopo aver abilitato i criteri di controllo di accesso IP per il servizio Azure ricerca cognitiva, tutte le richieste al piano dati da computer al di fuori dell'elenco degli intervalli di indirizzi IP consentiti vengono rifiutate. Quando vengono configurate regole IP, alcune funzionalità del portale di Azure sono disabilitate. Sarà possibile visualizzare e gestire le informazioni sul livello di servizio, ma l'accesso al portale per i dati di indicizzazione e i vari componenti del servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza.
+> Dopo aver abilitato i criteri di controllo di accesso IP per il servizio Azure ricerca cognitiva, tutte le richieste al piano dati da computer al di fuori dell'elenco degli intervalli di indirizzi IP consentiti vengono rifiutate. Quando vengono configurate regole IP, alcune funzionalità del portale di Azure sono disabilitate. Sarà possibile visualizzare e gestire le informazioni sul livello di servizio, ma l'accesso al portale per i dati di indicizzazione e i vari componenti del servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza. In alternativa al portale, è possibile usare l' [estensione vs code](https://aka.ms/vscode-search) per interagire con i vari componenti del servizio.
 
 ### <a name="requests-from-your-current-ip"></a>Richieste dall'IP corrente
 

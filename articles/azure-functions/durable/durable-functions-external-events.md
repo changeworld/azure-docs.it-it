@@ -4,12 +4,12 @@ description: Informazioni su come gestire gli eventi esterni nell'estensione Fun
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87014940"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576330"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestione di eventi esterni in Funzioni permanenti (Funzioni di Azure)
 
@@ -20,7 +20,7 @@ Le funzioni di orchestrazione possono rimanere in attesa e in ascolto di eventi 
 
 ## <a name="wait-for-events"></a>Attendere eventi
 
-I metodi [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET), `waitForExternalEvent` (JavaScript) e `wait_for_external_event` (Python) dell'associazione del [trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger) consentono a una funzione dell'agente di orchestrazione di attendere in modo asincrono e restare in ascolto di un evento esterno. La funzione di orchestrazione in ascolto dichiara il *nome* dell'evento e la *forma dei dati* che si aspetta di ricevere.
+I metodi [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.NET), `waitForExternalEvent` (JavaScript) e `wait_for_external_event` (Python) dell'associazione del [trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger) consentono a una funzione dell'agente di orchestrazione di attendere in modo asincrono e restare in ascolto di un evento esterno. La funzione di orchestrazione in ascolto dichiara il *nome* dell'evento e la *forma dei dati* che si aspetta di ricevere.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -230,9 +230,9 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ## <a name="send-events"></a>Inviare eventi
 
-È possibile utilizzare i metodi [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) o `raiseEventAsync` (JavaScript) per inviare un evento esterno a un'orchestrazione. Questi metodi sono esposti dall'associazione del [client di orchestrazione](durable-functions-bindings.md#orchestration-client) . Per inviare un evento esterno a un'orchestrazione, è inoltre possibile utilizzare l' [API HTTP di generazione eventi](durable-functions-http-api.md#raise-event) incorporata.
+È possibile utilizzare i metodi [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.NET) o `raiseEventAsync` (JavaScript) per inviare un evento esterno a un'orchestrazione. Questi metodi sono esposti dall'associazione del [client di orchestrazione](durable-functions-bindings.md#orchestration-client) . Per inviare un evento esterno a un'orchestrazione, è inoltre possibile utilizzare l' [API HTTP di generazione eventi](durable-functions-http-api.md#raise-event) incorporata.
 
-Un evento generato include un *ID istanza*, un *EventName*e *EventData* come parametri. Le funzioni dell'agente di orchestrazione gestiscono questi eventi usando le `WaitForExternalEvent` API (.NET) o `waitForExternalEvent` (JavaScript). Per poter elaborare l'evento, il *gestore eventi* deve corrispondere sia alle estremità di invio che alla ricezione. Anche i dati dell'evento devono essere serializzabili in JSON.
+Un evento generato include un *ID istanza*, un *EventName* e *EventData* come parametri. Le funzioni dell'agente di orchestrazione gestiscono questi eventi usando le `WaitForExternalEvent` API (.NET) o `waitForExternalEvent` (JavaScript). Per poter elaborare l'evento, il *gestore eventi* deve corrispondere sia alle estremità di invio che alla ricezione. Anche i dati dell'evento devono essere serializzabili in JSON.
 
 Internamente, i meccanismi "genera evento" accodano un messaggio che viene prelevato dalla funzione dell'agente di orchestrazione in attesa. Se l'istanza non è in attesa del *nome dell'evento* specificato, il messaggio di evento viene aggiunto a una coda in memoria. Se l'istanza di orchestrazione in seguito inizia l'ascolto per tale *nome dell'evento*, controllerà la presenza dei messaggi di evento nella coda.
 

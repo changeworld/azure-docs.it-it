@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195875"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576398"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -28,6 +28,17 @@ L'analisi delle modifiche rileva vari tipi di modifiche, dal livello dell'infras
 Il diagramma seguente illustra l'architettura dell'analisi delle modifiche:
 
 ![Diagramma dell'architettura del modo in cui l'analisi delle modifiche ottiene i dati delle modifiche e li fornisce agli strumenti client](./media/change-analysis/overview.png)
+
+## <a name="supported-resource-types"></a>Tipi di risorsa supportati
+
+Il servizio di analisi delle modifiche dell'applicazione supporta le modifiche a livello di proprietà delle risorse in tutti i tipi di risorse di Azure, incluse risorse comuni come
+- Macchina virtuale
+- Set di scalabilità di macchine virtuali
+- Servizio app
+- Servizio Azure Kubernetes
+- Funzione di Azure
+- Risorse di rete: ad esempio gruppo di sicurezza di rete, rete virtuale, gateway applicazione e così via.
+- Servizi dati: ad esempio, archiviazione, SQL, cache Redis, Cosmos DB e così via.
 
 ## <a name="data-sources"></a>Origini dati
 
@@ -49,17 +60,27 @@ L'analisi delle modifiche acquisisce lo stato di distribuzione e configurazione 
 
 ### <a name="dependency-changes"></a>Modifiche delle dipendenze
 
-Le modifiche alle dipendenze delle risorse possono causare problemi anche in un'app Web. Se, ad esempio, un'app Web chiama in una cache Redis, lo SKU della cache Redis potrebbe influire sulle prestazioni dell'app Web. Per rilevare le modifiche nelle dipendenze, l'analisi delle modifiche controlla il record DNS dell'app Web. In questo modo, identifica le modifiche in tutti i componenti dell'app che possono causare problemi.
-Attualmente sono supportate le dipendenze seguenti:
+Anche le modifiche alle dipendenze delle risorse possono causare problemi in una risorsa. Se, ad esempio, un'app Web chiama in una cache Redis, lo SKU della cache Redis potrebbe influire sulle prestazioni dell'app Web. Un altro esempio è se la porta 22 è stata chiusa nel gruppo di sicurezza di rete di una macchina virtuale, causerà errori di connettività. 
+
+#### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Strumento di esplorazione della diagnostica e risoluzione dei problemi dell'app Web (anteprima)
+Per rilevare le modifiche nelle dipendenze, l'analisi delle modifiche controlla il record DNS dell'app Web. In questo modo, identifica le modifiche in tutti i componenti dell'app che possono causare problemi.
+Attualmente le dipendenze seguenti sono supportate in **diagnostica e risoluzione dei problemi delle app Web | Strumento di navigazione (anteprima)**:
 - App Web
 - Archiviazione di Azure
 - SQL di Azure
 
-## <a name="application-change-analysis-service"></a>Servizio di analisi delle modifiche dell'applicazione
+#### <a name="related-resources"></a>Risorse correlate
+L'analisi delle modifiche dell'applicazione rileva le risorse correlate. Esempi comuni sono il gruppo di sicurezza di rete, la rete virtuale, il gateway applicazione e Load Balancer correlati a una macchina virtuale. Il provisioning delle risorse di rete viene in genere eseguito automaticamente nello stesso gruppo di risorse delle risorse che lo usano, quindi il filtraggio delle modifiche per gruppo di risorse mostrerà tutte le modifiche per la macchina virtuale e le risorse di rete correlate.
+
+![Screenshot delle modifiche di rete](./media/change-analysis/network-changes.png)
+
+## <a name="application-change-analysis-service-enablement"></a>Abilitazione del servizio di analisi delle modifiche dell'applicazione
 
 Il servizio di analisi delle modifiche dell'applicazione calcola e aggrega i dati delle modifiche dalle origini dati indicate in precedenza. Fornisce un set di analisi per consentire agli utenti di spostarsi agevolmente in tutte le modifiche alle risorse e identificare le modifiche rilevanti nel contesto di risoluzione dei problemi o di monitoraggio.
-Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette lo strumento per la diagnosi e la risoluzione dei problemi dell'app Web o si apre la scheda autonoma Change Analysis, questo provider di risorse viene registrato automaticamente. Non sono disponibili implementazioni di prestazioni o costi per la sottoscrizione. Quando si Abilita l'analisi delle modifiche per le app Web (o si Abilita lo strumento diagnostica e Risolvi i problemi), questo avrà un impatto trascurabile sulle prestazioni dell'app Web e nessun costo per la fatturazione.
-Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per ulteriori informazioni, vedere l'articolo relativo all' [analisi delle modifiche nella sezione strumento di diagnostica e risoluzione dei problemi](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) più avanti in questo articolo.
+Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette lo strumento per la diagnosi e la risoluzione dei problemi dell'app Web o si apre la scheda autonoma Change Analysis, questo provider di risorse viene registrato automaticamente. Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per ulteriori informazioni, vedere l'articolo relativo all' [analisi delle modifiche nella sezione strumento di diagnostica e risoluzione dei problemi](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) più avanti in questo articolo.
+
+## <a name="cost"></a>Costo
+L'analisi delle modifiche dell'applicazione è un servizio gratuito che non comporta costi di fatturazione per le sottoscrizioni abilitate. Anche il servizio non ha alcun effetto sulle prestazioni per l'analisi delle modifiche delle proprietà delle risorse di Azure. Quando si Abilita l'analisi delle modifiche per le app Web nelle modifiche dei file Guest (o si Abilita lo strumento diagnostica e Risolvi i problemi), questo avrà un impatto trascurabile sulle prestazioni dell'app Web e nessun costo per la fatturazione.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualizzazioni per l'analisi delle modifiche dell'applicazione
 
@@ -82,6 +103,11 @@ Fare clic su una risorsa per visualizzare tutte le modifiche apportate. Se neces
 Per commenti e suggerimenti, usare il pulsante Invia commenti e suggerimenti nel pannello o nel messaggio di posta elettronica changeanalysisteam@microsoft.com .
 
 ![Screenshot del pulsante feedback nel pannello Change Analysis](./media/change-analysis/change-analysis-feedback.png)
+
+#### <a name="multiple-subscription-support"></a>Supporto per più sottoscrizioni
+L'interfaccia utente supporta la selezione di più sottoscrizioni per visualizzare le modifiche alle risorse. Usare il filtro della sottoscrizione:
+
+![Screenshot del filtro di sottoscrizione che supporta la selezione di più sottoscrizioni](./media/change-analysis/multiple-subscriptions-support.png)
 
 ### <a name="web-app-diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi delle app Web
 

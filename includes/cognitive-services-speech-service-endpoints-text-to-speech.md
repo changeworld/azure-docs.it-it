@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972650"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569657"
 ---
 ### <a name="standard-and-neural-voices"></a>Voci standard e neurali
 
@@ -36,7 +36,7 @@ Usare questa tabella per determinare la disponibilità delle voci standard e neu
 | Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
 | Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
 | Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | No |
-| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
+| Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
 
 > [!TIP]
 > Le [voci in anteprima](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) sono disponibili solo nelle tre aree seguenti: Stati Uniti orientali, Europa occidentale e Asia sudorientale.
@@ -67,3 +67,14 @@ Se è stato creato un tipo di carattere vocale personalizzato, usare l'endpoint 
 | Europa occidentale | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Stati Uniti occidentali | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Stati Uniti occidentali 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### <a name="custom-neural-voice"></a>Voce neurale personalizzata
+
+La tabella seguente illustra il supporto regionale per le funzionalità neurali personalizzate.
+
+| Funzionalità | Aree supportate |
+|---|---|
+| Hosting del modello vocale | Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale, Australia orientale |
+| Caratteri in tempo reale | Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale, Australia orientale |
+| Caratteri audio lunghi | Stati Uniti orientali, Europa occidentale, Regno Unito meridionale, Asia sudorientale, India centrale |
+| Training neurale personalizzato | Stati Uniti orientali, Regno Unito meridionale |

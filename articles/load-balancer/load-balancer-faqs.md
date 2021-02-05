@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3752a36d22f879b95b02bd49436be78212fe56a2
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051873"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576042"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer domande frequenti
 
@@ -52,9 +52,11 @@ No, non è possibile.
 ## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Qual è la velocità effettiva massima dei dati che è possibile ottenere tramite un Azure Load Balancer?
 Poiché Azure LB è un servizio di bilanciamento del carico di rete pass-through, le limitazioni della velocità effettiva sono determinate dal tipo di macchina virtuale usato nel pool back-end. Per ulteriori informazioni sulle altre informazioni relative alla velocità effettiva di rete, vedere la [velocità effettiva della rete della macchina virtuale](../virtual-network/virtual-machine-network-throughput.md).
 
-
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Come funzionano le connessioni ad archiviazione di Azure nella stessa area?
 La connettività in uscita tramite gli scenari precedenti non è necessaria per connettersi ad Archiviazione nella stessa area della macchina virtuale. Se non lo si desidera, usare i gruppi di sicurezza di rete (NSG) come illustrato in precedenza. Per la connettività ad Archiviazione in altre aree, è necessaria la connettività in uscita. Si noti che quando ci si connette ad Archiviazione da una macchina virtuale nella stessa area, l'indirizzo IP di origine nei log di diagnostica di Archiviazione sarà un indirizzo di provider interno e non l'indirizzo IP pubblico della macchina virtuale. Se si vuole limitare l'accesso all'account di Archiviazione alle macchine virtuali in una o più subnet della rete virtuale nella stessa area, usare [endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) e non l'indirizzo IP pubblico quando si configura il firewall dell'account di archiviazione. Una volta configurati gli endpoint di servizio, verrà visualizzato l'indirizzo IP privato della rete virtuale nei log di diagnostica di Archiviazione e non l'indirizzo del provider interno.
+
+## <a name="does-azure-load-balancer-support-tlsssl-termination"></a>Azure Load Balancer supporta la terminazione TLS/SSL?
+No, Azure Load Balancer attualmente non supporta la terminazione perché è un servizio di bilanciamento del carico di rete pass-through. Il gateway applicazione può essere una soluzione potenziale se l'applicazione lo richiede.
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Quali sono le procedure consigliate per quanto riguarda la connettività in uscita?
 Load Balancer Standard e l'IP pubblico standard introduce funzionalità e comportamenti diversi per la connettività in uscita. Non corrispondono agli SKU di base. Per disporre di connettività in uscita quando si utilizzano SKU standard, è necessario definire questa opzione sia per gli indirizzi IP pubblici standard sia per un'istanza di Load Balancer Standard pubblica. Ciò include la creazione di connettività in uscita quando si usa un'istanza di Load Balancer Standard interna. È consigliabile usare sempre le regole in uscita in un'istanza di Load Balancer Standard pubblica. Ciò significa che quando viene usata un'istanza di Load Balancer Standard interna, è necessario provvedere a creare una connettività in uscita per le macchine virtuali nel pool di back-end se è richiesta la connettività in uscita. Nel contesto della connettività in uscita, una singola VM autonoma, tutte le VM in un set di disponibilità, tutte le istanze in una VMSS si comportano come un gruppo. Ciò significa che, se una singola macchina virtuale in un set di disponibilità è associata a uno SKU standard, tutte le istanze della macchina virtuale all'interno di questo set di disponibilità si comportano allo stesso modo, come se fossero associate allo SKU standard, anche se una singola istanza non è direttamente associata a tale SKU. Questo comportamento viene osservato anche nel caso di una VM autonoma con più schede di interfaccia di rete collegate a un servizio di bilanciamento del carico. Se una scheda di interfaccia di rete viene aggiunta come autonoma, avrà lo stesso comportamento. Rivedere attentamente l'intero documento per comprendere i concetti generali, esaminare [Load Balancer Standard](./load-balancer-overview.md) per le differenze tra gli SKU e rivedere le [regole in uscita](load-balancer-outbound-connections.md#outboundrules).

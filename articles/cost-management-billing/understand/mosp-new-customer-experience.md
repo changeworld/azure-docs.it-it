@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133565"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575467"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introduzione all'account di fatturazione di Azure aggiornato
 
@@ -42,7 +42,7 @@ Quando l'account viene aggiornato, viene creato automaticamente un profilo di fa
 
 Ai ruoli nei profili di fatturazione sono assegnate le autorizzazioni per visualizzare e gestire fatture e metodi di pagamento. Questi ruoli dovranno essere assegnati agli utenti che pagano le fatture, ad esempio ai membri del team di contabilità di un'organizzazione. Per altre informazioni, vedere [Ruoli e attività del profilo di fatturazione](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-Quando l'account viene aggiornato, per ogni sottoscrizione per cui si è concessa ad altri l'autorizzazione per la [visualizzazione delle fatture](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), agli utenti con ruolo Proprietario, Collaboratore, Lettore o Fatturazione per lettore di Azure viene assegnato il ruolo di lettore per il rispettivo profilo di fatturazione.
+Quando l'account viene aggiornato, per ogni sottoscrizione per cui si è concessa ad altri l'autorizzazione per la [visualizzazione delle fatture](download-azure-invoice.md#allow-others-to-download-your-subscription-invoice), agli utenti con ruolo Proprietario, Collaboratore, Lettore o Fatturazione per lettore di Azure viene assegnato il ruolo di lettore per il rispettivo profilo di fatturazione.
 
 ## <a name="invoice-sections"></a>Sezioni della fattura
 

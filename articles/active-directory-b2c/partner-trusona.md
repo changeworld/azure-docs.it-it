@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99368da8b4018e93ad537e4722ffefd476e61291
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489470"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573688"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrazione di Trusona con Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Per iniziare, è necessario:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * [Un tenant Azure ad B2C](tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
-* Un [account di valutazione](https://www.trusona.com/aadb2c) in Trusona
+* Un [account di valutazione](https://www.trusona.com/) in Trusona
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -53,7 +53,7 @@ In questo scenario, Trusona funge da provider di identità per Azure AD B2C per 
 
 ## <a name="onboard-with-trusona"></a>Onboarding con Trusona
 
-1. Compilare il [modulo](https://www.trusona.com/aadb2c) per creare un account Trusona e iniziare.
+1. Compilare il [modulo](https://www.trusona.com/) per creare un account Trusona e iniziare.
 
 2. Scaricare l'app per dispositivi mobili Trusona dall'App Store. Installare l'app e registrare la posta elettronica.
 
@@ -103,7 +103,7 @@ In questo scenario, Trusona funge da provider di identità per Azure AD B2C per 
    | :--- | :--- |
    | URL dei metadati | `https://gateway.trusona.net/oidc/.well-known/openid-configuration`|
    | ID client | Verrà inviato tramite posta elettronica all'utente da Trusona |
-   | Scope | Posta elettronica profilo OpenID |
+   | Ambito | Posta elettronica profilo OpenID |
    | Tipo di risposta | Id_token |
    | Modalità di risposta  | Form_post |
 
@@ -135,14 +135,14 @@ A questo punto dovrebbe essere visualizzato Trusona come **nuovo provider di ide
 
 1. Immettere un **nome** per il criterio.
 
-1. Nella sezione **Identity Providers (provider di identità** ) selezionare il **provider di identità Trusona**appena creato.
+1. Nella sezione **Identity Providers (provider di identità** ) selezionare il **provider di identità Trusona** appena creato.
 
    > [!NOTE]
    > Poiché Trusona è intrinsecamente a più fattori, è preferibile lasciare disabilitata l'autenticazione a più fattori.
 
 1. Selezionare **Crea**.
 
-1. In **attributi utente e attestazioni**scegliere **Mostra altro**. Nel modulo selezionare almeno un attributo specificato durante l'installazione del provider di identità nella sezione precedente.
+1. In **attributi utente e attestazioni** scegliere **Mostra altro**. Nel modulo selezionare almeno un attributo specificato durante l'installazione del provider di identità nella sezione precedente.
 
 1. Selezionare **OK**.  
 

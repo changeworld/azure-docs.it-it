@@ -1,14 +1,14 @@
 ---
 title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: b214f63fba9a5d13aac0f4bf86ce0810f16f0c9c
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509470"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575907"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
@@ -49,9 +49,9 @@ Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro
 
 È possibile visualizzare gli [avvisi](../../azure-monitor/platform/alerts-overview.md) per le sottoscrizioni delegate nei tenant dei clienti gestiti dall'utente.
 
-Per aggiornare automaticamente gli avvisi tra più clienti, usare una query di [Azure Resource Graph](../../governance/resource-graph/overview.md) per filtrare gli avvisi. È possibile aggiungere la query al dashboard e selezionare tutti i clienti e le sottoscrizioni appropriati.
+Dal tenant di gestione è possibile [creare, visualizzare e gestire gli avvisi del log attività](../../azure-monitor/platform/alerts-activity-log.md) nell'portale di Azure o tramite le API e gli strumenti di gestione.
 
-Nella query di esempio seguente vengono visualizzati gli avvisi di gravità 0 e 1, con aggiornamento ogni 60 minuti.
+Per aggiornare automaticamente gli avvisi tra più clienti, usare una query di [Azure Resource Graph](../../governance/resource-graph/overview.md) per filtrare gli avvisi. È possibile aggiungere la query al dashboard e selezionare tutti i clienti e le sottoscrizioni appropriati. La query seguente, ad esempio, visualizzerà avvisi di gravità 0 e 1, aggiornando ogni 60 minuti.
 
 ```kusto
 alertsmanagementresources

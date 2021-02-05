@@ -6,18 +6,21 @@ ms.author: parkerra
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
-ms.date: 11/20/2020
+ms.date: 2/4/2021
 ms.topic: conceptual
-ms.openlocfilehash: 51df8ff31c6f86608b7cae53ca779a2a03068e57
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f9d64f4a23bf340f857d5aee8a3e0c99e1859091
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487266"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575407"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Compilazione in Unity con gli ancoraggi spaziali di Azure
 
 Gli sviluppatori possono scegliere Unity per la creazione e la distribuzione di applicazioni di realtà mista che usano ancoraggi spaziali di Azure.
+
+[!INCLUDE [Unity Project Requirements](../../includes/spatial-anchors-unity-project-requirements.md)]
+
 Sono supportate le piattaforme seguenti:
 
 **Unity per HoloLens**

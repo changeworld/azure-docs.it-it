@@ -4,21 +4,23 @@ description: Questo articolo descrive come gestire gli amministratori del server
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351725"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573501"
 ---
 # <a name="manage-server-administrators"></a>Gestire gli amministratori del server
 
 Gli amministratori del server devono essere un utente, un'entità servizio o un gruppo di sicurezza valido nel Azure Active Directory (Azure AD) per il tenant in cui risiede il server. È possibile usare **Amministratori di Analysis Services** per il server nel portale di Azure, in Proprietà server in SSMS, PowerShell o API REST per gestire gli amministratori del server. 
 
 Quando si aggiunge un **gruppo di sicurezza**, utilizzare `obj:groupid@tenantid` . Le entità servizio non sono supportate nei gruppi di sicurezza aggiunti al ruolo di amministratore del server.
+
+Per ulteriori informazioni sull'aggiunta di un'entità servizio al ruolo di amministratore del server, vedere [aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md).
 
 Se il firewall del server è abilitato, gli indirizzi IP del computer client dell'amministratore del server devono essere inclusi in una regola del firewall. Per altre informazioni, vedere [configurare il firewall del server](analysis-services-qs-firewall.md).
 

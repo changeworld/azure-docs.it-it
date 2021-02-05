@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602118"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576262"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Esercitazione: Scrivere codice con le API di Gemelli digitali di Azure
 
@@ -253,12 +253,16 @@ A questo punto dell'esercitazione si avrà un'app client completa, in grado di e
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
- 
-L'istanza usata in questa esercitazione può essere riutilizzata nell'esercitazione successiva, [*Esercitazione: Esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere l'istanza di Gemelli digitali di Azure configurata qui.
+
+Al termine dell'esercitazione, è possibile scegliere le risorse che si desidera rimuovere, a seconda di ciò che si desidera eseguire successivamente.
+
+* **Se si prevede di continuare con l'esercitazione successiva**, l'istanza usata in questa esercitazione può essere riutilizzata in quella successiva. È possibile salvare le risorse di Azure Digital gemelle impostate qui e ignorare il resto di questa sezione.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Infine, eliminare la cartella del progetto creata nel computer locale.
+Potrebbe anche essere necessario eliminare la cartella del progetto dal computer locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

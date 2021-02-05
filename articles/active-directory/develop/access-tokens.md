@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: e1dcd52660ff43a93c6a170912fea5a5847fe9d3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232387"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575755"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -241,7 +241,7 @@ La logica di business dell'applicazione richiede questo passaggio e di seguito s
 * Convalidare lo stato dell'autenticazione del client chiamante usando `appidacr`: il valore non deve essere 0 se i client pubblici non sono autorizzati a chiamare l'API.
 * Eseguire un controllo rispetto all'elenco di attestazioni `nonce` passate per verificare che il token non venga riprodotto.
 * Controllare che `tid` corrisponda a un tenant autorizzato a chiamare l'API.
-* Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Questa azione deve essere applicata usando l'[accesso condizionale](../conditional-access/overview.md).
+* Usare l'attestazione `amr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Questa azione deve essere applicata usando l'[accesso condizionale](../conditional-access/overview.md).
 * Se è stata richiesta l'attestazione `roles` o `groups` nel token di accesso, verificare che l'utente sia incluso nel gruppo autorizzato a eseguire questa azione.
   * Per i token recuperati tramite il flusso implicito, sarà probabilmente necessario eseguire una query su [Microsoft Graph](https://developer.microsoft.com/graph/) per ottenere questi dati, in quanto in genere le dimensioni sono troppo grandi per l'inserimento nel token.
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 95cc13a79f39888a5be10e423bda4c7cd7c84cb3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054789"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576364"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
@@ -88,7 +88,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
       ![Copiare e salvare la chiave e il nome dell'account di archiviazione](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) o l'[interfaccia della riga di comando di Azure](/cli/azure/storage/account/keys.md#az-storage-account-keys-list).
+   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) o l'[interfaccia della riga di comando di Azure](/cli/azure/storage/account/keys).
 
 1. Creare un contenitore di archiviazione BLOB per gli allegati di posta elettronica.
 

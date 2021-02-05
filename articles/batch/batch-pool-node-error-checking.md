@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8901877ab3055c02dfc8c129fb35864418cd19d8
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549136"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576313"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -24,7 +24,7 @@ Questo articolo descrive come rilevare ed evitare errori nelle operazioni in bac
 
 ### <a name="resize-timeout-or-failure"></a>Timeout ridimensionamento o errore
 
-Durante la creazione di un nuovo pool o il ridimensionamento di un pool esistente, si specifica il numero di nodi di destinazione. L'operazione di creazione o ridimensionamento viene completata immediatamente, ma l'effettiva allocazione dei nuovi nodi o la rimozione dei nodi esistenti potrebbe richiedere diversi minuti. È possibile specificare il timeout di ridimensionamento della camma nell'API [Crea](/rest/api/batchservice/pool/add) o [Ridimensiona](/rest/api/batchservice/pool/resize) . Se batch non è in grado di ottenere il numero di nodi di destinazione durante il periodo di timeout di ridimensionamento, il pool entra in uno stato stabile e segnala gli errori di ridimensionamento.
+Durante la creazione di un nuovo pool o il ridimensionamento di un pool esistente, si specifica il numero di nodi di destinazione. L'operazione di creazione o ridimensionamento viene completata immediatamente, ma l'effettiva allocazione dei nuovi nodi o la rimozione dei nodi esistenti potrebbe richiedere diversi minuti. È possibile specificare il timeout di ridimensionamento nell'API [Crea](/rest/api/batchservice/pool/add) o [Ridimensiona](/rest/api/batchservice/pool/resize) . Se batch non è in grado di ottenere il numero di nodi di destinazione durante il periodo di timeout di ridimensionamento, il pool entra in uno stato stabile e segnala gli errori di ridimensionamento.
 
 La proprietà [ResizeError](/rest/api/batchservice/pool/get#resizeerror) relativa alla valutazione più recente elenca gli errori che si sono verificati.
 

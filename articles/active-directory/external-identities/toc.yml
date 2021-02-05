@@ -12,7 +12,7 @@
           href: ../../active-directory-b2c/overview.md
         - name: Novità della documentazione
           href: whats-new-docs.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Aggiungere utenti guest nel portale
           href: b2b-quickstart-add-guest-users-portal.md
@@ -116,6 +116,8 @@
               href: use-dynamic-groups.md
             - name: Informazioni sull'utente B2B
               href: user-properties.md
+            - name: Reimposta lo stato di riscatto
+              href: reset-redemption-status.md
             - name: B2B per app integrate con Azure AD
               href: configure-saas-apps.md
         - name: Gestire l'accesso guest in un'organizzazione ibrida

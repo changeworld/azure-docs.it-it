@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881162"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575772"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con Accesso condizionale
 
@@ -34,7 +34,7 @@ In Accesso condizionale è noto che queste app client sono protette con criteri 
 > Non tutte le applicazioni sono supportate come applicazioni approvate o supportano i criteri di protezione delle applicazioni. Per un elenco delle app client idonee, vedere [Requisiti dei criteri di protezione app](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> "Richiedi uno dei controlli selezionati" nei controlli di concessione è simile a una clausola o. Questa opzione viene usata all'interno dei criteri per consentire agli utenti di usare le app che supportano i **criteri di protezione delle app require** o **Require client approvati** . È necessario applicare i **criteri di protezione delle app** se un'app è supportata in entrambi i criteri. Per altre informazioni sulle app che supportano il controllo di concessione **Richiedi criteri di protezione delle app**, vedere [Requisiti dei criteri di protezione app](concept-conditional-access-grant.md#require-app-protection-policy).
+> "Richiedi uno dei controlli selezionati" nei controlli di concessione è simile a una clausola o. Questa opzione viene usata all'interno dei criteri per consentire agli utenti di usare le app che supportano i **criteri di protezione delle app require** o **Require client approvati** . **Richiedi i criteri di protezione delle app** viene applicato quando l'app supporta il controllo di concessione. Per altre informazioni sulle app che supportano il controllo di concessione **Richiedi criteri di protezione delle app**, vedere [Requisiti dei criteri di protezione app](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: le app Microsoft 365 richiedono app approvate con i criteri di protezione delle app
 

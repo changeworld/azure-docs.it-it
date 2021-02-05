@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 86942f509ab067a53c47b5132c451f0585760050
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549644"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574958"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrare e analizzare un'istanza di SQL Server locale
 
@@ -67,7 +67,7 @@ Se si prevede di usare un utente amministratore del server esistente per analizz
 Se si desidera creare un nuovo account di accesso e un nuovo utente per poter eseguire la scansione di SQL Server, attenersi alla procedura seguente:
 
 > [!Note]
-    > Tutti i passaggi seguenti possono essere eseguiti usando il codice fornito [qui](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
+   > Tutti i passaggi seguenti possono essere eseguiti usando il codice fornito [qui](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
 1. Passare a SQL Server Management Studio (SSMS), connettersi al server, passare a sicurezza, fare clic con il pulsante destro del mouse su account di accesso e creare un nuovo account di accesso. Assicurarsi di selezionare autenticazione SQL.
 

@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246469"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576059"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione
 
 
-È possibile distribuire il modello predittivo sviluppato nella [prima parte dell'esercitazione](tutorial-designer-automobile-price-train-score.md) per offrire ad altri la possibilità di usarlo. Nella prima parte è stato eseguito il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente. In questa parte dell'esercitazione si apprenderà come:
+È possibile distribuire il modello predittivo sviluppato nella [prima parte dell'esercitazione](tutorial-designer-automobile-price-train-score.md) per offrire ad altri la possibilità di usarlo. Nella prima parte è stato eseguito il training del modello. A questo punto è possibile generare stime basate sull'input dell'utente. In questa parte dell'esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una pipeline di inferenza in tempo reale.
@@ -101,7 +101,7 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 
     È anche possibile modificare l'impostazione **avanzata** per l'endpoint in tempo reale.
     
-    |Impostazione avanzata|Description|
+    |Impostazione avanzata|Descrizione|
     |---|---|
     |Abilitare la diagnostica Application Insights e la raccolta dati| Indica se abilitare applicazione Azure Ingishts per la raccolta di dati dagli endpoint distribuiti. </br> Per impostazione predefinita: false |
     |Timeout Punteggio| Timeout in millisecondi da applicare per la valutazione delle chiamate al servizio Web.</br>Per impostazione predefinita: 60000|
@@ -122,17 +122,19 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 > È anche possibile eseguire la distribuzione in un' **istanza di contenitore di Azure** (ACI) se si seleziona istanza di contenitore di **Azure** per **tipo di calcolo** nella casella Impostazioni endpoint in tempo reale.
 > L'istanza di contenitore di Azure viene usata per test o sviluppo. Usare ACI per carichi di lavoro basati su CPU su scala ridotta che richiedono meno di 48 GB di RAM.
 
-## <a name="view-the-real-time-endpoint"></a>Visualizzare l'endpoint in tempo reale
+## <a name="test-the-real-time-endpoint"></a>Testare l'endpoint in tempo reale
 
 Una volta completata la distribuzione, è possibile visualizzare l'endpoint in tempo reale passando alla pagina **Endpoints**.
 
 1. Nella pagina **Endpoints** selezionare l'endpoint appena distribuito.
 
-1. Nella scheda **Details** (Dettagli) sono disponibili altre informazioni, come l'URI REST, lo stato e i tag.
+    Nella scheda **Dettagli** è possibile visualizzare altre informazioni, ad esempio l'URI Rest, la definizione di spavalderia, lo stato e i tag.
 
-1. Nella scheda **Consume** (Utilizza) è possibile trovare le chiavi di sicurezza e impostare i metodi di autenticazione.
+    Nella scheda **utilizzo** è possibile trovare codice consumo di esempio, chiavi di sicurezza e impostare metodi di autenticazione.
 
-1. Nella scheda **Log di distribuzione** sono disponibili i log di distribuzione dettagliati dell'endpoint in tempo reale. 
+    Nella scheda **Log di distribuzione** sono disponibili i log di distribuzione dettagliati dell'endpoint in tempo reale.
+
+1. Per testare l'endpoint, passare alla scheda **test** . Da qui è possibile immettere i dati di test e selezionare **test** Verify the output of the endpoint.
 
 Per altre informazioni sull'utilizzo del servizio Web, vedere [Usare un modello di Azure Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 

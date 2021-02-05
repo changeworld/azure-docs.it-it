@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499374"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573603"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usare la portale di Azure per abilitare la crittografia end-to-end usando la crittografia nell'host
 
@@ -37,7 +37,7 @@ Quando si Abilita la crittografia in host, i dati archiviati nell'host della mac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica all'indirizzo encryptionAtHost@microsoft. com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
+Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft.com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
 
 Accedere al portale di Azure usando il [collegamento fornito](https://aka.ms/diskencryptionupdates).
 

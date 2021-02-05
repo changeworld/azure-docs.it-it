@@ -116,24 +116,34 @@
           href: certificates-point-to-site.md
         - name: Configurare un tenant di Azure AD
           href: openvpn-azure-ad-tenant.md
-        - name: Profilo client
-          href: about-vpn-profile-download.md
-        - name: Profilo globale e basato su hub
-          href: global-hub-profile.md
-        - name: Configurare il client VPN di Azure per Windows 10
-          href: openvpn-azure-ad-client.md
-        - name: Configurare client OpenVPN
-          href: howto-openvpn-clients.md?
-        - name: Configurare il tunnel utente VPN Always On
-          href: howto-always-on-user-tunnel.md
-        - name: Configurare il tunnel di dispositivo VPN Always On
-          href: howto-always-on-device-tunnel.md
-        - name: Abilitare Multi-Factor Authentication (MFA)
-          href: openvpn-azure-ad-mfa.md
-        - name: Configurare l'autenticazione di Azure AD
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: Configurare l'autenticazione multi-applicazione di Azure AD
-          href: openvpn-azure-ad-tenant-multi-app.md
+        - name: Profili client
+          items:
+            - name: Scaricare profili globali e basati su Hub
+              href: global-hub-profile.md
+            - name: Estrarre e visualizzare le informazioni sul profilo
+              href: about-vpn-profile-download.md
+            - name: Distribuire i profili con Intune
+              href: vpn-profile-intune.md
+        - name: Client VPN
+          items:
+            - name: Windows 10
+              href: openvpn-azure-ad-client.md
+            - name: OpenVPN
+              href: howto-openvpn-clients.md?
+        - name: Configurare tunnel Always-On
+          items:
+            - name: Tunnel utente
+              href: howto-always-on-user-tunnel.md
+            - name: Tunnel del dispositivo
+              href: howto-always-on-device-tunnel.md
+        - name: Authentication
+          items:
+            - name: Multi-Factor Authentication (autenticazione a più fattori)
+              href: openvpn-azure-ad-mfa.md
+            - name: Autenticazione di Azure AD
+              href: virtual-wan-point-to-site-azure-ad.md
+            - name: Autenticazione Azure AD per più applicazioni
+              href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routing
       items:
         - name: Come configurare il routing dell'hub virtuale

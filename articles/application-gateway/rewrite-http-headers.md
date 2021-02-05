@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397151"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575654"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il gateway applicazione
 
@@ -49,14 +49,14 @@ Il gateway applicazione supporta inoltre diverse [variabili server](#server-vari
 È possibile utilizzare le azioni di riscrittura per specificare le intestazioni di richiesta e risposta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile creare una nuova intestazione, modificare il valore di un'intestazione esistente o eliminare un'intestazione esistente. Il valore di una nuova intestazione o di un'intestazione esistente può essere impostato su questi tipi di valori:
 
 - Text.
-- Intestazione della richiesta. Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_ *headerName* }.
-- Intestazione della risposta. Per specificare un'intestazione della risposta, è necessario usare la sintassi {http_resp_ *headerName* }.
-- Variabile server. Per specificare una variabile del server, è necessario usare la sintassi {var_ *serverVariable* }.
+- Intestazione della richiesta. Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_ *headerName*}.
+- Intestazione della risposta. Per specificare un'intestazione della risposta, è necessario usare la sintassi {http_resp_ *headerName*}.
+- Variabile server. Per specificare una variabile del server, è necessario usare la sintassi {var_ *serverVariable*}.
 - Una combinazione di testo, un'intestazione di richiesta, un'intestazione di risposta e una variabile server.
 
 ## <a name="server-variables"></a>Variabili del server
 
-Il gateway applicazione usa variabili server per archiviare informazioni utili sul server, sulla connessione con il client e sulla richiesta corrente sulla connessione. Esempi di informazioni archiviate includono l'indirizzo IP del client e il tipo di Web browser. Le variabili del server cambiano in modo dinamico, ad esempio quando viene caricata una nuova pagina o quando viene pubblicato un modulo. È possibile utilizzare queste variabili per valutare le condizioni di riscrittura e riscrivere le intestazioni. Per usare il valore delle variabili server per riscrivere le intestazioni, è necessario specificare queste variabili nella sintassi {var_ *serverVariable* }
+Il gateway applicazione usa variabili server per archiviare informazioni utili sul server, sulla connessione con il client e sulla richiesta corrente sulla connessione. Esempi di informazioni archiviate includono l'indirizzo IP del client e il tipo di Web browser. Le variabili del server cambiano in modo dinamico, ad esempio quando viene caricata una nuova pagina o quando viene pubblicato un modulo. È possibile utilizzare queste variabili per valutare le condizioni di riscrittura e riscrivere le intestazioni. Per usare il valore delle variabili server per riscrivere le intestazioni, è necessario specificare queste variabili nella sintassi {var_ *serverVariable*}
 
 Il gateway applicazione supporta queste variabili server:
 
@@ -69,21 +69,21 @@ Il gateway applicazione supporta queste variabili server:
 | client_port                | Porta client.                                                  |
 | client_tcp_rtt             | Informazioni sulla connessione TCP del client. Disponibile nei sistemi che supportano l'opzione socket TCP_INFO. |
 | client_user                | Quando si usa l'autenticazione HTTP, il nome utente specificato per l'autenticazione. |
-| host                       | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , il valore host sarà *contoso.com* |
+| host                       | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , il valore host sarà *contoso.com* |
 | *nome* cookie_              | Cookie del *nome* .                                            |
 | http_method                | Metodo utilizzato per effettuare la richiesta dell'URL. Ad esempio, GET o POST. |
 | http_status                | Stato della sessione. Ad esempio, 200, 400 o 403.                       |
 | http_version               | Protocollo della richiesta. In genere HTTP/1.0, HTTP/1.1 o HTTP/2.0. |
-| query_string               | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING valore sarà *ID = 123&title = Fabrikam* |
+| query_string               | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING valore sarà *ID = 123&title = Fabrikam* |
 | received_bytes             | Lunghezza della richiesta, incluse la riga della richiesta, l'intestazione e il corpo della richiesta. |
 | request_query              | Argomenti nella riga della richiesta.                                |
 | request_scheme             | Schema di richiesta: http o HTTPS.                            |
-| request_uri                | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* REQUEST_URI valore sarà */article.aspx? ID = 123&title = Fabrikam*   |
+| request_uri                | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` REQUEST_URI valore sarà */article.aspx? ID = 123&title = Fabrikam*   |
 | sent_bytes                 | Numero di byte inviati a un client.                             |
 | server_port                | Porta del server che ha accettato una richiesta.                 |
 | ssl_connection_protocol    | Protocollo di una connessione TLS stabilita.        |
 | ssl_enabled                | "On" se la connessione funziona in modalità TLS. In caso contrario, una stringa vuota. |
-| uri_path                   | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path valore sarà */article.aspx*  |
+| uri_path                   | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path valore sarà */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Riscrivere la configurazione
 
@@ -91,19 +91,19 @@ Per configurare la riscrittura dell'intestazione HTTP, è necessario completare 
 
 1. Creare gli oggetti necessari per la riscrittura dell'intestazione HTTP:
 
-   - **Azione di riscrittura** : utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
+   - **Azione di riscrittura**: utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
 
-   - **Condizione di riscrittura** : una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
+   - **Condizione di riscrittura**: una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
 
      Se si associa più di una condizione a un'azione, l'azione si verifica solo quando vengono soddisfatte tutte le condizioni. In altre parole, l'operazione è un'operazione AND logica.
 
-   - **Regola di riscrittura** : contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
+   - **Regola di riscrittura**: contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
 
-   - **Sequenza di regole** : consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna la stessa sequenza di regole a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
+   - **Sequenza di regole**: consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna la stessa sequenza di regole a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
 
-   - **Rewrite set** : contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
+   - **Rewrite set**: contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
 
-2. Alleghi il set di riscrittura ( *rewriteRuleSet* ) a una regola di routing. La configurazione di riscrittura è collegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione dell'intestazione di riscrittura è associata a un listener di origine ed è una riscrittura dell'intestazione globale. Quando si usa una regola di routing basata sul percorso, la configurazione dell'intestazione di riscrittura è definita nella mappa del percorso URL. In tal caso, si applica solo all'area del percorso specifica di un sito.
+2. Alleghi il set di riscrittura (*rewriteRuleSet*) a una regola di routing. La configurazione di riscrittura è collegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione dell'intestazione di riscrittura è associata a un listener di origine ed è una riscrittura dell'intestazione globale. Quando si usa una regola di routing basata sul percorso, la configurazione dell'intestazione di riscrittura è definita nella mappa del percorso URL. In tal caso, si applica solo all'area del percorso specifica di un sito.
    > [!NOTE]
    > La riscrittura URL modifica le intestazioni; non modifica l'URL per il percorso.
 

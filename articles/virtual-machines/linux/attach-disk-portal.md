@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: ca8584d6cce3f5487d84f6647c42274879d610dd
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 647564a9b9ca909d2f45ae66673d8beac168a4aa
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198068"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575975"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md). 
@@ -225,4 +225,7 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni e per risolvere i problemi relativi ai dischi, vedere risolvere i problemi relativi alle [modifiche del nome dispositivo della VM Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+
 È anche possibile [collegare un disco dati](add-disk.md) usando l'interfaccia della riga di comando di Azure.

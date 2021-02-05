@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 60a210c6c336c1b820015304e8ab53bc894c17bf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792492"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575229"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorare le istanze del servizio app usando il controllo integrità
 
 ![Errore controllo integrità][2]
 
-Questo articolo usa il controllo di integrità nel portale di Azure per monitorare le istanze del servizio app. Il controllo dell'integrità aumenta la disponibilità dell'applicazione rimuovendo le istanze non integre. Il [piano di servizio app](/overview-hosting-plans) deve essere ridimensionato a due o più istanze per usare il controllo integrità. Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
+Questo articolo usa il controllo di integrità nel portale di Azure per monitorare le istanze del servizio app. Il controllo dell'integrità aumenta la disponibilità dell'applicazione rimuovendo le istanze non integre. Il [piano di servizio app](/azure/app-service/overview-hosting-plans) deve essere ridimensionato a due o più istanze per usare il controllo integrità. Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
 
 ## <a name="what-app-service-does-with-health-checks"></a>Funzionamento del servizio app con i controlli di integrità
 

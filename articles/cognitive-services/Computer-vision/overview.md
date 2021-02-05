@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: visione artificiale, applicazioni di visione artificiale, servizio visione artificiale
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033290"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575941"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -32,7 +32,7 @@ Il servizio Visione artificiale di Azure consente di accedere ad algoritmi avanz
 
 ## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
-Visione artificiale include funzionalità di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md). È possibile usare la nuova API di lettura per estrarre testo, scritto a mano o stampato, da immagini e documenti. Usa i modelli più recenti e funziona con testo su un'ampia gamma di superfici e sfondi, tra cui ricevute, poster, biglietti da visita, lettere e lavagne. Le due API di riconoscimento ottico dei caratteri supportano l'estrazione di testo stampato in [diverse lingue](./language-support.md). Per iniziare, seguire una [guida di avvio rapido](./quickstarts-sdk/client-library.md).
+Visione artificiale include funzionalità di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md). È possibile usare la nuova API di lettura per estrarre testo, scritto a mano o stampato, da immagini e documenti. USA modelli basati sull'apprendimento avanzato e funziona con testo su un'ampia gamma di superfici e sfondi. Sono inclusi documenti aziendali, fatture, ricevute, poster, biglietti da visita, lettere e lavagne. Le API OCR supportano l'estrazione di testo stampato in [diversi linguaggi](./language-support.md). Per iniziare, seguire una [guida di avvio rapido](./quickstarts-sdk/client-library.md).
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visione artificiale per la gestione delle risorse digitali
 

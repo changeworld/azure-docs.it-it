@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736222"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573365"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Pianificare e gestire i costi per il servizio app Azure
 
@@ -125,7 +125,7 @@ Se si prevede di usare un numero minimo noto di istanze di calcolo per un anno o
 
 Il prezzo dell'istanza riservata si applica alle istanze applicabili nella sottoscrizione, fino al numero di istanze riservate. Le istanze riservate sono una faccenda di fatturazione e non sono associate a istanze di calcolo specifiche. Se si eseguono meno istanze di quelle riservate in qualsiasi momento durante il periodo di prenotazione, si pagano comunque le istanze riservate. Se si eseguono più istanze di quelle riservate in qualsiasi momento durante il periodo di prenotazione, si paga il normale costo accumulato per le istanze aggiuntive.
 
-Il livello **isolato** (ambiente del servizio app) supporta anche prenotazioni di 1 anno e 3 anni a prezzi ridotti. Per ulteriori informazioni, vedere [la pagina relativa al modo app Azure in cui gli sconti per la prenotazione si applicano agli indicatori isolati](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md)
+Il livello **isolato** (ambiente del servizio app) supporta anche prenotazioni di 1 anno e 3 anni a prezzi ridotti. Per ulteriori informazioni, vedere [la pagina relativa al modo in cui si applicano gli sconti per app Azure servizio](../cost-management-billing/reservations/reservation-discount-app-service.md)
 
 ## <a name="monitor-costs"></a>Monitorare i costi
 

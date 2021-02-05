@@ -3,12 +3,12 @@ title: Rilevare il movimento, registrare video in Servizi multimediali di Azure
 description: Questo avvio rapido illustra come usare l'analisi di video live in IoT Edge per rilevare il movimento in un flusso video live e registrare clip video in Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632725"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575535"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Avvio rapido: Rilevare il movimento, registrare video in Servizi multimediali
 
@@ -540,10 +540,15 @@ Il grafo multimediale creato usa il nodo del processore di rilevamento del movim
 
 1. Aprire il riquadro Esplora risorse in Visual Studio Code e cercare l'hub IoT di Azure nell'angolo inferiore sinistro.
 1. Espandere il nodo Dispositivi
-1. Fare clic con il pulsante destro del mouse su lva-sample-device e scegliere l'opzione "Avvia monitoraggio endpoint eventi predefinito"
+1. Fare clic con il pulsante destro del mouse su LVA-Sample-Device e scegliere l'opzione "Avvia monitoraggio monitoraggio eventi incorporato".
 
     ![Avvia monitoraggio endpoint eventi predefinito](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     Dopo alcuni secondi nella finestra OUTPUT vengono visualizzati i messaggi seguenti:
 
 ```

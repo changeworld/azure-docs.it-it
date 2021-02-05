@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736819"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575873"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
@@ -25,34 +25,89 @@ Alcune funzionalità di Visione artificiale supportano più lingue; le funzional
 
 Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario specificare un codice di lingua. Per ulteriori informazioni, vedere [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md) .
 
-|Linguaggio| Codice lingua | API OCR | Leggi 3,0 e 3,1 | Leggere v 3.2-Preview. 1 |
+|Linguaggio| Codice lingua | API OCR | Leggi 3.0/3.1 | Leggi versione 3.2 anteprima |
 |:-----|:----:|:-----:|:---:|:---:|
+|Afrikaans|`af`| | |✔ |
+|Albanese |`sq`| | |✔ |
 |Arabo | `ar`|✔ | | |
+|Asturiano |`ast`| | |✔ |
+|Basco  |`eu`| | |✔ |
+|Bislama   |`bi`| | |✔ |
+|Breton    |`br`| | |✔ |
+|Catalano    |`ca`| | |✔ |
+|Cebuano    |`ceb`| | |✔ |
+|Chamorro  |`ch`| | |✔ |
 |Cinese (semplificato) | `zh-Hans`|✔ | |✔ |
-|Cinese (tradizionale) | `zh-Hant`|✔ | | |
-|Ceco | `cs` |✔ | | |
-|Danese | `da` |✔ | | |
+|Cinese (tradizionale) | `zh-Hant`|✔ | |✔ |
+|Cornico     |`kw`| | |✔ |
+|Corso      |`co`| | |✔ |
+|Tartaro di Crimea (alfabeto latino)  |`crh`| | |✔ |
+|Ceco | `cs` |✔ | |✔ |
+|Danese | `da` |✔ | |✔ |
 |Olandese | `nl` |✔ |✔ |✔ |
 |Inglese | `en` |✔ |✔ |✔ |
-|Finlandese | `fi` |✔ | | |
+|Estone  |`crh`| | |✔ |
+|Figiano |`fj`| | |✔ |
+|Filippino  |`fil`| | |✔ |
+|Finlandese | `fi` |✔ | |✔ |
 |Francese | `fr` |✔ |✔ |✔ |
+|Friulano  | `fur` | | |✔ |
+|Galiziano   | `gl` | | |✔ |
 |Tedesco | `de` |✔ |✔ |✔ |
+|Gilbertese    | `gil` | | |✔ |
 |Greco | `el` |✔ | | |
-|Ungherese | `hu` |✔ | | |
+|Groenlandese   | `kl` | | |✔ |
+|Creolo haitiano  | `ht` | | |✔ |
+|Hani  | `hni` | | |✔ |
+|DAW Hmong (alfabeto latino) | `mww` | | |✔ |
+|Ungherese | `hu` |✔ | | ✔ |
+|Indonesiano   | `id` | | |✔ |
+|Interlingua  | `ia` | | |✔ |
+|Inuktitut (alfabeto latino)  | `iu` | | |✔ |
+|Irlandese    | `ga` | | |✔ |
 |Italiano | `it` |✔ |✔ |✔ |
 |Giapponese | `ja` |✔ | |✔ |
-|Coreano | `ko` |✔ | | |
+|Giavanese | `jv` | | |✔ |
+|Caboverdiano | `kea` | | |✔ |
+|Kachin (alfabeto latino) | `kac` | | |✔ |
+|Kara-Kalpak | `kaa` | | |✔ |
+|Kashubian | `csb` | | |✔ |
+|Khasi  | `kha` | | |✔ |
+|Coreano | `ko` |✔ | |✔ |
+|Iche  | `quc` | | |✔ |
+|Curdo (alfabeto latino) | `kur` | | |✔ |
+|Lussemburghese  | `lb` | | |✔ |
+|Malese (alfabeto latino)  | `ms` | | |✔ |
+|Manx  | `gv` | | |✔ |
+|Napoletano   | `nap` | | |✔ |
 |Norvegese | `nb` |✔ | | |
-|Polacco | `pl` |✔ | | |
+|Norvegese | `no` | | |✔ |
+|Occitano | `oc` | | |✔ |
+|Polacco | `pl` |✔ | |✔ |
 |Portoghese | `pt` |✔ |✔ |✔ |
 |Romeno | `ro` |✔ | | |
+|Romancio  | `rm` | | |✔ |
 |Russo | `ru` |✔ | | |
+|Scozzesi  | `sco` | | |✔ |
+|Scozzese Gaelico  | `gd` | | |✔ |
 |Serbo (alfabeto cirillico) | `sr-Cyrl` |✔ | | |
 |Serbo (alfabeto latino) | `sr-Latn` |✔ | | |
 |Slovacco | `sk` |✔ | | |
+|Sloveno  | `slv` | | |✔ |
 |Spagnolo | `es` |✔ |✔ |✔ |
-|Svedese | `sw` |✔ | | |
-|Turco | `tr` |✔ | | |
+|Swahili (alfabeto latino)  | `sw` | | |✔ |
+|Svedese | `sv` |✔ | |✔ |
+|Tatar (alfabeto latino)  | `tat` | | |✔ |
+|Tetum    | `tet` | | |✔ |
+|Turco | `tr` |✔ | |✔ |
+|Serbo superiore  | `hsb` | | |✔ |
+|Uzbeco (alfabeto latino)     | `uz` | | |✔ |
+|Volapük   | `vo` | | |✔ |
+|Walser    | `wae` | | |✔ |
+|Frisia occidentale | `fy` | | |✔ |
+|Yucatec Maya | `yua` | | |✔ |
+|Zhuang | `za` | | |✔ |
+|Zulù  | `zu` | | |✔ |
 
 ## <a name="image-analysis"></a>Analisi di immagini
 
@@ -65,10 +120,3 @@ Alcune azioni dell'API [Analyze-image](https://westcentralus.dev.cognitive.micro
 |Giapponese | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Portoghese | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Spagnolo | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Iniziare a usare le funzionalità di Visione artificiale citate in questa guida.
-
-* [Analizzare un'immagine locale (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
-* [Estrai testo stampato (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

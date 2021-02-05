@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: f99a3110880626b3a809e6bab5edc02398094547
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426225"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575856"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisiti per l'archiviazione BLOB Azure Stack Edge
 
@@ -26,7 +26,7 @@ Si consiglia di esaminare attentamente le informazioni prima di connettersi all'
 |     Funzionalità                                             |     Archiviazione di Azure                                     |     Archiviazione BLOB Azure Stack Edge |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Archiviazione file di Azure                                   |    Condivisioni di file SMB basate sul cloud supportate              |    Non supportato      |
-|    Tipo di account di archiviazione                                 |    Account di archiviazione BLOB di Azure e per uso generico    |    Solo uso generico v1|
+|    Tipo di account di archiviazione                                 |    Account di archiviazione BLOB di Azure e per utilizzo generico    |    Solo uso generico v1|
 |    Nome del BLOB                                            |    1.024 caratteri (2.048 byte)                     |    880 caratteri (1.760 byte)|
 |    Dimensioni massime di BLOB in blocchi                              |    4,75 TB (100 MB x 50.000 blocchi)                   |    4,75 TB (100 MB x 50.000 blocchi) per Azure Stack Edge|
 |    Dimensioni massime di BLOB di pagine                               |    8 TB                                               |    1 TB                   |
@@ -73,7 +73,7 @@ Per installare il client PHP tramite Composer:
 In Azure Stack Edge BLOB Storage SDK, il suffisso dell'endpoint, `<device serial number>.microsoftdatabox.com` identifica il dominio Azure stack Edge. Per altre informazioni sull'endpoint del servizio BLOB, vedere [trasferire i dati tramite gli account di archiviazione con la GPU Pro Azure stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="net"></a>.NET
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050239"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576245"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Esercitazione: Esplorare Gemelli digitali di Azure con un'app client di esempio
 
@@ -274,12 +274,15 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il progetto di questa esercitazione costituisce la base per quella successiva, [*Esercitazione: Connettere una soluzione end-to-end*](tutorial-end-to-end.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere le risorse configurate qui per continuare a usare questa istanza di Gemelli digitali di Azure e l'app di esempio configurata.
-* In questo caso, è possibile usare i comandi `DeleteAllTwins` e `DeleteAllModels` dell'app di esempio per cancellare rispettivamente i gemelli e i modelli nell'istanza. In questo modo si ottiene un ambiente pulito per l'esercitazione successiva.
+Al termine dell'esercitazione, è possibile scegliere le risorse che si desidera rimuovere, a seconda di ciò che si desidera eseguire successivamente.
+
+* **Se si prevede di continuare con l'esercitazione successiva**, è possibile mantenere le risorse impostate qui per continuare a usare questa istanza di Azure Digital Twins e l'app di esempio configurata per l'esercitazione successiva.
+
+* **Se si vuole continuare a usare l'istanza di Azure Digital gemelli, ma si cancellano tutti i modelli, i gemelli e le relazioni**, è possibile usare i `DeleteAllTwins` comandi e dell'app `DeleteAllModels` di esempio per cancellare rispettivamente i gemelli e i modelli nell'istanza. In questo modo si ottiene un ambiente pulito per l'esercitazione successiva.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Infine, eliminare la cartella dell'esempio di progetto scaricata nel computer locale.
+Potrebbe anche essere necessario eliminare la cartella del progetto dal computer locale.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

@@ -7,19 +7,16 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: estfan, valthom
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 02/03/2021
 tags: connectors
-ms.openlocfilehash: ae99e3fa287cc9012e317142cc1e6aef36ce90d6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7873076618125241d9bdf4f225c194572553d060
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095000"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573433"
 ---
-# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app gestite da schermo 3270 in mainframe IBM con Azure usando App per la logica di Azure e il connettore IBM 3270
-
-> [!NOTE]
-> Questo connettore è in [*anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+# <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app basate su schermo 3270 in mainframe IBM con Azure usando app per la logica di Azure e il connettore IBM 3270
 
 Con App per la logica di Azure e il connettore IBM 3270, è possibile accedere ed eseguire app IBM mainframe che in genere vengono gestite nelle schermate dell'emulatore 3270. In questo modo, è possibile integrare le app IBM mainframe con Azure, Microsoft e altre app, servizi e sistemi creando flussi di lavoro automatizzati con App per la logica di Azure. Il connettore comunica con i mainframe IBM usando il protocollo TN3270 ed è disponibile in tutte le aree di App per la logica di Azure ad eccezione di Azure per enti pubblici e Azure China (21Vianet). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
@@ -55,7 +52,7 @@ Dopo aver generato il file di metadati dallo strumento di progettazione, è nece
   Se si usa ISE, selezionare ISE come posizione dell'app per la logica.
 
 * [Scaricare e installare lo strumento di progettazione 3270](https://aka.ms/3270-design-tool-download).
-L'unico prerequisito è [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
+L'unico prerequisito è [Microsoft .NET Framework 4,8](https://aka.ms/net-framework-download).
 
   Questo strumento consente di registrare le schermate, i percorsi di navigazione, i metodi e i parametri per le attività nell'app che vengono aggiunte ed eseguite come azioni del connettore 3270. Lo strumento genera un file XML HIDX (Host Integration Designer) che fornisce i metadati necessari per il connettore da usare per la guida dell'app mainframe.
   
@@ -77,20 +74,19 @@ L'unico prerequisito è [Microsoft .NET Framework 4.6.1](https://aka.ms/net-fram
 
 In un'app basata su schermo 3270, le schermate e i campi dati sono univoci per gli scenari, quindi il connettore 3270 richiede queste informazioni sull'app, che è possibile fornire come metadati. Questi metadati descrivono le informazioni che consentono all'app per la logica di identificare e riconoscere le schermate, descrive come spostarsi tra le schermate, dove inserire i dati e dove prevedere i risultati. Per specificare e generare questi metadati, è possibile usare lo strumento di progettazione 3270, che illustra in modo dettagliato le *modalità* specifiche, o le fasi, come descritto più avanti in dettaglio:
 
-* **Acquisisci** : in questa modalità vengono registrate le schermate necessarie per il completamento di un'attività specifica con l'app mainframe, ad esempio per ottenere un saldo bancario.
+* **Acquisisci**: in questa modalità vengono registrate le schermate necessarie per il completamento di un'attività specifica con l'app mainframe, ad esempio per ottenere un saldo bancario.
 
-* **Navigazione** : in questa modalità è possibile specificare il piano o il percorso per spostarsi tra le schermate dell'app mainframe per l'attività specifica.
+* **Navigazione**: in questa modalità è possibile specificare il piano o il percorso per spostarsi tra le schermate dell'app mainframe per l'attività specifica.
 
-* **Metodi** : in questa modalità viene definito il metodo, ad esempio, `GetBalance` che descrive il percorso di navigazione della schermata. Si scelgono anche i campi in ogni schermata che diventano i parametri di input e output del metodo.
+* **Metodi**: in questa modalità viene definito il metodo, ad esempio, `GetBalance` che descrive il percorso di navigazione della schermata. È anche possibile selezionare i campi in ogni schermata che diventano i parametri di input e output del metodo.
 
 ### <a name="unsupported-elements"></a>Elementi non supportati
 
 Lo strumento di progettazione non supporta questi elementi:
 
 * Mappe del supporto per il mapping di base di IBM (BMS) parziale: se si importa una mappa di BMS, lo strumento di progettazione ignorerà le definizioni delle schermate parziali.
-* Parametri in/out: non è possibile definire parametri in/out.
-* Elaborazione menu: non supportata durante l'anteprima
-* Elaborazione di matrici: non supportata durante l'anteprima
+
+* Elaborazione menu
 
 <a name="capture-screens"></a>
 
@@ -98,11 +94,11 @@ Lo strumento di progettazione non supporta questi elementi:
 
 In questa modalità si contrassegna un elemento in ogni schermata 3270 che identifica in modo univoco la schermata. Ad esempio, è possibile specificare una riga di testo o un set più complesso di condizioni, ad esempio testo specifico e un campo non vuoto. È possibile registrare queste schermate su una connessione in tempo reale al server host oppure importare queste informazioni da una mappa di supporto per il mapping di IBM Basic (BMS). La connessione dinamica usa un emulatore di TN3270 per la connessione all'host. Ogni azione del connettore deve essere mappata a una singola attività che inizia con la connessione alla sessione e termina con la disconnessione dalla sessione.
 
-1. Se non è già stato fatto, aprire lo strumento di progettazione 3270. Sulla barra degli strumenti scegliere **Acquisisci** in modo da attivare la modalità di acquisizione.
-
-1. Per avviare la registrazione, premere il tasto F5 oppure scegliere **Avvia registrazione** dal menu **registrazione** . 
+1. Se non è già stato fatto, aprire lo strumento di progettazione 3270. Sulla barra degli strumenti selezionare **Acquisisci** in modo da attivare la modalità di acquisizione.
 
 1. Scegliere **Connetti** dal menu **sessione** .
+
+1. Per avviare la registrazione, scegliere **Avvia registrazione** dal menu **registrazione** . (Tastiera: CTRL + E)
 
 1. Nel riquadro **acquisizione** , a partire dalla prima schermata dell'app, eseguire un'istruzione alla volta nell'app per l'attività specifica che si sta registrando.
 
@@ -110,13 +106,13 @@ In questa modalità si contrassegna un elemento in ogni schermata 3270 che ident
 
 1. Scegliere **Disconnetti** dal menu **sessione** .
 
-1. Per arrestare la registrazione, premere i tasti MAIUSC + F5 oppure scegliere **Interrompi registrazione** dal menu **registrazione** .
+1. Per arrestare la registrazione, scegliere **Interrompi registrazione** dal menu **registrazione** . (Tastiera: CTRL + MAIUSC + E)
 
    Dopo aver acquisito le schermate per un'attività, lo strumento di progettazione Mostra le anteprime che rappresentano tali schermate. Di seguito sono riportate alcune note sulle anteprime:
 
    * Con le schermate acquisite, è presente una schermata denominata "Empty".
 
-     Quando si esegue la prima connessione a [CICS](https://www.ibm.com/it-infrastructure/z/cics), è necessario inviare la chiave "Clear" prima di poter immettere il nome della transazione che si desidera eseguire. La schermata in cui si invia la chiave "Clear" non contiene *attributi di riconoscimento* , ad esempio un titolo della schermata, che è possibile aggiungere mediante l'editor di riconoscimento dello schermo. Per rappresentare questa schermata, le anteprime includono una schermata denominata "Empty". In seguito sarà possibile utilizzare questa schermata per rappresentare la schermata in cui si immette il nome della transazione.
+     Quando si esegue la prima connessione a [CICS](https://www.ibm.com/it-infrastructure/z/cics), è necessario inviare la chiave "Clear" prima di poter immettere il nome della transazione che si desidera eseguire. La schermata in cui si invia la chiave "Clear" non contiene *attributi di riconoscimento*, ad esempio un titolo della schermata, che è possibile aggiungere mediante l'editor di riconoscimento dello schermo. Per rappresentare questa schermata, le anteprime includono una schermata denominata "Empty". In seguito sarà possibile utilizzare questa schermata per rappresentare la schermata in cui si immette il nome della transazione.
 
    * Per impostazione predefinita, il nome di una schermata acquisita usa la prima parola sullo schermo. Se tale nome esiste già, lo strumento di progettazione aggiunge il nome con un carattere di sottolineatura e un numero, ad esempio, "WBGB" e "WBGB_1".
 
@@ -138,7 +134,7 @@ Al termine della selezione dei campi di riconoscimento, passare alla modalità s
 
 Per spostarsi tra le schermate e distinguere tra le schermate, in genere si trova un testo univoco in una schermata che è possibile usare come identificatore tra le schermate acquisite. Per le schermate ripetute, potrebbero essere necessari altri metodi di identificazione. Si supponga, ad esempio, di avere due schermate che hanno un aspetto identico, ad eccezione del fatto che una schermata restituisce un valore valido, mentre l'altra schermata restituisce un messaggio di errore.
 
-Nello strumento di progettazione è possibile aggiungere *attributi di riconoscimento* , ad esempio un titolo di schermata, ad esempio "Get account Balance", mediante l'editor di riconoscimento dello schermo. Se si dispone di un percorso con fork ed entrambi i rami restituiscono la stessa schermata ma con risultati diversi, sono necessari altri attributi di riconoscimento. In fase di esecuzione, il connettore usa questi attributi per determinare il ramo corrente e il fork. Di seguito sono riportate le condizioni che è possibile usare:
+Nello strumento di progettazione è possibile aggiungere *attributi di riconoscimento*, ad esempio un titolo di schermata, ad esempio "Get account Balance", mediante l'editor di riconoscimento dello schermo. Se si dispone di un percorso con fork ed entrambi i rami restituiscono la stessa schermata ma con risultati diversi, sono necessari altri attributi di riconoscimento. In fase di esecuzione, il connettore usa questi attributi per determinare il ramo corrente e il fork. Di seguito sono riportate le condizioni che è possibile usare:
 
 * Valore specifico: questo valore corrisponde alla stringa specificata in corrispondenza della posizione specificata.
 * NON è un valore specifico: questo valore non corrisponde alla stringa specificata nella posizione specificata.
@@ -176,9 +172,9 @@ In questa modalità è possibile definire il flusso o i passaggi per spostarsi t
 
 ### <a name="create-plans"></a>Creare piani
 
-1. Sulla barra degli strumenti dello strumento di progettazione 3270 scegliere **navigazione** per attivare la modalità di navigazione.
+1. Sulla barra degli strumenti dello strumento di progettazione 3270 selezionare **navigazione** per attivare la modalità di navigazione.
 
-1. Per avviare il piano, scegliere **nuovo piano** nel riquadro di **spostamento** .
+1. Per avviare il piano, selezionare **nuovo piano** nel riquadro di **spostamento** .
 
 1. In **Scegli nuovo piano nome** immettere un nome per il piano. Nell'elenco **tipo** selezionare il tipo di piano:
 
@@ -186,7 +182,7 @@ In questa modalità è possibile definire il flusso o i passaggi per spostarsi t
    |-----------|-------------|
    | **Processo** | Per piani autonomi o combinati |
    | **Connettere** | Per i piani di connessione |
-   | **Disconnettere** | Per i piani di disconnessione |
+   | **Disconnetti** | Per i piani di disconnessione |
    |||
 
 1. Dal riquadro **schermate host** trascinare le anteprime acquisite nella superficie del piano di spostamento nel riquadro di **spostamento** .
@@ -195,7 +191,7 @@ In questa modalità è possibile definire il flusso o i passaggi per spostarsi t
 
 1. Disporre le schermate nell'ordine in cui viene descritta l'attività che si sta definendo.
 
-1. Per definire il percorso del flusso tra le schermate, inclusi i fork e i join, sulla barra degli strumenti dello strumento di progettazione scegliere **flusso** .
+1. Per definire il percorso del flusso tra le schermate, inclusi i fork e i join, sulla barra degli strumenti dello strumento di progettazione selezionare **Flow**.
 
 1. Scegliere la prima schermata nel flusso. Trascinare e creare una connessione alla schermata successiva nel flusso.
 
@@ -260,29 +256,29 @@ Lo strumento di progettazione consente di aggiungere attributi di riconoscimento
 
 In questa modalità si definisce un metodo associato al piano di navigazione. Per ogni parametro di metodo è possibile specificare il tipo di dati, ad esempio una stringa, un numero intero, una data o un'ora e così via. Al termine, è possibile testare il metodo nell'host Live e verificare che il metodo funzioni come previsto. Viene quindi generato il file di metadati o il file XML HIDX (Host Integration Designer), che ora include le definizioni dei metodi da usare per la creazione e l'esecuzione di un'azione per il connettore IBM 3270.
 
-1. Sulla barra degli strumenti dello strumento di progettazione 3270 scegliere **Metodi** per immettere la modalità dei metodi. 
+1. Sulla barra degli strumenti dello strumento di progettazione 3270 selezionare **Metodi** in modo da immettere la modalità metodi. 
 
 1. Nel riquadro di **spostamento** selezionare la schermata con i campi di input desiderati.
 
 1. Per aggiungere il primo parametro di input per il metodo, attenersi alla procedura seguente:
 
-   1. Nella schermata dell'emulatore 3270 del riquadro **acquisizione** scegliere il campo intero, non solo il testo all'interno del campo, che si vuole come primo input.
+   1. Nella schermata dell'emulatore 3270 del riquadro **acquisizione** selezionare il campo intero, non solo il testo all'interno del campo, che si vuole usare come primo input.
 
       > [!TIP]
       > Per visualizzare tutti i campi e assicurarsi di selezionare il campo completa, scegliere **tutti i campi** dal menu **Visualizza** .
 
-   1. Sulla barra degli strumenti dello strumento di progettazione scegliere **campo di input** . 
+   1. Sulla barra degli strumenti dello strumento di progettazione selezionare **campo di input**. 
 
    Per aggiungere altri parametri di input, ripetere i passaggi precedenti per ogni parametro.
 
 1. Per aggiungere il primo parametro di output per il metodo, attenersi alla procedura seguente:
 
-   1. Nella schermata dell'emulatore 3270 del riquadro **acquisizione** scegliere il campo intero, non solo il testo all'interno del campo, che si vuole come primo output.
+   1. Nella schermata dell'emulatore 3270 del riquadro **acquisizione** selezionare il campo intero, non solo il testo all'interno del campo, che si vuole usare come primo output.
 
       > [!TIP]
       > Per visualizzare tutti i campi e assicurarsi di selezionare il campo completa, scegliere **tutti i campi** dal menu **Visualizza** .
 
-   1. Sulla barra degli strumenti dello strumento di progettazione scegliere **campo di output** .
+   1. Sulla barra degli strumenti dello strumento di progettazione selezionare **campo di output**.
 
    Per aggiungere altri parametri di output, ripetere i passaggi precedenti per ogni parametro.
 
@@ -291,8 +287,8 @@ In questa modalità si definisce un metodo associato al piano di navigazione. Pe
    | Nome proprietà | Valori possibili | 
    |---------------|-----------------|
    | **Tipo di dati** | Byte, data e ora, Decimal, int, Long, short, String |
-   | **Tecnica di riempimento campo** | I parametri supportano questi tipi di riempimento, inserendo spazi vuoti se necessario: <p><p>- **Tipo** : immettere i caratteri in sequenza nel campo. <p>- **Fill** : sostituisce il contenuto del campo con i caratteri, se necessario, inserendo gli spazi vuoti. <p>- **EraseEofType** : cancellare il campo, quindi immettere i caratteri in sequenza nel campo. |
-   | **Stringa di formato** | Alcuni tipi di dati dei parametri usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime** : la stringa di formato DateTime segue le [stringhe di formato di data e ora personalizzate .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` utilizza la stringa di formato `MM/dd/yyyy` . <p>- **Decimal** : la stringa di formato decimale usa la [clausola COBOL Picture](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Ad esempio, il numero `100.35` Usa la stringa di formato `999V99` . |
+   | **Tecnica di riempimento campo** | I parametri supportano questi tipi di riempimento, inserendo spazi vuoti se necessario: <p><p>- **Tipo**: immettere i caratteri in sequenza nel campo. <p>- **Fill**: sostituisce il contenuto del campo con i caratteri, se necessario, inserendo gli spazi vuoti. <p>- **EraseEofType**: cancellare il campo, quindi immettere i caratteri in sequenza nel campo. |
+   | **Stringa di formato** | Alcuni tipi di dati dei parametri usano una stringa di formato, che informa il connettore 3270 come convertire il testo dalla schermata in un tipo di dati .NET: <p><p>- **DateTime**: la stringa di formato DateTime segue le [stringhe di formato di data e ora personalizzate .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Ad esempio, la data `06/30/2019` utilizza la stringa di formato `MM/dd/yyyy` . <p>- **Decimal**: la stringa di formato decimale usa la [clausola COBOL Picture](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Ad esempio, il numero `100.35` Usa la stringa di formato `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Salvare e visualizzare i metadati
@@ -310,16 +306,16 @@ Tuttavia, se si tenta di salvare le modifiche apportate al file RAP di esempio o
 
 ## <a name="test-your-method"></a>Testare il metodo
 
-1. Per eseguire il metodo sull'host Live, mentre ancora in modalità metodi premere il tasto F5 oppure scegliere **Esegui** dalla barra degli strumenti dello strumento di progettazione.
+1. Per eseguire il metodo sull'host Live, mentre ancora in modalità metodi premere il tasto F5 oppure scegliere **test** dalla barra degli strumenti dello strumento di progettazione.
 
    > [!TIP]
    > È possibile modificare le modalità in qualsiasi momento. Scegliere **modalità** dal menu **file** , quindi selezionare la modalità desiderata.
 
-1. Immettere i valori dei parametri e scegliere **OK** .
+1. Immettere i valori dei parametri e fare clic su **OK**.
 
-1. Per passare alla schermata successiva, fare clic su **Avanti** .
+1. Per passare alla schermata successiva, fare clic su **Avanti**.
 
-1. Al termine, scegliere **fine** per visualizzare i valori dei parametri di output.
+1. Al termine, selezionare **fine** per visualizzare i valori dei parametri di output.
 
 <a name="add-metadata-integration-account"></a>
 
@@ -327,13 +323,13 @@ Tuttavia, se si tenta di salvare le modifiche apportate al file RAP di esempio o
 
 Quando si è pronti, generare il file HIDX in modo che sia possibile caricarlo nell'account di integrazione. Lo strumento di progettazione 3270 crea il file HIDX in una nuova sottocartella in cui è stato salvato il file con estensione RAP.
 
-1. Sulla barra degli strumenti dello strumento di progettazione 3270 scegliere **genera codice** .
+1. Nello strumento di progettazione 3270 scegliere **genera definizioni** dal menu **strumenti** . (Tastiera: F6)
 
 1. Passare alla cartella che contiene il file RAP e aprire la sottocartella creata dallo strumento dopo la generazione del file HIDX. Verificare che lo strumento abbia creato il file HIDX.
 
 1. Accedere al [portale di Azure](https://portal.azure.com)e individuare l'account di integrazione.
 
-1. Aggiungere il file HIDX come mappa al proprio account di integrazione [attenendosi alla procedura seguente per l'aggiunta di mappe](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), ma quando si seleziona il tipo di mappa selezionare **hidx** .
+1. Aggiungere il file HIDX come mappa al proprio account di integrazione [attenendosi alla procedura seguente per l'aggiunta di mappe](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), ma quando si seleziona il tipo di mappa selezionare **hidx**.
 
 Più avanti in questo argomento, quando si aggiunge un'azione IBM 3270 all'app per la logica per la prima volta, viene richiesto di creare una connessione tra l'app per la logica e il server host fornendo le informazioni di connessione, ad esempio i nomi per l'account di integrazione e il server host. Dopo aver creato la connessione, è possibile selezionare il file HIDX aggiunto in precedenza, il metodo da eseguire e i parametri da usare.
 
@@ -347,22 +343,21 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Nell'ultimo passaggio in cui si desidera aggiungere un'azione, scegliere **nuovo passaggio** e selezionare **Aggiungi un'azione** . 
+1. Nell'ultimo passaggio in cui si desidera aggiungere un'azione selezionare **nuovo passaggio** **>** **Aggiungi un'azione**. 
 
-1. Nella casella di ricerca scegliere **Enterprise** . Nella casella di ricerca immettere "3270" come filtro. Nell'elenco azioni selezionare questa azione: **esegue un programma mainframe su una connessione TN3270**
+1. Nella casella di ricerca selezionare **Enterprise**. Nella casella di ricerca immettere `3270` come filtro. Nell'elenco azioni selezionare l'azione denominata **esegue un programma mainframe su una connessione TN3270**
 
    ![Selezionare l'azione 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione** .
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
-1. Se non esiste ancora alcuna connessione, fornire le informazioni necessarie per la connessione e scegliere **Crea** .
+1. Se non esiste ancora alcuna connessione, fornire le informazioni necessarie per la connessione e selezionare **Crea**.
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Connection Name** (Nome connessione) | Sì | <*Nome connessione*> | Nome per la connessione |
    | **ID account di integrazione** | Sì | <*nome-account-integrazione*> | Nome dell'account di integrazione |
-   | **URL SAS dell'account di integrazione** | Sì | <*Integration-account-SAS-URL*> | L'URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nella portale di Azure. <p>1. nel menu dell'account di integrazione in **Impostazioni** selezionare **URL callback** . <br>2. nel riquadro di destra, copiare il valore di **URL callback generato** . |
+   | **URL SAS dell'account di integrazione** | Sì | <*Integration-account-SAS-URL*> | L'URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nella portale di Azure. <p>1. nel menu dell'account di integrazione in **Impostazioni** selezionare **URL callback**. <br>2. nel riquadro di destra, copiare il valore di **URL callback generato** . |
    | **Server** | Sì | <*TN3270-nome-server*> | Nome del server per il servizio TN3270 |
    | **Porta** | No | <*TN3270-Server-Port*> | La porta usata dal server TN3270. Se viene lasciato vuoto, il connettore USA `23` come valore predefinito. |
    | **Tipo di dispositivo** | No | <*IBM-Terminal-Model*> | Nome o numero del modello per il terminale IBM da emulare. Se viene lasciato vuoto, il connettore usa i valori predefiniti. |
@@ -405,7 +400,7 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
 1. Per esaminare gli input e gli output per ogni passaggio, espandere il passaggio.
 
-1. Per esaminare gli output, scegliere **Visualizza output non elaborati** .
+1. Per esaminare gli output, selezionare **Visualizza output non elaborati**.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 

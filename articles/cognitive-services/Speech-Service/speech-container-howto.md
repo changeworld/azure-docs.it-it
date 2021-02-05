@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: locale, Docker, contenitore
-ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 7bebaf7558de8ec5c1fcca3c9a4526330da1d695
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703327"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575789"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installare ed eseguire contenitori Docker per le API del servizio riconoscimento vocale 
 
@@ -41,10 +41,10 @@ I contenitori del servizio Voce permettono ai clienti di creare un'architettura 
 
 | Contenitore | Funzionalità | Ultima versione |
 |--|--|--|
-| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.7.0 |
-| Riconoscimento vocale personalizzato | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.7.0 |
-| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.9.0 |
-| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.9.0 |
+| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.9.0 |
+| Riconoscimento vocale personalizzato | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.9.0 |
+| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.11.0 |
+| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.11.0 |
 | Rilevamento lingua vocale | Rilevare la lingua pronunciata nei file audio. | 1.0 |
 | Sintesi vocale neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. | 1.3.0 |
 
@@ -316,6 +316,28 @@ Questo comando:
 > [!NOTE]
 > I contenitori supportano l'input audio compresso per l'SDK di riconoscimento vocale con GStreamer.
 > Per installare GStreamer in un contenitore, seguire le istruzioni di Linux per GStreamer in [usare l'input audio compresso codec con l'SDK di riconoscimento vocale](how-to-use-codec-compressed-audio-input-streams.md).
+
+#### <a name="diarization-on-the-speech-to-text-output"></a>Predisporre l'output del riconoscimento vocale
+La funzionalità di aggiornamento è abilitata per impostazione predefinita. per ottenere la relativa risposta, usare `diarize_speech_config.set_service_property` .
+
+1. Impostare il formato di output frase su `Detailed` .
+2. Impostare la modalità di diare. Le modalità supportate sono `Identity` e `Anonymous` .
+```python
+diarize_speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Format',
+    value='Detailed',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+
+diarize_speech_config.set_service_property(
+    name='speechcontext-phraseDetection.speakerDiarization.mode',
+    value='Identity',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+> [!NOTE]
+> La modalità "Identity" restituisce `"SpeakerId": "Customer"` o `"SpeakerId": "Agent"` .
+> La modalità "Anonymous" restituisce `"SpeakerId": "Speaker 1"` o `"SpeakerId": "Speaker 2"`
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analizzare i sentimenti nell'output di sintesi vocale 

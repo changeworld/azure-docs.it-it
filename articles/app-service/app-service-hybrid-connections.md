@@ -4,15 +4,15 @@ description: Informazioni su come creare e usare connessioni ibride nel servizio
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/04/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825980"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575992"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure
 
@@ -42,7 +42,7 @@ La funzionalità Connessioni ibride offre numerosi vantaggi tra cui:
 - In genere non richiede varchi nei firewall, in quanto le connessioni sono tutte in uscita su porte Web standard.
 - Dal momento che si tratta di una funzionalità a livello di rete, è indipendente dalla lingua usata dall'app e dalla tecnologia usata dall'endpoint.
 - Può essere usata per fornire l'accesso a più reti da una singola app. 
-- È supportato in GA per le app native di Windows ed è in anteprima per le app Linux. Non è supportata per le app contenitore di Windows.
+- È supportato in GA per app di Windows e app Linux. Non è supportata per le app contenitore di Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Operazioni che non è possibile eseguire con la funzionalità Connessioni ibride ###
 

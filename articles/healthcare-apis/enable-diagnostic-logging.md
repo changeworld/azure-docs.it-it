@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905175"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575441"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Abilitare la registrazione diagnostica nell'API di Azure per FHIR
 
@@ -35,9 +35,9 @@ In questo articolo si apprenderà come abilitare la registrazione diagnostica ne
     2. **Trasmettere a hub eventi** per l'inserimento da parte di un servizio di terze parti o di una soluzione analitica personalizzata. Prima di poter configurare questo passaggio, è necessario creare uno spazio dei nomi dell'hub eventi e un criterio dell'hub eventi.
     3. **Trasmettere all'area di lavoro log Analytics** in monitoraggio di Azure. Prima di poter selezionare questa opzione, è necessario creare l'area di lavoro log Analytics.
 
-6. Selezionare **AuditLogs** e tutte le metriche che si desidera acquisire. Se si usa il connettore Azure per FHIR, assicurarsi di selezionare **errori, traffico e latenza** per le metriche. 
+6. Selezionare **AuditLogs** e/o **AllMetrics**. Le metriche includono il nome del servizio, la disponibilità, le dimensioni dei dati, la latenza totale, le richieste totali, gli errori totali e il timestamp.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Impostazioni di diagnostica di Azure FHIR. Selezionare AuditLogs e/o AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Selezionare **Salva**
 
@@ -97,7 +97,7 @@ MicrosoftHealthcareApisAuditLogs
 | where ResultType == "Failed" 
 ```
 
-## <a name="conclusion"></a>Conclusioni 
+## <a name="conclusion"></a>Conclusione 
 L'accesso ai log di diagnostica è essenziale per il monitoraggio di un servizio e per la fornitura di report di conformità. API di Azure per FHIR consente di eseguire queste azioni tramite i log di diagnostica. 
  
 FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.

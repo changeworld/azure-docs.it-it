@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050528"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575687"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Avvio rapido: Esplorare uno scenario di Gemelli digitali di Azure di esempio con ADT Explorer
 
@@ -306,11 +306,15 @@ In questa guida di avvio rapido la temperatura è stata aggiornata manualmente. 
 
 Per concludere le attività di questa guida di avvio rapido, prima di tutto terminare l'app console in esecuzione. In questo modo verrà chiusa la connessione all'app ADT Explorer nel browser e non sarà più possibile visualizzare i dati in tempo reale nel browser. È possibile chiudere la scheda del browser.
 
-Se si prevede di continuare con le esercitazioni su Gemelli digitali di Azure, è possibile riutilizzare l'istanza usata in questa guida di avvio rapido per gli articoli corrispondenti e non è necessario rimuoverla.
+Quindi, è possibile scegliere le risorse che si desidera rimuovere, a seconda di ciò che si desidera eseguire successivamente.
+
+* **Se si prevede di continuare con le esercitazioni sui dispositivi gemelli digitali di Azure**, è possibile riusare l'istanza in questa Guida introduttiva per questi articoli e non è necessario rimuoverla.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Infine, eliminare la cartella di esempio del progetto, **Azure_Digital_Twins__ADT__explorer**, scaricate nel computer locale. Potrebbe essere necessario eliminare le versioni compresse e decompresse.
+Potrebbe anche essere necessario eliminare la cartella del progetto dal computer locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

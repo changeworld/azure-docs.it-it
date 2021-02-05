@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632496"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574432"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -34,14 +34,28 @@ Per verificare se la condivisione è limitata, è possibile accedere alle metric
 
 1. Selezionare **transazioni** come metrica.
 
-1. Aggiungere un filtro per il **tipo di risposta** e verificare se le richieste hanno uno dei seguenti codici di risposta:
-   * **SuccessWithThrottling**: per SMB (Server Message Block)
-   * **ClientThrottlingError**: per REST
+1. Aggiungere un filtro per il **tipo di risposta** e verificare se le richieste sono state limitate. 
 
-   ![Screenshot delle opzioni relative alle metriche per le condivisioni file Premium che mostrano un filtro proprietà "tipo di risposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    Per le condivisioni file standard, vengono registrati i tipi di risposta seguenti se una richiesta è limitata:
 
-   > [!NOTE]
-   > Per ricevere un avviso, vedere la sezione ["come creare un avviso se una condivisione file è limitata"](#how-to-create-an-alert-if-a-file-share-is-throttled) più avanti in questo articolo.
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Per le condivisioni file Premium, vengono registrati i tipi di risposta seguenti se una richiesta è limitata:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    Per altre informazioni su ogni tipo di risposta, vedere [dimensioni metrica](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+
+    ![Screenshot delle opzioni relative alle metriche per le condivisioni file Premium che mostrano un filtro proprietà "tipo di risposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > Per ricevere un avviso, vedere la sezione ["come creare un avviso se una condivisione file è limitata"](#how-to-create-an-alert-if-a-file-share-is-throttled) più avanti in questo articolo.
 
 ### <a name="solution"></a>Soluzione
 
@@ -219,48 +233,63 @@ Per confermare, è possibile usare le metriche di Azure nel portale-
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Come creare un avviso se una condivisione file è limitata
 
-1. Nel portale di Azure passare all'account di archiviazione.
-1. Nella sezione **monitoraggio** selezionare **avvisi**, quindi selezionare **nuova regola di avviso**.
-1. Selezionare **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi **fare** clic su fine. Ad esempio, se il nome dell'account di archiviazione è *Contoso*, selezionare la risorsa Contoso/file.
-1. Selezionare **Seleziona condizione** per aggiungere una condizione.
-1. Nell'elenco dei segnali supportati per l'account di archiviazione selezionare la metrica **transazioni** .
-1. Nell'elenco a discesa **nome dimensione** del riquadro **Configura logica segnale** selezionare **tipo di risposta**.
-1. Nell'elenco a discesa **valori dimensione** selezionare **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
+1. Passare all' **account di archiviazione** nell' **portale di Azure**.
+2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
+3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
+4. Fare clic su **Aggiungi condizione** per aggiungere una condizione.
+5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica **transazioni** .
+6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **tipo di risposta**.
+7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare i tipi di risposta appropriati per la condivisione file.
+
+    Per le condivisioni file standard selezionare i tipi di risposta seguenti:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Per le condivisioni file Premium, selezionare i tipi di risposta seguenti:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Se non è elencato né il valore **SuccessWithThrottling** né il valore della dimensione **ClientThrottlingError** , significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, accanto all'elenco a discesa **valori dimensione** selezionare **Aggiungi valore personalizzato**, immettere **SuccessWithThrottling** o **ClientThrottlingError**, selezionare **OK**, quindi ripetere il passaggio 7.
+   > Se i tipi di risposta non sono elencati nell'elenco a discesa **valori dimensione** , significa che la risorsa non è stata limitata. Per aggiungere i valori della dimensione, accanto all'elenco a discesa **valori dimensione** selezionare **Aggiungi valore personalizzato**, immettere il tipo di Response (ad esempio, **SuccessWithThrottling**), fare clic su **OK**, quindi ripetere questi passaggi per aggiungere tutti i tipi di risposta applicabili per la condivisione file.
 
-1. Nell'elenco a discesa **nome dimensione** selezionare **condivisione file**.
-1. Nell'elenco a discesa **valori dimensione** selezionare la condivisione file o le condivisioni su cui si vuole inviare l'avviso.
+8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
+9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
+
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non sono elencate le condivisioni file, perché le metriche per condivisione non sono disponibili per le condivisioni file standard. La limitazione degli avvisi per le condivisioni file standard viene attivata se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identifica quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile usare una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
-1. Definire i parametri di avviso immettendo il **valore di soglia**, l' **operatore**, la **granularità di aggregazione** e la **frequenza di valutazione**, quindi selezionare **fine**.
+10. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
 
     > [!TIP]
-    > Se si usa una soglia statica, il grafico delle metriche può essere utile per determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si usa una soglia dinamica, nel grafico delle metriche vengono visualizzate le soglie calcolate in base ai dati recenti.
+    > Se si utilizza una soglia statica, il grafico delle metriche consente di determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
 
-1. Selezionare **Seleziona gruppo di azioni**, quindi aggiungere un gruppo di azione (ad esempio, indirizzo di posta elettronica o SMS) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-1. Immettere i dettagli dell'avviso, ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
-1. Selezionare **Crea regola di avviso** per creare l'avviso.
+11. Fare clic su **Aggiungi gruppi di azioni** per aggiungere un gruppo di **azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+12. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
+13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Come creare avvisi se una condivisione file Premium è in tendenza verso la limitazione
 
 1. Nel portale di Azure passare all'account di archiviazione.
-1. Nella sezione **monitoraggio** selezionare **avvisi**, quindi selezionare **nuova regola di avviso**.
-1. Selezionare **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi **fare** clic su fine. Ad esempio, se il nome dell'account di archiviazione è *Contoso*, selezionare la risorsa Contoso/file.
-1. Selezionare **Seleziona condizione** per aggiungere una condizione.
-1. Nell'elenco dei segnali supportati per l'account di archiviazione selezionare la metrica in **uscita** .
+2. Nella sezione **monitoraggio** selezionare **avvisi**, quindi selezionare **nuova regola di avviso**.
+3. Selezionare **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi **fare** clic su fine. Ad esempio, se il nome dell'account di archiviazione è *Contoso*, selezionare la risorsa Contoso/file.
+4. Selezionare **Seleziona condizione** per aggiungere una condizione.
+5. Nell'elenco dei segnali supportati per l'account di archiviazione selezionare la metrica in **uscita** .
 
    > [!NOTE]
    > È necessario creare tre avvisi distinti per ricevere avvisi quando i valori di ingresso, uscita o transazione superano le soglie impostate. Questo è dovuto al fatto che un avviso viene attivato solo quando vengono soddisfatte tutte le condizioni. Se, ad esempio, si inseriscono tutte le condizioni in un avviso, viene generato un avviso solo se il traffico in ingresso, in uscita e nelle transazioni supera gli importi di soglia.
 
-1. Scorrere verso il basso. Nell'elenco a discesa **nome dimensione** selezionare **condivisione file**.
-1. Nell'elenco a discesa **valori dimensione** selezionare la condivisione file o le condivisioni su cui si vuole inviare l'avviso.
-1. Definire i parametri di avviso selezionando i valori negli elenchi a discesa **operatore**, **valore soglia**, **granularità aggregazione** e **frequenza di valutazione** , quindi selezionare **fine**.
+6. Scorrere verso il basso. Nell'elenco a discesa **nome dimensione** selezionare **condivisione file**.
+7. Nell'elenco a discesa **valori dimensione** selezionare la condivisione file o le condivisioni su cui si vuole inviare l'avviso.
+8. Definire i parametri di avviso selezionando i valori negli elenchi a discesa **operatore**, **valore soglia**, **granularità aggregazione** e **frequenza di valutazione** , quindi selezionare **fine**.
 
    Le metriche in uscita, in ingresso e transazioni sono espresse al minuto, anche se si esegue il provisioning in uscita, in ingresso e I/O al secondo. Se, ad esempio, l'uscita di cui è stato effettuato il provisioning è di 90 &nbsp; mebibytes al secondo (MiB/s) e si desidera che la soglia sia pari al 80% dell'uscita sottoposta a &nbsp; provisioning, selezionare i parametri di avviso seguenti: 
    - Per il **valore soglia**: *75497472* 
@@ -271,9 +300,9 @@ Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azur
    - Per la **granularità di aggregazione**: *1 ora*
    - Per la **frequenza di valutazione**: *1 ora*
 
-1. Selezionare **Seleziona gruppo di azioni**, quindi aggiungere un gruppo di azione (ad esempio, indirizzo di posta elettronica o SMS) all'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
-1. Immettere i dettagli dell'avviso, ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
-1. Selezionare **Crea regola di avviso** per creare l'avviso.
+9. Selezionare **Aggiungi gruppi di azioni**, quindi aggiungere un gruppo di azione (ad esempio, indirizzo di posta elettronica o SMS) all'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
+10. Immettere i dettagli dell'avviso, ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
+11. Selezionare **Crea regola di avviso** per creare l'avviso.
 
     > [!NOTE]
     > - Per ricevere una notifica che indica che la condivisione file Premium è prossima a essere limitata a *causa del provisioning in ingresso*, seguire le istruzioni precedenti, ma con la seguente modifica:

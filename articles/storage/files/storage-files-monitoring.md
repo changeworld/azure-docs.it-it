@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875145"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574534"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -589,13 +589,13 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** e quindi fare clic su **fine**. 
 
-4. Fare clic su **Seleziona condizione** e fornire le informazioni seguenti per l'avviso: 
+4. Fare clic su **Aggiungi condizione** e fornire le informazioni seguenti per l'avviso: 
 
     - **Metrica**
     - **Nome dimensione**
     - **Logica avvisi**
 
-5. Fare clic su **Seleziona gruppo di azioni** e aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+5. Fare clic su **Aggiungi gruppi di azioni** e aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 
 6. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 
@@ -609,16 +609,31 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
 3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
-4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
+4. Fare clic su **Aggiungi condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica **transazioni** .
 6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **tipo di risposta**.
-7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
+7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare i tipi di risposta appropriati per la condivisione file.
+
+    Per le condivisioni file standard selezionare i tipi di risposta seguenti:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Per le condivisioni file Premium, selezionare i tipi di risposta seguenti:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, fare clic su **Aggiungi valore personalizzato** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #7.
+   > Se i tipi di risposta non sono elencati nell'elenco a discesa **valori dimensione** , significa che la risorsa non è stata limitata. Per aggiungere i valori della dimensione, accanto all'elenco a discesa **valori dimensione** selezionare **Aggiungi valore personalizzato**, immettere il tipo di Response (ad esempio, **SuccessWithThrottling**), fare clic su **OK**, quindi ripetere questi passaggi per aggiungere tutti i tipi di risposta applicabili per la condivisione file.
 
 8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
+
 
    > [!NOTE]
    > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
@@ -628,8 +643,8 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
     > [!TIP]
     > Se si utilizza una soglia statica, il grafico delle metriche consente di determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
 
-11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso**, * * descrizione e **gravità**.
+11. Fare clic su **Aggiungi gruppi di azioni** per aggiungere un gruppo di **azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+12. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Come creare un avviso se le dimensioni della condivisione file di Azure sono pari al 80% della capacità
@@ -637,7 +652,7 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
 3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
-4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
+4. Fare clic su **Aggiungi condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica della **capacità del file** .
 6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
@@ -647,8 +662,8 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 8. Immettere il **valore soglia** in byte. Se ad esempio la dimensione della condivisione file è 100 TiB e si desidera ricevere un avviso quando la dimensione della condivisione file è 80% di capacità, il valore soglia in byte è 87960930222080.
 9. Definire il resto dei **parametri di avviso** (granularità di aggregazione e frequenza di valutazione) e fare clic su **fine**.
-10. Fare clic su Seleziona gruppo di azioni per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-11. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso**, * * descrizione e **gravità**.
+10. Fare clic su **Aggiungi gruppi di azioni** per aggiungere un gruppo di **azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+11. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 12. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Come creare un avviso se l'uscita dalla condivisione file di Azure ha superato 500 GiB in un giorno
@@ -656,7 +671,7 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
 3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
-4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
+4. Fare clic su **Aggiungi condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica in **uscita** .
 6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
@@ -667,8 +682,8 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 8. Immettere **536870912000** byte per valore soglia. 
 9. Fare clic sull'elenco a discesa **granularità aggregazione** e selezionare **24 ore**.
 10. Selezionare la **frequenza di valutazione** e **fare clic su fine**.
-11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso**, * * descrizione e **gravità**.
+11. Fare clic su **Aggiungi gruppi di azioni** per aggiungere un gruppo di **azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+12. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi

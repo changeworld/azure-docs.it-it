@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258796"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575314"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -57,7 +57,7 @@ Nel modello annidato Azure Resource Manager è stato modificato il valore predef
 
 Abbiamo rilasciato FSLogix, versione 2009 HF_01 (2.9.7654.46150) per risolvere i problemi nella versione precedente (2.9.7621.30127). Si consiglia di interrompere l'uso della versione precedente e di aggiornare FSLogix appena possibile.
 
-Per ulteriori informazioni, vedere le note sulla versione in [What ' s New in FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+Per ulteriori informazioni, vedere le note sulla versione in [What ' s New in FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
 
 ### <a name="azure-portal-experience-improvements"></a>Miglioramenti all'esperienza portale di Azure
 

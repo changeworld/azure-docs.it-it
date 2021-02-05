@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252611"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575484"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -504,7 +504,7 @@ Se non è possibile inviare pacchetti IDoc da SAP al trigger dell'app per la log
   * Per fare in modo che questi segmenti vengano rilasciati da SAP, contattare il tecnico ABAP per il sistema SAP.
 ### <a name="asynchronous-request-reply-for-triggers"></a>Richiesta-risposta asincrona per i trigger
 
-Il connettore SAP supporta il [modello Request/Reply asincrono](/azure/architecture/patterns/async-request-reply.md) di Azure per i trigger di app per la logica. È possibile usare questo modello per creare richieste riuscite che altrimenti avrebbero avuto esito negativo con il modello request/reply sincrono predefinito. 
+Il connettore SAP supporta il [modello Request/Reply asincrono](/azure/architecture/patterns/async-request-reply) di Azure per i trigger di app per la logica. È possibile usare questo modello per creare richieste riuscite che altrimenti avrebbero avuto esito negativo con il modello request/reply sincrono predefinito. 
 
 > [!TIP]
 > Nelle app per la logica con più azioni di risposta, tutte le azioni di risposta devono usare lo stesso modello Request/Reply. Ad esempio, se l'app per la logica usa un controllo switch con più azioni di risposta possibili, è necessario configurare tutte le azioni di risposta in modo che usino lo stesso modello Request/Reply, sincrono o asincrono. 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897157"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576279"
 ---
 # <a name="create-a-video-indexer-account"></a>Creazione di un account Video Indexer
 
@@ -195,7 +195,7 @@ Per automatizzare la creazione dell'account è necessario procedere in due passa
 1. Usare Azure Resource Manager per creare un account di servizi multimediali di Azure e Azure AD applicazione.
 
     Vedere un esempio del [modello di creazione dell'account di servizi multimediali](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Chiamare [Create-account con l'applicazione Servizi multimediali e Azure ad](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Chiamare [Create-account con l'applicazione Servizi multimediali e Azure ad](https://videoindexer.ai.azure.us/account/login?source=apim).
 
 ## <a name="video-indexer-in-azure-government"></a>Video Indexer in Azure per enti pubblici
 
@@ -222,7 +222,7 @@ Per creare un account a pagamento tramite il portale di Video Indexer:
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Creare un nuovo account tramite l'API in Azure per enti pubblici
 
-Per creare un account a pagamento in Azure per enti pubblici, seguire le istruzioni riportate in [creare un account a pagamento](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). Questo endpoint API include solo le aree del cloud per enti pubblici.
+Per creare un account a pagamento in Azure per enti pubblici, seguire le istruzioni riportate in [creare un account a pagamento](/azure/media-services/video-indexer/connect-to-azure). Questo endpoint API include solo le aree del cloud per enti pubblici.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitazioni dei Video Indexer in Azure per enti pubblici
 

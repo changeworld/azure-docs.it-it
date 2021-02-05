@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340703"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575958"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB offre l'esecuzione transazionale di JavaScript integrata nel linguaggio. Quando si usa l'API SQL in Azure Cosmos DB, è possibile scrivere **stored procedure** , **trigger** e **funzioni definite dall'utente (UDF)** nel linguaggio JavaScript. È possibile scrivere la logica nel linguaggio JavaScript eseguito all'interno del motore di database. È possibile creare ed eseguire trigger, stored procedure e funzioni definite dall'utente usando [portale di Azure](https://portal.azure.com/), l' [API di query integrata del linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md) o gli [SDK client dell'API SQL di Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+Azure Cosmos DB offre l'esecuzione transazionale di JavaScript integrata nel linguaggio. Quando si usa l'API SQL in Azure Cosmos DB, è possibile scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** nel linguaggio JavaScript. È possibile scrivere la logica nel linguaggio JavaScript eseguito all'interno del motore di database. È possibile creare ed eseguire trigger, stored procedure e funzioni definite dall'utente usando [portale di Azure](https://portal.azure.com/), l' [API di query integrata del linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md) o gli [SDK client dell'API SQL di Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Vantaggi dell'uso della programmazione lato server
 
@@ -72,7 +72,7 @@ Le stored procedure e i trigger vengono sempre eseguiti nella replica primaria d
 
 ## <a name="bounded-execution"></a>Esecuzione vincolata
 
-Tutte le operazioni di Azure Cosmos DB devono essere completate entro la scadenza specificata. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione.
+Tutte le operazioni di Azure Cosmos DB devono essere completate entro la scadenza specificata. Le stored procedure hanno un limite di timeout di 5 secondi. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione.
 
 È possibile verificare che le funzioni JavaScript terminino entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch. Per semplificare lo sviluppo delle stored procedure e dei trigger per la gestione dei limiti di tempo, tutte le funzioni nel contenitore di Azure Cosmos (ad esempio per creare, leggere, aggiornare ed eliminare gli elementi) restituiscono un valore booleano che indica se l'operazione verrà completata. Se questo valore è false, è un'indicazione che la procedura deve eseguire il wrapping dell'esecuzione perché lo script usa più tempo o velocità effettiva con provisioning rispetto al valore configurato. Il completamento delle operazioni inserite in coda precedentemente alla prima operazione di archiviazione non accettata è garantito se la stored procedure viene completata in tempo e non vengono inserite in coda altre richieste. Pertanto, le operazioni devono essere accodate una alla volta usando la convenzione di callback di JavaScript per gestire il flusso di controllo dello script. Poiché gli script vengono eseguiti in un ambiente lato server, sono strettamente regolati. Gli script che violano ripetutamente i limiti di esecuzione possono essere contrassegnati come inattivi e non possono essere eseguiti. Devono essere ricreati per rispettare i limiti di esecuzione.
 
