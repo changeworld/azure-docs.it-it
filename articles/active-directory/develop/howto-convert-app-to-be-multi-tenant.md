@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 4f87c3fd0cfda2db535b2c8f7f7330a273e6b767
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 825a7d8c53552120a861657c7f3df7ae8f488c18
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755346"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581721"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -125,7 +125,7 @@ Le autorizzazioni solo app richiedono il consenso dell'amministratore tenant. Se
 
 Alcune autorizzazioni delegate richiedono anche il consenso dell'amministratore tenant. Ad esempio, il writeback in Azure AD come utente connesso richiede il consenso dell'amministratore tenant. Come le autorizzazioni solo app, se un utente comune tenta di accedere a un'applicazione che richiede un'autorizzazione delegata per la quale è necessario il consenso dell'amministratore, viene visualizzato un errore nell'applicazione. La richiesta del consenso di amministratore da parte di un'applicazione è determinata dallo sviluppatore che ha pubblicato la risorsa ed è presente nella documentazione per la risorsa. La documentazione sulle autorizzazioni per l' [API Microsoft Graph][MSFT-Graph-permission-scopes] indica le autorizzazioni che richiedono il consenso dell'amministratore.
 
-Se l'applicazione usa autorizzazioni che richiedono il consenso dell'amministratore, è necessario che sia presente un movimento, ad esempio un pulsante o un collegamento, con cui l'amministratore può avviare l'azione. La richiesta inviata dall'applicazione per questa azione è la richiesta di autorizzazione OAuth2/OpenID Connect standard, che include anche il parametro `prompt=admin_consent` della stringa di query. Dopo che l'amministratore ha fornito il consenso e l'entità servizio è stata creata nel tenant del cliente, le successive richieste di accesso non richiedono il parametro `prompt=admin_consent`. Poiché l'amministratore ha deciso che le autorizzazioni richieste sono accettabili, a nessun altro utente nel tenant viene richiesto il consenso da questo punto in poi.
+Se l'applicazione usa autorizzazioni che richiedono il consenso dell'amministratore, avere un movimento, ad esempio un pulsante o un collegamento, in cui l'amministratore può avviare l'azione. La richiesta inviata dall'applicazione per questa azione è la richiesta di autorizzazione OAuth2/OpenID Connect standard, che include anche il parametro `prompt=admin_consent` della stringa di query. Dopo che l'amministratore ha fornito il consenso e l'entità servizio è stata creata nel tenant del cliente, le successive richieste di accesso non richiedono il parametro `prompt=admin_consent`. Poiché l'amministratore ha deciso che le autorizzazioni richieste sono accettabili, a nessun altro utente nel tenant viene richiesto il consenso da questo punto in poi.
 
 Un amministratore tenant può disabilitare la possibilità che gli utenti normali possano il consenso alle applicazioni. Se questa funzionalità è disabilitata, è necessario usare il consenso dell'amministratore come obbligatorio sempre per l'applicazione nel tenant. Se si vuole testare l'applicazione con il consenso dell'utente finale disabilitato, è possibile trovare l'opzione di configurazione nel [portale di Azure][AZURE-portal] nella sezione **[impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** in **applicazioni aziendali**.
 

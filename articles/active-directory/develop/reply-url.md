@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95752788"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582809"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitazioni e limitazioni dell'URI di reindirizzamento (URL di risposta)
 
@@ -45,7 +45,7 @@ Questa tabella mostra il numero massimo di URI di reindirizzamento che è possib
 
 Il modello di applicazione Azure Active Directory (Azure AD) supporta attualmente sia gli schemi HTTP che HTTPS per le app che firmano account aziendali o dell'Istituto di istruzione nel tenant Azure AD di qualsiasi organizzazione. Questi tipi di conto sono specificati dai `AzureADMyOrg` `AzureADMultipleOrgs` valori e nel `signInAudience` campo del manifesto dell'applicazione. Per le app che firmano account Microsoft personali (MSA) *e* account aziendali o dell'Istituto di istruzione (ovvero, `signInAudience` è impostato su `AzureADandPersonalMicrosoftAccount` ), è consentito solo lo schema HTTPS.
 
-Per aggiungere gli URI di reindirizzamento con uno schema HTTP alle registrazioni di app che consentono l'accesso agli account aziendali o dell'Istituto di istruzione, è necessario usare l'editor del manifesto dell'applicazione in [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Tuttavia, sebbene sia possibile impostare un URI di reindirizzamento basato su HTTP mediante l'editor manifesto, *è consigliabile utilizzare* lo schema HTTPS per gli URI di reindirizzamento.
+Per aggiungere gli URI di reindirizzamento con uno schema HTTP alle registrazioni di app che consentono l'accesso agli account aziendali o dell'Istituto di istruzione, usare l'editor del manifesto dell'applicazione in [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Tuttavia, sebbene sia possibile impostare un URI di reindirizzamento basato su HTTP mediante l'editor manifesto, *è consigliabile utilizzare* lo schema HTTPS per gli URI di reindirizzamento.
 
 ## <a name="localhost-exceptions"></a>Eccezioni localhost
 
@@ -65,7 +65,7 @@ Dal punto di vista dello sviluppo, questo significa che:
 * Non registrare più URI di reindirizzamento in cui è diversa solo la porta. Il server di accesso ne sceglierà uno arbitrario e utilizzerà il comportamento associato a tale URI di reindirizzamento (ad esempio, se si tratta di un `web` Reindirizzamento di tipo-, `native` -o `spa` ).
 
     Questo è particolarmente importante quando si vogliono usare flussi di autenticazione diversi nella stessa registrazione dell'applicazione, ad esempio sia la concessione del codice di autorizzazione che il flusso implicito. Per associare il comportamento corretto della risposta a ogni URI di reindirizzamento, il server di accesso deve essere in grado di distinguere gli URI di reindirizzamento e non può farlo quando solo la porta è diversa.
-* Se è necessario registrare più URI di reindirizzamento in localhost per testare flussi diversi durante lo sviluppo, distinguerli usando il componente *path* dell'URI. Ad esempio, `http://localhost/MyWebApp` non corrisponde a `http://localhost/MyNativeApp` .
+* Per registrare più URI di reindirizzamento in localhost per testare flussi diversi durante lo sviluppo, distinguerli usando il componente *path* dell'URI. Ad esempio, `http://localhost/MyWebApp` non corrisponde a `http://localhost/MyNativeApp` .
 * L'indirizzo di loopback IPv6 ( `[::1]` ) non è attualmente supportato.
 
 #### <a name="prefer-127001-over-localhost"></a>Preferisci 127.0.0.1 su localhost
@@ -84,7 +84,7 @@ Gli URI con caratteri jolly come `https://*.contoso.com` possono sembrare pratic
 
 Gli URI con caratteri jolly non sono attualmente supportati nelle registrazioni di app configurate per l'accesso a account Microsoft personali e account aziendali o dell'Istituto di istruzione. Gli URI con caratteri jolly sono consentiti, tuttavia, per le app configurate per l'accesso solo agli account aziendali o dell'Istituto di istruzione nel tenant Azure AD di un'organizzazione.
 
-Per aggiungere gli URI di reindirizzamento con caratteri jolly alle registrazioni di app che consentono l'accesso agli account aziendali o dell'Istituto di istruzione, è necessario usare l'editor del manifesto dell'applicazione in [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Sebbene sia possibile impostare un URI di reindirizzamento con un carattere jolly usando l'editor del manifesto, è *consigliabile rispettare* la [sezione 3.1.2 della RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usare solo URI assoluti.
+Per aggiungere gli URI di reindirizzamento con caratteri jolly alle registrazioni di app che consentono l'accesso agli account aziendali o dell'Istituto di istruzione, usare l'editor del manifesto dell'applicazione in [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Sebbene sia possibile impostare un URI di reindirizzamento con un carattere jolly usando l'editor del manifesto, è *consigliabile rispettare* la [sezione 3.1.2 della RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usare solo URI assoluti.
 
 Se lo scenario richiede più URI di reindirizzamento rispetto al limite massimo consentito, prendere in considerazione il seguente [approccio al parametro di stato](#use-a-state-parameter) anziché aggiungere un URI di reindirizzamento con caratteri jolly.
 

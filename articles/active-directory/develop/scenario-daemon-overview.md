@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 00a70b585ddf522a25e81703fe5bdf55efbcb7e1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753825"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582775"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: Applicazione daemon che chiama le API Web
 
@@ -52,7 +52,7 @@ Applicazioni che acquisiscono un token per le proprie identità:
 Per gli sviluppatori, l'esperienza end-to-end per questo scenario presenta gli aspetti seguenti:
 
 - Le applicazioni daemon possono funzionare solo in Azure AD tenant. Non avrebbe senso creare un'applicazione daemon che tenti di modificare gli account personali Microsoft. Gli sviluppatori di app line-of-business (LOB) creeranno l'app daemon nel tenant. Se si è un ISV, potrebbe essere necessario creare un'applicazione daemon multi-tenant. Ogni amministratore tenant dovrà fornire il consenso.
-- Durante la [registrazione dell'applicazione](./scenario-daemon-app-registration.md), l'URI di risposta non è necessario. È necessario condividere i segreti o i certificati o le asserzioni firmate con Azure AD. È anche necessario richiedere le autorizzazioni dell'applicazione e concedere il consenso dell'amministratore per usare tali autorizzazioni dell'app.
+- Durante la [registrazione dell'applicazione](./scenario-daemon-app-registration.md), l'URI di risposta non è necessario. Condividere i segreti o i certificati o le asserzioni firmate con Azure AD. È anche necessario richiedere le autorizzazioni dell'applicazione e concedere il consenso dell'amministratore per usare tali autorizzazioni dell'app.
 - La [configurazione dell'applicazione](./scenario-daemon-app-configuration.md) deve fornire le credenziali client come condivise con Azure ad durante la registrazione dell'applicazione.
 - L' [ambito](scenario-daemon-acquire-token.md#scopes-to-request) usato per acquisire un token con il flusso di credenziali client deve essere un ambito statico.
 

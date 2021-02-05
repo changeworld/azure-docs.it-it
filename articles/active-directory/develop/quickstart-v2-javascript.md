@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 9a58e4087745ba0c09b85c2740781c493090a370
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225715"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583231"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -62,7 +62,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Il codice di esempio di questa Guida introduttiva richiede l' **URI di reindirizzamento** `http://localhost:3000/` e l'abilitazione della **concessione implicita**.
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, aggiungere un **URI di reindirizzamento** `http://localhost:3000/` e abilitare la **concessione implicita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >
@@ -267,7 +267,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
-Esistono situazioni in cui è necessario forzare gli utenti a interagire con la piattaforma di identità Microsoft. Ad esempio:
+Esistono situazioni in cui si impone agli utenti di interagire con la piattaforma di identità Microsoft. Ad esempio:
 * Un utente deve immettere nuovamente le credenziali perché la password è scaduta.
 * L'applicazione richiede l'accesso ad ambiti di risorse aggiuntivi per cui è necessario il consenso dell'utente.
 * È necessaria l'autenticazione a due fattori.

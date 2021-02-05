@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063298"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582350"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Scenari di scambio di token della piattaforma di identità Microsoft con SAML e OIDC/OAuth
 
 SAML e OpenID Connect (OIDC)/OAuth sono protocolli diffusi usati per implementare Single Sign-On (SSO). Alcune app possono implementare solo SAML e altre possono implementare solo OIDC/OAuth. Entrambi i protocolli usano i token per comunicare i segreti. Per ulteriori informazioni su SAML, vedere il [protocollo Single Sign-On SAML](single-sign-on-saml-protocol.md). Per altre informazioni su OIDC/OAuth, vedere la pagina [relativa ai protocolli oauth 2,0 e OpenID Connect sulla piattaforma di identità Microsoft](active-directory-v2-protocols.md).
 
-Questo articolo descrive uno scenario comune in cui un'app implementa SAML, ma è necessario effettuare una chiamata all'API Graph, che usa OIDC/OAuth. Le linee guida di base vengono fornite per gli utenti che utilizzano questo scenario.
+Questo articolo descrive uno scenario comune in cui un'app implementa SAML ma chiama il API Graph, che usa OIDC/OAuth. Le linee guida di base vengono fornite per gli utenti che utilizzano questo scenario.
 
 ## <a name="scenario-you-have-a-saml-token-and-want-to-call-the-graph-api"></a>Scenario: si ha un token SAML e si vuole chiamare il API Graph
 Molte app sono implementate con SAML. Tuttavia, il API Graph usa i protocolli OIDC/OAuth. È possibile, anche se non banale, aggiungere la funzionalità OIDC/OAuth a un'app SAML. Quando la funzionalità OAuth è disponibile in un'app, è possibile usare la API Graph.

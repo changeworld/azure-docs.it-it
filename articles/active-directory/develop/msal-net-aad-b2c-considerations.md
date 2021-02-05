@@ -13,18 +13,18 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614915"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580828"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
 È possibile usare MSAL.NET per accedere agli utenti con identità di Social Networking usando [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/overview.md). Azure AD B2C si basa sul concetto di criteri. In MSAL.NET, se si specifica un criterio, viene convertito in in modo da fornire un'autorità.
 
-- Quando si crea un'istanza dell'applicazione client pubblica, è necessario specificare i criteri come parte dell'autorità.
+- Quando si crea un'istanza dell'applicazione client pubblica, specificare i criteri come parte dell'autorità.
 - Quando si desidera applicare un criterio, chiamare un override di `AcquireTokenInteractive` che accetti il `authority` parametro.
 
 Questo articolo si applica a MSAL.NET 3. x. Per MSAL.NET 2. x, vedere [Azure ad B2C specifiche in MSAL 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) nel Wiki di MSAL.NET su GitHub.

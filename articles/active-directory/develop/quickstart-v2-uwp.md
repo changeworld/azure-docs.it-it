@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 074b64debc0a5aa08967efce69b7e5d14b4d90e4
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a016aa6690243ef2b933a10bba44af7cfe81a5b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754057"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583112"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -61,7 +61,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-the-application"></a>Passaggio 1: Configurare l'applicazione
-> Per il funzionamento dell'esempio di codice di questa guida di avvio rapido è necessario aggiungere un URI di reindirizzamento come **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, aggiungere un **URI di reindirizzamento** `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753324"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582319"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>App Web che chiama le API Web: Configurazione del codice
 
@@ -44,7 +44,7 @@ Selezionare la scheda della piattaforma desiderata:
 
 ## <a name="client-secrets-or-client-certificates"></a>Segreti client o certificati client
 
-Dato che l'app Web ora chiama un'API Web downstream, è necessario fornire un segreto client o un certificato client nel *appsettings.jssu* file. È anche possibile aggiungere una sezione che specifichi:
+Dato che l'app Web ora chiama un'API Web downstream, fornire un segreto client o un certificato client nella *appsettings.jssu* file. È anche possibile aggiungere una sezione che specifichi:
 
 - URL dell'API Web downstream
 - Ambiti necessari per chiamare l'API
@@ -184,7 +184,7 @@ Nell'immagine seguente vengono illustrate le diverse possibilità di *Microsoft.
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagramma di blocco che mostra le opzioni di configurazione del servizio nel punto di avvio C S per chiamare un'API Web e specificare un'implementazione della cache dei token":::
 
 > [!NOTE]
-> Per comprendere gli esempi di codice, è necessario conoscere le [Nozioni fondamentali su ASP.NET Core](/aspnet/core/fundamentals), in particolare l'[inserimento delle dipendenze](/aspnet/core/fundamentals/dependency-injection) e le [opzioni](/aspnet/core/fundamentals/configuration/options).
+> Per comprendere completamente gli esempi di codice, acquisire familiarità con [ASP.NET Core nozioni di base](/aspnet/core/fundamentals)e in particolare con le [Opzioni](/aspnet/core/fundamentals/configuration/options)di [inserimento delle dipendenze](/aspnet/core/fundamentals/dependency-injection) .
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

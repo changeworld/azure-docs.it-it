@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754803"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580847"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>Differenze tra MSAL.js e ADAL.js
 
@@ -48,7 +48,7 @@ Se si ha già familiarità con l'endpoint della versione 1.0 (e ADAL.js), è pos
 
 Nella versione 1.0, l'uso dell'autorità `https://login.microsoftonline.com/common` consente agli utenti di accedere con qualsiasi account Azure AD (per qualsiasi organizzazione).
 
-Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/common` consente agli utenti di accedere con qualsiasi account Azure AD dell'organizzazione o con un account Microsoft personale. Per limitare l'accesso agli account di Azure AD (stesso comportamento adottato con ADAL.js), è necessario usare `https://login.microsoftonline.com/organizations`. Per informazioni dettagliate, vedere l'opzione di configurazione `authority` in [Inizializzare le applicazioni client con MSAL.js](msal-js-initializing-client-applications.md).
+Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/common` consente agli utenti di accedere con qualsiasi account Azure AD dell'organizzazione o con un account Microsoft personale. Per limitare l'accesso solo agli account Azure AD (lo stesso comportamento di ADAL.js), usare `https://login.microsoftonline.com/organizations` . Per informazioni dettagliate, vedere l'opzione di configurazione `authority` in [Inizializzare le applicazioni client con MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Ambiti per l'acquisizione dei token
 * Ambito in sostituzione del parametro della risorsa nelle richieste di autenticazione per l'acquisizione di token

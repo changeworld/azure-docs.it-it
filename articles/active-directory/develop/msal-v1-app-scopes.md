@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7e2fcf2dc0dc53038b82bbf182cb12f580d88357
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754659"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583587"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accettano i token v 1.0
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Per leggere e scrivere con MSAL.NET Azure AD usando l'API Microsoft Graph (https: \/ /Graph.Microsoft.com/), è necessario creare un elenco di ambiti, come illustrato negli esempi seguenti:
+Per leggere e scrivere con MSAL.NET Azure AD usando l'API Microsoft Graph (https: \/ /Graph.Microsoft.com/), creare un elenco di ambiti, come illustrato negli esempi seguenti:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Per scrivere l'ambito corrispondente all'API Azure Resource Manager (https: \/ /Management.Core.Windows.NET/), è necessario richiedere l'ambito seguente (prendere nota delle due barre):
+Per scrivere l'ambito corrispondente all'API Azure Resource Manager (https: \/ /Management.Core.Windows.NET/), richiedere l'ambito seguente (prendere nota delle due barre):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -59,7 +59,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Le due barre sono necessarie perché l'API di Azure Resource Manager prevede una barra nell'attestazione dei destinatari (aud) e quindi è presente una barra per separare il nome dell'API dall'ambito.
+> Usare due barre perché l'API Azure Resource Manager prevede una barra nell'attestazione del pubblico (AUD) e quindi esiste una barra per separare il nome dell'API dall'ambito.
 
 La logica usata da Azure AD è la seguente:
 

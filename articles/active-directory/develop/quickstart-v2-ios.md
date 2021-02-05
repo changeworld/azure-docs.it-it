@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b43141a3700b9594e2d5fbb875774b7b90e62a0b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754304"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583451"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
@@ -69,7 +69,7 @@ Questa guida di avvio rapido si applica sia alle app iOS che alle app macOS. Alc
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Passaggio 1: Configurare l'applicazione
-> Per il funzionamento dell'esempio di codice di questo argomento di avvio rapido è necessario aggiungere un URI di reindirizzamento compatibile con il broker di autenticazione.
+> Per il funzionamento dell'esempio di codice per questa Guida introduttiva, aggiungere un **URI di reindirizzamento** compatibile con il broker di autenticazione.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >
@@ -118,7 +118,7 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 >     ```
 > 1. Aprire le impostazioni del progetto. Nella sezione **Identità** immettere l'**Identificatore del bundle** immesso nel portale.
 > 1. Fare clic con il pulsante destro del mouse su **Info.plist** e scegliere **Apri come** > **Codice sorgente**.
-> 1. Nel nodo radice dict sostituire `Enter_the_bundle_Id_Here` con il valore di **_ID bundle_* _ usato nel portale.
+> 1. Nel nodo radice dict sostituire `Enter_the_bundle_Id_Here` con il valore di ***ID bundle*** usato nel portale.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Dove: | Descrizione |
 > |---------|---------|
-> | `clientId` | L'ID dell'applicazione registrata in _portal.azure.com* |
+> | `clientId` | ID dell'applicazione registrata in *portal.azure.com* |
 > | `authority` | Piattaforma di identità Microsoft. Nella maggior parte dei casi sarà `https://login.microsoftonline.com/common` |
 > | `redirectUri` | URI di reindirizzamento dell'applicazione. È possibile passare nil per usare il valore predefinito oppure specificare un URI di reindirizzamento personalizzato. |
 
@@ -214,7 +214,7 @@ L'app deve inoltre includere quanto segue nel relativo `AppDelegate`. In questo 
     }
  ```
 
-Per l'app deve infine essere definita una voce `LSApplicationQueriesSchemes` in ***Info.plist** _ insieme a `CFBundleURLTypes`. Nell'esempio queste informazioni sono incluse.
+Per l'app deve infine essere definita una voce `LSApplicationQueriesSchemes` in ***Info.plist*** insieme a `CFBundleURLTypes`. Nell'esempio queste informazioni sono incluse.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -232,7 +232,7 @@ La libreria MSAL dispone di due metodi per acquisire i token: `acquireToken` e `
 
 In alcune situazioni gli utenti devono interagire con Microsoft Identity Platform. È ad esempio possibile che l'utente finale debba selezionare il proprio account, immettere le credenziali o fornire il consenso alla richiesta di autorizzazioni dell'app. Ad esempio,
 
-_ La prima volta che gli utenti accedono all'applicazione
+* La prima volta che gli utenti accedono all'applicazione
 * Se un utente reimposta la password, dovrà immettere le credenziali
 * Quando l'applicazione richiede l'accesso a una risorsa per la prima volta
 * Quando è necessario eseguire l'autenticazione a più fattori o soddisfare altri criteri di accesso condizionale

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 420415cc3bc2228a104ccf054098543bf04847b0
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 6e8aad3e9dc91b2d9b014c0e3c8602bd0576e82e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225766"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583604"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET
 
@@ -59,7 +59,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Il codice di esempio di questa Guida introduttiva richiede un **URI di reindirizzamento** `https://localhost:44368/` .
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, aggiungere un **URI di reindirizzamento** `https://localhost:44368/` .
 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
@@ -179,7 +179,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> L'impostazione di `ValidateIssuer = false` è una semplificazione per questo avvio rapido. Nelle applicazioni reali è necessario convalidare l'autorità di certificazione.
+> L'impostazione di `ValidateIssuer = false` è una semplificazione per questo avvio rapido. In applicazioni reali, convalidare l'autorità emittente.
 > Vedere gli esempi per comprendere come eseguire questa operazione.
 
 ### <a name="initiate-an-authentication-challenge"></a>Avviare una richiesta di autenticazione

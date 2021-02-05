@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785126"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582656"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -445,7 +445,7 @@ Per ulteriori informazioni sul consenso, vedere le [autorizzazioni e il consenso
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-In MSAL.NET è necessario usare:
+In MSAL.NET usare:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ Questo flusso non è supportato in MSAL per macOS.
 
 ### <a name="device-code-flow"></a>Flusso del codice del dispositivo
 
-Se si sta scrivendo uno strumento da riga di comando che non dispone di controlli Web e non è possibile o non si vuole usare i flussi precedenti, è necessario usare il flusso del codice del dispositivo.
+Se si sta scrivendo uno strumento da riga di comando che non dispone di controlli Web e non è possibile o non si vuole usare i flussi precedenti, usare il flusso del codice del dispositivo.
 
 L'autenticazione interattiva con Azure AD richiede un Web browser. Per altre informazioni, vedere [Utilizzo dei Web browser](https://aka.ms/msal-net-uses-web-browser). Per autenticare gli utenti nei dispositivi o nei sistemi operativi che non forniscono un Web browser, il flusso del codice del dispositivo consente all'utente di usare un altro dispositivo, ad esempio un computer o un telefono cellulare, per eseguire l'accesso in modo interattivo. Usando il flusso del codice del dispositivo, l'applicazione ottiene i token tramite un processo in due passaggi progettato per questi dispositivi o sistemi operativi. Esempi di applicazioni di questo tipo sono le applicazioni in esecuzione in ambienti IoT o gli strumenti da riga di comando (interfaccia della riga di comando). L'idea è la seguente:
 

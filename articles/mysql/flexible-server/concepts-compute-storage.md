@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052347"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581449"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opzioni di calcolo e archiviazione nel database di Azure per MySQL-server flessibile (anteprima)
 
@@ -102,15 +102,14 @@ Si consiglia di <!--turn on storage auto-grow or to--> configurare un avviso per
 L'aumento automatico delle dimensioni dell'archiviazione non è ancora disponibile per il server flessibile di database di Azure per MySQL.
 
 ## <a name="iops"></a>Operazioni di I/O al secondo
-Il valore minimo di IOPS effettivo è 100 per tutte le dimensioni di calcolo e il numero massimo di IOPS effettivi è determinato da entrambi gli attributi seguenti: 
-- Calcolo: il numero massimo di operazioni di i/o al secondo effettive potrebbe essere limitato dal numero massimo di IOPS disponibili delle dimensioni di calcolo selezionate.
-- Archiviazione: in tutti i livelli di calcolo, la scala IOPS con le dimensioni di archiviazione di cui è stato effettuato il provisioning in un rapporto 3:1.
 
-È possibile ridimensionare i valori di IOPS effettivi aumentando l'archiviazione di cui è stato effettuato il provisioning o passando a dimensioni di calcolo maggiori (se le operazioni di i/o al secondo sono limitate dal calcolo) In anteprima, il numero massimo di IOPS efficaci supportato è 20.000 IOPS.
+Database di Azure per MySQL: il server flessibile supporta il provisioning di IOPS aggiuntivi. Questa funzionalità consente di effettuare il provisioning di IOPS aggiuntivi oltre il limite di IOPS gratuito. Utilizzando questa funzionalità, è possibile aumentare o ridurre il numero di operazioni di i/o al secondo eseguite in base ai requisiti del carico di lavoro in qualsiasi momento. 
 
-Per altre informazioni sul numero massimo di operazioni di i/o al secondo per calcolo, usando la combinazione di calcolo e archiviazione, vedere di seguito: 
+Il numero minimo di IOPS è 100 in tutte le dimensioni di calcolo e il numero massimo di IOPS è determinato dalla dimensione di calcolo selezionata. In anteprima, il numero massimo di IOPS supportato è 20.000 IOPS.
 
-| Dimensioni di calcolo         | Numero massimo di IOPS effettivi  | 
+Per ulteriori informazioni sul numero massimo di operazioni di i/o al secondo per ogni calcolo, vedere di seguito: 
+
+| Dimensioni di calcolo         | Numero massimo di IOPS        | 
 |----------------------|---------------------|
 | **Burst**        |                     |
 | Standard_B1s         | 320                 |
@@ -133,11 +132,14 @@ Per altre informazioni sul numero massimo di operazioni di i/o al secondo per ca
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-Il valore massimo di IOPS effettivo dipende dal numero massimo di IOPS disponibili per ogni dimensione di calcolo. Vedere la formula seguente e fare riferimento alla colonna *numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/Mbps* nella documentazione della serie [B](../../virtual-machines/sizes-b-series-burstable.md), della serie [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e della [serie Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
+Il numero massimo di IOPS dipende dal numero massimo di IOPS disponibili per ogni dimensione di calcolo. Vedere la colonna *numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/Mbps* nella documentazione della serie [B](../../virtual-machines/sizes-b-series-burstable.md), della serie [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e della [serie Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
 
-**Numero massimo di IOPS effettivi** = minimo (*"velocità effettiva massima del disco non memorizzato nella cache: IOPS/Mbps"* di dimensioni di calcolo, archiviazione con provisioning in GIB * 3)
+> [!Important]
+> Gli **IOPS gratuiti** sono pari al minimo ("velocità effettiva massima di dischi non memorizzati nella cache: IOPS/Mbps" di dimensioni di calcolo, archiviazione con provisioning in GIB * 3)<br>
+> Il **numero minimo di IOPS** è 100 in tutte le dimensioni di calcolo<br>
+> Il **numero massimo di IOPS** è determinato dalla dimensione di calcolo selezionata. In anteprima, il numero massimo di IOPS supportato è 20.000 IOPS.
 
-È possibile monitorare il consumo di I/O nella portale di Azure (con monitoraggio di Azure) [usando la](./concepts-monitoring.md) metrica di i/O. Se sono necessarie più operazioni di i/o al secondo, è necessario comprendere se si è limitati dalle dimensioni di calcolo o dal provisioning dell'archiviazione. Ridimensionare il provisioning di risorse di calcolo o di archiviazione del server di conseguenza.
+È possibile monitorare il consumo di I/O nella portale di Azure (con monitoraggio di Azure) [usando la](./concepts-monitoring.md) metrica di i/O. Se sono necessari più IOPS, il numero massimo di IOPS in base al calcolo è necessario ridimensionare il calcolo del server.
 
 ## <a name="backup"></a>Backup
 

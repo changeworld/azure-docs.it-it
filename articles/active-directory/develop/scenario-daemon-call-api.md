@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a94cbebffbe2c735515d9758a2353a9857676311
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd0d53049c68843a6fd2cb6128c473d7c4f8d639
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756577"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582792"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App daemon che chiama le API Web: chiama un'API Web dall'app
 
@@ -64,7 +64,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Chiamata di diverse API
 
-Per le app daemon, le API Web chiamate devono essere pre-approvate. Non è disponibile alcun consenso incrementale con le app daemon. (Nessuna interazione con l'utente). L'amministratore del tenant deve fornire il consenso in anticipo per l'applicazione e tutte le autorizzazioni dell'API. Se si desidera chiamare diverse API, è necessario acquisire un token per ogni risorsa, ogni volta che viene chiamato `AcquireTokenForClient` . MSAL utilizzerà la cache del token dell'applicazione per evitare chiamate al servizio non necessarie.
+Per le app daemon, le API Web chiamate devono essere pre-approvate. Non è disponibile alcun consenso incrementale con le app daemon. (Nessuna interazione con l'utente). L'amministratore del tenant deve fornire il consenso in anticipo per l'applicazione e tutte le autorizzazioni dell'API. Se si desidera chiamare più API, acquisire un token per ogni risorsa, ogni volta che viene chiamato `AcquireTokenForClient` . MSAL utilizzerà la cache del token dell'applicazione per evitare chiamate al servizio non necessarie.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

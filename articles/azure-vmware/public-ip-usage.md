@@ -2,13 +2,13 @@
 title: Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 description: Questo articolo illustra come usare la funzionalità IP pubblico nella rete WAN virtuale di Azure.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517904"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581381"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 
@@ -120,7 +120,7 @@ Una volta distribuiti tutti i componenti, è possibile visualizzarli nel gruppo 
 
 1. Nella scheda **DNS** selezionare **Disabilita** e quindi selezionare **Avanti: regole**.
 
-1. Selezionare **Aggiungi raccolta regole** , fornire i dettagli seguenti e selezionare **Aggiungi** e quindi selezionare **Avanti: Intelligence** per le minacce.
+1. Selezionare **Aggiungi raccolta regole**, fornire i dettagli seguenti e selezionare **Aggiungi** e quindi selezionare **Avanti: Intelligence** per le minacce.
 
    -  Nome
    -  Tipo di raccolta Rules-DNAT
@@ -128,15 +128,15 @@ Una volta distribuiti tutti i componenti, è possibile visualizzarli nel gruppo 
    -  Azione raccolta regole-Consenti
    -  Nome della regola
    -  Tipo di origine- **IPAddress**
-   -  Origine-* *\** _
-   -  Protocollo-_ *TCP**
+   -  Origine **\***
+   -  Protocollo- **TCP**
    -  Porta di destinazione- **80**
    -  Tipo di destinazione- **indirizzo IP**
    -  Destinazione- **indirizzo IP pubblico**
    -  Indirizzo tradotto: **indirizzo IP privato del server Web della soluzione VMware di Azure**
    -  Porta tradotta- **porta del server Web della soluzione VMware di Azure**
 
-1. Lasciare il valore predefinito e quindi fare clic su **Next (hub** ).
+1. Lasciare il valore predefinito e quindi fare clic su **Next (hub**).
 
 1. Selezionare **associa hub virtuale**.
 
@@ -156,5 +156,7 @@ Una volta distribuiti tutti i componenti, è possibile visualizzarli nel gruppo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull'uso di indirizzi IP pubblici con la [rete WAN virtuale di Azure](../virtual-wan/virtual-wan-about.md).
+Ora che è stato spiegato come usare la funzionalità IP pubblico nella soluzione VMware di Azure, è possibile ottenere informazioni su:
 
+- Uso di indirizzi IP pubblici con la [rete WAN virtuale di Azure](../virtual-wan/virtual-wan-about.md).
+- [Creazione di un tunnel IPSec nella soluzione VMware di Azure](create-ipsec-tunnel.md).

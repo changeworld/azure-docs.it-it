@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901539"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582010"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "97901539"
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Come viene inviato il traffico quando si usa un collegamento privato?
 Il traffico viene inviato privatamente usando la backbone Microsoft. Non attraversa Internet. Il collegamento privato di Azure non archivia i dati dei clienti.
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Qual è la differenza tra gli endpoint di servizio e gli endpoint privati?
+### <a name="what-is-the-difference-between-service-endpoints-and-private-endpoints"></a>Qual è la differenza tra gli endpoint del servizio e gli endpoint privati?
 - Gli endpoint privati concedono l'accesso di rete a risorse specifiche associate a un determinato servizio che fornisce segmentazione granulare. Il traffico può raggiungere la risorsa del servizio da locale senza usare endpoint pubblici.
 - Un endpoint del servizio rimane un indirizzo IP instradabile pubblicamente.  Un endpoint privato è un indirizzo IP privato nello spazio degli indirizzi della rete virtuale in cui è configurato l'endpoint privato.
 
@@ -34,6 +34,9 @@ Il traffico viene inviato privatamente usando la backbone Microsoft. Non attrave
 Più tipi di risorse di collegamento privato supportano l'accesso tramite endpoint privato. Le risorse includono i servizi PaaS di Azure e il servizio di collegamento privato. Si tratta di una relazione uno-a-molti. 
 
 Un servizio di collegamento privato riceve connessioni da più endpoint privati. Un endpoint privato si connette a un servizio di collegamento privato.    
+
+### <a name="do-i-need-to-disable-network-policies-for-private-link"></a>È necessario disabilitare I criteri di rete per il collegamento privato
+Sì. Sia l'endpoint privato che il servizio di collegamento privato devono disabilitare i criteri di rete per funzionare correttamente. Entrambi hanno proprietà indipendenti l'una dall'altra.
 
 ## <a name="private-endpoint"></a>Endpoint privato 
  
@@ -84,4 +87,4 @@ No. Il collegamento privato di Azure offre questa funzionalità. Non è necessar
 
 ##  <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [collegamento privato di Azure](private-link-overview.md)
+- Vedere informazioni su [collegamento privato di Azure](private-link-overview.md)

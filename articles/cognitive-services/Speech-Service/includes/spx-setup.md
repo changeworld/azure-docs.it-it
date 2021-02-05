@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427455"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580277"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -19,7 +19,7 @@ ms.locfileid: "99427455"
 Per installare l’interfaccia della riga di comando di Voce su Windows, seguire questa procedura:
 
 1. In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso. La prima volta che si esegue questa installazione può essere necessario riavviare il sistema.
-1. Installare [.NET Core 3,1](/dotnet/core/install/linux.md).
+1. Installare [.NET Core 3,1](/dotnet/core/install/linux).
 2. Installare l'interfaccia della riga di comando vocale usando NuGet immettendo questo comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -41,7 +41,7 @@ Se l'output viene restituito in un file, è possibile che anche un editor di tes
 
 Per installare l’interfaccia della riga di comando di Voce su Linux su una CPU x64, seguire questa procedura:
 
-1. Installare [.NET Core 3,1](/dotnet/core/install/linux.md).
+1. Installare [.NET Core 3,1](/dotnet/core/install/linux).
 2. Installare l'interfaccia della riga di comando vocale usando NuGet immettendo questo comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`

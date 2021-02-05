@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 4f64bab698cb87e26fa4fd1587c4269acf99fa59
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 5dde3da693d87d537fd2177a6f12b55297b5776e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384106"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582197"
 ---
 # <a name="precise-answering"></a>Risposta precisa
 
-La specifica funzionalità di risposta consente di ottenere la risposta breve precisa dal passaggio di risposta migliore candidato presente nella Knowledge base per qualsiasi query utente. Questa funzionalità Usa un modello di apprendimento avanzato che in fase di esecuzione, che riconosce lo scopo della query utente e rileva la risposta breve precisa dal passaggio di risposta, se è presente una breve risposta presente come fact nel passaggio di risposta. 
+La funzionalità di risposta precisa introdotta in QnA Maker Managed (Preview) consente di ottenere la risposta breve precisa dal passaggio di risposta migliore al candidato presente nella Knowledge base per qualsiasi query utente. Questa funzionalità Usa un modello di apprendimento avanzato che in fase di esecuzione, che riconosce lo scopo della query utente e rileva la risposta breve precisa dal passaggio di risposta, se è presente una breve risposta presente come fact nel passaggio di risposta. 
 
 Questa funzionalità è abilitata per impostazione predefinita nel riquadro test, in modo da poter testare le funzionalità specifiche dello scenario. Questa funzionalità è estremamente vantaggiosa per gli sviluppatori di contenuti e per gli utenti finali. A questo punto, gli sviluppatori di contenuti non devono curare manualmente specifiche coppie di QnA per ogni fact presente nella Knowledge base e l'utente finale non deve esaminare l'intero passaggio di risposta restituito dal servizio per trovare il fatto che risponde alla query dell'utente. 
 
@@ -22,7 +22,7 @@ Questa funzionalità è abilitata per impostazione predefinita nel riquadro test
 
 Quando si apre il riquadro di test nel portale di QnA Maker, viene visualizzata un'opzione per visualizzare la **risposta breve** nella parte superiore. Questa opzione sarà selezionata per impostazione predefinita. Quando si immette una query nel riquadro di test, viene visualizzata una breve risposta insieme al passaggio di risposta, se è presente una breve risposta presente nel passaggio di risposta. 
  
-![Riquadro di test abilitato gestito](../QnAMaker/media/conversational-context/test-pane-with-managed.png)
+![Riquadro del test abilitato per la modalità gestita](../QnAMaker/media/conversational-context/test-pane-with-managed.png)
 
 È possibile deselezionare l'opzione **Visualizza breve risposta** se si desidera visualizzare solo il passaggio di risposta nel riquadro test. 
 
@@ -32,7 +32,7 @@ Il servizio restituisce anche il Punteggio di confidenza della risposta esatta c
 
 ## <a name="publishing-a-qna-maker-bot"></a>Pubblicazione di un bot QnA Maker
 
-Quando si pubblica un bot, per impostazione predefinita si ottiene la risposta esatta abilitata nell'applicazione, in cui si vedrà una breve risposta insieme al passaggio di risposta. L'utente ha la possibilità di scegliere altre esperienze aggiornando il modello tramite il servizio app eBot. 
+Quando si pubblica un bot, per impostazione predefinita si ottiene la risposta esatta abilitata nell'applicazione, in cui si vedrà una breve risposta insieme al passaggio di risposta. Vedere le informazioni di riferimento sulle API per [generate answer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) per informazioni su come usare la risposta precisa (denominata AnswerSpan) nella risposta. L'utente ha la possibilità di scegliere altre esperienze aggiornando il modello tramite il servizio app bot. 
 
 ## <a name="language-support"></a>Lingue supportate
 

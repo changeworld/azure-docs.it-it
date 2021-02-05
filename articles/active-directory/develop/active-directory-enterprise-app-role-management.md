@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015114"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582231"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -30,7 +30,7 @@ Usando Azure Active Directory (Azure AD), è possibile personalizzare il tipo di
 
 ## <a name="when-to-use-this-feature"></a>Quando usare questa funzionalità
 
-Se l'applicazione prevede che vengano passati ruoli personalizzati in una risposta SAML, è necessario usare questa funzionalità. È possibile creare tutti i ruoli necessari che devono essere passati nuovamente da Azure AD all'applicazione.
+Usare questa funzionalità se l'applicazione prevede ruoli personalizzati nella risposta SAML restituita da Azure AD. È possibile creare tutti i ruoli necessari.
 
 ## <a name="create-roles-for-an-application"></a>Creare ruoli per un'applicazione
 
@@ -139,7 +139,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
     ![Riquadro Modifica assegnazione e riquadro Selezionare un ruolo](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    È necessario aggiornare la sessione nel portale di Azure per visualizzare i nuovi ruoli.
+    Aggiornare la sessione nell'portale di Azure per visualizzare i nuovi ruoli.
 
 1. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
 

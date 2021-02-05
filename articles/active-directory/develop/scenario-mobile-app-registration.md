@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 902348063a24b50d1de0a821d9d6e67931cc53cd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014723"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582537"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
 
@@ -79,9 +79,9 @@ Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile
 
 ### <a name="username-password-authentication"></a>Nome utente-autenticazione con password
 
-Se l'app usa solo l'autenticazione con nome utente e password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue una round trip all'endpoint della versione 2,0 di Microsoft Identity Platform. L'applicazione non verrà richiamata su un URI specifico.
+Se l'app usa solo l'autenticazione con nome utente e password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue una round trip alla piattaforma di identità Microsoft. L'applicazione non verrà richiamata su un URI specifico.
 
-Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, procedere nel seguente modo:
+Tuttavia, identificare l'applicazione come applicazione client pubblica. A tale scopo, procedere nel seguente modo:
 
 1. Sempre nella <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portale di Azure</a>Selezionare l'app in **registrazioni app** e quindi selezionare **autenticazione**.
 1. In **Impostazioni avanzate**  >  **Consenti flussi client pubblici**  >  **Abilita i flussi di dispositivi mobili e desktop seguenti:** selezionare **Sì**.

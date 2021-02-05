@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 91aa6c96c714bff26ea7e0df5b2b6971c68edec0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 601b725e5f1fe06c12416ad8ab36ac657f0412f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178569"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583417"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java
 
@@ -68,7 +68,7 @@ Per eseguire questo esempio, sono necessari:
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
 >
-> Per usare l'esempio di codice di questa guida di avvio rapido, è necessario:
+> Per usare l'esempio di codice in questa Guida introduttiva:
 >
 > 1. Aggiungere gli URL di risposta `https://localhost:8443/msal4jsample/secure/aad` e `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Creare un segreto client.
@@ -161,7 +161,7 @@ Per eseguire l'applicazione Web da un ambiente IDE, selezionare Esegui, quindi p
 
 ##### <a name="running-the-project-from-tomcat"></a>Esecuzione del progetto da Tomcat
 
-Se si vuole distribuire l'esempio Web in Tomcat, sarà necessario apportare alcune modifiche al codice sorgente.
+Se si vuole distribuire l'esempio Web in Tomcat, apportare alcune modifiche al codice sorgente.
 
 1. Aprire *ms-identity-java-webapp/pom.xml*.
     - In `<name>msal-web-sample</name>` aggiungere `<packaging>war</packaging>`.

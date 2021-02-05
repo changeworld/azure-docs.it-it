@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 869b37aea823cf91dc59211b23fcaccd7646afb9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 41d70b20708f0f355fab5b5a06790c1c0c6530c6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012020"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583553"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
@@ -53,7 +53,7 @@ Molti sviluppatori dispongono già di tenant attraverso sottoscrizioni o servizi
    * Se l'account è associato a più tenant, è possibile selezionare il nome dell'account per aprire un menu che consente di spostarsi tra i tenant. Ogni tenant ha un proprio ID.
 
 > [!TIP]
-> Se è necessario individuare l'ID tenant, è possibile:
+> Per trovare l'ID tenant, è possibile:
 > * Passare il mouse sul nome dell'account per ottenere l'ID directory/tenant oppure
 > * Cercare e selezionare **Azure Active Directory > Proprietà > ID tenant** nel portale di Azure
 

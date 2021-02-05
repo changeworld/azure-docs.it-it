@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993982"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581126"
 ---
 # <a name="manual-qos-capacity-pool"></a>Pool di capacità QoS manuale
 
@@ -29,7 +29,7 @@ Questo articolo fornisce un'introduzione alla funzionalità del pool di capacit�
 
 Il [tipo QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) è un attributo di un pool di capacità. Azure NetApp Files fornisce due tipi QoS di pool di capacità, ovvero auto (impostazione predefinita) e manuale.  
 
-In un pool di capacità QoS *manuale* è possibile assegnare la capacità e la velocità effettiva per un volume in modo indipendente. La velocità effettiva totale di tutti i volumi creati con un pool di capacità QoS manuale è limitata dalla velocità effettiva totale del pool. Il suo valore è determinato dalla combinazione della velocità effettiva del livello di servizio e delle dimensioni del pool. 
+In un pool di capacità QoS *manuale* è possibile assegnare la capacità e la velocità effettiva per un volume in modo indipendente. Per i livelli di velocità effettiva minima e massima, vedere [limiti delle risorse per Azure NetApp files](azure-netapp-files-resource-limits.md#resource-limits). La velocità effettiva totale di tutti i volumi creati con un pool di capacità QoS manuale è limitata dalla velocità effettiva totale del pool. Il suo valore è determinato dalla combinazione della velocità effettiva del livello di servizio e delle dimensioni del pool. 
 
 In un pool di capacità QoS *automatica* , la velocità effettiva viene assegnata automaticamente ai volumi nel pool, proporzionale alla quota di dimensioni assegnata ai volumi.  
 
@@ -60,4 +60,4 @@ L'utilizzo del tipo QoS manuale richiede [la registrazione della funzionalità](
 * [Creare un volume SMB](azure-netapp-files-create-volumes-smb.md)
 * [Creare un volume con doppio protocollo](create-volumes-dual-protocol.md)
 * [Metriche per Azure NetApp Files](azure-netapp-files-metrics.md)
-* [Risolvere i problemi del pool di capacità](troubleshoot-capacity-pools.md)
+* [Risolvere i problemi relativi ai pool di capacità](troubleshoot-capacity-pools.md)

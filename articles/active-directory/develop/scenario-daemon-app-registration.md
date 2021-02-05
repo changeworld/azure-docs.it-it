@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 938a19276839d5e0d2bd3e0244510fc068cb029c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996007"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582908"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>App daemon che chiama le API Web-registrazione app
 
@@ -24,7 +24,7 @@ Per un'applicazione daemon, ecco cosa è necessario sapere quando si registra l'
 
 ## <a name="supported-account-types"></a>Tipi di account supportati
 
-Le applicazioni daemon hanno senso solo nei tenant Azure AD. Quindi, quando si crea l'applicazione, è necessario scegliere una delle opzioni seguenti:
+Le applicazioni daemon hanno senso solo nei tenant Azure AD. Quindi, quando si crea l'applicazione, scegliere una delle opzioni seguenti:
 
 - **Solo gli account in questa directory aziendale**. Questa scelta è la più comune perché le applicazioni daemon vengono in genere scritte da sviluppatori line-of-business (LOB).
 - **Account in qualsiasi directory dell'organizzazione**. Questa scelta è consigliabile se si è un ISV che fornisce agli utenti uno strumento di utilità. Per approvare l'approvazione, saranno necessari gli amministratori del tenant dei clienti.

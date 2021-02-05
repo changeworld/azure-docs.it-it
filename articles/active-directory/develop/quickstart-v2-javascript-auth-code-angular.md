@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e83f8c4ba00f64bd924ce7b404cd3acfcecd14
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 466dc5b09e225876d57dfac7d39d28b88f1beb0f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754211"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583265"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Guida introduttiva: accedere e ottenere un token di accesso in una SPA angolare usando il flusso del codice di autenticazione
 
@@ -65,7 +65,7 @@ Questa Guida introduttiva usa MSAL angolare V2 con il flusso del codice di autor
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per consentire il funzionamento dell'esempio di codice di questa guida di avvio rapido, è necessario aggiungere un oggetto `redirectUri` impostato su `http://localhost:4200/`.
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, aggiungere un **URI di reindirizzamento** `http://localhost:4200/` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >

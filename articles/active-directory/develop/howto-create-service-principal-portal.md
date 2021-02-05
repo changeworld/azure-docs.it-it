@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014944"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581755"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -55,7 +55,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 1. Cercare e selezionare le **sottoscrizioni** oppure selezionare **sottoscrizioni** nella **Home** page.
 
-   ![Ricerca](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Cerca](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selezionare la sottoscrizione in cui si desidera creare l'entità servizio.
 
@@ -115,7 +115,7 @@ Nella sezione successiva viene illustrato come ottenere i valori necessari quand
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Ottenere i valori di ID tenant e app per l'accesso
 
-Quando si esegue l'accesso a livello di codice, è necessario passare l'ID tenant con la richiesta di autenticazione e l'ID applicazione.  È necessario anche un certificato o una chiave di autenticazione, descritta nella sezione seguente. Per ottenere questi valori eseguire la procedura seguente:
+Quando si esegue l'accesso a livello di codice, passare l'ID tenant con la richiesta di autenticazione e l'ID applicazione.  È necessario anche un certificato o una chiave di autenticazione, descritta nella sezione seguente. Per ottenere questi valori eseguire la procedura seguente:
 
 1. Selezionare **Azure Active Directory**.
 1. Da **Registrazioni app** in Azure AD selezionare l'applicazione.
@@ -162,7 +162,7 @@ Per caricare il certificato:
 
 1. Selezionare **Aggiungi**.
 
-Dopo aver registrato il certificato con l'applicazione nel portale di registrazione delle applicazioni, è necessario abilitare il codice dell'applicazione client per l'uso del certificato.
+Dopo aver registrato il certificato con l'applicazione nel portale di registrazione delle applicazioni, abilitare il codice dell'applicazione client per l'uso del certificato.
 
 ### <a name="option-2-create-a-new-application-secret"></a>Opzione 2: creare una nuova chiave privata dell'applicazione
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46c8127a93cef8f662930fffd07a2fa3d22b8871
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 4031e43b3ec6f6f451fbc4888cc482249042690b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753713"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582724"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>App desktop che chiama le API Web: registrazione dell'app
 
@@ -47,7 +47,7 @@ Gli URI di Reindirizzamento da usare in un'applicazione desktop dipendono dal fl
 
 - Se si compila un'app Objective-C o SWIFT nativa per macOS, registrare l'URI di reindirizzamento in base all'identificatore del bundle dell'applicazione nel formato seguente: `msauth.<your.app.bundle.id>://auth` . Sostituire `<your.app.bundle.id>` con l'identificatore del bundle dell'applicazione.
 - Se l'app usa solo l'autenticazione integrata di Windows o un nome utente e una password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questi flussi eseguono una round trip all'endpoint della piattaforma Microsoft Identity Platform v 2.0. L'applicazione non verrà richiamata su un URI specifico.
-- Per distinguere [il flusso del codice del dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [l'autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e un [nome utente e una password](scenario-desktop-acquire-token.md#username-and-password) da un'applicazione client riservata usando un flusso di credenziali client usato nelle [applicazioni daemon](scenario-daemon-overview.md), nessuna delle quali richiede un URI di reindirizzamento, è necessario configurarlo come applicazione client pubblica. Per ottenere questa configurazione:
+- Per distinguere [il flusso del codice del dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [l'autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e un [nome utente e una password](scenario-desktop-acquire-token.md#username-and-password) da un'applicazione client riservata usando un flusso di credenziali client usato nelle [applicazioni daemon](scenario-daemon-overview.md), nessuna delle quali richiede un URI di reindirizzamento, lo configura come applicazione client pubblica. Per ottenere questa configurazione:
 
     1. Nella <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portale di Azure</a>Selezionare l'app in **registrazioni app** e quindi selezionare **autenticazione**.
     1. In **Impostazioni avanzate**  >  **Consenti flussi client pubblici**  >  **Abilita i flussi di dispositivi mobili e desktop seguenti:** selezionare **Sì**.

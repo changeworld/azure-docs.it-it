@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 0de3c46eba0b9364e38c4a952a320ac1c3de512f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225800"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583570"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
 
@@ -53,7 +53,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice per questa Guida introduttiva, è necessario aggiungere un URI di reindirizzamento come **http://localhost:4200/** e abilitare * * * * concessione implicita * *.
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, è necessario aggiungere un URI di reindirizzamento come **http://localhost:4200/** e abilitare la **concessione implicita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >

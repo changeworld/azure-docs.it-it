@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 70fbaab8a409aaef8b1130abd40930a7aec79541
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754009"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583095"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
@@ -59,7 +59,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice di questa guida di avvio rapido è necessario aggiungere un URL di risposta come **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, aggiungere un **URI di reindirizzamento** `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >

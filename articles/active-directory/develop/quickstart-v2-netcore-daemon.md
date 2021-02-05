@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c5c89b285e8ef98f83d0bfa923aaca402491315d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 305b76f0dea0f39d9a981298903dfaa83f09b9a7
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754227"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583296"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph usando l'identità dell'app console
 
@@ -65,7 +65,7 @@ Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.micro
 > ### <a name="download-and-configure-your-quickstart-app"></a>Scaricare e configurare l'app della guida introduttiva
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per fare in modo che l'esempio di codice per questo avvio rapido funzioni, è necessario creare un segreto client e aggiungere l'autorizzazione dell'applicazione **User.Read.All** dell'API Graph.
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, creare un segreto client e aggiungere l'autorizzazione **utente. Read. All** dell'applicazione API Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >
@@ -130,7 +130,7 @@ Se si prova a eseguire l'applicazione a questo punto, si riceverà l'errore *HTT
 
 ##### <a name="standard-user"></a>Utente standard
 
-Gli utenti standard del tenant devono chiedere a un amministratore globale di concedere il consenso amministratore per l'applicazione. A tale scopo, assegnare l'URL seguente all'amministratore:
+Se si è un utente standard del tenant, rivolgersi a un amministratore globale per concedere il consenso dell'amministratore per l'applicazione. A tale scopo, assegnare l'URL seguente all'amministratore:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here

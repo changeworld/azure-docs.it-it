@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 37da2869f0cf315ac0a6851c9a77dcee4debf71a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944515"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581687"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Risolvere i problemi di Azure Data Factory sicurezza e controllo di accesso
 
@@ -88,9 +88,10 @@ Per verificare se l'Data Factory nome di dominio completo (FQDN) viene risolto n
 #### <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, eseguire le operazioni seguenti.
-- Per Azure Data Factory articolo, fare riferimento al [collegamento privato di Azure](./data-factory-private-link.md#dns-changes-for-private-endpoints) . L'istruzione è destinata alla configurazione del server o della zona DNS privata per la risoluzione del nome di dominio completo Data Factory in un indirizzo IP privato.
 
-- È consigliabile usare un DNS personalizzato come soluzione a lungo termine. Tuttavia, se non si vuole configurare la zona o il server DNS privato, provare la soluzione temporanea seguente:
+- Come opzione, si vuole suggerire di aggiungere manualmente un "collegamento alla rete virtuale" nella Data Factory "zona DNS di collegamento privato". Per informazioni dettagliate, fare riferimento al [collegamento privato di Azure per Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) articolo. L'istruzione consente di configurare la zona DNS privata o il server DNS personalizzato per risolvere il nome di dominio completo Data Factory in un indirizzo IP privato. 
+
+- Tuttavia, se non si vuole configurare la zona DNS privata o il server DNS personalizzato, provare la soluzione temporanea seguente:
 
   1. Modificare il file host in Windows ed eseguire il mapping dell'indirizzo IP privato (il Azure Data Factory endpoint privato) al nome di dominio completo Azure Data Factory.
   

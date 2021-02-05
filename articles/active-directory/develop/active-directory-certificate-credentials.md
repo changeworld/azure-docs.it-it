@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795617"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582027"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato per l'autenticazione di un'applicazione con Microsoft Identity Platform
 
@@ -40,7 +40,7 @@ Per calcolare l'asserzione, è possibile usare una delle numerose librerie JWT n
 
 ### <a name="claims-payload"></a>Attestazioni (payload)
 
-Tipo di attestazione | valore | Descrizione
+Tipo di attestazione | Valore | Descrizione
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (in questo Azure AD) vedere [RFC 7519, sezione 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In questo caso, il destinatario è il server di accesso (login.microsoftonline.com).
 exp | 1601519414 | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere la [specifica RFC 7519, sezione 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Questo consente di usare l'asserzione fino a quel momento, quindi mantenerla a breve-5-10 minuti dopo `nbf` al massimo.  Azure AD non applica restrizioni al `exp` momento attuale. 
@@ -101,12 +101,12 @@ Nella registrazione dell'app di Azure per l'applicazione client:
 
 ### <a name="updating-the-application-manifest"></a>Aggiornamento del manifesto dell'applicazione
 
-Con un certificato disponibile, è necessario calcolare:
+Dopo aver acquisito un certificato, calcolare i valori seguenti:
 
 - `$base64Thumbprint` -Valore con codifica Base64 dell'hash del certificato
 - `$base64Value` -Valore con codifica Base64 dei dati non elaborati del certificato
 
-È anche necessario specificare un GUID per identificare la chiave nel manifesto dell'applicazione (`$keyId`).
+Fornire un GUID per identificare la chiave nel manifesto dell'applicazione ( `$keyId` ).
 
 Nella registrazione dell'app di Azure per l'applicazione client:
 1. Selezionare **Manifesto** per aprire il manifesto dell'applicazione.
@@ -131,7 +131,7 @@ Nella registrazione dell'app di Azure per l'applicazione client:
 
 Le asserzioni client possono essere utilizzate ovunque venga utilizzato un segreto client.  Nel [flusso del codice di autorizzazione](v2-oauth2-auth-code-flow.md), ad esempio, è possibile passare un `client_secret` per dimostrare che la richiesta è proveniente dall'app. È possibile sostituire con i `client_assertion` `client_assertion_type` parametri e. 
 
-| Parametro | valore | Descrizione|
+| Parametro | Valore | Descrizione|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Si tratta di un valore fisso, che indica che si sta utilizzando una credenziale del certificato. |
 |`client_assertion`| Token JSON Web |Si tratta del JWT creato in precedenza. |

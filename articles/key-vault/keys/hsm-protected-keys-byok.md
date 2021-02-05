@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222218"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581007"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importare chiavi con protezione HSM in Key Vault
 
@@ -71,10 +71,13 @@ La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 
 ## <a name="supported-key-types"></a>Tipi di chiave supportati
 
-|Nome della chiave|Tipo di chiave|Dimensione chiavi|Origine|Descrizione|
+|Nome della chiave|Tipo di chiave|Dimensioni/curva chiave|Origine|Descrizione|
 |---|---|---|---|---|
 |Chiave KEK (Key Exchange Key)|RSA| A 2.048 bit<br />A 3.072 bit<br />A 4.096 bit|Modulo di protezione hardware di Azure Key Vault|Coppia di chiavi RSA supportata da modulo di protezione hardware generata in Azure Key Vault|
-|Chiave di destinazione|RSA|A 2.048 bit<br />A 3.072 bit<br />A 4.096 bit|Modulo di protezione hardware del fornitore|Chiave da trasferire nel modulo di protezione hardware di Azure Key Vault|
+|Chiave di destinazione|
+||RSA|A 2.048 bit<br />A 3.072 bit<br />A 4.096 bit|Modulo di protezione hardware del fornitore|Chiave da trasferire nel modulo di protezione hardware di Azure Key Vault|
+||EC|P-256<br />P-384<br />P-521|Modulo di protezione hardware del fornitore|Chiave da trasferire nel modulo di protezione hardware di Azure Key Vault|
+||||
 
 ## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>Generare e trasferire la chiave al modulo di protezione hardware di Key Vault
 
@@ -120,7 +123,7 @@ Vedere la documentazione del fornitore del modulo di protezione hardware per sca
 Trasferire il file BYOK nel computer connesso.
 
 > [!NOTE] 
-> L'importazione delle chiavi RSA a 1.024 bit non è supportata. Non è attualmente supportata l'importazione di una chiave a curva ellittica (EC).
+> L'importazione delle chiavi RSA a 1.024 bit non è supportata. L'importazione della chiave a curva ellittica con la curva P-256K non è supportata.
 > 
 > **Problema noto**: l'importazione di una chiave di destinazione RSA 4K da moduli di protezione hardware di Luna è supportata solo con firmware 7.4.0 o versioni successive.
 
@@ -128,8 +131,15 @@ Trasferire il file BYOK nel computer connesso.
 
 Per completare l'importazione della chiave, trasferire il pacchetto di trasferimento della chiave, ovvero un file BYOK, dal computer disconnesso al computer connesso a Internet. Usare il comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) per caricare il file BYOK nel modulo di protezione hardware di Key Vault.
 
+Per importare una chiave RSA, utilizzare il comando seguente. Parameter--KTY è facoltativo e il valore predefinito è' RSA-HSM '.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+Per importare una chiave EC, è necessario specificare il tipo di chiave e il nome della curva.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 Se il caricamento ha esito positivo, l'interfaccia della riga di comando di Azure mostrerà le proprietà della chiave importata.

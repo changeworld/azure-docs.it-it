@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 98110723063ee2a2c9deb75fc931655e18e5bc95
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b1f38c5822c62c6b6af18a2cb179ed212cfaf313
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938065"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583285"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Avvio rapido: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript con il flusso del codice di autorizzazione
 
@@ -63,7 +63,7 @@ In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Il codice di esempio di questa Guida introduttiva richiede un **URI di reindirizzamento** `http://localhost:3000/` .
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, aggiungere un **URI di reindirizzamento** `http://localhost:3000/` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >

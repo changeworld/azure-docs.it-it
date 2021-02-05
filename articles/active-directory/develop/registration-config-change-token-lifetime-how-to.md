@@ -12,12 +12,12 @@ ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dec4958c3a1d955d8f8c1dce90e27696fbebfe5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d39f378171443f028ef6b549b120b22f2a3405c4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063349"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582942"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Come modificare le impostazioni predefinite per la durata del token per un'applicazione personalizzata
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare Azure AD PowerShell per impostare i criteri 
 > Dopo il 2020 maggio, i tenant non saranno più in grado di configurare la durata del token di aggiornamento e di sessione.  Azure Active Directory smetterà di rispettare la configurazione del token di sessione e di aggiornamento esistente nei criteri dopo il 30 gennaio 2021. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione. Per altre informazioni, vedere [durata dei token configurabili in Azure ad](./active-directory-configurable-token-lifetimes.md).
 > Sono state implementate le [funzionalità di gestione delle sessioni di autenticazione](../conditional-access/howto-conditional-access-session-lifetime.md)   in Azure ad l'accesso condizionale. È possibile usare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso.  
 
-Per impostare i criteri di durata dei token di accesso, è necessario scaricare il [modulo Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+Per impostare i criteri di durata dei token di accesso, scaricare il [modulo Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 Eseguire il comando **Connect-AzureAD -Confirm**.
 
 Ecco un criterio di esempio che richiede agli utenti di eseguire l'autenticazione con maggiore frequenza nell'app Web. Questo criterio consente di impostare la durata dell'accesso all'entità servizio dell'app Web. Creare il criterio e assegnarlo all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio.

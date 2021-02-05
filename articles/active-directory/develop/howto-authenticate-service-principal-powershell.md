@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 096b8ed60bf9880b6904ab952d4558939ca13574
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652076"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581823"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedure: Usare Azure PowerShell per creare un'entità servizio con un certificato
 
@@ -72,7 +72,7 @@ L'esempio viene sospeso per 20 secondi per consentire la propagazione della nuov
 
 È possibile definire l'ambito di assegnazione di ruolo a un gruppo di risorse specifico tramite il parametro **ResourceGroupName**. È possibile definire l'ambito per una risorsa specifica usando anche i parametri **ResourceType** e **ResourceName**. 
 
-Se **non si dispone di Windows 10 o Windows Server 2016**, è necessario scaricare il [generatore di certificati autofirmati](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) da Microsoft Script Center. Estrarre i contenuti e importare il cmdlet necessario.
+Se **non si dispone di Windows 10 o Windows Server 2016**, scaricare il [Generatore di certificati autofirmati](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) da Microsoft Script Center. Estrarre i contenuti e importare il cmdlet necessario.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -91,7 +91,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornire il certificato tramite uno script di PowerShell automatizzato
 
-Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Azure Active Directory.
+Ogni volta che si accede come entità servizio, fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Azure Active Directory.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -151,7 +151,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornire il certificato tramite uno script di PowerShell automatizzato
-Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Azure Active Directory.
+Ogni volta che si accede come entità servizio, fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Azure Active Directory.
 
 ```powershell
 Param (

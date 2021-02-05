@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c858f48a67cd434a620fb610046833d29b7475f7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756593"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582891"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama API Web-configurazione del codice
 
@@ -111,7 +111,7 @@ Quando si compila un client riservato con certificati, il [parameters.js](https:
 
 ### <a name="instantiate-the-msal-application"></a>Creare un'istanza dell'applicazione MSAL
 
-Per creare un'istanza dell'applicazione MSAL, è necessario aggiungere, fare riferimento o importare il pacchetto MSAL (a seconda del linguaggio).
+Per creare un'istanza dell'applicazione MSAL, aggiungere, fare riferimento o importare il pacchetto MSAL (a seconda del linguaggio).
 
 La costruzione è diversa, a seconda che si utilizzino i segreti o i certificati client (o, come scenario avanzato, le asserzioni firmate).
 
@@ -289,7 +289,7 @@ MSAL.NET dispone di due metodi per fornire asserzioni firmate all'app client ris
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Quando si usa `WithClientAssertion` , è necessario specificare un JWT con segno. Questo scenario avanzato è descritto in dettaglio nelle [asserzioni client](msal-net-client-assertions.md).
+Quando si usa `WithClientAssertion` , fornire un JWT con segno. Questo scenario avanzato è descritto in dettaglio nelle [asserzioni client](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();

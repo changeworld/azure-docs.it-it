@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706201"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581993"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
 
@@ -27,7 +27,7 @@ Quando si sviluppano applicazioni con la piattaforma di identità Microsoft, è 
 Contenuto dell'articolo:
 
 - Informazioni sui due tipi di account utente gestiti da Microsoft e come fare riferimento agli account di Azure AD nell'applicazione
-- Informazioni sulle operazioni necessarie per aggiungere il logo Microsoft per l'uso nell'app
+- Informazioni sui requisiti per l'uso del logo Microsoft nell'app
 - Scaricare le immagini **Accedi** oppure **Accedi con Microsoft** da usare nell'app
 - Informazioni sulle operazioni di personalizzazione e navigazione consigliate e sconsigliate
 

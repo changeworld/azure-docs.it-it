@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
-ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 2/05/2021
+ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063080"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581568"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
@@ -79,6 +79,9 @@ Avviare il percorso di co-selling direttamente nel centro per i partner seguendo
 
 1. Salvare la bozza prima di continuare.
 1. Dopo aver completato tutte le sezioni obbligatorie dell'offerta, è possibile inviarla per la revisione e la pubblicazione. In alto a destra selezionare **revisione e pubblica**. Esaminare i dettagli dell'offerta e quindi selezionare **pubblica**.
+
+> [!NOTE]
+> Non è più necessario contattarci per candidare l'offerta per la co-selling. Dopo aver completato tutti i campi obbligatori nella pagina di co-selling con Microsoft e aver ripubblicato l'offerta, l'offerta verrà esaminata per determinare se soddisfi i requisiti per lo stato di co-selling.
 
 ## <a name="see-your-offers-co-sell-status"></a>Visualizza lo stato di co-selling dell'offerta
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 3c3eaddf1767a3fa4a2ba73ae7a27f1f7df13990
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 0a99ff32f3f1fbcf4af64188640d2edd7f3f5470
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178204"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583129"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Python
 
@@ -65,7 +65,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > 1. Digitare una descrizione della chiave (ad esempio segreto app), lasciare la scadenza predefinita e selezionare **Aggiungi**.
 > 1. Prendere nota del **valore** di **Segreto client** per usarlo successivamente.
 > 1. In **Gestisci** selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione**.
->1.  Verificare che la scheda **API Microsoft** sia selezionata.
+> 1. Verificare che la scheda **API Microsoft** sia selezionata.
 > 1. Nella sezione *API Microsoft più usate* selezionare **Microsoft Graph**.
 > 1. Nella sezione **Autorizzazioni delegate** verificare che siano selezionate le autorizzazioni corrette: **User.ReadBasic.All**. Se necessario, usare la casella di ricerca.
 > 1. Selezionare il pulsante **Aggiungi autorizzazioni**.
@@ -74,7 +74,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
 >
-> Per il corretto funzionamento del codice di esempio di questo argomento di avvio rapido, è necessario:
+> Per il funzionamento dell'esempio di codice in questa Guida introduttiva:
 >
 > 1. Aggiungere `http://localhost:5000/getAToken` come URL di risposta.
 > 1. Creare un segreto client.

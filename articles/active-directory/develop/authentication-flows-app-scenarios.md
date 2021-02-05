@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c302e10a169a190d11f016620ec048cc58e3ac28
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 4147adb004947c22ec39349f408d794bca160ef5
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220165"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582180"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flussi di autenticazione e scenari di applicazioni
 
@@ -162,7 +162,7 @@ Per altre informazioni, vedere [App per dispositivi mobili che chiama le API Web
 
 È possibile usare l'endpoint della piattaforma Microsoft Identity per proteggere i servizi Web, ad esempio l'API Web RESTful dell'app. Un'API Web protetta viene chiamata tramite un token di accesso. Il token consente di proteggere i dati dell'API e di autenticare le richieste in ingresso. Il chiamante di un'API Web aggiunge un token di accesso nell'intestazione dell'autorizzazione di una richiesta HTTP.
 
-Se si vuole proteggere l'API Web ASP.NET o ASP.NET Core, è necessario convalidare il token di accesso. A questo scopo verrà usato il middleware JWT ASP.NET. La convalida viene eseguita dalla libreria delle [estensioni IdentityModel per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) e non da MSAL.NET
+Se si vuole proteggere l'API Web ASP.NET o ASP.NET Core, convalidare il token di accesso. A questo scopo verrà usato il middleware JWT ASP.NET. La convalida viene eseguita dalla libreria delle [estensioni IdentityModel per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) e non da MSAL.NET
 
 Per altre informazioni, vedere [API Web protetta](scenario-protected-web-api-overview.md).
 

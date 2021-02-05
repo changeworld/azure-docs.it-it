@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672288"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581041"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guida alla migrazione da ADAL a MSAL per Android
 
@@ -71,7 +71,7 @@ Nella registrazione dell'app nel portale viene visualizzata la scheda **autorizz
 Con ADAL e l'endpoint Azure AD V1, il consenso dell'utente per le risorse di cui è proprietario è stato concesso al primo utilizzo. Con MSAL e la piattaforma di identità Microsoft, è possibile richiedere il consenso in modo incrementale. Il consenso incrementale è utile per le autorizzazioni che un utente può prendere in considerazione con privilegi elevati o in caso contrario, se non viene fornito con una spiegazione chiara del motivo per cui è necessaria l'autorizzazione. In ADAL queste autorizzazioni potrebbero avere comportato l'abbandono dell'accesso all'app da parte dell'utente.
 
 > [!TIP]
-> Si consiglia di usare il consenso incrementale negli scenari in cui è necessario fornire un contesto aggiuntivo all'utente per informazioni sul motivo per cui l'app necessita di un'autorizzazione.
+> Usare il consenso incrementale per fornire agli utenti un contesto aggiuntivo sui motivi per cui l'app necessita di un'autorizzazione.
 
 ### <a name="admin-consent"></a>Consenso dell'amministratore
 

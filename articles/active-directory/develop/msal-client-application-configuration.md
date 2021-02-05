@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761371"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580939"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
 
@@ -73,7 +73,7 @@ Se non si specifica un'istanza, l'app sarà destinata all'istanza del cloud pubb
 
 Il pubblico di accesso dipende dalle esigenze aziendali per l'app:
 
-- Se sei uno sviluppatore line of business (LOB), probabilmente Produci un'applicazione a tenant singolo che verrà usata solo nell'organizzazione. In tal caso, è necessario specificare l'organizzazione, in base al relativo ID tenant (l'ID dell'istanza di Azure AD) o in base a un nome di dominio associato all'istanza di Azure AD.
+- Se sei uno sviluppatore line of business (LOB), probabilmente Produci un'applicazione a tenant singolo che verrà usata solo nell'organizzazione. In tal caso, specificare l'organizzazione in base al relativo ID tenant (l'ID dell'istanza di Azure AD) o in base a un nome di dominio associato all'istanza di Azure AD.
 - Se si è un ISV, potrebbe essere necessario eseguire l'accesso agli utenti con gli account aziendali e dell'Istituto di istruzione in qualsiasi organizzazione o in alcune organizzazioni (app multi-tenant). Tuttavia, potrebbe essere necessario che gli utenti possano accedere con i propri account Microsoft personali.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Come specificare i destinatari nel codice/configurazione
@@ -122,9 +122,9 @@ Se sei uno sviluppatore di app client pubbliche che usa MSAL:
   | Piattaforma UWP | valore di `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Questo consente l'accesso SSO con il browser impostando il valore sul risultato di WebAuthenticationBroker. GetCurrentApplicationCallbackUri () che è necessario registrare |
   | .NET Core | `https://localhost`. Ciò consente all'utente di usare il browser di sistema per l'autenticazione interattiva perché .NET Core non dispone al momento di un'interfaccia utente per la visualizzazione Web incorporata. |
 
-- Non è necessario aggiungere un URI di reindirizzamento se si sta creando un'applicazione Novell Android e iOS che non supporta Service Broker (l'URI di reindirizzamento viene impostato automaticamente su `msal{ClientId}://auth` per Novell Android e iOS
+- Non è necessario aggiungere un URI di reindirizzamento se si sta compilando un'applicazione Novell Android e iOS che non supporta l'URI di reindirizzamento del broker. Viene impostato automaticamente su `msal{ClientId}://auth` per Novell Android e iOS.
 
-- È necessario configurare l'URI di reindirizzamento in [registrazioni app](https://aka.ms/appregistrations):
+- Configurare l'URI di reindirizzamento in [registrazioni app](https://aka.ms/appregistrations):
 
    ![URI di reindirizzamento in Registrazioni app](media/msal-client-application-configuration/redirect-uri.png)
 
