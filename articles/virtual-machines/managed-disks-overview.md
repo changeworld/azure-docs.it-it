@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e549a79930cf599b89cd549691e23f3587e8a85c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202709"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627816"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduzione ad Azure Managed Disks
 
@@ -44,6 +44,10 @@ Managed Disks supporta le [zone di disponibilità](../availability-zones/az-over
 ### <a name="azure-backup-support"></a>Supporto di Backup di Azure
 
 Per proteggersi da emergenze a livello di area, [Backup di Azure](../backup/backup-overview.md) può essere usato per creare un processo di backup con backup pianificati e criteri di conservazione dei backup. In questo modo è possibile eseguire operazioni di ripristino di macchine virtuali e dischi gestiti in base alle esigenze. Attualmente Backup di Azure supporta dimensioni di disco fino a 32 tebibyte (TiB). [Altre informazioni](../backup/backup-support-matrix-iaas.md) sul supporto per il backup di macchine virtuali di Azure.
+
+#### <a name="azure-disk-backup"></a>Backup di dischi di Azure
+
+Backup di Azure offre backup su disco di Azure (anteprima) come soluzione di backup nativa basata sul cloud che protegge i dati nei dischi gestiti. Si tratta di una soluzione semplice, sicura ed economica che consente di configurare la protezione per i dischi gestiti in pochi passaggi. Il backup su disco di Azure offre una soluzione chiavi in mano che fornisce la gestione del ciclo di vita degli snapshot per i dischi gestiti automatizzando la creazione periodica di snapshot e la conservazione per la durata configurata tramite criteri di backup. Per informazioni dettagliate sul backup dei dischi di Azure, vedere [Panoramica di backup su disco di Azure (in anteprima)](../backup/disk-backup-overview.md).
 
 ### <a name="granular-access-control"></a>Controllo di accesso granulare
 

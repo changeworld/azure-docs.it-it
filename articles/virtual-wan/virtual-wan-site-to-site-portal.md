@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.openlocfilehash: f3458c3b12b3151fd20531282f56ed2f1fd29b6b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359528"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627712"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure
 
@@ -55,7 +55,7 @@ Un hub è una rete virtuale che può contenere gateway per funzionalità da sito
 
 ## <a name="create-a-site"></a><a name="site"></a>Creare un sito
 
-A questo punto è possibile creare i siti che corrispondono alle posizioni fisiche. Creare il numero di siti necessari, corrispondenti alle località fisiche. Ad esempio, se esiste una succursale a New York, una a Londra e una a Milano, creare tre siti separati. Questi siti contengono gli endpoint di dispositivo VPN locali. È possibile creare fino a 1000 siti per ciascun hub virtuale in una rete WAN virtuale. Se sono presenti più hub, è possibile crearne 1000 per ognuno di questi hub. Se è presente un dispositivo CPE partner di rete WAN virtuale (link all'interno), consultare le informazioni relative all'automazione in Azure. In genere l'automazione implica una semplice esperienza tramite clic per l'esportazione di informazioni sui rami su larga scala in Azure e per la configurazione della connettività dal CPE al gateway VPN della rete WAN virtuale di Azure. Per altre informazioni, vedere [Indicazioni sull'automazione da Azure ai partner CPE](virtual-wan-configure-automation-providers.md).
+In questa sezione viene creato il sito. I siti corrispondono alle posizioni fisiche. Creare tutti i siti necessari. Ad esempio, se esiste una succursale a New York, una a Londra e una a Milano, creare tre siti separati. Questi siti contengono gli endpoint di dispositivo VPN locali. È possibile creare fino a 1000 siti per hub virtuale in una rete WAN virtuale. Se sono presenti più hub, è possibile crearne 1000 per ognuno di questi hub. Se si dispone di un dispositivo CPE del partner WAN virtuale, rivolgersi a loro per informazioni sull'automazione in Azure. In genere, l'automazione implica una semplice esperienza di clic per esportare informazioni sui Branch su larga scala in Azure e configurare la connettività dal CPE al gateway VPN WAN virtuale di Azure. Per altre informazioni, vedere [Indicazioni sull'automazione da Azure ai partner CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -78,19 +78,19 @@ Usare la configurazione del dispositivo VPN per configurare il dispositivo VPN l
 3. Al termine della creazione del file è possibile fare clic sul collegamento per scaricarlo.
 4. Applicare la configurazione al dispositivo VPN locale.
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Informazioni sui file di configurazione del dispositivo VPN
+### <a name="about-the-vpn-device-configuration-file"></a>Informazioni sul file di configurazione del dispositivo VPN
 
 Il file di configurazione del dispositivo contiene le impostazioni da usare quando si configura il dispositivo VPN locale. Quando si visualizza questo file, notare le informazioni seguenti:
 
 * **vpnSiteConfiguration -** Questa sezione indica i dettagli del dispositivo configurato come un sito che si connette alla rete WAN virtuale. Include il nome e l'indirizzo IP pubblico del dispositivo della succursale.
 * **vpnSiteConnections -** Questa sezione include informazioni sulle impostazioni seguenti:
 
-    * **Spazio degli indirizzi** della rete virtuale degli hub virtuali<br>Esempio:
+    * **Spazio di indirizzi** degli hub virtuali VNet.<br>Esempio:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Spazio degli indirizzi** delle reti virtuali connesse all'hub<br>Esempio:
+    * **Spazio degli indirizzi** di reti virtuali connessi all'hub.<br>Esempio:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -101,7 +101,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Dettagli di configurazione della connessione al gateway VPN** , ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
+    * **Dettagli di configurazione della connessione al gateway VPN**, ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
   
 ### <a name="example-device-configuration-file"></a>Esempio di file di configurazione del dispositivo
 

@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488715"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627777"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -109,7 +109,7 @@ Attualmente Terraform non supporta i contenitori di archivi analitici. Per altre
 
 ## <a name="analytical-time-to-live-ttl"></a>Durata (TTL) dei dati analitici
 
-### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>La durata dei dati analitici è supportata sia a livello di contenitore che di elemento?
+### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>Il valore TTL per i dati analitici è supportato a livello di contenitore e di elemento?
 
 Attualmente, il TTL per i dati analitici può essere configurato solo a livello di contenitore e non è previsto il supporto per impostarlo a livello di elemento.
 
@@ -129,7 +129,7 @@ Il modello di fatturazione di Collegamento ad Azure Synapse include i costi sost
 
 ### <a name="what-is-the-billing-impact-if-i-enable-synapse-link-in-my-azure-cosmos-db-database-account"></a>Qual è l'effetto di fatturazione se si Abilita il collegamento sinapsi nell'account del database Azure Cosmos DB?
 
-No. Il costo verrà addebitato solo quando si crea un contenitore di archivio analitico abilitato e si inizia a caricare i dati.
+Nessuna. Il costo verrà addebitato solo quando si crea un contenitore di archivio analitico abilitato e si inizia a caricare i dati.
 
 
 ## <a name="security"></a>Sicurezza
@@ -156,7 +156,7 @@ Questa funzionalità non è attualmente disponibile.
 
 Attualmente il supporto di Structured Streaming di Spark per Azure Cosmos DB viene implementato tramite la funzionalità del feed di modifiche dell'archivio transazionale e non è ancora previsto nell'archivio analitico.
 
-## <a name="azure-synapse-studio"></a>Azure sinapsi Studio
+## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 
 ### <a name="in-the-azure-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>In Azure sinapsi Studio come si riconosce se si è connessi a un contenitore di Azure Cosmos DB con l'archivio di analisi abilitato?
 
