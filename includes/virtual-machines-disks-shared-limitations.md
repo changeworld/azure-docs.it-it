@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 76e52758bf88dde9cdc68dad974f0b65fd55140f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4a61399bbb75639fdf4f03da7b77f22a2136adbe
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026675"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628964"
 ---
 L'abilitazione dei dischi condivisi è disponibile solo per un subset di tipi di disco. Attualmente solo dischi e SSD Premium possono abilitare i dischi condivisi. Ogni disco gestito con dischi condivisi abilitati è soggetto alle limitazioni seguenti, organizzati in base al tipo di disco:
 
@@ -37,7 +37,8 @@ I dischi Ultra condivisi sono disponibili in tutte le aree che supportano i disc
 - Quando si usano i set di disponibilità e i set di scalabilità di macchine virtuali con i dischi condivisi di Azure, l' [allineamento del dominio di errore di archiviazione](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) con il dominio di errore della macchina virtuale non viene applicato per il disco dati condiviso.
 - Quando si usano i [gruppi di posizionamento prossimità (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), tutte le macchine virtuali che condividono un disco devono far parte dello stesso PPG.
 - Solo i dischi di base possono essere utilizzati con alcune versioni del cluster di failover di Windows Server. per informazioni dettagliate, vedere [requisiti hardware per il clustering di failover e opzioni di archiviazione](/windows-server/failover-clustering/clustering-requirements).
-- Il supporto di backup di Azure e Azure Site Recovery non è ancora disponibile.
+- Il supporto Azure Site Recovery non è ancora disponibile.
+- Backup di Azure è disponibile tramite [backup dischi di Azure (anteprima)](../articles/backup/disk-backup-overview.md).
 
 #### <a name="regional-availability"></a>Disponibilità a livello di area
 
