@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797306"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624760"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
 
@@ -101,7 +101,7 @@ Usare l'estensione per la [distribuzione dell'area](https://marketplace.visualst
 
      ![Installare l'estensione](media/install-extension.png)
 
-1. Assicurarsi che l'entità servizio della pipeline di Azure DevOps disponga dell'autorizzazione della sottoscrizione e anche assegnata come amministratore dell'area di lavoro per l'area di lavoro di destinazione. 
+1. Verificare che all'entità servizio della pipeline di Azure DevOps sia stata concessa l'autorizzazione della sottoscrizione e che sia stata assegnata anche come amministratore dell'area di lavoro per l'area di lavoro 
 
 1. Creare una nuova attività. Cercare la **distribuzione dell'area di lavoro sinapsi**, quindi selezionare **Aggiungi**.
 
@@ -139,8 +139,8 @@ Se si usa l'integrazione git con l'area di lavoro sinapsi e si ha una pipeline d
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Usare l'attività di distribuzione dell'area di lavoro sinapsi
 
-In sinapsi tutti i tipi di artefatti non sono risorse ARM, che sono differenti con ADF. Non è possibile usare l'attività di distribuzione del modello ARM per distribuire gli artefatti sinapsi
+In sinapsi sono presenti diversi artefatti che non sono risorse ARM. Questo comportamento è diverso da Azure Data Factory. L'attività di distribuzione del modello ARM non funzionerà correttamente per distribuire gli artefatti sinapsi
  
 ### <a name="unexpected-token-error-in-release"></a>Errore di token imprevisto nella versione
 
-Quando il file di parametri contiene valori di parametro che non sono preceduti da un carattere di escape, la pipeline di versione non riuscirà ad analizzare il file con l'errore del token imprevisto. Si consiglia di eseguire l'override dei parametri o dell'insieme di credenziali delle credenziali per ottenere i parametri. È anche possibile fare doppio escape come soluzione alternativa.
+Quando il file di parametri contiene valori di parametro che non sono preceduti da un carattere di escape, la pipeline di versione non riuscirà ad analizzare il file e genererà l'errore "token imprevisto". È consigliabile eseguire l'override dei parametri o usare Azure Vault per recuperare i valori dei parametri. È anche possibile usare caratteri di escape doppi come soluzione alternativa.

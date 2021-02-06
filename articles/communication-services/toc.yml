@@ -51,6 +51,8 @@
   items:
     - name: Creare un servizio di autenticazione attendibile con Funzioni di Azure
       href: tutorials/trusted-service-tutorial.md
+    - name: 'Firmare una richiesta HTTP con una firma HMAC con C #'
+      href: tutorials/hmac-header-tutorial.md
     - name: Preparare un'app Web per i servizi di comunicazione (Node.js)
       href: tutorials/building-app-start.md
 - name: Concetti
@@ -110,6 +112,8 @@
       href: concepts/metrics.md
     - name: Risoluzione dei problemi
       href: concepts/troubleshooting-info.md
+    - name: Problemi noti
+      href: concepts/known-issues.md
 - name: Esempi
   items:
     - name: Esempio hero di chiamata di gruppo

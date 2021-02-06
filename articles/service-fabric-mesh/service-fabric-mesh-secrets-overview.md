@@ -5,14 +5,20 @@ author: erikadoyle
 ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: da4eaa34840f14714616b85e24fd62cf65602b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85b4bb6ee4d76a7115c9ebdd1466049afe6683c6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277627"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625533"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Segreti delle applicazioni Azure Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Service Fabric Mesh supporta i segreti come risorse di Azure. Un segreto di Service Fabric Mesh può essere costituito da informazioni di testo riservate, come stringhe di connessione per l'archiviazione, password o altri valori che devono essere archiviati e trasmessi in modo sicuro.
 
 ![Panoramica dei segreti di Mesh][sf-mesh-secrets-overview]

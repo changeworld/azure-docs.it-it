@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 56cc8b4010dc17cf2b723a72898034de8d6a7175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 9e3dc16481340c0266cd398d0970e2147648e17f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843295"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625450"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Esercitazione: eseguire il debug di un'applicazione Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa esercitazione è la seconda parte di una serie e illustra come compilare ed eseguire il debug di un'applicazione Azure Service Fabric Mesh nel cluster di sviluppo locale.
 
@@ -33,7 +38,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -71,7 +76,7 @@ Per rendere molto più rapida la prima esecuzione del debug (F5), seguire le ist
 
 Attualmente si verifica un problema a causa del quale la chiamata a `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` provoca un errore di connessione al servizio. Questa situazione può verificarsi ogni volta che l'indirizzo IP dell'host cambia. Per risolvere il problema:
 
-1. Rimuovere l'app dal cluster locale (in Visual Studio **Compila** > **Pulisci soluzione**).
+1. Rimuovere l'app dal cluster locale (in Visual Studio compilare una   >  **soluzione pulita**).
 2. Da Local Cluster Manager (Gestione cluster locale) di Service Fabric selezionare **Stop Local Cluster** (Arresta cluster locale) e quindi **Start Local Cluster** (Avvia cluster locale).
 3. Ridistribuire l'app (in Visual Studio **F5**).
 

@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un servizio in molte aree con Gest
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: baed44e04a0beca02cc959d302a4a29906b4a78e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539519"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627500"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare procedure di distribuzione sicure con Gestione distribuzione di Azure (anteprima pubblica)
 
@@ -21,10 +21,10 @@ Azure Gestione distribuzione è in versione di anteprima. Aiutaci a migliorare l
 
 Per usare Deployment Manager, è necessario creare quattro file:
 
-* Modello di topologia
-* Modello di implementazione
-* File dei parametri per la topologia
-* File dei parametri per l'implementazione
+* Modello di topologia.
+* Modello di implementazione.
+* File di parametri per la topologia.
+* File di parametri per l'implementazione.
 
 Si distribuisce il modello di topologia prima di distribuire il modello di implementazione.
 

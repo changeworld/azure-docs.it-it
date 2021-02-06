@@ -4,15 +4,15 @@ description: In questo articolo viene descritto come Azure Cosmos DB garantisce 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600556"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627383"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 
 * Durante un'interruzione dell'area di lettura, gli account Azure Cosmos che usano un livello di coerenza o una coerenza assoluta con tre o più aree di lettura rimarranno a disponibilità elevata per operazioni di lettura e scrittura.
 
-* Gli account Azure Cosmos che usano la coerenza assoluta con due o meno aree di lettura (che includono l'area di lettura & scrittura) perderanno la disponibilità di lettura durante un'interruzione dell'area di lettura.
+* Gli account Azure Cosmos che usano la coerenza assoluta con tre o meno aree totali (una scrittura, due letture) perderanno la disponibilità di scrittura durante un'interruzione dell'area di lettura. Tuttavia, i clienti con quattro o più aree totali possono acconsentire esplicitamente all'uso di quorum di lettura dinamici inviando un ticket di supporto. Gli account che gestiscono almeno due aree di lettura in questa configurazione manterranno la disponibilità di scrittura.
 
 * L'area interessata viene disconnessa automaticamente e verrà contrassegnata come offline. Il [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) reindirizza le chiamate di lettura all'area successiva disponibile nell'elenco delle aree preferite.
 
@@ -112,15 +112,15 @@ Nella tabella seguente sono riepilogate le funzionalità di disponibilità eleva
 |Errori zona-disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità |
 |Interruzione a livello di area-perdita di dati | Perdita di dati |  Perdita di dati | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](consistency-levels-tradeoffs.md) . | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](consistency-levels-tradeoffs.md) .
 |Interruzione a livello di area: disponibilità | Perdita di disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità per l'area di lettura non riuscita, temporanea per l'area di scrittura non riuscita | Nessuna perdita di disponibilità |
-|Prezzo (**_1_* _) | N/D | Frequenza di provisioning di Ur/s x 1,25 | Frequenza di provisioning di Ur/s x 1,25 (_*_2_*_) | Velocità di scrittura in più aree |
+|Prezzo (***1** _) | N/D | Frequenza di provisioning di Ur/s x 1,25 | Frequenza di provisioning di Ur/s x 1,25 (_ *_2_* *) | Velocità di scrittura in più aree |
 
-_*_1_*_ per gli account senza server le unità richiesta (UR) vengono moltiplicate per un fattore di 1,25.
+***1*** per gli account senza server le unità richiesta (UR) vengono moltiplicate per un fattore di 1,25.
 
-_*_2_*_ frequenza 1,25 applicata solo alle aree in cui è abilitato AZ.
+***2*** frequenza 1,25 applicata solo alle aree in cui è abilitato AZ.
 
 Zone di disponibilità possono essere abilitati tramite:
 
-_ [Portale di Azure](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

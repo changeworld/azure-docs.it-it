@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef8b40be366afe24b960f7419d84cc2a9976b592
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842700"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625702"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introduzione alla rete nelle applicazioni Azure Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Questo articolo descrive i diversi tipi di servizi di bilanciamento del carico, come i gateway connettono la rete ad altre reti tramite le applicazioni e come viene eseguito il routing del traffico tra i servizi delle applicazioni.
 
 ## <a name="layer-4-vs-layer-7-load-balancers"></a>Confronto tra servizi di bilanciamento del carico di livello 4 e livello 7

@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: b0bdb3c09aead812e1c16f4d0d17aae58e141809
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842547"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626794"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Esercitazione: creare, eseguire il debug, distribuire e aggiornare un'applicazione multiservizio in Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come usare Visual Studio per creare un'app Azure Service Fabric Mesh che include un front-end Web ASP.NET e un servizio back-end API Web ASP.NET Core. Verrà quindi eseguito il debug dell'app nel cluster di sviluppo locale. Pubblicare l'app in Azure, apportare le modifiche di configurazione e di codice e aggiornare l'app. Infine, sarà possibile pulire le risorse di Azure inutilizzate in modo che non sia addebitato ciò che non si usa.
 

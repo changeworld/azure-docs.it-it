@@ -7,16 +7,16 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 3e098e64eacf8b126d6a6d72b1f242443e88d55c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881096"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626326"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
-Questo articolo illustra come eseguire la migrazione di computer come server fisici in Azure usando lo strumento di migrazione server di Azure Migrate. La migrazione di computer come se fossero server fisici è utile in diversi scenari:
+Questo articolo illustra come eseguire la migrazione di computer come server fisici in Azure usando lo strumento di migrazione Azure Migrate: Server. La migrazione di computer come se fossero server fisici è utile in diversi scenari:
 
 - Eseguire la migrazione di server fisici locali.
 - Eseguire la migrazione di VM virtualizzate tramite piattaforme come Xen, KVM.
@@ -28,9 +28,9 @@ Questo articolo illustra come eseguire la migrazione di computer come server fis
 Questa esercitazione è la terza di una serie che illustra come valutare i server fisici ed eseguirne la migrazione ad Azure. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Preparare Azure per l'utilizzo con Azure Migrate: Migrazione server.
+> * Preparare l'uso di Azure con Azure Migrate: migrazione del server.
 > * Verificare i requisiti dei computer di cui eseguire la migrazione e preparare un computer per l'appliance di replica di Azure Migrate usata per individuare ed eseguire la migrazione di computer ad Azure.
-> * Aggiungere lo strumento Migrazione server di Azure Migrate nell'hub di Azure Migrate.
+> * Aggiungere lo strumento Azure Migrate: Migrazione del server nell'hub di Azure Migrate.
 > * Configurare l'appliance di replica.
 > * Installare il servizio Mobility nei computer di cui eseguire la migrazione.
 > * Abilitare la replica.
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 ## <a name="prepare-azure"></a>Preparare Azure
 
-Preparare Azure per la migrazione con Migrazione server.
+Preparare Azure per la migrazione con Azure Migrate: migrazione del server.
 
 **Attività** | **Dettagli**
 --- | ---
@@ -89,7 +89,7 @@ Per la preparazione della migrazione dei server fisici, è necessario verificare
 Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azure. 
 
 > [!NOTE]
-> Per la migrazione dei computer fisici, lo strumento Migrazione server di Azure Migrate usa la stessa architettura di replica della funzionalità di ripristino di emergenza basata su agente del servizio Azure Site Recovery e alcuni componenti condividono la stessa codebase. Alcuni contenuti potrebbero includere collegamenti alla documentazione di Site Recovery.
+> Quando si esegue la migrazione di computer fisici, Azure Migrate: la migrazione del server utilizza la stessa architettura di replica del ripristino di emergenza basato su agente nel servizio Azure Site Recovery e alcuni componenti condividono la stessa codebase. Alcuni contenuti potrebbero includere collegamenti alla documentazione di Site Recovery.
 
 1. [Verificare](migrate-support-matrix-physical-migration.md#physical-server-requirements) i requisiti dei server fisici.
 2. Verificare che le macchine virtuali locali replicate in Azure siano conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -99,7 +99,7 @@ Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azur
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Preparare un computer per l'appliance di replica
 
-Lo strumento Migrazione server di Azure Migrate usa un'appliance di replica per replicare i computer in Azure. L'appliance di replica esegue i componenti seguenti.
+Lo strumento Azure Migrate: Migrazione del server usa un'appliance di replica per replicare i computer in Azure. L'appliance di replica esegue i componenti seguenti.
 
 - **Server di configurazione**: Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
 - **Server di elaborazione** Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione cache in Azure. 
@@ -116,7 +116,7 @@ Preparare la distribuzione dell'appliance come indicato di seguito:
 
 ## <a name="set-up-the-replication-appliance"></a>Configurare l'appliance di replica
 
-La prima fase del processo di migrazione è la configurazione dell'appliance di replica. Per configurare l'appliance per la migrazione dei server fisici, scaricare il file del programma di installazione per l'appliance e quindi eseguirlo nella [macchina virtuale preparata](#prepare-a-machine-for-the-replication-appliance). Dopo aver installato l'appliance, registrarla con Migrazione server di Azure Migrate.
+La prima fase del processo di migrazione è la configurazione dell'appliance di replica. Per configurare l'appliance per la migrazione dei server fisici, scaricare il file del programma di installazione per l'appliance e quindi eseguirlo nella [macchina virtuale preparata](#prepare-a-machine-for-the-replication-appliance). Dopo aver installato il dispositivo, è necessario registrarlo con Azure Migrate: migrazione del server.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Scaricare il programma di installazione dell'appliance di replica
@@ -129,7 +129,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 4. In **Area di destinazione** selezionare l'area di Azure in cui eseguire la migrazione delle macchine virtuali.
 5. Selezionare **Confermare che l'area di destinazione della migrazione è <nome area>** .
 6. Fare clic su **Crea risorse**. Verrà creato un insieme di credenziali di Azure Site Recovery in background.
-    - Se è già stata configurata la migrazione con Migrazione server di Azure Migrate, l'opzione della destinazione non può essere configurata, perché le risorse sono state configurate in precedenza.    
+    - Se è già stata configurata la migrazione con Azure Migrate: migrazione del server, l'opzione di destinazione non può essere configurata, perché le risorse sono state configurate in precedenza.    
     - Dopo aver fatto clic su questo pulsante non è più possibile cambiare l'area di destinazione di questo progetto.
     - Tutte le migrazioni successive avverranno in questa area.
 
@@ -145,7 +145,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 
     ![Finalizzare la registrazione](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Una volta finalizzata la registrazione, può essere necessario del tempo prima che le macchine virtuali individuate vengano visualizzate in Migrazione del server di Azure Migrate. Man mano che vengono individuate VM, il numero indicato in **Server individuati** aumenta.
+Il completamento della registrazione potrebbe richiedere del tempo fino a quando i computer individuati non vengono visualizzati in Azure Migrate: migrazione del server. Man mano che vengono individuate VM, il numero indicato in **Server individuati** aumenta.
 
 ![Server individuati](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 

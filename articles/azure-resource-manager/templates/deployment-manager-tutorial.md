@@ -5,12 +5,12 @@ author: mumian
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 49465f05b5484dfd358136866b67ce35f789799f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 95d5067eccff5c847588834061db8454f75e55d7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88892933"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627584"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
 
@@ -22,7 +22,7 @@ Per usare Deployment Manager è necessario creare due modelli.
 * **Modello di implementazione**: descrive i passaggi da eseguire durante la distribuzione delle applicazioni.
 
 > [!IMPORTANT]
-> Se la sottoscrizione è contrassegnata in modo che Canary testi nuove funzionalità di Azure, è possibile usare Azure Deployment Manager solo per distribuire le aree di Canary. 
+> Se la sottoscrizione è contrassegnata in modo che Canary testi nuove funzionalità di Azure, è possibile usare Azure Deployment Manager solo per distribuire le aree di Canary.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -40,17 +40,16 @@ Questa esercitazione illustra le attività seguenti:
 
 Risorse aggiuntive:
 
-* Il [riferimento all'API REST di Azure Deployment Manager](/rest/api/deploymentmanager/).
+* Informazioni di [riferimento sull'API REST di Azure Gestione distribuzione](/rest/api/deploymentmanager/).
 * [Esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
-
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
+Per completare questa esercitazione, sono necessari:
 
+* Sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Esperienza nello sviluppo di [modelli di Azure Resource Manager](overview.md).
 * Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 * Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/scripting/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell con privilegi elevati e usare il comando seguente:
@@ -71,23 +70,23 @@ Il diagramma seguente illustra la topologia del servizio usata in questa esercit
 
 ![Esercitazione su Azure Deployment Manager - Diagramma dello scenario](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-scenario-diagram.png)
 
-Sono presenti due servizi allocati nelle località Stati Uniti occidentali e Stati Uniti orientali.  Ogni servizio include due unità di servizio: un'applicazione Web front-end e un account di archiviazione per il back-end. Le definizioni delle unità di servizio contengono collegamenti ai file del modello e dei parametri per creare le applicazioni Web e gli account di archiviazione.
+Negli Stati Uniti occidentali e negli Stati Uniti orientali vengono allocati due servizi. Ogni servizio dispone di due unità di servizio: un'applicazione Web front-end e un account di archiviazione back-end. Le definizioni delle unità di servizio contengono collegamenti al modello e ai file di parametri che creano le applicazioni Web e gli account di archiviazione.
 
 ## <a name="download-the-tutorial-files"></a>Scaricare i file per l'esercitazione
 
 1. Scaricare [i modelli e gli artefatti](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) usati in questa esercitazione.
-2. Decomprimere i file nel computer locale in uso.
+1. Decomprimere i file nel computer locale in uso.
 
 Nella cartella radice sono presenti due cartelle:
 
-* **ADMTemplates** contiene i modelli di Deployment Manager, che includono:
-  * CreateADMServiceTopology.json
-  * CreateADMServiceTopology.Parameters.json
-  * CreateADMRollout.json
-  * CreateADMRollout.Parameters.json
-* **ArtifactStore** contiene sia gli artefatti modello che gli artefatti binari. Vedere [Preparare gli artefatti](#prepare-the-artifacts).
+* _ADMTemplates_ contiene i modelli di Deployment Manager, che includono:
+  * _CreateADMServiceTopology.json_
+  * _CreateADMServiceTopology.Parameters.json_
+  * _CreateADMRollout.json_
+  * _CreateADMRollout.Parameters.json_
+* _ArtifactStore_ contiene sia gli artefatti modello che gli artefatti binari. Vedere [Preparare gli artefatti](#prepare-the-artifacts).
 
-Si noti che sono presenti due set di modelli.  Un set include i modelli di Deployment Manager usati per distribuire la topologia del servizio e l'implementazione, mentre l'altro set viene chiamato dalle unità di servizio per creare i servizi Web e gli account di archiviazione.
+Sono disponibili due set di modelli. Un set è costituito dai modelli di Gestione distribuzione utilizzati per distribuire la topologia del servizio e l'implementazione. L'altro set viene chiamato dalle unità di servizio per creare i servizi Web e gli account di archiviazione.
 
 ## <a name="prepare-the-artifacts"></a>Preparare gli artefatti
 
@@ -95,23 +94,23 @@ La cartella ArtifactStore inclusa nel download contiene due cartelle:
 
 ![Esercitazione su Azure Deployment Manager - Diagramma dell'origine degli artefatti](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-artifact-source-diagram.png)
 
-* La cartella **templates** contiene gli artefatti modello. **1.0.0.0** e **1.0.0.1** rappresentano le due versioni degli artefatti binari. In ogni versione è presente una cartella per ogni servizio (corrispondente a Stati Uniti orientali e Stati Uniti occidentali). Ogni servizio include una coppia di file del modello e dei parametri per creare un account di archiviazione e un'altra coppia per creare un'applicazione Web. Il modello dell'applicazione Web chiama un pacchetto compresso contenente i file dell'applicazione Web. Il file compresso è un artefatto binario archiviato nella cartella binaries.
-* La cartella **binaries** contiene gli artefatti binari. **1.0.0.0** e **1.0.0.1** rappresentano le due versioni degli artefatti binari. In ogni versione è incluso un file ZIP per creare l'applicazione Web nella località Stati Uniti occidentali e un altro file ZIP per creare l'applicazione Web nella località Stati Uniti orientali.
+* La cartella _templates_ contiene gli artefatti modello. Le cartelle _1.0.0.0_ e _1.0.0.1_ rappresentano le due versioni degli artefatti binari. All'interno di ogni versione è presente una cartella per ogni servizio: _ServiceEUS_ (Service East US) e _ServiceWUS_ (Service West US). Ogni servizio include una coppia di file del modello e dei parametri per creare un account di archiviazione e un'altra coppia per creare un'applicazione Web. Il modello dell'applicazione Web chiama un pacchetto compresso contenente i file dell'applicazione Web. Il file compresso è un artefatto binario archiviato nella cartella binaries.
+* La cartella _binaries_ contiene gli artefatti binari. Le cartelle _1.0.0.0_ e _1.0.0.1_ rappresentano le due versioni degli artefatti binari. All'interno di ogni versione, è disponibile un file zip per creare l'applicazione Web nella località Stati Uniti occidentali e l'altro file zip per creare l'applicazione Web nella località Stati Uniti orientali.
 
 Le due versioni (1.0.0.0 e 1.0.0.1) vengono usate per la [distribuzione della revisione](#deploy-the-revision). Nonostante esistano due versioni sia degli artefatti modello che degli artefatti binari, solo gli artefatti binari presentano differenze tra le due versioni. Nella pratica, gli artefatti binari vengono aggiornati con maggiore frequenza rispetto agli artefatti modello.
 
-1. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in un editor di testo. È un modello di base per la creazione di un account di archiviazione.
-2. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
+1. Aprire _\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json_ in un editor di testo. Si tratta di un modello di base per la creazione di un account di archiviazione.
+1. Aprire _\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json_.
 
     ![Esercitazione su Azure Deployment Manager - Modello per la creazione dell'applicazione Web](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    Il modello chiama un pacchetto di distribuzione contenente i file dell'applicazione Web. In questa esercitazione il pacchetto compresso contiene solo un file index.html.
-3. Aprire **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
+    Il modello chiama un pacchetto di distribuzione contenente i file dell'applicazione Web. In questa esercitazione il pacchetto compresso contiene solo un file di _index.html_ .
+1. Aprire _\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json_.
 
     ![Esercitazione su Azure Deployment Manager - Parametri del modello per la creazione dell'applicazione Web: containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
-    Il valore di deployPackageUri è il percorso del pacchetto di distribuzione. Il parametro contiene una variabile **$containerRoot**. Il valore di $containerRoot viene specificato nel [modello di implementazione](#create-the-rollout-template) concatenando il percorso di firma di accesso condiviso dell'origine degli artefatti, la radice degli artefatti e deployPackageUri.
-4. Aprire **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
+    Il valore di `deployPackageUri` è il percorso del pacchetto di distribuzione. Il parametro contiene una `$containerRoot` variabile. Il valore di `$containerRoot` viene fornito nel [modello di implementazione](#create-the-rollout-template) concatenando il percorso SAS di origine dell'artefatto, la radice dell'artefatto e `deployPackageUri` .
+1. Aprire _\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html_.
 
     ```html
     <html>
@@ -125,16 +124,16 @@ Le due versioni (1.0.0.0 e 1.0.0.1) vengono usate per la [distribuzione della re
     </html>
     ```
 
-    Il codice HTML visualizza informazioni sulla località e la versione. Il file binario nella cartella 1.0.0.1 mostra "Version 1.0.0.1". Dopo aver distribuito il servizio, si può passare a queste pagine.
-5. Esaminare gli altri file di artefatto, per comprendere meglio lo scenario.
+    Il codice HTML indica il percorso e le informazioni sulla versione. Il file binario nella cartella _1.0.0.1_ Mostra la _versione 1.0.0.1_. Dopo aver distribuito il servizio, si può passare a queste pagine.
+1. Esaminare gli altri file di artefatto, per comprendere meglio lo scenario.
 
 Gli artefatti modello vengono usati dal modello di topologia del servizio, mentre gli artefatti binari vengono usati dal modello di implementazione. Sia il modello di topologia che il modello di implementazione definiscono una risorsa di Azure usata come origine degli artefatti, ossia per associare Resource Manager agli artefatti modello e binari usati nella distribuzione. Per semplificare l'esercitazione, viene usato un unico account di archiviazione per archiviare sia gli artefatti modello che gli artefatti binari. Entrambe le origini degli artefatti puntano allo stesso account di archiviazione.
 
 Eseguire lo script di PowerShell seguente per creare un gruppo di risorse, creare un contenitore di archiviazione, creare un contenitore BLOB, caricare i file scaricati e quindi creare un token di firma di accesso condiviso.
 
 > [!IMPORTANT]
-> **projectName** nello script di PowerShell viene usato per generare nomi per i servizi di Azure che vengono distribuiti in questa esercitazione. I diversi servizi di Azure hanno diversi requisiti sui nomi. Per garantire la riuscita della distribuzione, scegliere un nome che contenga meno di 12 caratteri, con solo lettere minuscole e numeri.
-> Salvare una copia del nome del progetto. Usare lo stesso projectName per tutta l'esercitazione.
+> `projectName` nello script di PowerShell viene usato per generare nomi per i servizi di Azure distribuiti in questa esercitazione. I diversi servizi di Azure hanno diversi requisiti sui nomi. Per garantire la riuscita della distribuzione, scegliere un nome che contenga meno di 12 caratteri, con solo lettere minuscole e numeri.
+> Salvare una copia del nome del progetto. Si usa lo stesso `projectName` durante l'esercitazione.
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -176,9 +175,9 @@ $url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
 Write-Host $url
 ```
 
-Creare una copia dell'URL con il token di firma di accesso condiviso. Questo URL è necessario per popolare un campo nei due file dei parametri, ovvero il file dei parametri della topologia e il file dei parametri dell'implementazione.
+Creare una copia dell'URL con il token di firma di accesso condiviso. Questo URL è necessario per popolare un campo nei due file di parametri: file dei parametri della topologia e file di parametri di implementazione.
 
-Aprire il contenitore dal portale di Azure e verificare che i file e le cartelle **binaries** e **templates** siano caricati.
+Aprire il contenitore dal portale di Azure e verificare che i file _binari_ e le cartelle dei _modelli_ e i file vengano caricati.
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Creare l'identità gestita assegnata dall'utente
 
@@ -187,43 +186,43 @@ Più avanti nell'esercitazione si distribuisce un'implementazione. Pe eseguire l
 È necessario creare un'identità gestita assegnata dall'utente e configurare il controllo di accesso per la sottoscrizione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Creare un'[identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
-3. Nel portale selezionare **Sottoscrizioni** nel menu a sinistra e quindi la sottoscrizione.
-4. Selezionare **Controllo di accesso (IAM)** e quindi **Aggiungi assegnazione di ruolo**.
-5. Immettere o selezionare i valori seguenti:
+1. Creare un'[identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+1. Nel portale selezionare **Sottoscrizioni** nel menu a sinistra e quindi la sottoscrizione.
+1. Selezionare **Controllo di accesso (IAM)** e quindi **Aggiungi assegnazione di ruolo**.
+1. Immettere o selezionare i valori seguenti:
 
     ![Esercitazione su Azure Deployment Manager - Controllo di accesso con identità gestita assegnata dall'utente](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
 
     * **Ruolo**: assegnare autorizzazioni sufficienti per completare la distribuzione degli artefatti (applicazioni Web e account di archiviazione). In questa esercitazione selezionare **Collaboratore**. Nella pratica è opportuno limitare le autorizzazioni al minimo.
-    * **Assegna accesso a**: selezionare **Identità gestita assegnata dall'utente**.
+    * **Assegnare l'accesso a**: selezionare **identità gestita assegnata dall'utente**.
     * Selezionare l'identità gestita assegnata dall'utente creata in precedenza nell'esercitazione.
-6. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
 ## <a name="create-the-service-topology-template"></a>Creare il modello di topologia del servizio
 
-Aprire **\ADMTemplates\CreateADMServiceTopology.json**.
+Aprire _\ADMTemplates\CreateADMServiceTopology.json_.
 
 ### <a name="the-parameters"></a>Parametri
 
 Il modello contiene i parametri seguenti:
 
-* **projectName**: questo nome viene usato per creare i nomi delle risorse di Deployment Manager. Se si usa "jdoe", ad esempio, il nome della topologia del servizio sarà **jdoe**ServiceTopology.  I nomi delle risorse vengono definiti nella sezione variables di questo modello.
-* **azureResourcelocation**: per semplificare l'esercitazione, tutte le risorse condividono questa località a meno che non venga specificato diversamente.
-* **artifactSourceSASLocation**: URI di firma di accesso condiviso del contenitore BLOB in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
-* **templateArtifactRoot**: percorso di offset del contenitore BLOB in cui sono archiviati i modelli e i parametri. Il valore predefinito è **templates/1.0.0.0**. Non modificare questo valore a meno che non si voglia modificare la struttura di cartelle illustrata in [Preparare gli artefatti](#prepare-the-artifacts). In questa esercitazione vengono usati percorsi relativi.  Il percorso completo viene costruito concatenando **artifactSourceSASLocation**, **templateArtifactRoot** e **templateArtifactSourceRelativePath** (o **parametersArtifactSourceRelativePath**).
-* **targetSubscriptionID**: ID sottoscrizione in cui verranno distribuite e fatturate le risorse di Deployment Manager. In questa esercitazione usare il proprio ID sottoscrizione.
+* `projectName`: Questo nome viene usato per creare i nomi per le risorse Gestione distribuzione. Se ad esempio si usa **demo**, il nome della topologia del servizio è **demo** ServiceTopology. I nomi delle risorse vengono definiti nella sezione del modello `variables` .
+* `azureResourcelocation`: Per semplificare l'esercitazione, tutte le risorse condividono questo percorso, a meno che non sia specificato diversamente.
+* `artifactSourceSASLocation`: URI di firma di accesso condiviso per il contenitore BLOB in cui vengono archiviati i file del modello e dei parametri di unità di servizio per la distribuzione. Vedere [Preparare gli artefatti](#prepare-the-artifacts).
+* `templateArtifactRoot`: Percorso di offset dal contenitore BLOB in cui vengono archiviati i modelli e i parametri. Il valore predefinito è _templates/1.0.0.0_. Non modificare questo valore a meno che non si voglia modificare la struttura di cartelle illustrata in [Preparare gli artefatti](#prepare-the-artifacts). In questa esercitazione vengono usati percorsi relativi. Il percorso completo viene costruito concatenando `artifactSourceSASLocation` , `templateArtifactRoot` e `templateArtifactSourceRelativePath` (o `parametersArtifactSourceRelativePath` ).
+* `targetSubscriptionID`: ID sottoscrizione a cui verranno distribuite e fatturate le risorse Gestione distribuzione. In questa esercitazione usare il proprio ID sottoscrizione.
 
 ### <a name="the-variables"></a>Variabili
 
-La sezione variables definisce i nomi delle risorse, le località di Azure per i due servizi **Service WUS** e **Service EUS** e i percorsi degli artefatti:
+La sezione VARIABLES definisce i nomi delle risorse, le località di Azure per i due servizi: `ServiceWUS` e e `ServiceEUS` i percorsi degli elementi:
 
 ![Esercitazione su Azure Deployment Manager - Variabili del modello di topologia](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
-Confrontare i percorsi degli artefatti con la struttura di cartelle caricata nell'account di archiviazione. Si noti che i percorsi degli artefatti sono percorsi relativi. Il percorso completo viene costruito concatenando **artifactSourceSASLocation**, **templateArtifactRoot** e **templateArtifactSourceRelativePath** (o **parametersArtifactSourceRelativePath**).
+Confrontare i percorsi degli artefatti con la struttura di cartelle caricata nell'account di archiviazione. Si noti che i percorsi degli artefatti sono percorsi relativi. Il percorso completo viene costruito concatenando `artifactSourceSASLocation` , `templateArtifactRoot` e `templateArtifactSourceRelativePath` (o `parametersArtifactSourceRelativePath` ).
 
 ### <a name="the-resources"></a>Risorse
 
-A livello di radice sono definite due risorse: un'*origine degli artefatti* e una *topologia del servizio*.
+A livello di radice sono state definite due risorse: *un'origine artefatto* e *una topologia del servizio*.
 
 La definizione dell'origine degli artefatti è la seguente:
 
@@ -233,28 +232,28 @@ Lo screenshot seguente mostra solo alcune parti delle definizioni della topologi
 
 ![Esercitazione su Azure Deployment Manager - Risorse nel modello di topologia: topologia del servizio](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-resources-service-topology.png)
 
-* **artifactSourceId**: viene usato per associare la risorsa origine degli artefatti alla risorsa topologia del servizio.
-* **dependsOn**: tutte le risorse della topologia del servizio dipendono dalla risorsa origine degli artefatti.
-* **artifacts**: punta agli artefatti modello.  Vengono usati percorsi relativi. Il percorso completo viene costruito concatenando i valori di artifactSourceSASLocation e artifactRoot (definiti nell'origine degli artefatti) e templateArtifactSourceRelativePath (o parametersArtifactSourceRelativePath).
+* `artifactSourceId`: Usato per associare la risorsa di origine dell'artefatto alla risorsa della topologia del servizio.
+* `dependsOn`: Tutte le risorse della topologia del servizio dipendono dalla risorsa di origine dell'artefatto.
+* `artifacts`: Puntare agli elementi del modello. Vengono usati percorsi relativi. Il percorso completo viene costruito concatenando `artifactSourceSASLocation` (definito nell'origine dell'artefatto), `artifactRoot` (definito nell'origine dell'artefatto) e `templateArtifactSourceRelativePath` (o `parametersArtifactSourceRelativePath` ).
 
 ### <a name="topology-parameters-file"></a>File dei parametri della topologia
 
 Creare un file dei parametri da usare con il modello di topologia.
 
-1. Aprire **\ADMTemplates\CreateADMServiceTopology.Parameters** in Visual Studio Code o in qualsiasi editor di testo.
-2. Specificare i valori dei parametri.
+1. Aprire _\ADMTemplates\CreateADMServiceTopology.Parameters.js_ in Visual Studio Code o in qualsiasi editor di testo.
+1. Immettere i valori dei parametri:
 
-    * **projectName**: immettere una stringa di 4-5 caratteri. Questo nome viene usato per creare nomi univoci per le risorse di Azure.
-    * **azureResourceLocation**: se non si ha familiarità con le località di Azure, in questa esercitazione usare **centralus**.
-    * **artifactSourceSASLocation**: immettere l'URI di firma di accesso condiviso della directory radice (contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
-    * **templateArtifactRoot**: a meno che non si modifichi la struttura di cartelle degli artefatti, in questa esercitazione usare **templates/1.0.0.0**.
+    * `projectName`: Immettere una stringa con 4-5 caratteri. Questo nome viene usato per creare nomi di risorse di Azure univoci.
+    * `azureResourceLocation`: Se non si ha familiarità con le località di Azure, usare **centralus** in questa esercitazione.
+    * `artifactSourceSASLocation`: Immettere l'URI di firma di accesso condiviso per la directory radice (il contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri dell'unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
+    * `templateArtifactRoot`: A meno che non si modifichi la struttura di cartelle degli elementi, usare _Templates/1.0.0.0_ in questa esercitazione.
 
 > [!IMPORTANT]
-> Il modello di topologia e il modello di implementazione condividono alcuni parametri comuni, che devono avere gli stessi valori. Tali parametri sono **projectName**, **azureResourceLocation** e **artifactSourceSASLocation** (in questa esercitazione, entrambe le origini degli artefatti condividono lo stesso account di archiviazione).
+> Il modello di topologia e il modello di implementazione condividono alcuni parametri comuni, che devono avere gli stessi valori. Questi parametri sono: `projectName` , `azureResourceLocation` e `artifactSourceSASLocation` (entrambe le origini degli elementi condividono lo stesso account di archiviazione in questa esercitazione).
 
 ## <a name="create-the-rollout-template"></a>Creare il modello di implementazione
 
-Aprire **\ADMTemplates\CreateADMRollout.json**.
+Aprire _\ADMTemplates\CreateADMRollout.json_.
 
 ### <a name="the-parameters"></a>Parametri
 
@@ -262,15 +261,15 @@ Il modello contiene i parametri seguenti:
 
 ![Esercitazione su Azure Deployment Manager - Parametri del modello di implementazione](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* **projectName**: questo nome viene usato per creare i nomi delle risorse di Deployment Manager. Se si usa "jdoe", ad esempio, il nome dell'implementazione sarà **jdoe**Rollout.  I nomi vengono definiti nella sezione variables del modello.
-* **azureResourcelocation**: per semplificare l'esercitazione, tutte le risorse di Deployment Manager condividono questa località a meno che non venga specificato diversamente.
-* **artifactSourceSASLocation**: URI di firma di accesso condiviso della directory radice (contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
-* **binaryArtifactRoot**:  il valore predefinito è **binaries/1.0.0.0**. Non modificare questo valore a meno che non si voglia modificare la struttura di cartelle illustrata in [Preparare gli artefatti](#prepare-the-artifacts). In questa esercitazione vengono usati percorsi relativi.  Il percorso completo viene costruito concatenando **artifactSourceSASLocation**, **binaryArtifactRoot** e il valore di **deployPackageUri** specificato in CreateWebApplicationParameters.json.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
-* **managedIdentityID**: identità gestita assegnata dall'utente che esegue le azioni di distribuzione. Vedere [Creare l'identità gestita assegnata dall'utente](#create-the-user-assigned-managed-identity).
+* `projectName`: Questo nome viene usato per creare i nomi per le risorse Gestione distribuzione. Ad esempio, se si usa **demo**, il nome dell'implementazione è la distribuzione **demo**. I nomi vengono definiti nella sezione del modello `variables` .
+* `azureResourcelocation`: Per semplificare l'esercitazione, tutte le risorse Gestione distribuzione condividono questo percorso, a meno che non sia specificato diversamente.
+* `artifactSourceSASLocation`: L'URI di firma di accesso condiviso alla directory radice (il contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri di unità di servizio per la distribuzione. Vedere [Preparare gli artefatti](#prepare-the-artifacts).
+* `binaryArtifactRoot`: Il valore predefinito è _Binaries/1.0.0.0_. Non modificare questo valore a meno che non si voglia modificare la struttura di cartelle illustrata in [Preparare gli artefatti](#prepare-the-artifacts). In questa esercitazione vengono usati percorsi relativi. Il percorso completo viene costruito concatenando `artifactSourceSASLocation` , `binaryArtifactRoot` e l' `deployPackageUri` oggetto specificato in _CreateWebApplicationParameters.js_. Vedere [Preparare gli artefatti](#prepare-the-artifacts).
+* `managedIdentityID`: Identità gestita assegnata dall'utente che esegue le azioni di distribuzione. Vedere [Creare l'identità gestita assegnata dall'utente](#create-the-user-assigned-managed-identity).
 
 ### <a name="the-variables"></a>Variabili
 
-La sezione variables definisce i nomi delle risorse. Verificare che il nome della topologia del servizio, i nomi dei servizi e quelli delle unità di servizio corrispondano ai nomi definiti nel [modello di topologia](#create-the-service-topology-template).
+La `variables` sezione definisce i nomi delle risorse. Verificare che il nome della topologia del servizio, i nomi dei servizi e quelli delle unità di servizio corrispondano ai nomi definiti nel [modello di topologia](#create-the-service-topology-template).
 
 ![Esercitazione su Azure Deployment Manager - Variabili del modello di implementazione](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-variables.png)
 
@@ -278,44 +277,44 @@ La sezione variables definisce i nomi delle risorse. Verificare che il nome dell
 
 A livello di radice sono definite tre risorse: un'origine degli artefatti, un passaggio e un'implementazione.
 
-La definizione dell'origine degli artefatti è identica a quella presente nel modello di topologia.  Per altre informazioni, vedere [Creare il modello di topologia del servizio](#create-the-service-topology-template).
+La definizione dell'origine degli artefatti è identica a quella presente nel modello di topologia. Per altre informazioni, vedere [Creare il modello di topologia del servizio](#create-the-service-topology-template).
 
-Lo screenshot seguente mostra la definizione del passaggio di attesa:
+Nella schermata seguente viene illustrata la `wait` definizione del passaggio:
 
 ![Esercitazione su Azure Deployment Manager - Risorse del modello di implementazione: passaggio di attesa](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-Per la durata viene usato lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (con lettere maiuscole obbligatorie) è un esempio di un'attesa di 1 minuto.
+La durata utilizza lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (con lettere maiuscole obbligatorie) è un esempio di un'attesa di 1 minuto.
 
 Lo screenshot seguente mostra solo alcune parti della definizione dell'implementazione:
 
 ![Esercitazione su Azure Deployment Manager - Risorse del modello di implementazione: implementazione](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-rollout.png)
 
-* **dependsOn**: la risorsa implementazione dipende dalla risorsa origine degli artefatti e dagli eventuali passaggi definiti.
-* **artifactSourceId**: viene usato per associare la risorsa origine degli artefatti alla risorsa implementazione.
-* **targetServiceTopologyId**: viene usato per associare la risorsa topologia del servizio alla risorsa implementazione.
-* **deploymentTargetId**: è l'ID risorsa dell'unità di servizio della risorsa topologia del servizio.
-* **preDeploymentSteps** e **postDeploymentSteps**: contengono i passaggi dell'implementazione. Nel modello viene chiamato un passaggio di attesa.
-* **dependsOnStepGroups**: configurare le dipendenze tra i gruppi di passaggi.
+* `dependsOn`: La risorsa di implementazione dipende dalla risorsa di origine dell'artefatto e da tutti i passaggi definiti.
+* `artifactSourceId`: Usato per associare la risorsa di origine dell'artefatto alla risorsa di implementazione.
+* `targetServiceTopologyId`: Usato per associare la risorsa della topologia del servizio alla risorsa di implementazione.
+* `deploymentTargetId`: ID di risorsa dell'unità di servizio della risorsa della topologia del servizio.
+* `preDeploymentSteps` e `postDeploymentSteps` : contiene i passaggi di implementazione. Nel modello `wait` viene chiamato un passaggio.
+* `dependsOnStepGroups`: Configurare le dipendenze tra i gruppi di passaggi.
 
 ### <a name="rollout-parameters-file"></a>File dei parametri dell'implementazione
 
 Creare un file dei parametri da usare con il modello di implementazione.
 
-1. Aprire **\ADMTemplates\CreateADMRollout.Parameters** in Visual Studio Code o in qualsiasi editor di testo.
-2. Specificare i valori dei parametri.
+1. Aprire _\ADMTemplates\CreateADMRollout.Parameters.js_ in Visual Studio Code o in qualsiasi editor di testo.
+1. Immettere i valori dei parametri:
 
-    * **projectName**: immettere una stringa di 4-5 caratteri. Questo nome viene usato per creare nomi univoci per le risorse di Azure.
-    * **azureResourceLocation**: specificare una località di Azure.
-    * **artifactSourceSASLocation**: immettere l'URI di firma di accesso condiviso della directory radice (contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
-    * **binaryArtifactRoot**: a meno che non si modifichi la struttura di cartelle degli artefatti, in questa esercitazione usare **binaries/1.0.0.0**.
-    * **managedIdentityID**: immettere l'identità gestita assegnata dall'utente. Vedere [Creare l'identità gestita assegnata dall'utente](#create-the-user-assigned-managed-identity). La sintassi è:
+    * `projectName`: Immettere una stringa con 4-5 caratteri. Questo nome viene usato per creare nomi di risorse di Azure univoci.
+    * `azureResourceLocation`: Specificare una località di Azure.
+    * `artifactSourceSASLocation`: Immettere l'URI di firma di accesso condiviso per la directory radice (il contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri dell'unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
+    * `binaryArtifactRoot`: A meno che non si modifichi la struttura di cartelle degli elementi, usare i _file binari/1.0.0.0_ in questa esercitazione.
+    * `managedIdentityID`: Immettere l'identità gestita assegnata dall'utente. Vedere [Creare l'identità gestita assegnata dall'utente](#create-the-user-assigned-managed-identity). La sintassi è:
 
-        ```
+        ```json
         "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userassignedidentities/<ManagedIdentityName>"
         ```
 
 > [!IMPORTANT]
-> Il modello di topologia e il modello di implementazione condividono alcuni parametri comuni, che devono avere gli stessi valori. Tali parametri sono **projectName**, **azureResourceLocation** e **artifactSourceSASLocation** (in questa esercitazione, entrambe le origini degli artefatti condividono lo stesso account di archiviazione).
+> Il modello di topologia e il modello di implementazione condividono alcuni parametri comuni, che devono avere gli stessi valori. Questi parametri sono: `projectName` , `azureResourceLocation` e `artifactSourceSASLocation` (entrambe le origini degli elementi condividono lo stesso account di archiviazione in questa esercitazione).
 
 ## <a name="deploy-the-templates"></a>Distribuire i modelli
 
@@ -331,18 +330,18 @@ Per distribuire i modelli è possibile usare Azure PowerShell.
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
 
-    Se si esegue questo script da una sessione di PowerShell diversa rispetto a quella in cui è stato eseguito lo script [Preparare gli artefatti](#prepare-the-artifacts), è necessario ripopolare prima le variabili, che includono **$resourceGroupName** e **$filePath**.
+    Se si esegue questo script da una sessione di PowerShell diversa da quella in cui è stato eseguito lo script [preparare gli artefatti](#prepare-the-artifacts) , è necessario ripopolare prima le variabili, che includono `$resourceGroupName` e `$filePath` .
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment` è una chiamata asincrona. Il messaggio di operazione riuscita indica solo che la distribuzione è stata avviata correttamente. Per verificare la distribuzione, vedere i passaggi 2 e 4 di questa procedura.
+    > `New-AzResourceGroupDeployment` è una chiamata asincrona. Il messaggio di operazione riuscita indica solo che la distribuzione è stata avviata correttamente. Per verificare la distribuzione, vedere il passaggio 2 e il passaggio 4 di questa procedura.
 
-2. Verificare che la creazione della topologia del servizio e delle risorse sottolineate sia stata completata usando il portale di Azure:
+1. Verificare che la creazione della topologia del servizio e delle risorse sottolineate sia stata completata usando il portale di Azure:
 
     ![Esercitazione su Azure Deployment Manager - Risorse della topologia del servizio distribuite](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
     Per visualizzare le risorse deve essere selezionata l'opzione **Mostra tipi nascosti**.
 
-3. <a id="deploy-the-rollout-template"></a>Distribuire il modello di implementazione:
+1. <a id="deploy-the-rollout-template"></a>Distribuire il modello di implementazione:
 
     ```azurepowershell
     # Create the rollout
@@ -352,7 +351,7 @@ Per distribuire i modelli è possibile usare Azure PowerShell.
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
     ```
 
-4. Controllare lo stato di avanzamento dell'implementazione con lo script PowerShell seguente:
+1. Controllare lo stato di avanzamento dell'implementazione con lo script PowerShell seguente:
 
     ```azurepowershell
     # Get the rollout status
@@ -363,11 +362,11 @@ Per distribuire i modelli è possibile usare Azure PowerShell.
         -Verbose
     ```
 
-    Per poter eseguire questo cmdlet, è prima di tutto necessario che siano installati i cmdlet PowerShell di Deployment Manager. Vedere Prerequisiti. L'opzione -Verbose può essere usata per visualizzare l'output completo.
+    Per poter eseguire questo cmdlet, è prima di tutto necessario che siano installati i cmdlet PowerShell di Deployment Manager. Vedere [Prerequisiti](#prerequisites). Il `-Verbose` parametro può essere usato per visualizzare l'intero output.
 
     L'esempio seguente mostra lo stato di esecuzione:
 
-    ```
+    ```Output
     VERBOSE:
 
     Status: Succeeded
@@ -423,37 +422,37 @@ Per distribuire i modelli è possibile usare Azure PowerShell.
     Tags                    :
     ```
 
-    Al termine della distribuzione dell'implementazione, verranno visualizzati altri due gruppi di risorse che sono stati creati, uno per ogni servizio.
+    Una volta distribuita l'implementazione, verranno visualizzati altri due gruppi di risorse, uno per ogni servizio.
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Passare alle nuove applicazioni Web nei gruppi di risorse creati dalla distribuzione dell'implementazione.
-3. Aprire l'applicazione Web in un Web browser. Verificare la località e la versione nel file index.html.
+1. Passare alle applicazioni Web appena create con i nuovi gruppi di risorse creati dalla distribuzione di implementazione.
+1. Aprire l'applicazione Web in un Web browser. Verificare il percorso e la versione nel file _index.html_ .
 
 ## <a name="deploy-the-revision"></a>Distribuire la revisione
 
 Quando è disponibile una nuova versione (1.0.0.1), è possibile ridistribuire l'applicazione Web usando la procedura seguente.
 
-1. Aprire CreateADMRollout.Parameters.json.
-2. Aggiornare **binaryArtifactRoot** in **binaries/1.0.0.1**.
-3. Ridistribuire l'implementazione come illustrato in [Distribuire i modelli](#deploy-the-rollout-template).
-4. Verificare la distribuzione come illustrato in [Verificare la distribuzione](#verify-the-deployment). Nella pagina Web verrà visualizzata la versione 1.0.0.1.
+1. Aprire _CreateADMRollout.Parameters.js_.
+1. Aggiornamento `binaryArtifactRoot` ai _file binari/1.0.0.1_.
+1. Ridistribuire l'implementazione come illustrato in [Distribuire i modelli](#deploy-the-rollout-template).
+1. Verificare la distribuzione come illustrato in [Verificare la distribuzione](#verify-the-deployment). Nella pagina Web verrà visualizzata la versione 1.0.0.1.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse.
 
 1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
-2. Usare il campo **Filtra per nome** per limitare l'elenco ai gruppi di risorse creati in questa esercitazione, che saranno 3-4:
+1. Usare il campo **Filtra per nome** per limitare l'elenco ai gruppi di risorse creati in questa esercitazione,
 
     * **&lt;projectName>rg**, che contiene le risorse di Deployment Manager.
     * **&lt;projectName>ServiceWUSrg**, che contiene le risorse definite da ServiceWUS.
     * **&lt;projectName>ServiceEUSrg**, che contiene le risorse definite da ServiceEUS.
     * Gruppo di risorse per l'identità gestita definita dall'utente.
-3. Selezionare il nome del gruppo di risorse.
-4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
-5. Ripetere gli ultimi due passaggi per eliminare gli altri gruppi di risorse creati con questa esercitazione.
+1. Selezionare il nome del gruppo di risorse.
+1. Selezionare **Elimina gruppo di risorse** nel menu in alto.
+1. Ripetere gli ultimi due passaggi per eliminare gli altri gruppi di risorse creati con questa esercitazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

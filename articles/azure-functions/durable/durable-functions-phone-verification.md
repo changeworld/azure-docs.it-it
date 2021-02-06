@@ -4,12 +4,12 @@ description: Informazioni su come gestire l'interazione umana e i timeout nell'e
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: dd7f8416b2f4520ec8e94c8608f753f7412afc4d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028304"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627373"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
@@ -37,6 +37,9 @@ L'articolo illustra le funzioni seguenti nell'app di esempio:
 
 * `E4_SmsPhoneVerification`: Funzione dell'agente di [orchestrazione](durable-functions-bindings.md#orchestration-trigger) che esegue il processo di verifica tramite telefono, inclusa la gestione di timeout e tentativi.
 * `E4_SendSmsChallenge`: [Funzione di attività](durable-functions-bindings.md#activity-trigger) che invia un codice tramite SMS.
+
+> [!NOTE]
+> La `HttpStart` funzione nell' [app di esempio e la Guida introduttiva](#prerequisites) funge da [client di orchestrazione](durable-functions-bindings.md#orchestration-client) che attiva la funzione dell'agente di orchestrazione.
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>Funzione dell'agente di orchestrazione E4_SmsPhoneVerification
 

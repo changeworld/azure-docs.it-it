@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.openlocfilehash: 8a71e854f03bee75b757e0a0aa02e7aa2c24469b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747852"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626562"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Esercitazione: Aggiornare un'applicazione di Service Fabric in esecuzione in Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa è la terza di una serie di esercitazioni. Si apprenderà come eseguire l'aggiornamento di un'applicazione di Service Fabric che è stata [distribuita in precedenza in Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) aumentando le risorse della CPU allocate.  Al termine si avrà un servizio front-end Web in esecuzione con maggiori risorse della CPU.
 
@@ -80,7 +85,7 @@ Il parametro *frontEndCpu* viene dichiarato nella sezione *parametri* del [model
 }
 ```
 
-La proprietà del servizio WebFrontEnd *codePackages->resources->requests->cpu* fa riferimento al parametro *frontEndCpu* :
+La proprietà del servizio WebFrontEnd *codePackages->resources->requests->cpu* fa riferimento al parametro *frontEndCpu*:
 
 ```json
     "services": [

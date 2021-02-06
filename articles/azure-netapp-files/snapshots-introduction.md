@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133515"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625248"
 ---
-# <a name="how-azure-netapp-files-snapshots-work"></a>Funzionamento degli snapshot Azure NetApp Files
+# <a name="how-azure-netapp-files-snapshots-work"></a>Funzionamento degli snapshot di Azure NetApp Files
 
 Questo articolo illustra il funzionamento di Azure NetApp Files snapshot. Azure NetApp Files tecnologia snapshot offre stabilità, scalabilità e recuperabilità più veloce, senza alcun effetto sulle prestazioni. Azure NetApp Files tecnologia snapshot fornisce le basi per le soluzioni di protezione dei dati, inclusi i ripristini di file singoli, i ripristini di volumi e i cloni e la replica tra aree. 
 
@@ -49,26 +49,26 @@ Nel frattempo, i blocchi di dati a cui punta uno snapshot rimangono stabili e no
 
 Poiché uno snapshot del volume registra solo le modifiche del blocco dopo lo snapshot più recente, offre i vantaggi principali seguenti:
 
-* Gli snapshot sono ***efficienza di archiviazione** _.   
-    Gli snapshot utilizzano spazio di archiviazione minimo perché non copia i blocchi di dati dell'intero volume. Due snapshot presi in sequenza differiscono solo per i blocchi aggiunti o modificati nell'intervallo di tempo tra i due. Questo comportamento incrementale del blocco limita l'utilizzo della capacità di archiviazione associata. Molte implementazioni di snapshot alternativi utilizzano volumi di archiviazione uguali al file system attivo, aumentando i requisiti di capacità di archiviazione. A seconda delle percentuali di modifica a livello di _block giornaliero dell'applicazione, gli snapshot Azure NetApp Files utilizzeranno più o meno capacità, ma solo su dati modificati. Il consumo di snapshot giornalieri medio è compreso tra il 1-5% della capacità del volume utilizzato per molti volumi dell'applicazione o fino al 20-30% per i volumi, ad esempio SAP HANA volumi del database. Assicurarsi di [monitorare l'utilizzo di volumi e snapshot](azure-netapp-files-metrics.md#volumes) per il consumo di capacità snapshot rispetto al numero di snapshot creati e gestiti.   
+* Gli snapshot sono ***efficienti*** per l'archiviazione.   
+    Gli snapshot utilizzano spazio di archiviazione minimo perché non copia i blocchi di dati dell'intero volume. Due snapshot presi in sequenza differiscono solo per i blocchi aggiunti o modificati nell'intervallo di tempo tra i due. Questo comportamento incrementale del blocco limita l'utilizzo della capacità di archiviazione associata. Molte implementazioni di snapshot alternativi utilizzano volumi di archiviazione uguali al file system attivo, aumentando i requisiti di capacità di archiviazione. A seconda della frequenza di modifica a *livello di blocco* giornaliera dell'applicazione, Azure NetApp files snapshot utilizzeranno più o meno capacità, ma solo su dati modificati. Il consumo di snapshot giornalieri medio è compreso tra il 1-5% della capacità del volume utilizzato per molti volumi dell'applicazione o fino al 20-30% per i volumi, ad esempio SAP HANA volumi del database. Assicurarsi di [monitorare l'utilizzo di volumi e snapshot](azure-netapp-files-metrics.md#volumes) per il consumo di capacità snapshot rispetto al numero di snapshot creati e gestiti.   
 
-* Gli snapshot sono ***rapidi per la creazione, la replica, il ripristino o la clonazione di** _.   
+* Gli snapshot sono ***rapidi per la creazione, la replica, il ripristino o la clonazione***.   
     La creazione, la replica, il ripristino o la clonazione di uno snapshot richiede solo pochi secondi, indipendentemente dalle dimensioni del volume e dal livello delle attività. È possibile creare uno snapshot [del volume su richiesta](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume). È anche possibile usare i [criteri di snapshot](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) per specificare quando Azure NetApp files deve creare automaticamente uno snapshot e il numero di snapshot da tenere per un volume.  La coerenza delle applicazioni può essere eseguita tramite l'orchestrazione degli snapshot con il livello dell'applicazione, ad esempio usando lo [strumento AzAcSnap](azacsnap-introduction.md) per SAP Hana.
 
-_ Gli snapshot non hanno alcun effetto sulle **prestazioni** del volume *.   
+* Gli snapshot non hanno alcun effetto sulle ***prestazioni*** del volume.   
     Grazie alla natura di "Reindirizzamento in scrittura" della tecnologia di sottodisposizione, l'archiviazione o la conservazione di Azure NetApp Files snapshot non ha alcun effetto sulle prestazioni, anche con un'attività di dati intensa. Anche l'eliminazione di uno snapshot non ha un effetto minimo sulle prestazioni nella maggior parte dei casi. 
 
-_ Gli snapshot forniscono ***scalabilità** _ perché possono essere creati spesso e molti possono essere conservati.   
+* Gli snapshot forniscono la ***scalabilità*** perché possono essere creati spesso e molti possono essere conservati.   
     Azure NetApp Files volumi supportano fino a 255 snapshot. La possibilità di archiviare un numero elevato di snapshot di basso livello e di uso frequente aumenta la probabilità che la versione desiderata dei dati possa essere ripristinata correttamente.
 
-_ Gli snapshot forniscono ***visibilità utente** _ e _*_ripristino file_*_.   
+* Gli snapshot forniscono * ***visibilità utente** _ e _ _* *_* *.   
 Le prestazioni elevate, la scalabilità e la stabilità di Azure NetApp Files tecnologia snapshot significa che fornisce un backup online ideale per il ripristino guidato dall'utente. Gli snapshot possono essere resi accessibili dagli utenti per scopi di ripristino di file, directory o volumi. Altre soluzioni consentono di copiare i backup nell'archiviazione offline o di [replicare tra aree](cross-region-replication-introduction.md) a scopo di conservazione o ripristino di emergenza.
 
 ## <a name="ways-to-create-snapshots"></a>Modalità di creazione di snapshot   
 
 È possibile usare diversi metodi per creare e gestire gli snapshot:
 
-_ Manualmente (su richiesta), usando:   
+* Manualmente (su richiesta), usando:   
     * Il [portale di Azure](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), l' [API REST](/rest/api/netapp/snapshots), l'interfaccia della riga di comando di [Azure](/cli/azure/netappfiles/snapshot)o gli strumenti [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)
     * Script (vedere [esempi](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts))
 
@@ -161,7 +161,7 @@ Vedere [eliminare snapshot](azure-netapp-files-manage-snapshots.md#delete-snapsh
 * [Risolvere i problemi relativi ai criteri dello snapshot](troubleshoot-snapshot-policies.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Video snapshot di Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw)
-* [Snapshot NetApp-Catalogo video NetApp](https://tv.netapp.com/detail/video/2579133646001/snapshot)
+* [Panoramica dello snapshot Azure NetApp Files](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
 
 
 

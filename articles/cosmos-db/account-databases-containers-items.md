@@ -7,25 +7,25 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4ed881b74f240946d98d9868344c898d3e9a9dad
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341366"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627332"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modello di risorsa di Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB è una piattaforma completamente gestita distribuita come servizio (PaaS). Per iniziare a usare Azure Cosmos DB, è prima di tutto necessario creare un account Azure Cosmos nella sottoscrizione di Azure e in database, contenitori, elementi al suo interno. Questo articolo descrive il modello di risorse Azure Cosmos DB e le entità diverse nella gerarchia del modello di risorse.
 
-L'account Azure Cosmos è l'unità fondamentale della distribuzione globale e della disponibilità elevata. L'account Azure Cosmos contiene un nome DNS univoco e può essere gestito tramite il portale di Azure, l'interfaccia della riga di comando di Azure o diversi SDK specifici del linguaggio. Per altre informazioni, vedere [Come gestire l'account Azure Cosmos](how-to-manage-database-account.md). Per la distribuzione globale dei dati e della velocità effettiva in più aree di Azure, è possibile aggiungere e rimuovere aree di Azure al proprio account in qualsiasi momento. È possibile configurare l'account in modo che disponga di una singola area o più aree di scrittura. Per altre informazioni, vedere [come aggiungere e rimuovere aree di Azure al proprio account](how-to-manage-database-account.md). È possibile configurare il livello di [coerenza predefinito](consistency-levels.md) per un account.
+L'account Azure Cosmos è l'unità fondamentale della distribuzione globale e della disponibilità elevata. L'account Azure Cosmos contiene un nome DNS univoco ed è possibile gestire un account usando il portale di Azure o l'interfaccia della riga di comando di Azure oppure usando SDK diversi specifici della lingua. Per altre informazioni, vedere [Come gestire l'account Azure Cosmos](how-to-manage-database-account.md). Per la distribuzione globale dei dati e della velocità effettiva in più aree di Azure, è possibile aggiungere e rimuovere aree di Azure al proprio account in qualsiasi momento. È possibile configurare l'account in modo che disponga di una singola area o più aree di scrittura. Per altre informazioni, vedere [come aggiungere e rimuovere aree di Azure al proprio account](how-to-manage-database-account.md). È possibile configurare il livello di [coerenza predefinito](consistency-levels.md) per un account.
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementi nell'account Azure Cosmos
 
-Azure Cosmos container è l'unità di base della scalabilità. È possibile ottenere archiviazione e unità elaborate supportate per il provisioning (UR/s) praticamente illimitate in un contenitore. Azure Cosmos DB partiziona in modo trasparente il contenitore usando la chiave di partizione logica specificata per ridimensionare in modo elastico l'archiviazione e le unità elaborate supportate per il provisioning.
+Un contenitore di Azure Cosmos è l'unità di base della scalabilità. È possibile ottenere archiviazione e unità elaborate supportate per il provisioning (UR/s) praticamente illimitate in un contenitore. Azure Cosmos DB partiziona in modo trasparente il contenitore usando la chiave di partizione logica specificata per ridimensionare in modo elastico l'archiviazione e le unità elaborate supportate per il provisioning.
 
-Attualmente, è possibile creare un massimo di 50 account Azure Cosmos in una sottoscrizione di Azure. si tratta di un limite flessibile che può essere aumentato tramite la richiesta di supporto. Un solo account Azure Cosmos può gestire praticamente una quantità illimitata di dati e di unità elaborate supportate per il provisioning. Per gestire i dati e le unità elaborate supportate per il provisioning, è possibile creare uno o più database Cosmos Azure nel proprio account e all'interno del database è possibile creare uno o più contenitori. L'immagine seguente mostra la gerarchia degli elementi in un account Azure Cosmos:
+Attualmente, è possibile creare un massimo di 50 account Azure Cosmos in una sottoscrizione di Azure. si tratta di un limite flessibile che può essere aumentato tramite la richiesta di supporto. Un singolo account Azure Cosmos può gestire virtualmente una quantità illimitata di dati e la velocità effettiva con provisioning. Per gestire i dati e le unità elaborate supportate per il provisioning, è possibile creare uno o più database Cosmos Azure nel proprio account e all'interno del database è possibile creare uno o più contenitori. L'immagine seguente mostra la gerarchia degli elementi in un account Azure Cosmos:
 
 :::image type="content" source="./media/account-databases-containers-items/hierarchy.png" alt-text="Gerarchia di un account Azure Cosmos" border="false":::
 
@@ -41,7 +41,7 @@ Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un ac
 
 | Entità di Azure Cosmos DB | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- |
-|Database Azure Cosmos DB | Database | Keyspace | Database | Database | ND |
+|Database Azure Cosmos DB | Database | Keyspace | Database | Database | N/D |
 
 > [!NOTE]
 > Con API Tabella account, quando si crea la prima tabella, viene creato automaticamente un database predefinito nell'account Azure Cosmos.
@@ -52,10 +52,10 @@ Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un ac
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
-|Leggere il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
-|Creare il nuovo database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
-|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
+|Leggere il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
+|Creare il nuovo database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
+|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | N/D | N/D |
 
 ## <a name="azure-cosmos-containers"></a>Contenitori Azure Cosmos DB
 
@@ -63,9 +63,9 @@ Un contenitore di Azure Cosmos è l'unità di scalabilità per la velocità effe
 
 Quando si crea un contenitore, la velocità effettiva viene configurata in una delle modalità seguenti:
 
-* **Modalità di velocità effettiva con provisioning dedicato** : la velocità effettiva con provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di contratto. Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un contenitore](how-to-provision-container-throughput.md).
+* **Modalità di velocità effettiva con provisioning dedicato**: la velocità effettiva con provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di contratto. Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un contenitore](how-to-provision-container-throughput.md).
 
-* **Modalità di velocità effettiva con provisioning condiviso** : questi contenitori condividono la velocità effettiva con provisioning con gli altri contenitori nello stesso database, esclusi i contenitori che sono stati configurati con una velocità effettiva con provisioning dedicata. In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "velocità effettiva condivisa". Per ulteriori informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database](how-to-provision-database-throughput.md).
+* **Modalità di velocità effettiva con provisioning condiviso**: questi contenitori condividono la velocità effettiva con provisioning con gli altri contenitori nello stesso database, esclusi i contenitori che sono stati configurati con una velocità effettiva con provisioning dedicata. In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "velocità effettiva condivisa". Per ulteriori informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. Per passare dalla modalità di velocità effettiva dedicata alla modalità di velocità effettiva condivisa (e viceversa) dopo la creazione del contenitore, è necessario creare un nuovo contenitore dove eseguire la migrazione dei dati. È possibile eseguire la migrazione dei dati tramite la funzionalità Azure Cosmos DB feed delle modifiche.
@@ -113,11 +113,11 @@ Un contenitore di Azure Cosmos supporta le operazioni seguenti quando si usa una
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | ND | ND |
-| Leggere un contenitore | Sì | Sì | Sì | Sì | ND | ND |
-| Crea un nuovo contenitore | Sì | Sì | Sì | Sì | ND | ND |
-| Aggiornare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
-| Eliminare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | N/D | N/D |
+| Leggere un contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
+| Crea un nuovo contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
+| Aggiornare un contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
+| Eliminare un contenitore | Sì | Sì | Sì | Sì | N/D | N/D |
 
 ## <a name="azure-cosmos-items"></a>Elementi Azure Cosmos DB
 

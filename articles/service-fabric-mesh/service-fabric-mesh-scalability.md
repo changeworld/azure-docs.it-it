@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 67b4b27a5d1faab3e6c156704d67a30b220ac54c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f0e115e596925878bf9fdd43b7074cefdba47b2
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840184"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626859"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Applicazioni Service Fabric Mesh per il ridimensionamento
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Uno dei principali vantaggi derivanti dalla distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi. Questa operazione deve essere usata per la gestione di diverse quantità di carico nei servizi o per migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di ridimensionamento automatico.
 

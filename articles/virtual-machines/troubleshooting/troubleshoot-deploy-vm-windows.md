@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98a16e0a60ddf149e8f0e1a092051f3e98ea8225
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002563"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627063"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -104,7 +104,7 @@ Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure, è n
 
 A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in precedenza MSDN), è possibile usare Windows 7, Windows 8 o Windows 10 in Azure per scenari di sviluppo/test. 
 
-- Le immagini di Windows 10 sono disponibili nella raccolta di Azure in [Offerte idonee](../windows/client-images.md#eligible-offers). 
+- Le immagini di Windows 10 sono disponibili nella raccolta di Azure in [Offerte idonee](../windows/client-images.md). 
 - I sottoscrittori di Visual Studio per qualsiasi tipo di offerta possono anche [preparare e creare](../windows/prepare-for-upload-vhd-image.md) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](../windows/upload-generalized-managed.md). L'utilizzo rimane limitato alle attività di sviluppo e test da parte dei sottoscrittori di Visual Studio attivi.
 
 Questo [articolo](../windows/client-images.md) descrive i requisiti di idoneità per l'esecuzione di client Windows in Azure e l'uso delle immagini della raccolta di Azure.

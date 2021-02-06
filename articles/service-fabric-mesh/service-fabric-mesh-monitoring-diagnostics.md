@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682072"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626995"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete. Il monitoraggio e la diagnostica di mesh Service Fabric sono suddivisi in tre tipi principali di dati di diagnostica:
 
 - Registri applicazioni: sono definiti come i registri delle applicazioni in contenitori, in base al modo in cui è stata instrumentata l'applicazione (ad esempio, log di Docker)
@@ -58,7 +64,7 @@ L'ambiente mesh espone alcune metriche che indicano il modo in cui i contenitori
 | RestartCount | Numero di riavvii del contenitore | N/D |
 
 > [!NOTE]
-> I valori ServiceStatus e ServiceReplicaStatus sono uguali a quelli di [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> I valori ServiceStatus e ServiceReplicaStatus sono uguali a quelli di [HealthState](/dotnet/api/system.fabric.health.healthstate) in Service Fabric.
 
 Ogni metrica è disponibile su dimensioni diverse, in modo da poter visualizzare le aggregazioni a livelli diversi. L'elenco corrente delle dimensioni è il seguente:
 

@@ -5,15 +5,20 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
-ms.custom: mvc, devcenter , devx-track-azurecli
-ms.openlocfilehash: 51e5fd29d16c3f927dc9b89d9c7145a16f4fd49f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.custom: mvc, devcenter
+ms.openlocfilehash: be1e477bf3f11d487b8a6705535c09ff6e2b9c3e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748247"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626734"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Esercitazione: Distribuire un'applicazione Azure Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa esercitazione è la terza parte di una serie e illustra come pubblicare un'applicazione Web Azure Service Fabric Mesh direttamente da Visual Studio.
 
@@ -53,19 +58,19 @@ L'applicazione si trova nella directory `src\todolistapp`.
 
 ## <a name="publish-to-azure"></a>Pubblicazione in Azure
 
-Per pubblicare il progetto Service Fabric Mesh in Azure, fare clic con il pulsante destro del mouse su **todolistapp** in Visual Studio e selezionare **Pubblica** .
+Per pubblicare il progetto Service Fabric Mesh in Azure, fare clic con il pulsante destro del mouse su **todolistapp** in Visual Studio e selezionare **Pubblica**.
 
-Verrà quindi visualizzata la finestra di dialogo **Pubblica applicazione di Service Fabric** .
+Verrà quindi visualizzata la finestra di dialogo **Pubblica applicazione di Service Fabric**.
 
 ![Finestra di dialogo per la pubblicazione del progetto Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Selezionare l'account e la sottoscrizione di Azure. Scegliere una **Posizione** . In questo articolo viene usata l'area **Stati Uniti orientali** .
+Selezionare l'account e la sottoscrizione di Azure. Scegliere una **Posizione**. In questo articolo viene usata l'area **Stati Uniti orientali**.
 
 In **Gruppo di risorse** selezionare **\<Create New Resource Group...>** . Viene visualizzata una finestra di dialogo in cui creare un nuovo gruppo di risorse. In questo articolo viene usata l'area **Stati Uniti orientali** e viene assegnato il nome **sfmeshTutorial1RG** al gruppo di risorse. Se l'organizzazione include più persone che usano la stessa sottoscrizione, scegliere un nome univoco per il gruppo.  Fare clic su **Crea** per creare il gruppo di risorse e tornare alla finestra di dialogo per la pubblicazione.
 
 ![Finestra di dialogo del nuovo gruppo di risorse di Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Nella finestra di dialogo **Pubblica applicazione di Service Fabric** selezionare **\<Create New Container Registry...>** in **Registro Azure Container** . Nella finestra di dialogo **Crea registro contenitori** usare un nome univoco per **Nome del registro contenitori** . Impostare il campo **Località** . In questa esercitazione viene usata l'area **Stati Uniti orientali** . Nell'elenco a discesa selezionare il **gruppo di risorse** creato nel passaggio precedente, ad esempio **sfmeshTutorial1RG** . Impostare lo **SKU** su **Basic** e premere **Crea** per creare il Registro Azure Container privato e tornare alla finestra di dialogo pubblica.
+Nella finestra di dialogo **Pubblica applicazione di Service Fabric** selezionare **\<Create New Container Registry...>** in **Registro Azure Container**. Nella finestra di dialogo **Crea registro contenitori** usare un nome univoco per **Nome del registro contenitori**. Impostare il campo **Località**. In questa esercitazione viene usata l'area **Stati Uniti orientali**. Nell'elenco a discesa selezionare il **gruppo di risorse** creato nel passaggio precedente, ad esempio **sfmeshTutorial1RG**. Impostare lo **SKU** su **Basic** e premere **Crea** per creare il Registro Azure Container privato e tornare alla finestra di dialogo pubblica.
 
 ![Finestra di dialogo del nuovo registro contenitori di Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 

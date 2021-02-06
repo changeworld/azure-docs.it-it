@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: 589e881eb48daf7da9cd2a934b14acfcc76dc5f9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499833"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625417"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un'applicazione Azure Service Fabric Mesh usando un modello.  L'applicazione è composta da un servizio front-end Web ASP.NET e un servizio back-end API Web ASP.NET Core, disponibili nell'hub Docker.  Si eseguirà il pull delle immagini dei due contenitori dall'hub Docker e quindi si eseguirà il push nel registro privato. Si creerà quindi un modello di Azure Resource Manager per l'applicazione e l'applicazione verrà distribuita dal registro contenitori in Service Fabric Mesh. Al termine, sarà disponibile una semplice applicazione To Do List, in esecuzione in Service Fabric Mesh.
 

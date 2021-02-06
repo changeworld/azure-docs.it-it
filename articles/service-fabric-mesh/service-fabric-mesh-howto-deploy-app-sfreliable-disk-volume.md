@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 86822c5a9cef84ff4b51bc94b6b2dd3dbdee91bf
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: ac65693f2513338695e07cd8a19acb13333e7281
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702010"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625787"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montare il volume basato su Reliable Disk di Service Fabric a disponibilità elevata in un'applicazione Service Fabric Mesh 
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Il metodo comune per rendere persistente lo stato con le app contenitore è usare una risorsa di archiviazione remota, ad esempio Archiviazione file di Azure o un database come Azure Cosmos DB. Ciò comporta un notevole latenza di rete per la lettura e la scrittura nell'archivio remoto.
 
 Questo articolo illustra come archiviare lo stato in Reliable Disk di Service Fabric a disponibilità elevata montando un volume all'interno del contenitore di un'applicazione Service Fabric Mesh.

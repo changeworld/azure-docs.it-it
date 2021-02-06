@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 66198291420d48e04df0821d8d110812d6aa01d7
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525806"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626275"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -490,7 +490,7 @@ Il broker di servizio tra istanze non è supportato:
   - `scan for startup procs`
 - `sp_execute_external_scripts` non è supportata. Vedere [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` non è supportata. Vedere [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` non sono supportati, che include `sp_addextendedproc` e `sp_dropextendedproc` . Vedere [stored procedure estese](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` non sono supportati e includono `sp_addextendedproc` e `sp_dropextendedproc` . Questa funzionalità non sarà supportata perché si trova in un percorso di deprecazione per SQL Server. Per ulteriori informazioni, vedere [stored procedure estese](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportate. Vedere [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Funzioni e variabili di sistema

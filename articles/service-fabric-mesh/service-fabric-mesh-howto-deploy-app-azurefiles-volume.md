@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
-ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40d10568e13ad455bc5178821da80e89f4132e93
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007393"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625838"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montare un volume basato su File di Azure in un'applicazione di Service Fabric Mesh 
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questo articolo spiega come montare un volume basato su File di Azure in un servizio di un'applicazione di Service Fabric Mesh.  Il driver di volume di File di Azure è un driver di volume Docker usato per montare una condivisione di File di Azure in un contenitore, che viene usato per rendere persistente lo stato del servizio. I volumi offrono una risorsa di archiviazione file per utilizzo generico e consentono di leggere/scrivere i file usando le normali API di file I/O del disco.  Per altre informazioni sui volumi e sulle opzioni per l'archiviazione dei dati dell'applicazione, vedere l'[archiviazione dello stato](service-fabric-mesh-storing-state.md).
 

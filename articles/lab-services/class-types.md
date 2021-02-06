@@ -3,16 +3,21 @@ title: Tipi di classe di esempio in Azure Lab Services | Microsoft Docs
 description: Fornisce alcuni tipi di classe per cui è possibile configurare lab con Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436403"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627434"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Panoramica dei tipi di classi - Azure Lab Services
 
 Azure Lab Services consente di configurare rapidamente ambienti di lab per le classi nel cloud. Negli articoli di questa sezione vengono fornite indicazioni su come impostare diversi tipi di Lab utilizzando Azure Lab Services.
+
+## <a name="arcgis"></a>ArcGIS
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) è un tipo di sistema di informazione geografica (GIS).  È possibile configurare un Lab che usa le varie applicazioni di ArcGIS Desktop, ad esempio [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) , per creare, modificare e analizzare le mappe 2D.
+
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per ArcMap\ArcGIS desktop](class-type-arcgis.md).
 
 ## <a name="big-data-analytics"></a>Analisi dei Big Data
 È possibile configurare un Lab GPU per insegnare una classe Big Data Analytics. Con questo tipo di classe, gli studenti imparano a gestire volumi elevati di dati e applicano algoritmi di apprendimento statistico e del computer per derivare informazioni dettagliate sui dati. Uno degli obiettivi principali per gli studenti consiste nell'imparare a usare gli strumenti di analisi dei dati, ad esempio il pacchetto software open source di Apache Hadoop, che fornisce strumenti per l'archiviazione, la gestione e l'elaborazione di Big Data. 
@@ -41,6 +46,11 @@ Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Con
 
 Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per insegnare a MATLAB](class-type-matlab.md).
 
+## <a name="networking-with-gns3"></a>Rete con GNS3
+È possibile configurare un Lab per una classe che consente agli studenti di emulare, configurare, testare e risolvere i problemi relativi alle reti virtuali e reali tramite il software [GNS3](https://www.gns3.com/) . 
+
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per insegnare una classe di rete](class-type-networking-gns3.md).
+
 ## <a name="project-lead-the-way-pltw"></a>Responsabile del progetto (PLTW)
 [Project Lead The Way (pltw)](https://www.pltw.org/) è un'organizzazione no profit che fornisce un curriculum Prek-12 attraverso le Stati Uniti in informatica, progettazione e scienza biomedica.  In ogni classe PLTW gli studenti usano un'ampia gamma di applicazioni software come parte dell'esperienza di apprendimento pratica.
 
@@ -61,7 +71,12 @@ Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Scr
 ## <a name="solidworks-computer-aided-design-cad"></a>CAD SolidWorks
 È possibile configurare un Lab GPU che consente agli studenti di progettazione di accedere a [SolidWorks](https://www.solidworks.com/).  SolidWorks offre un ambiente CAD 3D per la modellazione di oggetti solidi.  Con SolidWorks, i tecnici possono creare, visualizzare, simulare e documentare facilmente i loro progetti.
 
-Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per le classi ingegneristiche con SolidWorks](class-type-solidworks.md)
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per le classi ingegneristiche con SolidWorks](class-type-solidworks.md).
+
+## <a name="sql-database-and-management"></a>Gestione e database SQL
+Structured Query Language (SQL) è il linguaggio standard per la gestione di database relazionali, tra cui l'aggiunta, l'accesso e la gestione del contenuto in un database.  È possibile configurare un Lab per insegnare i concetti di database usando il server di database [MySQL](https://www.mysql.com/) e il server [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) .
+
+Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab per spiegare la gestione dei database relazionali](class-type-database-management.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

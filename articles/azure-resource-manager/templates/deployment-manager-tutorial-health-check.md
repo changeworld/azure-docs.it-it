@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 12d246a493ff9ee9e20868da32d633d51939e66c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86058028"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626628"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Esercitazione: Usare il controllo integrità in Azure Deployment Manager (anteprima pubblica)
 
@@ -19,7 +19,7 @@ Informazioni su come integrare il controllo integrità in [Azure Deployment Mana
 Nel modello di implementazione usato in [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md), è stato chiamato un passaggio di attesa. In questa esercitazione, sostituire il passaggio di attesa con un passaggio di controllo integrità.
 
 > [!IMPORTANT]
-> Se la sottoscrizione è contrassegnata in modo che Canary testi nuove funzionalità di Azure, è possibile usare Azure Deployment Manager solo per distribuire le aree di Canary. 
+> Se la sottoscrizione è contrassegnata in modo che Canary testi nuove funzionalità di Azure, è possibile usare Azure Deployment Manager solo per distribuire le aree di Canary.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -35,26 +35,23 @@ Questa esercitazione illustra le attività seguenti:
 
 Risorse aggiuntive:
 
-* Il [riferimento all'API REST di Azure Deployment Manager](/rest/api/deploymentmanager/).
+* Informazioni di [riferimento sull'API REST di Azure Gestione distribuzione](/rest/api/deploymentmanager/).
 * [Usare un esempio di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
-
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
+Per completare questa esercitazione è necessario:
 
+* Sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Completare l'esercitazione [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md).
 
 ## <a name="install-the-artifacts"></a>Installare gli artefatti
 
-Scaricare [modelli e artefatti ](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) e decomprimerli in locale, se non è stato già fatto. Eseguire quindi lo script di PowerShell disponibile in [Preparare gli artefatti ](./deployment-manager-tutorial.md#prepare-the-artifacts). Lo script crea un gruppo di risorse, crea un contenitore di archiviazione, crea un contenitore BLOB, carica i file scaricati e quindi crea un token di firma di accesso condiviso.
+Se gli esempi usati nell'esercitazione sui prerequisiti non sono già stati scaricati, è possibile scaricare [i modelli e gli artefatti](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) e decomprimerli in locale. Eseguire quindi lo script di PowerShell dalla sezione dell'esercitazione sui prerequisiti per [preparare gli artefatti](./deployment-manager-tutorial.md#prepare-the-artifacts). Lo script crea un gruppo di risorse, crea un contenitore di archiviazione, crea un contenitore BLOB, carica i file scaricati e quindi crea un token di firma di accesso condiviso.
 
-Creare una copia dell'URL con il token di firma di accesso condiviso. Questo URL è necessario per popolare un campo nei due file dei parametri, ovvero il file dei parametri della topologia e il file dei parametri dell'implementazione.
-
-Aprire CreateADMServiceTopology.Parameters.json e aggiornare i valori di **projectName** e **artifactSourceSASLocation**.
-
-Aprire CreateADMRollout.Parameters.json e aggiornare i valori di **projectName** e **artifactSourceSASLocation**.
+* Creare una copia dell'URL con il token di firma di accesso condiviso. Questo URL è necessario per popolare un campo nei due file di parametri: file dei parametri della topologia e file di parametri di implementazione.
+* Aprire _CreateADMServiceTopology.Parameters.jssu_ e aggiornare i valori di `projectName` e `artifactSourceSASLocation` .
+* Aprire _CreateADMRollout.Parameters.jssu_ e aggiornare i valori di `projectName` e `artifactSourceSASLocation` .
 
 ## <a name="create-a-health-check-service-simulator"></a>Creare un simulatore del servizio di controllo integrità
 
@@ -62,43 +59,43 @@ Nell'ambiente di produzione, è in genere necessario usare uno o più provider d
 
 I due file seguenti vengono usati per la distribuzione della funzione di Azure. Non è necessario scaricare questi file per completare l'esercitazione.
 
-* Un modello di Resource Manager disponibile in [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). Distribuire questo modello per creare una funzione di Azure.
-* Un file zip del codice sorgente della funzione di Azure, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). Questo file zip viene chiamato dal modello di Resource Manager.
+* Un modello di Gestione risorse che si trova in [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json) . Distribuire questo modello per creare una funzione di Azure.
+* Un file zip del codice sorgente della funzione di Azure, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip) . Questo file zip viene chiamato dal modello di Resource Manager.
 
-Per distribuire la funzione di Azure, selezionare **Prova** per aprire Azure Cloud Shell e quindi incollare lo script seguente nella finestra della shell.  Per incollare il codice, fare clic con il pulsante destro del mouse nella finestra della shell e quindi selezionare **Incolla**.
+Per distribuire la funzione di Azure, selezionare **prova** per aprire il Azure cloud Shell e quindi incollare lo script seguente nella finestra della shell. Per incollare il codice, fare clic con il pulsante destro del mouse nella finestra della shell e quindi selezionare **Incolla**.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 Per verificare e testare la funzione di Azure:
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-1. Aprire il gruppo di risorse.  Il nome predefinito è il nome del progetto con **rg** aggiunto.
-1. Selezionare il servizio app nel gruppo di risorse.  Il nome predefinito del servizio app è il nome del progetto con **webapp** aggiunto.
+1. Aprire il gruppo di risorse. Il nome predefinito è il nome del progetto con **rg** aggiunto.
+1. Selezionare il servizio app nel gruppo di risorse. Il nome predefinito del servizio app è il nome del progetto con **webapp** aggiunto.
 1. Espandere **Funzioni**, quindi selezionare **HttpTrigger1**.
 
     ![Funzione di Azure Controllo integrità di Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. Selezionare **&lt;/>Ottenere l'URL della funzione**.
-1. Selezionare **Copia** per copiare l'URL negli appunti.  L'URL è simile a:
+1. Select **&lt; /> ottenere l'URL della funzione**.
+1. Selezionare **Copia** per copiare l'URL negli appunti. L'URL è simile a:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Sostituire `{healthStatus}` nell'URL con un codice di stato. In questa esercitazione, usare **non integro** per testare lo scenario di tipo non integro e usare **integro** o **avviso** per testare lo scenario integro. Creare due URL, uno con lo stato non integro e l'altro con lo stato integro. Ad esempio:
+    Sostituire `{healthStatus}` nell'URL con un codice di stato. In questa esercitazione, usare *non integro* per testare lo scenario di tipo non integro e usare *integro* o *avviso* per testare lo scenario integro. Creare due URL, uno con lo stato non *integro* e l'altro con lo stato *integro* . Ad esempio:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Sono necessari entrambi gli URL per completare questa esercitazione.
+    Per completare questa esercitazione, sono necessari entrambi gli URL.
 
-1. Per testare il simulatore di monitoraggio dell'integrità, aprire gli URL creati nel passaggio precedente.  I risultati dello stato non integro sarà simile al seguente:
+1. Per testare il simulatore di monitoraggio dello stato, aprire gli URL creati nel passaggio precedente. I risultati per lo stato di tipo non integro saranno simili ai seguenti:
 
-    ```
+    ```Output
     Status: unhealthy
     ```
 
@@ -106,7 +103,7 @@ Per verificare e testare la funzione di Azure:
 
 Lo scopo di questa sezione è descrivere come includere un passaggio di controllo integrità nel modello di implementazione.
 
-1. Aprire il file **CreateADMRollout.json** creato in [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md). Questo file JSON è una parte del download.  Vedere [Prerequisiti](#prerequisites).
+1. Aprire il file _CreateADMRollout.json_ creato in [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md). Questo file JSON è una parte del download.  Vedere [Prerequisiti](#prerequisites).
 1. Aggiungere altri due parametri:
 
     ```json
@@ -175,7 +172,7 @@ Lo scopo di questa sezione è descrivere come includere un passaggio di controll
 
     In base alla definizione, la distribuzione continua se lo stato di integrità è *integro* oppure *avviso*.
 
-1. Aggiornare la condizione **dependsON** della definizione di implementazione in modo da includere il passaggio di controllo integrità appena definito:
+1. Aggiornare la `dependsOn` della definizione di implementazione per includere il passaggio del controllo integrità appena definito:
 
     ```json
     "dependsOn": [
@@ -184,7 +181,7 @@ Lo scopo di questa sezione è descrivere come includere un passaggio di controll
     ],
     ```
 
-1. Aggiornare **stepGroups** in modo da includere il passaggio di controllo integrità. **healthCheckStep** viene chiamato in **postDeploymentSteps** di **stepGroup2**. **stepGroup3** e **stepGroup4** vengono distribuiti solo se lo stato di integrità è *integro* o *avviso*.
+1. Aggiornare `stepGroups` per includere il passaggio del controllo integrità. Il metodo `healthCheckStep` viene chiamato in `postDeploymentSteps` di `stepGroup2` . `stepGroup3` e `stepGroup4` vengono distribuiti solo se lo stato integro è *integro* o *avviso*.
 
     ```json
     "stepGroups": [
@@ -222,15 +219,15 @@ Lo scopo di questa sezione è descrivere come includere un passaggio di controll
     ]
     ```
 
-    Se si confronta la sezione **stepGroup3** prima e dopo la revisione, a questo punto dipende da **stepGroup2**.  È necessario quando **stepGroup3** e i gruppi di passaggi successivi dipendono dai risultati del monitoraggio dell'integrità.
+    Se si confronta la `stepGroup3` sezione prima e dopo la revisione, questa sezione dipende ora da `stepGroup2` . Questa operazione è necessaria quando `stepGroup3` e i gruppi di passaggi successivi dipendono dai risultati del monitoraggio dello stato.
 
-    Lo screenshot seguente illustra le aree modificate e come viene usato il passaggio di controllo integrità:
+    Lo screenshot seguente illustra le aree modificate e il modo in cui viene usato il passaggio del controllo integrità:
 
     ![Modello di controllo integrità di Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
 
 ## <a name="deploy-the-topology"></a>Distribuire la topologia
 
-Usare lo script di PowerShell seguente per distribuire la topologia. Sono necessari gli stessi file **CreateADMServiceTopology.json** e **CreateADMServiceTopology.Parameters.json** usati in [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md).
+Usare lo script di PowerShell seguente per distribuire la topologia. Sono necessari gli stessi file _CreateADMServiceTopology.json_ e _CreateADMServiceTopology.Parameters.json_ usati in [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell
 # Create the service topology
@@ -248,7 +245,7 @@ Per visualizzare le risorse deve essere selezionata l'opzione **Mostra tipi nasc
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Distribuire l'implementazione con stato non integro
 
-Usare l'URL di stato non integro creato in [Creare un simulatore del servizio di controllo integrità](#create-a-health-check-service-simulator). Sono necessari il file **CreateADMServiceTopology.json** modificato e lo stesso file **CreateADMServiceTopology.Parameters.json** usati in [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md).
+Usare l'URL di stato non integro creato in [Creare un simulatore del servizio di controllo integrità](#create-a-health-check-service-simulator). Sono necessari il file _CreateADMServiceTopology.json_ modificato e lo stesso file _CreateADMServiceTopology.Parameters.json_ usati in [Usare Azure Deployment Manager con modelli di Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -267,7 +264,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > `New-AzResourceGroupDeployment` è una chiamata asincrona. Il messaggio di operazione riuscita indica solo che la distribuzione è stata avviata correttamente. Per verificare la distribuzione, usare `Get-AZDeploymentManagerRollout`.  Vedere la procedura successiva.
 
-Per controllare lo stato di avanzamento dell'implementazione con lo script PowerShell seguente:
+Per verificare lo stato dell'implementazione, usare lo script di PowerShell seguente:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -283,7 +280,7 @@ Get-AzDeploymentManagerRollout `
 
 L'output di esempio seguente mostra la distribuzione non riuscita a causa dello stato non integro:
 
-```output
+```Output
 Service: myhc0417ServiceWUSrg
     TargetLocation: WestUS
     TargetSubscriptionId: <Subscription ID>
@@ -340,32 +337,32 @@ Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc04
 Tags                    :
 ```
 
-Una volta completata l'implementazione, verrà visualizzato un gruppo di risorse aggiuntivo creato per gli Stati Uniti occidentali.
+Al termine dell'implementazione, verrà visualizzato un gruppo di risorse aggiuntivo creato per gli Stati Uniti occidentali.
 
 ## <a name="deploy-the-rollout-with-the-healthy-status"></a>Distribuire l'implementazione con stato integro
 
-Ripetere questa sezione per distribuire l'implementazione con l'URL di stato integro.  Una volta completata l'implementazione, verrà visualizzato un gruppo di risorse aggiuntivo creato per gli Stati Uniti orientali.
+Ripetere questa sezione per distribuire l'implementazione con l'URL di stato integro. Al termine dell'implementazione, verrà visualizzato un altro gruppo di risorse creato per gli Stati Uniti orientali.
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Passare alle nuove applicazioni Web nei gruppi di risorse creati dalla distribuzione dell'implementazione.
-3. Aprire l'applicazione Web in un Web browser. Verificare la località e la versione nel file index.html.
+1. Individuare le nuove applicazioni Web nei nuovi gruppi di risorse creati dalla distribuzione di implementazione.
+1. Aprire l'applicazione Web in un Web browser. Verificare il percorso e la versione nel file _index.html_ .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse.
 
 1. Nel portale di Azure selezionare **Gruppo di risorse** nel menu a sinistra.
-2. Usare il campo **Filtra per nome** per limitare l'elenco ai gruppi di risorse creati in questa esercitazione, che saranno 3-4:
+1. Usare il campo **Filtra per nome** per limitare l'elenco ai gruppi di risorse creati in questa esercitazione,
 
     * **&lt;projectName>rg**, che contiene le risorse di Deployment Manager.
     * **&lt;projectName>ServiceWUSrg**, che contiene le risorse definite da ServiceWUS.
     * **&lt;projectName>ServiceEUSrg**, che contiene le risorse definite da ServiceEUS.
     * Gruppo di risorse per l'identità gestita definita dall'utente.
-3. Selezionare il nome del gruppo di risorse.
-4. Selezionare **Elimina gruppo di risorse** nel menu in alto.
-5. Ripetere gli ultimi due passaggi per eliminare gli altri gruppi di risorse creati con questa esercitazione.
+1. Selezionare il nome del gruppo di risorse.
+1. Selezionare **Elimina gruppo di risorse** nel menu in alto.
+1. Ripetere gli ultimi due passaggi per eliminare gli altri gruppi di risorse creati con questa esercitazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

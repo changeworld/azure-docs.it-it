@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 1485adc1407720343c27e07c2d2f4a13ba037a90
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ad83ef0f3f4c0717a3cb669c34145572d44be09a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511469"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616391"
 ---
 ## <a name="model-id-announcement"></a>Annuncio ID modello
 
@@ -25,6 +25,9 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 
 > [!TIP]
 > Per i moduli e IoT Edge, usare `IoTHubModuleClient_LL` al posto di `IoTHubDeviceClient_LL` .
+
+> [!TIP]
+> Questa è l'unica volta in cui un dispositivo può impostare l'ID del modello e non può essere aggiornato dopo la connessione del dispositivo.
 
 ## <a name="dps-payload"></a>Payload del servizio Device Provisioning
 
@@ -481,7 +484,7 @@ Il dispositivo gemello per un componente annidato Mostra le sezioni desiderate e
 }
 ```
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 Un componente predefinito riceve il nome del comando così come è stato richiamato dal servizio.
 

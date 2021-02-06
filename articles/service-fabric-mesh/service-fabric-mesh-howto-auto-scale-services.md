@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a707e3601bb24b2d5c2aa9402edff4a2e8803033
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843057"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625905"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Creare criteri di scalabilità automatica per un'applicazione di Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Uno dei principali vantaggi derivanti dalla distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi. Questa operazione deve essere usata per la gestione di diverse quantità di carico nei servizi o per migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di scalabilità automatica.
 
 La [scalabilità automatica](service-fabric-mesh-scalability.md#autoscaling-service-instances) è una funzionalità aggiuntiva di Service Fabric che consente di ridimensionare dinamicamente il numero di istanze del servizio (scalabilità orizzontale). Offre una notevole elasticità e consente di effettuare il provisioning o la rimozione delle istanze del servizio in base all'utilizzo della CPU o della memoria.

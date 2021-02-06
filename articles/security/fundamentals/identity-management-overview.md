@@ -4,8 +4,7 @@ description: Informazioni sulle funzionalità di sicurezza principali di Azure c
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843690"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627634"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
@@ -38,7 +37,7 @@ L'obiettivo di questo articolo è offrire informazioni generali sulle funzionali
 
 Questo articolo è incentrato sulle seguenti funzionalità principali di gestione delle identità di Azure:
 
-* Single Sign-On
+* Single sign-on
 * Proxy inverso
 * Multi-Factor Authentication
 * Controllo degli accessi in base al ruolo di Azure
@@ -46,11 +45,11 @@ Questo articolo è incentrato sulle seguenti funzionalità principali di gestion
 * Gestione delle identità e dell'accesso degli utenti
 * Registrazione del dispositivo
 * Privileged Identity Management
-* Identity Protection
+* Protezione dell'identità
 * Soluzione ibrida di gestione delle identità/Azure AD Connect
 * Verifiche di accesso di Azure AD
 
-## <a name="single-sign-on"></a>Single Sign-On
+## <a name="single-sign-on"></a>Single sign-on
 
 L'accesso SSO consente di accedere a tutte le applicazioni e le risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
@@ -62,9 +61,9 @@ Non solo gli utenti non devono più gestire diversi set di nomi utente e passwor
 
 Altre informazioni:
 
-* [Panoramica di Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Serie di guide introduttive sulla gestione delle app](../../active-directory/manage-apps/view-applications-portal.md)
+* [Panoramica su SSO](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Video sulle nozioni di base sull'autenticazione](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
+* [Serie di guide introduttive sulla gestione delle applicazioni](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 
@@ -84,8 +83,8 @@ Azure AD Multi-Factor Authentication è un metodo di autenticazione che richiede
 Altre informazioni:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Che cos'è Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Funzionamento di Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Informazioni su Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Come funziona Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
@@ -163,7 +162,7 @@ Altre informazioni:
 * [Che cos'è Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Assegnare ruoli della directory di Azure AD in PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Protezione dell'identità
 
 Azure AD Identity Protection è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection trae vantaggio dalle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD. Identity Protection introduce anche nuovi tipi di rilevamento del rischio in grado di rilevare le anomalie in tempo reale.
 

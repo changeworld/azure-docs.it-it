@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353545"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627600"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -39,16 +39,19 @@ Questi esempi non sono destinati a essere esaustivi, ma vengono forniti per illu
 
 ###  <a name="trigger-and-binding-definitions"></a>Trigger e definizioni di binding
 
-I trigger e le associazioni sono definiti in modo diverso a seconda dell'approccio di sviluppo.
+I trigger e le associazioni sono definiti in modo diverso a seconda del linguaggio di sviluppo.
 
-| Piattaforma | Trigger e associazioni sono configurati da... |
+| Linguaggio | Trigger e associazioni sono configurati da... |
 |-------------|--------------------------------------------|
 | Libreria di classi C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorazione di metodi e parametri con attributi C# |
-| Tutti gli altri (inclusi portale di Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aggiornamento [ difunction.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorazione di metodi e parametri con annotazioni Java  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aggiornamento [ difunction.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
-Il portale fornisce un'interfaccia utente per questa configurazione, ma è possibile modificare il file direttamente aprendo l' **Editor avanzato** disponibile tramite la scheda **integra** della funzione.
+Per le lingue che si basano su function.json, il portale fornisce un'interfaccia utente per l'aggiunta di binding nella scheda **integrazione** . È anche possibile modificare il file direttamente nel portale nella scheda **codice + test** della funzione. Visual Studio Code consente di [aggiungere facilmente un'associazione a una function.jssul file](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) seguendo una semplice serie di richieste. 
 
-In .NET, il tipo di parametro definisce il tipo di dati per i dati di input. Ad esempio, usare `string` per eseguire l'associazione al testo di un trigger della coda, una matrice di byte da leggere come binary e un tipo personalizzato da deserializzare in un oggetto.
+In .NET e Java il tipo di parametro definisce il tipo di dati per i dati di input. Ad esempio, usare `string` per eseguire l'associazione al testo di un trigger della coda, una matrice di byte da leggere come binario e un tipo personalizzato da deserializzare in un oggetto. Poiché le funzioni della libreria di classi .NET e le funzioni Java non si basano su *function.json* per le definizioni di binding, non possono essere create e modificate nel portale. La modifica del portale c# è basata sullo script C#, che usa *function.jsin* anziché negli attributi.
+
+Per altre informazioni su come aggiungere binding alle funzioni esistenti, vedere Connettere le [funzioni ai servizi di Azure usando le associazioni](add-bindings-existing-function.md).
 
 Per i linguaggi tipizzati in modo dinamico, ad esempio JavaScript, usare la proprietà `dataType` nel file *function.json*. Ad esempio, per eseguire la lettura del contenuto di una richiesta HTTP in formato binario, impostare `dataType` su `binary`:
 

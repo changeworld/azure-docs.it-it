@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aa3ac9d8835cd17387346bb29b3e7c30f286cd1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bba03c35568c013e383c08f0a13f765c1cc8bd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839725"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625855"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurare una risorsa del Gateway per indirizzare le richieste
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Una risorsa del Gateway viene usata per indirizzare il traffico in ingresso alla rete che ospita l'applicazione. Configurare la risorsa in modo da specificare le regole tramite cui le richieste vengono indirizzate a endpoint o servizi specifici basati sulla struttura della richiesta. Per altre informazioni sulle reti e i gateway in Mesh, vedere l’[Introduzione alla funzionalità di rete in Service Fabric Mesh](service-fabric-mesh-networks-and-gateways.md). 
 

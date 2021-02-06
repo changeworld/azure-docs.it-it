@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.openlocfilehash: 02dc5d43a23c572d441da2bbb7386885bf66ece7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747864"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625384"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Esercitazione: Ridimensionare un'applicazione in esecuzione in Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa è la seconda di una serie di esercitazioni. Informazioni su come ridimensionare manualmente il numero di istanze dei servizi di un'applicazione [precedentemente distribuita in Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Al termine, saranno in esecuzione tre istanze di un servizio front-end e due istanze di un servizio dati.
 
@@ -32,7 +37,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 
@@ -42,7 +47,7 @@ Prima di iniziare questa esercitazione:
 
 ## <a name="manually-scale-your-services-in-or-out"></a>Ridurre o aumentare manualmente il numero di istanze dei servizi
 
-Uno dei principali vantaggi della distribuzione di applicazioni in Service Fabric Mesh è la possibilità di ridurre o aumentare facilmente il numero di istanze dei servizi. Questo consente di gestire diverse quantità di carico nei servizi o migliorare la disponibilità.
+Uno dei principali vantaggi derivanti dalla distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi. Questa operazione deve essere usata per la gestione di diverse quantità di carico nei servizi o per migliorare la disponibilità.
 
 Questa esercitazione usa come esempio l'applicazione di esempio To Do List, che è stata [distribuita in precedenza](service-fabric-mesh-tutorial-template-deploy-app.md) e ora dovrebbe essere in esecuzione. L'applicazione ha due servizi: WebFrontEnd e ToDoService. Ogni servizio è stato distribuito inizialmente con un numero di repliche pari a 1.  Per vedere il numero di repliche in esecuzione per il servizio WebFrontEnd, eseguire le operazioni seguenti:
 
@@ -88,7 +93,7 @@ Salvare le modifiche al file di parametri.  I parametri *frontEndReplicaCount* e
     }
 ```
 
-La proprietà *replicaCount* del servizio WebFrontEnd referenzia il parametro *frontEndReplicaCount* e la proprietà *replicaCount* del servizio ToDoService referenzia il parametro *serviceReplicaCount* :
+La proprietà *replicaCount* del servizio WebFrontEnd referenzia il parametro *frontEndReplicaCount* e la proprietà *replicaCount* del servizio ToDoService referenzia il parametro *serviceReplicaCount*:
 
 ```json
     "services": [

@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999264"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626105"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurare un Lab per le classi di progettazione con SOLIDWORKs
 
@@ -31,7 +31,7 @@ Dopo aver configurato il server licenze, è necessario eseguire il peering della
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
-Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/). Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](./tutorial-setup-lab-account.md). È anche possibile usare un account lab esistente.
+Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](./tutorial-setup-lab-account.md). È anche possibile usare un account lab esistente.
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
@@ -51,13 +51,13 @@ Usare le impostazioni nella tabella seguente quando si configura un Lab della cl
 | Impostazioni del lab | Valore/istruzioni |
 | ------------ | ------------------ |
 |Dimensioni della macchina virtuale| **Piccola GPU (visualizzazione)**.  Questa macchina virtuale è ideale per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX.|  
-|Immagine di macchina virtuale| Windows 10 Pro|
+|Immagine di macchina virtuale| Windows 10 Pro|
 
 > [!NOTE]
 > Le dimensioni della macchina virtuale di **piccole dimensioni (visualizzazione)** sono configurate per consentire un'esperienza grafica a prestazioni elevate.  Per altre informazioni sulle dimensioni della macchina virtuale, vedere l'articolo su [come configurare un Lab con GPU](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> Non dimenticare di eseguire il [peering della rete virtuale](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) per l'account Lab alla rete virtuale per il server licenze **prima** di creare il Lab.
+> Non dimenticare di eseguire il [peering della rete virtuale](./how-to-connect-peer-virtual-network.md) per l'account Lab alla rete virtuale per il server licenze **prima** di creare il Lab.
 
 ## <a name="template-virtual-machine-configuration"></a>Configurazione della macchina virtuale modello
 
@@ -76,7 +76,7 @@ I passaggi descritti in questa sezione illustrano come configurare la macchina v
     > [!NOTE]
     > Nella finestra di dialogo **Aggiungi server** verrà richiesto il **numero di porta** utilizzato per il server licenze e il nome o l'indirizzo IP del server licenze.
 
-## <a name="cost"></a>Costi
+## <a name="cost"></a>Costo
 
 Verrà ora trattata una possibile stima dei costi per questa classe. Questa stima non include il costo di esecuzione del server licenze. Verrà usata una classe di 25 studenti. Sono previste 20 ore di tempo della classe pianificata. Ogni studente riceve inoltre una quota di 10 ore per il lavoro o assegnazioni al di fuori dell'orario di classe pianificato. Le dimensioni della macchina virtuale scelte sono **small GPU (visualizzazione)**, ovvero 160 unità Lab.
 

@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650755cf2692b613b2998e8ef7b706e09022b178
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354871"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626910"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introduzione al modello di risorsa di Service Fabric
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Il modello di risorsa Service Fabric descrive un approccio semplice per definire le risorse che costituiscono un'applicazione mesh Service Fabric. Le singole risorse possono essere distribuite in qualsiasi ambiente Service Fabric.  Il modello di risorse Service Fabric è anche compatibile con il modello Azure Resource Manager. In questo modello sono attualmente supportati i tipi di risorse seguenti:
 

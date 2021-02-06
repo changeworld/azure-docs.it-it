@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 46cb129d18e082f836a688b95111c10c8e191b01
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f731e07de4936bc8de396c4f9bcd3a52913cb502
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511466"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616405"
 ---
 ## <a name="model-id-announcement"></a>Annuncio ID modello
 
@@ -26,6 +26,9 @@ Il nuovo `ClientOptions` Overload è disponibile in tutti i `DeviceClient` metod
 
 > [!TIP]
 > Per i moduli e IoT Edge, usare `ModuleClient` al posto di `DeviceClient` .
+
+> [!TIP]
+> Questa è l'unica volta in cui un dispositivo può impostare l'ID del modello e non può essere aggiornato dopo la connessione del dispositivo.
 
 ## <a name="dps-payload"></a>Payload del servizio Device Provisioning
 
@@ -264,7 +267,7 @@ Il dispositivo gemello per un componente annidato Mostra le sezioni desiderate e
 }
 ```
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 Un componente predefinito riceve il nome del comando così come è stato richiamato dal servizio.
 

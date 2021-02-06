@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: c5846c42fe55dab7328e89a6d7bc5987b0937416
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: dea63ba4939579f3f227d2eac05eb124ada1e4ec
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511453"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616474"
 ---
 ## <a name="model-id-announcement"></a>Annuncio ID modello
 
@@ -24,6 +24,9 @@ await client.open();
 
 > [!TIP]
 > Per i moduli e IoT Edge, usare `ModuleClient` al posto di `Client` .
+
+> [!TIP]
+> Questa è l'unica volta in cui un dispositivo può impostare l'ID del modello e non può essere aggiornato dopo la connessione del dispositivo.
 
 ## <a name="dps-payload"></a>Payload del servizio Device Provisioning
 
@@ -317,7 +320,7 @@ Il dispositivo gemello per i componenti Mostra le sezioni desiderate e segnalate
 }
 ```
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 Un componente predefinito riceve il nome del comando così come è stato richiamato dal servizio.
 

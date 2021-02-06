@@ -6,14 +6,19 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260154"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626088"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Spostare un'applicazione Service Fabric mesh in un'altra area di Azure
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questo articolo descrive come spostare l'applicazione Service Fabric mesh e le relative risorse in un'area di Azure diversa. È possibile spostare le risorse in un'altra area per diversi motivi. Ad esempio, in risposta a interruzioni, per ottenere funzionalità o servizi disponibili solo in aree specifiche, per soddisfare i requisiti di governance e criteri interni oppure in risposta ai requisiti della pianificazione della capacità.
 
@@ -24,7 +29,7 @@ Questo articolo descrive come spostare l'applicazione Service Fabric mesh e le r
 * Il controller di ingresso, ad esempio il [gateway applicazione](../application-gateway/index.yml), funge da intermediario per il routing del traffico tra i client e l'applicazione Service Fabric mesh
 * Disponibilità di Service Fabric mesh (anteprima) nell'area di Azure di destinazione ( `westus` , `eastus` o `westeurope` )
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
 1. Eseguire uno "snapshot" dello stato corrente dell'applicazione Service Fabric mesh esportando il modello di Azure Resource Manager e i parametri dalla distribuzione più recente. A tale scopo, seguire la procedura descritta in [esportare il modello dopo la distribuzione](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) usando il portale di Azure. È anche possibile usare l'interfaccia della riga di comando di [Azure](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 
@@ -44,7 +49,7 @@ Questo articolo descrive come spostare l'applicazione Service Fabric mesh e le r
 
 1. Al termine della distribuzione, testare gli endpoint dell'applicazione per verificare la funzionalità dell'applicazione.
 
-2. È anche possibile verificare lo stato dell'applicazione controllando lo stato dell'applicazione ([AZ mesh App Show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) e esaminando i comandi log applicazioni e ([AZ mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) usando l'interfaccia della riga di comando di [Azure Service Fabric mesh](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
+2. È anche possibile verificare lo stato dell'applicazione controllando lo stato dell'applicazione ([AZ mesh App Show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) e esaminando i comandi log applicazioni e ([AZ mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log)) usando l'interfaccia della riga di comando di [Azure Service Fabric mesh](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Commit
 

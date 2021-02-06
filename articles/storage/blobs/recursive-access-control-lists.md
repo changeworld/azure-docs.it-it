@@ -5,22 +5,25 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 626e626cbd8fa86bd0366516cbaf5a54789f3988
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 737608e4f83846187decb92b090f2385a8ff4ac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741044"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627341"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
 L'ereditarietà ACL è già disponibile per i nuovi elementi figlio creati in una directory padre. È anche possibile aggiungere, aggiornare e rimuovere gli ACL in modo ricorsivo per gli elementi figlio esistenti di una directory padre senza dover apportare queste modifiche singolarmente per ogni elemento figlio.
 
 [Librerie](#libraries)  |  di [Esempi](#code-samples)  |  di [Procedure consigliate](#best-practice-guidelines)
+
+> [!NOTE]
+> Azure Storage Explorer supporta ora la possibilità di applicare gli ACL in modo ricorsivo. Per altre informazioni, vedere [applicare ACL in modo ricorsivo in Azure Storage Explorer](data-lake-storage-explorer.md#apply-acls-recursively). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -719,7 +722,7 @@ Per ridurre la latenza, è consigliabile eseguire il processo ACL ricorsivo in u
 
 Il numero massimo di ACL che è possibile applicare a una directory o a un file è 32 ACL di accesso e 32 ACL predefiniti. Per altre informazioni, vedere [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md) (Controllo di accesso in Azure Data Lake Storage Gen2).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Controllo di accesso in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)
 - [Problemi noti](data-lake-storage-known-issues.md)

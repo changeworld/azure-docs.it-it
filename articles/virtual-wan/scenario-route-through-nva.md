@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424752"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626661"
 ---
-# <a name="scenario-route-traffic-through-an-nva"></a>Scenario: indirizzare il traffico attraverso un'appliance virtuale di dispositivo
+# <a name="scenario-route-traffic-through-an-nva"></a>Scenario: Indirizzare il traffico attraverso un'appliance virtuale di rete
 
 Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari disponibili. In questo scenario di appliance virtuale di rete, l'obiettivo è instradare il traffico attraverso un'appliance virtuale di rete (appliance virtuale di rete) per il ramo a VNet e VNet al ramo. Per informazioni sul routing degli hub virtuali, vedere [About Virtual Hub routing](about-virtual-hub-routing.md).
 
@@ -31,8 +31,8 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 In questo scenario verrà usata la convenzione di denominazione:
 
 * "NVA reti virtuali" per le reti virtuali in cui gli utenti hanno distribuito un'appliance virtuale di rete e hanno connesso altre reti virtuali come spoke (VNet 2 e VNet 4 nella **matrice di connettività**, più avanti).
-* "NVA spokes" per le reti virtuali connesse a un appliance virtuale di rete VNet (VNet 5, VNet 6, VNet 7 e VNet 8 nella **matrice di connettività**riportata di seguito).
-* "Non-Appliance reti virtuali" per le reti virtuali connesse alla rete WAN virtuale che non dispongono di un appliance virtuale di rete o di altri reti virtuali con peering (VNet 1 e VNet 3 nella **matrice di connettività**riportata di seguito).
+* "NVA spokes" per le reti virtuali connesse a un appliance virtuale di rete VNet (VNet 5, VNet 6, VNet 7 e VNet 8 nella **matrice di connettività** riportata di seguito).
+* "Non-Appliance reti virtuali" per le reti virtuali connesse alla rete WAN virtuale che non dispongono di un appliance virtuale di rete o di altri reti virtuali con peering (VNet 1 e VNet 3 nella **matrice di connettività** riportata di seguito).
 * "Hub" per hub WAN virtuali gestiti da Microsoft, in cui i reti virtuali di rete virtuale virtuale sono connessi a. L'appliance virtuale di rete spoke reti virtuali non deve essere connessa a hub WAN virtuali, solo a appliance virtuale di rete virtuale reti virtuali.
 
 La seguente matrice di connettività, riepiloga i flussi supportati in questo scenario:
@@ -87,7 +87,7 @@ A questo punto, i rami reti virtuali, non reti virtuali e i rami sanno come ragg
 
 ## <a name="architecture"></a><a name="architecture"></a>Architettura
 
-Nella **Figura 2**sono presenti due hub: **HUB1** e **HUB2**.
+Nella **Figura 2** sono presenti due hub: **HUB1** e **HUB2**.
 
 * **HUB1** e **HUB2** sono direttamente connessi a appliance virtuale di reti virtuali **VNet 2** e **VNet 4**.
 
@@ -99,13 +99,13 @@ Nella **Figura 2**sono presenti due hub: **HUB1** e **HUB2**.
 
 **Figura 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Flusso di lavoro dello scenario
 
 Per configurare il routing tramite appliance virtuale di sistema, ecco i passaggi da considerare:
 
-1. Identificare la connessione VNet per l'appliance virtuale di dispositivo. Nella **Figura 2**sono **VNet 2 Connection (Eastusconn)** e **VNet 4 Connection (weconn)**.
+1. Identificare la connessione VNet per l'appliance virtuale di dispositivo. Nella **Figura 2** sono **VNet 2 Connection (Eastusconn)** e **VNet 4 Connection (weconn)**.
 
    Verificare la configurazione di UdR:
    * Da VNet 5 e VNet da 6 a VNet 2 appliance virtuale di dispositivo virtuale
@@ -117,7 +117,7 @@ La rete WAN virtuale non supporta uno scenario in cui reti virtuali 5, 6 si conn
 
 2. Aggiungere una voce di route statica aggregata per reti virtuali 2, 5, 6 alla tabella di route predefinita dell'hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Figura 1":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Esempio":::
 
 3. Configurare una route statica per reti virtuali 5, 6 nella connessione di rete virtuale di VNet 2. Per configurare la configurazione del routing per una connessione di rete virtuale, vedere [routing dell'hub virtuale](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -125,11 +125,11 @@ La rete WAN virtuale non supporta uno scenario in cui reti virtuali 5, 6 si conn
 
 5. Ripetere i passaggi 2, 3 e 4 per la tabella di route predefinita dell'hub 2.
 
-Questo comporterà la modifica della configurazione del routing, come illustrato nella **Figura 3**riportata di seguito.
+Questo comporterà la modifica della configurazione del routing, come illustrato nella **Figura 3** riportata di seguito.
 
 **Figura 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

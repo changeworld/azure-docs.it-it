@@ -6,14 +6,19 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 15e0c3bcbc19eae344ca3965b2b866ca9a15f28d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
-ms.translationtype: HT
+ms.openlocfilehash: 665988f37d0afdb91bb074d8653cc3c24155966e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840320"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627012"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guida introduttiva: Creare e distribuire un'app Web in Azure Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete.
 

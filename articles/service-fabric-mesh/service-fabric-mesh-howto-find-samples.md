@@ -3,14 +3,19 @@ title: Trovare esempi di Azure Service Fabric mesh
 description: Ecco un indice delle applicazioni di esempio Service Fabric mesh disponibili. Il codice sorgente di questi esempi mostra come ottenere un particolare scenario usando il modello di risorsa di Service Fabric.
 ms.date: 12/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 64d9e4e112f26f83eedd02b034c8191c6f677618
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b38cd6a6c0f3aaab4ff5b77be82aee242afef23
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261280"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627029"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Trovare esempi di Service Fabric Mesh
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa tabella descrive le applicazioni di esempio di Service Fabric Mesh disponibili. Il codice sorgente di questi esempi mostra come ottenere un particolare scenario usando il modello di risorsa di Service Fabric.
 

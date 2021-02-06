@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741899"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625129"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Domande frequenti sulla protezione Azure AD password locale
 
@@ -150,6 +150,146 @@ La modalità di controllo è supportata solo nell'ambiente di Active Directory l
 **D: gli utenti visualizzano il messaggio di errore di Windows tradizionale quando una password viene rifiutata da Azure AD la protezione con password. È possibile personalizzare questo messaggio di errore in modo che gli utenti conoscano effettivamente cosa è successo?**
 
 No. Il messaggio di errore visualizzato dagli utenti quando una password viene rifiutata da un controller di dominio viene controllata dal computer client, non dal controller di dominio. Questo comportamento si verifica se una password viene rifiutata dai criteri predefiniti Active Directory password o da una soluzione basata su filtro password, ad esempio Azure AD la protezione delle password.
+
+## <a name="password-testing-procedures"></a>Procedure di test delle password
+
+È possibile eseguire alcuni test di base di varie password per convalidare il corretto funzionamento del software e ottenere una migliore comprensione dell' [algoritmo di valutazione delle password](concept-password-ban-bad.md#how-are-passwords-evaluated). In questa sezione viene descritto un metodo per il testing progettato per produrre risultati ripetibili.
+
+Perché è necessario seguire questi passaggi? Esistono diversi fattori che rendono difficile eseguire test controllati e ripetibili delle password nell'ambiente Active Directory locale:
+
+* I criteri password sono configurati e salvati in modo permanente in Azure e le copie del criterio vengono sincronizzate periodicamente dagli agenti del controller di dominio locale usando un meccanismo di polling. La latenza inerente a questo ciclo di polling può causare confusione. Se, ad esempio, si configurano i criteri in Azure, ma si dimentica di sincronizzarli con l'agente del controller di dominio, i test potrebbero non restituire i risultati previsti. L'intervallo di polling è attualmente hardcoded per essere una volta all'ora, ma l'attesa di un'ora tra le modifiche dei criteri non è ideale per uno scenario di test interattivo.
+* Quando un nuovo criterio password viene sincronizzato con un controller di dominio, si verificherà una maggiore latenza durante la replica in altri controller di dominio. Questi ritardi possono provocare risultati imprevisti se si verifica una modifica della password in un controller di dominio che non ha ancora ricevuto la versione più recente del criterio.
+* Il test delle modifiche delle password tramite un'interfaccia utente rende difficile la confidenza nei risultati. Ad esempio, è facile digitare erroneamente una password non valida in un'interfaccia utente, soprattutto perché la maggior parte delle interfacce utente di password nasconde l'input dell'utente, ad esempio l'interfaccia utente di Windows Ctrl-Alt-Delete-> modificare la password.
+* Non è possibile controllare in modo rigoroso quale controller di dominio viene utilizzato quando si testano le modifiche delle password dai client aggiunti al dominio. Il sistema operativo client Windows seleziona un controller di dominio in base a fattori quali Active Directory assegnazioni di siti e subnet, configurazione di rete specifica dell'ambiente e così via.
+
+Per evitare questi problemi, i passaggi seguenti sono basati sul test della riga di comando per la reimpostazione della password durante l'accesso a un controller di dominio.
+
+> [!WARNING]
+> Queste procedure devono essere utilizzate solo in un ambiente di test perché tutte le modifiche e le reimpostazioni della password in entrata verranno accettate senza convalida mentre il servizio agente controller di dominio viene arrestato e anche per evitare i maggiori rischi inerenti all'accesso a un controller di dominio.
+
+Nei passaggi seguenti si presuppone che l'agente del controller di dominio sia stato installato in almeno un controller di dominio, che sia stato installato almeno un proxy e che sia stato registrato sia il proxy che la foresta.
+
+1. Accedere a un controller di dominio usando le credenziali di amministratore di dominio (o altre credenziali che dispongono di privilegi sufficienti per creare account utente di test e reimpostare le password), in cui è installato il software dell'agente controller di dominio ed è stato riavviato.
+1. Aprire Visualizzatore eventi e passare al [registro eventi di amministrazione dell'agente del controller](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log)di dominio.
+1. Aprire una finestra del prompt dei comandi con privilegi elevati.
+1. Creare un account di test per eseguire il test delle password
+
+   Esistono diversi modi per creare un account utente, ma qui viene offerta un'opzione della riga di comando per facilitarne l'uso durante i cicli di test ripetuti:
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   Ai fini della discussione, si supponga di aver creato un account di prova denominato "ContosoUser", ad esempio:
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. Aprire un Web browser (potrebbe essere necessario usare un dispositivo separato anziché il controller di dominio), accedere al [portale di Azure](https://portal.azure.com)e passare a Azure Active Directory > sicurezza > metodi di autenticazione > la protezione con password.
+1. Modificare i criteri di protezione Azure AD password in base alle esigenze per il test che si desidera eseguire.  Ad esempio, è possibile decidere di configurare la modalità applicata o di controllo oppure è possibile decidere di modificare l'elenco dei termini proibiti nell'elenco delle password escluse.
+1. Sincronizzare il nuovo criterio arrestando e riavviando il servizio agente di controller di dominio.
+
+   Questo passaggio può essere eseguito in vari modi. Un modo consiste nell'utilizzare la console di amministrazione di gestione dei servizi facendo clic con il pulsante destro del mouse sul servizio Azure AD Password Protection Agent e scegliendo "Riavvia". Un altro modo può essere eseguito dalla finestra del prompt dei comandi, come indicato di seguito:
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. Controllare la Visualizzatore eventi per verificare che sia stato scaricato un nuovo criterio.
+
+   Ogni volta che il servizio agente di controller di dominio viene arrestato e avviato, verranno visualizzati 2 30006 eventi rilasciati in seguito alla successione. Il primo evento 30006 rifletterà i criteri memorizzati nella cache su disco nella condivisione SYSVOL. Il secondo evento 30006, se presente, deve avere una data aggiornata dei criteri del tenant e, in caso affermativo, rifletterà i criteri scaricati da Azure. Il valore di data dei criteri tenant è attualmente codificato per visualizzare il timestamp approssimativo in cui il criterio è stato scaricato da Azure.
+   
+   Se il secondo evento 30006 non viene visualizzato, è necessario risolvere il problema prima di continuare.
+   
+   Gli eventi 30006 appariranno simili all'esempio seguente:
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   Se, ad esempio, si modifica tra la modalità applicata e la modalità di controllo, il flag AuditOnly verrà modificato (il criterio precedente con AuditOnly = 0 è in modalità applicata); le modifiche apportate all'elenco delle password con Banned personalizzato non vengono riflesse direttamente nell'evento 30006 precedente (e non vengono registrate altrove per motivi di sicurezza). Il download del criterio da Azure dopo tale modifica includerà anche l'elenco delle password vietate personalizzate modificate.
+
+1. Eseguire un test tentando di reimpostare una nuova password per l'account utente di test.
+
+   Questo passaggio può essere eseguito dalla finestra del prompt dei comandi in questo modo:
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   Dopo aver eseguito il comando, è possibile ottenere altre informazioni sul risultato del comando cercando nel Visualizzatore eventi. Gli eventi di risultato della convalida della password sono documentati nell'argomento [registro eventi di amministrazione dell'agente controller](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) di dominio; questi eventi verranno usati per convalidare il risultato del test oltre all'output interattivo dei comandi net.exe.
+
+   Si proverà ad esempio: tentativo di impostare una password vietata dall'elenco globale Microsoft. si noti che l'elenco non è [documentato](concept-password-ban-bad.md#global-banned-password-list) , ma è possibile eseguire il test in un periodo di tempo vietato noto. In questo esempio si presuppone che i criteri siano stati configurati in modalità applicata e che siano stati aggiunti zero termini all'elenco delle password escluse.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   In base alla documentazione, poiché il test è un'operazione di reimpostazione della password, dovrebbero essere visualizzati un evento 10017 e un evento 30005 per l'utente ContosoUser.
+
+   L'evento 10017 dovrebbe essere simile a questo esempio:
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   L'evento 30005 dovrebbe essere simile a questo esempio:
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Si tratta di un esempio divertente. Questa volta verrà eseguito un tentativo di impostare una password vietata dall'elenco di file esclusi personalizzati mentre i criteri sono in modalità di controllo. In questo esempio si presuppone che siano stati eseguiti i passaggi seguenti: configurazione dei criteri in modalità di controllo, aggiunta del termine "lacrimoso" all'elenco delle password escluse personalizzate e sincronizzazione dei nuovi criteri risultanti nel controller di dominio tramite il servizio agente controller di dominio come descritto in precedenza.
+
+   Ok, impostare una variante della password esclusa:
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   Tenere presente che questa volta è riuscita perché il criterio è in modalità di controllo. Verranno visualizzati un evento 10025 e un evento 30007 per l'utente ContosoUser.
+
+   L'evento 10025 dovrebbe essere simile a questo esempio:
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   L'evento 30007 dovrebbe essere simile a questo esempio:
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. Continuare a testare le varie password scelte e controllare i risultati nel Visualizzatore eventi usando le procedure descritte nei passaggi precedenti. Se è necessario modificare i criteri nel portale di Azure, non dimenticare di sincronizzare i nuovi criteri con l'agente del controller di dominio, come descritto in precedenza.
+
+Sono state descritte le procedure che consentono di eseguire test controllati del comportamento di convalida delle password di Azure AD password. La reimpostazione delle password utente dalla riga di comando direttamente in un controller di dominio può sembrare un mezzo strano per eseguire tali test, ma come descritto in precedenza è progettata per produrre risultati ripetibili. Quando si esegue il test di varie password, tenere presente l' [algoritmo di valutazione delle password](concept-password-ban-bad.md#how-are-passwords-evaluated) perché potrebbe essere utile per spiegare i risultati che non sono previsti.
+
+> [!WARNING]
+> Quando tutti i test vengono completati, non dimenticare di eliminare tutti gli account utente creati a scopo di test.
 
 ## <a name="additional-content"></a>Contenuto aggiuntivo
 

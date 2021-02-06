@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 57bc53c28866b3f16e742c27b6a1600bfe6f44ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e2f7f754ae9a1547d6543dba65c69511ab7ceb1
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418824"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624913"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurare OpenVPN per il gateway VPN da punto a sito di Azure
 
@@ -29,7 +29,7 @@ Se non è già presente un ambiente da punto a sito in funzione, seguire le istr
 
 ## <a name="2-enable-openvpn-on-the-gateway"></a><a name="enable"></a>2. abilitare OpenVPN sul gateway
 
-Abilitare OpenVPN nel gateway Assicurarsi che il gateway sia già configurato per connessioni da punto a sito (IKEv2 o SSTP) prima di eseguire i comandi seguenti:
+Abilitare OpenVPN nel gateway
 
 ```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name

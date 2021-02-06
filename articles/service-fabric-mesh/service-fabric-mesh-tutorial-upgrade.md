@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 2d74841e1873e5bd84d839122e0e662ef65ccd11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1020613eb43177ba159601f253848f8d03f385a8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842003"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625433"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Esercitazione: Informazioni su come aggiornare un'applicazione Service Fabric tramite Visual Studio
+
+> [!IMPORTANT]
+> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> 
+> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Questa esercitazione è la quarta parte di una serie e mostra come aggiornare un'applicazione Azure Service Fabric Mesh direttamente da Visual Studio. L'aggiornamento includerà sia un aggiornamento del codice sia un aggiornamento della configurazione. Si noterà che i passaggi per l'aggiornamento e la pubblicazione da Visual Studio sono gli stessi.
 
@@ -53,9 +58,9 @@ Il parametro verrà aggiornato in `WebFrontEnd_cpu` modo da aggiornare le risors
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Aprire il file **Service. YAML** del progetto **WebFrontEnd** nelle risorse del servizio **WebFrontEnd**  >  **Service Resources**.
+2. Aprire il file **Service. YAML** del progetto **WebFrontEnd** nelle risorse del servizio **WebFrontEnd**  >  .
 
-    Si noti che la `resources:` sezione in `cpu:` è impostata su `"[parameters('WebFrontEnd_cpu')]"` . Se il progetto viene compilato per il cloud, il valore per `'WebFrontEnd_cpu` verrà ricavato dal file dei parametri del cloud **environments**  >  **Cloud**  >  **. YAML** e sarà `1.5` . Se è in corso la compilazione del progetto per l'esecuzione in locale, il valore viene **Environments**ricavato dal  >  file**local**  >  **Parameters. YAML** degli ambienti e sarà "0,5".
+    Si noti che la `resources:` sezione in `cpu:` è impostata su `"[parameters('WebFrontEnd_cpu')]"` . Se il progetto viene compilato per il cloud, il valore per `'WebFrontEnd_cpu` verrà ricavato dal file dei parametri del cloud **environments**  >    >  **. YAML** e sarà `1.5` . Se è in corso la compilazione del progetto per l'esecuzione in locale, il valore viene ricavato dal  >  file **local**  >  **Parameters. YAML** degli ambienti e sarà "0,5".
 
 > [!Tip]
 > Per impostazione predefinita, il file dei parametri che è un peer del file profile. YAML verrà usato per fornire i valori per il file profile. yaml.

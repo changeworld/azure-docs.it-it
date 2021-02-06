@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4982acb54207a9ed08a96414877603a8253c2ade
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 22ac3b9ac5f7a10226e8dc7197fdf60dc0a84e3b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557761"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627617"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -535,6 +535,7 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 > | microsoft.directory/policies/applicationConfiguration/owners/read | Eseguire la lettura della proprietà policies.applicationConfiguration in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/owners/update | Aggiornare la proprietà policies.applicationConfiguration in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/policyAppliedTo/read | Eseguire la lettura della proprietà policies.applicationConfiguration in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Aggiornare la proprietà servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/appRoleAssignments/update | Aggiornare la proprietà servicePrincipals.appRoleAssignments in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/audience/update | Aggiornare la proprietà servicePrincipals.audience in Azure Active Directory. |
@@ -697,6 +698,7 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 > | microsoft.directory/policies/applicationConfiguration/owners/read | Eseguire la lettura della proprietà policies.applicationConfiguration in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/owners/update | Aggiornare la proprietà policies.applicationConfiguration in Azure Active Directory. |
 > | microsoft.directory/policies/applicationConfiguration/policyAppliedTo/read | Eseguire la lettura della proprietà policies.applicationConfiguration in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Aggiornare la proprietà servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/appRoleAssignments/update | Aggiornare la proprietà servicePrincipals.appRoleAssignments in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/audience/update | Aggiornare la proprietà servicePrincipals.audience in Azure Active Directory. |
@@ -766,6 +768,7 @@ Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano ide
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Creare ed eliminare oAuth2PermissionGrants, eseguire la lettura e aggiornare tutte le proprietà in Azure Active Directory. |
 > | microsoft.directory/organization/allProperties/allTasks | Creare ed eliminare organizzazioni, eseguire la lettura e aggiornare tutte le proprietà in Azure Active Directory. |
 > | microsoft.directory/policies/allProperties/allTasks | Creare ed eliminare criteri, eseguire la lettura e aggiornare tutte le proprietà in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Creare ed eliminare roleAssignments, eseguire la lettura e aggiornare tutte le proprietà in Azure Active Directory. |
 > | microsoft.directory/roleDefinitions/allProperties/allTasks | Creare ed eliminare roleDefinitions, eseguire la lettura e aggiornare tutte le proprietà in Azure Active Directory. |
 > | microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Creare ed eliminare scopedRoleMemberships, eseguire la lettura e aggiornare tutte le proprietà in Azure Active Directory. |
@@ -1143,6 +1146,7 @@ Può leggere tutti gli elementi che possono essere letti da un amministratore gl
 > | microsoft.directory/organization/basic/read    | Eseguire la lettura delle proprietà di base sull'organizzazione in Azure Active Directory. |
 > | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read    | Eseguire la lettura della proprietà organization.trustedCAsForPasswordlessAuth in Azure Active Directory. |
 > | microsoft.directory/policies/standard/read    | Leggere i criteri standard in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/roleAssignments/basic/read    | Eseguire la lettura delle proprietà di base su roleAssignments in Azure Active Directory. |
 > | microsoft.directory/roleDefinitions/basic/read    | Eseguire la lettura delle proprietà di base su roleDefinitions in Azure Active Directory. |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/read    | Eseguire la lettura della proprietà servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
@@ -1683,6 +1687,7 @@ Può eseguire la lettura dei report di accesso e di controllo.
 > | Azioni | Descrizione |
 > | --- | --- |
 > | microsoft.directory/auditLogs/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per auditLogs in Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 > | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
@@ -1743,6 +1748,7 @@ Consente di leggere le informazioni di sicurezza e i report e gestire la configu
 > | microsoft.directory/policies/owners/update | Aggiornare la proprietà policies.owners in Azure Active Directory. |
 > | microsoft.directory/policies/tenantDefault/update | Aggiornare la proprietà policies.tenantDefault in Azure Active Directory. |
 > | Microsoft. directory/privilegedIdentityManagement/allProperties/Read | Eseguire tutte le risorse in microsoft.aad.privilegedIdentityManagement. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 > | microsoft.directory/servicePrincipals/policies/update | Aggiornare la proprietà servicePrincipals.policies in Azure Active Directory. |
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 > | microsoft.office365.protectionCenter/allEntities/read | Eseguire la lettura di tutti gli aspetti del Centro protezione Office 365. |
@@ -1792,6 +1798,7 @@ Consente di leggere le informazioni sulla sicurezza e i report in Azure AD e Mic
 > | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 > | microsoft.aad.identityProtection/allEntities/read | Eseguire la lettura di tutte le risorse in microsoft.aad.identityProtection. |
 > | microsoft.aad.privilegedIdentityManagement/allEntities/read | Eseguire tutte le risorse in microsoft.aad.privilegedIdentityManagement. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 > | microsoft.office365.protectionCenter/allEntities/read | Eseguire la lettura di tutti gli aspetti del Centro protezione Office 365. |
