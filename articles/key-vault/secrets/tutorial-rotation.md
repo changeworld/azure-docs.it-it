@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd90043c8f03361244d3500f83f6df5347f1d867
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 526c3d2d85a3f2877f82b3b764f395c51f7c05c0
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539401"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805231"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse che usano un unico set di credenziali di autenticazione
 
@@ -213,7 +213,7 @@ La creazione di un segreto con una data di scadenza breve pubblicherà entro 15 
 
 Per verificare l'avvenuta rotazione del segreto, passare a **Key Vault** > **Segreti**:
 
-:::image type="content" source="../media/rotate-8.png" alt-text="Passare a segreti":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Screenshot che illustra come accedere a Key Vault > segreti.":::
 
 Aprire il segreto **sqlPassword** per visualizzare la versione originale e quella ruotata:
 

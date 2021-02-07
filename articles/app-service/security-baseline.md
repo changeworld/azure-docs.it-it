@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736089"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807853"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Baseline della sicurezza di Azure per il servizio app
 
@@ -1111,7 +1111,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
 
-**Linee guida**: esportare gli avvisi e le raccomandazioni del Centro sicurezza usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. Usare il connettore dati del Centro sicurezza per trasmettere gli avvisi sentinella in base alle esigenze aziendali.
+**Linee guida**: esportare gli avvisi e le raccomandazioni del Centro sicurezza usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. Usare il connettore dati del Centro sicurezza per trasmettere gli avvisi a Sentinel di Azure in base alle esigenze aziendali.
 
 - [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 

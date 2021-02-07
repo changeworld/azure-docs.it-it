@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55042c8d1e612598cc5728668c9e87b054fb3afa
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537837"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806240"
 ---
 # <a name="test-through-simulations"></a>Testare con le simulazioni
 
@@ -63,7 +63,7 @@ Quando la risorsa è sotto attacco, si noterà che il valore cambia da **0** a *
 
 ### <a name="breakingpoint-cloud-api-script"></a>Script API cloud BreakingPoint
 
-Questo [script API](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) può essere usato per automatizzare i test DDoS eseguendo una sola volta o usando cron per pianificare i test normali. Questa operazione è utile per verificare che la registrazione sia configurata correttamente e che le procedure di rilevamento e risposta siano effettive. Gli script richiedono un sistema operativo Linux (testato con Ubuntu 18,04 LTS) e Python 3. Installare i prerequisiti e il client API usando lo script incluso o usando la documentazione nel sito Web [BreakingPoint cloud](http://breakingpoint.cloud/) .
+Questo [script API](https://aka.ms/ddosbreakingpoint) può essere usato per automatizzare i test DDoS eseguendo una sola volta o usando cron per pianificare i test normali. Questa operazione è utile per verificare che la registrazione sia configurata correttamente e che le procedure di rilevamento e risposta siano effettive. Gli script richiedono un sistema operativo Linux (testato con Ubuntu 18,04 LTS) e Python 3. Installare i prerequisiti e il client API usando lo script incluso o usando la documentazione nel sito Web [BreakingPoint cloud](http://breakingpoint.cloud/) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

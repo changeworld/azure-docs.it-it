@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 42d4467a6441e517ef3194f701eb47e7e68505b1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915165"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806308"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualizzare e configurare la registrazione diagnostica DDoS
 
@@ -77,7 +77,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 | **Risorsa** | Nome dell'indirizzo IP pubblico. |
 | **ResourceType** | Questa operazione sarà sempre `PUBLICIPADDRESS` . |
 | **NomeOperazione** | Per le notifiche, questo sarà `DDoSProtectionNotifications` .  |
-| **Message** | Dettagli dell'attacco. |
+| **Messaggio** | Dettagli dell'attacco. |
 | **Tipo** | Tipo di notifica. I valori possibili includono `MitigationStarted` . `MitigationStopped`. |
 | **PublicIpAddress** | Indirizzo IP pubblico. |
 
@@ -93,7 +93,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 | **Risorsa** | Nome dell'indirizzo IP pubblico. |
 | **ResourceType** | Questa operazione sarà sempre `PUBLICIPADDRESS` . |
 | **NomeOperazione** | Per i log di flusso, questo sarà `DDoSMitigationFlowLogs` . |
-| **Message** | Dettagli dell'attacco. |
+| **Messaggio** | Dettagli dell'attacco. |
 | **SourcePublicIpAddress** | Indirizzo IP pubblico del client che genera il traffico verso l'indirizzo IP pubblico. |
 | **SourcePort** | Numero di porta compreso tra 0 e 65535. |
 | **DestPublicIpAddress** | Indirizzo IP pubblico. |
@@ -128,7 +128,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 
 ## <a name="enable-diagnostic-logging-on-all-public-ips"></a>Abilitare la registrazione diagnostica su tutti gli indirizzi IP pubblici
 
-Questo [modello](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) crea una definizione di criteri di Azure per abilitare automaticamente la registrazione diagnostica in tutti i registri IP pubblici in un ambito definito.
+Questo [modello](https://aka.ms/ddosdiaglogs) crea una definizione di criteri di Azure per abilitare automaticamente la registrazione diagnostica in tutti i registri IP pubblici in un ambito definito.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
 
@@ -142,7 +142,7 @@ Questo [modello](https://github.com/Azure/Azure-Network-Security/tree/master/Azu
 
 ### <a name="azure-ddos-protection-workbook"></a>Cartella di lavoro protezione DDoS di Azure
 
-È possibile usare questo modello di Azure Resource Manager (ARM) per distribuire una cartella di lavoro di analisi di attacco. Questa cartella di lavoro consente di visualizzare i dati di attacco in diversi pannelli filtrabili per comprendere facilmente il contenuto. 
+È possibile usare [questo modello di Azure Resource Manager (ARM)](https://aka.ms/ddosworkbook) per distribuire una cartella di lavoro di analisi di attacco. Questa cartella di lavoro consente di visualizzare i dati di attacco in diversi pannelli filtrabili per comprendere facilmente il contenuto. 
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
 

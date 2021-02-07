@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
-ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054755"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805935"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -427,6 +427,12 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per 
 
 > [!TIP]
 > Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area. Facoltativamente, è anche possibile usare il tag del servizio **AzureConnectors** per i connettori gestiti che rendono i callback del webhook in ingresso al servizio app per la logica, anziché specificare i prefissi degli indirizzi IP del connettore gestito in ingresso per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica.
+>
+> I connettori seguenti rendono i callback del webhook in ingresso al servizio app per la logica:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign demo, Adobe Sign Preview, Adobe Sign stage, Azure Sentinel, business Central, caprestaly, Common Data Service, DocuSign, DocuSign demo, Dynamics 365 per pinna & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP *, turni per Microsoft teams, teamwork Projects, Typeform
+>
+> \***SAP**: il chiamante restituito varia a seconda che l'ambiente di distribuzione sia Azure o ISE multi-tenant. Nell'ambiente multi-tenant il gateway dati locale esegue nuovamente la chiamata al servizio app per la logica. In un ISE il connettore SAP richiama il servizio app per la logica.
 
 <a name="multi-tenant-inbound"></a>
 

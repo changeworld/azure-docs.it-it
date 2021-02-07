@@ -3,12 +3,12 @@ title: Abilitare monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come abilitare e configurare monitoraggio di Azure per i contenitori in modo che sia possibile comprendere il modo in cui il contenitore sta eseguendo e quali sono stati identificati i problemi relativi alle prestazioni.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943814"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806010"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Abilitare monitoraggio di Azure per i contenitori
 
@@ -35,6 +35,12 @@ Questo articolo fornisce una panoramica delle opzioni disponibili per la configu
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
+
+> [!IMPORTANT]
+> Log Analytics agente Linux in contenitori (REPLICASET Pod) effettua chiamate API a tutti i nodi Windows nella porta protetta Kubelet (10250) all'interno del cluster per raccogliere le metriche relative alle prestazioni dei nodi e dei contenitori. La porta protetta Kubelet (: 10250) deve essere aperta nella rete virtuale del cluster sia per il funzionamento della raccolta delle metriche in ingresso che in uscita per il nodo Windows e per le prestazioni dei contenitori.
+>
+> Se si dispone di un cluster Kubernetes con nodi di Windows, esaminare e configurare il gruppo di sicurezza di rete e i criteri di rete per assicurarsi che la porta sicura Kubelet (: 10250) sia aperta per le connessioni in ingresso e in uscita nella rete virtuale del cluster.
+
 
 - Si dispone di un'area di lavoro Log Analytics.
 

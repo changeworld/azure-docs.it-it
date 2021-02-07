@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874907"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807547"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -84,7 +84,7 @@ Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenz
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Immagine che mostra l'elenco di origini dati disponibili per la scelta":::
 
-1. Assegnare al Power BI istanza un nome descrittivo.
+3. Assegnare al Power BI istanza un nome descrittivo.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Immagine che mostra Power BI nome descrittivo dell'origine dati":::
 
@@ -94,17 +94,21 @@ Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenz
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Power BI origine dati registrata":::
 
-1. Assegnare un nome all'analisi. Si noti che l'unico metodo di autenticazione supportato è **Identity gestito**.
+    > [!Note]
+    > Per Power BI, la registrazione e l'analisi dell'origine dati sono consentite solo per un'istanza.
+
+
+4. Assegnare un nome all'analisi. Si noti che l'unico metodo di autenticazione supportato è **Identity gestito**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Immagine che mostra la configurazione dell'analisi Power BI":::
 
     Il nome dell'analisi deve avere una lunghezza compresa tra 3-63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini.  Gli spazi non sono consentiti.
 
-1. Configurare un trigger di analisi. Le opzioni disponibili sono **una sola volta**, **ogni 7 giorni** e **ogni 30 giorni**.
+5. Configurare un trigger di analisi. Le opzioni disponibili sono **una sola volta**, **ogni 7 giorni** e **ogni 30 giorni**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Immagine del trigger Scan":::
 
-1. In **Verifica nuova analisi** selezionare **Salva ed Esegui** per avviare l'analisi.
+6. In **Verifica nuova analisi** selezionare **Salva ed Esegui** per avviare l'analisi.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Salva ed Esegui Power BI immagine della schermata":::
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072405"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806410"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Eseguire il backup e il ripristino di un database di Oracle Database 19C in una VM Linux di Azure con backup di Azure
 
@@ -697,7 +697,7 @@ Per ripristinare l'intera macchina virtuale, completare i passaggi seguenti:
 
    1. Nella portale di Azure selezionare **+ Crea una risorsa** e cercare e selezionare **account di archiviazione**.
     
-      ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/storage-1.png)
+      ![Screenshot che mostra dove creare una risorsa.](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. Nella pagina Crea account di archiviazione scegliere il gruppo di risorse esistente **RG-Oracle**, assegnare un nome all'account di archiviazione **Oracrestore** e scegliere **archiviazione V2 (generalpurpose v2)** per tipo di account. Modificare la replica in **archiviazione con ridondanza locale (con ridondanza locale)** e impostare le prestazioni su **standard**. Assicurarsi che location sia impostato sulla stessa area di tutte le altre risorse nel gruppo di risorse. 
@@ -877,7 +877,7 @@ Dopo il ripristino della macchina virtuale, è necessario riassegnare l'indirizz
 
 5.  A questo punto è necessario scollegare la scheda di interfaccia di rete creata con l'operazione di ripristino della macchina virtuale perché è configurata come interfaccia primaria. Fare clic su **Scollega interfaccia di rete** e scegliere la nuova NIC simile a **vmoracle19c-NIC-xxxxxxxxxxxx** e quindi fare clic su **OK** .
 
-    ![Valore dell'indirizzo IP](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Screenshot che mostra dove selezionare Scollega interfaccia di rete.](./media/oracle-backup-recovery/create-ip-05.png)
     
     La VM ricreata avrà ora la scheda di interfaccia di rete originale, che è associata all'indirizzo IP originale e alle regole del gruppo di sicurezza di rete
     

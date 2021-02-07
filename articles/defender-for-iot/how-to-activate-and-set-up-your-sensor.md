@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5d2d923fc448beeff8fa165226890d88d97d01ad
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509520"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805666"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Attivare e configurare il sensore
 
@@ -204,7 +204,7 @@ Prima di eseguire l'accesso, verificare di avere:
 | Finestra | Icona | Descrizione |
 |---|---|---|
 | Utenti | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Definire utenti e ruoli con diversi livelli di accesso. |
-| Inoltro | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Invia le informazioni sugli avvisi ai partner e alle origini interne (ad esempio, Sentinel), integrando con Defender per l'it, per gli indirizzi di posta elettronica, i server webhook e altro ancora. <br /> Per informazioni dettagliate, vedere [trasmettere informazioni sugli avvisi](how-to-forward-alert-information-to-partners.md) . |
+| Inoltro | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Invia le informazioni sugli avvisi ai partner e alle origini interne (ad esempio, Azure Sentinel), integrando con Defender per l'it, per gli indirizzi di posta elettronica, i server webhook e altro ancora. <br /> Per informazioni dettagliate, vedere [trasmettere informazioni sugli avvisi](how-to-forward-alert-information-to-partners.md) . |
 | Impostazioni di sistema | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Configurare le impostazioni di sistema. Ad esempio, definire le impostazioni DHCP, fornire i dettagli del server di posta o creare alias di porta. |
 | Importare impostazioni | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Visualizzare la finestra **Importa impostazioni** . È possibile eseguire modifiche manuali nelle informazioni di un dispositivo.<br /> Per informazioni dettagliate, vedere [importare informazioni sul dispositivo](how-to-import-device-information.md) . |
 

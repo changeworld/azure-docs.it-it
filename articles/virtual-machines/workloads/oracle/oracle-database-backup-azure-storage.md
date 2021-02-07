@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 695f151e6d6cc0a677942f60c751567da0cfca7c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064039"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806274"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Eseguire il backup e il ripristino di un database di Oracle Database 19C in una VM Linux di Azure con archiviazione di Azure
 
@@ -31,19 +31,19 @@ Questo articolo illustra l'uso di archiviazione di Azure come supporto per il ba
    ssh azureuser@<publicIpAddress>
    ```
    
-2. Passa alla **_radice_* _ utente:
+2. Passa all'utente ***root*** :
  
    ```bash
    sudo su -
    ```
     
-3. Aggiungere l'utente Oracle al _*_ file/etc/sudoers_ * _:
+3. Aggiungere l'utente Oracle al file ***/etc/sudoers*** :
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-4. Questo passaggio presuppone che si disponga di un'istanza di Oracle (test) in esecuzione in una macchina virtuale denominata _vmoracle19c *.
+4. Questo passaggio presuppone che si disponga di un'istanza di Oracle (test) in esecuzione in una macchina virtuale denominata *vmoracle19c*.
 
    Passa all'utente *Oracle* :
 
@@ -182,31 +182,31 @@ Per prima cosa, configurare l'account di archiviazione.
 
 1. Configurare l'archiviazione file nel portale di Azure
 
-    Nella portale di Azure selezionare ***+ Crea una risorsa** _ e cercare e selezionare _*_account di archiviazione_*_
+    Nella portale di Azure selezionare ***+ Crea una risorsa** _ e cercare e selezionare _ *_account di archiviazione_**
     
-    ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/storage-1.png)
+    ![Screenshot che mostra dove creare una risorsa e selezionare account di archiviazione.](./media/oracle-backup-recovery/storage-1.png)
     
-2. Nella pagina Crea account di archiviazione scegliere il gruppo di risorse esistente _*_RG-Oracle_*_, assegnare un nome all'account di archiviazione _*_Oracbkup1_*_ e scegliere _*_archiviazione V2 (generalpurpose v2)_*_ per tipo di account. Modificare la replica in _*_archiviazione con ridondanza locale (con ridondanza locale)_*_ e impostare le prestazioni su _*_standard_*_. Assicurarsi che location sia impostato sulla stessa area di tutte le altre risorse nel gruppo di risorse. 
+2. Nella pagina Crea account di archiviazione scegliere il gruppo di risorse esistente ***RG-Oracle** _, assegnare un nome all'account di archiviazione _*_Oracbkup1_*_ e scegliere _*_archiviazione V2 (generalpurpose v2)_*_ per tipo di account. Modificare la replica in _*_archiviazione con ridondanza locale (con ridondanza locale)_*_ e impostare le prestazioni su _ *_standard_* *. Assicurarsi che location sia impostato sulla stessa area di tutte le altre risorse nel gruppo di risorse. 
     
-    ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/file-storage-1.png)
+    ![Screenshot che mostra dove scegliere il gruppo di risorse esistente.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
-3. Fare clic sulla scheda _*_Avanzate_*_ e in file di Azure impostare _*_condivisioni file di grandi dimensioni_*_ su _*_abilitato_*_. Fare clic su Verifica + crea e quindi su Crea.
+3. Fare clic sulla scheda ***Avanzate** e in file di Azure impostare _*_condivisioni file di grandi dimensioni_*_ su _ *_Enabled_* *. Fare clic su Verifica + crea e quindi su Crea.
     
-    ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/file-storage-2.png)
-    
-    
-4. Quando l'account di archiviazione è stato creato, passare alla risorsa e scegliere _*_condivisioni file_ .*_
-    
-    ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/file-storage-3.png)
-    
-5. Fare clic su _*_ + file share_ *_ e nel pannello _*_nuova condivisione file_*_ assegnare un nome alla condivisione file _*_orabkup1_*_. Impostare _*_quota_*_ su _*_10240_*_ GiB e check _*_Transaction optimized_*_ come livello. La quota riflette un limite superiore che la condivisione file può raggiungere. Quando si usa l'archiviazione standard, le risorse sono PAYG e non vengono sottoposte a provisioning, quindi l'impostazione su 10 TiB non comporta costi superiori a quelli usati. Se la strategia di backup richiede più spazio di archiviazione, è necessario impostare la quota su un livello appropriato per conservare tutti i backup.   Dopo aver completato il pannello nuova condivisione file, fare clic su _*_Crea_* _.
-    
-    ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Screenshot che mostra dove impostare le condivisioni file di grandi dimensioni su abilitato.](./media/oracle-backup-recovery/file-storage-2.png)
     
     
-6. Al termine della creazione, fare clic su _*_orabkup1_*_ nella pagina Impostazioni condivisione file. 
-    Fare clic sulla scheda _*_Connetti_*_ per aprire il pannello Connetti e quindi fare clic sulla scheda _*_Linux_*_ . Copiare i comandi forniti per montare la condivisione file usando il protocollo SMB. 
+4. Quando l'account di archiviazione è stato creato, passare alla risorsa e scegliere ***condivisioni file*** .
+    
+    ![Screenshot che mostra dove selezionare le condivisioni file.](./media/oracle-backup-recovery/file-storage-3.png)
+    
+5. Fare clic su ***+ condivisione file** _ e nel pannello _*_nuova condivisione file_*_ assegnare un nome alla condivisione file _*_orabkup1_*_. Impostare _*_quota_*_ su _*_10240_*_ GiB e controllare la _*_transazione ottimizzata_*_ come livello. La quota riflette un limite superiore che la condivisione file può raggiungere. Quando si usa l'archiviazione standard, le risorse sono PAYG e non vengono sottoposte a provisioning, quindi l'impostazione su 10 TiB non comporta costi superiori a quelli usati. Se la strategia di backup richiede più spazio di archiviazione, è necessario impostare la quota su un livello appropriato per conservare tutti i backup.   Dopo aver completato il pannello nuova condivisione file, fare clic su _ *_Crea_* *.
+    
+    ![Screenshot che mostra dove aggiungere una nuova condivisione file.](./media/oracle-backup-recovery/file-storage-4.png)
+    
+    
+6. Al termine della creazione, fare clic su ***orabkup1*** nella pagina Impostazioni condivisione file. 
+    Fare clic sulla scheda ***Connetti** _ per aprire il pannello Connetti e quindi fare clic sulla scheda _ *_Linux_**. Copiare i comandi forniti per montare la condivisione file usando il protocollo SMB. 
     
     ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/file-storage-5.png)
 
@@ -371,7 +371,7 @@ Quando si usa RMAN e l'archiviazione file di Azure per il backup del database so
 
     ```bash
     cd /u02/oradata/TEST
-    rm -f _.dbf
+    rm -f *.dbf
     ```
 
 3. I comandi seguenti usano RMAN per ripristinare i file di dati mancanti e recuperare il database:

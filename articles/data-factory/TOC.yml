@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: Informazioni sui prezzi
       items:
+        - name: Panoramica della capacità riservata del flusso di dati
+          href: data-flow-reserved-capacity-overview.md
+        - name: Informazioni sugli addebiti di prenotazione del flusso di dati
+          href: data-flow-understand-reservation-charges.md
         - name: Pianificare e gestire i costi
           href: plan-manage-costs.md
         - name: Esempi di prezzi

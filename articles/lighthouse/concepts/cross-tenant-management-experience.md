@@ -3,12 +3,12 @@ title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5180b2c28bc1157cb785c04f794cc5c9636764c8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576685"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805175"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -143,7 +143,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 - Gestire le risorse di Azure Sentinel [nei tenant dei clienti](../../sentinel/multiple-tenants-service-providers.md)
 - [Tenere traccia degli attacchi e visualizzare gli avvisi di sicurezza in più tenant](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Visualizzare gli eventi imprevisti](../../sentinel/multiple-workspace-view.md) tra più aree di lavoro Sentinel distribuite tra i tenant
+- [Visualizzare gli eventi imprevisti](../../sentinel/multiple-workspace-view.md) tra più aree di lavoro di Azure Sentinel distribuite tra i tenant
 
 [Integrità dei servizi di Azure](../../service-health/index.yml):
 

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: bff13c24e0b5818b352e76df1d8ecd8251a5f12c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: f8664886203e32baadda5cdf993fbaf7b2a62ed7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430227"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805919"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di raccolta dati in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per distribuire e configurare l'[agente di Log Analytics](../platform/log-analytics-agent.md) e l'[estensione di diagnostica](../platform/diagnostics-extension-overview.md) per le macchine virtuali in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
@@ -82,7 +82,7 @@ Nell'esempio seguente viene creata un'associazione tra una macchina virtuale di 
 
 ## <a name="create-association-with-azure-arc"></a>Creare un'associazione con Azure Arc
 
-L'esempio seguente installa l'agente di Monitoraggio di Azure in una macchina virtuale Windows di Azure. Viene creata un'associazione tra un computer server con abilitazione di Azure Arc e una regola di raccolta dati.
+L'esempio seguente crea un'associazione tra un server abilitato per Azure Arc e una regola di raccolta dati.
 
 ### <a name="template-file"></a>File modello
 

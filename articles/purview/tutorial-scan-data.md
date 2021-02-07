@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: e373556d189e9fffc0626d19250e79c09962a004
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062105"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806224"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Esercitazione: Analizzare i dati con Azure Purview (anteprima)
 
@@ -91,7 +91,9 @@ Prima di eseguire gli script di PowerShell per i bootstrap del catalogo, ottener
    1. Selezionare la sezione **Panoramica** e salvare il GUID per **ID sottoscrizione**.
 
    > [!NOTE]
-   > Assicurarsi di usare la stessa sottoscrizione di quella in cui è stato creato l'account Azure Purview. Si tratta della stessa sottoscrizione inserita nell'elenco di elementi consentiti.
+   > - Assicurarsi di usare la stessa sottoscrizione di quella in cui è stato creato l'account Azure Purview. Si tratta della stessa sottoscrizione inserita nell'elenco di elementi consentiti.
+   > - La derivazione potrebbe essere mancante a volte nell'ambito di Azure dopo l'esecuzione del starter kit. Questo perché il Data Factory creato da starter kit dispone di autorizzazioni mancanti in ambito. Selezionare [**questo collegamento al documento**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections)  per assicurarsi che la data factory sia configurata correttamente e che sia stato assegnato un ruolo appropriato in ambito
+
 
 * CatalogName: il nome dell'account Azure Purview creato nella sezione [Creare un account Azure Purview](create-catalog-portal.md).
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: df53062c7c897493a47d88ea2873f9710b9825bf
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813871"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806257"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Gestire i piani di protezione DDoS: autorizzazioni e restrizioni
 
@@ -43,7 +43,7 @@ Per abilitare la protezione DDoS per una rete virtuale, all'account devono anche
 
 Per la maggior parte delle organizzazioni, non è necessaria la creazione di più piani. Non è possibile spostare un piano tra le sottoscrizioni. Se si vuole modificare la sottoscrizione di un piano, è necessario eliminare il piano esistente e crearne uno nuovo.
 
-Per i clienti che hanno diverse sottoscrizioni e che vogliono garantire la distribuzione di un singolo piano nel tenant per il controllo dei costi, è possibile usare i criteri di Azure per [limitare la creazione dei piani standard di protezione DDoS di Azure](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Questo criterio bloccherà la creazione di qualsiasi piano DDoS, a meno che la sottoscrizione non sia stata precedentemente contrassegnata come un'eccezione. Questo criterio Visualizza anche un elenco di tutte le sottoscrizioni che hanno un piano DDoS distribuito, ma non devono essere contrassegnate come non conformi.
+Per i clienti che hanno diverse sottoscrizioni e che vogliono garantire la distribuzione di un singolo piano nel tenant per il controllo dei costi, è possibile usare i criteri di Azure per [limitare la creazione dei piani standard di protezione DDoS di Azure](https://aka.ms/ddosrestrictplan). Questo criterio bloccherà la creazione di qualsiasi piano DDoS, a meno che la sottoscrizione non sia stata precedentemente contrassegnata come un'eccezione. Questo criterio Visualizza anche un elenco di tutte le sottoscrizioni che hanno un piano DDoS distribuito, ma non devono essere contrassegnate come non conformi.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
