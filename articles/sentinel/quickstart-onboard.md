@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: Caricare dati in Azure Sentinel'
-description: Questo argomento di avvio rapido illustra come eseguire l'onboarding di Azure Sentinel abilitando prima Sentinel e quindi connettendo le origini dati.
+description: In questa Guida introduttiva si apprenderà come eseguire l'onboarding di Azure Sentinel, abilitando prima di tutto la connessione e quindi le origini dati.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
-ms.translationtype: HT
+ms.openlocfilehash: 7cb8cb4d99ca8a63195eba21d82814fcd7820f5c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248646"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807768"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
 
@@ -41,7 +41,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 
 ### <a name="geographical-availability-and-data-residency"></a>Disponibilità geografica e residenza dei dati
 
-- Azure Sentinel può essere eseguito in aree di lavoro nella maggior parte delle [aree di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina e Germania (sovrane). A volte, in alcune nuove aree di Log Analytics l'onboarding del servizio Sentinel può richiedere del tempo. 
+- Azure Sentinel può essere eseguito in aree di lavoro nella maggior parte delle [aree di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina e Germania (sovrane). A volte le nuove aree di Log Analytics potrebbero richiedere del tempo per l'onboarding del servizio Sentinel di Azure. 
 
 - I dati generati da Azure Sentinel, ad esempio eventi imprevisti, segnalibri e regole di analisi, possono contenere dati del cliente originati dalle aree di lavoro Log Analytics del cliente. I dati generati da Azure Sentinel vengono salvati nell'area geografica elencata nella tabella seguente, in base all'area geografica in cui si trova l'area di lavoro:
 

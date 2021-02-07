@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954184"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807649"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Come connettersi Azure Data Factory e Azure
 
@@ -107,29 +107,29 @@ L'integrazione tra Data Factory e la competenza supporta solo un subset dei sist
 
 ### <a name="data-factory-copy-data-support"></a>Supporto di Data Factory Copia dati
 
-| Sistema di archiviazione dati | Supportato come origine | Supportato come sink |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Sì | Sì (solo copia non binaria) |
-| ADLS Gen2 | Sì | Sì |
-| BLOB Azure | Sì | Sì |
-| Azure Cosmos DB (API SQL) | Sì | Sì |
-| Azure Cosmos DB (API Mongo) | Sì | Sì |
-| Ricerca cognitiva di Azure | Sì | Sì |
-| Esplora dati di Azure | Sì | Sì |
-| Database di Azure per Maria DB \* | Sì | Sì |
-| Database di Azure per MYSQL \* | Sì | Sì |
-| Database di Azure per PostgreSQL \* | Sì | Sì |
-| Archiviazione file di Azure | Sì | Sì |
-| Archiviazione tabelle di Azure | Sì | Sì |
-| Database SQL di Azure \* | Sì | Sì |
-| Azure SQL MI \* | Sì | Sì |
-| Azure sinapsi Analytics (in precedenza SQL DW) \* | Sì | Sì |
-| SQL Server locale (è obbligatorio) \* | Sì | Sì |
-| Amazon S3 | Sì | Sì |
-| Teradata | Sì | Sì |
-| SAP S4 Hana | Sì | Sì |
-| SAP ECC | Sì | Sì |
-| Hive | Sì | Sì |
+| Sistema di archiviazione dati | Supportato come origine | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Sì | 
+| ADLS Gen2 | Sì | 
+| BLOB Azure | Sì |
+| Azure Cosmos DB (API SQL) | Sì | 
+| Azure Cosmos DB (API Mongo) | Sì |
+| Ricerca cognitiva di Azure | Sì | 
+| Esplora dati di Azure | Sì | 
+| Database di Azure per Maria DB \* | Sì | 
+| Database di Azure per MYSQL \* | Sì | 
+| Database di Azure per PostgreSQL \* | Sì |
+| Archiviazione file di Azure | Sì | 
+| Archiviazione tabelle di Azure | Sì |
+| Database SQL di Azure \* | Sì | 
+| Azure SQL MI \* | Sì | 
+| Azure sinapsi Analytics (in precedenza SQL DW) \* | Sì | 
+| SQL Server locale  \* | Sì | 
+| Amazon S3 | Sì | 
+| Teradata | Sì | 
+| Connettore tabella SAP | Sì |
+| SAP ECC | Sì | 
+| Hive | Sì | 
 
 > [!Note]
 > La funzionalità di derivazione presenta un certo sovraccarico delle prestazioni in Data Factory attività di copia. Per chi imposta data factory connessioni in ambito, è possibile osservare che alcuni processi di copia richiedono più tempo per essere completati. Per lo più, l'effetto è non trascurabile. Se i processi di copia importano un tempo molto più lungo rispetto al consueto, contattare il supporto tecnico.
@@ -137,7 +137,7 @@ L'integrazione tra Data Factory e la competenza supporta solo un subset dei sist
 ### <a name="data-factory-data-flow-support"></a>Supporto del flusso di dati Data Factory
 
 | Sistema di archiviazione dati | Supportato |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Sì |
 | ADLS Gen2 | Sì |
 | BLOB Azure | Sì |
@@ -147,7 +147,7 @@ L'integrazione tra Data Factory e la competenza supporta solo un subset dei sist
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory eseguire il supporto di pacchetti SSIS
 
 | Sistema di archiviazione dati | Supportato |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | BLOB Azure | Sì |
 | ADLS Gen1 | Sì |
 | ADLS Gen2 | Sì |

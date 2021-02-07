@@ -10,12 +10,12 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 19cebefd64f5b6dce9c265a591c8d5072fcd83db
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe0b2abb7fa2ca986a896a75e5f6d4c238d70109
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222735"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807259"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretabilità: spiegazioni del modello in Machine Learning automatizzato (anteprima)
 
@@ -40,7 +40,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Recuperare la spiegazione da `best_run` , che include spiegazioni per le funzionalità non elaborate e progettate.
 
-> [!Warning]
+> [!NOTE]
 > L'interpretazione, la migliore spiegazione del modello, non è disponibile per gli esperimenti di previsione di auto machine learning che suggeriscono gli algoritmi seguenti come modello ottimale: 
 > * TCNForecaster
 > * ARIMA

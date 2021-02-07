@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9a80242422631995f6d5c24ba2118ee98a9b8d32
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576177"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806962"
 ---
 # <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 
@@ -64,7 +64,7 @@ Indirizzi IP pubblici con SKU standard:
 > Quando si usa il [servizio metadati dell'istanza](../virtual-machines/windows/instance-metadata-service.md), sono disponibili solo indirizzi IP pubblici con SKU di base IMDS. Lo SKU standard non è supportato.
 
 > [!NOTE]
-> Quando si usa un indirizzo IP pubblico con SKU standard, le impostazioni di diagnostica non vengono visualizzate nel pannello resouce. Per abilitare la registrazione nella risorsa indirizzo IP pubblico di Stanrd, passare a impostazioni di diagnostica nel Pannello monitoraggio di Azure e selezionare la risorsa indirizzo IP.
+> Quando si usa un indirizzo IP pubblico con SKU standard, le impostazioni di diagnostica non vengono visualizzate nel pannello resouce. Per abilitare la registrazione nella risorsa indirizzo IP pubblico standard, passare a impostazioni di diagnostica nel Pannello monitoraggio di Azure e selezionare la risorsa indirizzo IP.
 
 ### <a name="basic"></a>Basic
 

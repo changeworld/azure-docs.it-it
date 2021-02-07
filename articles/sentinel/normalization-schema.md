@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd97aef5d8c959aeb2e0314e051790fd0421585
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937603"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806936"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Riferimento allo schema di normalizzazione dei dati di Sentinel di Azure
 
 ## <a name="terminology"></a>Terminologia
 
-Negli schemi di Sentinel viene usata la terminologia seguente:
+Negli schemi Sentinel di Azure viene usata la terminologia seguente:
 
 | Termine | Definizione |
 | ---- | ---------- |
@@ -40,7 +40,7 @@ I valori devono essere normalizzati in base alle linee guida riportate di seguit
 
 | Tipo di dati | Tipo fisico | Formato e valore |
 | --------- | ------------- | ---------------- |
-| **Data/ora** | A seconda dell'utilizzo della funzionalità del metodo di inserimento in priorità decrescente:<ul><li>Log Analytics tipo DateTime incorporato</li><li>Campo integer con Log Analytics rappresentazione numerica DateTime</li><li>Campo stringa con Log Analytics rappresentazione numerica DateTime</li></ul> | Rappresentazione Log Analytics DateTime. <br></br>La rappresentazione della data & ora Log Analytics è simile, ma è diversa dalla rappresentazione dell'ora UNIX. Vedere queste linee guida per la conversione. <br></br>La data & tempo deve essere regolata dal fuso orario. |
+| **Data/Ora** | A seconda dell'utilizzo della funzionalità del metodo di inserimento in priorità decrescente:<ul><li>Log Analytics tipo DateTime incorporato</li><li>Campo integer con Log Analytics rappresentazione numerica DateTime</li><li>Campo stringa con Log Analytics rappresentazione numerica DateTime</li></ul> | Rappresentazione Log Analytics DateTime. <br></br>La rappresentazione della data & ora Log Analytics è simile, ma è diversa dalla rappresentazione dell'ora UNIX. Vedere queste linee guida per la conversione. <br></br>La data & tempo deve essere regolata dal fuso orario. |
 | **Indirizzo MAC** | string | Notazione Colon-Hexadecimal |
 | **Indirizzo IP** | Indirizzo IP | Lo schema non dispone di indirizzi IPv4 e IPv6 distinti. Qualsiasi campo dell'indirizzo IP può includere un indirizzo IPv4 o un indirizzo IPv6:<ul><li>IPv4 in una notazione decimale punto</li><li>IPv6 in 8 notazione hextets, che consente i moduli brevi descritti qui.</li></ul> |
 | **Utente** | string | Sono disponibili i 3 campi utente seguenti:<ul><li>Nome utente</li><li>UPN dell'utente</li><li>Dominio utente</li></ul> |
@@ -59,7 +59,7 @@ I valori devono essere normalizzati in base alle linee guida riportate di seguit
 
 Di seguito è riportato lo schema della tabella delle sessioni di rete con versione 1.0.0
 
-| Nome del campo | Tipo valore | Esempio | Descrizione | Entità OSSEM associate |
+| Nome del campo | Tipo di valore | Esempio | Descrizione | Entità OSSEM associate |
 |-|-|-|-|-|
 | EventType | string | Traffico | Tipo di evento raccolto | Evento |
 | EventSubType | string | Authentication | Descrizione aggiuntiva del tipo, se applicabile | Evento |
@@ -74,7 +74,7 @@ Di seguito è riportato lo schema della tabella delle sessioni di rete con versi
 | EventResourceId | ID dispositivo (stringa) | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | ID risorsa del dispositivo che genera il messaggio. | Evento |
 | EventReportUrl | string | https://192.168.1.1/repoerts/ae3-56.htm | Collegamento al report completo creato dal dispositivo di report | Evento |
 | EventVendor | string | Microsoft | Fornitore del prodotto che genera l'evento. | Evento |
-| EventResult | Multivalore: Success, partial, Failure, [Empty] (String) | Operazione completata | Risultato riportato per l'attività. Valore vuoto quando non applicabile. | Evento |
+| EventResult | Multivalore: Success, partial, Failure, [Empty] (String) | Operazione riuscita | Risultato riportato per l'attività. Valore vuoto quando non applicabile. | Evento |
 | EventResultDetails | string | Password errata | Motivo o dettagli del risultato riportato in EventResult | Evento |
 | EventSchemaVersion | Real | 0,1 | Versione dello schema di Sentinel di Azure. Attualmente 0,1. | Evento |
 | EventSeverity | string | Basso | Se l'attività segnalata ha un effetto sulla sicurezza, denota la gravità dell'effetto. | Evento |
@@ -82,12 +82,12 @@ Di seguito è riportato lo schema della tabella delle sessioni di rete con versi
 | EventStartTime | Data/ora | Vedere "tipi di dati" | Data e ora in cui l'evento è stato dichiarato | Evento |
 | TimeGenerated | Data/ora | Vedere "tipi di dati" | Data e ora in cui si è verificato l'evento, segnalato dall'origine dei report. | Campo personalizzato |
 | EventTimeIngested | Data/ora | Vedere "tipi di dati" | Il momento in cui l'evento è stato inserito in Sentinel di Azure. Verranno aggiunti da Azure Sentinel. | Evento |
-| EventUid | GUID (stringa) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificatore univoco utilizzato da Sentinel per contrassegnare una riga. | Evento |
+| EventUid | GUID (stringa) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificatore univoco usato da Azure Sentinel per contrassegnare una riga. | Evento |
 | NetworkApplicationProtocol | string | HTTPS | Protocollo di livello applicazione utilizzato dalla connessione o dalla sessione. | Rete |
 | DstBytes | INT | 32455 | Numero di byte inviati dalla destinazione all'origine per la connessione o la sessione. | Destination |
 | SrcBytes | INT | 46536 | Numero di byte inviati dall'origine alla destinazione per la connessione o la sessione. | Source (Sorgente) |
 | NetworkBytes | INT | 78991 | Numero di byte inviati in entrambe le direzioni. Se sono presenti sia BytesReceived che BytesSent, BytesTotal deve essere uguale alla somma. | Rete |
-| NetworkDirection | Multivalore: in ingresso, in uscita (stringa) | In entrata | Direzione della connessione o della sessione, all'interno o all'esterno dell'organizzazione. | Rete |
+| NetworkDirection | Multivalore: in ingresso, in uscita (stringa) | In ingresso | Direzione della connessione o della sessione, all'interno o all'esterno dell'organizzazione. | Rete |
 | DstGeoCity | string | Burlington | Città associata all'indirizzo IP di destinazione | Destinazione<br>Area geografica |
 | DstGeoCountry | Country (stringa) | USA | Il paese associato all'indirizzo IP di origine | Destinazione<br>Area geografica |
 | DstDvcHostname | Nome dispositivo (stringa) |  victim_pc | Nome del dispositivo di destinazione | Destination<br>Dispositivo |
@@ -106,14 +106,14 @@ Di seguito è riportato lo schema della tabella delle sessioni di rete con versi
 | DstResourceId | ID dispositivo (stringa) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | ID risorsa del dispositivo di destinazione. | Destination |
 | DstNatIpAddr | Indirizzo IP | 2::1 | Se segnalato da un dispositivo NAT intermediario, ad esempio un firewall, l'indirizzo IP usato dal dispositivo NAT per la comunicazione con l'origine. | NAT di destinazione,<br>IP |
 | DstNatPortNumber | INT | 443 | Se segnalato da un dispositivo NAT intermediario, ad esempio un firewall, la porta usata dal dispositivo NAT per la comunicazione con l'origine. | NAT di destinazione,<br>Porta |
-| DstUserSid | SID utente |  S-12-1445 | ID utente dell'identità associata alla destinazione della sessione. In genere, l'identità utilizzata per autenticare un server. Per informazioni dettagliate, vedere "tipi di dati". | Destinazione<br>Utente |
-| DstUserAadId | Stringa (Guid) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | ID dell'oggetto account Azure AD dell'utente nell'entità finale di destinazione della sessione | Destinazione<br>Utente |
-| DstUserName | Nome utente (stringa) | LucaD | Nome utente dell'identità associata alla destinazione della sessione.  | Destinazione<br>Utente |
-| DstUserUpn | string | johnd@anon.com | UPN dell'identità associata alla destinazione della sessione. | Destinazione<br>Utente |
-| DstUserDomain | string | GRUPPO DI LAVORO | Nome del dominio o del computer dell'account nella destinazione della sessione | Destinazione<br>Utente |
+| DstUserSid | SID utente |  S-12-1445 | ID utente dell'identità associata alla destinazione della sessione. In genere, l'identità utilizzata per autenticare un server. Per informazioni dettagliate, vedere "tipi di dati". | Destinazione<br>User |
+| DstUserAadId | Stringa (Guid) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | ID dell'oggetto account Azure AD dell'utente nell'entità finale di destinazione della sessione | Destinazione<br>User |
+| DstUserName | Nome utente (stringa) | LucaD | Nome utente dell'identità associata alla destinazione della sessione.  | Destinazione<br>User |
+| DstUserUpn | string | johnd@anon.com | UPN dell'identità associata alla destinazione della sessione. | Destinazione<br>User |
+| DstUserDomain | string | GRUPPO DI LAVORO | Nome del dominio o del computer dell'account nella destinazione della sessione | Destinazione<br>User |
 | DstZone | string | Rete perimetrale | Zona di rete della destinazione, in base a quanto definito dal dispositivo per la creazione di report. | Destination |
 | DstGeoLongitude | Longitudine (Double) | -73,211944 | Longitudine della coordinata geografica associata all'indirizzo IP di destinazione | Destinazione<br>Area geografica |
-| DvcAction | Multivalore: Allow, Deny, Drop (String) | Consenti | Se segnalato da un dispositivo intermediario, ad esempio un firewall, l'azione eseguita dal dispositivo. | Dispositivo |
+| DvcAction | Multivalore: Allow, Deny, Drop (String) | Allow | Se segnalato da un dispositivo intermediario, ad esempio un firewall, l'azione eseguita dal dispositivo. | Dispositivo |
 | DvcInboundInterface | string | eth0 | Se segnalato da un dispositivo intermediario, ad esempio un firewall, l'interfaccia di rete usata da tale dispositivo per la connessione al dispositivo di origine. | Dispositivo |
 | DvcOutboundInterface | string  | Scheda Ethernet Ethernet 4 | Se segnalato da un dispositivo intermediario, ad esempio un firewall, l'interfaccia di rete usata da tale dispositivo per la connessione al dispositivo di destinazione. | Dispositivo |
 | NetworkDuration | Integer | 1500 | Quantità di tempo, in millisecondi, per il completamento della sessione o della connessione di rete | Rete |
@@ -149,11 +149,11 @@ Di seguito è riportato lo schema della tabella delle sessioni di rete con versi
 | SrcResourceId | string | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | ID risorsa del dispositivo che genera il messaggio. | Source (Sorgente) |
 | SrcNatIpAddr | Indirizzo IP | 4.3.2.1 | Se segnalato da un dispositivo NAT intermediario, ad esempio un firewall, l'indirizzo IP usato dal dispositivo NAT per la comunicazione con la destinazione. | NAT di origine,<br>IP |
 | SrcNatPortNumber | Integer | 345 | Se segnalato da un dispositivo NAT intermediario, ad esempio un firewall, la porta usata dal dispositivo NAT per la comunicazione con la destinazione. | NAT di origine,<br>Porta |
-| SrcUserSid | ID utente (stringa) | S-15-1445 | ID utente dell'identità associata all'origine delle sessioni. In genere, l'utente esegue un'azione nel client. Per informazioni dettagliate, vedere "tipi di dati". | Origine<br>Utente |
-| SrcUserAadId | Stringa (Guid) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | ID dell'oggetto account Azure AD dell'utente all'estremità di origine della sessione | Origine<br>Utente |
-| SrcUserName | Nome utente (stringa) | Bob | Nome utente dell'identità associata all'origine delle sessioni. In genere, l'utente esegue un'azione nel client. Per informazioni dettagliate, vedere "tipi di dati". | Source (Sorgente)<br>Utente |
-| SrcUserUpn | string | bob@alice.com | UPN dell'account che avvia la sessione | Origine<br>Utente |
-| SrcUserDomain | string | DESKTOP | Il dominio per l'account che avvia la sessione | Origine<br>Utente |
+| SrcUserSid | ID utente (stringa) | S-15-1445 | ID utente dell'identità associata all'origine delle sessioni. In genere, l'utente esegue un'azione nel client. Per informazioni dettagliate, vedere "tipi di dati". | Origine<br>User |
+| SrcUserAadId | Stringa (Guid) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | ID dell'oggetto account Azure AD dell'utente all'estremità di origine della sessione | Origine<br>User |
+| SrcUserName | Nome utente (stringa) | Bob | Nome utente dell'identità associata all'origine delle sessioni. In genere, l'utente esegue un'azione nel client. Per informazioni dettagliate, vedere "tipi di dati". | Source (Sorgente)<br>User |
+| SrcUserUpn | string | bob@alice.com | UPN dell'account che avvia la sessione | Origine<br>User |
+| SrcUserDomain | string | DESKTOP | Il dominio per l'account che avvia la sessione | Origine<br>User |
 | SrcZone | string | Tocco | Zona di rete dell'origine, in base a quanto definito dal dispositivo per la creazione di report. | Source (Sorgente) |
 | NetworkProtocol | string | TCP | Protocollo IP utilizzato dalla connessione o dalla sessione. In genere TCP, UDP o ICMP | Rete |
 | CloudAppName | string | Facebook | Nome dell'applicazione di destinazione per un'applicazione HTTP come identificato da un proxy. | Cloud |

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 9117474c3cbf5087a5b63512fcc17c4771bf7aa6
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b63db3d02b471a577586ecd54f56caa59af504d6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343876"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805513"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Aggiungere un connettore API a un flusso utente di iscrizione (anteprima)
 
@@ -36,7 +36,7 @@ Per usare un [connettore API](api-connectors-overview.md), è necessario innanzi
 6. Specificare l' **URL dell'endpoint** per la chiamata API.
 7. Fornire le informazioni di autenticazione per l'API.
 
-   - Attualmente è supportata solo l'autenticazione di base. Se si vuole usare un'API senza autenticazione di base a scopo di sviluppo, è sufficiente immettere un **nome utente** e una **password** fittizi che l'API può ignorare. Per l'uso con una funzione di Azure con una chiave API, è possibile includere il codice come parametro di query nell' **URL dell'endpoint** (ad esempio, HTTPS []() ://contoso.azurewebsites.NET/API/endpoint <b>? Code = 0123456789</b>).
+   - Attualmente è supportata solo l'autenticazione di base. Se si vuole usare un'API senza autenticazione di base a scopo di sviluppo, è sufficiente immettere un **nome utente** e una **password** fittizi che l'API può ignorare. Per l'uso con una funzione di Azure con una chiave API, è possibile includere il codice come parametro di query nell' **URL dell'endpoint** (ad esempio, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Configurare un nuovo connettore API](./media/add-api-connector/api-connector-config.png)
 8. Selezionare **Salva**.
@@ -103,7 +103,7 @@ Seguire questi passaggi per aggiungere un connettore API a un flusso utente di i
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Dopo aver eseguito l'accesso con un provider di identità
 
-Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (ad esempio Google, Facebook, & Azure AD). Questo passaggio precede la **_pagina della raccolta di attributi_* _, che è il form presentato all'utente per raccogliere gli attributi utente. Questo passaggio non viene richiamato se un utente sta effettuando la registrazione con un account locale.
+Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (ad esempio Google, Facebook, & Azure AD). Questo passaggio precede la ***pagina raccolta attributi***, che è il form presentato all'utente per raccogliere gli attributi utente. Questo passaggio non viene richiamato se un utente sta effettuando la registrazione con un account locale.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Richiesta di esempio inviata all'API in questo passaggio
 ```http
@@ -237,11 +237,11 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                          | Tipo              | Obbligatorio | Descrizione                                                                                                                                                                                                                                                                            |
+| Parametro                                          | Tipo              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
-| action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come attestazione dell'applicazione _ * * *.                                              |
+| azione                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione non deve contenere `_<extensions-app-id>_` . I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Esempio di una risposta di blocco
@@ -258,10 +258,10 @@ Content-type: application/json
 
 ```
 
-| Parametro   | Tipo   | Obbligatorio | Descrizione                                                                |
+| Parametro   | Tipo   | Obbligatoria | Descrizione                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | string | Sì      | Versione dell'API.                                                    |
-| action      | string | Sì      | Il valore deve essere `ShowBlockPage`                                              |
+| azione      | string | Sì      | Il valore deve essere `ShowBlockPage`                                              |
 | userMessage | string | Sì      | Messaggio da visualizzare all'utente.                                            |
 
 **Esperienza dell'utente finale con una risposta di blocco**
@@ -284,10 +284,10 @@ Content-type: application/json
 }
 ```
 
-| Parametro   | Tipo    | Obbligatorio | Descrizione                                                                |
+| Parametro   | Tipo    | Obbligatoria | Descrizione                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | string  | Sì      | Versione dell'API.                                                    |
-| action      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |
+| azione      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |
 | status      | Integer | Sì      | Deve essere `400` un valore per una risposta ValidationError.                        |
 | userMessage | string  | Sì      | Messaggio da visualizzare all'utente.                                            |
 

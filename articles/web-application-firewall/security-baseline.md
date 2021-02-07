@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878122"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807870"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Baseline della sicurezza di Azure per il firewall applicazione Web di Azure
 
@@ -135,7 +135,7 @@ Scegliere Azure PowerShell o l'interfaccia della riga di comando di Azure per ce
 
 **Linee guida**: configurare i log di Web Application Firewall (WAF) di Azure da inviare a una soluzione di gestione dei log di sicurezza centralizzata, ad esempio Azure Sentinel o un Siem di terze parti. Questi log includono attività di Azure, diagnostica e log WAF in tempo reale, che possono essere visualizzati in diversi strumenti, ad esempio monitoraggio di Azure, Excel e Power BI. I log del firewall applicazione Web di Azure forniscono informazioni sui dati che la WAF di Azure sta valutando, associando e bloccando.
 
-Azure Sentinel include una cartella di lavoro predefinita di Azure WAF, che offre una panoramica degli eventi di sicurezza nella WAF di Azure. Questa cartella di lavoro include eventi, regole corrispondenti e bloccate e tutto il resto che viene registrato nei log del firewall. Questa telemetria può essere usata per avviare l'automazione PlayBook per notificare o eseguire azioni correttive in base agli eventi WAF raccolti da Sentinel.
+Azure Sentinel include una cartella di lavoro predefinita di Azure WAF, che offre una panoramica degli eventi di sicurezza nella WAF di Azure. Questa cartella di lavoro include eventi, regole corrispondenti e bloccate e tutto il resto che viene registrato nei log del firewall. Questa telemetria può essere usata per avviare l'automazione PlayBook per notificare o eseguire azioni correttive in base agli eventi WAF raccolti da Azure Sentinel.
 
 - [Visualizzare i log attività](../azure-resource-manager/management/view-activity-logs.md)
 

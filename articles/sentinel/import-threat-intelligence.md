@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660781"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807140"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importare intelligence sulle minacce in Azure Sentinel
 
@@ -36,7 +36,7 @@ All'interno di una soluzione SIEM (Security Information and Event Management) co
 - Usare i modelli di regola di **analisi** incorporati per generare avvisi di sicurezza ed eventi imprevisti usando l'Intelligence per le minacce importata.
 - Visualizzare le informazioni chiave sull'Intelligence per le minacce in Sentinel di Azure con la **cartella di lavoro Intelligence** per le minacce.
 
-L'Intelligence per le minacce fornisce anche un contesto utile all'interno di altre esperienze di Sentinel di Azure, ad esempio la **caccia** e i **notebook** e anche se non trattato in questo articolo, queste esperienze vengono affrontate in [questo eccezionale post di Blog di Ian Hellen in Jupyter notebooks in Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), che illustra l'uso di CTI nei notebook.
+L'Intelligence per le minacce fornisce anche un contesto utile all'interno di altre esperienze di Sentinel di Azure, ad esempio la **caccia** e i **notebook** e anche se non trattato in questo articolo, queste esperienze vengono affrontate in [questo eccezionale post di Blog di Ian Hellen in Jupyter notebooks in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), che illustra l'uso di CTI nei notebook.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Connettori dati sentinella di Azure per Intelligence per le minacce
 

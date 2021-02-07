@@ -1044,6 +1044,8 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Abilitare per un cluster del servizio Azure Kubernetes esistente
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Abilitare per AKS con criteri di Azure
+              href: containers/container-insights-enable-aks-policy.md
             - name: Abilitare per il cluster abilitato per Arc
               href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Abilitare per l'ambiente ibrido

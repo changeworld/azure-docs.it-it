@@ -8,20 +8,20 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
-ms.openlocfilehash: df132c35ebb04596d91720431f5b08cb88e2abd9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98104190"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807734"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Connettere i log di diagnostica e di controllo del database SQL di Azure
 
 Azure SQL è un motore di database PaaS (Platform-as-a-Service) completamente gestito che gestisce la maggior parte delle funzioni di gestione di database, ad esempio l'aggiornamento, l'applicazione di patch, i backup e il monitoraggio, senza coinvolgimento degli utenti. 
 
-Il connettore del database SQL di Azure consente di trasmettere i log di diagnostica e di controllo dei database in Sentinel, consentendo di monitorare continuamente l'attività in tutte le istanze.
+Il connettore del database SQL di Azure consente di trasmettere i log di controllo e di diagnostica dei database in Azure Sentinel, consentendo di monitorare continuamente l'attività in tutte le istanze.
 
-- La connessione dei log di diagnostica consente di inviare log di diagnostica del database di tipi di dati diversi all'area di lavoro di Sentinel.
+- La connessione dei log di diagnostica consente di inviare log di diagnostica del database di tipi di dati diversi all'area di lavoro di Azure Sentinel.
 
 - La connessione dei log di controllo consente di eseguire lo streaming dei log di controllo di sicurezza da tutti i database SQL di Azure a livello di server.
 

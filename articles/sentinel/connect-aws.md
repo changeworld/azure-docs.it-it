@@ -1,6 +1,6 @@
 ---
 title: Connettere AWS CloudTrail ad Azure Sentinel | Microsoft Docs
-description: Usare il connettore AWS per delegare l'accesso di Azure Sentinel ai log delle risorse di AWS, creando una relazione di trust tra AWS CloudTrail e Sentinel.
+description: Usare AWS Connector per delegare l'accesso di Azure Sentinel ai log delle risorse di AWS, creando una relazione di trust tra AWS CloudTrail e Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3d24fa1ea046a860feb40d09a6d0a57c79371450
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436607"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807598"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Connettere Sentinel di Azure a AWS CloudTrail
 
 Usare il connettore AWS per eseguire lo streaming degli eventi di gestione CloudTrail di AWS in Azure Sentinel. Questo processo di connessione delega l'accesso ad Azure Sentinel ai log delle risorse di AWS, creando una relazione di trust tra AWS CloudTrail e Azure Sentinel. Questa operazione viene eseguita in AWS creando un ruolo che concede l'autorizzazione ad Azure Sentinel per accedere ai log di AWS.
 
 > [!NOTE]
-> AWS CloudTrail presenta [limitazioni predefinite](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) per l'API LookupEvents. Non consente più di due transazioni al secondo (TPS) per account e ogni query può restituire un massimo di 50 record. Di conseguenza, se un singolo tenant genera costantemente più di 100 record al secondo in un'area, si otterranno i backlog e i ritardi nell'inserimento di dati.
+> AWS CloudTrail presenta [limitazioni predefinite](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) per l'API LookupEvents. Non consente più di due transazioni al secondo (TPS) per account e ogni query può restituire un massimo di 50 record. Di conseguenza, se un singolo tenant genera costantemente più di 100 record al secondo in un'area, si verificheranno backlog e ritardi nell'inserimento dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

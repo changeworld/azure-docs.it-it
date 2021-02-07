@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995863"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807751"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -95,7 +95,7 @@ ms.locfileid: "95995863"
 > - [Rileva le minacce predefinite](../../sentinel/tutorial-detect-threats-built-in.md)
 > - [Creare regole di analisi personalizzate per rilevare minacce sospette](../../sentinel/tutorial-detect-threats-custom.md)
 > - [Monitorare i dati](../../sentinel/tutorial-monitor-your-data.md)
-> - [Esaminare gli eventi imprevisti con Sentinel di Azure](../../sentinel/tutorial-investigate-cases.md)
+> - [Esaminare gli eventi imprevisti con Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 > - [Configurare le risposte automatiche alle minacce in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Community di GitHub di Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -109,7 +109,7 @@ ms.locfileid: "95995863"
 > - Se la soluzione non viene offboardta manualmente entro il 31 ottobre, i dati verranno disconnessi automaticamente e la tabella **OfficeActivity** verrà rimossa. Anche in questo caso, sarà ancora possibile ripristinare la tabella quando si Abilita il connettore Office 365 in Sentinel di Azure, come illustrato di seguito.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>D: i dati vengono trasferiti alla nuova soluzione?
-> Sì. Quando si rimuove la soluzione **Office 365** dall'area di lavoro, i relativi dati diventeranno temporaneamente non disponibili perché lo schema è stato rimosso. Quando si Abilita il nuovo connettore **Office 365** in Sentinel, lo schema viene ripristinato nell'area di lavoro e tutti i dati già raccolti diventeranno disponibili. 
+> Sì. Quando si rimuove la soluzione **Office 365** dall'area di lavoro, i relativi dati diventeranno temporaneamente non disponibili perché lo schema è stato rimosso. Quando si Abilita il nuovo connettore **Office 365** in Sentinel di Azure, lo schema viene ripristinato nell'area di lavoro e tutti i dati già raccolti diventeranno disponibili. 
  
 
 La soluzione di gestione di Office 365 consente di monitorare l'ambiente Office 365 in Monitoraggio di Azure.
@@ -272,7 +272,7 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministratore<br>Applicazione<br>DcAdmin<br>Regular<br>Riservato<br>ServicePrincipal<br>Sistema |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministrativi<br>Applicazione<br>DcAdmin<br>Regular<br>Riservato<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory
@@ -381,7 +381,7 @@ Questi record vengono creati quando viene creata una voce di controllo delle cas
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| Item | Rappresenta l'elemento su cui è stata eseguita l'operazione | 
+| Elemento | Rappresenta l'elemento su cui è stata eseguita l'operazione | 
 | SendAsUserMailboxGuid | Il GUID di Exchange della cassetta postale a cui è stato effettuato l'accesso per inviare e-mail. |
 | SendAsUserSmtp | Indirizzo SMTP dell'utente che viene rappresentato. |
 | SendonBehalfOfUserMailboxGuid | Il GUID di Exchange della cassetta postale a cui è stato effettuato l'accesso per inviare e-mail per conto di. |

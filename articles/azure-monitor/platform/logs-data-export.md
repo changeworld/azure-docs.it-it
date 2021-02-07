@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2020
-ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.date: 02/07/2021
+ms.openlocfilehash: 03061f71ee0cceaa39c7ab9b258f9d3a0a84f1be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895969"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807887"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -28,8 +28,7 @@ Tutti i dati delle tabelle incluse vengono esportati senza un filtro. Ad esempio
 ## <a name="other-export-options"></a>Altre opzioni di esportazione
 Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i dati da un'area di lavoro di Log Analytics. Di seguito sono riportate altre opzioni per esportare i dati per scenari specifici:
 
-- Esportazione pianificata da una query di log tramite un'app per la logica. Questa operazione è simile alla funzionalità di esportazione dei dati, ma consente di inviare dati filtrati o aggregati in archiviazione di Azure. Questo metodo, tuttavia, è soggetto ai [limiti della query di log](../service-limits.md#log-analytics-workspaces) . vedere [archiviare i dati dall'area di lavoro log Analytics ad archiviazione di Azure usando l'app](logs-export-logic-app.md)
-- Esportare una volta usando un'app per la logica. Vedere [connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione](logicapp-flow-connector.md).
+- Esportazione pianificata da una query di log tramite un'app per la logica. Questa operazione è simile alla funzionalità di esportazione dei dati, ma consente di inviare dati filtrati o aggregati in archiviazione di Azure. Questo metodo è soggetto ai [limiti delle query di log](../service-limits.md#log-analytics-workspaces), vedere [archiviare dati da un'area di lavoro log Analytics ad archiviazione di Azure tramite l'app per la logica](logs-export-logic-app.md).
 - Esportare una volta nel computer locale usando lo script di PowerShell. Vedere [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
@@ -47,16 +46,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 - È possibile creare due regole di esportazione in un'area di lavoro: in può essere una regola per hub eventi e una regola per l'account di archiviazione.
 - L'account di archiviazione di destinazione o l'hub eventi deve trovarsi nella stessa area dell'area di lavoro Log Analytics.
 - I nomi delle tabelle da esportare non possono contenere più di 60 caratteri per un account di archiviazione e non più di 47 caratteri in un hub eventi. Le tabelle con nomi più lunghi non verranno esportate.
-
-> [!NOTE]
-> Log Analytics esportazione dei dati scrive i dati come BLOB di Accodamento, attualmente in anteprima per Azure Data Lake Storage Gen2. È necessario aprire una richiesta di supporto prima di configurare l'esportazione in questa risorsa di archiviazione. Usare i dettagli seguenti per questa richiesta.
-> - Tipo di problema: tecnico
-> - Sottoscrizione: Sottoscrizione in uso
-> - Servizio: Data Lake Storage Gen2
-> - Risorsa: nome della risorsa
-> - Riepilogo: è richiesta la registrazione della sottoscrizione per accettare i dati da Log Analytics esportazione dei dati.
-> - Tipo di problema: connettività
-> - Sottotipo di problema: problema di connettività
+- Il supporto per il BLOB di Accodamento per Azure Data Lake Storage è ora disponibile in [anteprima pubblica limitata](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)
 
 ## <a name="data-completeness"></a>Completezza dei dati
 L'esportazione dei dati continuerà a ritentare l'invio dei dati per un massimo di 30 minuti nel caso in cui la destinazione non sia disponibile. Se non è ancora disponibile dopo 30 minuti, i dati verranno rimossi finché la destinazione non sarà disponibile.
@@ -76,6 +66,9 @@ Il formato dei dati dell'account di archiviazione è di [righe JSON](./resource-
 [![Dati di esempio di archiviazione](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 Log Analytics esportazione dei dati può scrivere BLOB di Accodamento in account di archiviazione non modificabili quando i criteri di conservazione basati sul tempo hanno l'impostazione *allowProtectedAppendWrites* abilitata. In questo modo è possibile scrivere nuovi blocchi in un BLOB di Accodamento, mantenendo al tempo stesso la protezione e la conformità. Vedere [Consenti scritture di BLOB di Accodamento protette](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+> [!NOTE]
+> Il supporto per il BLOB di Accodamento per Azure Data Lake archiviazione è ora disponibile in anteprima in tutte le aree di Azure. [Eseguire la registrazione all'anteprima pubblica limitata](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) prima di creare una regola di esportazione per Azure Data Lake archiviazione. L'esportazione non funzionerà senza la registrazione.
 
 ### <a name="event-hub"></a>Hub eventi
 I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent*. Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutti i dati per le tabelle definite.
@@ -709,7 +702,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | SynapseRBACEvents | |
 | syslog | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
 | ThreatIntelligenceIndicator | |
-| Aggiornamento | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
+| Aggiorna | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Utilizzo | |

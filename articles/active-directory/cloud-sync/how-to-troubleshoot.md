@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613571"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805530"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Risoluzione dei problemi di sincronizzazione cloud
 
@@ -164,7 +164,7 @@ Cloud Sync monitora l'integrità della configurazione e inserisce oggetti non in
 
 Selezionando lo stato, è possibile visualizzare informazioni aggiuntive sulla quarantena. È anche possibile ottenere il codice di errore e il messaggio.
 
-![Informazioni sullo stato della quarantena](media/how-to-troubleshoot/quarantine-2.png)
+![Screenshot che mostra informazioni aggiuntive sulla quarantena.](media/how-to-troubleshoot/quarantine-2.png)
 
 Facendo clic con il pulsante destro del mouse sullo stato si otterranno opzioni aggiuntive:
     
@@ -172,7 +172,7 @@ Facendo clic con il pulsante destro del mouse sullo stato si otterranno opzioni 
    - Visualizza agente
    - Cancella quarantena
 
-![Informazioni sullo stato della quarantena](media/how-to-troubleshoot/quarantine-4.png)
+![Screenshot che mostra le opzioni del menu di scelta rapida.](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>Risolvere una quarantena
@@ -186,7 +186,7 @@ Per cancellare la filigrana ed eseguire una sincronizzazione delta nel processo 
 
 Si noterà che la quarantena sta per essere cancellata.
 
-![Informazioni sullo stato della quarantena](media/how-to-troubleshoot/quarantine-5.png)
+![Screenshot che mostra l'avviso che la quarantena sta cancellando.](media/how-to-troubleshoot/quarantine-5.png)
 
 Quindi lo stato dell'agente verrà visualizzato come integro.
 

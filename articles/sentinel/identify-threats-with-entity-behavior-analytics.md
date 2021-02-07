@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784796"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807564"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificare le minacce avanzate con l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure
 
 > [!IMPORTANT]
 >
-> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** in **_tutte_* le aree geografiche e aree di Azure Sentinel.
+> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** in **_tutte_** le aree geografiche e le aree di Sentinel di Azure.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Che cos'è l'analisi del comportamento dell'utente e dell'entità (offrono dati)?
 
@@ -35,7 +35,7 @@ Identificare le minacce all'interno dell'organizzazione e il loro impatto potenz
 
 La funzionalità offrono dati in Sentinel di Azure Elimina la fatica dei carichi di lavoro degli analisti e l'incertezza dal loro lavoro e offre un'intelligenza praticabile e di grande fedeltà, per potersi concentrare sull'indagine e sulla correzione.
 
-Azure Sentinel raccoglie log e avvisi da tutte le relative origini dati connesse, li analizza e compila i profili comportamentali di base delle entità dell'organizzazione (utenti, host, indirizzi IP, applicazioni e così via) tra il tempo e il gruppo peer Horizon. Usando un'ampia gamma di tecniche e funzionalità di Machine Learning, Sentinel può quindi identificare le attività anomale e determinare se un asset è stato compromesso. Non solo, ma può anche determinare la sensibilità relativa di determinate risorse, identificare i gruppi di risorse di pari livello e valutare l'impatto potenziale di qualsiasi asset compromesso specificato (il "raggio di esplosione"). Con queste informazioni, è possibile classificare in modo efficace le priorità dell'indagine e della gestione degli eventi imprevisti. 
+Quando Azure Sentinel raccoglie log e avvisi da tutte le relative origini dati connesse, li analizza e compila i profili comportamentali di base delle entità dell'organizzazione, ad esempio gli utenti, gli host, gli indirizzi IP e le applicazioni, nel tempo e nell'orizzonte del gruppo peer. Usando un'ampia gamma di tecniche e funzionalità di Machine Learning, Azure Sentinel può quindi identificare le attività anomale e determinare se un asset è stato compromesso. Non solo, ma può anche determinare la sensibilità relativa di determinate risorse, identificare i gruppi di risorse di pari livello e valutare l'impatto potenziale di qualsiasi asset compromesso specificato (il "raggio di esplosione"). Con queste informazioni, è possibile classificare in modo efficace le priorità dell'indagine e della gestione degli eventi imprevisti. 
 
 ### <a name="architecture-overview"></a>Panoramica dell'architettura
 
@@ -45,7 +45,7 @@ Azure Sentinel raccoglie log e avvisi da tutte le relative origini dati connesse
 
 Ispirato dal paradigma di Gartner per le soluzioni offrono dati, Azure Sentinel offre un approccio "esterno a", basato su tre frame di riferimento:
 
-- _ *Casi d'uso:** assegnando la priorità ai vettori e agli scenari di attacco pertinenti in base alla ricerca di sicurezza allineata con l'ATT Mitre&il Framework CK di tattiche, tecniche e sottotecniche che inserisce varie entità come vittime, autori o punti pivot nella catena di Kill; Azure Sentinel si concentra in particolare sui log più importanti che ogni origine dati può fornire.
+- **Casi d'uso:** Classificando in ordine di priorità gli scenari e i vettori di attacco pertinenti in base alla ricerca di sicurezza allineata con l'ATT MITRE&il Framework CK di tattiche, tecniche e sottotecniche che inserisce varie entità come vittime, autori o punti pivot nella catena di Kill; Azure Sentinel si concentra in particolare sui log più importanti che ogni origine dati può fornire.
 
 - **Origini dati:** Per prima cosa supportano origini dati di Azure, Azure Sentinel seleziona in modo accurato le origini dati di terze parti per fornire dati corrispondenti agli scenari di minaccia.
 
@@ -68,7 +68,7 @@ Ogni attività viene classificata con "Punteggio di priorità dell'indagine", ch
 
 Per un esempio di come funziona, vedere come viene usata l'analisi del comportamento in [Microsoft cloud app Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) .
 
-## <a name="entities-in-azure-sentinel"></a>Entità in Sentinel di Azure
+## <a name="entities-in-azure-sentinel"></a>Entità in Azure Sentinel
 
 ### <a name="entity-identifiers"></a>Identificatori di entità
 

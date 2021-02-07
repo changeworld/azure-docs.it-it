@@ -1,5 +1,5 @@
 ---
-title: Convertire l'archiviazione di dischi gestiti tra unità SSD standard e Premium
+title: Convertire l'archiviazione di dischi gestiti tra l'unità SSD standard e Premium usando Azure PowerShell
 description: Come convertire Azure Managed disks da standard a Premium o Premium a standard usando Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d81cd0ac57a5a18d90144584e8705cbffcba6f9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13159e527fac76a1a79118e9363b94904935a2be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871429"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807496"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Aggiornare il tipo di archiviazione di un disco gestito
 
@@ -118,7 +118,7 @@ Seguire questa procedura:
 4. Selezionare il disco che si desidera convertire.
 5. Selezionare **configurazione** dal menu.
 6. Modificare il **tipo di account** da **HDD standard** a **SSD Premium**.
-7. Fare clic su **Salva**e chiudere il riquadro del disco.
+7. Fare clic su **Salva** e chiudere il riquadro del disco.
 
 La conversione del tipo di disco è immediata. È possibile avviare la macchina virtuale dopo la conversione.
 

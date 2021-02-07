@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ea62b5df7159440a7538c7db0711b7d8f63ec220
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915148"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806291"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Visualizzare e configurare gli avvisi di protezione DDoS
 
@@ -41,13 +41,13 @@ In questa esercitazione si apprenderà come:
 Con questi modelli, sarà possibile configurare gli avvisi per tutti gli indirizzi IP pubblici per i quali è stata abilitata la registrazione diagnostica. Quindi, per usare questi modelli di avviso, è necessario prima di tutto un'area di lavoro Log Analytics con le impostazioni di diagnostica abilitate. Vedere [visualizzare e configurare la registrazione diagnostica DDoS](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Regola di avviso di monitoraggio di Azure
-Questa [regola di avviso di monitoraggio di Azure](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) consente di eseguire una query semplice per rilevare quando si verifica una mitigazione DDoS attiva. Ciò indica un potenziale attacco. I gruppi di azioni possono essere usati per richiamare le azioni in seguito all'avviso.
+Questa [regola di avviso di monitoraggio di Azure](https://aka.ms/ddosmitigationstatus) consente di eseguire una query semplice per rilevare quando si verifica una mitigazione DDoS attiva. Ciò indica un potenziale attacco. I gruppi di azioni possono essere usati per richiamare le azioni in seguito all'avviso.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
 ### <a name="azure-monitor-alert-rule-with-logic-app"></a>Regola di avviso di monitoraggio di Azure con app per la logica
 
-Questo [modello](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/DDoS%20Mitigation%20Alert%20Enrichment) distribuisce i componenti necessari di un avviso di mitigazione DDoS arricchito: regola di avviso di monitoraggio di Azure, gruppo di azioni e app per la logica. Il risultato del processo è un avviso di posta elettronica con i dettagli relativi all'indirizzo IP sotto attacco, incluse le informazioni sulla risorsa associata all'indirizzo IP. Il proprietario della risorsa viene aggiunto come destinatario del messaggio di posta elettronica, insieme al team di sicurezza. Viene inoltre eseguito un test di disponibilità dell'applicazione di base e i risultati vengono inclusi nell'avviso di posta elettronica.
+Questo [modello](https://aka.ms/ddosalert) distribuisce i componenti necessari di un avviso di mitigazione DDoS arricchito: regola di avviso di monitoraggio di Azure, gruppo di azioni e app per la logica. Il risultato del processo è un avviso di posta elettronica con i dettagli relativi all'indirizzo IP sotto attacco, incluse le informazioni sulla risorsa associata all'indirizzo IP. Il proprietario della risorsa viene aggiunto come destinatario del messaggio di posta elettronica, insieme al team di sicurezza. Viene inoltre eseguito un test di disponibilità dell'applicazione di base e i risultati vengono inclusi nell'avviso di posta elettronica.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
@@ -64,7 +64,7 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile sel
     |---------                |---------                                                                                           |
     | Ambito                   | Scegliere **Seleziona risorsa**. </br> Selezionare la **sottoscrizione** che contiene l'indirizzo IP pubblico che si vuole registrare, selezionare **indirizzo IP pubblico** per **tipo di risorsa**, quindi selezionare l'indirizzo IP pubblico specifico per cui si vogliono registrare le metriche. </br> Selezionare **Fine**. | 
     | Condizione | Selezionare **Seleziona condizione**. </br> In nome segnale selezionare **sotto attacco DDoS o no**. </br> In **operatore** selezionare **maggiore o uguale a**. </br> In **tipo di aggregazione** selezionare **massimo**. </br> In **valore soglia** immettere *1*. Per la metrica **attacco DDoS o no** , **0** indica che non si è sotto attacco mentre **1** indica che l'utente è sotto attacco. </br> Selezionare **Fine**. | 
-    | Actions | Selezionare **Aggiungi gruppi di azioni**. </br> Selezionare **Crea gruppo di azioni**. </br> In **notifiche**, in **tipo di notifica**, selezionare **messaggio di posta elettronica/SMS/push/Voice**. </br> In **nome** immettere _MyUnderAttackEmailAlert_. </br> Fare clic sul pulsante modifica, quindi selezionare **posta elettronica** e il numero di opzioni seguenti, quindi selezionare **OK**. </br> Selezionare **Rivedi e crea**. | 
+    | Azioni | Selezionare **Aggiungi gruppi di azioni**. </br> Selezionare **Crea gruppo di azioni**. </br> In **notifiche**, in **tipo di notifica**, selezionare **messaggio di posta elettronica/SMS/push/Voice**. </br> In **nome** immettere _MyUnderAttackEmailAlert_. </br> Fare clic sul pulsante modifica, quindi selezionare **posta elettronica** e il numero di opzioni seguenti, quindi selezionare **OK**. </br> Selezionare **Rivedi e crea**. | 
     | Dettagli regola di avviso | In **Nome regola di avviso** immettere _MyDdosAlert_. |
 
 Entro pochi minuti dal rilevamento degli attacchi, si dovrebbe ricevere un messaggio di posta elettronica dalle metriche di monitoraggio di Azure che hanno un aspetto simile all'immagine seguente:

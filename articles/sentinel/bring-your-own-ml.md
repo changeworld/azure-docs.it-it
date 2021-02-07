@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f8d795dcf64230140e1dd07e3f30ca3aa6825ab4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660577"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807004"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Bring Your Own Machine Learning (ML) in Azure Sentinel
 
@@ -82,7 +82,7 @@ Il pacchetto BYO ML include le procedure consigliate e la ricerca di Microsoft n
 | Nome file | Descrizione |
 | --------- | ----------- |
 | azure_sentinel_utilities. WHL | Contiene utilità per la lettura di BLOB da Azure e la scrittura in Log Analytics. |
-| AnomalousRASampleData | Notebook illustra l'uso di un modello di accesso alle risorse anomalo in Sentinel con dati di esempio di training e test generati. |
+| AnomalousRASampleData | Notebook illustra l'uso di un modello di accesso alle risorse anomalo in Sentinel di Azure con dati di esempio di training e test generati. |
 | AnomalousRATraining. ipynb | Notebook per eseguire il training dell'algoritmo, compilare e salvare i modelli. |
 | AnomalousRAScoring. ipynb | Notebook per pianificare l'esecuzione del modello, visualizzare il risultato e scrivere il punteggio in Sentinel di Azure. |
 |
@@ -99,7 +99,7 @@ Se non ne è già presente uno, sarà necessario configurare un ambiente databri
 
 ### <a name="auto-export-instruction"></a>Istruzione di esportazione automatica
 
-Per creare modelli di Machine Learning personalizzati basati sui dati in Sentinel, è necessario esportare i dati da Log Analytics a una risorsa di archiviazione BLOB o hub eventi, in modo che il modello ML possa accedervi da databricks. Informazioni su come [inserire dati in Sentinel di Azure](connect-data-sources.md).
+Per creare modelli di Machine Learning personalizzati basati sui propri dati in Sentinel di Azure, è necessario esportare i dati da Log Analytics a una risorsa di archiviazione BLOB o hub eventi, in modo che il modello ML possa accedervi da databricks. Informazioni su come [inserire dati in Sentinel di Azure](connect-data-sources.md).
 
 Per questo esempio, è necessario avere i dati di training per il log di accesso alla condivisione file nell'archivio BLOB di Azure. Il formato dei dati è documentato nel notebook e nelle librerie.
 
@@ -141,7 +141,7 @@ Per i dati personalizzati non supportati da Log Analytics esportazione automatic
 
 ### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Correlare con i dati all'esterno di Sentinel di Azure
 
-È anche possibile importare dati dall'esterno di Azure Sentinel nell'archivio BLOB o nell'hub eventi e correlarli con i dati Sentinel per compilare i modelli ML. 
+È anche possibile importare dati dall'esterno di Azure Sentinel nell'archivio BLOB o nell'hub eventi e correlarli con i dati di Sentinel di Azure per compilare i modelli ML. 
  
 ### <a name="copy-and-install-the-related-packages"></a>Copiare e installare i pacchetti correlati
 

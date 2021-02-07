@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: 1a8ed80daa4406f32909a6622b8649f37ec48063
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: accb9bbf195daa3d25e1aed109e36ef309083385
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063969"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805310"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Individuare ed esplorare i dati in ADF usando le competenze
 
@@ -47,7 +47,7 @@ Per individuare i dati registrati e analizzati da Azure, è possibile usare la b
 ### <a name="actions-that-you-can-perform-over-datasets-with-data-factory-resources"></a>Azioni che è possibile eseguire su set di impostazioni con risorse Data Factory 
 È possibile creare direttamente il servizio collegato, il set di dati o il flusso di dati sui dati cercati da Azure.
 
-:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot per l'esecuzione su set di impostazioni.":::
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot che illustra come creare direttamente un servizio collegato, un set di dati o un flusso di dati sui dati cercati da Azure.":::
 
 ##  <a name="nextsteps"></a>Passaggi successivi 
 

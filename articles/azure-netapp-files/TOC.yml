@@ -63,6 +63,8 @@
       href: azure-netapp-files-faqs.md
     - name: Che cos'è Azure Application Consistent Snapshot Tool?
       href: azacsnap-introduction.md
+    - name: Cosa comporta la modifica della quota hardware del volume
+      href: volume-hard-quota-guidelines.md
 - name: Guide pratiche
   items:
     - name: Effettuare la registrazione per Azure NetApp Files

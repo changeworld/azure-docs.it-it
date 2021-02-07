@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433020"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807225"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -23,7 +23,7 @@ Nel centro sicurezza sono disponibili diversi avvisi per molti tipi di risorse d
 
 Gli avvisi di sicurezza vengono attivati da rilevamenti avanzati e sono disponibili solo con Azure Defender. È disponibile una versione di valutazione gratuita. È possibile eseguire l'aggiornamento dalla pagina dei **prezzi & impostazioni** . Altre informazioni sui [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="respond-to-todays-threats"></a>Rispondi alle minacce <a name="respond-threats"> </a> attuali
+## <a name="respond-to-todays-threats"></a>Rispondi alle minacce <a name="respond-threats"></a> attuali
 
 Negli ultimi 20 anni sono state introdotte modifiche significative nel panorama delle minacce . In passato, le aziende dovevano in genere preoccuparsi solo del danneggiamento del sito Web da parte di singoli utenti malintenzionati, interessati soprattutto a dar prova di sé. Oggi gli utenti malintenzionati sono molto più sofisticati e organizzati. Hanno spesso obiettivi finanziari e strategici specifici, Hanno inoltre a disposizione più risorse, in quanto potrebbero essere finanziate in base a stati di nazione o crimini organizzati.
 
@@ -91,7 +91,7 @@ Sono disponibili diverse opzioni per la visualizzazione degli avvisi all'esterno
 
 - **Scaricare il report CSV** nel dashboard degli avvisi fornisce un'esportazione monouso nel volume condiviso cluster.
 - L' **esportazione continua** da impostazioni & prezzi consente di configurare flussi di avvisi di sicurezza e raccomandazioni per log Analytics aree di lavoro e hub eventi. [Altre informazioni sull'esportazione continua](continuous-export.md)
-- Il **connettore Azure Sentinel** trasmette gli avvisi di sicurezza dal centro sicurezza di Azure in Sentinel di Azure. [Altre informazioni sulla connessione del Centro sicurezza di Azure con Sentinel](../sentinel/connect-azure-security-center.md)
+- Il **connettore Azure Sentinel** trasmette gli avvisi di sicurezza dal centro sicurezza di Azure in Sentinel di Azure. [Altre informazioni sulla connessione del Centro sicurezza di Azure con Sentinel di Azure](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

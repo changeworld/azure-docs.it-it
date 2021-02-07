@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657024"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805091"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizzazione in Sentinel di Azure
 
@@ -105,11 +105,11 @@ Quando si salva una funzione di query, potrebbe essere necessario chiudere Esplo
 
 #### <a name="using-the-parsers"></a>Uso dei parser
 
-Una volta abilitata, è possibile usare il meta-parser per eseguire una query su una visualizzazione unificata su tutti i parser attualmente abilitati. A tale scopo, passare alla pagina dei log di Sentinel ed eseguire una query sul metaparser:
+Una volta abilitata, è possibile usare il meta-parser per eseguire una query su una visualizzazione unificata su tutti i parser attualmente abilitati. A tale scopo, passare alla pagina dei log di Sentinel di Azure ed eseguire una query sul meta parser:
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="Eseguire query sul parser":::
  
-È anche possibile accedere al meta-parser o ai singoli parser usando Esplora query nella pagina logs di Sentinel, facendo clic su "Esplora query":
+È anche possibile accedere al meta-parser o ai singoli parser usando Esplora query nella pagina log, facendo clic su "Esplora query":
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="Esplora query":::
 
