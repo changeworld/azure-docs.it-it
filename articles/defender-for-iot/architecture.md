@@ -1,6 +1,6 @@
 ---
-title: Azure Defender per l'architettura dell'it
-description: Scopri di più su Azure Defender per l'architettura e il flusso di informazioni.
+title: Architettura della soluzione senza agenti
+description: Scopri di più su Azure Defender per l'architettura e il flusso di informazioni senza agenti.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/13/2021
+ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 66b960bf874cc46985230e488c749663eff0b835
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1eb939a63edc4abc638dc128af0d9ebbd7241bef
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621098"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809304"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender per l'architettura dell'it
 
-Questo articolo descrive l'architettura del sistema funzionale della soluzione Defender for Internet. Azure Defender per Internet delle cose offre due set di funzionalità che soddisfano le esigenze dell'ambiente, la soluzione senza agenti per le organizzazioni e la soluzione basata su agenti per i generatori di dispositivi.
+Questo articolo descrive l'architettura del sistema funzionale del Defender per la soluzione senza agenti. Azure Defender per Internet delle cose offre due set di funzionalità che soddisfano le esigenze dell'ambiente, la soluzione senza agenti per le organizzazioni e la soluzione basata su agenti per i generatori di dispositivi.
 
 ## <a name="agentless-solution-for-organizations"></a>Soluzione senza agenti per le organizzazioni
 ### <a name="defender-for-iot-components"></a>Defender per i componenti dell'it
 
-Defender for Internet è connesso al cloud di Azure e ai componenti locali. La soluzione è progettata per la scalabilità in ambienti di grandi dimensioni e distribuiti geograficamente con più posizioni remote. Questa soluzione Abilita un'architettura distribuita a più livelli per paese, area, business unit o zona. 
+Defender for Internet si connette sia al cloud di Azure che ai componenti locali. La soluzione è progettata per la scalabilità in ambienti di grandi dimensioni e distribuiti geograficamente con più posizioni remote. Questa soluzione Abilita un'architettura distribuita a più livelli per paese, area, business unit o zona. 
 
 Azure Defender per l'it include i componenti seguenti: 
 
@@ -47,15 +47,15 @@ Azure Defender per l'it include i componenti seguenti:
 
 ### <a name="azure-defender-for-iot-sensors"></a>Azure Defender per sensori Internet
 
-Defender per i sensori Internet rileva e monitora continuamente i dispositivi di rete. I sensori raccolgono il traffico di rete ICS usando il monitoraggio passivo (senza agenti) sui dispositivi e i dispositivi. 
+Il Defender per i sensori Internet rileva e monitora continuamente i dispositivi di rete. I sensori raccolgono il traffico di rete ICS usando il monitoraggio passivo (senza agenti) sui dispositivi e i dispositivi. 
  
 Progettato in modo specifico per le reti Internet e Internet, la tecnologia senza agente offre una visibilità approfondita dei rischi e dei rischi in pochi minuti di connessione alla rete. Non ha alcun effetto sulle prestazioni della rete e dei dispositivi di rete a causa dell'approccio NTA (Network Traffic Analysis) non invasivo. 
  
-Sfruttando le funzionalità di analisi dei comportamenti brevettate, Internet e di livello 7, è possibile analizzare oltre le tradizionali soluzioni basate su firme per rilevare immediatamente le minacce avanzate, ad esempio malware senza file, in base a attività anomale o non autorizzate. 
+Applicando l'analisi comportamentale, le cose e il controllo dei pacchetti di livello 7, è possibile analizzare oltre le tradizionali soluzioni basate su firme per rilevare immediatamente le minacce avanzate (ad esempio malware senza file) in base a attività anomale o non autorizzate. 
   
 Defender per i sensori di Internet delle cose si connette a una porta di intervallo o a un TAP di rete e inizia immediatamente a eseguire le operazioni DPI e il traffico di rete. 
  
-La raccolta dati, l'elaborazione, l'analisi e gli avvisi avvengono direttamente sul sensore. Questo lo rende particolarmente adatto per posizioni con larghezza di banda ridotta o connettività a latenza elevata, perché solo i metadati vengono trasferiti alla console di gestione.
+La raccolta dati, l'elaborazione, l'analisi e gli avvisi avvengono direttamente sul sensore. Questo processo lo rende particolarmente adatto per posizioni con larghezza di banda ridotta o connettività a latenza elevata, perché solo i metadati vengono trasferiti alla console di gestione.
 
 Il sensore include cinque motori di rilevamento di analisi. I motori attivano gli avvisi in base all'analisi del traffico in tempo reale e pre-registrato. Sono disponibili i motori seguenti: 
 
@@ -90,13 +90,13 @@ La console di gestione locale consente agli operatori di Security Operations Cen
 
 Questa architettura offre una visualizzazione unificata completa della rete a livello di SOC, la gestione degli avvisi ottimizzata e il controllo della sicurezza della rete operativa, assicurando che il processo decisionale e la gestione dei rischi rimangano impeccabili.
 
-Oltre al controllo remoto multi-tenant, al monitoraggio, all'analisi dei dati e ai sensori centralizzati, la console di gestione fornisce strumenti aggiuntivi per la manutenzione del sistema, ad esempio l'esclusione degli avvisi, e funzionalità di creazione di report completamente personalizzate per ogni appliance remota. Questa architettura scalabile supporta sia la gestione locale a livello di sito, a livello di zona che la gestione globale all'interno del SOC.
+Oltre al controllo remoto multi-tenant, di monitoraggio, dell'analisi dei dati e del sensore centralizzato, la console di gestione fornisce strumenti di manutenzione del sistema aggiuntivi (come l'esclusione degli avvisi) e funzionalità di creazione di report completamente personalizzate per ogni appliance remota. Questa architettura supporta sia la gestione locale a livello di sito, a livello di zona che la gestione globale all'interno del SOC.
 
 La console di gestione può essere distribuita per la configurazione a disponibilità elevata, che fornisce una console di backup che riceve periodicamente backup di tutti i file di configurazione necessari per il ripristino. In caso di errore della console primaria, le appliance di gestione del sito locale eseguiranno automaticamente il failover per eseguire la sincronizzazione con la console di backup per mantenere la disponibilità senza interruzioni.
 
 Strettamente integrato con i flussi di lavoro SOC ed eseguire libri, consente di semplificare la definizione delle priorità delle attività di mitigazione e la correlazione tra siti delle minacce.
 
-- Olistica: Riduci la complessità con una singola piattaforma unificata per la gestione dei dispositivi, la gestione dei rischi e delle vulnerabilità, nonché il monitoraggio delle minacce con la risposta agli eventi imprevisti.
+- Olistica: Riduci la complessità con una singola piattaforma unificata per la gestione dei dispositivi, la gestione di rischi e vulnerabilità e il monitoraggio delle minacce con risposta agli eventi imprevisti.
 
 - Aggregazione e correlazione: Visualizza, aggrega e analizza i dati e gli avvisi raccolti da tutti i siti.
 
@@ -111,30 +111,10 @@ Il portale di Defender per Internet delle cose in Azure viene usato per semplifi
 - Acquistare appliance della soluzione
 
 - Installare e aggiornare il software
+
 - Caricare i sensori in Azure
+
 - Aggiornare i pacchetti di intelligence per le minacce
-
-## <a name="agent-based-solution-for-device-builders"></a>Soluzione basata su agente per integratori di dispositivi
-
-### <a name="embedded-security-agent-built-in-mode"></a>Agente sicurezza incorporato: modalità predefinita
-
-In modalità **predefinita** , Defender for Internet è abilitato quando si sceglie di attivare l'opzione di **sicurezza** nell'hub Internet delle cose. Il monitoraggio, le raccomandazioni e gli avvisi in tempo reale, la modalità predefinita offre visibilità dei dispositivi in un singolo passaggio e sicurezza senza corrispondenza. La modalità di compilazione non richiede l'installazione dell'agente su tutti i dispositivi e usa l'analisi avanzata sulle attività registrate per analizzare e proteggere il dispositivo Field e l'hub Internet.
-
-### <a name="embedded-security-agent-enhanced-mode"></a>Agente sicurezza incorporato: modalità avanzata
-
-In modalità **avanzata** , dopo l'attivazione dell'opzione di **sicurezza** nell'hub Internet e l'installazione di Defender per gli agenti di dispositivi di tutto il dispositivo, gli agenti raccolgono, aggregano e analizzano gli eventi di sicurezza non elaborati dai dispositivi. Gli eventi di sicurezza non elaborati possono includere connessioni IP, creazione di processi, account di accesso utente e altre informazioni rilevanti per la sicurezza. Il difensore degli agenti del dispositivo Internet gestisce anche l'aggregazione di eventi per evitare una elevata velocità effettiva della rete. Gli agenti sono altamente personalizzabili e possono essere usati per attività specifiche, ad esempio per l'invio di informazioni importanti al contratto di servizio più veloce o per l'aggregazione di informazioni e contesto di sicurezza estese in segmenti più grandi, evitando i costi di servizio più elevati.
-
-Gli agenti dispositivo e altre applicazioni usano **Azure Send Security Message SDK** per inviare informazioni di sicurezza nell'hub Azure. L'hub tutto ottiene queste informazioni e le invia al Defender per il servizio Internet delle cose.
-
-Una volta abilitato il servizio Defender for Internet, oltre ai dati inoltrati, l'hub Internet invia anche tutti i dati interni per l'analisi da parte di Defender. Questi dati includono i log delle operazioni del cloud, le identità del dispositivo e la configurazione dell'hub. Tutte queste informazioni consentono di creare il Defender per la pipeline di analisi Internet delle cose.
-
-Il Defender per la pipeline di analisi del servizio Internet riceve anche flussi di intelligence per le minacce aggiuntivi da diverse origini all'interno di partner Microsoft e Microsoft. Il Defender per l'intera pipeline di analisi funziona con tutte le configurazioni dei clienti effettuate sul servizio, ad esempio gli avvisi personalizzati e l'uso dell'SDK del messaggio di sicurezza di invio.
-
-Con la pipeline di analisi, Defender for Internet usa tutti i flussi di informazioni per generare raccomandazioni e avvisi di utilità pratica. La pipeline contiene sia le regole personalizzate create dai ricercatori e gli esperti della sicurezza, sia i modelli di apprendimento automatico che cercano la deviazione dal comportamento del dispositivo standard e dall'analisi dei rischi.
-
-Il servizio Defender per gli avvisi e le raccomandazioni per l'it (output della pipeline di analisi) viene scritto nell'area di lavoro Log Analytics di ogni cliente. L'inclusione degli eventi non elaborati nell'area di lavoro e degli avvisi e delle raccomandazioni consente l'analisi approfondita e le query usando i dettagli esatti delle attività sospette rilevate.
-
-:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="Architettura di micro Agent.":::
 
 ## <a name="see-also"></a>Vedi anche
 

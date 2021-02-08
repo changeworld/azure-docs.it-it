@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell'agente di sicurezza
+title: Agenti di sicurezza
 description: Introduzione alla comprensione, alla configurazione, alla distribuzione e all'uso di Azure Defender per gli agenti del servizio di sicurezza di Internet delle cose sui dispositivi.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -11,33 +11,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/27/2019
+ms.date: 1/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 2b1cd131e578b1d16fabee99b8de536e4a48ece0
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: fcc2c7c3e724fccd005c8b6c8d1b01982f407c65
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247302"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809024"
 ---
-# <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Introduzione ad Azure Defender per gli agenti di sicurezza dei dispositivi
+# <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Introduzione ad Azure Defender per gli agenti micro dei dispositivi
 
-Defender for Internet Security Agents offre funzionalità di sicurezza avanzate, ad esempio il monitoraggio di connessioni remote, applicazioni attive, eventi di accesso e procedure consigliate per la configurazione del sistema operativo. Assumere il controllo della protezione dalle minacce per il campo del dispositivo e del comportamento di sicurezza con un unico servizio.
+Defender for Internet Security Agents offre funzionalità di sicurezza avanzate, ad esempio il monitoraggio delle procedure consigliate per la configurazione del sistema operativo. Assumere il controllo della protezione dalle minacce per il campo del dispositivo e del comportamento di sicurezza con un unico servizio.
 
-Architettura di riferimento per gli agenti di sicurezza Linux e Windows, sia in C# che in C.
-
-Gli agenti di sicurezza Defender for Internet gestiscono la raccolta di eventi non elaborati dal sistema operativo del dispositivo, l'aggregazione di eventi per ridurre i costi e la configurazione tramite un modulo dispositivo gemello. I messaggi di sicurezza vengono inviati tramite l'hub Internet delle cose, in Defender per i servizi di analisi delle cose.
+I difensori degli agenti di sicurezza Internet gestiscono la raccolta di eventi non elaborati dal sistema operativo del dispositivo, l'aggregazione di eventi per ridurre i costi e la configurazione tramite un modulo dispositivo gemello. I messaggi di sicurezza vengono inviati tramite l'hub Internet delle cose, in Defender per i servizi di analisi delle cose.
 
 Usare il flusso di lavoro seguente per distribuire e testare il Defender per gli agenti di sicurezza:
 
-1. [Abilitare Defender per il servizio Internet delle cose nell'hub Internet delle cose](quickstart-onboard-iot-hub.md)
+1. [Abilitare Defender per il servizio Internet delle cose nell'hub Internet delle](quickstart-onboard-iot-hub.md)cose.
+
 1. Se l'hub Internet delle cose non ha dispositivi registrati, [registrare un nuovo dispositivo](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
-1. [Creare un modulo di sicurezza azureiotsecurity](quickstart-create-security-twin.md) per i dispositivi.
+
+1. [Creare un modulo DefenderIotMicroAgent gemello](quickstart-create-micro-agent-module-twin.md) per i dispositivi.
+
 1. Per installare l'agente in un dispositivo simulato di Azure anziché installare in un dispositivo effettivo, [creare una nuova macchina virtuale (VM) di Azure](../virtual-machines/linux/quick-create-portal.md) in una zona disponibile.
-1. [Distribuire un Defender per l'agente sicurezza di Internet delle](how-to-deploy-linux-cs.md) cose nel dispositivo Internet delle cose o in una nuova macchina virtuale.
-1. Seguire le istruzioni per [trigger_events](https://aka.ms/iot-security-github-trigger-events) per eseguire una simulazione innocua di un attacco.
-1. Verificare il Defender per gli avvisi di Internet delle cose in risposta all'attacco simulato nel passaggio precedente. Inizia la verifica cinque minuti dopo l'esecuzione dello script.
-1. Esplorare [avvisi](concept-security-alerts.md), [consigli](concept-recommendations.md)e [approfondimenti usando log Analytics](how-to-security-data-access.md) usando l'hub Internet.
+
+1. [Distribuire un Defender per l'agente sicurezza di Internet delle](how-to-deploy-linux-cs.md) cose nel dispositivo o nella nuova VM.
+
+1. Seguire le istruzioni per [trigger_events](https://aka.ms/iot-security-github-trigger-events) per eseguire un evento baseline del sistema operativo.
+
+1. Verificare le raccomandazioni di Defender per le cose in risposta all'errore di verifica della linea di base del sistema operativo simulato nel passaggio precedente. Inizia la verifica 30 minuti dopo l'esecuzione dello script.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

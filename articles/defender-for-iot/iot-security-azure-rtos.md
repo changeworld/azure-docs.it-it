@@ -4,30 +4,30 @@ description: Scopri di più sul modulo di sicurezza per il supporto e l'implemen
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2020
-ms.author: mlottner
-ms.openlocfilehash: 9950f3727aac365205e979d9590edacebd32f1fc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 01/14/2021
+ms.author: shhazam
+ms.openlocfilehash: 47b2b49a21a82be13c987b95c7c775f5014a532e
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832744"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809083"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Panoramica: Defender per il modulo di sicurezza per Azure RTO (anteprima)
 
-Il modulo Azure Defender for Internet Security offre una soluzione di sicurezza completa per i dispositivi che usano Azure RTO. Fornisce la copertura per le minacce comuni e le potenziali attività dannose sui dispositivi RTO (Real-Time Operating System). Azure RTO è ora disponibile con il modulo Azure Internet per la sicurezza integrato.
+Il modulo Azure Defender for Internet è una soluzione di sicurezza completa per i dispositivi che usano Azure RTO. Fornisce la copertura per le minacce comuni e le potenziali attività dannose sui dispositivi RTO (Real-Time Operating System). Azure RTO è ora disponibile con il modulo Azure Internet per la sicurezza integrato.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualizzazione di Defender per la RTO di Azure.":::
 
 
-Il modulo Security per Azure RTO offre le funzionalità seguenti:
+Il modulo micro per Azure RTO offre le funzionalità seguenti:
 
 - Rilevamento di attività di rete dannose
 - Linea di base comportamento del dispositivo basato su avvisi personalizzati

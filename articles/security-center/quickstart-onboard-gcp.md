@@ -3,16 +3,16 @@ title: Connettere l'account GCP al Centro sicurezza di Azure
 description: Monitoraggio delle risorse di GCP dal Centro sicurezza di Azure
 author: memildin
 ms.author: memildin
-ms.date: 01/24/2021
+ms.date: 02/07/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f8278765c3f62fded44e4b89fb5fded6137c94
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8ee7b37861be299dd36a596ae1cd4899b0ebffab
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757611"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809406"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connettere gli account GCP al Centro sicurezza di Azure
 
@@ -20,7 +20,7 @@ I carichi di lavoro cloud si estendono in genere su più piattaforme cloud, quin
 
 Il Centro sicurezza di Azure protegge i carichi di lavoro in Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
 
-L'onboarding dell'account GCP nel Centro sicurezza consente di integrare GCP Security Command Center e il Centro sicurezza di Azure. Il Centro sicurezza assicura quindi visibilità e protezione in entrambi gli ambienti cloud per offrire:
+Onboarding degli account GCP nel centro sicurezza, integra il comando di sicurezza di GCP e il Centro sicurezza di Azure. Il Centro sicurezza assicura quindi visibilità e protezione in entrambi gli ambienti cloud per offrire:
 
 - Rilevamento degli errori di configurazione della sicurezza
 - Un'unica visualizzazione che mostra le raccomandazioni del Centro sicurezza e i risultati di GCP Security Command Center
@@ -44,7 +44,10 @@ Lo screenshot seguente mostra i progetti GCP visualizzati nel dashboard di panor
 
 ## <a name="connect-your-gcp-account"></a>Connettere l'account GCP
 
-Seguire la procedura seguente per creare il connettore cloud GCP. 
+Seguire questa procedura per creare il connettore Cloud di GCP per connettere le risorse cloud di Google a livello di organizzazione o di progetto. 
+
+> [!TIP]
+> Per informazioni sulla gerarchia di risorse di Google Cloud, vedere [qui](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)la documentazione online.
 
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Passaggio 1. Configurare GCP Security Command Center con Security Health Analytics
 
@@ -120,6 +123,15 @@ Per visualizzare tutte le raccomandazioni attive per le risorse in base al tipo 
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro basato sul tipo di risorsa della pagina di inventario delle risorse che mostra le opzioni di GCP"::: 
 
+
+## <a name="faq-for-connecting-gcp-accounts-to-azure-security-center"></a>Domande frequenti per la connessione di account GCP al centro sicurezza di Azure
+
+### <a name="can-i-connect-multiple-gcp-accounts-to-security-center"></a>È possibile connettere più account GCP al centro sicurezza?
+Sì. Come indicato in precedenza, è possibile connettere le risorse di Google Cloud a livello di organizzazione o di progetto. Per informazioni sulla gerarchia di risorse di Google Cloud, vedere [qui](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)la documentazione online.
+
+
+### <a name="is-there-an-api-for-connecting-my-gcp-resources-to-security-center"></a>Esiste un'API per connettere le risorse di GCP al centro sicurezza?
+Sì. Per creare, modificare o eliminare i connettori cloud del Centro sicurezza con un'API REST, vedere i dettagli dell' [API dei connettori](/rest/api/securitycenter/connectors).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

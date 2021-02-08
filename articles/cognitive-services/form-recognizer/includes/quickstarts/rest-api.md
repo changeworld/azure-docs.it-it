@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 5b00388f1a68560582120e92bb6fceb4f1e153d3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 3112c93e0877a8441875e3c7627c2a7b84ac8ab1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584631"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808502"
 ---
 > [!NOTE]
 > Questa guida usa cURL per eseguire chiamate alle API REST. È anche disponibile un [codice di esempio in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) che illustra come chiamare le API REST con Python.
@@ -38,24 +38,19 @@ ms.locfileid: "99584631"
 
 1. Sostituire `{Endpoint}` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
 1. Sostituire `{subscription key}` con la chiave di sottoscrizione copiata nel passaggio precedente.
-1. Sostituire l'URL nel corpo della richiesta con uno degli URL di esempio.
+1. Sostituire `\"{your-document-url}` con uno degli URL di esempio.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)    
 
+
 ```bash
-curl -v -X POST "https://{Endpoint}/formrecognizer/v2.0/layout/analyze"
--H "Content-Type: application/json"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
---data-ascii "{\"source\": \"http://example.com/test.jpg\"}" 
+curl -v -i POST "https://{Endpoint}/formrecognizer/v2.0/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
 
 ```bash
-curl -v -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyze"
--H "Content-Type: application/json"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
---data-ascii "{\"source\": \"http://example.com/test.jpg\"}" 
+curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 ---
 
@@ -76,14 +71,13 @@ Dopo aver chiamato l'API **[Analyze Layout](https://westcentralus.dev.cognitive.
 # <a name="v20"></a>[v2.0](#tab/v2-0)    
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/layout/analyzeResults/{resultId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
+
 
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)  
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeResults/{resultId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
 
@@ -336,11 +330,9 @@ Per iniziare ad analizzare una fattura, usare il comando cURL seguente. Per ulte
 1. Sostituire `{your invoice URL}` con l'indirizzo URL del documento della fattura.
 1. Sostituire `{subscription key}` con la chiave di sottoscrizione.
 
+
 ```bash
-curl -v -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze"
--H "Content-Type: application/json"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
---data-ascii "{ \"source\": \"{your invoice URL}\"}"
+curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{'source': '{your invoice URL}'}"
 ```
 
 Si riceverà una risposta `202 (Success)` che include un'intestazione **Operation-Location**. Il valore di questa intestazione contiene un ID operazione che è possibile usare per eseguire una query sullo stato dell'operazione asincrona e ottenere i risultati.
@@ -358,8 +350,7 @@ Dopo aver chiamato l'API **[analizza fattura](https://westcentralus.dev.cognitiv
 1. Sostituire `{subscription key}` con la chiave di sottoscrizione.
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/{resultId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### <a name="examine-the-response"></a>Esaminare i risultati
@@ -530,8 +521,13 @@ Vedere la fattura seguente e il corrispondente output JSON. Il contenuto JSON è
 
 Per eseguire il training di un modello personalizzato, è necessario un set di dati di training in un BLOB del servizio di archiviazione di Azure. Sono necessari almeno cinque form compilati (documenti PDF e/o immagini) dello stesso tipo/struttura. Consultare [Compilare un training set per un modello personalizzato](../../build-training-data-set.md) per suggerimenti e opzioni per la creazione di dati di training.
 
+Il training senza dati con etichetta è l'operazione predefinita ed è più semplice. In alternativa, è possibile etichettare manualmente alcuni o tutti i dati di training in anticipo. Si tratta di una procedura più complessa, ma il risultato è un training del modello più efficace.
+
 > [!NOTE]
-> Per i modelli ad alta precisione, è possibile eseguire il training con dati con etichettatura manuale. Vedere la Guida introduttiva al [training con etichette](../../quickstarts/label-tool.md) .
+> È anche possibile eseguire il training dei modelli con un'interfaccia utente grafica, ad esempio con lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md).
+
+
+### <a name="train-a-model-without-labels"></a>Eseguire il training di un modello senza etichette
 
 Per eseguire il training di un modello di Riconoscimento modulo con i documenti del contenitore BLOB di Azure, chiamare l'API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** eseguendo il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
@@ -541,13 +537,40 @@ Per eseguire il training di un modello di Riconoscimento modulo con i documenti 
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)    
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \""{SAS URL}"\"}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
+```
+
+# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
+```bash
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
+```
+
+---
+
+
+Si riceverà una risposta `201 (Success)` con l'intestazione **Location**. Il valore di questa intestazione corrisponde all'ID del nuovo modello da sottoporre a training.
+
+### <a name="train-a-model-with-labels"></a>Eseguire il training di un modello con etichette
+
+Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette (`\<filename\>.pdf.labels.json`) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Una volta disponibili, è possibile chiamare l'API del **[modello di training personalizzato](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** , con il `"useLabelFile"` parametro impostato su `true` nel corpo JSON.
+
+Prima di eseguire il comando, apportare queste modifiche:
+
+1. Sostituire `{Endpoint}` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
+1. Sostituire `{subscription key}` con la chiave di sottoscrizione copiata nel passaggio precedente.
+1. Sostituire `{SAS URL}` con l'URL della firma di accesso condiviso (SAS) del contenitore di archiviazione BLOB di Azure. [!INCLUDE [get SAS URL](../sas-instructions.md)]
+
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+```bash
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true }"
 ```
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \""{SAS URL}"\"}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true}"
 ```
 
 ---
@@ -657,12 +680,12 @@ Quindi, usare il modello appena sottoposto a training per analizzare un document
 # <a name="v20"></a>[v2.0](#tab/v2-0)    
 
 ```bash
-curl -v "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ \"source\": \""{SAS URL}"\" } "
+curl -v "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
 ```
 
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
 ```bash
-curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ \"source\": \""{SAS URL}"\" } "
+curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
 ```
     
 ---
@@ -982,13 +1005,13 @@ Questa sezione illustra come analizzare ed estrarre i campi comuni dalle ricevut
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \"{your receipt URL}\"}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \"{your receipt URL}\"}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 ---
 
@@ -1367,7 +1390,7 @@ In questa sezione viene illustrato come analizzare ed estrarre campi comuni da s
 1. Sostituire `{subscription key}` con la chiave di sottoscrizione copiata nel passaggio precedente.
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ \"source\": \"{your receipt URL}\"}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 
 Si riceverà una risposta `202 (Success)` che include un'intestazione **Operation-Location**. Il valore di questa intestazione contiene un ID operazione che è possibile usare per eseguire una query sullo stato dell'operazione asincrona e ottenere i risultati.
@@ -1568,15 +1591,13 @@ Per recuperare informazioni dettagliate su un modello personalizzato specifico, 
 # <a name="v20"></a>[v2.0](#tab/v2-0)    
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
 
 ```bash
-curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
 
@@ -1631,15 +1652,13 @@ Si riceverà una risposta `200` di operazione riuscita con dati JSON simili ai s
 # <a name="v20"></a>[v2.0](#tab/v2-0)    
 
 ```bash
-curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
 
 ```bash
-curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}"
--H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 ---
 

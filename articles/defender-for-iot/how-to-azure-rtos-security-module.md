@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9106e00fe2146978f97b480e3afd3b7ed58c9130
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2b7810c0829859f4a104c62b6df2ca0495bac7
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937775"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809202"
 ---
 # <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Configurare e personalizzare il modulo di sicurezza per Azure RTO (anteprima)
 
@@ -33,15 +33,15 @@ Usare il file seguente per configurare il comportamento del dispositivo.
 | Nome | Type | Predefinito | Dettagli |
 | - | - | - | - |
 | ASC_SECURITY_MODULE_ID | string | --- | Identificatore univoco del dispositivo  |
-| ASC_SECURITY_MODULE_PENDING_TIME  | Numero | 300 | Tempo di attesa del modulo di sicurezza in secondi. Se il tempo supera la modifica dello stato da sospendere. |
+| ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | Tempo di attesa del modulo di sicurezza in secondi. Se il tempo supera la modifica dello stato da sospendere. |
 
 #### <a name="collection"></a>Raccolta
 
 | Nome | Type | Predefinito | Dettagli |
 | - | - | - | - |
-| ASC_HIGH_PRIORITY_INTERVAL | Numero | 10 | Intervallo di gruppi con priorità alta in secondi per gli agenti di raccolta. |
-| ASC_MEDIUM_PRIORITY_INTERVAL | Numero | 30 | Intervallo del gruppo di priorità media degli agenti di raccolta in secondi. |
-| ASC_LOW_PRIORITY_INTERVAL | Numero | 145.440  | Intervallo in secondi per il gruppo di agenti di raccolta con priorità bassa. |
+| ASC_HIGH_PRIORITY_INTERVAL | Number | 10 | Intervallo di gruppi con priorità alta in secondi per gli agenti di raccolta. |
+| ASC_MEDIUM_PRIORITY_INTERVAL | Number | 30 | Intervallo del gruppo di priorità media degli agenti di raccolta in secondi. |
+| ASC_LOW_PRIORITY_INTERVAL | Number | 145.440  | Intervallo in secondi per il gruppo di agenti di raccolta con priorità bassa. |
 
 #### <a name="collector-network-activity"></a>Attività di rete dell'agente di raccolta
 
@@ -53,8 +53,8 @@ Per personalizzare la configurazione dell'attività di rete dell'agente di racco
 | ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolean | false | Filtrare `UDP` gli eventi di attività di rete |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Boolean | false | Filtrare `ICMP` gli eventi di attività di rete |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Boolean | true | Acquisisci solo i pacchetti in ingresso unicast, quando è impostato su false Capture anche broadcast e multicast |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Numero | 64 | Numero massimo di eventi di rete IPv4 da archiviare in memoria |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Numero | 64  | Numero massimo di eventi di rete IPv6 da archiviare in memoria |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Number | 64 | Numero massimo di eventi di rete IPv4 da archiviare in memoria |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Number | 64  | Numero massimo di eventi di rete IPv6 da archiviare in memoria |
 
 
 ## <a name="compile-flags"></a>Flag di compilazione

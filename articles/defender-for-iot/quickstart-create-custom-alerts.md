@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare avvisi personalizzati'
-description: Informazioni per creare e assegnare avvisi del dispositivo personalizzati per il servizio Azure Defender per IoT.
+title: Creare avvisi personalizzati
+description: Comprendere, creare e assegnare avvisi personalizzati per il servizio Azure Defender per il servizio di sicurezza Internet.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 48682e465374c1a0e1fb74fc6627016696ff6d2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: e59bcca9561c33610170f4bc3674eef307cf0de9
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945080"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809046"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Guida introduttiva: Creare avvisi personalizzati
+# <a name="create-custom-alerts"></a>Creare avvisi personalizzati
 
 L'uso di gruppi di sicurezza e avvisi personalizzati sfrutta al meglio le informazioni di sicurezza end-to-end e la conoscenza categoriale dei dispositivi per garantire una maggiore sicurezza nell'intera soluzione IoT.
 
@@ -65,17 +65,23 @@ Usare i gruppi di sicurezza per raggruppare i dispositivi in categorie logiche. 
 
 ## <a name="customize-an-alert"></a>Personalizzare un avviso
 
-1. Aprire l'hub IoT e quindi scegliere **Impostazioni** dal menu **Sicurezza**. 
-1. Fare clic su **Avvisi personalizzati**.
+1. Aprire l'hub IoT e quindi scegliere **Impostazioni** dal menu **Sicurezza**.
+
+1. Selezionare gli **avvisi personalizzati**.
+
 1. Scegliere un gruppo di sicurezza a cui si vuole applicare la personalizzazione.
-1. Fare clic su **Aggiungi un avviso personalizzato**.
+
+1. Selezionare **Aggiungi un avviso personalizzato**.
+
 1. Selezionare un avviso personalizzato nell'elenco a discesa.
-1. Modificare le proprietà necessarie e fare clic su **OK**.
-1. Assicurarsi di fare clic su **SALVA**. Se non si salva il nuovo avviso, l'avviso verrà eliminato la volta successiva che si chiude l'hub IoT.
+
+1. Modificare le proprietà obbligatorie e selezionare **OK**.
+
+1. Assicurarsi di selezionare **Salva**. Se non si salva il nuovo avviso, l'avviso verrà eliminato la volta successiva che si chiude l'hub IoT.
 
 ## <a name="alerts-available-for-customization"></a>Avvisi disponibili per la personalizzazione
 
-Defender per IoT offre numerosi avvisi che possono essere personalizzati in base alle esigenze specifiche. Esaminare la [tabella degli avvisi personalizzabili](concept-customizable-security-alerts.md) per informazioni sulla gravità dell'avviso, l'origine dati, la descrizione e la procedura di correzione suggerita per ogni avviso ricevuto.
+Defender for Internet è un numero elevato di avvisi, che può essere personalizzato in base alle esigenze specifiche. Esaminare la [tabella degli avvisi personalizzabile](concept-customizable-security-alerts.md) per la gravità degli avvisi, l'origine dati, la descrizione e i passaggi consigliati per la correzione se e quando ogni avviso viene ricevuto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

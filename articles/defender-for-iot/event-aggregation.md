@@ -1,30 +1,30 @@
 ---
-title: Aggregazione di eventi
+title: Aggregazione di eventi classici del modulo di sicurezza
 description: Informazioni su Defender per l'aggregazione di eventi.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
-ms.author: mlottner
-ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/20/2021
+ms.author: shhazam
+ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832370"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809219"
 ---
-# <a name="defender-for-iot-event-aggregation"></a>Protezione per l'aggregazione di eventi
+# <a name="security-module-classic-event-aggregation"></a>Aggregazione di eventi classici del modulo di sicurezza
 
-Defender per gli agenti di sicurezza Internet raccoglie i dati e gli eventi di sistema dal dispositivo locale e li invia al cloud di Azure per l'elaborazione e l'analisi. L'agente di sicurezza raccoglie molti tipi di eventi del dispositivo, tra cui nuovo processo e nuovi eventi di connessione. I nuovi eventi di connessione e di nuovo processo possono essere eseguiti in modo legittimo in un dispositivo entro un secondo e, sebbene sia importante per una sicurezza affidabile e completa, il numero di messaggi che gli agenti di sicurezza devono inviare potrebbero raggiungere rapidamente o superare la quota e i limiti di costo dell'hub Internet. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo.
+Defender per gli agenti di sicurezza di Azure raccoglie i dati e gli eventi di sistema dal dispositivo locale e li invia al cloud di Azure per l'elaborazione e l'analisi. L'agente di sicurezza raccoglie molti tipi di eventi del dispositivo, tra cui nuovo processo e nuovi eventi di connessione. I nuovi eventi di connessione e di nuovo processo possono essere eseguiti in modo legittimo in un dispositivo entro un secondo e, sebbene sia importante per una sicurezza affidabile e completa, il numero di messaggi che gli agenti di sicurezza devono inviare potrebbero raggiungere rapidamente o superare la quota e i limiti di costo dell'hub Internet. Tuttavia, questi eventi contengono informazioni di sicurezza estremamente utili, cruciali per la protezione del dispositivo.
 
-Per ridurre la quota e i costi aggiuntivi mantenendo protetti i dispositivi, il Defender per gli agenti Internet aggrega questi tipi di eventi.
+Per ridurre la quota aggiuntiva e i costi mantenendo protetti i dispositivi, il Defender per gli agenti Internet aggrega questi tipi di eventi.
 
 L'aggregazione di eventi è **attivata** per impostazione predefinita e, sebbene non consigliata, può essere **disattivata manualmente in qualsiasi** momento.
 
@@ -45,7 +45,7 @@ Per ridurre il footprint di memoria dell'agente, ogni volta che l'agente raccogl
 Gli eventi sono considerati identici solo quando vengono soddisfatte le condizioni seguenti:
 
 * Eventi ProcessCreate-quando **CommandLine**, **Executable**, **username** e **userid** sono identici
-* Eventi ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **Local Address**, **Remote Address**, * * Protocol e **Destination Port** sono identici
+* Eventi ConnectionCreate-quando la **riga** di comando, l' **ID utente**, la **direzione**, l' **indirizzo locale**, l' **indirizzo remoto**, il **protocollo** e la **porta di destinazione** sono identici.
 * Eventi ProcessTerminate-quando **lo stato** dell' **eseguibile** e dell'uscita è identico
 
 ### <a name="working-with-aggregated-events"></a>Utilizzo degli eventi aggregati
@@ -67,14 +67,14 @@ Ogni evento aggregato rappresenta un periodo di 24 ore di avvisi raccolti. Utili
 
 Apportare modifiche alla configurazione di Defender per l'aggregazione di eventi Internet nell' [oggetto di configurazione dell'agente](how-to-agent-configuration.md) dell'identità del modulo gemello del modulo **azureiotsecurity** .
 
-| Nome configurazione | Valori possibili | Dettagli | Osservazioni |
+| Nome configurazione | Valori possibili | Dettagli | Commenti |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Abilita/Disabilita l'aggregazione di eventi per gli eventi di creazione del processo |
-| aggregationIntervalProcessCreate | Stringa TimeSpan ISO8601 | Intervallo di aggregazione per gli eventi di creazione del processo |
+| aggregationIntervalProcessCreate | Stringa TimeSpan ISO8601 | L'intervallo di aggregazione per il processo crea eventi |
 | aggregationEnabledConnectionCreate | boolean| Abilita/Disabilita l'aggregazione di eventi per gli eventi di creazione della connessione |
-| aggregationIntervalConnectionCreate | Stringa TimeSpan ISO8601 | Intervallo di aggregazione per gli eventi di creazione della connessione |
+| aggregationIntervalConnectionCreate | Stringa TimeSpan ISO8601 | Intervallo di aggregazione per la creazione di eventi di connessione |
 | aggregationEnabledProcessTerminate | boolean | Abilita/Disabilita l'aggregazione di eventi per eventi di terminazione processo | Solo Windows|
-| aggregationIntervalProcessTerminate | Stringa TimeSpan ISO8601 | Intervallo di aggregazione per eventi di terminazione processo | Solo Windows|
+| aggregationIntervalProcessTerminate | Stringa TimeSpan ISO8601 | L'intervallo di aggregazione per il processo termina gli eventi | Solo Windows|
 |
 
 ## <a name="default-configurations-settings"></a>Impostazioni delle configurazioni predefinite

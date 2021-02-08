@@ -1,10 +1,10 @@
 ---
-title: 'Avvio rapido: Esaminare le raccomandazioni sulla sicurezza'
+title: Esaminare le raccomandazioni sulla sicurezza "
 description: Esaminare le raccomandazioni sulla sicurezza con il servizio di sicurezza Defender per IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 66b5694823096f0747ea099b631a53198a819816
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
-ms.translationtype: HT
+ms.author: shhazam
+ms.openlocfilehash: 0e902db38e4145bf94ab6a235bc1210b520327a1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835041"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809185"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>Avvio rapido: Esaminare le raccomandazioni sulla sicurezza
 
@@ -46,22 +46,19 @@ Nell'elenco delle raccomandazioni dell'hub IoT vengono visualizzate tutte le rac
 
 Aprire ogni raccomandazione aggregata per visualizzare la relativa descrizione dettagliata, la procedura di correzione e l'ID di ogni dispositivo che ha attivato la raccomandazione. Sono riportati anche la gravità della raccomandazione e l'accesso per l'indagine diretta con Log Analytics.
 
-1.  Selezionare e aprire una qualsiasi raccomandazione sulla sicurezza da **Hub IoT** \> **Sicurezza** \> **Raccomandazioni**.
+1.  Selezionare e aprire qualsiasi raccomandazione di sicurezza dall'   >  elenco delle raccomandazioni sulla **sicurezza** dell'hub Internet  >   .
 
 1.  Esaminare la **descrizione**, la **gravità** e i **dettagli dispositivo** di tutti i dispositivi che hanno emesso questa raccomandazione nel periodo di aggregazione. 
 
 1.  Dopo aver esaminato le specifiche della raccomandazione, usare le istruzioni della **procedura di correzione manuale** per correggere e risolvere il problema che ha generato la raccomandazione. 
 
-    [ :::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="Correggere le raccomandazioni sulla sicurezza con il Centro sicurezza di Azure per IoT](media/quickstart/remediate-security-recommendations-inline.png)":::
-
+    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Applicare le correzioni delle raccomandazioni sulla sicurezza con Centro sicurezza di Azure per IoT" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
 
 1.  Esplorare i dettagli delle raccomandazioni per un dispositivo specifico selezionando il dispositivo desiderato nella pagina di drill-down.
 
-    [ :::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="Esaminare le raccomandazioni sulla sicurezza specifiche per un dispositivo con il Centro sicurezza di Azure per IoT](media/quickstart/explore-security-recommendation-detail-inline.png)":::
-
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Esaminare le raccomandazioni sulla sicurezza specifiche per un dispositivo con Centro sicurezza di Azure per IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
 1.  Se sono necessarie ulteriori indagini, **esaminare la raccomandazione in Log Analytics** usando l'apposito collegamento. 
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

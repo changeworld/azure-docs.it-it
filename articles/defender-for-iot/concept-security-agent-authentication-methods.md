@@ -4,21 +4,21 @@ description: Informazioni sui diversi metodi di autenticazione disponibili quand
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 896baa70fb6e18165a025459a063e33d705261ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/24/2021
+ms.author: shhazam
+ms.openlocfilehash: aa5a8a842a750e44d4beeb915008f86c6b5bbb70
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939485"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809253"
 ---
 # <a name="security-agent-authentication-methods"></a>Metodi di autenticazione dell'agente di sicurezza
 
@@ -32,7 +32,7 @@ Per ogni dispositivo caricato in Defender per le cose nell'hub Internet, è nece
 
 ## <a name="authentication-methods"></a>Metodi di autenticazione
 
-I due metodi per l'agente AzureIoTSecurity per eseguire l'autenticazione:
+I due metodi per il Defender per l'agente AzureIoTSecurity per l'esecuzione dell'autenticazione:
 
 - Modalità di autenticazione **SecurityModule**<br>
 L'agente viene autenticato usando l'identità del modulo di sicurezza indipendentemente dall'identità del dispositivo.
@@ -58,7 +58,7 @@ Questi argomenti sono documentati nella tabella seguente.
 |Nome parametro Linux | Nome parametro Windows | Parametro abbreviato |Descrizione|Opzioni|
 |---------------------|---------------|---------|---------------|---------------|
 |autenticazione-identità|AuthenticationIdentity|AUI|Identità di autenticazione| **SecurityModule** o **dispositivo**|
-|authentication-method|AuthenticationMethod|Aum|Metodo di autenticazione|**SymmetricKey** **SelfSignedCertificate**|
+|authentication-method|AuthenticationMethod|Aum|Metodo di autenticazione| **SelfSignedCertificate**|
 |percorso file|FilePath|f|Percorso completo assoluto per il file che contiene il certificato o la chiave simmetrica| |
 |nome-host|HostName|HN|FQDN dell'hub Internet delle cose|Esempio: ContosoIotHub.azure-devices.net|
 |ID dispositivo|DeviceId|inserimento delle dipendenze|ID dispositivo|Esempio: MyDevice1|
@@ -102,7 +102,7 @@ Modificare _LocalConfiguration.json_ con i parametri seguenti:
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Panoramica degli agenti di sicurezza](security-agent-architecture.md)
 - [Distribuisci agente sicurezza](how-to-deploy-agent.md)

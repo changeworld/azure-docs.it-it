@@ -4,28 +4,25 @@ description: Informazioni su come eseguire l'onboarding e abilitare il servizio 
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: rkarlin
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2020
-ms.author: rkarlin
-ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.date: 01/24/2021
+ms.author: shhazam
+ms.openlocfilehash: d7e901e440a6df5ae1d11a150e09a36b565904d9
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351777"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809066"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Avvio rapido: Modulo di sicurezza per Azure RTOS (anteprima)
 
 Questo articolo illustra i prerequisiti da soddisfare prima di abilitare il servizio Modulo di sicurezza per Azure RTOS in un hub IoT. Se non si ha già un hub IoT, vedere [Creare un hub IoT usando il portale di Azure](../iot-hub/iot-hub-create-through-portal.md) per iniziare.
-
-> [!NOTE]
-> Il modulo di sicurezza per Azure RTOS è supportato solo negli hub IoT di livello Standard.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -46,27 +43,13 @@ La fase successiva per iniziare consiste nel preparare le risorse di Azure. È n
 Per iniziare, è necessaria una connessione dell'hub IoT. 
 
 1. Aprire l'**hub IoT** nel portale di Azure.
+1. Passare a tutti i **dispositivi**.
+1. Selezionare **Crea**.
 1. Copiare la stringa di connessione IoT nel [file di configurazione](how-to-azure-rtos-security-module.md).
 
-
-Le credenziali per le connessioni vengono ricavate di valori di **HOST_NAME**, **DEVICE_ID** e **DEVICE_SYMMETRIC_KEY** della configurazione dell'applicazione utente.
+Le credenziali per le connessioni vengono ricavate dalla configurazione dell'applicazione utente **HOST_NAME**, **DEVICE_ID** e **DEVICE_SYMMETRIC_KEY**.
 
 Il modulo di sicurezza per Azure RTOS usa le connessioni middleware di Azure IoT basate sul protocollo **MQTT**.
-
-
-### <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
-
-L'inserimento di Log Analytics nell'hub IoT è disattivato per impostazione predefinita nella soluzione Defender per IoT. Per abilitarlo per l'uso del modulo di sicurezza per Azure RTOS, seguire questa procedura: 
-1. Nel portale di Azure passare all'hub IoT.
-1. Scegliere **Impostazioni** dal menu **Sicurezza**.
-   :::image type="content" source="media/quickstart/azure-rtos-hub-settings.png" alt-text="Accesso all'opzione di raccolta dati per Azure RTOS"::: 
-1. Selezionare **Raccolta di dati**. 
-1. Nell'opzione **Configurazione dell'area di lavoro** impostare l'interruttore su **Sì**. 
-1. Creare una nuova area di lavoro Log Analytics o collegarne una esistente. Assicurarsi che l'opzione **Access to raw security data** (Accesso a dati non elaborati sulla sicurezza) sia selezionata. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Configurazione di Azure RTOS che mostra l'opzione di raccolta dati e le opzioni per i dati non elaborati sulla sicurezza selezionate":::
-1. Selezionare **Salva**
-1. Tornare all'elenco delle risorse di Azure e verificare che l'area di lavoro Log Analytics creata o collegata sia abilitata per l'hub IoT.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Controllare l'elenco delle risorse di Azure per verificare l'aggiunta dell'area di lavoro Log Analytics corretta per un hub IoT"::: 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

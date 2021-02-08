@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0fb6beb776f5a553e85f690d49e3433f93b9ee16
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593647"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809542"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -58,7 +58,8 @@ Quando si copiano file binari tra gli archivi, è possibile abilitare la tollera
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true     
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
@@ -83,6 +84,7 @@ skipErrorFile | Gruppo di proprietà per specificare i tipi di errori da ignorar
 fileMissing | Una delle coppie chiave-valore all'interno del contenitore delle proprietà skipErrorFile per determinare se ignorare i file, che nel frattempo vengono eliminati da altre applicazioni durante la copia di Azure Data Factory. <br/> \- True: consente di copiare la parte restante ignorando i file eliminati da altre applicazioni. <br/> - False: consente di interrompere l'attività di copia dopo che i file sono stati eliminati dall'archivio di origine durante lo spostamento dati. <br/>Notare che, per impostazione predefinita, questa proprietà è impostata su True. | True (impostazione predefinita) <br/>False | No
 fileForbidden | Una delle coppie chiave-valore all'interno del contenitore delle proprietà skipErrorFile per determinare se ignorare file specifici, quando gli ACL di tali file o cartelle richiedono un livello di autorizzazione superiore rispetto alla connessione configurata in ADF. <br/> \- True: permette di copiare il resto ignorando i file. <br/> - False: permette di interrompere l'attività di copia una volta rilevato il problema di autorizzazione per cartelle o file. | True <br/>False (impostazione predefinita) | No
 dataInconsistency | Una delle coppie chiave-valore all'interno del contenitore delle proprietà skipErrorFile per determinare se ignorare i dati incoerenti tra l'archivio di origine e quello di destinazione. <br/> \- True: permette di copiare il resto ignorando i dati incoerenti. <br/> - False: permette di interrompere l'attività di copia una volta trovati dati incoerenti. <br/>Tenere presente che questa proprietà è valida solo quando si imposta validateDataConsistency su True. | True <br/>False (impostazione predefinita) | No
+invalidFileName | Una delle coppie chiave-valore all'interno del contenitore delle proprietà skipErrorFile per determinare se si desidera ignorare i file specifici, quando i nomi di file non sono validi per l'archivio di destinazione. <br/> -True: si vuole copiare il resto ignorando i file con nomi di file non validi. <br/> -False: si desidera interrompere l'attività di copia quando i file hanno nomi di file non validi. <br/>Tenere presente che questa proprietà funziona durante la copia di file binari da qualsiasi archivio di archiviazione per ADLS Gen2 o la copia di file binari da AWS S3 a qualsiasi archivio di archiviazione. | True <br/>False (impostazione predefinita) | No
 logSettings  | Un gruppo di proprietà che può essere specificato quando si vuole registrare i nomi degli oggetti ignorati. | &nbsp; | No
 linkedServiceName | Servizio collegato di [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare i file di log della sessione. | Nomi di un servizio collegato di tipo `AzureBlobStorage` o `AzureBlobFS` che fa riferimento all'istanza da usare per archiviare il file di log. | No
 path | Percorso dei file di log. | Specificare il percorso usato per archiviare i file di log. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No
@@ -166,7 +168,7 @@ L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i 
     Ad esempio: si vogliono copiare dati da un'istanza di SQL Server a un database SQL. Il database SQL del sink contiene la definizione di una chiave primaria, che invece manca nell'istanza di SQL Server di origine. Non è possibile copiare nel sink le righe duplicate presenti nell'origine. L'attività di copia copierà nel sink solo la prima riga dei dati di origine. Le righe di origine successive che contengono il valore della chiave primaria duplicato vengono rilevate come incompatibili e vengono ignorate.
 
 >[!NOTE]
->- Per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando la polibase, configurare le impostazioni di tolleranza di errore native della polibase specificando i criteri di rifiuto tramite "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" nell'attività di copia. È comunque possibile abilitare il reindirizzamento delle righe incompatibili di PolyBase a BLOB o ADLS come di consueto, come illustrato di seguito.
+>- Per caricare i dati in Azure sinapsi Analytics usando la polibase, configurare le impostazioni di tolleranza di errore native della polibase specificando i criteri di rifiuto tramite "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" nell'attività di copia. È comunque possibile abilitare il reindirizzamento delle righe incompatibili di PolyBase a BLOB o ADLS come di consueto, come illustrato di seguito.
 >- Questa funzionalità non è applicabile quando è configurata l'attività di copia per richiamare lo strumento [Unload di Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Questa funzionalità non è applicabile quando l'attività di copia è configurata per richiamare [una stored procedure da un sink SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 

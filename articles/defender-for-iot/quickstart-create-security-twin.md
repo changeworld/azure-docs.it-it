@@ -1,26 +1,26 @@
 ---
-title: 'Guida introduttiva: Creare un modulo gemello di sicurezza'
+title: Creare un modulo di sicurezza gemello
 description: In questo argomento di avvio rapido sono disponibili informazioni su come creare un modulo gemello di Defender per IoT per l'uso con Azure Defender per IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
-ms.author: mlottner
-ms.openlocfilehash: 3e48ed870bf405a82441678b5e8c01d199e7ebff
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
-ms.translationtype: HT
+ms.date: 1/21/2021
+ms.author: shhazam
+ms.openlocfilehash: 35195ea5d66bcf27764fa889e5f2e8ebb6a2bae1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835007"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809100"
 ---
-# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Guida introduttiva: Creare un modulo gemello azureiotsecurity
+# <a name="create-an-azureiotsecurity-module-twin"></a>Creare un modulo gemello azureiotsecurity
 
 Questo argomento di avvio rapido spiega come creare singoli moduli gemelli _azureiotsecurity_ per i nuovi dispositivi oppure creare moduli gemelli in batch per tutti i dispositivi in un hub IoT.
 
@@ -28,7 +28,7 @@ Questo argomento di avvio rapido spiega come creare singoli moduli gemelli _azur
 
 Per le soluzioni IoT integrate in Azure, i dispositivi gemelli svolgono un ruolo fondamentale sia nella gestione dei dispositivi che nell'automazione dei processi.
 
-Defender per IoT offre l'integrazione completa con la piattaforma di gestione di dispositivi IoT esistente, consentendo di gestire lo stato di sicurezza dei dispositivi, nonché di fare uso delle funzionalità di controllo dispositivo esistenti.
+Defender for Internet offre un'integrazione completa con la piattaforma di gestione dei dispositivi per Internet delle cose esistente, consentendo di gestire lo stato di sicurezza del dispositivo e di usare le funzionalità di controllo dei dispositivi esistenti.
 L'integrazione di Defender per IoT si ottiene usando il meccanismo del dispositivo gemello dell'hub IoT.
 
 Per informazioni sul concetto generale dei moduli gemelli nell'hub IoT di Azure, vedere [Moduli gemelli nell'hub IoT](../iot-hub/iot-hub-devguide-module-twins.md).
@@ -37,7 +37,7 @@ Defender per IoT usa il meccanismo dei moduli gemelli, mantenendo un modulo geme
 
 Il modulo gemello di sicurezza contiene tutte le informazioni pertinenti alla sicurezza del dispositivo per ognuno dei dispositivi.
 
-Per avvalersi di tutte le funzionalità di Defender per IoT, è necessario creare, configurare e usare questi moduli gemelli di sicurezza per ogni dispositivo nel servizio.
+Per sfruttare al meglio le funzionalità di Defender per le funzionalità di Internet delle cose, è necessario creare, configurare e usare questo modulo di sicurezza gemelli per ogni dispositivo nel servizio.
 
 ## <a name="create-azureiotsecurity-module-twin"></a>Creare un modulo gemello azureiotsecurity
 
@@ -51,23 +51,30 @@ I moduli gemelli _azureiotsecurity_ possono essere creati in due modi:
 
 Per informazioni su come modificare o cambiare la configurazione di un modulo gemello esistente, vedere l'articolo sulla [configurazione degli agenti](how-to-agent-configuration.md).
 
-Per creare manualmente un nuovo modulo gemello _azureiotsecurity_ per un dispositivo, seguire queste istruzioni:
+Per creare manualmente un nuovo modulo _azureiotsecurity_ gemello per un dispositivo:
 
 1. Nell'hub IoT trovare e selezionare il dispositivo per cui si vuole creare un modulo gemello di sicurezza.
-1. Fare clic sul dispositivo e quindi su **Aggiungi identità modulo**.
+
+1. Selezionare nel dispositivo e quindi su **Aggiungi identità modulo**.
+
 1. Nel campo **Nome identità del modulo** immettere **azureiotsecurity**.
 
-1. Fare clic su **Salva**.
+1. Selezionare **Salva**.
 
 ## <a name="verify-creation-of-a-module-twin"></a>Verificare la creazione di un modulo gemello
 
 Per verificare se è presente un modulo gemello di sicurezza per un dispositivo specifico:
 
 1. Nell'hub IoT di Azure, selezionare **Dispositivi IoT** dal menu **Strumenti di esplorazione**.
-1. Immettere l'ID del dispositivo o selezionare un'opzione nel **campo Esegui query sui dispositivi** e fare clic su **Esegui query sui dispositivi**.
+
+1. Immettere l'ID del dispositivo oppure selezionare un'opzione nel **campo query Device** e selezionare **query Devices**.
+
     :::image type="content" source="./media/quickstart/verify-security-module-twin.png" alt-text="Query su dispositivi":::
-1. Selezionare il dispositivo oppure fare doppio clic per aprire la pagina Dettagli dispositivo.
+
+1. Selezionare il dispositivo o fare doppio clic per aprire la pagina dei dettagli del dispositivo.
+
 1. Selezionare il menu **Identità del modulo** e verificare l'esistenza del modulo **azureiotsecurity** nell'elenco delle identità dei moduli associate al dispositivo.
+
     :::image type="content" source="./media/quickstart/verify-security-module-twin-3.png" alt-text="Moduli associati a un dispositivo":::
 
 Per altre informazioni sulla personalizzazione delle proprietà dei moduli gemelli di Defender per IoT, vedere [Configurazione dell'agente](how-to-agent-configuration.md).

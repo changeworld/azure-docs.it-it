@@ -8,14 +8,14 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0121ea65b190f254f032085133f12f6eb0f374ca
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500329"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808498"
 ---
-# <a name="azure-instance-metadata-service-imds"></a>Servizio metadati dell'istanza di Azure (IMDS)
+# <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
 Il servizio metadati dell'istanza di Azure (IMDS) fornisce informazioni sulle istanze di macchine virtuali attualmente in esecuzione. È possibile usarlo per gestire e configurare le macchine virtuali.
 Queste informazioni includono lo SKU, l'archiviazione, le configurazioni di rete e gli eventi di manutenzione imminenti. Per un elenco completo dei dati disponibili, vedere [riepilogo categorie endpoint](#endpoint-categories).
