@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820365"
+ms.locfileid: "99831944"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Esercitazione: come distribuire un'applicazione IoT Central usando il modello di applicazione video Analytics-oggetto e rilevamento movimento
 
@@ -22,6 +22,10 @@ Per una panoramica dei componenti principali dell'applicazione *analisi dei movi
 Il video seguente offre una procedura dettagliata su come usare il _modello applicazione video Analytics-oggetto e rilevamento movimento_ per distribuire una soluzione IOT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Una sottoscrizione di Azure (consigliata). In alternativa, è possibile usare una versione di valutazione gratuita valida per sette giorni. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="deploy-the-application"></a>Distribuire l'applicazione
 
@@ -42,6 +46,14 @@ Completare i passaggi seguenti per distribuire un'applicazione IoT Central usand
     - Installare un lettore multimediale locale per visualizzare il video acquisito in AMS.
     - Visualizza il video acquisito che Mostra gli oggetti rilevati.
     - Riordina.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Al termine dell'applicazione, è possibile rimuovere tutte le risorse create come indicato di seguito:
+
+1. Nell'applicazione IoT Central passare alla pagina **Applicazione** nella sezione **Amministrazione**. Selezionare **Elimina**.
+1. Nel portale di Azure eliminare il gruppo di risorse **lva-rg**.
+1. Nel computer locale arrestare il contenitore Docker **amp-viewer**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

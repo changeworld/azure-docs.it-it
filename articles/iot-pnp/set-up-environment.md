@@ -7,16 +7,18 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 10ec761313ce39beb4b24b838d156478704f943e
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: b2b17cffb8abd748315c437f46000995c4cb598a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820031"
+ms.locfileid: "99831910"
 ---
 # <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Guida introduttiva: configurare l'ambiente per le guide introduttive e le esercitazioni Plug and Play
 
 Prima di poter completare qualsiasi cosa Plug and Play guide introduttive e le esercitazioni, è necessario configurare un hub e il servizio Device provisioning (DPS) nella sottoscrizione di Azure. Sono inoltre necessarie copie locali dei file di modello usati dalle applicazioni di esempio e dallo strumento Azure Internet Explorer.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -130,7 +132,7 @@ Configurare lo strumento per l'uso dei file di modello scaricati in precedenza. 
 
 Per altre informazioni, vedere [Installare e usare Azure IoT Explorer](howto-use-iot-explorer.md).
 
-## <a name="remove-the-resources"></a>Rimuovere le risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile usare l'hub e l'istanza di DPS per tutte le guide introduttive e le esercitazioni di Plug and Play, quindi è necessario completare la procedura in questo articolo una sola volta. Al termine, è possibile rimuoverli dalla sottoscrizione con il comando seguente:
 
