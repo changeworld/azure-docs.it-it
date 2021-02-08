@@ -1,20 +1,20 @@
 ---
-title: Usare Azure Time Series Insights per archiviare e analizzare i dati di telemetria del dispositivo Plug and Play IoT di Azure
-description: Configurare un ambiente Time Series Insights e connettersi all'hub IoT per visualizzare e analizzare i dati di telemetria inviati dai dispositivi Plug and Play IoT.
+title: 'Esercitazione: usare Azure Time Series Insights per archiviare e analizzare i dati di telemetria del dispositivo Plug and Play Azure'
+description: "Esercitazione: configurare un ambiente Time Series Insights e connettere l'hub Internet per visualizzare e analizzare i dati di telemetria dai dispositivi Plug and Play."
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5491df61a1198e8eee4ba4701ccfc56154ec75eb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
-ms.translationtype: HT
+ms.openlocfilehash: 299730bcdab3ae7e558f39cc7f7d5076ffc58ea9
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905087"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820181"
 ---
-# <a name="preview-tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Esercitazione sull'anteprima: Creare e configurare un ambiente Azure Time Series Insights Gen2
+# <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Esercitazione: creare e configurare un ambiente Gen2 Time Series Insights
 
 Questa esercitazione illustra come creare e configurare un ambiente [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) per l'integrazione con la soluzione Plug and Play IoT. Con Time Series Insights è possibile eseguire operazioni di raccolta, archiviazione, query e visualizzazione di dati di serie temporali a livello di Internet delle cose (IoT).
 

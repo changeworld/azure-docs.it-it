@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: d7e901e440a6df5ae1d11a150e09a36b565904d9
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 3054981bbbff45666297399033663d1830ad9e4e
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809066"
+ms.locfileid: "99820433"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Avvio rapido: Modulo di sicurezza per Azure RTOS (anteprima)
 
@@ -43,8 +43,11 @@ La fase successiva per iniziare consiste nel preparare le risorse di Azure. È n
 Per iniziare, è necessaria una connessione dell'hub IoT. 
 
 1. Aprire l'**hub IoT** nel portale di Azure.
+
 1. Passare a tutti i **dispositivi**.
+
 1. Selezionare **Crea**.
+
 1. Copiare la stringa di connessione IoT nel [file di configurazione](how-to-azure-rtos-security-module.md).
 
 Le credenziali per le connessioni vengono ricavate dalla configurazione dell'applicazione utente **HOST_NAME**, **DEVICE_ID** e **DEVICE_SYMMETRIC_KEY**.

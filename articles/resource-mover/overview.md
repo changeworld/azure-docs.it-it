@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
-ms.translationtype: HT
+ms.openlocfilehash: 06d6352f018238318c3bb4625ae86a2974f14569
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653337"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820164"
 ---
 # <a name="what-is-azure-resource-mover"></a>Che cos'è Spostamento risorse di Azure?
 
@@ -29,8 +29,6 @@ Questo articolo offre una panoramica del servizio Spostamento risorse di Azure. 
 - **Rispondere a requisiti di distribuzione**: spostare le risorse distribuite per errore o spostarle in risposta a esigenze di capacità.
 - **Rispondere alla rimozione di autorizzazioni**: spostare le risorse a causa della rimozione delle autorizzazioni per un'area.
 
-> [!IMPORTANT]
-> Spostamento risorse di Azure è attualmente disponibile in anteprima pubblica.
 
 ## <a name="why-use-resource-mover"></a>Perché usare Spostamento risorse?
 
@@ -41,7 +39,7 @@ Spostamento risorse offre quanto segue:
 - Un'esperienza semplice e coerente per spostare diversi tipi di risorse di Azure.
 - Un modo semplice per identificare le dipendenze tra le risorse da spostare. È quindi possibile spostare contemporaneamente le risorse correlate in modo che dopo lo spostamento tutto funzioni come previsto nell'area di destinazione.
 - Pulizia automatica delle risorse nell'area di origine, se si preferisce eliminarle dopo lo spostamento.
-- Test È possibile provare a eseguire uno spostamento e quindi annullarlo se non si vuole procedere a uno spostamento completo.
+- Test. È possibile provare a eseguire uno spostamento e quindi annullarlo se non si vuole procedere a uno spostamento completo.
 
 ## <a name="move-across-regions"></a>Spostarsi tra aree
 
@@ -62,6 +60,7 @@ Dopo che sono state risolte tutte le dipendenze, Spostamento risorse illustra un
 Tramite Spostamento risorse è attualmente possibile spostare tra aree le risorse seguenti:
 
 - Macchine virtuali di Azure e dischi associati
+- VM di Azure crittografate e dischi associati. Sono incluse le macchine virtuali con crittografia dischi di Azure abilitate e le macchine virtuali di Azure che usano la crittografia lato server predefinita (sia con chiavi gestite dalla piattaforma che con chiavi gestite dal cliente)
 - Schede di interfaccia di rete
 - Set di disponibilità 
 - Reti virtuali di Azure 

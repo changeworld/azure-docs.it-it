@@ -1,18 +1,18 @@
 ---
 title: "Esercitazione: Creare un'app di gestione rifiuti connessa con Azure IoT Central"
-description: Informazioni su come creare un'applicazione di gestione rifiuti connessa usando i modelli di applicazione di Azure IoT Central.
+description: "Esercitazione: informazioni su come creare un'applicazione di gestione dello spreco connessa usando i modelli di applicazione di Azure IoT Central"
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8085409c3dc38d17b6fe0d3cb15857b2396e23b6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
+ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881345"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820080"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Esercitazione: Creare un'app di gestione rifiuti connessa
 
@@ -20,13 +20,13 @@ Questa esercitazione illustra come usare Azure IoT Central per creare un'applica
 
 In particolare, si apprenderà come: 
 
-* Usare il modello *Gestione rifiuti connessa* di Azure IoT Central per creare l'app.
-* Esplorare e personalizzare il dashboard dell'operatore. 
-* Esplorare il modello di dispositivo cassonetto connesso.
-* Esplorare i dispositivi simulati.
-* Esplorare e configurare le regole.
-* Configurare i processi.
-* Modificare la personalizzazione dell'applicazione.
+> [!div class="checklist"]
+> Usare il modello *Gestione rifiuti connessa* di Azure IoT Central per creare l'app.
+> Esplorare e personalizzare il dashboard dell'operatore. Esplorare il modello di dispositivo cassonetto connesso.
+> Esplorare i dispositivi simulati.
+> Esplorare e configurare le regole.
+> Configurare i processi.
+> Modificare la personalizzazione dell'applicazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

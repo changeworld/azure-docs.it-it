@@ -5,6 +5,7 @@
     - name: Creazione di soluzioni per il settore sanitario con Azure IoT Central
       href: overview-iot-central-healthcare.md
 - name: Esercitazioni
+  expanded: true
   items:
     - name: Creare un'app di monitoraggio pazienti continuo
       href: tutorial-continuous-patient-monitoring.md

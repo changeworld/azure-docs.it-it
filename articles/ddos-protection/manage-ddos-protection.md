@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: f4ce830c889feaeda05745eeb02b72f55ad9314a
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813939"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819844"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Guida introduttiva: creare e configurare la protezione DDoS di Azure standard
 
@@ -42,7 +42,7 @@ In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà c
 3. Selezionare **Crea**.
 4. Immettere o selezionare i valori seguenti e quindi selezionare **Crea**:
 
-    |Impostazione        |valore                                              |
+    |Impostazione        |Valore                                              |
     |---------      |---------                                          |
     |Nome           | Immettere _MyDdosProtectionPlan_.                     |
     |Subscription   | Selezionare la propria sottoscrizione.                         |
@@ -57,7 +57,7 @@ In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà c
 2. Selezionare **Rete** e quindi **Rete virtuale**.
 3. Immettere o selezionare i valori seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    | Impostazione         | valore                                           |
+    | Impostazione         | Valore                                           |
     | ---------       | ---------                                       |
     | Nome            | Immettere _MyVnet_.                                 |
     | Subscription    | Selezionare la propria sottoscrizione.                                    |
@@ -77,7 +77,7 @@ Non è possibile spostare una rete virtuale in un altro gruppo di risorse o in u
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Abilitare la protezione DDoS per tutte le reti virtuali
 
-Questo [criterio](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) rileverà le reti virtuali in un ambito definito in cui non è abilitato protezione DDoS standard, quindi creare un'attività di correzione che creerà l'associazione per proteggere il VNet. Per istruzioni dettagliate su come distribuire questo criterio, vedere https://aka.ms/ddosvnetpolicy-techcommunity .
+Questo [criterio](https://aka.ms/ddosvnetpolicy) rileverà le reti virtuali in un ambito definito in cui non è abilitato protezione DDoS standard, quindi creare un'attività di correzione che creerà l'associazione per proteggere il VNet. Per istruzioni dettagliate su come distribuire questo criterio, vedere https://aka.ms/ddosvnetpolicy-techcommunity .
 
 ## <a name="validate-and-test"></a>Convalida e verifica
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2021
+ms.date: 02/08/2021
 ms.author: shhazam
-ms.openlocfilehash: a8f4b96b27eb09443c2644fd63a8783faaa610e4
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809508"
+ms.locfileid: "99820671"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Quali sono le novità di Azure Defender per l'it?
 
@@ -27,13 +27,13 @@ Questo articolo elenca le nuove funzionalità e i miglioramenti apportati alle f
 Le funzionalità indicate sono disponibili in anteprima. Le [condizioni aggiuntive per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) includono termini legali aggiuntivi che si applicano a funzionalità di Azure in versione beta, anteprima o diversamente non ancora disponibili a livello generale.
 ## <a name="february-2021"></a>2021 febbraio
 
-### <a name="enhanced-custom-alert-rules"></a>Regole di avviso personalizzate avanzate
+### <a name="sensor---enhanced-custom-alert-rules"></a>Regole di avviso personalizzate ottimizzate dal sensore
 
 È ora possibile creare regole di avviso personalizzate in base al giorno, al gruppo di giorni e all'attività di rete del periodo di tempo rilevato.  L'utilizzo delle condizioni della regola giorno e ora è utile, ad esempio nei casi in cui la gravità dell'avviso è derivata dal momento in cui si verifica l'evento di avviso. Ad esempio, creare una regola personalizzata che attiva un avviso di gravità elevata quando viene rilevata un'attività di rete in un fine settimana o durante la sera.
 
 Questa funzionalità è disponibile nel sensore con il rilascio della versione 10,1.
 
-### <a name="export-alerts-from-on-premises-management-console"></a>Esportare gli avvisi dalla console di gestione locale
+### <a name="on-premises-management-console---export-alerts"></a>Console di gestione locale-esportare gli avvisi
 
 È ora possibile esportare le informazioni sugli avvisi in un file con estensione csv dalla console di gestione locale. È possibile esportare le informazioni di tutti gli avvisi rilevati o esportare le informazioni in base alla visualizzazione filtrata.
 
@@ -48,7 +48,7 @@ Questa funzionalità è disponibile nella console di gestione locale con il rila
 - **Gestione delle posture della sicurezza** : monitora in modo proattivo il comportamento di sicurezza dei tuoi dispositivi.
 - **Rilevamento delle minacce continuo e in tempo reale/OT** -rilevamento di minacce quali botnet, tentativi di forza bruta, minatori crittografici e attività di rete sospette
 
-La documentazione relativa al modulo di sicurezza deprecato verrà spostata nella cartella classica.
+La documentazione relativa al modulo di sicurezza deprecato verrà spostata nella *soluzione basata su agenti per i generatori di dispositivi>cartella classica* .
 
 Questo set di funzionalità è disponibile con la versione corrente del cloud di anteprima pubblica.
 

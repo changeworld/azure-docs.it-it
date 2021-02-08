@@ -5,6 +5,7 @@
     - name: Creazione di soluzioni per il settore energetico con Azure IoT Central
       href: overview-iot-central-energy.md
 - name: Esercitazioni
+  expanded: true
   items:
     - name: Creare un'app per il monitoraggio contatori intelligente
       href: tutorial-smart-meter-app.md

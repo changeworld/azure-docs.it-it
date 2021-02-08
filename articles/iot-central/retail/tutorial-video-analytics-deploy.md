@@ -1,21 +1,21 @@
 ---
-title: Come distribuire il modello di applicazione Azure IoT Central per il rilevamento di oggetti e movimenti di analisi video
-description: Questa guida riepiloga i passaggi per distribuire un'applicazione IoT Central di Azure usando il modello di applicazione video Analytics-oggetto e rilevamento movimento.
+title: 'Esercitazione: How to deploy the video Analytics-Object and Motion Detection Azure IoT Central Application Template'
+description: "Esercitazione: questa guida riepiloga i passaggi per distribuire un'applicazione IoT Central di Azure usando il modello di applicazione video Analytics-oggetto e rilevamento movimento."
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: how-to
+ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: decfa7020be7778e8ca64a9fb0cb4aac1657da27
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873337"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820365"
 ---
-# <a name="how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Come distribuire un'applicazione IoT Central usando il modello di applicazione video Analytics-oggetto e rilevamento movimento
+# <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Esercitazione: come distribuire un'applicazione IoT Central usando il modello di applicazione video Analytics-oggetto e rilevamento movimento
 
 Per una panoramica dei componenti principali dell'applicazione *analisi dei movimenti di oggetti e di rilevamento del movimento* , vedere l'articolo relativo all' [architettura delle applicazioni di analisi video di rilevamento di oggetti e movimento](architecture-video-analytics.md).
 
@@ -45,4 +45,10 @@ Completare i passaggi seguenti per distribuire un'applicazione IoT Central usand
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è disponibile una panoramica dei passaggi per distribuire e usare il modello di applicazione di analisi video, vedere [creare un'applicazione di analisi video in azure IOT Central (Yolo V3)](tutorial-video-analytics-create-app-yolo-v3.md) o [creare un'analisi video in Azure IOT Central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) per iniziare.
+A questo punto è disponibile una panoramica dei passaggi per distribuire e usare il modello applicazione di analisi video, vedere
+
+> [!div class="nextstepaction"]
+> [Creare un'applicazione di analisi video in Azure IOT Central (Yolo V3)](tutorial-video-analytics-create-app-yolo-v3.md) o
+
+> [!div class="nextstepaction"]
+> Per iniziare, [creare un'analisi video in Azure IOT Central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) .

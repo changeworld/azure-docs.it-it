@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: cd7802fa4a88c3b05140d30ab4d8b2bbd4adc8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940026"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820603"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 
@@ -37,13 +37,13 @@ Per impostazione predefinita, Defender per le cose archivia gli avvisi di sicure
 Per individuare l'area di lavoro Log Analytics per l'archiviazione dei dati:
 
 1. Aprire l'hub IoT.
-1. In **sicurezza**selezionare **Impostazioni**, quindi selezionare **raccolta dati**.
+1. In **sicurezza** selezionare **Impostazioni**, quindi selezionare **raccolta dati**.
 1. Modificare i dettagli di configurazione dell'area di lavoro Log Analytics.
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 In seguito alla configurazione, eseguire le operazioni seguenti per accedere ai dati archiviati nell'area di lavoro Log Analytics:
 
-1. Selezionare e fare clic su un Defender per l'avviso relativo alle cose nell'hub Internet.
+1. Selezionare e fare clic su un Defender per gli avvisi di tutto nell'hub.
 1. Fare clic su **Further investigation** (Ulteriori indagini).
 1. Selezionare **To see which devices have this alert click here and view the DeviceId column** (Per vedere quali dispositivi hanno questo avviso fare clic qui e visualizzare la colonna DeviceId).
 

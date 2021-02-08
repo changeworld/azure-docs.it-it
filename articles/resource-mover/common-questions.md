@@ -5,25 +5,18 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: ab4b8f5a691bc8e4091e9f3f01b709391deeddb0
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550709"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820875"
 ---
 # <a name="common-questions"></a>Domande frequenti
 
 Questo articolo risponde a domande comuni su [Azure Resource Mover](overview.md).
-
-## <a name="general"></a>Generale
-
-### <a name="is-resource-mover-generally-available"></a>Il motore di risorse è disponibile a livello generale?
-
-Il motore di risorse è attualmente disponibile in anteprima pubblica. Sono supportati i carichi di lavoro di produzione.
-
 
 
 ## <a name="moving-across-regions"></a>Trasferimento tra aree
@@ -45,6 +38,9 @@ Tramite Spostamento risorse è attualmente possibile spostare tra aree le risors
 - Servizi di bilanciamento del carico interni e pubblici 
 - Database SQL di Azure e pool elastici
 
+### <a name="can-i-move-disks-across-regions"></a>È possibile spostare I dischi tra le aree?
+
+Non è possibile selezionare dischi come risorse per lo spostamento tra le aree. Tuttavia, i dischi vengono spostati come parte di uno spostamento della macchina virtuale.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>È possibile spostare le risorse tra le sottoscrizioni quando si spostano in aree diverse?
 
@@ -97,6 +93,12 @@ La sottoscrizione è stata spostata in un tenant diverso. | Disabilitare e quind
 ### <a name="how-can-i-do-multiple-moves-together"></a>Come è possibile eseguire più spostamenti contemporaneamente?
 
 Modificare le combinazioni di origine/destinazione in base alle esigenze usando l'opzione di modifica nel portale.
+
+### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>Cosa accade quando si rimuove una risorsa da un elenco di risorse di spostamento?
+
+È possibile rimuovere le risorse aggiunte all'elenco di spostamento. Il comportamento quando si rimuove una risorsa dall'elenco dipende dallo stato della risorsa. [Altre informazioni](remove-move-resources.md#vm-resource-state-after-removing)
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

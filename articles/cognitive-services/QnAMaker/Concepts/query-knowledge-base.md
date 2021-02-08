@@ -3,12 +3,12 @@ title: Eseguire una query sulla Knowledge base-QnA Maker
 description: È necessario pubblicare una Knowledge base. Una volta pubblicato, la Knowledge base viene sottoposta a query nell'endpoint di stima di runtime tramite l'API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346206"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820382"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Eseguire una query sulla Knowledge base per le risposte
 
@@ -31,7 +31,7 @@ Il processo è illustrato nella tabella seguente.
 |1|L'applicazione client invia la query utente all' [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|
 |3|Questa pre-elaborazione viene eseguita per modificare la query utente per ottenere risultati di ricerca migliori.|
-|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query.|
+|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query. I filtri di ricerca di Azure [interrompono le parole](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) in questo passaggio.|
 |5|QnA Maker USA conteggi sintattico e semantico per determinare la somiglianza tra la query utente e i risultati QnA recuperati.|
 |6|Il modello di classificazione Machine-learned usa le diverse funzionalità, dal passaggio 5, per determinare i punteggi di confidenza e il nuovo ordine di rango.|
 |7|I nuovi risultati vengono restituiti all'applicazione client in ordine di rango.|
@@ -54,7 +54,7 @@ Il processo è illustrato nella tabella seguente.
 |1|L'applicazione client invia la query utente all' [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|
 |3|Questa pre-elaborazione viene eseguita per modificare la query utente per ottenere risultati di ricerca migliori.|
-|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query.|
+|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query. I filtri di ricerca di Azure [interrompono le parole](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) in questo passaggio.|
 |5|QnA Maker usa il modello basato su trasformatori all'avanguardia per determinare la somiglianza tra la query utente e i risultati QnA candidati recuperati da Azure ricerca cognitiva. Il modello basato su Transformer è un modello multilingue di apprendimento avanzato, che funziona orizzontalmente per tutte le lingue per determinare i punteggi di confidenza e il nuovo ordine di rango.|
 |6|I nuovi risultati vengono restituiti all'applicazione client in ordine di rango.|
 |||
@@ -125,4 +125,4 @@ La risposta HTTP è la risposta recuperata dalla Knowledge base, in base alla co
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Punteggio di attendibilità](./confidence-score.md)
+> [Punteggio di confidenza](./confidence-score.md)

@@ -5,6 +5,7 @@
     - name: Creazione di soluzioni per enti pubblici con Azure IoT Central
       href: overview-iot-central-government.md
 - name: Esercitazioni
+  expanded: true
   items:
     - name: Creare un'app di gestione rifiuti connessa
       href: tutorial-connected-waste-management.md

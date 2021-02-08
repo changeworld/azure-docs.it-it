@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: d208a4a86896c81982aa2b10ca7ce5e7a6773c05
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520442"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820214"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Esercitazione: Spostare macchine virtuali tra aree
 
@@ -238,12 +238,16 @@ Se si vuole completare il processo di spostamento, eseguire il commit dello spos
 - Il servizio di mobilità non viene disinstallato automaticamente dalle macchine virtuali. Disinstallarlo manualmente oppure lasciarlo installato se si prevede di spostare nuovamente il server.
 - Modificare le regole di controllo degli accessi in base al ruolo di Azure dopo lo spostamento.
 
+
 ## <a name="delete-source-resources-after-commit"></a>Eliminare le risorse di origine dopo il commit
 
 Facoltativamente, dopo lo spostamento è possibile eliminare le risorse nell'area di origine. 
 
-1. In **Tra aree** fare clic sul nome di ogni risorsa di origine da eliminare.
-2. Nella pagina delle proprietà di ogni risorsa selezionare **Elimina**.
+> [!NOTE]
+> Alcune risorse, ad esempio insiemi di credenziali delle chiavi e server SQL Server, non possono essere eliminate dal portale e devono essere eliminate dalla pagina delle proprietà della risorsa.
+
+1. In **aree diverse** fare clic sul nome della risorsa di origine che si desidera eliminare.
+2. Selezionare **Elimina origine**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Eliminare le risorse aggiuntive create per lo spostamento
 

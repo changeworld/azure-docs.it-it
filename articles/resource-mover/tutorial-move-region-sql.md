@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: 4678a6128be13ac61dc4ac67bbd1a17e99c6d24d
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542814"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820230"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Esercitazione: Spostare risorse del database SQL di Azure in un'altra area
 
@@ -272,8 +272,11 @@ Per completare lo spostamento di database e pool elastici, seguire questa proced
 
 Facoltativamente, dopo lo spostamento è possibile eliminare le risorse nell'area di origine. 
 
-1. In **Tra aree** fare clic sul nome di ogni risorsa di origine da eliminare.
-2. Nella pagina delle proprietà di ogni risorsa selezionare **Elimina**.
+> [!NOTE]
+> Non è possibile eliminare i server di SQL Server dal portale ed è necessario eliminarli dalla pagina delle proprietà della risorsa.
+
+1. In **aree diverse** fare clic sul nome della risorsa di origine che si desidera eliminare.
+2. Selezionare **Elimina origine**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

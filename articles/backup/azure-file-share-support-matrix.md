@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 999cb4c764e9960c509d19faa61016b2522259ac
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378033"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819861"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
@@ -60,7 +60,7 @@ Il backup delle condivisioni file di Azure è disponibile in tutte le aree **ad 
 | Impostazione                                                      | Limite   |
 | ------------------------------------------------------------ | ------- |
 | Numero massimo di ripristini al giorno                           | 10      |
-| Numero massimo di file per ogni ripristino                         | 10      |
+| Numero massimo di file per ogni ripristino                         | 99      |
 | Dimensioni massime consigliate per il ripristino per le condivisioni file di grandi dimensioni | 15 TiB |
 
 ## <a name="retention-limits"></a>Limiti di conservazione

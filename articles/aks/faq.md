@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127635"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820263"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -132,7 +132,9 @@ Il supporto di Windows Server per il pool di nodi include alcune limitazioni che
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Il servizio Azure Kubernetes offre un contratto di servizio?
 
-AKS fornisce garanzie per il contratto di servizio come funzionalità facoltativa del componente aggiuntivo con contratto di servizio con [tempo di esecuzione][uptime-sla].
+AKS fornisce garanzie per il contratto di servizio come funzionalità facoltativa del componente aggiuntivo con contratto di servizio con [tempo di esecuzione][uptime-sla]. 
+
+Il contratto di servizio gratuito offerto per impostazione predefinita non garantisce un endpoint server API a disponibilità elevata (l'obiettivo del livello di servizio è 99,5%). È possibile che si verifichino problemi di connettività temporanei in caso di aggiornamenti, nodi sottoposti a non integrità, manutenzione della piattaforma e così via. Se il carico di lavoro non tollera il riavvio del APIServer, è consigliabile usare il contratto di tempo per il tempo di esecuzione.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>È possibile applicare gli sconti per le prenotazioni di Azure ai nodi dell'agente del servizio Azure Kubernetes?
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927741"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820552"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -175,6 +175,24 @@ Vedere [impostazioni di diagnostica](/rest/api/monitor/diagnosticsettings) per c
 
 ## <a name="create-using-azure-policy"></a>Creare usando criteri di Azure
 Poiché è necessario creare un'impostazione di diagnostica per ogni risorsa di Azure, è possibile usare criteri di Azure per creare automaticamente un'impostazione di diagnostica durante la creazione di ogni risorsa. Per informazioni dettagliate, vedere [distribuire monitoraggio di Azure su larga scala usando criteri di Azure](../deploy-scale.md) .
+
+## <a name="metric-category-is-not-supported-error"></a>Errore di categoria metrica non supportata
+Quando si distribuisce un'impostazione di diagnostica, viene visualizzato il messaggio di errore seguente:
+
+   "La categoria metrica '*xxxx*' non è supportata"
+
+Ad esempio: 
+
+   "La categoria metrica ' ActionsFailed ' non è supportata"
+
+dove in precedenza la distribuzione è riuscita. 
+
+Il problema si verifica quando si usa un modello Gestione risorse, l'API REST delle impostazioni di diagnostica, l'interfaccia della riga di comando di Azure o Azure PowerShell. Le impostazioni di diagnostica create tramite il portale di Azure non sono interessate dal fatto che vengano presentati solo i nomi delle categorie supportati.
+
+Il problema è causato da una modifica recente nell'API sottostante. Le categorie di metriche diverse da' AllMetrics ' non sono supportate e non sono mai state escluse in scenari di elenco di indirizzi IP consentiti molto specifici. In passato, gli altri nomi di categoria venivano ignorati durante la distribuzione di un'impostazione di diagnostica. Il back-end di monitoraggio di Azure ha semplicemente reindirizzato queste categorie a' AllMetrics '.  Al 2021 febbraio il back-end è stato aggiornato per confermare in modo specifico che la categoria metrica fornita è precisa. Questa modifica ha causato l'esito negativo di alcune distribuzioni.
+
+Se viene visualizzato questo errore, aggiornare le distribuzioni per sostituire i nomi delle categorie di metriche con "AllMetrics" per risolvere il problema. Se la distribuzione aggiungeva in precedenza più categorie, è necessario mantenere solo una con il riferimento ' AllMetrics '. Se il problema persiste, contattare il supporto tecnico di Azure tramite il portale di Azure. 
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,24 +1,24 @@
 ---
-title: Configura le risorse di tutto il necessario per Plug and Play Microsoft Docs
-description: Creare un'istanza del servizio Device provisioning e dell'hub Internet per l'uso con le guide introduttive e le esercitazioni Plug and Play.
+title: 'Guida introduttiva: configurare le risorse di tutto il necessario per gli Plug and Play | Microsoft Docs'
+description: "Guida introduttiva: creare un'istanza del servizio Device provisioning e dell'hub Internet per l'uso con le guide introduttive e le esercitazioni Plug and Play."
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 10ec761313ce39beb4b24b838d156478704f943e
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96004263"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820031"
 ---
-# <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configurare l'ambiente per le guide introduttive e le esercitazioni Plug and Play
+# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Guida introduttiva: configurare l'ambiente per le guide introduttive e le esercitazioni Plug and Play
 
 Prima di poter completare qualsiasi cosa Plug and Play guide introduttive e le esercitazioni, è necessario configurare un hub e il servizio Device provisioning (DPS) nella sottoscrizione di Azure. Sono inoltre necessarie copie locali dei file di modello usati dalle applicazioni di esempio e dallo strumento Azure Internet Explorer.
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 Per evitare la necessità di installare l'interfaccia della riga di comando di Azure in locale, è possibile usare la Azure Cloud Shell per configurare i servizi cloud.
 

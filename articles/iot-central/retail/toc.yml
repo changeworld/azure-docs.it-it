@@ -5,6 +5,7 @@
     - name: Creazione di soluzioni per la vendita al dettaglio con Azure IoT Central
       href: overview-iot-central-retail.md
 - name: Esercitazioni
+  expanded: true
   items:
     - name: Analisi punti vendita - Pagamento
       items:

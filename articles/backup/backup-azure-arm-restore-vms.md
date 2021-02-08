@@ -4,12 +4,12 @@ description: Ripristinare una macchina virtuale di Azure da un punto di ripristi
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 4575aedff425fc80f2974be21604be52ccb9525d
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 256998f2e687152bb63c9368af1a56f05bba7672
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526196"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820569"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -23,7 +23,7 @@ Backup di Azure offre diversi modi per ripristinare una macchina virtuale.
 --- | ---
 **Creazione di una nuova macchina virtuale** | Crea e rende operativa rapidamente una macchina virtuale di base a partire da un punto di ripristino.<br/><br/> È possibile specificare un nome per la macchina virtuale, selezionare il gruppo di risorse e la rete virtuale in cui inserirla, nonché specificare un account di archiviazione per la macchina virtuale ripristinata. La nuova macchina virtuale deve essere creata nella stessa area della macchina virtuale di origine.<br><br>Se il ripristino di una macchina virtuale ha esito negativo perché uno SKU di VM di Azure non è disponibile nell'area specificata di Azure o a causa di altri problemi, backup di Azure Ripristina comunque i dischi nel gruppo di risorse specificato.
 **Restore disk** (Ripristina disco) | Ripristina un disco della macchina virtuale, che può quindi essere usato per creare una nuova macchina virtuale.<br/><br/> Backup di Azure offre un modello che consente di personalizzare e creare una macchina virtuale. <br/><br> Il processo di ripristino genera un modello che può essere scaricato e usato per specificare impostazioni della macchina virtuale personalizzate e creare una macchina virtuale.<br/><br/> I dischi vengono copiati nel gruppo di risorse specificato dall'utente.<br/><br/> In alternativa, è possibile collegare il disco a una macchina virtuale esistente o creare una nuova macchina virtuale usando PowerShell.<br/><br/> Questa opzione è utile se si vuole personalizzare la macchina virtuale, aggiungere impostazioni di configurazione non presenti al momento del backup o aggiungere impostazioni che devono essere configurate usando il modello o PowerShell.
-**Sostituisci esistente** | È possibile ripristinare un disco e usarlo per sostituire un disco nella macchina virtuale esistente.<br/><br/> Deve essere presente la macchina virtuale corrente. Se è stata eliminata, non è possibile usare questa opzione.<br/><br/> Backup di Azure crea uno snapshot della macchina virtuale esistente prima della sostituzione del disco e l'archivia nella posizione di gestione temporanea specificata dall'utente. I dischi esistenti connessi alla macchina virtuale vengono sostituiti con il punto di ripristino selezionato.<br/><br/> Lo snapshot viene copiato nell'insieme di credenziali e conservato in conformità con i criteri di conservazione. <br/><br/> Dopo l'operazione di sostituzione del disco, il disco originale viene conservato nel gruppo di risorse. Se non sono necessari, è possibile scegliere di eliminare manualmente i dischi originali. <br/><br/>Sostituisci esistente è supportato per le macchine virtuali gestite non crittografate, incluse le macchine virtuali [create con immagini personalizzate](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). Non è supportata per le macchine virtuali classiche.<br/><br/> Se il punto di ripristino ha un numero maggiore o minore di dischi rispetto alla macchina virtuale corrente, il numero di dischi nel punto di ripristino rifletterà solo la configurazione della macchina virtuale.<br><br> Il parametro replace existing è supportato anche per le macchine virtuali con risorse collegate, ad esempio l'identità gestita o la [Key Vault](../key-vault/general/overview.md) [assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md) .
+**Sostituisci esistente** | È possibile ripristinare un disco e usarlo per sostituire un disco nella macchina virtuale esistente.<br/><br/> Deve essere presente la macchina virtuale corrente. Se è stata eliminata, non è possibile usare questa opzione.<br/><br/> Backup di Azure crea uno snapshot della macchina virtuale esistente prima della sostituzione del disco e l'archivia nella posizione di gestione temporanea specificata dall'utente. I dischi esistenti connessi alla macchina virtuale vengono sostituiti con il punto di ripristino selezionato.<br/><br/> Lo snapshot viene copiato nell'insieme di credenziali e conservato in conformità con i criteri di conservazione. <br/><br/> Dopo l'operazione di sostituzione del disco, il disco originale viene conservato nel gruppo di risorse. Se non sono necessari, è possibile scegliere di eliminare manualmente i dischi originali. <br/><br/>Sostituisci esistente è supportato per le macchine virtuali gestite non crittografate, incluse le macchine virtuali [create con immagini personalizzate](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). Non è supportata per le macchine virtuali classiche e quelle non gestite.<br/><br/> Se il punto di ripristino ha un numero maggiore o minore di dischi rispetto alla macchina virtuale corrente, il numero di dischi nel punto di ripristino rifletterà solo la configurazione della macchina virtuale.<br><br> Il parametro replace existing è supportato anche per le macchine virtuali con risorse collegate, ad esempio l'identità gestita o la [Key Vault](../key-vault/general/overview.md) [assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md) .
 **Tra aree (area secondaria)** | Il ripristino tra aree può essere usato per ripristinare macchine virtuali di Azure nell'area secondaria, che è un'[area associata di Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).<br><br> È possibile ripristinare tutte le macchine virtuali di Azure per il punto di ripristino selezionato se il backup viene eseguito nell'area secondaria.<br><br> Durante il backup, gli snapshot non vengono replicati nell'area secondaria. Vengono replicati solo i dati archiviati nell'insieme di credenziali. I ripristini dell'area secondaria sono quindi solo ripristini a [livello](about-azure-vm-restore.md#concepts) di insieme di credenziali. Il tempo di ripristino per l'area secondaria sarà quasi uguale al tempo di ripristino del livello dell'insieme di credenziali per l'area primaria.  <br><br> Questa funzionalità è disponibile per le opzioni seguenti:<br> <li> [Creare una macchina virtuale](#create-a-vm) <br> <li> [Ripristino di dischi](#restore-disks) <br><br> L'opzione di [sostituzione di dischi esistenti](#replace-existing-disks) non è attualmente supportata.<br><br> Autorizzazioni<br> L'operazione di ripristino nell'area secondaria può essere eseguita da amministratori del backup e amministratori di app.
 
 > [!NOTE]
@@ -181,7 +181,7 @@ Attualmente, l'area secondaria [RPO](azure-backup-glossary.md#rpo-recovery-point
 
 Le VM bloccate di [Azure zone](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) possono essere ripristinate in qualsiasi zona di [disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview) della stessa area.
 
-Nel processo di ripristino verrà visualizzata l'opzione zona di **disponibilità.** Verrà visualizzata prima la zona predefinita. Per scegliere una zona diversa, scegliere il numero dell'area desiderata. Se l'area bloccata non è disponibile, non sarà possibile ripristinare i dati in un'altra zona perché i dati di cui è stato eseguito il backup non vengono replicati con zonally.
+Nel processo di ripristino verrà visualizzata l'opzione zona di **disponibilità.** Verrà visualizzata prima la zona predefinita. Per scegliere una zona diversa, scegliere il numero dell'area desiderata. Se l'area bloccata non è disponibile, non sarà possibile ripristinare i dati in un'altra zona perché i dati di cui è stato eseguito il backup non sono zonally replicati.
 
 ![Scegliere la zona di disponibilità](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
@@ -200,7 +200,7 @@ Viene fornita un'opzione per ripristinare i [dischi non gestiti](../storage/comm
 
 ## <a name="restore-vms-with-special-configurations"></a>Ripristinare le macchine virtuali con configurazioni speciali
 
-Esistono diversi scenari comuni in cui potrebbe essere necessario ripristinare le macchine virtuali.
+Esistono molti scenari comuni in cui potrebbe essere necessario ripristinare le macchine virtuali.
 
 **Scenario** | **Indicazioni**
 --- | ---
@@ -244,7 +244,7 @@ Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un 
 
 ## <a name="post-restore-steps"></a>Operazioni successive al ripristino
 
-Esistono diversi aspetti di cui tenere conto dopo il ripristino di una macchina virtuale:
+Dopo il ripristino di una macchina virtuale, è necessario tenere presente alcuni aspetti:
 
 - Le estensioni presenti durante la configurazione del backup vengono installate, ma non abilitate. Se si verifica un problema, reinstallare le estensioni.
 - Se la macchina virtuale sottoposta a backup era associata a un indirizzo IP statico, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti. È possibile [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).

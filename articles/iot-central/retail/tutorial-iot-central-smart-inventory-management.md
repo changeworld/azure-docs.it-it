@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 2b26b4390cb19b832349b49d4e95a5355caed594
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463247"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820297"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione Gestione inventario intelligente
 
-
-
 Questa esercitazione illustra come iniziare a distribuire un modello di applicazione **Gestione inventario intelligente** di IoT Central. Si apprenderà come distribuire il modello e quali sono gli elementi inclusi per impostazione predefinita. Verranno inoltre fornite informazioni sulle possibili operazioni successive.
 
-In questa esercitazione si apprenderà come: 
-* Creare un'applicazione di gestione dell'inventario intelligente 
-* Esaminare l'applicazione 
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> creazione di un'applicazione di gestione dell'inventario intelligente guida dettagliata dell'applicazione 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
