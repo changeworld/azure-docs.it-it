@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: d97f500bb84f816bacf44208ba305840e797b3bd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d2fa464214f6a4201b1ecd62ee1a5dacdd7ec158
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447709"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832454"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisiti di sistema per Azure Stack Edge Pro con GPU 
 
@@ -69,7 +69,7 @@ Questi account di archiviazione vengono creati tramite le API locali del disposi
 
 ### <a name="port-requirements-for-azure-stack-edge-pro"></a>Requisiti delle porte per Azure Stack Edge Pro
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* In uscita *o in uscita si* intende la direzione in cui il dispositivo di Azure stack Edge Pro invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo.  In uscita *o in uscita si* intende la direzione in cui il dispositivo di Azure stack Edge Pro invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/azure-stack-edge-gateway-port-config.md)]
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 75eb847bd85f52e8fe168b0ee7270af4bdea20ed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6836777c761fa2cce482cb000b6c86919e6b5613
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467456"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834069"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Requisiti di sistema mini R per Azure Stack Edge
 
@@ -70,7 +70,7 @@ Questi account di archiviazione si trovano tramite le API locali del dispositivo
 
 ### <a name="port-requirements-for-azure-stack-edge-mini-r"></a>Requisiti delle porte per il mini R Azure Stack Edge
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* In uscita *o in uscita si* intende la direzione in cui il dispositivo Mini R di Azure stack Edge invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo.  In uscita *o in uscita si* intende la direzione in cui il dispositivo Mini R di Azure stack Edge invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/azure-stack-edge-gateway-port-config.md)]
 

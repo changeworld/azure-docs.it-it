@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
-ms.translationtype: HT
+ms.openlocfilehash: d9c2aea284a2ab84b5d45fe35a35785adfc88123
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763466"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832071"
 ---
 ### <a name="publish-the-device-template"></a>Pubblicare il modello di dispositivo
 
@@ -61,16 +61,3 @@ Non sono più disponibili dispositivi che usano il modello di dispositivo **LVA 
 
 1. Selezionare **Chiudi**.
 
-## <a name="next-steps"></a>Passaggi successivi
-
-A questo punto è stata creata un'applicazione IoT Central usando il modello di applicazione **Analisi video - rilevamento movimento e oggetti**, è stato creato un modello di dispositivo per il dispositivo gateway ed è stato aggiunto un dispositivo gateway all'applicazione.
-
-Se si vuole provare l'applicazione Analisi video - rilevamento movimento e oggetti usando i moduli IoT Edge in una macchina virtuale cloud con flussi video simulati:
-
-> [!div class="nextstepaction"]
-> [Creare un'istanza di IoT Edge per l'analisi video (macchina virtuale Linux)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-vm.md)
-
-Se si vuole provare l'applicazione Analisi video - rilevamento movimento e oggetti usando i moduli IoT Edge in un dispositivo reale con la telecamera **ONVIF**:
-
-> [!div class="nextstepaction"]
-> [Creare un'istanza di IoT Edge per l'analisi video (Intel NUC)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-nuc.md)

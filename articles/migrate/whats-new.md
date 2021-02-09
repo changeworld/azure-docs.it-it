@@ -7,16 +7,20 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 7ff9d9c6624016d4b1ea94072d52de1c42d73913
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: cc207522048e3f0491e3aa54f2ae21d2e7e63bc2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400472"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834035"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) consente di individuare, valutare ed eseguire la migrazione di server locali, app e dati nel cloud Microsoft Azure. Questo articolo riepiloga le nuove versioni e funzionalità di Azure Migrate.
+
+## <a name="update-january-2021"></a>Aggiornamento (gennaio 2021)
+-  Azure Migrate: lo strumento di migrazione server consente ora di eseguire la migrazione di macchine virtuali VMware, server fisici e macchine virtuali da altri cloud a macchine virtuali di Azure con dischi crittografati con la crittografia lato server con chiavi gestite dal cliente (CMK).
+
 ## <a name="update-december-2020"></a>Aggiornamento (dicembre 2020)
 - Azure Migrate installa ora automaticamente l'agente di macchine virtuali di Azure nelle VM VMware mentre ne esegue la migrazione in Azure usando il metodo senza agente della migrazione di VMware.
 - Tramite il portale di Azure è ora possibile eseguire la migrazione di VM VMware a macchine virtuali di Azure con dischi crittografati mediante crittografia del servizio di archiviazione con chiavi gestite dal cliente, usando Azure Migrate: Migrazione server (replica senza agente).

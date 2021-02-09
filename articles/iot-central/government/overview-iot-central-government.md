@@ -1,5 +1,5 @@
 ---
-title: Creazione di soluzioni per enti pubblici con Azure IoT Central
+title: Che cosa sono le soluzioni Azure IoT Central Government
 description: Informazioni su come creare soluzioni Smart City usando i modelli di applicazione di Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
@@ -7,14 +7,14 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590818"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834341"
 ---
-# <a name="building-government-solutions-with-azure-iot-central"></a>Creazione di soluzioni per enti pubblici con Azure IoT Central
+# <a name="what-are-the-iot-central-government-solutions"></a>Quali sono le soluzioni IoT Central Government?
 
 Iniziare a creare soluzioni Smart City usando i modelli di applicazione di Azure IoT Central. Iniziare subito con **monitoraggio qualità acqua**, **monitoraggio consumo idrico** e **gestione rifiuti connessa**.
 
@@ -71,8 +71,6 @@ Iniziare con l'[esercitazione sull'applicazione Gestione rifiuti connessa](./tut
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Provare a usare gratuitamente i modelli di applicazione per enti pubblici in IoT Central e [creare un'app](https://apps.azureiotcentral.com/build/government)
 * Informazioni sui [concetti di monitoraggio della qualità dell'acqua](./concepts-waterqualitymonitoring-architecture.md)
 * Informazioni sui [concetti di monitoraggio del consumo idrico](./concepts-waterconsumptionmonitoring-architecture.md)
 * Informazioni sui [concetti di gestione rifiuti connessa](./concepts-connectedwastemanagement-architecture.md)  
-* Per informazioni su IoT Central, vedere [Panoramica di IoT Central](../core/overview-iot-central.md)

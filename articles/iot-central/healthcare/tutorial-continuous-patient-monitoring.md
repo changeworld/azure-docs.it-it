@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531271"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832505"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Esercitazione: Distribuire ed esplorare un modello di app di monitoraggio pazienti continuo
 
@@ -24,6 +24,10 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare un modello di applicazione
 > * Esplorare il modello di applicazione
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Una sottoscrizione di Azure (consigliata). In alternativa, è possibile usare una versione di valutazione gratuita valida per sette giorni. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application-template"></a>Creare un modello di applicazione
 
@@ -61,11 +65,11 @@ Dopo aver distribuito il modello di app, prima di tutto si passerà a **Lamna in
 
 * Modificare lo **stato paziente** del dispositivo per indicare se quest'ultimo è in uso per uno scenario con pazienti degenti o in modalità remota.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Modello di app Servizi sanitari":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Stato del paziente":::
 
 È anche possibile fare clic su **Go to remote patient dashboard** (Vai al dashboard dei pazienti remoti) per visualizzare il dashboard operatore di Burkville Hospital. Tale dashboard contiene un set analogo di azioni, dati di telemetria e informazioni. È anche possibile visualizzare più dispositivi in uso e scegliere di **aggiornare il firmware** in ognuno.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Modello di app Servizi sanitari":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Dashboard operatore remoto":::
 
 ### <a name="device-templates"></a>Modelli di dispositivo
 
@@ -75,7 +79,7 @@ Se si seleziona **Modelli di dispositivo**, vengono visualizzati i due tipi di d
 
 * **Smart Knee Brace** (Tutore intelligente per il ginocchio): questo dispositivo rappresenta un tutore per il ginocchio che i pazienti potrebbero usare per la riabilitazione dopo un intervento di protesi al ginocchio. Se si seleziona questo modello, si visualizzano informazioni relative al raggio di azione del movimento articolare e all'accelerazione, oltre ai dati del dispositivo.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modello di app Servizi sanitari":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modello di patch intelligente":::
 
 ### <a name="device-groups"></a>Gruppi di dispositivi
 
@@ -93,7 +97,7 @@ Se si seleziona **Regole**, nel modello vengono visualizzate le tre regole segue
 
 * **Patch battery low** (Livello batteria basso): questa regola viene attivata quando il livello della batteria del dispositivo scende al di sotto del 10%. Usare questa regola per attivare una notifica che segnali al paziente di caricare il dispositivo.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Modello di app Servizi sanitari":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Regole":::
 
 ### <a name="jobs"></a>Processi
 
@@ -113,7 +117,7 @@ La scheda **Proprietà** consente di modificare le proprietà cloud e le proprie
 
 La scheda **Comandi** consente di eseguire comandi nel dispositivo.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Modello di app Servizi sanitari":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Dashboard del tutore per il ginocchio":::
 
 ### <a name="data-export"></a>Esportazione dati
 
@@ -123,7 +127,7 @@ L'esportazione dei dati consente di esportare continuamente i dati del dispositi
 
 Se non si intende continuare a usare questa applicazione, eliminarla scegliendo **Amministrazione > Impostazioni applicazione** e facendo clic su **Elimina**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Modello di app Servizi sanitari":::
+:::image type="content" source="media/admin-delete.png" alt-text="Pulire le risorse":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

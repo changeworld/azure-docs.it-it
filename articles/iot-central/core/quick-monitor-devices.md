@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
-ms.translationtype: HT
+ms.openlocfilehash: 4c63a9833e6b9a9b243d289d79428ddef1468253
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992755"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833882"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Guida introduttiva: Usare Azure IoT Central per monitorare i dispositivi
 
@@ -50,6 +50,10 @@ Per apportare una modifica al dispositivo, usare la pagina **Gestisci dispositiv
 Impostare la **temperatura di destinazione** su 80 per riscaldare il dispositivo e ridurre l'umidità. Scegliere **Salva** per aggiornare il dispositivo. Quando il dispositivo conferma la modifica delle impostazioni, lo stato della proprietà cambia in **sincronizzato**:
 
 :::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Screenshot che mostra l'impostazione aggiornata della temperatura di destinazione per il dispositivo":::
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

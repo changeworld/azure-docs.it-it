@@ -1,5 +1,5 @@
 ---
-title: Creazione di soluzioni per la vendita al dettaglio con Azure IoT Central | Microsoft Docs
+title: Che cosa sono le soluzioni Azure IoT Central Retail | Microsoft Docs
 description: Informazioni su come creare logistica connessa, un centro di distribuzione digitale, l'analisi dei punti vendita, il monitoraggio delle condizioni, i pagamenti, la gestione intelligente degli inventari e soluzioni retail con i modelli di applicazione di Azure IoT Central.
 author: avneet723
 ms.author: avneets
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
-ms.translationtype: HT
+ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124963"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832284"
 ---
-# <a name="building-retail-solutions-with-azure-iot-central"></a>Creazione di soluzioni per la vendita al dettaglio con Azure IoT Central
+# <a name="what-are-the-iot-central-retail-solutions"></a>Quali sono le soluzioni di IoT Central al dettaglio?
 
 Azure IoT Central è una piattaforma di app IoT che riduce il carico di lavoro e i costi associati allo sviluppo, alla gestione e alla manutenzione di soluzioni IoT di livello aziendale. La scelta di compilare con Azure IoT Central consente di concentrare tempo, denaro ed energie per trasformare il business con dati IoT, anziché semplicemente gestire e aggiornare un'infrastruttura IoT complessa e in continua evoluzione.
 
@@ -41,9 +41,9 @@ I vantaggi della soluzione di logistica connessa sono:
 
 Gli screenshot seguenti illustrano il dashboard predefinito del modello di applicazione. Il dashboard è completamente personalizzabile in base a specifici requisiti delle soluzioni:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Screenshot della metà superiore del dashboard di operazioni di logistica connessa":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Screenshot della metà inferiore del dashboard di operazioni di logistica connessa":::
 
 Per altre informazioni, vedere l'esercitazione [Distribuire ed esaminare un modello di applicazione di logistica connessa](./tutorial-iot-central-connected-logistics.md).
 
@@ -64,7 +64,7 @@ I vantaggi di un centro di distribuzione digitale sono:
 
 Gli screenshot seguenti illustrano il dashboard predefinito del modello di applicazione. Il dashboard è completamente personalizzabile in base a specifici requisiti delle soluzioni: 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Dashboard del centro di distribuzione digitale":::
 
 Per altre informazioni, vedere l'esercitazione [Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale](./tutorial-iot-central-digital-distribution-center.md).
 
@@ -86,7 +86,7 @@ Il modello di applicazione include un set di modelli di dispositivi e usa un set
 
 Gli screenshot seguenti illustrano il dashboard predefinito del modello di applicazione. Il dashboard è completamente personalizzabile in base a specifici requisiti delle soluzioni: 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Analisi punti vendita - Monitoraggio delle condizioni":::
 
 Per altre informazioni, vedere l'esercitazione [Creare un'applicazione di analisi dei punti vendita in Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -108,7 +108,7 @@ Il modello di applicazione include un set di modelli di dispositivi e usa un set
 
 Gli screenshot seguenti illustrano il dashboard predefinito del modello di applicazione. Il dashboard è completamente personalizzabile in base a specifici requisiti delle soluzioni: 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Analisi punti vendita - Pagamento":::
 
 Per altre informazioni, vedere l'esercitazione [Creare un'applicazione di analisi dei punti vendita in Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -128,7 +128,7 @@ Questo modello di applicazione è incentrato sulla connettività dei dispositivi
 
 Gli screenshot seguenti illustrano il dashboard predefinito del modello di applicazione. Il dashboard è completamente personalizzabile in base a specifici requisiti delle soluzioni:
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Dashboard di gestione dell'inventario intelligente":::
 
 Per altre informazioni, vedere [Distribuire ed esaminare un modello di applicazione Gestione inventario intelligente](./tutorial-iot-central-smart-inventory-management.md).
 
@@ -148,7 +148,7 @@ Il modello di applicazione consente di:
 
 Gli screenshot seguenti illustrano il dashboard predefinito del modello di applicazione. Il dashboard è completamente personalizzabile in base a specifici requisiti delle soluzioni:
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centro di micro-adempimenti":::
 
 Per altre informazioni, vedere l'esercitazione [Distribuire ed esaminare un modello di applicazione del centro di micro-adempimenti](./tutorial-micro-fulfillment-center.md).
 
@@ -165,7 +165,7 @@ Il modello di applicazione include quattro dashboard dell'applicazione:
 * **(Sample) Real Camera Management** (Gestione fotocamere reali) usa fotocamere simulate per illustrare come è possibile gestire le fotocamere dall'applicazione.
 * **(Sample) Real Camera Monitor** (Monitoraggio fotocamere reali) usa fotocamere simulate per illustrare come è possibile monitorare le fotocamere dall'applicazione.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Panoramica di Azure IoT per la vendita al dettaglio":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Analisi video - rilevamento movimento e oggetti":::
 
 Per ottenere altre informazioni sull'architettura della soluzione, vedere [Architettura dell'applicazione Analisi video](architecture-video-analytics.md).
 
@@ -180,9 +180,5 @@ Per informazioni su come distribuire la soluzione, vedere l'esercitazione [Crear
 Per iniziare a creare una soluzione per la vendita al dettaglio:
 
 * Iniziare con l'esercitazione [Creare un'applicazione di analisi dei punti vendita in Azure IoT Central](./tutorial-in-store-analytics-create-app.md), che illustra come creare una soluzione con uno dei modelli di applicazione per l'analisi dei punti vendita.
-* [Distribuire ed esaminare un modello di applicazione di logistica connessa](./tutorial-iot-central-connected-logistics.md).
-* [Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale](./tutorial-iot-central-digital-distribution-center.md).
-* [Distribuire ed esaminare un modello di applicazione Gestione inventario intelligente](./tutorial-iot-central-smart-inventory-management.md).
-* [Distribuire ed esaminare un modello di applicazione del centro di micro-adempimenti](./tutorial-micro-fulfillment-center.md).
 * [Distribuire ed esaminare il modello di applicazione di analisi video](./tutorial-video-analytics-deploy.md).
-* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](../core/overview-iot-central.md).
+* [Distribuire ed esaminare un modello di applicazione di logistica connessa](./tutorial-iot-central-connected-logistics.md).

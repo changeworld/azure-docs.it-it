@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761040"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832930"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
 
 È possibile usare la funzionalità Monitoraggio connettività servizio in [Monitoraggio prestazioni rete](network-performance-monitor.md) per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta. Tali endpoint includono siti Web, applicazioni SaaS, applicazioni PaaS e database SQL. 
 
@@ -134,4 +137,3 @@ Per l'area Virginia del governo degli Stati Uniti, solo gli URL DOD sono incorpo
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](../log-query/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
-

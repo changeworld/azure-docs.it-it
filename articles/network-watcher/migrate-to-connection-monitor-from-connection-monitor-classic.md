@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 3c094bf5397d15e24c3b1a58369a74438c99017e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018412"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833984"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Esegui migrazione a monitoraggio connessione da monitoraggio connessione (versione classica)
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi monitoraggi connessione in monitoraggio connessione (versione classica), ma è possibile continuare a usare i monitoraggi connessione esistenti creati prima dell'1 luglio 2021. Per ridurre al minimo l'interferenza dei servizi nei carichi di lavoro correnti, [Esegui la migrazione da monitoraggio connessione (versione classica) al nuovo monitoraggio della connessione](migrate-to-connection-monitor-from-connection-monitor-classic.md)  in Azure Network Watcher prima del 29 febbraio 2024.
 
 È possibile eseguire la migrazione dei monitoraggi connessione esistenti a un nuovo monitoraggio della connessione migliorato con pochi clic e senza tempi di inattività. Per ulteriori informazioni sui vantaggi, vedere [Connection Monitor](./connection-monitor-overview.md).
 

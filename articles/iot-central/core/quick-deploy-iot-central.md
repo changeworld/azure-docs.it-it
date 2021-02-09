@@ -3,21 +3,24 @@ title: "Avvio rapido: Creare un'applicazione Azure IoT Central | Microsoft Docs"
 description: "Avvio rapido: Creare una nuova applicazione Azure IoT Central. Creare l'applicazione usando il piano tariffario gratuito o uno dei piani tariffari standard."
 author: viv-liu
 ms.author: viviali
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a2d48a6f4e451e2a9b4140618c7c590293cb5ef5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
-ms.translationtype: HT
+ms.openlocfilehash: c5e357824652077acab299e0e27678f528f23b9a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548529"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833899"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Avvio rapido: Creare un'applicazione Azure IoT Central
 
 Questo argomento di avvio rapido illustra come creare un'applicazione Azure IoT Central.
+
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
@@ -41,15 +44,14 @@ Per creare una nuova applicazione Azure IoT Central dal modello **Applicazione p
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Informazioni sulla fatturazione di Azure IoT Central":::
 
-    > [!NOTE]
+    > [!Tip]
     > Se nella pagina precedente si è scelto **App personalizzata**, si vedrà l'elenco a discesa **Modello di applicazione**. Nell'elenco a discesa potrebbero essere visualizzati anche altri modelli resi disponibili dall'organizzazione.
-
-    >[!IMPORTANT]
-    >Il modello **Applicazione personalizzata (legacy)** (V2) è stato ritirato in quanto tutte le funzionalità precedentemente disponibili in questo modello sono ora disponibili nel modello **Applicazione personalizzata** più recente (V3).
 
 1. Scegliere di creare questa applicazione usando il piano tariffario della versione di valutazione gratuita valida 7 giorni oppure uno dei piani tariffari standard:
 
     - Le applicazioni con il piano *gratuito* sono gratuite per sette giorni e supportano fino a cinque dispositivi. È possibile convertirle per l'uso di un piano tariffario standard in qualsiasi momento prima della scadenza.
+        > [!NOTE]
+        > Per le applicazioni create con il piano *gratuito* non sono necessarie sottoscrizioni di Azure e pertanto non sono disponibili nella sottoscrizione di azure nella portale di Azure. È possibile visualizzare e gestire solo app gratuite dal portale di IoT Central.          
     - Le applicazioni create usando il piano *Standard* vengono fatturate in base ai singoli dispositivi; è possibile scegliere il piano tariffario **Standard 0**, **Standard 1** o **Standard 2** con i primi due dispositivi gratuiti. Per altre informazioni sui piani tariffari gratuito e standard, vedere la pagina sui [prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Se si crea un'applicazione con un piano tariffario standard, è necessario selezionare una *directory*, una *sottoscrizione di Azure* e una *località*:
         - La *directory* è l'istanza di Azure Active Directory in cui creare l'applicazione. Un'istanza di Azure Active Directory contiene le identità degli utenti, le credenziali e altre informazioni dell'organizzazione. Se Azure Active Directory non è disponibile, ne viene creata automaticamente un'istanza quando si crea una sottoscrizione di Azure.
         - Una *sottoscrizione di Azure* consente di creare istanze dei servizi di Azure. IoT Central effettua il provisioning delle risorse nella sottoscrizione. Se non si ha una sottoscrizione di Azure, è possibile crearne una gratuitamente nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription). Dopo aver creato la sottoscrizione di Azure, tornare nella pagina **Nuova applicazione**. La nuova sottoscrizione è ora inclusa nell'elenco a discesa **Sottoscrizione di Azure** (Sottoscrizione di Azure).
@@ -58,6 +60,10 @@ Per creare una nuova applicazione Azure IoT Central dal modello **Applicazione p
 1. Esaminare i termini e le condizioni e selezionare **Crea** nella parte inferiore della pagina. Dopo alcuni minuti, l'applicazione IoT Central è pronta per l'uso:
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Applicazione Azure IoT Central":::
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

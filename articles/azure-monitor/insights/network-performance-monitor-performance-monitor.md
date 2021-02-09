@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326121"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832964"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
 
 La funzionalità Performance Monitor in [Monitoraggio prestazioni rete](network-performance-monitor.md) consente di monitorare la connettività tra vari punti della rete. È possibile monitorare distribuzioni cloud e sedi locali, diversi data center e succursali e applicazioni o microservizi multilivello di importanza cruciale. La funzionalità Performance Monitor consente di rilevare tempestivamente i problemi a livello di rete. I principali vantaggi offerti sono i seguenti: 
 
@@ -65,7 +68,7 @@ Per creare regole di monitoraggio personalizzate:
 6. Scegliere le condizioni di monitoraggio. Per impostare soglie personalizzate per la generazione di eventi di integrità, immettere valori di soglia. Ogni volta che il valore della condizione supera la soglia selezionata per la coppia di reti o subnet selezionata, viene generato un evento di integrità. 
 7. Selezionare **Save (Salva** ) per salvare la configurazione. 
 
-Dopo aver salvato una regola di monitoraggio, è possibile integrarla con Gestione avvisi selezionando **Crea avviso**. Una regola di avviso viene creata automaticamente con la query di ricerca. Altri parametri obbligatori vengono compilati automaticamente. Usando una regola di avviso è possibile ricevere avvisi basati su posta elettronica, oltre a quelli esistenti in Monitoraggio prestazioni rete. Gli avvisi possono anche attivare azioni correttive con i runbook oppure possono essere integrati con le soluzioni esistenti di gestione dei servizi tramite l'uso di webhook. Selezionare **Manage Alert** (Gestisci avviso) per modificare le impostazioni dell'avviso. 
+Dopo aver salvato una regola di monitoraggio, è possibile integrarla con Gestione avvisi selezionando **Crea avviso**. Una regola di avviso viene creata automaticamente con la query di ricerca. Altri parametri obbligatori vengono compilati automaticamente. Usando una regola di avviso è possibile ricevere avvisi basati su posta elettronica, oltre a quelli esistenti in Monitoraggio prestazioni rete. Gli avvisi possono anche attivare azioni correttive con manuali operativi oppure possono integrarsi con le soluzioni di gestione dei servizi esistenti usando i webhook. Selezionare **Manage Alert** (Gestisci avviso) per modificare le impostazioni dell'avviso. 
 
 È ora possibile creare altre regole di Performance Monitor o passare al dashboard della soluzione per iniziare a usare la funzionalità.
 
@@ -94,7 +97,7 @@ Per scegliere il protocollo, prendere in considerazione le informazioni seguenti
 
 Se si sceglie di usare ICMP durante la distribuzione, è possibile passare a TCP in qualsiasi momento modificando la regola di monitoraggio predefinita.
 
-1. Passare a **monitoraggio prestazioni rete**   >  **Monitor**   >  **Configura**   >  **monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
+1. Passare a **monitoraggio prestazioni rete**   >  ****   >  **Configura**   >  **monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
 2. Scorrere fino alla sezione **Protocollo** e selezionare il protocollo che si vuole usare. 
 3. Selezionare **Salva** per applicare l'impostazione. 
 
@@ -129,4 +132,3 @@ Nella figura seguente la causa radice delle aree problematiche relative alla sez
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](../log-query/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
-

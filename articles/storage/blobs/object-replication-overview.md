@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 391c33e72f45e7c0c0b56128b32a8e73399e417a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762882"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834324"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replica di oggetti per BLOB in blocchi
 
@@ -42,6 +42,8 @@ Per la replica di oggetti è necessario che siano abilitate anche le funzionalit
 - [Controllo delle versioni dei BLOB](versioning-overview.md): deve essere abilitato sia per gli account di origine che per quelli di destinazione. Per informazioni su come abilitare il controllo delle versioni, vedere [abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md).
 
 L'abilitazione del feed di modifiche e del controllo delle versioni dei BLOB può comportare costi aggiuntivi. Per informazioni più dettagliate, fare riferimento alla pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+
+La replica degli oggetti è supportata solo per gli account di archiviazione per utilizzo generico V2. Entrambi gli account di origine e di destinazione devono essere di uso generico V2. 
 
 ## <a name="how-object-replication-works"></a>Funzionamento della replica degli oggetti
 

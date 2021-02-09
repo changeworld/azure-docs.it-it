@@ -1,5 +1,5 @@
 ---
-title: Creare soluzioni per il settore energetico con IoT Central | Microsoft Docs
+title: Che cosa sono le soluzioni Azure IoT Central Energy | Microsoft Docs
 description: Informazioni su come creare soluzioni per il settore energetico usando i modelli di applicazione di Azure IoT Central.
 author: op-ravi
 ms.author: omravi
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 25b15a30ed6d537a8c9ac7a0306dbd46484233ec
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 9adf9822bb63be6372de140c775370010614b6e4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820739"
+ms.locfileid: "99832471"
 ---
-# <a name="build-energy-solutions-with-iot-central"></a>Creare soluzioni per il settore energetico con IoT Central
+# <a name="what-are-the-iot-central-energy-solutions"></a>Quali sono le soluzioni di IoT Central energia?
 
 I contatori intelligenti e i pannelli solari svolgono un ruolo importante nella trasformazione del settore energetico. I contatori intelligenti forniscono più controlli e informazioni dettagliate in tempo reale sui consumi energetici e la crescita dei pannelli solari favorisce il progresso nella generazione di energie rinnovabili. Le app di monitoraggio di contatori intelligenti e pannelli solari sono modelli di esempio per illustrare le varie funzionalità. I partner possono sfruttare questi modelli per creare soluzioni energetiche con IoT Central, al fine di soddisfare esigenze specifiche. Per distribuire e usare queste applicazioni non è richiesta alcuna nuova attività di codifica né sono necessari costi aggiuntivi. Altre informazioni sui modelli di applicazione per il settore energetico e sulle relative funzionalità.
 
@@ -61,8 +61,9 @@ Dopo aver distribuito l'app, i dati del pannello solare simulato verranno visual
 > ![Dashboard dell'app per pannelli solari](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per iniziare a creare una soluzione per il settore energetico:
+
 * Creare modelli di applicazione gratuiti: [app per contatori intelligenti](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), [app per pannelli solari](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Informazioni sui [concetti relativi all'app di monitoraggio di contattori intelligenti](./concept-iot-central-smart-meter-app.md)
 * Informazioni sui [concetti relativi all'app di monitoraggio di pannelli solari](./concept-iot-central-solar-panel-app.md)
-* Informazioni sulla [piattaforma IoT Central](../index.yml)

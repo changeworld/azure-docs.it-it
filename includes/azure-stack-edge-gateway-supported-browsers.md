@@ -2,21 +2,21 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/07/2020
+ms.date: 02/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 1e2e45142ba32e1570175d4b45b7c63b84c0ec43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f8c0d7bacac44e9c3b2b2506227a112d3aea0bc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256278"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831341"
 ---
 Di seguito è riportato un elenco dei browser supportati per l'interfaccia utente Web locale per il dispositivo virtuale.
 
 |Browser  |Versioni  |Requisiti aggiuntivi/note  |
 |---------|---------|---------|
-|Google Chrome   |Versione più recente         |         |
+|Google Chrome   |Versione più recente         |        |
 |Microsoft Edge    | Versione più recente        |         |
-|Internet Explorer     | Versione più recente        |         |
+|Internet Explorer     | Versione più recente        | Se sono abilitate le funzionalità di sicurezza avanzate, potrebbe non essere possibile accedere alle pagine dell'interfaccia utente Web locale. Disabilitare la sicurezza avanzata e riavviare il browser.|
 |FireFox    |Versione più recente         |         |
 |Safari su Mac    |Versione più recente         |         |

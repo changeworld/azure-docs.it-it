@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: ecc32908aea2fb474d2ebe5bd94f556527eda814
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
-ms.translationtype: HT
+ms.openlocfilehash: 70769ec97affcd95d07a1365d6357262072c86ec
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763447"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832072"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Esercitazione: Creare un'applicazione Analisi video - rilevamento movimento e oggetti in Azure IoT Central (YOLO v3)
 
@@ -127,3 +127,25 @@ Nella pagina **LVA Edge Gateway v2** selezionare **+ Sostituisci manifesto**.
 Passare alla cartella *lva-configuration* e selezionare il file manifesto *deployment.amd64.json* modificato in precedenza. Selezionare **Carica**. Dopo aver completato la convalida, selezionare **Sostituisci**.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se l'applicazione non è più necessaria, è possibile rimuovere tutte le risorse create come indicato di seguito:
+
+1. Nell'applicazione IoT Central passare alla pagina **Applicazione** nella sezione **Amministrazione**. Selezionare **Elimina**.
+1. Nel portale di Azure eliminare il gruppo di risorse **lva-rg**.
+1. Nel computer locale arrestare il contenitore Docker **amp-viewer**.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+A questo punto è stata creata un'applicazione IoT Central usando il modello di applicazione **Analisi video - rilevamento movimento e oggetti**, è stato creato un modello di dispositivo per il dispositivo gateway ed è stato aggiunto un dispositivo gateway all'applicazione.
+
+Se si vuole provare l'applicazione Analisi video - rilevamento movimento e oggetti usando i moduli IoT Edge in una macchina virtuale cloud con flussi video simulati:
+
+> [!div class="nextstepaction"]
+> [Creare un'istanza di IoT Edge per l'analisi video (macchina virtuale Linux)](tutorial-video-analytics-iot-edge-vm.md)
+
+Se si vuole provare l'applicazione Analisi video - rilevamento movimento e oggetti usando i moduli IoT Edge in un dispositivo reale con la telecamera **ONVIF**:
+
+> [!div class="nextstepaction"]
+> [Creare un'istanza di IoT Edge per l'analisi video (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md)

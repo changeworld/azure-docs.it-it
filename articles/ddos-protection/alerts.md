@@ -3,7 +3,7 @@ title: Visualizzare e configurare gli avvisi di protezione DDoS per la protezion
 description: Informazioni su come visualizzare e configurare gli avvisi di protezione DDoS per la protezione DDoS di Azure standard.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: ea62b5df7159440a7538c7db0711b7d8f63ec220
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806291"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832522"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Visualizzare e configurare gli avvisi di protezione DDoS
 
@@ -41,7 +41,8 @@ In questa esercitazione si apprenderà come:
 Con questi modelli, sarà possibile configurare gli avvisi per tutti gli indirizzi IP pubblici per i quali è stata abilitata la registrazione diagnostica. Quindi, per usare questi modelli di avviso, è necessario prima di tutto un'area di lavoro Log Analytics con le impostazioni di diagnostica abilitate. Vedere [visualizzare e configurare la registrazione diagnostica DDoS](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Regola di avviso di monitoraggio di Azure
-Questa [regola di avviso di monitoraggio di Azure](https://aka.ms/ddosmitigationstatus) consente di eseguire una query semplice per rilevare quando si verifica una mitigazione DDoS attiva. Ciò indica un potenziale attacco. I gruppi di azioni possono essere usati per richiamare le azioni in seguito all'avviso.
+
+Questa [regola di avviso di monitoraggio di Azure](https://aka.ms/DDOSmitigationstatus) consente di eseguire una query semplice per rilevare quando si verifica una mitigazione DDoS attiva. Ciò indica un potenziale attacco. I gruppi di azioni possono essere usati per richiamare le azioni in seguito all'avviso.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 

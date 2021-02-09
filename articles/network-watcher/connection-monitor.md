@@ -15,17 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
-ms.translationtype: HT
+ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896363"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834086"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
 > [!NOTE]
 > Questa esercitazione riguarda Monitoraggio connessione (versione classica). Provare la versione nuova e migliorata di [Monitoraggio connessione](connection-monitor-overview.md) per eseguire un monitoraggio avanzato della connettività
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi monitoraggi connessione in monitoraggio connessione (versione classica), ma è possibile continuare a usare i monitoraggi connessione esistenti creati prima dell'1 luglio 2021. Per ridurre al minimo l'interferenza dei servizi nei carichi di lavoro correnti, [Esegui la migrazione da monitoraggio connessione (versione classica) al nuovo monitoraggio della connessione](migrate-to-connection-monitor-from-connection-monitor-classic.md) in Azure Network Watcher prima del 29 febbraio 2024.
 
 La corretta comunicazione tra una macchina virtuale (VM) e un endpoint, ad esempio, un'altra VM, può essere fondamentale per l'organizzazione. In alcuni casi, vengono introdotte modifiche di configurazione che possono interrompere la comunicazione. In questa esercitazione verranno illustrate le procedure per:
 
@@ -53,7 +56,7 @@ Creare due macchine virtuali.
 2. Selezionare **Calcolo**, quindi selezionare un sistema operativo. In questa esercitazione viene usato **Windows Server 2016 Datacenter**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome|myVm1|
     |Nome utente| Immettere un nome utente a scelta.|
@@ -75,7 +78,7 @@ Creare due macchine virtuali.
 
 Completare nuovamente i passaggi descritti in [Creare la prima VM](#create-the-first-vm) con le modifiche seguenti:
 
-|Passaggio|Impostazione|valore|
+|Passaggio|Impostazione|Valore|
 |---|---|---|
 | 1 | Selezionare una versione di **Ubuntu Server** |                                                                         |
 | 3 | Nome                                  | myVM2                                                                   |
@@ -95,7 +98,7 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 4. Selezionare **+ Aggiungi**.
 5. Immettere o selezionare le informazioni per la connessione da monitorare e quindi selezionare **Aggiungi**. Nell'esempio illustrato nella figura seguente viene monitorata la connessione dalla VM *myVm1* alla VM *myVm2* tramite la porta 22:
 
-    | Impostazione                  | valore               |
+    | Impostazione                  | Valore               |
     | ---------                | ---------           |
     | Nome                     | myVm1-myVm2(22)     |
     | Source                   |                     |

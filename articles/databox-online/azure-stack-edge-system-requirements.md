@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 4deeec1b6c9db80c15b001efb7b40bdb4bb9d515
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452643"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831579"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Requisiti di sistema di Azure Stack Edge Pro
 
 Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Stack Edge Pro e per i client che si connettono a Azure Stack Edge Pro. Prima di distribuire il Azure Stack Edge Pro, è consigliabile esaminare attentamente le informazioni. È possibile fare riferimento a queste informazioni quando necessario durante la distribuzione e il successivo utilizzo.
 
-I requisiti di sistema per il Pro Azure Stack Edge includono:
+I requisiti di sistema per il Pro Azure Stack Edge includono: 
 
 - **Requisiti software per gli host**: descrizione delle piattaforme supportate, dei browser per l'interfaccia utente di configurazione locale, dei client SMB e degli eventuali requisiti aggiuntivi per i client che accedono al dispositivo.
 - **Requisiti di rete per il dispositivo:** informazioni sui requisiti di rete per il funzionamento del dispositivo fisico.
@@ -48,7 +48,7 @@ I requisiti di sistema per il Pro Azure Stack Edge includono:
 
 ### <a name="port-requirements-for-azure-stack-edge-pro"></a>Requisiti delle porte per Azure Stack Edge Pro
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* In uscita *o in uscita si* intende la direzione in cui il dispositivo di Azure stack Edge Pro invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo.  In uscita *o in uscita si* intende la direzione in cui il dispositivo di Azure stack Edge Pro invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 

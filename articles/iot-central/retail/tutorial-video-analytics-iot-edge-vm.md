@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
-ms.translationtype: HT
+ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763877"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832624"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Esercitazione: Creare un'istanza di IoT Edge per l'analisi video (macchina virtuale Linux)
 
@@ -118,6 +118,14 @@ sudo docker ps
 ```
 
 L'elenco include un contenitore denominato **live555**.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se l'applicazione non è più necessaria, è possibile rimuovere tutte le risorse create come indicato di seguito:
+
+1. Nell'applicazione IoT Central passare alla pagina **Applicazione** nella sezione **Amministrazione**. Selezionare **Elimina**.
+1. Nel portale di Azure eliminare il gruppo di risorse **lva-rg**.
+1. Nel computer locale arrestare il contenitore Docker **amp-viewer**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

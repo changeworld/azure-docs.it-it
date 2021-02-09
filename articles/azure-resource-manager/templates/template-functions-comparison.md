@@ -3,12 +3,12 @@ title: Funzioni di modello-confronto
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per confrontare i valori.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920534"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834001"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
 
@@ -31,7 +31,7 @@ Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuot
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
 | argomenti aggiuntivi |No |int, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
@@ -106,11 +106,11 @@ param objectToTest object = {
   ]
 }
 
-output stringOutput string = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.string)
-output intOutput int = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.int)
-output objectOutput object = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.object)
-output arrayOutput array = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.array)
-output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
+output stringOutput string = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.string
+output intOutput int = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.int
+output objectOutput object = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.object
+output arrayOutput array = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.array
+output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 ```
 
 ---
@@ -119,7 +119,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | Stringa | default |
+| stringOutput | string | default |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"first": "default"} |
 | arrayOutput | Array |  [1] |
@@ -133,7 +133,7 @@ Controlla se due valori sono uguali tra loro. La `equals` funzione non è suppor
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
 | arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
@@ -142,7 +142,7 @@ Controlla se due valori sono uguali tra loro. La `equals` funzione non è suppor
 
 Restituisce **True** se i valori sono uguali; in caso contrario, restituisce **False**.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 La funzione uguale a viene spesso usata con l'elemento `condition` per verificare se la risorsa viene distribuita.
 
@@ -317,7 +317,7 @@ Controlla se il primo valore è maggiore del secondo. La `greater` funzione non 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
@@ -398,7 +398,7 @@ Controlla se il primo valore è maggiore o uguale al secondo valore. La `greater
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
@@ -479,7 +479,7 @@ Controlla se il primo valore è minore del secondo. La `less` funzione non è su
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
@@ -560,7 +560,7 @@ Controlla se il primo valore è minore o uguale al secondo valore. La `lessOrEqu
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |

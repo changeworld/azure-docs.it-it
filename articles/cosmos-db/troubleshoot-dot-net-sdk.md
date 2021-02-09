@@ -3,18 +3,18 @@ title: Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosm
 description: Usare funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi Azure Cosmos DB quando si usa .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683112"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831247"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ Vedere la [sezione relativa ai problemi di GitHub](https://github.com/Azure/azur
 Il controllo delle [metriche del portale](./monitor-cosmos-db.md) consente di determinare se si tratta di un problema sul lato client o se si verifica un problema con il servizio. Se, ad esempio, le metriche contengono una frequenza elevata di richieste con limitazioni di frequenza (codice di stato HTTP 429) che indica che la richiesta è soggetta a limitazioni, controllare la sezione frequenza delle richieste [troppo grande](troubleshoot-request-rate-too-large.md) . 
 
 ## <a name="retry-logic"></a>Logica di ripetizione dei tentativi <a id="retry-logics"></a>
-Cosmos DB SDK in qualsiasi errore di i/o tenterà di ritentare l'operazione non riuscita se è possibile riprovare nell'SDK. Il tentativo di eseguire un nuovo tentativo in caso di errore è una procedura consigliata, ma la gestione/ripetizione degli errori di scrittura è una necessità. È consigliabile usare l'SDK più recente, perché la logica di ripetizione dei tentativi è continuamente migliorata.
+L’SDK Cosmos DB in eventuali errori di I/O tenterà di ripetere l'operazione non riuscita se è possibile fare un nuovo tentativo nell'SDK. Il tentativo di eseguire un nuovo tentativo in caso di errore è una procedura consigliata, ma la gestione/ripetizione degli errori di scrittura è una necessità. È consigliabile usare l'SDK più recente, perché la logica di ripetizione dei tentativi è continuamente migliorata.
 
 1. Gli errori di i/o di lettura e query vengono ritentati dall'SDK senza esporli all'utente finale.
 2. Scritture (create, Upsert, Replace, Delete) sono "not" idempotente e, di conseguenza, SDK non è sempre in grado di ripetere le operazioni di scrittura non riuscite. È necessaria la logica dell'applicazione dell'utente per gestire l'errore e riprovare.
@@ -67,6 +67,7 @@ Cosmos DB SDK in qualsiasi errore di i/o tenterà di ritentare l'operazione non 
 |----------|-------------|
 | 400 | Richiesta non valida (dipende dal messaggio di errore)| 
 | 401 | [Non autorizzato](troubleshoot-unauthorized.md) | 
+| 403 | [Non consentito](troubleshoot-forbidden.md) |
 | 404 | [La risorsa non è stata trovata](troubleshoot-not-found.md) |
 | 408 | [Timeout della richiesta](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Un errore di conflitto si verifica quando l'ID fornito per una risorsa in un'operazione di scrittura è stato accettato da una risorsa esistente. Usare un altro ID per la risorsa per risolvere questo problema perché l'ID deve essere univoco all'interno di tutti i documenti con lo stesso valore della chiave di partizione. |

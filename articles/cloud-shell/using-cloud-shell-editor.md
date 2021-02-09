@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e3ea9222b0f231250bde43fb86c07847ca4835e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60199207"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832336"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Uso dell'editor di Azure Cloud Shell
 
@@ -52,5 +52,6 @@ Per avviare il riquadro comandi, usare il tasto `F1` quando l'editor si trova in
 Il supporto per l'evidenziazione del linguaggio nell'editor di Cloud Shell è consentito dalla funzionalità upstream di [Monaco Editor](https://github.com/Microsoft/monaco-editor) relativa all'uso delle definizioni di sintassi Monarch. Per informazioni sulle opportunità di collaborazione, leggere la [guida per i collaboratori di Monaco](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Prova la Guida introduttiva per bash in cloud Shell](quickstart.md) 
- [Visualizzare l'elenco completo degli strumenti di cloud Shell integrati](features.md)
+
+- [Prova la Guida introduttiva per bash in Cloud Shell](quickstart.md)
+- [Visualizzare l'elenco completo degli strumenti di Cloud Shell integrati](features.md)

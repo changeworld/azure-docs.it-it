@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: HT
+ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500272"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831206"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Esercitazione: Connettere un modulo Plug and Play IoT (C#)
 
@@ -20,7 +20,12 @@ Questa esercitazione illustra come connettere un [modulo](../iot-hub/iot-hub-dev
 
 Un dispositivo si definisce di tipo Plug and Play IoT se pubblica il proprio ID modello quando si connette a un hub IoT e implementa le proprietà e i metodi descritti nel modello DTDL (Digital Twin Definition Language) identificato dall'ID modello. Per altre informazioni su come vengono usati i modelli DTDL e gli ID modello nei dispositivi, vedere [Guida per sviluppatori di Plug and Play IoT](./concepts-developer-guide-device.md). I moduli usano gli ID modello e i modelli DTDL allo stesso modo.
 
-Per illustrare come implementare un modulo Plug and Play IoT, questa esercitazione descrive come convertire l'esempio del dispositivo termostato in C# in un modulo generico.
+Per illustrare come implementare un modulo Plug and Play, questa esercitazione illustra come:
+
+> [!div class="checklist"]
+> * Aggiungere un dispositivo con un modulo all'hub Internet delle cose.
+> * Convertire l'esempio di dispositivo C# del termostato in un modulo generico.
+> * Usare l'SDK del servizio per interagire con il modulo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -173,7 +178,7 @@ Gli SDK di servizio consentono di recuperare l'ID modello dei dispositivi e dei 
 
 1. In Visual Studio passare a **Progetto > Thermostat Properties (Proprietà termostato) > Debug**. Aggiungere quindi al progetto le variabili di ambiente seguenti:
 
-    | Nome | valore |
+    | Nome | Valore |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | my-module-device |
     | IOTHUB_CONNECTION_STRING | Valore di cui si è preso nota quando è stato completato il passaggio [Configurare l'ambiente](set-up-environment.md) |
@@ -232,6 +237,10 @@ Per informazioni su come distribuire il modulo in contenitori, vedere:
 * I dati di telemetria inviati dal dispositivo IoT Edge.
 * Gli aggiornamenti delle proprietà del modulo gemello IoT Edge che attivano le notifiche di Plug and Play IoT.
 * La reazione del modulo IoT Edge ai comandi di Plug and Play IoT.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

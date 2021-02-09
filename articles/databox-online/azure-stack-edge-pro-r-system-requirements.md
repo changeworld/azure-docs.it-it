@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 3214718677b1e02c8cafff29e5f2657eca11cb7b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ef81494b6c93f2941cc41b367e566332d6bc7cc9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467525"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831340"
 ---
 # <a name="azure-stack-edge-pro-r-system-requirements"></a>Requisiti di sistema di Azure Stack Edge Pro
 
@@ -61,7 +61,7 @@ Quando vengono gestite da Azure Stack, i seguenti account di archiviazione a liv
 
 ### <a name="port-requirements-for-azure-stack-edge-pro-r"></a>Requisiti delle porte per la funzionalità R di Azure Stack Edge Pro
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* In uscita *o in uscita si* intende la direzione in cui il dispositivo R Azure stack Edge Pro invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo.  In uscita *o in uscita si* intende la direzione in cui il dispositivo R Azure stack Edge Pro invia dati all'esterno, oltre la distribuzione, ad esempio, in uscita verso Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/azure-stack-edge-gateway-port-config.md)]
 

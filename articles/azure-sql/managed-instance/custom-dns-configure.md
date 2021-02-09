@@ -12,14 +12,14 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
-ms.openlocfilehash: 017698975706aa8501cd059351cf9a9d88594f77
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779901"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831502"
 ---
-# <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurare un DNS personalizzato per Istanza gestita SQL di Azure
+# <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurare un DNS personalizzato per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Istanza gestita SQL di Azure deve essere distribuito in una [rete virtuale di Azure (VNet)](../../virtual-network/virtual-networks-overview.md). In alcuni scenari, ad esempio la posta elettronica del database e i server collegati ad altre istanze di SQL Server nell'ambiente cloud o ibrido, sono richiesti nomi host privati che devono essere risolti dall'Istanza gestita di SQL. In questo caso, è necessario configurare un DNS personalizzato all'interno di Azure. 
@@ -30,7 +30,7 @@ Poiché SQL Istanza gestita usa lo stesso DNS per i propri interventi interni, c
 > Usare sempre un nome di dominio completo (FQDN) per il server di posta elettronica, per l'istanza di SQL Server e per altri servizi, anche se si trovano all'interno della zona DNS privata. Ad esempio, utilizzare `smtp.contoso.com` per il server di posta elettronica perché `smtp` non risolverà correttamente il problema. La creazione di un server collegato o di una replica che fa riferimento a SQL Server VM all'interno della stessa rete virtuale richiede anche un nome di dominio completo e un suffisso DNS predefinito. Ad esempio: `SQLVM.internal.cloudapp.net`. Per altre informazioni, vedere [Risoluzione dei nomi con l'uso del proprio server DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
-> L'aggiornamento di server DNS della rete virtuale non influirà immediatamente su SQL Istanza gestita. La configurazione DNS di SQL Istanza gestita viene aggiornata dopo la scadenza del lease DHCP o dopo l'aggiornamento della piattaforma, a seconda di quale si verifica per primo. **Si consiglia agli utenti di impostare la configurazione DNS della rete virtuale prima di creare la prima istanza gestita.**
+> L'aggiornamento di server DNS della rete virtuale non influirà immediatamente su SQL Istanza gestita. Per altri dettagli [, vedere How to Synchronize Virtual Network DNS Servers setting on SQL istanza gestita Virtual cluster](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

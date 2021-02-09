@@ -4,12 +4,12 @@ description: Disponibilità delle risorse di calcolo e memoria per il servizio I
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661375"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831281"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -34,7 +34,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 | Australia orientale | 4 | 16 | 4 | 16 | 50 | N/D |
 | Brasile meridionale | 4 | 16 | 2 | 8 | 50 | N/D |
 | Canada centrale | 4 | 16 | 4 | 16 | 50 | N/D |
-| India centrale | 4 | 16 | N/D | N/D | 50 | V100 |
+| India centrale | 4 | 16 | 4 | 4 | 50 | V100 |
 | Stati Uniti centrali | 4 | 16 | 4 | 16 | 50 | N/D |
 | Asia orientale | 4 | 16 | 4 | 16 | 50 | N/D |
 | Stati Uniti orientali | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
@@ -53,7 +53,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 | Stati Uniti centro-occidentali| 4 | 16 | 4 | 16 | 50 | N/D |
 | Europa occidentale | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Stati Uniti occidentali | 4 | 16 | 4 | 16 | 50 | N/D |
-| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Stati Uniti occidentali 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Le risorse massime seguenti sono disponibili per un gruppo di contenitori distribuito con [risorse GPU](container-instances-gpu.md) (anteprima).
 
@@ -102,7 +102,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 | Stati Uniti centro-occidentali | 4 | 16 | 2 | 8 | 20 |
 | Europa occidentale | 4 | 16 | 4 | 16 | 20 |
 | Stati Uniti occidentali | 4 | 16 | 2 | 8 | 20 |
-| West US 2 | 2 | 8 | 2 | 3,5 | 20 |
+| Stati Uniti occidentali 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
@@ -132,7 +132,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 | Stati Uniti centro-occidentali | 4 | 16 | 4 | 16 | 20 |
 | Europa occidentale | 4 | 16 | 4 | 16 | 20 |
 | Stati Uniti occidentali | 4 | 16 | 4 | 16 | 20 |
-| West US 2 | 2 | 8 | 4 | 16 | 20 |
+| Stati Uniti occidentali 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

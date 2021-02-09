@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 13fe9c52312ba6053a6093ec51d42f05a44627e0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258287"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830720"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Pianificare Azure Active Directory la configurazione delle app personali
 
 > [!NOTE]
-> Questo articolo è destinato ai professionisti IT che devono pianificare la configurazione del portale delle app personali dell'organizzazione. Per informazioni sull'uso delle app e delle raccolte da parte dell'utente finale, vedere [accedere e avviare app dal portale app personali](../user-help/my-apps-portal-end-user-access.md).
+> Questo articolo è destinato ai professionisti IT che devono pianificare la configurazione del portale delle app personali dell'organizzazione. 
 >
 > **Per la documentazione dell'utente finale, vedere [accedere e avviare app dal portale app personali](../user-help/my-apps-portal-end-user-access.md)**.
 

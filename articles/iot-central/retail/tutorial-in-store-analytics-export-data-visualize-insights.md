@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
-ms.translationtype: HT
+ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346368"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831689"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Esercitazione: Esportare i dati da Azure IoT Central e visualizzare le informazioni dettagliate in Power BI
 
@@ -504,6 +504,4 @@ Se si vuole mantenere l'applicazione riducendo i costi associati, disabilitare l
 Queste tre esercitazioni hanno illustrato una soluzione end-to-end che usa il modello dell'applicazione IoT Central **Analisi punti vendita - Pagamento**. Sono stati connessi dispositivi all'applicazione, è stato usato IoT Central per monitorare i dispositivi e Power BI per creare un dashboard per visualizzare le informazioni dettagliate dai dati di telemetria del dispositivo. Un passaggio successivo consigliato consiste nell'esplorare uno degli altri modelli dell'applicazione IoT Central:
 
 > [!div class="nextstepaction"]
-> * [Creare soluzioni per il settore energetico con IoT Central](../energy/overview-iot-central-energy.md)
-> * [Creare soluzioni per enti pubblici con IoT Central](../government/overview-iot-central-government.md)
-> * [Creare soluzioni per il settore sanitario con IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Creare soluzioni per il settore energetico con IoT Central](../energy/overview-iot-central-energy.md)

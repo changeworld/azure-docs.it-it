@@ -6,16 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0d4ccc1a60f9ac3c2183023d3d3772da6a1e307b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757560"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830754"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Creare e gestire i progetto di Azure Migrate
 
-Questo articolo descrive come creare, gestire ed eliminare progetti [Azure migrate](migrate-services-overview.md) . Se si usano progetti di Azure Migrate classici, eliminare tali progetti e seguire i passaggi per creare un nuovo progetto Azure Migrate. Non è possibile aggiornare i componenti o i progetti di Azure Migrate classici al Azure Migrate. Visualizzare le [domande frequenti](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) prima di avviare il processo di creazione.
+Questo articolo descrive come creare, gestire ed eliminare progetti [Azure migrate](migrate-services-overview.md) . 
+
+Il Azure Migrate classico verrà ritirato a febbraio 2024. Dopo il 2024 febbraio, la versione classica di Azure Migrate non sarà più supportata e i metadati di inventario nel progetto classico verranno eliminati. Se si usano progetti di Azure Migrate classici, eliminare tali progetti e seguire i passaggi per creare un nuovo progetto Azure Migrate. Non è possibile aggiornare i componenti o i progetti di Azure Migrate classici al Azure Migrate. Visualizzare le [domande frequenti](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) prima di avviare il processo di creazione.
 
 Il progetto Azure Migrate viene usato per archiviare i metadati di individuazione, valutazione e migrazione raccolti dall'ambiente da valutare o trasferire. In un progetto è possibile tenere traccia delle risorse individuate, creare valutazioni e orchestrare le migrazioni in Azure.  
 

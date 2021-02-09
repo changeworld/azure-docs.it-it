@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 59e266274d6b65182ad63513ecf9bf3b5ab95490
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 0bb46c17ece9a38d9f1e10c79a4b026efa0ece4c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98164839"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833797"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Esegui la migrazione a monitoraggio connessione da Monitoraggio prestazioni rete
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, migrare i test da Monitoraggio prestazioni rete al nuovo monitoraggio della connessione in Azure Network Watcher prima del 29 febbraio 2024.
 
 È possibile eseguire la migrazione dei test da Monitoraggio prestazioni rete (NPM) a un monitoraggio della connessione nuovo e migliorato con un solo clic e senza tempi di inattività. Per ulteriori informazioni sui vantaggi, vedere [Connection Monitor](./connection-monitor-overview.md).
 

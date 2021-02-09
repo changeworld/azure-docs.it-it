@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 0eb3b8feda09d931654d1781ea37737d68a1b377
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.date: 02/04/2021
+ms.openlocfilehash: 37a9294b156bd41b72e777696f10a1c4ac2bb354
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526637"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832760"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -32,6 +32,7 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 
 ## <a name="january-2021"></a>Gennaio 2021
 
+- [Procedura guidata per le regole di analisi: miglioramento dell'esperienza di modifica delle query (anteprima pubblica)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [AZ. SecurityInsights PowerShell Module (anteprima pubblica)](#azsecurityinsights-powershell-module-public-preview)
 - [Connettore database SQL](#sql-database-connector)
 - [Commenti per gli eventi imprevisti migliorati](#improved-incident-comments)
@@ -40,6 +41,16 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 - [Ottimizzazione della regola migliorata con i grafici di anteprima della regola di analisi](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+## <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Procedura guidata per le regole di analisi: miglioramento dell'esperienza di modifica delle query (anteprima pubblica)
+
+La creazione guidata regola di analisi pianificata di Azure Sentinel fornisce ora i miglioramenti seguenti per la scrittura e la modifica delle query:
+
+-   Una finestra di modifica espandibile che consente di visualizzare più spazio sullo schermo per la query.
+-   Evidenziazione della parola chiave nel codice della query.
+-   Supporto esteso per il completamento automatico.
+-   Convalide di query in tempo reale. Gli errori nella query sono ora visualizzati come un blocco rosso nella barra di scorrimento e come un punto rosso nel nome della scheda della **logica del set di regole** . Inoltre, non è possibile salvare una query con errori.
+
+Per altre informazioni, vedere [esercitazione: rilevare le minacce](tutorial-detect-threats-built-in.md)predefinite.
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>AZ. SecurityInsights PowerShell Module (anteprima pubblica)
 
 Azure Sentinel supporta ora il nuovo modulo di PowerShell [AZ. SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) .

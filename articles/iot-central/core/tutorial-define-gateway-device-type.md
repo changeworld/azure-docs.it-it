@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: e42e1791693342592e391a14422b1441c9cbbd31
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995523"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832386"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central
 
@@ -51,11 +51,11 @@ Per creare un modello di dispositivo per un dispositivo **S1 Sensor**:
 
 1. Nella pagina **Verifica** selezionare **Crea** per aggiungere il modello di dispositivo all'applicazione. 
 
-Per creare un modello per un dispositivo **_RS40 Occupancy Sensor_*:
+Per creare un modello di dispositivo per un dispositivo ***RS40 Occupancy Sensor**:
 
 1. Nel riquadro sinistro selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
 
-1. Scorrere verso il basso finché non viene visualizzato il riquadro del dispositivo **_RS40 Occupancy Sensor_*. Selezionare il riquadro e quindi selezionare **Avanti: Personalizza**.
+1. Scorrere verso il basso finché non viene visualizzato il riquadro del dispositivo ***RS40 Occupancy Sensor**. Selezionare il riquadro e quindi selezionare **Avanti: Personalizza**.
 
 1. Nella pagina **Verifica** selezionare **Crea** per aggiungere il modello di dispositivo all'applicazione. 
 
@@ -198,6 +198,10 @@ Entrambi i dispositivi downstream simulati sono ora connessi al dispositivo gate
 
 Selezionare il modello di dispositivo gateway e l'istanza del dispositivo gateway e selezionare **Aggiungi**.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono state illustrate le procedure per:
@@ -208,9 +212,6 @@ In questa esercitazione sono state illustrate le procedure per:
 * Definire una visualizzazione per i dati di telemetria del dispositivo.
 * Aggiungere relazioni.
 * Pubblicare il modello di dispositivo.
-
-> [!NOTE]
-> La generazione di codice basata su VS Code non è attualmente supportata per i dispositivi gateway modellati in IoT Central.
 
 Il passaggio successivo consigliato per gli sviluppatori di dispositivi è il seguente:
 

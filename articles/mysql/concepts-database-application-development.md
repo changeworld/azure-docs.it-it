@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 20c6841bb596c7f4a32ef689423515a8da59a945
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 45447a26c0455fc5945af8b8e9f7442af7facfbe
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541556"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830686"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Panoramica dello sviluppo di applicazioni per il database di Azure per MySQL 
 Questo articolo tratta alcuni aspetti di progettazione che lo sviluppatore deve considerare quando scrive il codice dell'applicazione per la connessione a Database di Azure per MySQL. 
@@ -23,7 +23,7 @@ Questo articolo tratta alcuni aspetti di progettazione che lo sviluppatore deve 
 Sono disponibili esempi di codice per svariati linguaggi di programmazione e piattaforme. È possibile trovare collegamenti a esempi di codice in: [Connectivity libraries used to connect to Azure Database for MySQL](concepts-connection-libraries.md) (Raccolte connessioni utilizzate per connettersi al database di Azure per MySQL)
 
 ## <a name="tools"></a>Strumenti
-Il database di Azure per MySQL usa la versione community di MySQL, compatibile con comuni strumenti di gestione di MySQL quali Workbench o utilità di MySQL come mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql) e altre. È possibile anche usare il portale di Azure, l'interfaccia della riga di comando di Azure e le API REST per interagire con il servizio di database.
+Database di Azure per MySQL usa la versione community di MySQL, compatibile con gli strumenti di gestione comuni di MySQL, ad esempio Workbench o utilità MySQL, ad esempio mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), [dbForge Studio per MySQL](https://www.devart.com/dbforge/mysql/studio/) e altri. È possibile anche usare il portale di Azure, l'interfaccia della riga di comando di Azure e le API REST per interagire con il servizio di database.
 
 ## <a name="resource-limitations"></a>Limiti delle risorse
 Database di Azure per MySQL gestisce le risorse disponibili per un server usando due diversi meccanismi: 

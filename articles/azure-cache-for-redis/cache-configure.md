@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 2ff97dd30d9b993385f52ea531653a89197f8756
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734624"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831774"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -188,7 +188,7 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 | Uso della larghezza di banda di rete |[Prestazioni della cache - Larghezza di banda disponibile](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Client connessi |[Configurazione predefinita del server Redis - maxclients](#maxclients) |
 | Carico del server |[Grafici di utilizzo - Carico server Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilizzo della memoria |[Prestazioni della cache - Dimensioni](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Utilizzo memoria |[Prestazioni della cache - Dimensioni](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
 Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il piano tariffario e [ridimensionare](#scale) la cache. Per ulteriori informazioni sulla scelta di un piano tariffario, vedere [scelta del livello corretto](cache-overview.md#choosing-the-right-tier)
 
@@ -236,10 +236,7 @@ Il pannello **Pianifica aggiornamenti** consente di progettare un intervallo di 
 
 Per specificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno, quindi fare clic su **OK**. L'orario dell'intervallo di manutenzione è in formato UTC.
 
-> [!IMPORTANT]
-> La funzionalità **Pianifica aggiornamenti** è disponibile solo per le cache del piano Premium. Per altre informazioni e istruzioni, vedere [Come amministrare Cache Redis di Azure - Pianificare gli aggiornamenti](cache-administration.md#schedule-updates).
->
->
+Per altre informazioni e istruzioni, vedere [cache di Azure per l'amministrazione di redis-pianificare gli aggiornamenti](cache-administration.md#schedule-updates)
 
 ### <a name="geo-replication"></a>Replica geografica
 
@@ -307,10 +304,10 @@ L'esportazione consente di esportare in i file RDB compatibili con Redis i dati 
 >
 >
 
-### <a name="reboot"></a>Riavviare
+### <a name="reboot"></a>Riavvio
 Il pannello **Riavvia** consente di riavviare i nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Riavviare](./media/cache-configure/redis-cache-reboot.png)
+![Riavvio](./media/cache-configure/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 

@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
-ms.translationtype: HT
+ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346708"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832233"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Esercitazione: Creare un'applicazione di analisi dei punti vendita in Azure IoT Central
-
-
 
 L'esercitazione mostra agli autori di soluzioni come creare un'applicazione di analisi dei punti vendita in Azure IoT Central. L'applicazione di esempio è relativa a un punto vendita al dettaglio. Si tratta di una soluzione che tiene in considerazione le comuni esigenze aziendali in termini di monitoraggio e adattamento alle condizioni ambientali e di occupazione.
 
@@ -276,7 +274,12 @@ Per aggiungere un'azione alla regola:
 
     Entro pochi minuti l'account di posta elettronica specificato inizierà a ricevere messaggi di posta elettronica. L'applicazione invia un messaggio di posta elettronica ogni volta che un sensore indica che il livello di umidità supera il valore impostato nella condizione.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questa esercitazione sono state illustrate le procedure per:
 
 * Usare il modello **Analisi punti vendita - Pagamento** di Azure IoT Central per creare un'applicazione per punti vendita al dettaglio

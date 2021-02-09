@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
-ms.translationtype: HT
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874799"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832607"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Esercitazione: Monitorare e gestire un'applicazione Analisi video - rilevamento movimento e oggetti
 
@@ -61,7 +61,7 @@ Se si hanno due telecamere connesse al dispositivo gateway IoT Edge, ripetere i 
 
 Selezionare la scheda **Dispositivi downstream** per il dispositivo **LVA Gateway 001** per vedere i dispositivi telecamera appena aggiunti:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Aggiungere la telecamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Controllare":::
 
 I dispositivi telecamera vengono visualizzati anche nell'elenco nella pagina **Dispositivi** nell'applicazione.
 
@@ -98,7 +98,7 @@ Selezionare **Salva**.
 
 Dopo alcuni secondi verrà visualizzato il messaggio di conferma **Accettato** per ogni impostazione:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Aggiungere la telecamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Rilevamento di oggetti":::
 
 ## <a name="start-lva-processing"></a>Avviare l'elaborazione di Analisi video live
 
@@ -108,13 +108,13 @@ Eseguire il comando **Start LVA Processing**.
 
 Dopo che il comando è stato completato, visualizzare la relativa cronologia per assicurarsi che non siano presenti errori:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Aggiungere la telecamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Comando per l'avvio dell'elaborazione di Analisi video live":::
 
 ## <a name="monitor-the-cameras"></a>Monitorare le telecamere
 
 Passare al dispositivo **camera-003** e selezionare la scheda **Dashboard**:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Aggiungere la telecamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Dashboard della telecamera":::
 
 Il riquadro **Detection Count** mostra il numero medio di rilevamenti per ogni oggetto delle classi di rilevamento selezionato durante un intervallo di rilevamento di un secondo.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Passare al dispositivo **camera-003** e selezionare la scheda **Dashboard**. Fare quindi clic su uno dei collegamenti ipertestuali di rilevamento degli oggetti acquisiti nel riquadro **Inference Event Video**. Il video viene visualizzato in una pagina aperta dal lettore video locale:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Aggiungere la telecamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Frammento di video":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Modificare i dispositivi simulati nei dashboard dell'applicazione
 
@@ -182,7 +182,7 @@ I dashboard dell'applicazione vengono originariamente popolati con le proprietà
 
 Il dashboard **Real Camera Monitor** mostra ora i valori per il dispositivo telecamera reale:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Aggiungere la telecamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Dashboard dell'applicazione per le telecamere reali":::
 
 ## <a name="pause-processing"></a>Sospendere l'elaborazione
 
@@ -195,7 +195,7 @@ Il dashboard **Real Camera Monitor** mostra ora i valori per il dispositivo tele
     * Fare clic sulla risorsa **Endpoint di streaming**.
     * Nella pagina **Dettagli dell'endpoint di streaming** selezionare **Arresta**.
 
-## <a name="tidy-up"></a>Operazioni finali
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se l'applicazione non è più necessaria, è possibile rimuovere tutte le risorse create come indicato di seguito:
 
