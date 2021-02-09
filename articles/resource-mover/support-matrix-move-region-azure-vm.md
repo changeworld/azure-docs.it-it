@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222799"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980491"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -116,7 +116,7 @@ Estensioni | Non supportate | Le estensioni non vengono copiate nella macchina v
 Questa tabella riepiloga il supporto per il disco del sistema operativo, il disco dati e il disco temporaneo della macchina virtuale di Azure. Per evitare problemi di prestazioni, è importante osservare i limiti e le destinazioni dei dischi delle macchine virtuali per i [dischi gestiti](../virtual-machines/disks-scalability-targets.md) .
 
 > [!NOTE]
-> Le dimensioni della macchina virtuale di destinazione devono essere maggiori o uguali a quelle della VM di origine. I parametri usati per la convalida sono: numero di dischi dati, numero di schede di rete, CPU disponibili, memoria in GB. In caso contrario, viene generato un errore.
+> Le dimensioni della macchina virtuale di destinazione devono essere maggiori o uguali a quelle della VM di origine. I parametri usati per la convalida sono: numero di dischi dati, numero di schede di rete, CPU disponibili, memoria in GB. Se viene sn ' t, viene generato un errore.
 
 
 **Componente** | **Supporto** | **Dettagli**
@@ -134,6 +134,8 @@ Disco gestito (Premium) | Supportato |
 SSD Standard | Supportato |
 Generazione 2 (avvio UEFI) | Supportato
 Account di archiviazione di diagnostica di avvio | Non supportato | Riabilitarla dopo aver spostato la macchina virtuale nell'area di destinazione.
+Macchine virtuali con crittografia dischi di Azure abilitata | Supportato | [Altre informazioni](tutorial-move-region-encrypted-virtual-machines.md)
+VM che usano la crittografia lato server con la chiave gestita dal cliente | Supportato | [Altre informazioni](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>Limiti e frequenza di modifica dei dati
 

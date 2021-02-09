@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060011"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980576"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -34,7 +34,7 @@ Questo articolo presuppone che l'utente abbia familiarità con gli argomenti seg
 + [Reti virtuali di Azure](../virtual-network/virtual-networks-overview.md)
 + [Rete IP](../virtual-network/public-ip-addresses.md)
 + [Collegamento privato di Azure](how-to-configure-private-link.md)
-+ [Gruppi di sicurezza di rete (NGS)](../virtual-network/network-security-groups-overview.md)
++ [Gruppi di sicurezza di rete (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewall di rete](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Scenario di esempio
@@ -137,6 +137,15 @@ Il diagramma di rete seguente mostra un'area di lavoro Azure Machine Learning pr
 ### <a name="limitations"></a>Limitazioni
 - I cluster AKS devono appartenere allo stesso VNet dell'area di lavoro e delle risorse associate. 
 
+## <a name="optional-enable-public-access"></a>Facoltativo: abilitare l'accesso pubblico
+
+È possibile proteggere l'area di lavoro dietro una VNet usando un endpoint privato e consentire comunque l'accesso tramite la rete Internet pubblica. La configurazione iniziale è identica alla [sicurezza dell'area di lavoro e delle risorse associate](#secure-the-workspace-and-associated-resources). 
+
+Dopo avere protetto l'area di lavoro con un collegamento privato, si [Abilita l'accesso pubblico](how-to-configure-private-link.md#enable-public-access). Successivamente, è possibile accedere all'area di lavoro sia da Internet pubblico che da VNet.
+
+### <a name="limitations"></a>Limitazioni
+
+- Se si usa Azure Machine Learning Studio sulla rete Internet pubblica, alcune funzionalità come la finestra di progettazione potrebbero non riuscire ad accedere ai dati. Questo problema si verifica quando i dati vengono archiviati in un servizio protetto dietro la VNet. Ad esempio un account di archiviazione di Azure.
 ## <a name="optional-enable-studio-functionality"></a>Facoltativo: abilitare la funzionalità di studio
 
 [Proteggere l'area di lavoro](#secure-the-workspace-and-associated-resources)  >  [Proteggere l'ambiente](#secure-the-training-environment)  >  di training [Proteggere l'ambiente](#secure-the-inferencing-environment)  >  di inferenza **Abilitare la funzionalità**  >  di studio [Configurare le impostazioni del firewall](#configure-firewall-settings)

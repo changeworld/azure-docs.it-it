@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
-ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-ms.translationtype: HT
+ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928450"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979845"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrare una pipeline CI/CD
 
@@ -35,9 +35,9 @@ Per completare i passaggi riportati in questa esercitazione, è possibile usare 
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Se la compilazione avviene in locale, scaricare e installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) se non lo si è già fatto.
+Se la compilazione avviene in locale, scaricare e installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) se non lo si è già fatto.
 
-Per eseguire una compilazione cloud, ad esempio con Azure DevOps, assicurarsi che nel sistema di compilazione sia installata l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Per eseguire una compilazione cloud, ad esempio con Azure DevOps, assicurarsi che nel sistema di compilazione sia installata l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ### <a name="export-an-app-configuration-store"></a>Esportare un archivio di Configurazione app
 
@@ -107,4 +107,4 @@ Per eseguire una compilazione cloud, ad esempio con Azure DevOps, assicurarsi ch
 In questa esercitazione, sono stati esportati i dati della Configurazione app di Azure da usare in una pipeline di distribuzione. Per altre informazioni sull'uso di Configurazione app, passare agli esempi dell'interfaccia della riga di comando di Azure.
 
 > [!div class="nextstepaction"]
-> [Interfaccia della riga di comando di Azure](/cli/azure/appconfig?view=azure-cli-latest)
+> [Interfaccia della riga di comando di Azure](/cli/azure/appconfig)

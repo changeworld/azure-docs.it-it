@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 3b7f8f5a0f48bf0cdca7f72e5fb364ea0a5d1315
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576600"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980610"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -191,10 +191,11 @@ La tabella seguente illustra i tipi di log e le descrizioni supportati:
 | AppServiceHTTPLogs | Sì | Sì | Sì | Sì | Web Server Logs |
 | AppServiceEnvironmentPlatformLogs | Sì | N/D | Sì | Sì | Ambiente del servizio app: ridimensionamento, modifiche di configurazione e log di stato|
 | AppServiceAuditLogs | Sì | Sì | Sì | Sì | Attività di accesso tramite FTP e Kudu |
-| AppServiceFileAuditLogs | Sì | Sì | TBA | TBA | Modifiche dei file apportate al contenuto del sito; disponibile solo per il livello Premium e versioni successive |
+| AppServiceFileAuditLogs | Sì | Sì | TBA | TBA | Modifiche dei file apportate al contenuto del sito; **disponibile solo per il livello Premium e versioni successive** |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat immagini benedette <sup>1</sup> | Java SE & Tomcat immagini benedette <sup>1</sup> | Log applicazioni |
 | AppServiceIPSecAuditLogs  | Sì | Sì | Sì | Sì | Richieste dalle regole IP |
 | AppServicePlatformLogs  | TBA | Sì | Sì | Sì | Log operazioni del contenitore |
+| AppServiceAntivirusScanAuditLogs | Sì | Sì | Sì | Sì | [Log di analisi](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) antivirus con Microsoft Defender; **disponibile solo per il livello Premium** | 
 
 <sup>1</sup> per le app Java se, aggiungere "$website _AZMON_PREVIEW_ENABLED" alle impostazioni dell'app e impostarla su 1 o su true.
 

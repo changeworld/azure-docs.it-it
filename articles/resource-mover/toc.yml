@@ -12,6 +12,8 @@
   items:
     - name: Spostare macchine virtuali di Azure in un'altra area
       href: tutorial-move-region-virtual-machines.md
+    - name: Spostare le macchine virtuali di Azure crittografate in un'altra area
+      href: tutorial-move-region-encrypted-virtual-machines.md
     - name: Spostare le risorse SQL in un'altra area
       href: tutorial-move-region-sql.md
 - name: Concetti

@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 02/08/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 4a6b21d3782931e3bee4a13ff95e7f313dcc1af2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
-ms.translationtype: HT
+ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379818"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99974231"
 ---
 #### <a name="process-automation"></a>Automazione dei processi
 
@@ -22,9 +22,10 @@ ms.locfileid: "92379818"
 | Numero massimo di nuovi processi che possono essere inviati ogni 30 secondi per account di Automazione di Azure (processi non pianificati) |100 |Quando si raggiunge questo limite, le richieste successive di creazione di un processo non riusciranno. Il client riceve una risposta di errore.|
 | Numero massimo di processi in esecuzione simultaneamente alla stessa istanza di tempo per account di Automazione (processi non pianificati) |200 |Quando si raggiunge questo limite, le richieste successive di creazione di un processo non riusciranno. Il client riceve una risposta di errore.|
 | Dimensione massima di archiviazione dei metadati del processo per un periodo continuo di 30 giorni | 10 GB (circa quattro milioni di processi)|Quando si raggiunge questo limite, le richieste successive di creazione di un processo non riusciranno. |
-| Limite massimo del flusso dei processi|1 MiB|Le dimensioni di un singolo flusso non possono superare 1 MB.|
+| Limite massimo del flusso dei processi|1 MiB|Un singolo flusso non può essere superiore A 1 MiB.|
 | Numero massimo di moduli che possono essere importati ogni 30 secondi per ogni account di Automazione |5 ||
 | Dimensioni massime di un modulo |100 MB ||
+| Dimensioni massime di un file di configurazione del nodo | 1 MB | Si applica a configurazione stato |
 | Tempo di esecuzione processo, livello gratuito |500 minuti per sottoscrizione al mese di calendario ||
 | Quantità massima di spazio su disco consentita per sandbox<sup>1</sup> |1 GB |Si applica solo alle sandbox di Azure.|
 | Quantità massima di memoria assegnata a una sandbox<sup>1</sup> |400 MB |Si applica solo alle sandbox di Azure.|

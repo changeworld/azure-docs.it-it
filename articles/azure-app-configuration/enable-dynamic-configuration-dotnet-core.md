@@ -15,16 +15,16 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 95c48bded224a40879328dba5861b3564f0ebcf8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012357"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979862"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app .NET Core
 
-La libreria client .NET Core di Configurazione app supporta l'aggiornamento su richiesta di un set di impostazioni di configurazione senza causare il riavvio di un'applicazione. Questa funzionalità può essere implementata recuperando prima un'istanza di `IConfigurationRefresher` dalle opzioni del provider di configurazione e poi chiamando `TryRefreshAsync` in tale istanza in un punto qualsiasi del codice.
+La libreria client .NET Core per la configurazione delle app supporta l'aggiornamento della configurazione su richiesta senza causare il riavvio di un'applicazione. Questa funzionalità può essere implementata recuperando prima un'istanza di `IConfigurationRefresher` dalle opzioni del provider di configurazione e poi chiamando `TryRefreshAsync` in tale istanza in un punto qualsiasi del codice.
 
 Per mantenere aggiornate le impostazioni ed evitare un numero eccessivo di chiamate all'archivio di configurazione, per ogni impostazione viene usata una cache. Finché il valore memorizzato nella cache non scade, l'operazione di aggiornamento non aggiorna il valore, neanche se è cambiato nell'archivio di configurazione. Il tempo di scadenza predefinito per ogni richiesta è di 30 secondi, ma è possibile eseguirne l'override se necessario.
 

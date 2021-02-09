@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 46d569eae768178815a933d9a857e19bacdaaeb9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 46bdaf932d4224bf97b46e7713d49d815ca1bcdd
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013227"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832998"
 ---
 # <a name="create-a-connection-monitor-using-the-arm-template"></a>Creare un monitoraggio della connessione usando il modello ARM
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. Non sarà inoltre possibile aggiungere nuovi monitoraggi connessione in monitoraggio connessione (versione classica). È possibile continuare a utilizzare i test e i monitoraggi connessione creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [eseguire la migrazione dei test da monitoraggio prestazioni rete ](migrate-to-connection-monitor-from-network-performance-monitor.md) o  [eseguire la migrazione dal monitoraggio della connessione (versione classica)](migrate-to-connection-monitor-from-connection-monitor-classic.md) al nuovo monitoraggio della connessione in Azure Network Watcher prima del 29 febbraio 2024.
 
 Informazioni su come creare un monitoraggio della connessione per monitorare la comunicazione tra le risorse usando ARMClient. Supporta le distribuzioni ibride e cloud di Azure.
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127482"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979293"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminazione temporanea per i BLOB
 
@@ -27,6 +27,10 @@ Se esiste la possibilità che i dati vengano accidentalmente modificati o elimin
 ## <a name="about-soft-delete-for-blobs"></a>Informazioni sull'eliminazione temporanea per i BLOB
 
 Quando l'eliminazione temporanea per i BLOB è abilitata in un account di archiviazione, è possibile ripristinare gli oggetti dopo che sono stati eliminati, entro il periodo di conservazione dei dati specificato. Questa protezione si estende a qualsiasi BLOB (BLOB in blocchi, BLOB di accodamento o BLOB di pagine) che vengono cancellati come risultato di una sovrascrittura.
+
+Il diagramma seguente mostra come è possibile ripristinare un BLOB eliminato quando è abilitata l'eliminazione temporanea di BLOB:
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagramma che illustra come è possibile ripristinare un BLOB eliminato temporaneamente":::
 
 Se i dati di un BLOB o di uno snapshot esistente vengono eliminati mentre l'eliminazione temporanea del BLOB è abilitata, ma il controllo delle versioni del BLOB non è abilitato, viene generato uno snapshot eliminato temporaneamente per salvare lo stato dei dati sovrascritti. Dopo la scadenza del periodo di memorizzazione specificato, l'oggetto viene eliminato definitivamente.
 
@@ -88,7 +92,7 @@ La tabella seguente illustra il comportamento previsto quando l'eliminazione tem
 | [Elimina](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenitore | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Put Blob](/rest/api/storageservices/put-blob) | BLOB in blocchi, di Accodamento e di pagine | Crea un nuovo BLOB o sostituisce un BLOB esistente all'interno di un contenitore | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza solo se è stato sostituito da un BLOB dello stesso tipo (blocco, Accodamento o pagina). Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
-| [Elimina BLOB](/rest/api/storageservices/delete-blob) | BLOB in blocchi, di Accodamento e di pagine | Contrassegna un BLOB o uno snapshot di BLOB per l'eliminazione. Il BLOB o lo snapshot verrà eliminato in seguito durante la Garbage Collection | Se usata per eliminare uno snapshot di BLOB, tale snapshot viene contrassegnato come eliminato temporaneamente. Se usata per eliminare un BLOB, tale BLOB viene contrassegnato come eliminato temporaneamente. |
+| [Eliminare un BLOB](/rest/api/storageservices/delete-blob) | BLOB in blocchi, di Accodamento e di pagine | Contrassegna un BLOB o uno snapshot di BLOB per l'eliminazione. Il BLOB o lo snapshot verrà eliminato in seguito durante la Garbage Collection | Se usata per eliminare uno snapshot di BLOB, tale snapshot viene contrassegnato come eliminato temporaneamente. Se usata per eliminare un BLOB, tale BLOB viene contrassegnato come eliminato temporaneamente. |
 | [Copy Blob](/rest/api/storageservices/copy-blob) | BLOB in blocchi, di Accodamento e di pagine | Copia un BLOB di origine in un BLOB di destinazione nello stesso account di archiviazione o in un altro account di archiviazione. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza solo se è stato sostituito da un BLOB dello stesso tipo (blocco, Accodamento o pagina). Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |
 | [Put Block](/rest/api/storageservices/put-block) | BLOB in blocchi | Crea un nuovo blocco di cui eseguire il commit come parte di un BLOB in blocchi. | Se utilizzato per eseguire il commit di un blocco in un BLOB attivo, non viene apportata alcuna modifica. In caso di commit di un blocco in un BLOB eliminato temporaneamente, viene creato un nuovo BLOB e generato automaticamente uno snapshot per acquisire lo stato del BLOB eliminato temporaneamente. |
 | [Put Block List](/rest/api/storageservices/put-block-list) | BLOB in blocchi | Esegue il commit di un BLOB specificando il set di ID dei blocchi che compongono il BLOB in blocchi. | Se usata per sostituire un BLOB esistente, viene generato automaticamente uno snapshot dello stato del BLOB prima della chiamata. Questo vale anche per un BLOB eliminato temporaneamente in precedenza se e solo se si tratta di un BLOB in blocchi. Se viene sostituito da un BLOB di tipo diverso, tutti i dati eliminati temporaneamente esistenti scadranno definitivamente. |

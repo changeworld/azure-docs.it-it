@@ -6,16 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625166"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833015"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
 ![Simbolo di Monitoraggio prestazioni rete](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
 
 Questo articolo presenta le domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure.
 
@@ -34,7 +37,7 @@ Di seguito sono riportati i requisiti di piattaforma per le varie funzionalità 
 - La funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete supporta solo il sistema operativo Windows Server (2008 SP1 o versione successiva).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>È possibile usare computer Linux come nodi di monitoraggio in Monitoraggio prestazioni rete?
-È ora disponibile a livello generale la funzionalità di monitoraggio delle reti con nodi basati su Linux. Acccess [l'agente.](../../virtual-machines/extensions/oms-linux.md) 
+È ora disponibile a livello generale la funzionalità di monitoraggio delle reti con nodi basati su Linux. Accedere all'agente [qui](../../virtual-machines/extensions/oms-linux.md). 
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quali sono i requisiti di dimensione per i nodi da usare per il monitoraggio tramite Monitoraggio prestazioni rete?
 Per eseguire la soluzione Monitoraggio prestazioni rete su VM nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi separati per l'esecuzione di NPM. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione è in grado di arrestare il processo di monitoraggio se utilizza più del 5% di CPU.
@@ -54,7 +57,7 @@ Il protocollo ICMP è consigliato per i nodi basati su sistema operativo desktop
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Come è possibile configurare un nodo per supportare il monitoraggio tramite il protocollo TCP?
 Per configurare un nodo per supportare il monitoraggio tramite il protocollo TCP: 
 * Assicurarsi che la piattaforma del nodo sia Windows Server (2008 SP1 o versione successiva).
-* Eseguire lo script [EnableRules.ps1](https://aka.ms/npmpowershellscript) di PowerShell sul nodo. Per altre informazioni, vedere queste [istruzioni](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring).
+* Eseguire [EnableRules.ps1](https://aka.ms/npmpowershellscript) script di PowerShell nel nodo. Per altre informazioni, vedere queste [istruzioni](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring).
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Come è possibile modificare la porta TCP usata da Monitoraggio prestazioni rete per il monitoraggio?
@@ -255,10 +258,10 @@ Ciò avviene se:
 * Non è presente connettività attraverso il circuito ExpressRoute previsto tra il nodo locale e quello di Azure selezionati per il monitoraggio del circuito ExpressRoute nella configurazione di monitoraggio. Assicurarsi di aver scelto i nodi corretti tra cui è presente connettività attraverso il circuito ExpressRoute che si intende monitorare.
 
 ### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Perché ExpressRoute monitor segnala il circuito/peering come non integro quando è disponibile e passa i dati.
-ExpressRoute Monitor confronta i valori delle prestazioni di rete (perdita, latenza e utilizzo della larghezza di banda) segnalati dagli agenti o dal servizio con le soglie impostate durante la configurazione. Per un circuito, se l'utilizzo della larghezza di banda segnalato è maggiore della soglia impostata nella configurazione, il circuito viene contrassegnato come non integro. Per i peering, se la perdita, la latenza o l'utilizzo della larghezza di banda segnalato è maggiore della soglia impostata nella configurazione, il peering viene contrassegnato come non integro. NPM non utilizza metriche o qualsiasi altra forma di dati per deicde lo stato di integrità.
+ExpressRoute Monitor confronta i valori delle prestazioni di rete (perdita, latenza e utilizzo della larghezza di banda) segnalati dagli agenti o dal servizio con le soglie impostate durante la configurazione. Per un circuito, se l'utilizzo della larghezza di banda segnalato è maggiore della soglia impostata nella configurazione, il circuito viene contrassegnato come non integro. Per i peering, se la perdita, la latenza o l'utilizzo della larghezza di banda segnalato è maggiore della soglia impostata nella configurazione, il peering viene contrassegnato come non integro. NPM non usa le metriche o qualsiasi altra forma di dati per decidere lo stato di integrità.
 
-### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Perché l'utilizzo di ExpressRoute Monitor'bandwidth segnala un valore differrent dai bit di metrica in/out
-Per ExpressRoute monitor, la larghezza di banda utiliation è la media della larghezza di banda in ingresso e in uscita negli ultimi 20 minuti, espressa in bit al secondo. Per le metriche di Express Route, i bit in/out sono punti dati al minuto. Internamente, il set di dati usato per entrambi è lo stesso, ma l'aggregazione vali tra le metriche NPM e ER. Per il monitoraggio granulare, minuto per minuto e gli avvisi veloci, è consigliabile impostare avvisi direttamente sulle metriche ER
+### <a name="why-does-expressroute-monitorbandwidth-utilization-report-a-value-different-from-metrics-bits-inout"></a>Perché l'utilizzo di Monitor'bandwidth ExpressRoute segnala un valore diverso dai bit di metrica in/out
+Per ExpressRoute monitor, l'utilizzo della larghezza di banda è la media della larghezza di banda in ingresso e in uscita negli ultimi 20 minuti, espressa in bit al secondo. Per le metriche di Express Route, i bit in/out sono punti dati al minuto. Internamente, il set di dati usato per entrambi è lo stesso, ma l'aggregazione varia tra le metriche di NPM e ER. Per il monitoraggio granulare, minuto per minuto e gli avvisi veloci, è consigliabile impostare avvisi direttamente sulle metriche ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Per quale motivo, quando si configura il monitoraggio del circuito ExpressRoute, i nodi di Azure non vengano rilevati?
 Questo problema può verificarsi se i nodi di Azure sono connessi tramite Operations Manager. La funzionalità Monitoraggio di ExpressRoute supporta solo i nodi di Azure connessi come agenti diretti.
@@ -289,7 +292,7 @@ Questa situazione può verificarsi se il servizio di destinazione non è un'appl
 Monitoraggio prestazioni rete è configurato in modo da arrestare il processo di monitoraggio se utilizza più del 5% delle risorse della CPU dell'host. Ciò consente di assicurarsi di poter usare i nodi per i normali carichi di lavoro senza alcun impatto sulle prestazioni.
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>Monitoraggio prestazioni rete modifica le regole del firewall per il monitoraggio?
-Monitoraggio prestazioni rete crea soltanto una regola di Windows Firewall locale nei nodi su cui viene eseguito lo script EnableRules.ps1 di PowerShell per consentire agli agenti di stabilire tra loro connessioni TCP sulla porta specificata. La soluzione non modifica alcuna regola del firewall di rete o del gruppo di sicurezza di rete.
+NPM crea solo una regola di Windows Firewall locale nei nodi in cui viene eseguito lo script di EnableRules.ps1 PowerShell per consentire agli agenti di creare connessioni TCP tra loro sulla porta specificata. La soluzione non modifica alcuna regola del firewall di rete o del gruppo di sicurezza di rete.
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Come si può verificare l'integrità dei nodi usati per il monitoraggio?
 È possibile esaminare lo stato di integrità dei nodi usati per il monitoraggio tramite la visualizzazione seguente: Monitoraggio prestazioni rete -> Configurazione -> Nodi. Se un nodo non è integro, è possibile visualizzare i dettagli dell'errore ed eseguire l'azione suggerita.
@@ -300,4 +303,3 @@ Monitoraggio prestazioni rete arrotonda in millisecondi i valori di latenza visu
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su Monitoraggio prestazioni rete sono disponibili in [Soluzione Monitoraggio prestazioni rete in Azure](./network-performance-monitor.md).
-

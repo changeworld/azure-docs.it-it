@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601530"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979434"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -80,7 +80,7 @@ Se è stata accettata la proprietà di fatturazione di una sottoscrizione di Azu
 Per annullare una richiesta di trasferimento:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **sottoscrizioni** > selezionare la sottoscrizione a cui è stata inviata una richiesta di trasferimento > selezionare **Trasferisci la proprietà di fatturazione**.
+1. Passare a **sottoscrizioni** > selezionare la sottoscrizione a cui è stata inviata una richiesta di trasferimento, quindi selezionare **trasferimento della proprietà della fatturazione**.
 1. Nella parte inferiore della pagina selezionare **Annulla la richiesta di trasferimento**.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Esempio che mostra la finestra Trasferisci la proprietà di fatturazione con l'opzione Annulla la richiesta di trasferimento" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
@@ -88,6 +88,20 @@ Per annullare una richiesta di trasferimento:
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi durante il trasferimento delle sottoscrizioni, usare le informazioni sulla risoluzione dei problemi seguenti.
+
+### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Il proprietario della fatturazione della sottoscrizione di Azure originale lascia l'organizzazione
+
+È possibile che il proprietario della fatturazione originale che ha creato un account Azure e una sottoscrizione di Azure lasci l'organizzazione. Se si verifica questa situazione, l'identità dell'utente non è più nel Azure Active Directory dell'organizzazione. La sottoscrizione di Azure non dispone quindi di un proprietario della fatturazione. Questa situazione impedisce a chiunque di eseguire operazioni di fatturazione per l'account, inclusa la visualizzazione e il pagamento di fatture. La sottoscrizione potrebbe entrare in uno stato scaduto. Alla fine, la sottoscrizione potrebbe essere disabilitata a causa di un mancato pagamento. Infine, la sottoscrizione può essere eliminata e influisce su ogni servizio eseguito nella sottoscrizione.
+
+Quando una sottoscrizione non dispone più di un proprietario della fatturazione valido, Azure invia un messaggio di posta elettronica ad altri proprietari di fatturazione, amministratori del servizio, coamministratori e proprietari della sottoscrizione che li informano della situazione e fornisce un collegamento per accettare la proprietà di fatturazione della sottoscrizione. Uno degli utenti può selezionare il collegamento per accettare la proprietà della fatturazione. Per altre informazioni sui ruoli di fatturazione, vedere ruoli di [fatturazione](understand-mca-roles.md) e ruoli [classici e ruoli RBAC di Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Ecco un esempio di come appare il messaggio di posta elettronica.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Screenshot che mostra un messaggio di posta elettronica di esempio per accettare la proprietà della fatturazione." lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+Inoltre, Azure Mostra un banner nella finestra dei dettagli della sottoscrizione nel portale di Azure ai proprietari della fatturazione, agli amministratori del servizio, ai coamministratori e ai proprietari della sottoscrizione. Selezionare il collegamento nel banner per accettare la proprietà della fatturazione.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Screenshot che mostra un esempio di sottoscrizione senza un proprietario della fatturazione valido." lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### <a name="the-transfer-subscription-option-is-unavailable"></a>L'opzione Trasferisci sottoscrizione non è disponibile
 

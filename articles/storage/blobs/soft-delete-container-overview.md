@@ -6,33 +6,39 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962177"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979105"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
-L'eliminazione temporanea per i contenitori (anteprima) impedisce che i dati vengano accidentalmente o modificati o eliminati in modo errato. Quando l'eliminazione temporanea del contenitore è abilitata per un account di archiviazione, qualsiasi contenitore eliminato e il relativo contenuto vengono conservati in archiviazione di Azure per il periodo specificato. Durante il periodo di memorizzazione è possibile ripristinare i contenitori eliminati in precedenza e tutti i BLOB in essi contenuti.
+L'eliminazione temporanea per i contenitori (anteprima) impedisce che i dati vengano eliminati accidentalmente o intenzionalmente. Quando l'eliminazione temporanea del contenitore è abilitata per un account di archiviazione, qualsiasi contenitore eliminato e il relativo contenuto vengono conservati in archiviazione di Azure per il periodo specificato. Durante il periodo di memorizzazione è possibile ripristinare i contenitori eliminati in precedenza. Il ripristino di un contenitore ripristina tutti i BLOB all'interno del contenitore al momento dell'eliminazione.
 
 Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare le funzionalità di protezione dei dati seguenti:
 
-- Eliminazione temporanea del contenitore, per evitare l'eliminazione o la sovrascrittura accidentale di un contenitore. Per informazioni su come abilitare l'eliminazione temporanea del contenitore, vedere [Enable and Manage soft delete for Containers](soft-delete-container-enable.md).
-- Eliminazione temporanea del BLOB, per evitare l'eliminazione o la sovrascrittura accidentale di un singolo BLOB. Per informazioni su come abilitare l'eliminazione temporanea del BLOB, vedere [eliminazione temporanea per i BLOB](soft-delete-blob-overview.md).
+- Elimina temporaneamente il contenitore per ripristinare un contenitore che è stato eliminato. Per informazioni su come abilitare l'eliminazione temporanea del contenitore, vedere [Enable and Manage soft delete for Containers](soft-delete-container-enable.md).
 - Controllo delle versioni dei BLOB, per gestire automaticamente le versioni precedenti di un BLOB. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati. Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md).
+- Eliminazione temporanea BLOB, per ripristinare un BLOB o una versione che è stata eliminata. Per informazioni su come abilitare l'eliminazione temporanea del BLOB, vedere [abilitare e gestire l'eliminazione temporanea per i BLOB](soft-delete-blob-enable.md).
 
 > [!WARNING]
-> L'eliminazione di un account di archiviazione non può essere annullata. L'eliminazione temporanea non protegge dall'eliminazione di un account di archiviazione. Per evitare l'eliminazione accidentale di un account di archiviazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco delle risorse di Azure, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+> L'eliminazione di un account di archiviazione non può essere annullata. L'eliminazione temporanea non protegge dall'eliminazione di un account di archiviazione, ma solo dall'eliminazione di oggetti dati in tale account. Per proteggere un account di archiviazione dall'eliminazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco di Azure Resource Manager risorse, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Funzionamento dell'eliminazione temporanea del contenitore
 
 Quando si Abilita l'eliminazione temporanea del contenitore, è possibile specificare un periodo di conservazione per i contenitori eliminati tra 1 e 365 giorni. Il periodo di memorizzazione predefinito è 7 giorni. Durante il periodo di memorizzazione, è possibile ripristinare un contenitore eliminato chiamando l'operazione di **annullamento dell'eliminazione del contenitore** .
+
+Quando si ripristina un contenitore, vengono ripristinati anche i BLOB del contenitore e tutte le versioni di BLOB. Tuttavia, è possibile usare l'eliminazione temporanea del contenitore solo per ripristinare i BLOB se il contenitore è stato eliminato. Per ripristinare un BLOB eliminato quando il contenitore padre non è stato eliminato, è necessario usare l'eliminazione temporanea o il controllo delle versioni dei BLOB.
+
+Il diagramma seguente mostra come è possibile ripristinare un contenitore eliminato quando è abilitata l'eliminazione temporanea del contenitore:
+
+:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagramma che illustra come è possibile ripristinare un contenitore eliminato temporaneamente":::
 
 Quando si ripristina un contenitore, è possibile ripristinarne il nome originale se tale nome non è stato riutilizzato. Se è stato usato il nome del contenitore originale, è possibile ripristinare il contenitore con un nuovo nome.
 
@@ -42,7 +48,7 @@ La disabilitazione dell'eliminazione temporanea del contenitore non comporta l'e
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
-L'eliminazione temporanea del contenitore è disponibile in anteprima in tutte le aree di Azure pubbliche.
+L'eliminazione temporanea del contenitore è disponibile in anteprima in tutte le aree di Azure.
 
 > [!IMPORTANT]
 > L'anteprima dell'eliminazione temporanea del contenitore è destinata solo all'uso non in produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.

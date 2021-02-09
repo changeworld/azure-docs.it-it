@@ -3,17 +3,17 @@ title: Feed delle modifiche nell'archiviazione BLOB di Azure | Microsoft Docs
 description: Informazioni sui log dei feed di modifiche nell'archivio BLOB di Azure e su come usarli.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997104"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979224"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Supporto del feed delle modifiche nell'archiviazione BLOB di Azure
 
@@ -21,9 +21,15 @@ Lo scopo del feed delle modifiche è fornire i log delle transazioni di tutte le
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="how-the-change-feed-works"></a>Funzionamento del feed di modifiche
+
 Il feed delle modifiche viene archiviato come [BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in un contenitore speciale nell'account di archiviazione al costo dei [prezzi di BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) standard. È possibile controllare il periodo di conservazione di questi file in base ai requisiti (vedere le [condizioni](#conditions) della versione corrente). Gli eventi di modifica vengono aggiunti al feed delle modifiche come record nella specifica del formato [Apache avro](https://avro.apache.org/docs/1.8.2/spec.html) : un formato compatto, rapido e binario che fornisce strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, dall'analisi di flusso e da Azure Data Factory.
 
 È possibile elaborare questi log in modo asincrono, in modo incrementale o completo. Un numero qualsiasi di applicazioni client può leggere in modo indipendente il feed delle modifiche, in parallelo e con il proprio ritmo. Le applicazioni di analisi come [Apache drill](https://drill.apache.org/docs/querying-avro-files/) o [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) possono usare i log direttamente come file Avro, che consentono di elaborarli a costi ridotti, con larghezza di banda elevata e senza dover scrivere un'applicazione personalizzata.
+
+Il diagramma seguente illustra il modo in cui i record vengono aggiunti al feed delle modifiche:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagramma che illustra il funzionamento del feed delle modifiche per fornire un log ordinato delle modifiche ai BLOB":::
 
 Il supporto del feed di modifiche è particolarmente adatto per gli scenari in cui vengono elaborati i dati in base agli oggetti modificati. Ad esempio, le applicazioni possono:
 
@@ -151,7 +157,7 @@ Vedere [elaborare i log dei feed delle modifiche nell'archivio BLOB di Azure](st
 
 ### <a name="segments"></a>Segmenti
 
-Il feed di modifiche è un log delle modifiche organizzate in **hourly** *segmenti* orari, ma aggiunte e aggiornate a intervalli di pochi minuti. Questi segmenti vengono creati solo quando sono presenti eventi di modifica del BLOB che si verificano in quell'ora. Ciò consente all'applicazione client di utilizzare le modifiche che si verificano in intervalli di tempo specifici senza dover eseguire ricerche nell'intero log. Per altre informazioni, vedere le [specifiche](#specifications).
+Il feed di modifiche è un log delle modifiche organizzate in  *segmenti* orari, ma aggiunte e aggiornate a intervalli di pochi minuti. Questi segmenti vengono creati solo quando sono presenti eventi di modifica del BLOB che si verificano in quell'ora. Ciò consente all'applicazione client di utilizzare le modifiche che si verificano in intervalli di tempo specifici senza dover eseguire ricerche nell'intero log. Per altre informazioni, vedere le [specifiche](#specifications).
 
 Un segmento orario disponibile del feed di modifiche viene descritto in un file manifesto che specifica i percorsi dei file del feed delle modifiche per il segmento. L'elenco della `$blobchangefeed/idx/segments/` directory virtuale Mostra questi segmenti ordinati in base all'ora. Il percorso del segmento descrive l'inizio dell'intervallo di tempo orario rappresentato dal segmento. È possibile utilizzare tale elenco per filtrare i segmenti di log che interessano.
 

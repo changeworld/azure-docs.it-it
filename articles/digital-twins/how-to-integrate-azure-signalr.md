@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 71e74789654d2df91d9a087eaaf8d8f2a2664f7b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 86d0c75d8b4c7c331e3e7ad90271e3fb42ff1964
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664113"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980729"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrare i dispositivi gemelli digitali di Azure con il servizio Azure SignalR
 
@@ -69,7 +69,7 @@ Per prima cosa, accedere al browser in cui è aperta la portale di Azure e compl
 
 Successivamente, avviare Visual Studio (o un altro editor di codice di propria scelta) e aprire la soluzione di codice nella cartella *Digital-Twins-Samples-master > ADTSampleApp* Eseguire quindi la procedura seguente per creare le funzioni:
 
-1. Creare una nuova classe Sharp C# denominata **SignalRFunctions.cs** nel progetto *SampleFunctionsApp* .
+1. Nel progetto *SampleFunctionsApp* creare una nuova classe C# denominata **SignalRFunctions.cs**.
 
 1. Sostituire il contenuto del file di classe con il codice seguente:
     
@@ -82,7 +82,9 @@ Successivamente, avviare Visual Studio (o un altro editor di codice di propria s
 
     Questa operazione dovrebbe risolvere eventuali problemi di dipendenza nella classe.
 
-Successivamente, pubblicare la funzione in Azure usando la procedura descritta nella [sezione *pubblicare l'app*](tutorial-end-to-end.md#publish-the-app) dell'esercitazione relativa alla *soluzione di connessione end-to-end* . È possibile pubblicarlo nella stessa app del servizio app o delle funzioni usato nell'esercitazione end-to-end prereq o crearne uno nuovo, ma è possibile usare lo stesso per ridurre al minimo la duplicazione. Inoltre, completare la pubblicazione dell'app con i passaggi seguenti:
+Successivamente, pubblicare la funzione in Azure usando la procedura descritta nella [sezione *pubblicare l'app*](tutorial-end-to-end.md#publish-the-app) dell'esercitazione relativa alla *soluzione di connessione end-to-end* . È possibile pubblicarla nella stessa app del servizio App/funzione utilizzata nel [prerequisito](#prerequisites)dell'esercitazione end-to-end o crearne una nuova, ma è possibile usare la stessa per ridurre al minimo la duplicazione. 
+
+Successivamente, completare la pubblicazione dell'app con i passaggi seguenti:
 1. Raccogliere l' **URL dell'endpoint HTTP** della funzione *Negotiate* . A tale scopo, passare alla pagina app per le [funzioni](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) del portale di Azure e selezionare l'app per le funzioni dall'elenco. Nel menu dell'app selezionare *funzioni* e scegliere la funzione *Negotiate* .
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Visualizzazione portale di Azure dell'app per le funzioni, con ' functions ' evidenziato nel menu. L'elenco di funzioni viene visualizzato nella pagina e viene evidenziata anche la funzione ' Negotiate '.":::
@@ -124,23 +126,11 @@ Di nuovo nella pagina *Crea sottoscrizione di eventi* premere **Crea**.
 
 ## <a name="configure-and-run-the-web-app"></a>Configurare ed eseguire l'app Web
 
-In questa sezione verrà visualizzato il risultato in azione. In primo luogo, verrà avviata l'app di esempio per il **dispositivo simulato** che invia dati di telemetria tramite l'istanza di Azure Digital gemelli. Si configurerà quindi l' **app Web client di esempio** per la connessione al flusso di Azure SignalR configurato. Successivamente, dovrebbe essere possibile visualizzare i dati che aggiornano l'app Web di esempio in tempo reale.
-
-### <a name="run-the-device-simulator"></a>Eseguire il simulatore del dispositivo
-
-Durante il prerequisito dell'esercitazione end-to-end, è stato [configurato il simulatore di dispositivi per l'](tutorial-end-to-end.md#configure-and-run-the-simulation) invio di dati tramite un hub Internet e l'istanza di Azure Digital gemelli.
-
-A questo punto, è sufficiente avviare il progetto del simulatore, disponibile in *Digital-Twins-Samples-master > DeviceSimulator > DeviceSimulator. sln*. Se si usa Visual Studio, è possibile aprire il progetto e quindi eseguirlo con questo pulsante sulla barra degli strumenti:
-
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Pulsante di avvio di Visual Studio (progetto DeviceSimulator)":::
-
-Verrà aperta una finestra della console che visualizza i messaggi di telemetria simulati sulle temperature. Questi vengono inviati tramite l'istanza di Azure Digital gemelli, in cui vengono quindi prelevati dalle funzioni di Azure e SignalR.
-
-Non è necessario eseguire altre operazioni in questa console, ma lasciarla in esecuzione mentre si completano i passaggi successivi.
+In questa sezione verrà visualizzato il risultato in azione. Configurare prima di tutto l' **app Web client di esempio** per la connessione al flusso di Azure SignalR configurato. Verrà quindi avviata l'app di **esempio per il dispositivo simulato** che invia dati di telemetria tramite l'istanza di Azure Digital gemelli. Successivamente, si visualizzerà l'app Web di esempio per visualizzare i dati del dispositivo simulato che aggiornano l'app Web di esempio in tempo reale.
 
 ### <a name="configure-the-sample-client-web-app"></a>Configurare l'app Web client di esempio
 
-Configurare quindi l'esempio di **app Web di integrazione SignalR** con i passaggi seguenti:
+Configurare l' **esempio di app Web di integrazione SignalR** con i passaggi seguenti:
 1. Usando Visual Studio o un editor di codice di propria scelta, aprire la cartella _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ decompressa [*scaricata nella sezione scaricare le applicazioni di esempio*](#download-the-sample-applications) .
 
 1. Aprire il file *src/App.js* e sostituire l'URL in `HubConnectionBuilder` con l'URL dell'endpoint HTTP della funzione **Negotiate** salvata in precedenza:
@@ -161,6 +151,18 @@ Impostare quindi le autorizzazioni nell'app per le funzioni nella portale di Azu
 1. Scorrere verso il basso nel menu istanza e selezionare *CORS*. Nella pagina CORS aggiungere `http://localhost:3000` come origine consentita inserendola nella casella vuota. Selezionare la casella *Abilita Access-Control-Allow-Credentials* e quindi fare clic su *Save*.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Impostazione di CORS nella funzione di Azure":::
+
+### <a name="run-the-device-simulator"></a>Eseguire il simulatore del dispositivo
+
+Durante il prerequisito dell'esercitazione end-to-end, è stato [configurato il simulatore di dispositivi per l'](tutorial-end-to-end.md#configure-and-run-the-simulation) invio di dati tramite un hub Internet e l'istanza di Azure Digital gemelli.
+
+A questo punto, è sufficiente avviare il progetto del simulatore, disponibile in *Digital-Twins-Samples-master > DeviceSimulator > DeviceSimulator. sln*. Se si usa Visual Studio, è possibile aprire il progetto e quindi eseguirlo con questo pulsante sulla barra degli strumenti:
+
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Pulsante di avvio di Visual Studio (progetto DeviceSimulator)":::
+
+Verrà aperta una finestra della console che visualizza i messaggi di telemetria simulati sulle temperature. Questi vengono inviati tramite l'istanza di Azure Digital gemelli, in cui vengono quindi prelevati dalle funzioni di Azure e SignalR.
+
+Non è necessario eseguire altre operazioni in questa console, ma è possibile lasciarla in esecuzione mentre si completa il passaggio successivo.
 
 ### <a name="see-the-results"></a>Visualizzare i risultati
 

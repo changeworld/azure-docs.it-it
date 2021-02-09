@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898012"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833100"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoraggio della connettività di rete con monitoraggio connessione
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. Non sarà inoltre possibile aggiungere nuovi monitoraggi connessione in monitoraggio connessione (versione classica). È possibile continuare a utilizzare i test e i monitoraggi connessione creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [eseguire la migrazione dei test da monitoraggio prestazioni rete ](migrate-to-connection-monitor-from-network-performance-monitor.md) o  [eseguire la migrazione dal monitoraggio della connessione (versione classica)](migrate-to-connection-monitor-from-connection-monitor-classic.md) al nuovo monitoraggio della connessione in Azure Network Watcher prima del 29 febbraio 2024.
 
 Il monitoraggio della connessione fornisce il monitoraggio della connessione end-to-end unificato in Azure Network Watcher. La funzionalità di monitoraggio della connessione supporta le distribuzioni ibride e cloud di Azure. Network Watcher offre strumenti per monitorare, diagnosticare e visualizzare le metriche relative alla connettività per le distribuzioni di Azure.
 
@@ -111,7 +114,7 @@ Il monitoraggio della connessione include le seguenti entità:
 
  ![Diagramma che mostra un monitoraggio della connessione, che definisce la relazione tra i gruppi di test e i test](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-È possibile creare un monitoraggio della connessione utilizzando [portale di Azure](./connection-monitor-create-using-portal.md) o [ARMClient](./connection-monitor-create-using-template.md)
+È possibile creare un monitoraggio della connessione usando [portale di Azure](./connection-monitor-create-using-portal.md), [ARMClient](./connection-monitor-create-using-template.md) o [PowerShell](connection-monitor-create-using-powershell.md)
 
 Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un gruppo di test vengono suddivise in singoli test. Ecco un esempio di come vengono suddivise le origini e le destinazioni:
 
@@ -123,7 +126,7 @@ Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un grup
 
 | Numero di test | Source (Sorgente) | Destination | Configurazione di test |
 | --- | --- | --- | --- |
-| 1 | Una | D | Configurazione 1 |
+| 1 | A | D | Configurazione 1 |
 | 2 | A | D | Configurazione 2 |
 | 3 | A | E | Configurazione 1 |
 | 4 | A | E | Configurazione 2 |
@@ -273,10 +276,11 @@ Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Networ
 
 | Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
-| AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |
-| ChecksFailedPercent (anteprima) | % Controlli non riusciti (anteprima) | Percentuale | Media | Percentuale di verifiche non riuscite per un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (anteprima) | Tempo di round trip (MS) (anteprima) | Millisecondi | Media | RTT per i controlli inviati tra l'origine e la destinazione. Questo valore non è medio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ProbesFailedPercent (classico) | % Probe non riusciti (versione classica) | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
+| AverageRoundtripMs (classico) | Tempo medio di round trip (MS) (classico) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |
+| ChecksFailedPercent | % Controlli non riusciti | Percentuale | Media | Percentuale di verifiche non riuscite per un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs | Tempo di round trip (ms) | Millisecondi | Media | RTT per i controlli inviati tra l'origine e la destinazione. Questo valore non è medio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| TestResult | Risultato del test | Conteggio | Media | Risultato del test di monitoraggio della connessione | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Avvisi basati su metriche per il monitoraggio della connessione
 

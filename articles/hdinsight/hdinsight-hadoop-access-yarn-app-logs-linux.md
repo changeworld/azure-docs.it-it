@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 0eb7dec2fd4ee327905acdea7a07456221bcbd46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946000"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980695"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Accedere ai log dell'applicazione YARN di Apache Hadoop in HDInsight basato su Linux
 
@@ -37,7 +37,7 @@ Il server di sequenza temporale YARN include i tipi di dati seguenti:
 
 ## <a name="yarn-applications-and-logs"></a>Log e applicazioni YARN
 
-I log applicazione (e i log contenitore associati) sono essenziali per il debug di applicazioni Hadoop problematiche. YARN fornisce un Framework interessante per la raccolta, l'aggregazione e l'archiviazione dei log applicazioni con [aggregazione dei log](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+I log applicazione (e i log contenitore associati) sono essenziali per il debug di applicazioni Hadoop problematiche. YARN fornisce un Framework interessante per la raccolta, l'aggregazione e l'archiviazione dei log applicazioni con aggregazione dei log.
 
 La funzione di aggregazione dei log rende più deterministico l'accesso ai log dell'applicazione. Aggrega i log di tutti i contenitori in un nodo di lavoro e li archivia come file di log aggregati per ogni nodo di lavoro. Quando un'applicazione termina, il log viene archiviato nel file system predefinito. L'applicazione può usare centinaia o migliaia di contenitori, ma i log di tutti i contenitori eseguiti su un singolo nodo di lavoro vengono sempre aggregati in un unico file. Quindi, esiste solo 1 log per ogni nodo di lavoro usato dall'applicazione. La funzione di aggregazione dei log è abilitata per impostazione predefinita nei cluster HDInsight versione 3.0 o successiva. I log aggregati sono disponibili nella risorsa di archiviazione predefinita per il cluster. Il percorso seguente è il percorso HDFS dei log:
 

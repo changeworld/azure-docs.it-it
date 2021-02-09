@@ -5,37 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/31/2020
+ms.date: 02/08/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fc2393cfe87e2639ce40e66e6053d4d430518719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3eb2d9469ab3a3d2c1d09e4adc3ee2cb1f86e6e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87515341"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979071"
 ---
-## <a name="1-download-the-file"></a>1. Scaricare il file
-
-Eseguire i comandi seguenti. Copiare l'URL dei risultati nel browser per scaricare il file con estensione zip del profilo.
-
-```azurepowershell-interactive
-$profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
-   
-$PROFILE.VpnProfileSASUrl
-```
-
-## <a name="2-extract-the-zip-file"></a>2. Estrarre il file con estensione zip
+## <a name="extract-the-zip-file"></a>Estrarre il file zip
 
 Estrarre il file con estensione zip. Il file contiene le cartelle seguenti:
 
 * AzureVPN
 * Generico
-* OpenVPN (se è stata abilitata la funzionalità OpenVPN con il **certificato di Azure** o le impostazioni di **autenticazione RADIUS** sul gateway). Per informazioni sul gateway VPN, vedere [Creare un tenant](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). Per informazioni sulla rete WAN virtuale, vedere [Creare un tenant - VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (se è stata abilitata la funzionalità OpenVPN con il **certificato di Azure** o le impostazioni di **autenticazione RADIUS** sul gateway). Selezionare l'articolo appropriato che corrisponde alla configurazione per creare un tenant.
 
-## <a name="3-retrieve-information"></a>3. Recuperare le informazioni
+  * [Gateway VPN: creare un tenant](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).
+  * [Rete WAN virtuale: creare un tenant](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
-Nella cartella **AzureVPN** selezionare il file ***azurevpnconfig.xml*** e aprirlo con Blocco note. Prendere nota del testo tra i tag seguenti.
+## <a name="retrieve-information"></a>Recupera informazioni
+
+Nella cartella **AzureVPN** passare al file **_azurevpnconfig.xml_** e aprirlo con il blocco note. Prendere nota del testo tra i tag seguenti.
 
 ```
 <audience>          </audience>
@@ -49,11 +42,11 @@ Nella cartella **AzureVPN** selezionare il file ***azurevpnconfig.xml*** e aprir
 
 Quando si aggiunge una connessione, è necessario specificare le informazioni raccolte nel passaggio precedente nella pagina dei dettagli del profilo. I campi corrispondono alle informazioni seguenti:
 
-   * **Destinatari:** Identifica la risorsa di destinazione del token
-   * **Autorità di certificazione:** Identifica il servizio token di sicurezza che ha rilasciato il token e il tenant di Azure AD
-   * **Tenant:** Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token
-   * **FQDN:** Nome di dominio completo del gateway VPN di Azure
-   * **ServerSecret:** Chiave precondivisa del gateway VPN
+* **Destinatari:** Identifica la risorsa destinatario a cui è destinato il token.
+* **Autorità di certificazione:** Identifica il servizio token di sicurezza (STS) che ha emesso il token e il tenant del Azure AD.
+* **Tenant:** Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token.
+* **FQDN:** Nome di dominio completo (FQDN) nel gateway VPN di Azure.
+* **ServerSecret:** Chiave precondivisa del gateway VPN.
 
 ## <a name="folder-contents"></a>Contenuto cartelle
 

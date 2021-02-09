@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522946"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980559"
 ---
 # <a name="about-the-move-process"></a>Informazioni sul processo di spostamento
 
@@ -46,7 +46,7 @@ Ogni risorsa di spostamento attraversa i passaggi riepilogati.
 **Passaggio 4: Avviare lo spostamento** | Avviare il processo di spostamento. Il metodo di spostamento dipende dal tipo di risorsa:<br/><br/> - **Senza stato**: in genere per le risorse senza stato il processo di spostamento distribuisce nell'area di destinazione un modello importato. Il modello è basato sulle impostazioni delle risorse di origine e sulle eventuali modifiche manuali apportate alle impostazioni di destinazione.<br/><br/> - **Con stato**: per le risorse con stato, il processo di spostamento può determinare la creazione della risorsa o l'abilitazione di una copia nell'area di destinazione.<br/><br/>  Solo per le risorse con stato, l'avvio di uno spostamento può determinare tempi di inattività delle risorse di origine. Ad esempio macchine virtuali e risorse SQL. | Con l'avvio dello spostamento, lo stato passa ad *Avvio spostamento in corso*.<br/><br/> Se l'avvio dello spostamento ha esito positivo, lo stato delle risorse passa a *Commit spostamento in sospeso*, senza problemi. <br/><br/> Se il processo di spostamento ha esito negativo, lo stato passa ad *Avvio spostamento non riuscito*.
 **Passaggio 5, opzione 1: Rimuovere lo spostamento** | Dopo lo spostamento iniziale, è possibile decidere se procedere con lo spostamento completo. Se non si desidera procedere, è possibile rimuovere lo spostamento e Spostamento risorse eliminerà le risorse create nella destinazione. Il processo di replica per le risorse con stato continua dopo il processo di rimozione. Questa opzione è utile per i test. | Con la rimozione delle risorse, lo stato passa a *Discard in progress* (Rimozione in corso).<br/><br/> Se la rimozione ha esito positivo, lo stato passa ad *Avvio spostamento in sospeso*, senza problemi.<br/><br/> Se invece la rimozione ha esito negativo, lo stato passa a *Rimozione origine non riuscita*, senza problemi. 
 **Passaggio 5, opzione 2: Eseguire il commit dello spostamento** | Se dopo lo spostamento iniziale si desidera procedere con uno spostamento completo, è necessario verificare le risorse nell'area di destinazione e, quando si è pronti, eseguire il commit dello spostamento.<br/><br/> Solo per le risorse con stato, il commit può rendere inaccessibili risorse di origine quali le macchine virtuali o le risorse SQL. | Se si esegue il commit dello spostamento, lo stato delle risorse passa a *Commit spostamento in corso**.<br/><br/> Dopo un commit eseguito con esito positivo, lo stato delle risorse passa a *Commit move completed* (Commit spostamento completato), senza problemi.<br/><br/> Se un commit ha esito negativo, lo stato passa a *Commit spostamento non riuscito*.
-**Passaggio 6: Eliminare l'origine** | Dopo aver eseguito il commit dello spostamento e aver verificato le risorse nell'area di destinazione, è possibile eliminare la risorsa di origine. | Dopo il commit dello spostamento, lo stato delle risorse passa a *Eliminazione origine in sospeso*.
+**Passaggio 6: Eliminare l'origine** | Dopo aver eseguito il commit dello spostamento e aver verificato le risorse nell'area di destinazione, è possibile eliminare la risorsa di origine. | Dopo il commit, lo stato di una risorsa passa all' *origine di eliminazione in sospeso*. È quindi possibile selezionare la risorsa di origine ed eliminarla.<br/><br/> -È possibile eliminare solo le risorse nello stato di *eliminazione di origine in sospeso* . | L'eliminazione di un gruppo di risorse o SQL Server nel portale di Resource Mover non è supportata. Queste risorse possono essere eliminate solo dalla pagina delle proprietà della risorsa.
 
 
 ## <a name="move-region-states"></a>Stati delle aree di spostamento

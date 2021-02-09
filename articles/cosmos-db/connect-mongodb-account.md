@@ -8,12 +8,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 06b03ac1cfe37307a5839be0d5ca3b1003db35af
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+adobe-target: true
+adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
+adobe-target-experience: Experience B
+adobe-target-content: connect-mongodb-account-experimental.md
+ms.openlocfilehash: d3e619559f1fb2500904aa7349aa131fd9b5fc00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072429"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980780"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connettere un'applicazione MongoDB ad Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,8 +38,8 @@ Questa esercitazione illustra due modi per recuperare le informazioni della stri
 
 1. In un browser Internet accedere al [portale di Azure](https://portal.azure.com).
 2. Nel pannello **Azure Cosmos DB** selezionare l'API.
-3. Nel riquadro sinistro del pannello dell'account fare clic su **Avvio rapido** .
-4. Scegliere la piattaforma ( **.NET** , **Node.js** , **MongoDB Shell** , **Java** , **Python** ). Se il driver o lo strumento non compare nell'elenco, ricordare che altri frammenti di codice di connessione vengono continuamente documentati. Commentare di seguito ciò che si vorrebbe vedere. Per informazioni su come realizzare la propria connessione, leggere [Ottenere informazioni sulla stringa di connessione dell'account](#get-the-mongodb-connection-string-to-customize).
+3. Nel riquadro sinistro del pannello dell'account fare clic su **Avvio rapido**.
+4. Scegliere la piattaforma (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). Se il driver o lo strumento non compare nell'elenco, ricordare che altri frammenti di codice di connessione vengono continuamente documentati. Commentare di seguito ciò che si vorrebbe vedere. Per informazioni su come realizzare la propria connessione, leggere [Ottenere informazioni sulla stringa di connessione dell'account](#get-the-mongodb-connection-string-to-customize).
 5. Copiare e incollare il frammento di codice nell'app MongoDB.
 
     :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="Pannello di avvio rapido":::
@@ -44,15 +48,15 @@ Questa esercitazione illustra due modi per recuperare le informazioni della stri
 
 1. In un browser Internet accedere al [portale di Azure](https://portal.azure.com).
 2. Nel pannello **Azure Cosmos DB** selezionare l'API.
-3. Nel riquadro sinistro del pannello dell'account, fare clic su **Stringa di connessione** .
-4. Viene aperto il pannello **Stringa di connessione** . Contiene tutte le informazioni necessarie per connettersi all'account usando un driver per MongoDB, inclusa una stringa di connessione precostruita.
+3. Nel riquadro sinistro del pannello dell'account, fare clic su **Stringa di connessione**.
+4. Viene aperto il pannello **Stringa di connessione**. Contiene tutte le informazioni necessarie per connettersi all'account usando un driver per MongoDB, inclusa una stringa di connessione precostruita.
 
-   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Pannello di avvio rapido" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Pannello Stringa di connessione" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Requisiti della stringa di connessione
 
 > [!Important]
-> Azure Cosmos DB presenta standard e requisiti di sicurezza restrittivi. Gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite *TLS* .
+> Azure Cosmos DB presenta standard e requisiti di sicurezza restrittivi. Gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite *TLS*.
 
 Azure Cosmos DB supporta il formato URI standard della stringa di connessione MongoDB, con un paio di requisiti specifici: gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite TLS. Il formato della stringa di connessione sarà quindi:
 
@@ -67,7 +71,7 @@ I valori di questa stringa sono disponibili nel pannello **Stringa di connession
 * Database (facoltativo): il database utilizzato dalla connessione. Se viene specificato alcun database, il database predefinito è "test".
 * ssl=true (obbligatorio)
 
-Si consideri l'account mostrato nel pannello **Stringa di connessione** . Una stringa di connessione valida è la seguente:
+Si consideri l'account mostrato nel pannello **Stringa di connessione**. Una stringa di connessione valida è la seguente:
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
 

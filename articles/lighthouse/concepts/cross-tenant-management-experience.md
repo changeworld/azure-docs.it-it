@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805175"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981086"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -165,6 +165,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 Richieste di supporto:
 
 - [Aprire richieste di supporto da **Guida e supporto**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) nel portale di Azure per le risorse delegate (selezione del piano di supporto disponibile per l'ambito delegato)
+- Usare l' [API della quota di Azure](/rest/api/reserved-vm-instances/quotaapi) per visualizzare e gestire le quote dei servizi di Azure per le risorse dei clienti delegate
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545721"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833168"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creare un monitoraggio in Connection Monitor usando il portale di Azure
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. Non sarà inoltre possibile aggiungere nuovi monitoraggi connessione in monitoraggio connessione (versione classica). È possibile continuare a utilizzare i test e i monitoraggi connessione creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [eseguire la migrazione dei test da monitoraggio prestazioni rete ](migrate-to-connection-monitor-from-network-performance-monitor.md) o  [eseguire la migrazione dal monitoraggio della connessione (versione classica)](migrate-to-connection-monitor-from-connection-monitor-classic.md) al nuovo monitoraggio della connessione in Azure Network Watcher prima del 29 febbraio 2024.
 
 Informazioni su come usare il monitoraggio della connessione per monitorare la comunicazione tra le risorse. Questo articolo descrive come creare un monitoraggio usando il portale di Azure. Il monitoraggio della connessione supporta le distribuzioni ibride e cloud di Azure.
 

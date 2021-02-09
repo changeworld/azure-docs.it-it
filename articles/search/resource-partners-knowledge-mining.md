@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: bb1c29f292cc099eaa7a84094f6f4a2674ae02aa
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.date: 02/04/2021
+ms.openlocfilehash: 68c50cf72c5592b7593c9f87445679b08116dd43
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682740"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980108"
 ---
 # <a name="partner-solutions"></a>Soluzioni partner
 
@@ -21,6 +21,5 @@ Ottieni supporto tecnico da partner Microsoft che creano soluzioni end-to-end ch
 
 | Partner | Descrizione | Collegamento a sito Web/prodotto |
 |---------|-------------|----------------------|
-| ![OrangeNXT](media/resource-partners/orangenxt-beldmerk-boven-160px.png "Company logo") | [**OrangeNXT**](https://orangenxt.com/) offre le competenze per il consolidamento dei dati, la modellazione dei dati e la creazione di skillsets che includono la logica personalizzata sviluppata per casi d'uso specifici.<br/><br/>[**DigitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) è una soluzione OrangeNXT che combina intelligenza artificiale, riconoscimento ottico dei caratteri (OCR) e elaborazione del linguaggio naturale in Azure ricerca cognitiva pipeline per consentire l'estrazione dei risultati della ricerca da più origini dati strutturate e non strutturate. La ricerca integrale per **digitalNXT** è un'abilità cognitiva personalizzata avanzata per l'interpretazione e la correlazione dei dati selezionati.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
-
-<!-- Review [**digitalNXT** case studies](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/problems-causes-solutions/) for a closer look at specific solutions. -->
+| ![Neal Analytics](media/resource-partners/neal-analytics-logo.png "Logo aziendale di Neal Analytics") | [**Neal Analytics**](https://nealanalytics.com/) offre oltre 10 anni di esperienza di cloud, dati e intelligenza artificiale in Azure. Gli esperti hanno riconosciuto un'esperienza approfondita nei servizi di intelligenza artificiale e ML di Azure. Neal può aiutare i clienti a personalizzare e implementare ricerca cognitiva in un'ampia gamma di casi d'uso. Neal Analytics è compreso tra le attività di ricerca, form e automazione dei processi a livello aziendale al mapping del dominio per l'estrazione e l'analisi dei dati, il rilevamento del plagio e altro ancora. | [Product page](https://go.nealanalytics.com/cognitive-search)|
+| ![OrangeNXT](media/resource-partners/orangenxt-beldmerk-boven-160px.png "Logo della società OrangeNXT") | [**OrangeNXT**](https://orangenxt.com/) offre le competenze per il consolidamento dei dati, la modellazione dei dati e la creazione di skillsets che includono la logica personalizzata sviluppata per casi d'uso specifici.<br/><br/>digitalNXT Search è una soluzione OrangeNXT che combina intelligenza artificiale, riconoscimento ottico dei caratteri (OCR) e elaborazione del linguaggio naturale in Azure ricerca cognitiva pipeline per consentire l'estrazione dei risultati della ricerca da più origini dati strutturate e non strutturate. La ricerca integrale per digitalNXT è un'abilità cognitiva personalizzata avanzata per l'interpretazione e la correlazione dei dati selezionati.<br/><br/>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|

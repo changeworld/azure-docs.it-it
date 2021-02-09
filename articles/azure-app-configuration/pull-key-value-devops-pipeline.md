@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7bd163781203a277f4c9d6866a156c11e4d5d520
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728092"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979573"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Impostazioni pull per la configurazione dell'app con Azure Pipelines
 
@@ -60,7 +60,7 @@ Assegnare il ruolo di configurazione dell'app appropriato alla connessione del s
 
 In questa sezione viene illustrato come usare l'attività di configurazione app Azure in una pipeline di compilazione di Azure DevOps.
 
-1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  . Per la documentazione della pipeline di compilazione, vedere  [creare la prima pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
+1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  . Per la documentazione della pipeline di compilazione, vedere  [creare la prima pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
       - Se si sta creando una nuova pipeline di compilazione, fare clic su **nuova pipeline** e selezionare il repository per la pipeline. Selezionare **Mostra Assistente** sul lato destro della pipeline e cercare l'attività di **configurazione app Azure** .
       - Se si usa una pipeline di compilazione esistente, selezionare **modifica** per modificare la pipeline. Nella scheda **attività** cercare l'attività di **configurazione app Azure** .
 1. Configurare i parametri necessari per l'attività per eseguire il pull dei valori di chiave dall'archivio di configurazione dell'app. Le descrizioni dei parametri sono disponibili nella sezione **Parameters** riportata di seguito e nelle descrizioni comandi accanto a ogni parametro.
@@ -73,10 +73,10 @@ In questa sezione viene illustrato come usare l'attività di configurazione app 
 
 In questa sezione viene illustrato come usare l'attività di configurazione app Azure in una pipeline di rilascio di Azure DevOps.
 
-1. Passare alla pagina della pipeline di rilascio selezionando **pipeline**  >  **versioni**. Per la documentazione sulla pipeline di rilascio, vedere [pipeline di rilascio](/azure/devops/pipelines/release?view=azure-devops).
+1. Passare alla pagina della pipeline di rilascio selezionando **pipeline**  >  **versioni**. Per la documentazione sulla pipeline di rilascio, vedere [pipeline di rilascio](/azure/devops/pipelines/release).
 1. Scegliere una pipeline di rilascio esistente. Se non è già stato fatto, fare clic su **nuova pipeline** per crearne uno nuovo.
 1. Selezionare il pulsante **modifica** nell'angolo superiore destro per modificare la pipeline di rilascio.
-1. Scegliere la **fase** per aggiungere l'attività. Per altre informazioni sulle fasi, vedere [aggiungere fasi, dipendenze, & condizioni](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Scegliere la **fase** per aggiungere l'attività. Per altre informazioni sulle fasi, vedere [aggiungere fasi, dipendenze, & condizioni](/azure/devops/pipelines/release/environments).
 1. Fare clic su **+** per "Esegui su agente", quindi aggiungere l'attività di **configurazione app Azure** nella scheda **Aggiungi attività** .
 1. Configurare i parametri necessari all'interno dell'attività per eseguire il pull dei valori di chiave dall'archivio di configurazione dell'app. Le descrizioni dei parametri sono disponibili nella sezione **Parameters** riportata di seguito e nelle descrizioni comandi accanto a ogni parametro.
       - Impostare il parametro **sottoscrizione di Azure** sul nome della connessione del servizio creata in un passaggio precedente.

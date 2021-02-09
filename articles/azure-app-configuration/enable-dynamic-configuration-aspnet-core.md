@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: e894caddd037738645a37ccb43265a24d56e8afe
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493805"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979930"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
 
@@ -191,7 +191,7 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
     ```
     ---
     > [!Tip]
-    > Per altre informazioni sul modello di opzioni durante la lettura dei valori di configurazione, vedere [Modelli di opzioni in ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Per altre informazioni sul modello di opzioni durante la lettura dei valori di configurazione, vedere [Modelli di opzioni in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 4. Aggiornare il metodo `Configure` aggiungendo il middleware `UseAzureAppConfiguration` per consentire l'aggiornamento delle impostazioni di configurazione appositamente registrate mentre l'app Web ASP.NET Core continua a ricevere richieste.
 

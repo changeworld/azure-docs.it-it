@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 5e1a1c62cafd982d44be3e06b98fc8c30461021c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820552"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979981"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -189,7 +189,7 @@ dove in precedenza la distribuzione è riuscita.
 
 Il problema si verifica quando si usa un modello Gestione risorse, l'API REST delle impostazioni di diagnostica, l'interfaccia della riga di comando di Azure o Azure PowerShell. Le impostazioni di diagnostica create tramite il portale di Azure non sono interessate dal fatto che vengano presentati solo i nomi delle categorie supportati.
 
-Il problema è causato da una modifica recente nell'API sottostante. Le categorie di metriche diverse da' AllMetrics ' non sono supportate e non sono mai state escluse in scenari di elenco di indirizzi IP consentiti molto specifici. In passato, gli altri nomi di categoria venivano ignorati durante la distribuzione di un'impostazione di diagnostica. Il back-end di monitoraggio di Azure ha semplicemente reindirizzato queste categorie a' AllMetrics '.  Al 2021 febbraio il back-end è stato aggiornato per confermare in modo specifico che la categoria metrica fornita è precisa. Questa modifica ha causato l'esito negativo di alcune distribuzioni.
+Il problema è causato da una modifica recente nell'API sottostante. Le categorie di metriche diverse da' AllMetrics ' non sono supportate e non sono mai state eseguite ad eccezione di alcuni servizi di Azure molto specifici. In passato, gli altri nomi di categoria venivano ignorati durante la distribuzione di un'impostazione di diagnostica. Il back-end di monitoraggio di Azure ha semplicemente reindirizzato queste categorie a' AllMetrics '.  Al 2021 febbraio il back-end è stato aggiornato per confermare in modo specifico che la categoria metrica fornita è precisa. Questa modifica ha causato l'esito negativo di alcune distribuzioni.
 
 Se viene visualizzato questo errore, aggiornare le distribuzioni per sostituire i nomi delle categorie di metriche con "AllMetrics" per risolvere il problema. Se la distribuzione aggiungeva in precedenza più categorie, è necessario mantenere solo una con il riferimento ' AllMetrics '. Se il problema persiste, contattare il supporto tecnico di Azure tramite il portale di Azure. 
 

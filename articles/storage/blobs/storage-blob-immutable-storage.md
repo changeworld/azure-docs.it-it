@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010062"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979139"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -30,7 +30,7 @@ L'archiviazione non modificabile aiuta l'organizzazione sanitaria, gli istituti 
 
 Le applicazioni tipiche includono:
 
-- **Conformità alle normative**: l'archiviazione non modificabile per Archiviazione BLOB di Azure aiuta le organizzazioni a soddisfare i requisiti di SEC 17a-4(f), CFTC 1.31(d), FINRA e altre normative. Un white paper tecnico di Cohasset associa informazioni dettagliate su come gli indirizzi di archiviazione non modificabili questi requisiti normativi sono scaricabili tramite il [Microsoft Service Trust Portal](https://aka.ms/AzureWormStorage). Il [Centro protezione di Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contiene informazioni dettagliate sulle certificazioni di conformità.
+- **Conformità alle normative**: archiviazione non modificabile per l'archiviazione BLOB di Azure consente alle organizzazioni di gestire i secondi 17a-4 (f), CFTC 1.31 (d), FINRA e altre normative. Un white paper tecnico di Cohasset associa informazioni dettagliate su come gli indirizzi di archiviazione non modificabili questi requisiti normativi sono scaricabili tramite il [Microsoft Service Trust Portal](https://aka.ms/AzureWormStorage). Il [Centro protezione di Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contiene informazioni dettagliate sulle certificazioni di conformità.
 
 - **Conservazione dei documenti sicura**: l'archiviazione non modificabile per l'archiviazione BLOB di Azure garantisce che i dati non possano essere modificati o eliminati da alcun utente, inclusi gli utenti con privilegi amministrativi dell'account.
 
@@ -53,6 +53,10 @@ L'archiviazione non modificabile supporta le funzionalità seguenti:
 L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Quando si applica un criterio di conservazione basato sul tempo o un periodo di attesa legale a un contenitore, tutti i BLOB esistenti vengono spostati in uno stato non modificabile di un WORM in meno di 30 secondi. Tutti i nuovi BLOB caricati nel contenitore protetto da criteri si sposteranno anche in uno stato non modificabile. Quando tutti i BLOB sono in uno stato non modificabile, i criteri non modificabili vengono confermati e non sono consentite operazioni di sovrascrittura o eliminazione nel contenitore non modificabile.
 
 Anche l'eliminazione di contenitori e account di archiviazione non è consentita se in un contenitore sono presenti BLOB protetti da un blocco o un criterio basato sul tempo. Un criterio di conservazione legale proteggerà da BLOB, contenitori e dall'eliminazione dell'account di archiviazione. I criteri basati sul tempo sbloccato e bloccato proteggeranno dall'eliminazione dei BLOB per il periodo di tempo specificato. I criteri basati sul tempo sbloccato e bloccato proteggeranno dall'eliminazione del contenitore solo se nel contenitore esiste almeno un BLOB. Solo un contenitore con criteri basati sul tempo *bloccato* proteggerà da eliminazioni di account di archiviazione. i contenitori con criteri basati sul tempo sbloccati non offrono la protezione dell'eliminazione dell'account di archiviazione né la conformità.
+
+Il diagramma seguente illustra il modo in cui i criteri di conservazione basati sul tempo e i diritti legali impediscono le operazioni di scrittura ed eliminazione mentre sono attive.
+
+:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagramma che illustra il modo in cui i criteri di conservazione e le esenzioni legali impediscono operazioni di scrittura":::
 
 Per altre informazioni su come impostare e bloccare i criteri di conservazione basati sul tempo, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](storage-blob-immutability-policies-manage.md).
 

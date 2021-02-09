@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 3bc24e88368af056e4d4506a5cf688e1172d4930
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051565"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980661"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest
 
@@ -112,6 +112,9 @@ Nel modello di paging non di query, di seguito è riportato un metodo di esempio
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 Il secondo modello viene generato solo per l'API di query. Usa un oggetto in `continuationToken` modo esplicito.
+
+>[!TIP]
+> Un motivo principale per il recupero delle pagine consiste nel calcolare gli [addebiti](concepts-query-units.md) per le unità di query per una chiamata API di query.
 
 Di seguito è riportato un esempio con questo modello:
 

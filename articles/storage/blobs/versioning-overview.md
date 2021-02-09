@@ -10,12 +10,12 @@ ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e5f8264221ada261ccae1b347c47cdf27967d5d8
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537160"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980285"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
@@ -37,6 +37,10 @@ Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere 
 Una versione acquisisce lo stato di un BLOB in un determinato momento. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB per un account di archiviazione, archiviazione di Azure crea automaticamente una nuova versione di un BLOB ogni volta che il BLOB viene modificato o eliminato.
 
 Quando si crea un BLOB con il controllo delle versioni abilitato, il nuovo BLOB è la versione corrente del BLOB (o il BLOB di base). Se successivamente si modifica il BLOB, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima della modifica. Il BLOB modificato diventa la nuova versione corrente. Viene creata una nuova versione ogni volta che si modifica il BLOB.
+
+Il diagramma seguente illustra come vengono create le versioni durante le operazioni di scrittura ed eliminazione e come una versione precedente può essere promossa come versione corrente:
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagramma che illustra il funzionamento del controllo delle versioni dei BLOB":::
 
 La presenza di un numero elevato di versioni per BLOB può aumentare la latenza per le operazioni di elenco BLOB. Microsoft consiglia di mantenere meno di 1000 versioni per BLOB. È possibile utilizzare la gestione del ciclo di vita per eliminare automaticamente le versioni precedenti. Per altre informazioni sulla gestione del ciclo di vita, vedere [ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure](storage-lifecycle-management-concepts.md).
 

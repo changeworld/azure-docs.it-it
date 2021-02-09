@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3289db9b0f27aa528e027ab2e355852947187e76
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
-ms.translationtype: HT
+ms.openlocfilehash: 9a4bda216a91efc8139c1f87c5c350c50ae8741d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98187410"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980941"
 ---
 1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 
@@ -27,7 +27,7 @@ ms.locfileid: "98187410"
     | **[Gruppo di risorse](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
     | **Nome dell'app per le funzioni** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z` (senza distinzione tra maiuscole e minuscole), `0-9` e `-`.  |
     |**Pubblica**| Codice | Opzione per la pubblicazione di file di codice o di un contenitore Docker. |
-    | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. La modifica all'interno del portale non è attualmente supportata per lo [sviluppo Python](../articles/azure-functions/functions-reference-python.md). |
+    | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. La modifica nel portale è disponibile solo per gli script JavaScript, PowerShell, TypeScript e C#. Le funzioni libreria di classi C#, Java e Python devono essere [sviluppate localmente](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
     |**Versione**| Numero di versione | Scegliere la versione del runtime installato. |
     |**Area**| Area preferita | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
 

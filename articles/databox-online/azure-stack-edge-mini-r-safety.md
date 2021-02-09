@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 507ceef0f13951eafdcb02d586f35c1d61764c4e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aa363b1eeddff6c3b10d8e36371becb8b690697c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467477"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981034"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Istruzioni per la protezione di mini R per Azure Stack Edge
 
@@ -37,6 +37,7 @@ Quando si configura e si esegue il dispositivo Mini R Azure Stack Edge, è neces
 | Icona | Descrizione |
 |:--- |:--- |
 | ![Leggere prima tutte le istruzioni](./media/azure-stack-edge-mini-r-safety/icon-safety-read-all-instructions.png) | Leggere prima tutte le istruzioni |
+| ![Icona di notifica](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTIFICA:** | Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Simbolo di rischio](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) | Simbolo di rischio |
 | ![Icona di scossa elettrica](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) | Rischio di scosse elettriche |
 | ![Solo per uso interno](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) | Solo per uso interno |
@@ -68,7 +69,7 @@ Si consiglia di utilizzare il sistema:
 ![Icona di avviso 4 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
  ![ nessun componente utilizzabile dall'utente ](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **, attenzione:**
 
-* Questa apparecchiatura contiene una batteria al litio. Non tentare di gestire il pacchetto batteria. Le batterie in questo dispositivo non sono utilizzabili dall'utente. Rischio di esplosione se la batteria viene sostituita da un tipo non corretto.
+* Questa apparecchiatura contiene una batteria al litio. Non tentare di eseguire il Service Pack. Le batterie in questo dispositivo non sono utilizzabili dall'utente. Rischio di esplosione se la batteria viene sostituita da un tipo non corretto.
 
 ![Icona di avviso 5 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **Attenzione:**
 
@@ -89,7 +90,7 @@ Addebitare il pacco batteria solo quando fa parte del dispositivo Mini R Azure S
 
 ![Avviso icona 9 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **Attenzione:**
 
-Questo dispositivo ha due porte SFP + che possono essere usate con i ricetrasmettitori ottici. Per evitare radiazioni laser pericolose, usare solo con i ricetrasmettitori di classe 1.
+Questo dispositivo ha due porte SFP +, che possono essere usate con i ricetrasmettitori ottici. Per evitare radiazioni laser pericolose, usare solo con i ricetrasmettitori di classe 1.
 
 ## <a name="electrical-precautions"></a>Precauzioni elettriche
 
@@ -142,20 +143,71 @@ L'attrezzatura è progettata per operare negli ambienti seguenti:
 | Specifiche di umidità relativa (RH) | <ul><li>Archiviazione: umidità relativa dal 5% al 95%</li><li>Operativo: umidità relativa dal 10% al 90%</li></ul>|
 | Specifiche di altitudine massima | <ul><li>Operativo: 15.000 metri (4.572 metri)</li><li>Non operativo: 40.000 metri (12.192 metri)</li></ul>|
 
-> ![Avviso ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **:** le &nbsp; modifiche o le modifiche apportate alle apparecchiature non espressamente approvate da Microsoft possono annullare l'autorità dell'utente per il funzionamento dell'apparecchiatura.
+> ![Icona di avviso-2 ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **Avviso:** le &nbsp; modifiche o le modifiche apportate alle apparecchiature non espressamente approvate da Microsoft possono annullare l'autorità dell'utente per il funzionamento dell'apparecchiatura.
 
-CANADA e Stati Uniti:
+#### <a name="canada-and-usa"></a>CANADA e Stati Uniti:
 
-AVVISO: questa apparecchiatura è stata testata e risulta conforme ai limiti di una classe A un dispositivo digitale, in base alla parte 15 delle regole FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Il funzionamento di questa apparecchiatura in un'area residenziale può causare un'interferenza dannosa, nel qual caso l'utente dovrà correggere l'interferenza a proprie spese.
+> ![Icona di avviso-3 ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **Avviso:** &nbsp; Questa apparecchiatura è stata testata e risulta conforme ai limiti di una classe a un dispositivo digitale, in base alla parte 15 delle regole FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Il funzionamento di questa apparecchiatura in un'area residenziale può causare un'interferenza dannosa, nel qual caso l'utente dovrà correggere l'interferenza a proprie spese.
+
+L'adattatore USB Netgear a6150 Wi-Fi fornito con questa apparecchiatura è concepito per essere operato vicino al corpo umano. viene testato per la conformità della velocità di assorbimento specifica (SAR) usata dal corpo. Il limite di SAR impostato dal FCC è 1,6 W/kg quando viene calcolata una media di oltre 1 g di tessuto. Quando si trasporta il prodotto o lo si utilizza quando si indossa il corpo, mantenere una distanza di 10 mm dal corpo per garantire la conformità ai requisiti di esposizione RF.
+
+L'adattatore USB Netgear a6150 WiFi è conforme a ANSI/IEEE C 95.1-1999 ed è stato testato in base ai metodi e alle procedure di misurazione specificati in OET Bulletin 65 Supplemento C.
+
+Velocità di assorbimento (SAR) specifica di Netgear a6150:1,18 W/kg di tempo medio su 1 g di tessuto
+
+L'adattatore USB Netgear a6150 WiFi deve essere usato solo con antenne approvate. Questo dispositivo e le relative antenne non devono avere un percorso condiviso o funzionare insieme ad altre antenne o emittenti, tranne che in conformità alle procedure del prodotto FCC multitrasmettitore. Per i prodotti disponibili nel mercato degli Stati Uniti, è possibile operare solo con Channel 1 ~ 11. Non è possibile selezionare altri canali.
+
+L'operazione nella banda 5150 – 5250 MHz è destinata solo all'uso interno per ridurre la possibilità di interferenze dannose per i sistemi satellite per dispositivi mobili co-canale.
+
+![Avviso per informazioni normative-uso interno](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
+
+
+Si consiglia agli utenti di allocare radar ad alta potenza come utenti primari (priorità utenti) delle bande 5250 – 5350 MHz e 5650-5850 MHz. questi radar potrebbero causare interferenze e/o danni ai dispositivi LE-LAN.
+
+Questa apparecchiatura genera, USA e può irradiare energia Radio Frequency e, se non è installata e usata in conformità con le istruzioni, può causare interferenze pericolose per le comunicazioni radio. Tuttavia, non vi è alcuna garanzia che l'interferenza non venga eseguita in una particolare installazione.
+
+Se questa apparecchiatura genera interferenze pericolose per la ricezione di radio o televisori, che può essere determinata dalla disattivazione dell'apparecchiatura, l'utente è invitato a provare a correggere l'interferenza da una o più delle misure seguenti:
+
+- Riorientare o rilocare l'antenna ricevente.
+- Aumentare la separazione tra apparecchiature e ricevitore.
+- Connettere l'apparecchiatura a un Outlet in un circuito diverso da quello a cui è connesso il ricevitore.
+- Per assistenza, consultare il rivenditore o un tecnico esperto di radio/TV.
+
+Per ulteriori informazioni sui problemi di interferenza, visitare il sito Web FCC all'indirizzo [fcc.gov/cgb/consumerfacts/interference.html](https://www.fcc.gov/consumers/guides/interference-radio-tv-and-telephone-signals). È anche possibile chiamare FCC a 1-888-CALL FCC per richiedere l'interferenza e le schede dei fatti interferenze telefoniche.
+
+Per informazioni aggiuntive sulla sicurezza della radiofrequenza, vedere il sito Web FCC presso [https://www.fcc.gov/general/radio-frequency-safety-0](https://www.fcc.gov/general/radio-frequency-safety-0) il sito Web di Industry Canada all'indirizzo [http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html](http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html) .
+
+Questo prodotto ha dimostrato la conformità EMC in condizioni che includono l'uso di dispositivi periferici conformi e cavi schermati tra i componenti di sistema. È importante usare dispositivi periferici conformi e cavi schermati tra i componenti di sistema per ridurre la possibilità di causare interferenze a Radio, televisori e altri dispositivi elettronici.
 
 Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'utilizzo è soggetto alle due condizioni seguenti: (1) il dispositivo non deve causare interferenze dannose e (2) il dispositivo deve accettare eventuali interferenze ricevute, comprese quelle che possono provocare un funzionamento indesiderato del dispositivo.
 
 ![Avviso di informazioni normative 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
-CAN CIEM-3 (A)/NMB-3 (A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, Stati Uniti.
-Stati Uniti: (800) 426-9400 Canada: (800) 933-4750
+CAN ICES-3(A)/NMB-3(A)
 
-Unione europea: richiedere una copia della dichiarazione di conformità dell'Unione europea.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, Stati Uniti
+
+Stati Uniti: (800) 426-9400
+
+Canada: (800) 933-4750
+
+ID FCC dell'adattatore USB per Netgear a6150 WiFi: PY318300429
+ 
+ID IC adattatore USB per Netgear a6150 WiFi: 4054A-18300429
+
+L'adattatore USB Netgear a6150 WiFi fornito con questa apparecchiatura è conforme a SAR per popolazione generale/limiti di esposizione non controllata in IC RSS-102 ed è stato testato in conformità ai metodi e alle procedure di misurazione specificati in IEEE 1528. Mantenere la distanza di almeno 10 mm per la condizione del corpo.
+
+L'adattatore USB Netgear a6150 Wi-Fi è conforme al limite di esposizione RF portabile in Canada stabilito per un ambiente non controllato ed è sicuro per le operazioni desiderate, come descritto nel manuale. Una maggiore riduzione dell'esposizione RF può essere eseguita mantenendo il prodotto il più possibile dal corpo o impostando il dispositivo su una potenza di output inferiore se tale funzione è disponibile.
+
+Una tabella con una velocità di assorbimento specifica (SAR) media oltre 1 g per ogni prodotto può essere visualizzata nella sezione precedente.
+
+![Avviso di informazioni normative 2](./media/azure-stack-edge-mini-r-safety/regulatory-information-2.png)
+
+#### <a name="european-union"></a>UNIONE EUROPEA:
+
+Richiedere una copia della dichiarazione di conformità dell'Unione europea per questo dispositivo.
+
+L'adattatore USB Netgear a6150 WiFi fornito con questa apparecchiatura è conforme alla direttiva 2014/53/EU e può essere fornito anche su richiesta.
 
 > ![Icona di avviso 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) questo è un prodotto di classe. In un ambiente domestico, questo prodotto può causare interferenze radio nel qual caso l'utente può essere tenuto ad adottare misure adeguate.
 
@@ -166,7 +218,37 @@ Smaltimento delle batterie esauste e delle apparecchiature elettriche ed elettro
 Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Contattare erecycle@microsoft.com per ulteriori informazioni sui RAEE.
 
 Questo prodotto contiene batterie a bottone.
-Microsoft Ireland Sandyford ind est Dublin D18 KX32 IRL numero di telefono: + 353 1 295 3826 numero di fax: + 353 1 706 4110
+
+L'adattatore USB Netgear a6150 Wi-Fi fornito con questa apparecchiatura è concepito per essere operato vicino al corpo umano ed è testato per la conformità a una velocità di assorbimento specifica (vedere i valori seguenti). Quando si trasporta il prodotto o lo si usa quando si indossa il corpo, mantenere una distanza di 10mm dal corpo per garantire la conformità ai requisiti di esposizione RF.
+
+**Velocità di assorbimento (SAR) specifica di Netgear a6150:** 0,54 W/kg di tempo medio su 10g di tissue
+
+ 
+Questo dispositivo può funzionare in tutti gli Stati membri dell'Unione europea. Osservare le normative nazionali e locali in cui viene usato il dispositivo. Questo dispositivo è limitato all'uso interno solo quando operano nell'intervallo di frequenza di 5150-5350 MHz nei paesi seguenti:  
+
+![Paesi UE che richiedono solo uso interno](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
+
+In conformità con l'articolo 10.8 (a) e la 10.8 (b) del rosso, nella tabella seguente vengono fornite informazioni sulle bande di frequenza utilizzate e la potenza massima di trasmissione RF dei prodotti wireless Netgear per la vendita nell'Unione europea:
+
+**Wi-Fi**
+
+| Intervallo di frequenza (MHz) | Canali utilizzati | Potenza massima di trasmissione (dBm/mW) |
+| --------------------- | ------------- | --------------------------- |
+| 2400-2483.5 | 1-13    | ODFM: 19,9 dBm (97,7 mW) <br> CCK: 17,9 dBm (61,7 mW) |
+| 5150-5320   | 36-48   | 22,9 dBm (195 mW) |
+| 5250-5350   | 52-64   | 22,9 dBm (195 mW) con TPC <br> 19,9 dBm (97,7 mW) non TPC |
+| 5470-5725   | 100-140 | 29,9 dBm (977 mW) con TPC <br> 29,6 dBm (490 mW) non TPC |
+
+Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+
+Numero di telefono: +353 1 295 3826
+
+Numero di fax: +353 1 706 4110
+
+#### <a name="singapore"></a>Singapore:
+
+L'adattatore USB Netgear a6150 WiFi fornito con questa apparecchiatura è conforme agli standard IMDA.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

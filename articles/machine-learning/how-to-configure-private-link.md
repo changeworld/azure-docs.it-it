@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842703"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979182"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
@@ -35,7 +35,8 @@ Se si prevede di usare un'area di lavoro con collegamento privato abilitato con 
 
 ## <a name="limitations"></a>Limitazioni
 
-L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
+* L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
+* Se si Abilita l'accesso pubblico per un'area di lavoro protetta con collegamento privato e si usa Azure Machine Learning Studio sulla rete Internet pubblica, alcune funzionalità come la finestra di progettazione potrebbero non riuscire ad accedere ai dati. Questo problema si verifica quando i dati vengono archiviati in un servizio protetto dietro la VNet. Ad esempio un account di archiviazione di Azure.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creare un'area di lavoro che usa un endpoint privato
 
@@ -158,6 +159,31 @@ Poiché la comunicazione con l'area di lavoro è consentita solo dalla rete virt
 > Per evitare l'interferenza temporanea della connettività, Microsoft consiglia di scaricare la cache DNS nei computer che si connettono all'area di lavoro dopo aver abilitato il collegamento privato. 
 
 Per informazioni sulle macchine virtuali di Azure, vedere la [documentazione relativa alle macchine virtuali](../virtual-machines/index.yml).
+
+## <a name="enable-public-access"></a>Abilitare l'accesso pubblico
+
+Dopo aver configurato un'area di lavoro con un endpoint privato, è possibile abilitare facoltativamente l'accesso pubblico all'area di lavoro. Questa operazione non comporta la rimozione dell'endpoint privato. Consente l'accesso pubblico oltre all'accesso privato. Per abilitare l'accesso pubblico a un'area di lavoro privata abilitata per il collegamento, attenersi alla procedura seguente:
+
+# <a name="python"></a>[Python](#tab/python)
+
+Usare [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) per rimuovere un endpoint privato.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+ws.update(allow_public_access_when_behind_vnet=True)
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+L' [estensione dell'interfaccia della riga di comando di Azure per Machine Learning](reference-azure-machine-learning-cli.md) include il comando [AZ ml Workspace Update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) . Per abilitare l'accesso pubblico all'area di lavoro, aggiungere il parametro `--allow-public-access true` .
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+
+Attualmente non è possibile abilitare questa funzionalità usando il portale.
+
+---
 
 
 ## <a name="next-steps"></a>Passaggi successivi

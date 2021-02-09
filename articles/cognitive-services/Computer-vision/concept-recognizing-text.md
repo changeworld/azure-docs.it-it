@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 17a7ad29596c5ab5ed65868fde0e814bc83e8c37
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1d633b1a9f5fee0a5cceb48f2b37aaec2092069f
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576743"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979536"
 ---
 # <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
@@ -132,20 +132,20 @@ Vedere l'esempio seguente di una risposta JSON riuscita:
 }
 ```
 
-## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Seleziona pagine o intervalli di pagine per l'estrazione del testo
-Con l' [API di anteprima di lettura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), per documenti di grandi dimensioni, usare il `pages` parametro di query per specificare i numeri di pagina o gli intervalli di pagine per estrarre il testo solo dalle pagine. Ad esempio, nell'esempio seguente viene illustrato un documento con 10 pagine per entrambi i casi: tutte le pagine (1-10) e le pagine selezionate (3-6).
+## <a name="natural-reading-order-output"></a>Output dell'ordine di lettura naturale
+Con l' [API di lettura 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)specificare l'ordine in cui vengono restituite le righe di testo con il `readingOrder` parametro di query. Usare `natural` per un output dell'ordine di lettura più semplice, come illustrato nell'esempio seguente.
 
-:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Output pagine selezionate":::
-
-## <a name="specify-text-line-order-in-the-output"></a>Specificare l'ordine delle righe di testo nell'output
-Con l' [API di lettura 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)specificare l'ordine in cui vengono restituite le righe di testo con il `read order` parametro di query. Scegliere tra `basic` per l'ordine di riga predefinito a destra e dall'alto verso il basso oppure `natural` per un ordine di riga più semplice da leggere. Nell'esempio seguente vengono illustrati entrambi i set di numeri di ordine di riga per lo stesso documento a due colonne. Si noti che l'immagine a destra mostra i numeri di riga sequenziali all'interno di ogni colonna per rappresentare l'ordine di lettura.
-
-:::image border type="content" source="./Images/ocr-read-order.png" alt-text="Esempio di ordine di lettura OCR":::
+:::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Esempio di ordine di lettura OCR":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>Classificazione manoscritta per le righe di testo (solo alfabeto latino)
 La risposta dell' [API Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) include la classificazione di ogni riga di testo con stile di grafia o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine. Nell'esempio seguente viene illustrata la classificazione manoscritta per il testo nell'immagine.
 
-:::image border type="content" source="./Images/handwritten-text-line.png" alt-text="Esempio di classificazione della grafia OCR":::
+:::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Esempio di classificazione della grafia OCR":::
+
+## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Seleziona pagine o intervalli di pagine per l'estrazione del testo
+Con l' [API di anteprima di lettura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), per documenti di grandi dimensioni, usare il `pages` parametro di query per specificare i numeri di pagina o gli intervalli di pagine per estrarre il testo solo dalle pagine. Nell'esempio seguente viene illustrato un documento con 10 pagine, con il testo estratto per entrambi i casi, tutte le pagine (1-10) e le pagine selezionate (3-6).
+
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Output pagine selezionate":::
 
 ## <a name="supported-languages"></a>Lingue supportate
 Le API di lettura supportano un totale di 73 lingue per il testo dello stile di stampa. Vedere l'elenco completo dei [linguaggi supportati dall'OCR](./language-support.md#optical-character-recognition-ocr). L'OCR in stile manoscritto è supportato esclusivamente per l'inglese.

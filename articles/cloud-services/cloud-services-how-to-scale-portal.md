@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare automaticamente un servizio cloud (classico) nel portale | Microsoft Docs
-description: Informazioni su come usare il portale per configurare le regole di scalabilità automatica per un ruolo Web o un ruolo di lavoro del servizio cloud in Azure.
+description: Informazioni su come usare il portale per configurare le regole di scalabilità automatica per i ruoli di un servizio cloud (classico) in Azure.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743356"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980831"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud (classico) nel portale
 
@@ -23,7 +23,7 @@ ms.locfileid: "98743356"
 È possibile impostare condizioni per un ruolo di lavoro del servizio cloud che attivano operazioni di scalabilità verticale o orizzontale. Le condizioni per il ruolo possono essere basate sulla CPU, sul disco o sul carico di rete del ruolo. È anche possibile impostare una condizione in base a una coda di messaggi o alla metrica di un'altra risorsa di Azure associata alla sottoscrizione.
 
 > [!NOTE]
-> Questo articolo è incentrato sui ruoli Web e di lavoro del servizio cloud. Quando si crea una macchina virtuale (distribuzione classica) direttamente, questa viene ospitata in un servizio cloud. È possibile ridimensionare una macchina virtuale standard tramite l'associazione con un [set di disponibilità](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e attivarla o disattivarla manualmente.
+> Questo articolo è incentrato sul servizio cloud (versione classica). Quando si crea una macchina virtuale (distribuzione classica) direttamente, questa viene ospitata in un servizio cloud. È possibile ridimensionare una macchina virtuale standard tramite l'associazione con un [set di disponibilità](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e attivarla o disattivarla manualmente.
 
 ## <a name="considerations"></a>Considerazioni
 Prima di configurare la scalabilità per l'applicazione, tenere presente quanto segue:

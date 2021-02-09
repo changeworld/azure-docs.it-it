@@ -8,19 +8,17 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d208a4a86896c81982aa2b10ca7ce5e7a6773c05
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820214"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979743"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Esercitazione: Spostare macchine virtuali tra aree
 
 Questo articolo illustra come spostare macchine virtuali di Azure e risorse di rete/archiviazione correlate in un'area di Azure diversa, usando [Spostamento risorse di Azure](overview.md).
-
-> [!NOTE]
-> Spostamento risorse di Azure è attualmente disponibile in anteprima pubblica.
+.
 
 
 In questa esercitazione verranno illustrate le procedure per:
@@ -40,26 +38,21 @@ In questa esercitazione verranno illustrate le procedure per:
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare. Accedere quindi al [portale di Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Prerequisiti
-
--  Verificare di avere accesso come *Proprietario* nella sottoscrizione che contiene le risorse da spostare.
-    - La prima volta che si aggiunge una risorsa per una coppia di origine e destinazione specifica in una sottoscrizione di Azure, Spostamento risorse crea un'[identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (nota in precedenza come identità del servizio gestita) che viene considerata attendibile dalla sottoscrizione.
-    - Per creare l'identità e assegnarle il ruolo richiesto (Collaboratore o Amministratore Accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere le risorse deve avere le autorizzazioni di *Proprietario* nella sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
-- La quota disponibile nella sottoscrizione deve essere sufficiente per creare le risorse che si intende spostare nell'area di destinazione. Se non è disponibile alcuna quota, [richiedere limiti aggiuntivi](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le macchine virtuali. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
+**Requisito** | **Descrizione**
+--- | ---
+**Autorizzazioni di sottoscrizione** | Verificare di disporre dell'accesso *proprietario* per la sottoscrizione contenente le risorse che si desidera spostare<br/><br/> **Perché è necessario l'accesso del proprietario?** La prima volta che si aggiunge una risorsa per una coppia di origine e destinazione specifica in una sottoscrizione di Azure, Spostamento risorse crea un'[identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (nota in precedenza come identità del servizio gestita) che viene considerata attendibile dalla sottoscrizione. Per creare l'identità e assegnarle il ruolo richiesto (Collaboratore o Amministratore Accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere le risorse deve avere le autorizzazioni di *Proprietario* nella sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
+**Supporto per macchine virtuali** |  Controllare che le macchine virtuali da spostare siano supportate.<br/><br/> - [Verificare](support-matrix-move-region-azure-vm.md#windows-vm-support) le VM Windows supportate.<br/><br/> - [Verificare](support-matrix-move-region-azure-vm.md#linux-vm-support) le VM Linux e le versioni del kernel supportate.<br/><br/> -Controllare le impostazioni di [calcolo](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [archiviazione](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)e [rete](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) supportate.
+**Sottoscrizione di destinazione** | La sottoscrizione nell'area di destinazione richiede una quota sufficiente per creare le risorse che si stanno muovendo nell'area di destinazione. Se non è disponibile alcuna quota, [richiedere limiti aggiuntivi](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Addebiti per l'area di destinazione** | Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le macchine virtuali. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
     
 
-## <a name="check-vm-requirements"></a>Controllare i requisiti delle macchine virtuali
+## <a name="prepare-vms"></a>Preparare le macchine virtuali
 
-1. Controllare che le macchine virtuali da spostare siano supportate.
-
-    - [Verificare](support-matrix-move-region-azure-vm.md#windows-vm-support) le macchine virtuali Windows supportate.
-    - [Verificare](support-matrix-move-region-azure-vm.md#linux-vm-support) le macchine virtuali Linux e le versioni del kernel supportate.
-    - Controllare le impostazioni di [calcolo](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [archiviazione](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) e [rete](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) supportate.
-2. Controllare che le macchine virtuali da spostare siano accese.
-3. Assicurarsi che per le macchine virtuali siano disponibili i certificati radice trusted più recenti e un elenco di revoche di certificati aggiornato. Per eseguire questa operazione:
+1. Dopo aver verificato che le macchine virtuali soddisfino i requisiti, assicurarsi che le macchine virtuali che si desidera spostare siano attivate. Tutti i dischi delle macchine virtuali che si desidera siano disponibili nell'area di destinazione devono essere collegati e inizializzati nella macchina virtuale.
+1. Assicurarsi che per le macchine virtuali siano disponibili i certificati radice trusted più recenti e un elenco di revoche di certificati aggiornato. Per eseguire questa operazione:
     - Nelle macchine virtuali Windows installare gli ultimi aggiornamenti di Windows.
     - Nelle macchine virtuali Linux seguire le indicazioni fornite dal distributore in modo nelle macchine siano disponibili i certificati e l'elenco di revoche di certificati più recenti. 
-4. Consentire la connettività in uscita dalle macchine virtuali:
+1. Consentire la connettività in uscita dalle macchine virtuali:
     - Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, consentire l'accesso a questi [URL](support-matrix-move-region-azure-vm.md#url-access)
     - Se si usano le regole del gruppo di sicurezza di rete per controllare la connettività in uscita, creare queste [regole del tag di servizio](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -85,12 +78,12 @@ Selezionare le risorse da spostare.
     ![Pagina per la selezione dell'area di origine e di destinazione](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. In **Risorse da spostare** fare clic su **Selezionare le risorse**.
-7. In **Selezionare le risorse** selezionare la macchina virtuale. È possibile aggiungere solo le [risorse supportate per lo spostamento](#check-vm-requirements). Fare quindi clic su **Done**.
+7. In **Selezionare le risorse** selezionare la macchina virtuale. È possibile aggiungere solo le [risorse supportate per lo spostamento](#prepare-vms). Fare quindi clic su **Done**.
 
     ![Pagina per selezionare le macchine virtuali da spostare](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  In **Risorse da spostare** fare clic su **Avanti**.
-9. In **Rivedi e aggiungi** verificare le impostazioni relative a origine e destinazione. 
+9. In verifica verificare le impostazioni di origine **e di destinazione**. 
 
     ![Pagina per rivedere le impostazioni e procedere allo spostamento](./media/tutorial-move-region-virtual-machines/review.png)
 10. Per iniziare ad aggiungere le risorse, fare clic su **Continua**.
@@ -99,25 +92,27 @@ Selezionare le risorse da spostare.
 
 > [!NOTE]
 > - Le risorse aggiunte si trovano nello stato *Preparazione in sospeso*.
+> - Il gruppo di risorse per le VM viene aggiunto automaticamente.
 > - Il metodo per rimuovere una risorsa da una raccolta di spostamento dipende da punto in cui ci si trova nel processo di spostamento. [Altre informazioni](remove-move-resources.md)
 
 ## <a name="resolve-dependencies"></a>Risolvere gli errori relativi alle risorse di Azure non trovate
 
 1. Se per le risorse viene visualizzato un messaggio *Convalida dipendenze* nella colonna **Problemi**, fare clic sul pulsante **Convalida dipendenze**. Viene avviato il processo di convalida.
 2. Se vengono trovate dipendenze, fare clic su **Aggiungi dipendenze**. 
-3. In **Aggiungi dipendenze** selezionare le risorse dipendenti > **Aggiungi dipendenze**. Monitorare lo stato di avanzamento nelle notifiche.
+3. In **Aggiungi dipendenze** lasciare l'opzione predefinita **Mostra tutte le dipendenze** .
+
+    - Mostra tutte le dipendenze esegue l'iterazione in tutte le dipendenze dirette e indirette per una risorsa. Per una macchina virtuale, ad esempio, vengono visualizzati la scheda NIC, la rete virtuale, i gruppi di sicurezza di rete (gruppi) e così via.
+    - Mostra dipendenze di primo livello Mostra solo le dipendenze dirette. Per una macchina virtuale, ad esempio, viene visualizzata la scheda di interfaccia di rete, ma non la rete virtuale.
+
+
+4. Selezionare le risorse dipendenti che si desidera aggiungere > **Aggiungi dipendenze**. Monitorare lo stato di avanzamento nelle notifiche.
 
     ![Aggiungere le dipendenze](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. Se necessario, aggiungere altre dipendenze e convalidare di nuovo le dipendenze. 
+4. Convalidare di nuovo le dipendenze. 
     ![Pagina per aggiungere altre dipendenze](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. Nella pagina **Tra aree** verificare che le risorse si trovino ora in uno stato *Preparazione in sospeso* e che non vengano segnalati problemi.
 
-    ![Pagina che mostra le risorse nello stato Preparazione in sospeso](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> Se si vogliono modificare le impostazioni relative alla destinazione prima di avviare lo spostamento, selezionare il collegamento nella colonna **Configurazione della destinazione** per la risorsa e modificare le impostazioni. Se si modificano le impostazioni della macchina virtuale di destinazione, le dimensioni della macchina virtuale di destinazione non devono essere inferiori a quelle della macchina virtuale di origine.  
 
 ## <a name="move-the-source-resource-group"></a>Spostare il gruppo di risorse di origine 
 
@@ -158,9 +153,17 @@ Per eseguire il commit e terminare il processo di spostamento:
 
 ## <a name="prepare-resources-to-move"></a>Preparare le risorse da spostare
 
+Ora che il gruppo di risorse di origine è stato spostato, è possibile prepararsi per spostare altre risorse che si trovano nello stato di *preparazione in sospeso* .
+
+1. In **aree diverse** verificare che le risorse siano ora in stato di *preparazione in sospeso* , senza problemi. In caso contrario, eseguire di nuovo la convalida e risolvere eventuali problemi in sospeso.
+
+    ![Pagina che mostra le risorse nello stato Preparazione in sospeso](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. Se si vogliono modificare le impostazioni relative alla destinazione prima di avviare lo spostamento, selezionare il collegamento nella colonna **Configurazione della destinazione** per la risorsa e modificare le impostazioni. Se si modificano le impostazioni della macchina virtuale di destinazione, le dimensioni della macchina virtuale di destinazione non devono essere inferiori a quelle della macchina virtuale di origine.  
+
 Dopo aver spostato il gruppo di risorse di origine è possibile preparare lo spostamento delle altre risorse.
 
-1. In **Tra aree** selezionare le risorse da preparare. 
+3. Selezionare le risorse da preparare. 
 
     ![Pagina per selezionare le altre risorse da preparare](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 

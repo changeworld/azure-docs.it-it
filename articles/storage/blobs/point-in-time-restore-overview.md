@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803868"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980516"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
@@ -32,6 +32,10 @@ Per abilitare il ripristino temporizzato, è necessario creare un criterio di ge
 Per avviare un ripristino temporizzato, chiamare l'operazione [Restore Ranges BLOB](/rest/api/storagerp/storageaccounts/restoreblobranges) e specificare un punto di ripristino in ora UTC. È possibile specificare gli intervalli di lessicografico di nomi di contenitori e BLOB da ripristinare oppure omettere l'intervallo per ripristinare tutti i contenitori nell'account di archiviazione. Sono supportati fino a 10 intervalli di lessicografico per ogni operazione di ripristino.
 
 Archiviazione di Azure analizza tutte le modifiche apportate ai BLOB specificati tra il punto di ripristino richiesto, specificato nell'ora UTC e il momento attuale. L'operazione di ripristino è atomica, quindi riesce completamente a ripristinare tutte le modifiche. in caso contrario, l'operazione avrà esito negativo. Se sono presenti BLOB che non possono essere ripristinati, l'operazione ha esito negativo e le operazioni di lettura e scrittura nei contenitori interessati riprendono.
+
+Il diagramma seguente illustra il funzionamento del ripristino temporizzato. Uno o più contenitori o intervalli BLOB vengono ripristinati allo stato *n* giorni fa, dove *n* è minore o uguale al periodo di conservazione definito per il ripristino temporizzato. L'effetto è quello di ripristinare le operazioni di scrittura ed eliminazione che si sono verificate durante il periodo di memorizzazione.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagramma che illustra in che modo temporizzato Ripristina i contenitori a uno stato precedente":::
 
 È possibile eseguire una sola operazione di ripristino in un account di archiviazione alla volta. Un'operazione di ripristino non può essere annullata quando è in corso, ma è possibile eseguire una seconda operazione di ripristino per annullare la prima operazione.
 

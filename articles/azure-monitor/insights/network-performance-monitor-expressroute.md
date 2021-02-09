@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bb303fca4517f84ad8b430f26543e9f116fddc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326155"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833083"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
+
+> [!IMPORTANT]
+> A partire dall'1 luglio 2021, non sarà possibile aggiungere nuovi test in un'area di lavoro esistente o abilitare una nuova area di lavoro in Monitoraggio prestazioni rete. È possibile continuare a usare i test creati prima dell'1 luglio 2021. Per ridurre al minimo le rotture dei servizi nei carichi di lavoro correnti, [migrare i test da monitoraggio prestazioni rete al nuovo monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher prima del 29 febbraio 2024.
 
 È possibile usare la funzionalità Monitoraggio di ExpressRoute di Azure in [Monitoraggio prestazioni rete](network-performance-monitor.md) per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute. I vantaggi chiave sono: 
 
@@ -141,4 +144,3 @@ Monitoraggio prestazioni rete consente di diagnosticare diversi tipi di problemi
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](../log-query/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
-

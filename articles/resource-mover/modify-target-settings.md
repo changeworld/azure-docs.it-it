@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533056"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979624"
 ---
 # <a name="modify-target-settings"></a>Modificare le impostazioni di destinazione
 
@@ -36,16 +36,16 @@ Le impostazioni di configurazione che è possibile modificare sono riepilogate n
 
 **Risorsa** | **Opzioni** 
 --- | --- | --- 
-**Nome macchina virtuale** | Opzioni:<br/><br/> -Creare una nuova VM con lo stesso nome nell'area di destinazione.<br/><br/> -Creare una nuova macchina virtuale con un nome diverso nell'area di destinazione.<br/><br/> -Usare una macchina virtuale esistente nell'area di destinazione.<br/><br/> Se si crea una nuova macchina virtuale, ad eccezione delle impostazioni modificate, alla nuova VM di destinazione vengono assegnate le stesse impostazioni dell'origine.
-**Zona di disponibilità della macchina virtuale** | Zona di disponibilità in cui verrà inserita la macchina virtuale di destinazione. Questa operazione può essere contrassegnata come **na** se non si vuole modificare le impostazioni di origine o se non si vuole collocare la macchina virtuale in una zona di disponibilità.
+**Nome della VM.** | Opzioni:<br/><br/> -Creare una nuova VM con lo stesso nome nell'area di destinazione.<br/><br/> -Creare una nuova macchina virtuale con un nome diverso nell'area di destinazione.<br/><br/> -Usare una macchina virtuale esistente nell'area di destinazione.<br/><br/> Se si crea una nuova macchina virtuale, ad eccezione delle impostazioni modificate, alla nuova VM di destinazione vengono assegnate le stesse impostazioni dell'origine.
+**Zona di disponibilità della macchina virtuale** | Zona di disponibilità in cui verrà inserita la macchina virtuale di destinazione. Selezionare **non applicabile** se non si vuole modificare le impostazioni di origine o se non si vuole collocare la macchina virtuale in una zona di disponibilità.
 **SKU di VM** | Il [tipo di macchina virtuale](https://azure.microsoft.com/pricing/details/virtual-machines/series/) , disponibile nell'area di destinazione, che verrà usato per la macchina virtuale di destinazione.<br/><br/> La macchina virtuale di destinazione selezionata non deve essere inferiore alla VM di origine.
-**Risorse di rete** | Opzioni per le reti virtuali (reti virtuali)/Network gruppi di sicurezza/interfacce di rete:<br/><br/> -Creare una nuova risorsa con lo stesso nome nell'area di destinazione.<br/><br/> -Creare una nuova risorsa con un nome diverso nell'area di destinazione.<br/><br/> -Usare una risorsa di rete esistente nell'area di destinazione.<br/><br/> Se si crea una nuova risorsa di destinazione, ad eccezione delle impostazioni modificate, vengono assegnate le stesse impostazioni della risorsa di origine.
-**Nome indirizzo IP pubblico** | Specificare il nome.
-**SKU indirizzo IP pubblico** | Specificare lo [SKU](../virtual-network/public-ip-addresses.md#sku).
-**Area indirizzi IP pubblici** | Specificare la [zona](../virtual-network/public-ip-addresses.md#standard) per gli indirizzi IP pubblici standard.<br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza** della zona.
-**Nome del servizio di bilanciamento del carico** | Specificare il nome.
-**SKU del servizio di bilanciamento del carico** | Basic o Standard. Si consiglia di usare standard.
-**Area del servizio di bilanciamento del carico** | Specificare una zona per il servizio di bilanciamento del carico. <br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza** della zona.
+* * Set di disponibilità VM | Set di disponibilità in cui verrà inserita la macchina virtuale di destinazione. Selezionare **non applicabile**  . non è necessario modificare le impostazioni di origine o se non si vuole inserire la VM in un set di disponibilità.
+**Insieme di credenziali delle chiavi VM** | Insieme di credenziali delle chiavi associato quando si Abilita crittografia dischi di Azure in una macchina virtuale.
+**Crittografia dischi impostata** | Il set di crittografia del disco associato se la macchina virtuale utilizza una chiave gestita dal cliente per la crittografia lato server.
+**Gruppo di risorse** | Il gruppo di risorse in cui verrà inserita la macchina virtuale di destinazione.
+**Risorse di rete** | Opzioni per le interfacce di rete, le reti virtuali (reti virtuali/) e i gruppi di sicurezza di rete/interfacce di rete:<br/><br/> -Creare una nuova risorsa con lo stesso nome nell'area di destinazione.<br/><br/> -Creare una nuova risorsa con un nome diverso nell'area di destinazione.<br/><br/> -Usare una risorsa di rete esistente nell'area di destinazione.<br/><br/> Se si crea una nuova risorsa di destinazione, ad eccezione delle impostazioni modificate, vengono assegnate le stesse impostazioni della risorsa di origine.
+**Nome dell'indirizzo IP pubblico, SKU e zona** | Specifica il nome, lo [SKU](../virtual-network/public-ip-addresses.md#sku)e la [zona](../virtual-network/public-ip-addresses.md#standard) per gli indirizzi IP pubblici standard.<br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza** della zona.
+* * Nome del servizio di bilanciamento del carico, SKU e zona * * | Specifica il nome, lo SKU (Basic o standard) e la zona per il servizio di bilanciamento del carico.<br/><br/> È consigliabile usare lo sKU standard.<br/><br/> Se si vuole che la zona sia ridondante, specificare come **ridondanza** della zona.
 **Dipendenze delle risorse** | Opzioni per ogni dipendenza:<br/><br/>-La risorsa usa risorse dipendenti dall'origine che si sposteranno nell'area di destinazione.<br/><br/> -La risorsa usa risorse dipendenti diverse che si trovano nell'area di destinazione. In questo caso, è possibile scegliere tra le risorse simili nell'area di destinazione.
 
 ### <a name="edit-vm-target-settings"></a>Modificare le impostazioni di destinazione della macchina virtuale
