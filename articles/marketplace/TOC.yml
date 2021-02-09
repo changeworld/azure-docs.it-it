@@ -299,6 +299,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Dashboard Recensioni e valutazioni
       href: partner-center-portal/ratings-reviews.md
+    - name: Rilevamento delle anomalie per la fatturazione a consumo
+      href: anomaly-detection.md
     - name: Domande frequenti su Analytics
       href: analytics-faq.md
 - name: Criteri e termini

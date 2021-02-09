@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2020
+ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920410"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988559"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurare le notifiche tramite posta elettronica per gli avvisi di sicurezza 
 
@@ -26,8 +26,8 @@ Gli avvisi di sicurezza devono essere inviati alle persone giuste dell'organizza
 
 Per definire le proprie preferenze per le notifiche tramite posta elettronica, la pagina di impostazioni **Notifiche tramite posta elettronica** del Centro sicurezza di Azure consente di scegliere:
 
-- **_Chi_ deve ricevere una notifica**: i messaggi di posta elettronica possono essere inviati a utenti selezionati o a chiunque abbia un ruolo di Azure specificato per una sottoscrizione. 
-- **_Cosa_ deve essere notificato**: modificare i livelli di gravità per cui il Centro sicurezza dovrà inviare notifiche.
+- ***Chi* deve ricevere una notifica**: i messaggi di posta elettronica possono essere inviati a utenti selezionati o a chiunque abbia un ruolo di Azure specificato per una sottoscrizione. 
+- ***Cosa* deve essere notificato**: modificare i livelli di gravità per cui il Centro sicurezza dovrà inviare notifiche.
 
 Per evitare un sovraccarico di avvisi, il Centro sicurezza limita il volume dei messaggi di posta elettronica in uscita. Per ogni sottoscrizione, il Centro sicurezza invia:
 
@@ -48,8 +48,7 @@ Per evitare un sovraccarico di avvisi, il Centro sicurezza limita il volume dei 
 |||
 
 
-## <a name="customize-the-security-alerts-email-notifications"></a>Personalizzare le notifiche tramite posta elettronica per gli avvisi di sicurezza<a name="email"></a>
-
+## <a name="customize-the-security-alerts-email-notifications-via-the-portal"></a>Personalizzare le notifiche di posta elettronica degli avvisi di sicurezza tramite il portale<a name="email"></a>
 È possibile inviare notifiche tramite posta elettronica a singoli utenti o a tutti quelli con ruoli specifici di Azure.
 
 1. Nell'area **Prezzi e impostazioni** del Centro sicurezza selezionare la sottoscrizione appropriata e quindi selezionare **Notifiche tramite posta elettronica**.
@@ -60,6 +59,28 @@ Per evitare un sovraccarico di avvisi, il Centro sicurezza limita il volume dei 
     - Immettere gli indirizzi di posta elettronica specifici separati da virgole. Non sono previsti limiti per il numero di indirizzi di posta elettronica che è possibile immettere.
 
 1. Per applicare le informazioni di contatto per la sicurezza nella sottoscrizione, selezionare **Salva**.
+
+## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Personalizzare le notifiche di posta elettronica degli avvisi tramite l'API
+È anche possibile gestire le notifiche tramite posta elettronica tramite l'API REST fornita. Per i dettagli completi, vedere la [documentazione dell'API SecurityContacts](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
+
+Questo è un corpo della richiesta di esempio per la richiesta PUT quando si crea una configurazione di contatto di sicurezza:
+
+```json
+{
+    "properties": {
+        "emails": admin@contoso.com;admin2@contoso.com,
+        "notificationsByRole": {
+            "state": "On",
+            "roles": ["AccountAdmin", "Owner"]
+        },
+        "alertNotifications": {
+            "state": "On",
+            "minimalSeverity": "High"
+        },
+        "phone": ""
+    }
+}
+```
 
 
 ## <a name="see-also"></a>Vedere anche

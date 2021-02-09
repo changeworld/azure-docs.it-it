@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3ce00c5182246513aaf3178118058826528619d2
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584265"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988910"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -186,7 +186,7 @@ Per poter testare l'app, è necessario un tenant di Azure AD. Per configurare l'
 
 In alternativa, un tenant Azure AD viene incluso in ogni sottoscrizione di Microsoft 365. Per configurare un ambiente di sviluppo Microsoft 365 gratuito, vedere [partecipare al programma Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
-Quando si dispone di un tenant, testare l'accesso Single Sign-on e il [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Quando si dispone di un tenant, testare l'accesso Single Sign-on e il [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **Per le applicazioni OIDC o giuramento**, [registrare l'applicazione](quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali in tipi di account supportati.
 

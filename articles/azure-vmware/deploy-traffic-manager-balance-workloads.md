@@ -2,13 +2,13 @@
 title: Distribuire Gestione traffico per il bilanciamento dei carichi di lavoro della soluzione VMware di Azure
 description: Informazioni su come integrare Gestione traffico con la soluzione VMware di Azure per bilanciare i carichi di lavoro delle applicazioni tra più endpoint in aree diverse.
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: 6dbd58f17e29b045bd654bee90b6390f608803ab
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/08/2021
+ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809735"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988595"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Distribuire Gestione traffico per il bilanciamento dei carichi di lavoro della soluzione VMware di Azure
 
@@ -97,8 +97,8 @@ I passaggi seguenti verificano la configurazione del segmento NSX-T nell'ambient
 
    - Nome profilo
    - Metodo di routing (usare [ponderato](../traffic-manager/traffic-manager-routing-methods.md)
-   - Sottoscrizione
-   - Gruppo di risorse
+   - Subscription
+   - Resource group
 
 ## <a name="add-external-endpoints-into-the-traffic-manager-profile"></a>Aggiungere endpoint esterni al profilo di gestione traffico
 
@@ -130,9 +130,9 @@ I passaggi seguenti verificano la configurazione del segmento NSX-T nell'ambient
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su:
+Ora che è stata analizzata l'integrazione di gestione traffico di Azure con la soluzione VMware di Azure, è possibile ottenere informazioni su:
 
-- [Uso di applicazione Azure gateway in una soluzione VMware di Azure](protect-azure-vmware-solution-with-application-gateway.md)
-- [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md)
-- [Combinazione dei servizi di bilanciamento del carico in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
-- [Misurazione delle prestazioni di gestione traffico](../traffic-manager/traffic-manager-performance-considerations.md)
+- [Uso di applicazione Azure gateway in una soluzione VMware di Azure](protect-azure-vmware-solution-with-application-gateway.md).
+- [Metodi di routing di gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
+- [Combinare i servizi di bilanciamento del carico in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- [Misurazione delle prestazioni di gestione traffico](../traffic-manager/traffic-manager-performance-considerations.md).

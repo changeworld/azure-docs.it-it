@@ -206,6 +206,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Distribuire l'app senza stato tramite GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Distribuire il controller dati di Azure Arc
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Configurare Azure Resource Manager (anteprima)
           items:
             - name: Connettersi tramite Azure PowerShell

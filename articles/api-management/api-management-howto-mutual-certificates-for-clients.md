@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099347"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988895"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Come proteggere le API usando l'autenticazione con certificati client in Gestione API
 
@@ -94,6 +94,18 @@ L'esempio seguente illustra come controllare l'identificazione personale di un c
 > [!TIP]
 > Il problema di deadlock del certificato client descritto in questo [articolo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) può manifestarsi in diversi modi, ad esempio le richieste bloccate, il risultato del `403 Forbidden` codice di stato dopo il timeout `context.Request.Certificate` è `null` . Questo problema in genere interessa `POST` e `PUT` richiede una lunghezza del contenuto di approssimativamente 60kb o superiore.
 > Per evitare che si verifichi questo problema, attivare l'impostazione "Negotiate client certificate" per i nomi host desiderati nel pannello "domini personalizzati", come illustrato nella prima immagine di questo documento. Questa funzionalità non è disponibile nel livello a consumo.
+
+## <a name="certificate-validation-in-self-hosted-gateway"></a>Convalida del certificato nel gateway self-hosted
+
+L'immagine del [gateway self-hosted](self-hosted-gateway-overview.md) di gestione API predefinita non supporta la convalida dei certificati server e client usando i [certificati radice della CA](api-management-howto-ca-certificates.md) caricati in un'istanza di gestione API. I client che presentano un certificato personalizzato al gateway self-hosted possono riscontrare risposte lente, perché la convalida dell'elenco di revoche di certificati (CRL) può richiedere molto tempo per il timeout sul gateway. 
+
+Come soluzione alternativa quando si esegue il gateway, è possibile configurare l'indirizzo IP PKI in modo che punti all'indirizzo localhost (127.0.0.1) invece che all'istanza di gestione API. In questo modo, la convalida CRL ha esito negativo rapidamente quando il gateway tenta di convalidare il certificato client. Per configurare il gateway, aggiungere una voce DNS per l'istanza di gestione API da risolvere in localhost nel `/etc/hosts` file nel contenitore. È possibile aggiungere questa voce durante la distribuzione del gateway:
+ 
+* Per la distribuzione di Docker: aggiungere il `--add-host <hostname>:127.0.0.1` parametro al `docker run` comando. Per altre informazioni, vedere [aggiungere voci al file host contenitore](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
+ 
+* Per la distribuzione di Kubernetes: aggiungere una `hostAliases` specifica al `myGateway.yaml` file di configurazione. Per altre informazioni, vedere [aggiunta di voci a Pod (host) con alias host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

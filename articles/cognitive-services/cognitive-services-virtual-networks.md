@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940046"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989082"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurare reti virtuali di Servizi cognitivi di Azure
 
@@ -59,7 +59,7 @@ Le reti virtuali (reti virtuali) sono supportate nelle [aree in cui sono disponi
 
 
 > [!NOTE]
-> Se si usa LUIS, il tag **CognitiveServicesManagement** consente solo di usare il servizio usando l'SDK o l'API REST. Per accedere e usare il portale LUIS da una rete virtuale, sarà necessario usare i tag seguenti:  
+> Se si usa LUIS o servizi vocali, il tag **CognitiveServicesManagement** consente solo di usare il servizio usando l'SDK o l'API REST. Per accedere e usare il portale LUIS e/o speech studio da una rete virtuale, sarà necessario usare i tag seguenti:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -157,7 +157,7 @@ Per impostazione predefinita, le risorse di servizi cognitivi accettano connessi
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>Concedere l'accesso da una rete virtuale
 
@@ -169,7 +169,7 @@ Ogni risorsa di servizi cognitivi supporta fino a 100 regole della rete virtuale
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per applicare una regola della rete virtuale a una risorsa di servizi cognitivi, l'utente deve disporre delle autorizzazioni appropriate per le subnet da aggiungere. L'autorizzazione necessaria è il ruolo predefinito _Contributor * o il ruolo *collaboratore Servizi cognitivi* . Le autorizzazioni necessarie possono essere aggiunte anche a definizioni di ruolo personalizzate.
+Per applicare una regola della rete virtuale a una risorsa di servizi cognitivi, l'utente deve disporre delle autorizzazioni appropriate per le subnet da aggiungere. L'autorizzazione necessaria è il ruolo predefinito *collaboratore* o il ruolo *collaboratore Servizi cognitivi* . Le autorizzazioni necessarie possono essere aggiunte anche a definizioni di ruolo personalizzate.
 
 La risorsa Servizi cognitivi e le reti virtuali a cui è stato concesso l'accesso possono trovarsi in sottoscrizioni diverse, incluse le sottoscrizioni che fanno parte di un tenant di Azure AD diverso.
 
@@ -325,10 +325,10 @@ La risorsa Servizi cognitivi e le reti virtuali a cui è stato concesso l'access
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su _ * Deny * * o che le regole di rete non abbiano effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concedere l'accesso da un intervallo IP di Internet
 
@@ -472,10 +472,10 @@ Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md) in locale
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su _ * Deny * * o che le regole di rete non abbiano effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
 ## <a name="use-private-endpoints"></a>Usare endpoint privati
 

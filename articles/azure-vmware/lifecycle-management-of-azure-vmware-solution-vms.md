@@ -2,13 +2,13 @@
 title: Gestione del ciclo di vita delle VM della soluzione VMware di Azure
 description: Informazioni su come gestire tutti gli aspetti del ciclo di vita delle macchine virtuali della soluzione VMware di Azure con Microsoft Azure strumenti nativi.
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/08/2021
+ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062897"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988528"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestione del ciclo di vita delle VM della soluzione VMware di Azure
 
@@ -110,3 +110,11 @@ Monitoraggio di Azure è una soluzione completa per la raccolta, l'analisi e la 
     - [Creare, visualizzare e gestire gli avvisi di log con monitoraggio di Azure](../azure-monitor/platform/alerts-log.md).
     - [Regole di azione](../azure-monitor/platform/alerts-action-rules.md) per impostare le azioni e le notifiche automatiche.
     - [Connettere Azure agli strumenti ITSM usando IT Service Management Connector](../azure-monitor/platform/itsmc-overview.md).
+    
+ ## <a name="next-steps"></a>Passaggi successivi
+
+Ora che è stato illustrato come usare gli strumenti nativi di Azure per gestire le macchine virtuali della soluzione VMware di Azure per tutto il ciclo di vita, è possibile avere informazioni su:
+
+- [Protezione delle macchine virtuali della soluzione VMware di Azure con il Centro sicurezza di Azure](azure-security-integration.md).
+- [Configurazione di server di backup di Azure per la soluzione VMware di Azure](set-up-backup-server-for-azure-vmware-solution.md).
+- [Integrazione della soluzione VMware di Azure in un'architettura Hub e spoke](concepts-hub-and-spoke.md).

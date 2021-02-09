@@ -3,15 +3,15 @@ title: Usare i riferimenti di Key Vault
 description: Informazioni su come configurare app Azure servizio e funzioni di Azure per l'uso di Azure Key Vault riferimenti. Rendere Key Vault segreti disponibili per il codice dell'applicazione.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b55aeb68d5fa740d34c8823f555f804be54895a7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205847"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988767"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
 
@@ -40,24 +40,24 @@ Un riferimento a Key Vault viene espresso nel formato `@Microsoft.KeyVault({refe
 > [!div class="mx-tdBreakAll"]
 > | Stringa di riferimento                                                            | Descrizione                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI del piano dati completo di un segreto in Key Vault, inclusa una versione, ad esempio, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** deve essere il nome della risorsa Key Vault. **SecretName** deve essere il nome del segreto di destinazione. **SecretVersion** deve essere la versione del segreto da usare. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI del piano dati completo di un segreto in Key Vault, includendo facoltativamente una versione, ad esempio, `https://myvault.vault.azure.net/secrets/mysecret/` o`https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | Il **nome dell'insieme di credenziali è obbligatorio** e deve essere il nome della risorsa key Vault. Il **segretoname** è obbligatorio e deve essere il nome del segreto di destinazione. **SecretVersion** è facoltativo, ma se presente indica la versione del segreto da usare. |
 
-> [!NOTE] 
-> Le versioni sono attualmente obbligatorie. Durante la rotazione dei segreti sarà necessario aggiornare la versione nella configurazione dell'applicazione.
 Un riferimento completo, ad esempio, avrebbe un aspetto simile al seguente:
 
-
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 In alternativa:
 
 ```
-@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
 
+## <a name="rotation"></a>Rotazione
+
+Se nella Guida di riferimento non è specificata una versione, l'app userà la versione più recente presente in Key Vault. Quando le versioni più recenti diventano disponibili, ad esempio con un evento di rotazione, l'app verrà aggiornata automaticamente e inizierà a usare la versione più recente nell'arco di un giorno. Eventuali modifiche di configurazione apportate all'app provocheranno un aggiornamento immediato alle versioni più recenti di tutti i segreti a cui si fa riferimento.
 
 ## <a name="source-application-settings-from-key-vault"></a>Impostazioni dell'applicazione di origine da Key Vault
 

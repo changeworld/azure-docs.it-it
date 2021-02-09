@@ -3,15 +3,15 @@ title: Gestire un cloud Confluent-soluzioni di partner Azure
 description: Questo articolo descrive la gestione di un cloud Confluent nel portale di Azure. Come configurare Single Sign-On, eliminare un'organizzazione Confluent e ottenere supporto.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253503"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989150"
 ---
 # <a name="manage-the-confluent-cloud-resource"></a>Gestire la risorsa cloud Confluent
 
@@ -66,13 +66,23 @@ Per inviare una richiesta di supporto a Confluent, contattare il [supporto tecni
 > [!NOTE]
 > Per la prima volta, è necessario reimpostare la password prima di accedere al portale di supporto di Confluent. Se non si dispone di un account con Cloud Confluent, inviare un messaggio di posta elettronica a `cloud-support@confluent.io` per ulteriore assistenza.
 
+Nel portale è possibile inviare una richiesta tramite la guida e il supporto tecnico di Azure oppure direttamente dall'istanza di Apache Kafka per il cloud Confluent in Azure.
+
+Per inviare una richiesta tramite la guida e il supporto tecnico di Azure:
+
+1. Selezionare **Guida e supporto**.
+1. Selezionare **Crea una richiesta di supporto**.
+1. Nel modulo selezionare **tecnico** per tipo di **problema**. Selezionare la propria sottoscrizione. Nell'elenco dei servizi selezionare **Fluent in Azure**.
+
+    :::image type="content" source="media/support-request-help.png" alt-text="Creare una richiesta di supporto dalla guida.":::
+
 Per inviare una richiesta dalla risorsa, seguire questa procedura:
 
 1. Nella portale di Azure selezionare l'organizzazione più Fluent.
 1. Dal menu sul lato sinistro della schermata selezionare **nuova richiesta di supporto**.
 1. Per creare una richiesta di supporto, selezionare il collegamento al **portale Confluent**.
 
-    :::image type="content" source="media/support-request.png" alt-text="Creare una richiesta di supporto.":::
+    :::image type="content" source="media/support-request.png" alt-text="Creare una richiesta di supporto dall'istanza di.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

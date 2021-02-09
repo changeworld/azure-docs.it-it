@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232973"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989086"
 ---
 # <a name="self-hosted-gateway-overview"></a>Panoramica del gateway self-hosted
 
@@ -43,13 +43,13 @@ La distribuzione di gateway indipendenti negli stessi ambienti in cui sono ospit
 
 ## <a name="packaging-and-features"></a>Creazione di pacchetti e funzionalità
 
-Il gateway self-hosted è una versione in contenitori, equivalente dal punto di vista funzionale, del gateway gestito distribuito in Azure come parte di ogni servizio gestione API. Il gateway self-hosted è disponibile come [contenitore](https://aka.ms/apim/sputnik/dhub) Docker basato su Linux da Microsoft container Registry. Può essere distribuito in Docker, Kubernetes o qualsiasi altra soluzione di orchestrazione dei contenitori in esecuzione in un cluster di server in locale, in un'infrastruttura cloud o a scopo di valutazione e sviluppo, in una personal computer.
+Il gateway self-hosted è una versione in contenitori equivalente dal punto di vista funzionale del gateway gestito distribuito in Azure come parte di ogni servizio gestione API. Il gateway self-hosted è disponibile come [contenitore](https://aka.ms/apim/sputnik/dhub) Docker basato su Linux da Microsoft container Registry. Può essere distribuito in Docker, Kubernetes o qualsiasi altra soluzione di orchestrazione dei contenitori in esecuzione in un cluster di server in locale, in un'infrastruttura cloud o a scopo di valutazione e sviluppo, in una personal computer.
 
 Le funzionalità seguenti trovate nei gateway gestiti **non sono disponibili** nei gateway self-hosted:
 
 - Log di Monitoraggio di Azure
 - Upstream (lato back-end) versione TLS e Gestione crittografia
-- Convalida dei certificati server e client usando i [certificati radice dell'autorità di certificazione](api-management-howto-ca-certificates.md) caricati nel servizio gestione API. Per aggiungere il supporto per la CA personalizzata, aggiungere un livello all'immagine del contenitore del gateway self-hosted che installa il certificato radice della CA.
+- Convalida dei certificati server e client usando i [certificati radice dell'autorità di certificazione](api-management-howto-ca-certificates.md) caricati nel servizio gestione API. Per altre informazioni, vedere [convalida del certificato nel gateway self-hosted](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Integrazione con il [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - Ripresa della sessione TLS
 - Rinegoziazione del certificato client. Ciò significa che per l' [autenticazione del certificato client](api-management-howto-mutual-certificates-for-clients.md) ai consumer dell'API di lavoro devono essere presenti i certificati come parte dell'handshake TLS iniziale. Per assicurarsi che, abilitare l'impostazione Negotiate client certificate quando si configura un nome host personalizzato del gateway self-hosted.

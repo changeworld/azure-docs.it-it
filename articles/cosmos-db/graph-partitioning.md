@@ -8,19 +8,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91516c9815cfd71ffb59c399ea6580c6e28d8fce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4d76bdcb385ed2fe4b8a697f24187b8e3d5addbc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576465"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988747"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso di un grafo partizionato in Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Una delle funzionalità chiave dell'API Gremlin di Azure Cosmos DB è la possibilità di gestire grafi su vasta scala tramite la scalabilità orizzontale. I contenitori possono essere ridimensionati in modo indipendente sia a livello di archiviazione che di velocità effettiva. È possibile creare contenitori in Azure Cosmos DB che possono essere ridimensionati automaticamente per archiviare i dati di un grafo. I dati vengono bilanciati automaticamente in base alla **chiave di partizione** specificata.
 
-Il partizionamento viene eseguito internamente se si prevede che il contenitore memorizzi più di 20 GB di dimensioni o se si desidera allocare più di 10.000 unità richiesta al secondo (UR). I dati vengono partizionati automaticamente in base alla chiave di partizione specificata. La chiave di partizione è obbligatoria se si creano contenitori Graph dal portale di Azure o dalle versioni 3. x o successive dei driver Gremlin. La chiave di partizione non è necessaria se si usa 2. x o versioni precedenti dei driver Gremlin. 
+Il partizionamento viene eseguito internamente se si prevede che il contenitore memorizzi più di 20 GB di dimensioni o se si desidera allocare più di 10.000 unità richiesta al secondo (UR). I dati vengono partizionati automaticamente in base alla chiave di partizione specificata. La chiave di partizione è obbligatoria se si creano contenitori Graph dal portale di Azure o dalle versioni 3. x o successive dei driver Gremlin. La chiave di partizione non è necessaria se si usa 2. x o versioni precedenti dei driver Gremlin.
 
 Gli stessi principi generali del [meccanismo di partizionamento Azure Cosmos DB](partitioning-overview.md) si applicano con alcune ottimizzazioni specifiche del grafo descritte di seguito.
 

@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da71db47e396ee1d699cbc72dd51b5c7f9b1a12
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2c835ddcee332499ef7853d0d2fa4fcdbcf8a1cf
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091463"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988865"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -48,7 +48,7 @@ Questa pagina viene aggiornata ogni mese, si consiglia pertanto di consultarla r
 
 In passato, il campo token segreto poteva rimanere vuoto durante la configurazione del provisioning nell'applicazione personalizzata/BYOA. Questa funzione è stata progettata per essere utilizzata esclusivamente per i test. L'interfaccia utente verrà aggiornata in modo da rendere obbligatorio il campo. 
 
-I clienti possono ovviare a questo requisito a scopo di test usando un flag di funzionalità nell'URL del browser. [Altre informazioni](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery)
+I clienti possono ovviare a questo requisito a scopo di test usando un flag di funzionalità nell'URL del browser. [Altre informazioni](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery)
  
 ---
 
