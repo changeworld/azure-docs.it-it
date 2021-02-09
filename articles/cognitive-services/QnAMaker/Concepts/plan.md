@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222866"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987987"
 ---
 # <a name="plan-your-qna-maker-app"></a>Pianificare l'app QnA Maker
 
@@ -124,17 +124,17 @@ Il flusso di conversazione inizia in genere con una formula di saluto da un uten
 
 I collaboratori possono essere altri sviluppatori che condividono lo stack di sviluppo completo dell'applicazione Knowledge base oppure possono essere limitati alla semplice creazione della Knowledge base.
 
-La creazione della Knowledge base supporta diverse [autorizzazioni di accesso in base al ruolo](../reference-role-based-access-control.md) che si applicano al portale di Azure per limitare l'ambito delle capacità di un collaboratore.
+La creazione della Knowledge base supporta diverse autorizzazioni di accesso in base al ruolo che si applicano al portale di Azure per limitare l'ambito delle capacità di un collaboratore.
 
 ## <a name="integration-with-client-applications"></a>Integrazione con le applicazioni client
 
-L'integrazione con [le applicazioni client](../index.yml) viene eseguita inviando una query all'endpoint del runtime di stima. Una query viene inviata alla Knowledge base specifica con un SDK o una richiesta basata su REST all'endpoint dell'app Web del QnA Maker.
+L'integrazione con le applicazioni client viene eseguita inviando una query all'endpoint del runtime di stima. Una query viene inviata alla Knowledge base specifica con un SDK o una richiesta basata su REST all'endpoint dell'app Web del QnA Maker.
 
 Per autenticare correttamente una richiesta client, è necessario che l'applicazione client invii le credenziali corrette e l'ID Knowledge base. Se si usa un servizio Azure bot, configurare queste impostazioni come parte della configurazione di bot nel portale di Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Flusso di conversazione in un'applicazione client
 
-Il flusso di conversazione in un' [applicazione client](../index.yml), ad esempio un bot di Azure, potrebbe richiedere funzionalità prima e dopo l'interazione con la Knowledge base.
+Il flusso di conversazione in un'applicazione client, ad esempio un bot di Azure, potrebbe richiedere funzionalità prima e dopo l'interazione con la Knowledge base.
 
 L'applicazione client supporta il flusso di conversazioni, fornendo metodi alternativi per gestire le richieste di completamento o includere Chit-Chit? In tal caso, progettare questi dati in anticipo e assicurarsi che la query dell'applicazione client venga gestita correttamente da un altro servizio o quando viene inviata alla Knowledge base.
 
@@ -148,7 +148,7 @@ In uno scenario di [architettura condivisa](../choose-natural-language-processin
 
 ### <a name="active-learning-from-a-client-application"></a>Apprendimento attivo da un'applicazione client
 
-QnA Maker utilizza l' _apprendimento attivo_ per migliorare la Knowledge base suggerendo domande alternative a una risposta. L'applicazione client è responsabile di una parte di questo [apprendimento attivo](active-learning-suggestions.md). Tramite le richieste di conversazione, l'applicazione client può determinare che la Knowledge base ha restituito una risposta non utile per l'utente e può determinare una risposta migliore. L'applicazione client deve restituire [tali informazioni alla Knowledge base](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) per migliorare la qualità della stima.
+QnA Maker utilizza l' _apprendimento attivo_ per migliorare la Knowledge base suggerendo domande alternative a una risposta. L'applicazione client è responsabile di una parte di questo [apprendimento attivo](../How-To/use-active-learning.md). Tramite le richieste di conversazione, l'applicazione client può determinare che la Knowledge base ha restituito una risposta non utile per l'utente e può determinare una risposta migliore. L'applicazione client deve restituire tali informazioni alla Knowledge base per migliorare la qualità della stima.
 
 ### <a name="providing-a-default-answer"></a>Fornire una risposta predefinita
 
@@ -208,16 +208,16 @@ Il [ciclo](development-lifecycle-knowledge-base.md) di vita di sviluppo di una K
 
 ### <a name="knowledge-base-development-of-qna-maker-pairs"></a>Sviluppo di coppie di QnA Maker della Knowledge base
 
-Le [coppie di QnA](question-answer-set.md) devono essere progettate e sviluppate in base all'utilizzo dell'applicazione client.
+Le coppie di QnA devono essere progettate e sviluppate in base all'utilizzo dell'applicazione client.
 
 Ogni coppia può contenere:
 * Filtraggio dei metadati durante l'esecuzione di query per consentire di contrassegnare le coppie QnA con informazioni aggiuntive sull'origine, il contenuto, il formato e lo scopo dei dati.
 * Prompt di completamento: consente di determinare un percorso attraverso la Knowledge base, in modo che l'utente arrivi alla risposta corretta.
-* Domande alternative: importante per consentire alla ricerca di trovare la corrispondenza con la risposta da diverse forme della domanda. I suggerimenti per l' [apprendimento attivo](active-learning-suggestions.md) diventano domande alternative.
+* Domande alternative: importante per consentire alla ricerca di trovare la corrispondenza con la risposta da diverse forme della domanda. I suggerimenti per l' [apprendimento attivo](../How-To/use-active-learning.md) diventano domande alternative.
 
 ### <a name="devops-development"></a>Sviluppo DevOps
 
-Per lo sviluppo di una Knowledge base da inserire in una pipeline DevOps è necessario che la Knowledge base sia isolata durante i [test batch](../index.yml).
+Per lo sviluppo di una Knowledge base da inserire in una pipeline DevOps è necessario che la Knowledge base sia isolata durante i test batch.
 
 Una Knowledge base condivide l'indice ricerca cognitiva con tutte le altre Knowledge base nella risorsa QnA Maker. Mentre la Knowledge base è isolata dalla partizione, la condivisione dell'indice può causare una differenza nel punteggio rispetto alla Knowledge base pubblicata.
 

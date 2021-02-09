@@ -5,21 +5,17 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e4f0e229488093067b231a5c92334238ca216234
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 652489e8de68d61707fd419843f0dbb2ffd83754
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550556"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987942"
 ---
 # <a name="manage-qna-maker-app"></a>Gestisci app QnA Maker
 
 QnA Maker consente di collaborare con autori e editor di contenuto diversi offrendo una funzionalità per limitare l'accesso al collaboratore in base al ruolo del collaboratore.
 Scopri di più sui [concetti di autenticazione QnA Maker collaboratore](../Concepts/role-based-access-control.md).
-
-È inoltre possibile migliorare la qualità della Knowledge base suggerendo domande alternative tramite l' [apprendimento attivo](../Concepts/active-learning-suggestions.md). Gli invii degli utenti vengono presi in considerazione e visualizzati come suggerimenti nell'elenco domande alternative. È possibile aggiungere tali suggerimenti come domande alternative o rifiutarli.
-
-La knowledge base non viene modificata automaticamente. Per rendere effettive le modifiche, è necessario accettare i suggerimenti. Questi suggerimenti aggiungono domande, ma non modificano o rimuovono le domande esistenti.
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Aggiungere il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
 

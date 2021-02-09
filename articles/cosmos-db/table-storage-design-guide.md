@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 603c891e53e5712d489fcef8415e3db55328c9ad
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943893"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988423"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione delle tabelle per archiviazione tabelle di Azure: tabelle scalabili con prestazioni avanzate
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -632,7 +632,7 @@ Per questa opzione, usare le entità di indice che archiviano i dati seguenti:
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Screenshot che mostra l'entità Employee index contenente un elenco di ID dipendente per i dipendenti con il cognome archiviato in RowKey e PartitionKey.":::
 
-La `EmployeeIDs` proprietà contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in `RowKey` e `PartitionKey` .  
+La `EmployeeDetails` proprietà contiene un elenco di coppie di ID dipendente e nome reparto per i dipendenti con il cognome archiviato in `RowKey` .
 
 Non è possibile usare transazioni di gruppi di entità per mantenere la coerenza, in quanto le entità indice si trovano in una partizione separata rispetto alle entità dipendente. Verificare la coerenza finale tra le entità indice e le entità dipendente.  
 

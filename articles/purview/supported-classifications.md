@@ -6,17 +6,23 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
-ms.openlocfilehash: 7458b027add8be86d9491c674c2f1a0bc9fbc68c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 2/5/2021
+ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554241"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988315"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificazioni supportate in Azure competenza
 
 Questo articolo elenca le classificazioni di sistema supportate e definite in Azure (anteprima).
+
+
+- **Soglia di corrispondenza Distinct**: numero totale di valori di dati distinti che devono essere trovati in una colonna prima che lo scanner esegua il modello di dati. Per le regole di classificazione del sistema è necessario disporre di almeno 8 valori distinti in ogni colonna per sottoporli alla classificazione. Il sistema richiede questo valore per assicurarsi che la colonna contenga dati sufficienti affinché lo scanner lo classifichi in modo accurato. Una colonna contenente più righe che contengono tutti il valore 1, ad esempio, non sarà classificata. Anche le colonne che contengono una riga con un valore e il resto delle righe hanno valori null non vengono classificate. Se si specificano più modelli, questo valore viene applicato a ognuno di essi.
+
+- **Soglia di corrispondenza minima**: è la percentuale minima di corrispondenze del valore dei dati in una colonna che deve essere trovata dallo scanner per la classificazione da applicare. Il valore di classificazione del sistema è impostato su 60%.
+
 
 ## <a name="defined-system-classifications"></a>Classificazioni di sistema definite
 
@@ -157,12 +163,12 @@ nove lettere e cifre:
 - due cifre
 - cinque cifre o lettere (senza distinzione tra maiuscole e minuscole)
 
-OPPURE
+OR
 
 - da una a due lettere facoltative (senza distinzione tra maiuscole e minuscole)
 - da quattro a nove cifre
 
-OPPURE
+OR
 
 - nove cifre o lettere (senza distinzione tra maiuscole e minuscole)
 
@@ -274,7 +280,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## <a name="australia-medical-account-number"></a>Numero di account medico dell'Australia
+## <a name="australian-medicare-number"></a>Numero di Medicare australiano
 
 ### <a name="format"></a>Formato
 
@@ -291,7 +297,7 @@ Driver's Licenses#
 
 ### <a name="keywords"></a>Parole chiave
 
-#### <a name="keyword_australia_medical_account_number"></a>Keyword_Australia_Medical_Account_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
 
 ```
 bank account details
@@ -2831,7 +2837,7 @@ Hong Kong ID
 香港特別行政區非永久性居民身分証
 ```
 
-## <a name="ip-address"></a>indirizzo IP
+## <a name="ip-address"></a>Indirizzo IP
 
 ### <a name="format"></a>Formato
 
@@ -2964,7 +2970,7 @@ ad, ae, al, at, az, ba, be, bg, bh, ch, cr, cy, cz, de, dk, do, ee, es, fi, fo, 
 
 ### <a name="keywords"></a>Parole chiave
 
-Nessuno
+nessuno
 
 ## <a name="ireland-personal-public-service-pps-number"></a>Numero di servizio pubblico personale (PPS) dell'Irlanda
 
@@ -3953,7 +3959,7 @@ Questa entità del tipo di informazioni riservate è inclusa nel tipo di informa
 
 ### <a name="keywords"></a>Parole chiave
 
-Nessuno
+nessuno
 
 ## <a name="sweden-national-id"></a>ID nazionale svedese
 
@@ -4321,7 +4327,7 @@ due possibili modelli:
 - sei cifre
 - ' A ',' B ',' c'o ' d'(come il prefisso, sono consentiti solo determinati caratteri nel suffisso, senza distinzione tra maiuscole e minuscole)
 
-OPPURE
+OR
 
 - due lettere
 - uno spazio o un trattino

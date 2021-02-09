@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: cb6d0ee9c651ca1dcc554f5951a5733727af2d6b
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954107"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988015"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborare con altri autori ed editor
 
@@ -46,7 +46,7 @@ Se si intende chiamare le [API di creazione](../index.yml), vedere altre informa
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Eseguire l'autenticazione tramite il portale di QnA Maker
 
-Se si crea e si collabora usando il portale di QnA Maker, dopo aver [aggiunto il ruolo appropriato alla risorsa per un collaboratore](../index.yml), il portale di QnA Maker gestisce tutte le autorizzazioni di accesso.
+Se si crea e si collabora usando il portale di QnA Maker, dopo aver aggiunto il ruolo appropriato alla risorsa per un collaboratore, il portale di QnA Maker gestisce tutte le autorizzazioni di accesso.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Eseguire l'autenticazione con QnA Maker API e SDK
 
@@ -54,4 +54,4 @@ Se si creano e collaborano usando le API, tramite REST o gli SDK, è necessario 
 
 ## <a name="next-step"></a>Passaggio successivo
 
-* Progettare una Knowledge base per le [lingue](../index.yml) e per [le applicazioni client](../index.yml)
+* Progettare una Knowledge base per le lingue e per le applicazioni client

@@ -794,6 +794,8 @@
         - name: Flusso metriche attive
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
+        - name: Report contratto di servizio
+          href: app/sla-report.md
         - name: Metriche
           items:
             - name: Metriche basate su log e preaggregate
@@ -1022,7 +1024,7 @@
               href: insights/vminsights-health-troubleshoot.md
         - name: Analizzare i dati con le query sui log
           href: insights/vminsights-log-search.md
-        - name: Monitorare le prestazioni
+        - name: Avvisi
           href: insights/vminsights-alerts.md
         - name: Monitorare le modifiche
           href: insights/vminsights-change-analysis.md

@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/1/2020
-ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 2/5/2021
+ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693452"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988372"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificazioni personalizzate in Azure competenza 
 
@@ -39,7 +39,7 @@ Per creare una classificazione personalizzata, procedere come segue:
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="Nuova classificazione" border="true":::
 
 Viene visualizzato il riquadro **Aggiungi nuova classificazione** , in cui è possibile assegnare un nome alla classificazione e una descrizione. È consigliabile usare una convenzione di spazi dei nomi, ad esempio `your company name.classification name` .
-Le classificazioni di sistema Microsoft sono raggruppate nello `MS.` spazio dei nomi riservato. Un esempio è **ms. Governo. Noi. \_ \_ numero di previdenza sociale**.
+Le classificazioni di sistema Microsoft sono raggruppate nello `MICROSOFT.` spazio dei nomi riservato. Un esempio è **Microsoft. Governo. Noi. \_ \_ numero di previdenza sociale**.
 
 Il nome della classificazione deve iniziare con una lettera seguita da una sequenza di lettere, numeri e punto (.) o caratteri di sottolineatura.
 Non sono consentiti spazi. Durante la digitazione, l'esperienza utente genera automaticamente un nome descrittivo. Questo nome descrittivo è ciò che gli utenti vedono quando lo si applica a un asset nel catalogo.

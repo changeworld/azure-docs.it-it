@@ -4,14 +4,14 @@ description: Eseguire il push e il pull degli artefatti Open Container Initiativ
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485004"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988227"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Eseguire il push e il pull di un artefatto OCI usando un registro contenitori di Azure
 
@@ -46,7 +46,7 @@ Per leggere la password da stdin, usare `--password-stdin` .
 
 [Accedere](/cli/azure/authenticate-azure-cli) all'interfaccia della riga di comando di Azure con l'identità per eseguire il push e il pull degli artefatti dal registro contenitori.
 
-Usare quindi il comando dell'interfaccia della riga di comando di Azure [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) per accedere al registro di sistema. Ad esempio, per eseguire l'autenticazione a un registro *denominato Registro di sistema:*
+Usare quindi il comando dell'interfaccia della riga di comando di Azure [AZ ACR login](/cli/azure/acr#az-acr-login) per accedere al registro di sistema. Ad esempio, per eseguire l'autenticazione a un registro *denominato Registro di sistema:*
 
 ```azurecli
 az login
@@ -61,12 +61,12 @@ az acr login --name myregistry
 Creare un file di testo in una directory di lavoro locale con un testo di esempio. Ad esempio, in una shell bash:
 
 ```bash
-echo "Here is an artifact!" > artifact.txt
+echo "Here is an artifact" > artifact.txt
 ```
 
 Usare il `oras push` comando per eseguire il push di questo file di testo nel registro. L'esempio seguente inserisce il file di testo di esempio nel `samples/artifact` repository. Il registro di sistema viene identificato con il nome completo del registro di sistema *MyRegistry.azurecr.io* (tutto in lettere minuscole). L'artefatto è contrassegnato `1.0` . Per impostazione predefinita, l'elemento ha un tipo non definito identificato dalla stringa del *tipo di supporto* che segue il nome del file `artifact.txt` . Vedere gli [artefatti OCI](https://github.com/opencontainers/artifacts) per altri tipi. 
 
-**Linux**
+**Linux o macOS**
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
@@ -137,7 +137,7 @@ Verificare che il pull sia stato eseguito correttamente:
 
 ```bash
 $ cat artifact.txt
-Here is an artifact!
+Here is an artifact
 ```
 
 ## <a name="remove-the-artifact-optional"></a>Rimuovere l'artefatto (facoltativo)
@@ -157,7 +157,7 @@ Il codice sorgente e i file binari per la compilazione di un'immagine del conten
 Ad esempio, creare un Dockerfile a una riga:
 
 ```bash
-echo "FROM hello-world" > hello-world.dockerfile
+echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
 ```
 
 Accedere al registro contenitori di destinazione.
@@ -170,14 +170,15 @@ az acr login --name myregistry
 Creare ed eseguire il push di un nuovo elemento OCI nel registro di sistema di destinazione usando il `oras push` comando. Questo esempio Mostra come impostare il tipo di supporto predefinito per l'artefatto.
 
 ```bash
-oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
 Eseguire il comando [AZ ACR Build](/cli/azure/acr#az-acr-build) per compilare l'immagine Hello-World usando il nuovo elemento come contesto di compilazione:
 
 ```azurecli
-az acr build --registry myregistry --file hello-world.dockerfile \
-  oci://myregistry.azurecr.io/hello-world:1.0
+az acr build --registry myregistry --image builds/hello-world:v1 \
+  --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/dockerfile:1.0
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

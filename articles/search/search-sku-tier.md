@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693452"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987879"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -53,14 +53,15 @@ Per ulteriori informazioni sui vari [livelli, vedere l'articolo](https://azure.m
 
 La maggior parte delle funzionalità sono disponibili in tutti i livelli, incluso il livello gratuito. In alcuni casi, il livello scelto influirà sulla capacità di implementare una funzionalità. La tabella seguente descrive i vincoli di funzionalità correlati al livello di servizio.
 
-| Feature | Limitazioni |
+| Funzionalità | Limitazioni |
 |---------|-------------|
 | [indicizzatori](search-indexer-overview.md) | Gli indicizzatori non sono disponibili in S3 HD.  |
 | [Arricchimento con intelligenza artificiale](search-security-manage-encryption-keys.md) | Viene eseguito sul livello gratuito, ma non consigliato. |
 | [Identità gestite o attendibili per l'accesso in uscita (indicizzatore)](search-howto-managed-identities-data-sources.md) | Non disponibile per il livello gratuito.|
 | [Chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) | Non disponibile per il livello gratuito. |
 | [Accesso al firewall IP](service-configure-firewall.md) | Non disponibile per il livello gratuito. |
-| [Endpoint privato (integrazione con collegamento privato di Azure)](service-create-private-endpoint.md) | Per le connessioni in ingresso a un servizio di ricerca, non disponibile nel livello gratuito. Per le connessioni in uscita da indicizzatori ad altre risorse di Azure, non disponibile in versione gratuita o S3 HD. Per gli indicizzatori che usano skillsets, non disponibile su gratuito, Basic, S1 o S3 HD.|
+| [Endpoint privato (integrazione con collegamento privato di Azure)](service-create-private-endpoint.md) | Per le connessioni in ingresso a un servizio di ricerca, non disponibile nel livello gratuito. Per le connessioni in uscita da indicizzatori ad altre risorse di Azure, non disponibile in versione gratuita o S3 HD. Per gli indicizzatori che usano skillsets, non disponibile su gratuito, Basic, S1 o S3 HD.| 
+| [Zone di disponibilità](search-performance-optimization.md) | Non disponibile per il livello gratuito e il livello Basic. |
 
 Le funzionalità a elevato utilizzo di risorse potrebbero non funzionare correttamente a meno che non si fornisca una capacità sufficiente. Ad esempio, l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che si timeout su un servizio gratuito, a meno che il set di dati non sia di piccole dimensioni.
 

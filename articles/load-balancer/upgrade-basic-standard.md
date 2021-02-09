@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3bf910d3309285c8b700c39af68fb90715f8863a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045394"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987711"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Aggiornare Load Balancer pubblico di Azure
 [Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](./skus.md#skus).
@@ -21,6 +21,9 @@ L'aggiornamento prevede due fasi:
 
 1. Modificare il metodo di allocazione IP da dinamico a statico.
 2. Eseguire lo script di PowerShell per completare l'aggiornamento e la migrazione del traffico.
+
+> [!IMPORTANT]
+> Lo script è attualmente in fase di manutenzione. È possibile fare riferimento alle istruzioni [qui](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) per aggiornare gli indirizzi IP pubblici dallo SKU Basic e dallo SKU standard.
 
 ## <a name="upgrade-overview"></a>Panoramica dell'aggiornamento
 

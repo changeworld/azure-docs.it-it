@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
-ms.translationtype: HT
+ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695215"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987790"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -98,6 +98,46 @@ Se si decide di consentire l'accesso agli IP del servizio, fare riferimento agli
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>Usare un server proxy HTTP per instradare il traffico
 
 Quando si esegue il backup di un database SAP HANA in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a Backup di Azure e i dati ad Archiviazione di Azure. L'estensione di backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Usare l'elenco di indirizzi IP e FQDN indicati in precedenza per consentire l'accesso ai servizi necessari. I server proxy autenticati non sono supportati.
+
+## <a name="understanding-backup-and-restore-throughput-performance"></a>Informazioni sulle prestazioni della velocità effettiva di backup e ripristino
+
+I backup (log e non log) in SAP HANA macchine virtuali di Azure fornite tramite Backint sono flussi agli insiemi di credenziali dei servizi di ripristino di Azure ed è quindi importante comprendere questa metodologia di streaming.
+
+Il componente Backint di HANA fornisce le "pipe" (una pipe da cui leggere e una pipe per la scrittura), connesse a dischi sottostanti in cui risiedono i file di database, che vengono quindi letti dal servizio backup di Azure e trasportati nell'insieme di credenziali di servizi di ripristino di Azure. Il servizio backup di Azure esegue anche un checksum per convalidare i flussi, oltre ai controlli di convalida nativi di backint. Queste convalide assicurano che i dati presenti nell'insieme di credenziali di servizi di ripristino di Azure siano effettivamente affidabili e recuperabili.
+
+Poiché i flussi riguardano principalmente i dischi, è necessario comprendere le prestazioni del disco per misurare le prestazioni di backup e ripristino. Vedere [questo articolo](https://docs.microsoft.com/azure/virtual-machines/disks-performance) per una conoscenza approfondita della velocità effettiva e delle prestazioni dei dischi nelle macchine virtuali di Azure. Queste sono valide anche per le prestazioni di backup e ripristino.
+
+**Il servizio backup di Azure tenta di ottenere fino a ~ 420 Mbps per i backup non di log (ad esempio, completo, differenziale e incrementale) e fino a 100 Mbps per i backup del log per Hana**. Come indicato in precedenza, le velocità non sono garantite e dipendono dai fattori seguenti:
+
+* Numero massimo di velocità effettiva del disco non memorizzato nella cache della macchina virtuale
+* Tipo di disco sottostante e relativa velocità effettiva
+* Il numero di processi che tentano di leggere e scrivere nello stesso disco nello stesso momento.
+
+> [!IMPORTANT]
+> Nelle VM più piccole, in cui la velocità effettiva del disco non memorizzata nella cache è molto vicina o inferiore a 400 MBps, si potrebbe temere che l'intero IOPS del disco venga utilizzato dal servizio di backup che può influire sulle operazioni di SAP HANA relative alla lettura/scrittura dai dischi. In tal caso, se si desidera limitare o limitare l'utilizzo del servizio di backup al limite massimo, è possibile fare riferimento alla sezione successiva.
+
+### <a name="limiting-backup-throughput-performance"></a>Limitazione delle prestazioni della velocità effettiva del backup
+
+Se si vuole limitare il consumo di IOPS del disco del servizio di backup a un valore massimo, seguire questa procedura.
+
+1. Vai alla cartella "opt/msawb/bin"
+2. Creare un nuovo file JSON denominato "ExtensionSettingOverrides.JSON"
+3. Aggiungere una coppia chiave-valore al file JSON come indicato di seguito:
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. Modificare le autorizzazioni e la proprietà del file come indicato di seguito:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. Non è necessario riavviare alcun servizio. Il servizio backup di Azure tenterà di limitare le prestazioni della velocità effettiva come indicato in questo file.
 
 ## <a name="what-the-pre-registration-script-does"></a>Funzionalità dello script di pre-registrazione
 
