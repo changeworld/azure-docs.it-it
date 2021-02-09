@@ -9,13 +9,13 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
-ms.date: 05/07/2019
-ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/08/2021
+ms.openlocfilehash: 7d5f40be895aea26a234d9ae622aa5bf22528231
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788282"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981443"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurare l'endpoint pubblico nell'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -101,7 +101,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Destinazione**     |Qualsiasi         |Uscita da destinazione per consentire il traffico nella subnet dell'istanza gestita |
     |**Intervalli di porte di destinazione**     |3342         |Porta di destinazione dell'ambito su 3342, ovvero l'endpoint TDS pubblico dell'istanza gestita |
     |**Protocollo**     |TCP         |SQL Istanza gestita usa il protocollo TCP per TDS |
-    |**Azione**     |Consenti         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
+    |**Azione**     |Allow         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
     |**Priorità**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola di **deny_all_inbound** |
 
     ![Screenshot Visualizza le regole di sicurezza in ingresso con la nuova regola di public_endpoint_inbound al di sopra della regola di deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Recupero della stringa di connessione dell'endpoint pubblico dell'istanza gestita
 
 1. Passare alla pagina di configurazione dell'istanza gestita abilitata per l'endpoint pubblico. Selezionare la scheda **stringhe di connessione** nella configurazione **Impostazioni** .
-1. Si noti che il nome host dell'endpoint pubblico è nel formato <mi_name>. **public** . <dns_zone>. database.Windows.NET e che la porta usata per la connessione è 3342.
+1. Si noti che il nome host dell'endpoint pubblico è nel formato <mi_name>. **public**. <dns_zone>. database.Windows.NET e che la porta usata per la connessione è 3342. Di seguito è riportato un esempio di un valore del server della stringa di connessione che indica la porta dell'endpoint pubblico che può essere utilizzata nelle connessioni SQL Server Management Studio o Azure Data Studio: `<mi_name>.public.<dns_zone>.database.windows.net,3342`
 
     ![Screenshot mostra le stringhe di connessione per gli endpoint pubblici e privati.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

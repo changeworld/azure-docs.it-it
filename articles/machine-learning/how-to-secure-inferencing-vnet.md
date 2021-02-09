@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 4dfe2130d8274e2b3463c0fb42587b50fef77f18
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953734"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981307"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di Azure Machine Learning inferenza con reti virtuali
 
@@ -257,7 +257,7 @@ Le Istanze di Azure Container vengono create dinamicamente quando si distribuisc
 > * Nello stesso gruppo di risorse dell'area di lavoro Azure Machine Learning.
 > * Se l'area di lavoro ha un __endpoint privato__, la rete virtuale usata per le istanze di contenitore di Azure deve corrispondere a quella usata dall'endpoint privato dell'area di lavoro.
 >
-> Quando si usano istanze di contenitore di Azure all'interno della rete virtuale, il Container Registry di Azure (ACR) per l'area di lavoro non può trovarsi anche nella rete virtuale.
+> Quando si usano istanze di contenitore di Azure nella rete virtuale, il Container Registry di Azure (ACR) per l'area di lavoro non può trovarsi nella rete virtuale.
 
 Per usare Istanze di Azure Container all'area di lavoro, seguire questa procedura:
 

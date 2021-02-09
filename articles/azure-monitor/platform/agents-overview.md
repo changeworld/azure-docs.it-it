@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: d1350248e3819863a30ecf21ff68bb7b9488b6ef
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 33758391b3715dae3928812a38ac2ee4e1baffb6
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232931"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981426"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -35,7 +35,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | | Agente di Monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (WAD) | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|
 | **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Azure Arc)  | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
-| **Requisiti dell'agente**  | Nessuno | Nessuno | Nessuno | Richiede Log Analytics Agent |
+| **Requisiti dell'agente**  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | Log eventi<br>Prestazioni | Log eventi<br>eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Metriche di Monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
 | **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
@@ -45,7 +45,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | | Agente di Monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|:---|
 | **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Azure Arc) | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
-| **Requisiti dell'agente**  | Nessuno | Nessuno | Nessuno | Nessuno | Richiede Log Analytics Agent |
+| **Requisiti dell'agente**  | nessuno | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | syslog<br>Prestazioni | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Hub eventi | Metriche di Monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
 | **Servizi e**<br>**funzionalità**<br>**supportato** | Log Analytics<br>Esplora metriche | | Esplora metriche | Monitoraggio di Azure per le macchine virtuali<br>Log Analytics<br>Automazione di Azure<br>Centro sicurezza di Azure<br>Azure Sentinel | Monitoraggio di Azure per le macchine virtuali<br>Elenco dei servizi |
@@ -145,6 +145,7 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 | Windows Server 2016 Core                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
 | Windows 10 Enterprise<br>(incluse la funzionalità multisessione) e Pro<br>(Solo scenari server)  | X | X | X | X |
 | Windows 8 Enterprise e Pro<br>(Solo scenari server)  |   | X | X |   |
@@ -154,31 +155,36 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 
 | Sistema operativo | Agente di Monitoraggio di Azure | Agente di Log Analytics | Dependency Agent | Estensione di Diagnostica | 
 |:---|:---:|:---:|:---:|:---:
-| Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X | X |   |
-| CentOS Linux 7                                           | X | X | X | X |
-| CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5 +                                        |   | X | X | X |
-| Debian 9                                                 | X | X | x | X |
-| Debian 8                                                 |   | X | X |   |
-| Debian 7                                                 |   |   |   | X |
-| OpenSUSE 13.1+                                           |   |   |   | X |
-| Oracle Linux 8                                           |   | X |   |   |
-| Oracle Linux 7                                           | X | X |   | X |
-| Oracle Linux 6                                           |   | X |   |   |
-| Oracle Linux 6.4+                                        |   | X |   | X |
-| Red Hat Enterprise Linux Server 8                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 7                        | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 6.7 +                     |   | X | X | X |
-| SUSE Linux Enterprise Server 15,1                        |   | X |   |   |
-| SUSE Linux Enterprise Server 15                          | X | X | X |   |
-| SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X | X |   |
-| Ubuntu 18.04 LTS                                         | X | X | X | X |
-| Ubuntu 16.04 LTS                                         | X | X | X | X |
-| Ubuntu 14,04 LTS                                         |   | X |   | X |
+| Amazon Linux 2017.09                                        |   | X |   |   |
+| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 7                                              | X | X | X | X |
+| CentOS Linux 6                                              |   | X |   |   |
+| CentOS Linux 6.5 +                                           |   | X | X | X |
+| Debian 10 <sup>1</sup>                                      | X |   |   |   |
+| Debian 9                                                    | X | X | x | X |
+| Debian 8                                                    |   | X | X |   |
+| Debian 7                                                    |   |   |   | X |
+| OpenSUSE 13.1+                                              |   |   |   | X |
+| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 7                                              | X | X |   | X |
+| Oracle Linux 6                                              |   | X |   |   |
+| Oracle Linux 6.4+                                           |   | X |   | X |
+| Server Red Hat Enterprise Linux 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X | X |   |
+| Red Hat Enterprise Linux Server 6.7 +                        |   | X | X | X |
+| SUSE Linux Enterprise Server 15,2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
+| SUSE Linux Enterprise Server 15,1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15                             | X | X | X |   |
+| SUSE Linux Enterprise Server 12                             | X | X | X | X |
+| Ubuntu 20,04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 18.04 LTS                                            | X | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X | X |
+| Ubuntu 14,04 LTS                                            |   | X |   | X |
 
+<sup>1</sup> richiede che Python 3 sia installato nel computer.
+
+<sup>2</sup> problema noto durante la raccolta di eventi syslog. Attualmente sono supportati solo i dati sulle prestazioni.
 #### <a name="dependency-agent-linux-kernel-support"></a>Supporto del kernel Linux di Dependency Agent
 
 Poiché Dependency Agent funziona a livello di kernel, il supporto dipende anche dalla versione del kernel. La tabella seguente elenca la versione principale e secondaria del sistema operativo Linux e le versioni del kernel supportate per Dependency Agent.

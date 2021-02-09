@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987372"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981511"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creare ed esplorare il set di dati di Azure Machine Learning con etichette
 
@@ -39,6 +39,9 @@ Quando si completa un progetto di etichettatura dei dati, è possibile esportare
 ### <a name="coco"></a>COCO 
 
  Il file COCO viene creato nell'archivio BLOB predefinito dell'area di lavoro di Azure Machine Learning in una cartella all'interno di *export/coco*. 
+ 
+>[!NOTE]
+>Nei progetti di rilevamento oggetti i valori esportati "Bbox": [x, y, Width, height] "nel file COCO vengono normalizzati. Vengono ridimensionati a 1. Esempio: un rettangolo di delimitazione in corrispondenza della posizione (10, 10), con larghezza di 30 pixel, 60 pixel di altezza, in un'immagine di pixel 640x480 verrà annotato come (0,015625). 0,02083, 0,046875, 0,125). Poiché i coordintes vengono normalizzati, verranno visualizzati come "0,0" come "width" e "height" per tutte le immagini. La larghezza e l'altezza effettive possono essere ottenute usando la libreria Python, ad esempio OpenCV o Pillow (PIL).
 
 ### <a name="azure-machine-learning-dataset"></a>Set di dati di Azure Machine Learning
 

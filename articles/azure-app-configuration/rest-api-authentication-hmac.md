@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932711"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981392"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticazione HMAC: informazioni di riferimento sull'API REST
 
@@ -22,7 +22,7 @@ ms.locfileid: "96932711"
 - **Credenziali** - \<Access Key ID\>
 - Valore della chiave di accesso con decodifica **Secret** -Base64. ``base64_decode(<Access Key Value>)``
 
-I valori per Credential (chiamato anche `id` ) e Secret (chiamato anche `value` ) devono essere ottenuti dall'istanza di app Azure configurazione. A tale scopo, è possibile usare l'interfaccia della riga di comando [portale di Azure](https://portal.azure.com) o [Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest).
+I valori per Credential (chiamato anche `id` ) e Secret (chiamato anche `value` ) devono essere ottenuti dall'istanza di app Azure configurazione. A tale scopo, è possibile usare l'interfaccia della riga di comando [portale di Azure](https://portal.azure.com) o [Azure](/cli/azure/).
 
 Fornire ogni richiesta con tutte le intestazioni HTTP necessarie per l'autenticazione. Il valore minimo richiesto è:
 

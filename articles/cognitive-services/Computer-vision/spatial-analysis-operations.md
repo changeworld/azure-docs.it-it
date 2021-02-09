@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: af220106c415165a0dbe7cda64a31a6068f53164
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226052"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981783"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
@@ -965,7 +965,7 @@ Per ottenere le migliori prestazioni e l'utilizzo delle GPU, è possibile distri
   ```
 | Nome | Tipo| Descrizione|
 |---------|---------|---------|
-| `batch_size` | INT | Indica il numero di fotocamere che verranno utilizzate nell'operazione. |
+| `batch_size` | INT | Se tutte le fotocamere hanno la stessa risoluzione, impostare sul `batch_size` numero di fotocamere che verranno usate in tale operazione. in caso contrario, impostare `batch_size` su 1 o lasciare il valore predefinito (1), che indica che non è supportato alcun batch. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
