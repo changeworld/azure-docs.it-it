@@ -4,14 +4,21 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: d803796792a3933cdf915214f15c56d146ecb49d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: HT
+ms.openlocfilehash: 43a8600a288a9797edcd326a1cb5dbcc8688d61f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511301"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834146"
 ---
 Questa esercitazione illustra come creare un'applicazione di un dispositivo Plug and Play IoT di esempio con componenti, connetterla all'hub IoT e usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate all'hub. L'applicazione di esempio è scritta per Node.js ed è inclusa in Azure IoT Hub Device SDK per Node.js. Un integratore di soluzioni può usare lo strumento Azure IoT Explorer per conoscere le funzionalità di un dispositivo Plug and Play IoT senza doverne visualizzare il codice.
+
+In questa esercitazione:
+
+> [!div class="checklist"]
+> * Scaricare il codice di esempio.
+> * Eseguire l'applicazione del dispositivo di esempio e convalidare la connessione all'hub Internet.
+> * Esaminare il codice sorgente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -120,5 +127,3 @@ Lasciare l'esempio in esecuzione mentre si completano i passaggi successivi.
 Dopo l'avvio dell'esempio client del dispositivo, usare lo strumento Azure IoT Explorer per verificarne il funzionamento.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

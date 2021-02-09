@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: cc35f9ee25511faec5723b49763cbdae8963e88b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820756"
+ms.locfileid: "99834392"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -44,7 +44,7 @@ Definendo elenchi di applicazioni sicure e generando avvisi quando viene eseguit
 - Impedisci un software specifico vietato dall'organizzazione
 - Aumentare la supervisione delle app che accedono ai dati sensibili
 
-Non sono disponibili opzioni di imposizione e nessuna è pianificata. I controlli delle applicazioni adattivi hanno lo scopo di fornire avvisi di sicurezza se un'applicazione viene eseguita oltre a quelle definite come sicure.
+Non sono attualmente disponibili opzioni di imposizione. I controlli delle applicazioni adattivi hanno lo scopo di fornire avvisi di sicurezza se un'applicazione viene eseguita oltre a quelle definite come sicure.
 
 ## <a name="availability"></a>Disponibilità
 
@@ -238,7 +238,7 @@ Di seguito sono riportate alcune delle funzioni disponibili nell'API REST:
 ## <a name="faq---adaptive-application-controls"></a>Domande frequenti-controlli applicazione adattivi
 
 ### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Sono disponibili opzioni per applicare i controlli dell'applicazione?
-Non sono disponibili opzioni di imposizione e nessuna è pianificata. I controlli delle applicazioni adattivi hanno lo scopo di fornire **avvisi di sicurezza** se un'applicazione viene eseguita oltre a quelle definite come sicure. Hanno una gamma di vantaggi ([quali sono i vantaggi dei controlli delle applicazioni adattivi?](#what-are-the-benefits-of-adaptive-application-controls)) e sono estremamente personalizzabili, come illustrato in questa pagina.
+Non sono attualmente disponibili opzioni di imposizione. I controlli delle applicazioni adattivi hanno lo scopo di fornire **avvisi di sicurezza** se un'applicazione viene eseguita oltre a quelle definite come sicure. Hanno una gamma di vantaggi ([quali sono i vantaggi dei controlli delle applicazioni adattivi?](#what-are-the-benefits-of-adaptive-application-controls)) e sono estremamente personalizzabili, come illustrato in questa pagina.
 
  
 
