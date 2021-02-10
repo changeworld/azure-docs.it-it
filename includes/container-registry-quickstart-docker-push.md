@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 6a16106495e584c9acbc02d380242df665f35ce5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 404fd10c3e3610671d2b6e5dbc6aba8bcaa70046
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020007"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100018983"
 ---
 ## <a name="push-image-to-registry"></a>Eseguire il push dell'immagine nel registro
 
-Per eseguire il push di un'immagine in Registro Azure Container è necessario innanzitutto disporre di un'immagine. Se non sono ancora disponibili immagini di contenitori locali, eseguire il comando [docker pull][docker-pull] seguente per eseguire il pull di un'immagine esistente da Docker Hub. Per questo esempio, eseguire il pull dell'immagine `hello-world`.
+Per eseguire il push di un'immagine in Registro Azure Container è necessario innanzitutto disporre di un'immagine. Se non sono ancora presenti immagini del contenitore locale, eseguire il comando seguente [Docker pull][docker-pull] per eseguire il pull di un'immagine pubblica esistente. Per questo esempio, estrarre l' `hello-world` immagine da Microsoft container Registry.
 
 ```
-docker pull hello-world
+docker pull mcr.microsoft.com/hello-world
 ```
 
 Prima di poter eseguire il push di un'immagine nel registro, è necessario contrassegnarla con il nome completo del server di accesso al registro. Il nome del server di accesso è in formato *\<registry-name\>.azurecr.io* (interamente in minuscolo), ad esempio *mycontainerregistry.azurecr.io*.
@@ -28,13 +28,13 @@ Prima di poter eseguire il push di un'immagine nel registro, è necessario contr
 Contrassegnare l'immagine usando il comando [docker tag][docker-tag]. Sostituire `<login-server>` con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
 ```
-docker tag hello-world <login-server>/hello-world:v1
+docker tag mcr.microsoft.com/hello-world <login-server>/hello-world:v1
 ```
 
 Esempio:
 
 ```
-docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+docker tag mcr.microsoft.com/hello-world mycontainerregistry.azurecr.io/hello-world:v1
 ```
 
 
