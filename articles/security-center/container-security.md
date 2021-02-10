@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: ea66bb5bcdd6132809804632919a120f5c93353f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132717"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007815"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza dei contenitori nel Centro sicurezza
 
@@ -70,11 +70,25 @@ Per monitorare i contenitori non gestiti ospitati in macchine virtuali IaaS Linu
 ### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Monitoraggio continuo dei cluster Kubernetes
 Il Centro sicurezza interagisce con Azure Kubernetes, il servizio Microsoft di orchestrazione dei contenitori gestiti per lo sviluppo, la distribuzione e la gestione di applicazioni in contenitori.
 
-Questo servizio fornisce controlli di sicurezza e visibilità sul comportamento di sicurezza dei cluster. Il Centro sicurezza usa queste funzionalità per:
-* Monitorare in modo costante la configurazione dei cluster del servizio Azure Kubernetes
-* Generare raccomandazioni sulla sicurezza in linea con gli standard del settore
+Questo servizio fornisce controlli di sicurezza e visibilità sul comportamento di sicurezza dei cluster. Il Centro sicurezza usa queste funzionalità per monitorare costantemente la configurazione dei cluster AKS e generare raccomandazioni di sicurezza allineate con gli standard del settore.
+
+Si tratta di un diagramma di alto livello dell'interazione tra il Centro sicurezza di Azure, il servizio Azure Kubernetes e i criteri di Azure:
+
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architettura generale dell'interazione tra il Centro sicurezza di Azure, il servizio Azure Kubernetes e Criteri di Azure" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+
+Come si può vedere, gli elementi ricevuti e analizzati dal Centro sicurezza includono:
+
+- log di controllo del server API
+- eventi di sicurezza non elaborati dall'agente di Log Analytics
+
+    > [!NOTE]
+    > Attualmente non è supportata l'installazione dell'agente di Log Analytics nei cluster di servizi Kubernetes di Azure in esecuzione nei set di scalabilità di macchine virtuali.
+
+- informazioni di configurazione del cluster dal cluster del servizio Azure Kubernetes
+- configurazione del carico di lavoro da criteri di Azure (tramite il **componente aggiuntivo criteri di Azure per Kubernetes**)
 
 Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurezza che potrebbero essere visualizzate per questa funzionalità, vedere la sezione [Raccomandazioni per le istanze di calcolo](recommendations-reference.md#recs-compute) della tabella di riferimento.
+
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes
 

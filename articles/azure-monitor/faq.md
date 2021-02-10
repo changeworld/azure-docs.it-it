@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a8d3ded1d11a350ff53ffda71348b2cc707760b8
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878936"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008418"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -81,10 +81,12 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 
 ### <a name="how-do-i-retrieve-log-data"></a>Come si recuperano i dati di log?
 Tutti i dati vengono recuperati da un'area di lavoro Log Analytics tramite una query di log scritta nel linguaggio di query Kusto (KQL). È possibile scrivere query personalizzate o usare soluzioni e informazioni dettagliate che includono query di log per un'applicazione o un servizio specifico. Vedere [Panoramica delle query di log in Monitoraggio di Azure](log-query/log-query-overview.md).
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>È possibile eliminare dati da un'area di lavoro Log Analytics?
 I dati vengono rimossi da un'area di lavoro in base al [periodo di conservazione](platform/manage-cost-storage.md#change-the-data-retention-period). È possibile eliminare dati specifici per motivi di privacy o di conformità. Per ulteriori informazioni [, vedere come esportare ed eliminare dati privati](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
 
+### <a name="is-log-analytics-storage-immutable"></a>Log Analytics archiviazione non è modificabile?
+I dati nell'archiviazione del database non possono essere modificati dopo essere stati inseriti ma possono essere eliminati tramite l'eliminazione [  del percorso API per l'eliminazione dei dati privati](platform/personal-data-mgmt.md#delete). Sebbene non sia possibile modificare i dati, alcune certificazioni richiedono che i dati rimangano non modificabili e non possano essere modificati o eliminati nell'archivio. L'immutabilità dei dati può essere eseguita usando l' [esportazione dei dati](platform/logs-data-export.md) in un account di archiviazione configurato come risorsa di [archiviazione non modificabile](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Che cos’è un'area di lavoro Log Analytics?
 Tutti i dati di log raccolti da Monitoraggio di Azure vengono archiviati in un’area di lavoro Log Analytics. Un'area di lavoro è essenzialmente un contenitore in cui i dati di log vengono raccolti da diverse origini. È possibile avere un’unica area di lavoro Log Analytics per tutti i dati di monitoraggio oppure può essere necessario dotarsi di più aree di lavoro. Vedere [Progettazione della distribuzione dei log di Monitoraggio di Azure](platform/design-logs-deployment.md).

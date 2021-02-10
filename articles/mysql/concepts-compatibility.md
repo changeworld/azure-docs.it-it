@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f2ea7af0ec9c740c07cd3a5e4ebd88a9ad1a031d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c2faf8e8b6a814989fa9e1693fddeedb525df13a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542644"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006854"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Driver MySQL e strumenti di gestione compatibili con Database di Azure per MySQL
 Questo articolo descrive i driver e gli strumenti di gestione compatibili con il Database di Azure per MySQL.
@@ -43,16 +43,16 @@ Database di Azure per MySQL usa la versione di community del database MySQL più
 ## <a name="management-tools"></a>Strumenti di gestione
 Il vantaggio della compatibilità si estende anche agli strumenti di gestione del database. Gli strumenti esistenti continueranno a funzionare con Database di Azure per MySQL, purché la modifica del database operi entro i confini di autorizzazione dell'utente. Nella tabella seguente sono elencati tre strumenti comuni di gestione del database che sono stati testati e che risultano compatibili con il Database di Azure per MySQL 5.6 e 5.7:
 
-|                                     | **MySQL Workbench 6.x e versioni successive** | **Navicat 12** | **PHPMyAdmin 4.x e versioni successive** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| **Creare, aggiornare, leggere, scrivere, eliminare** | X | X | X |
-| **Connessione SSL** | X | X | X |
-| **Completamento automatico della query SQL** | X | X |  |
-| **Importare ed esportare dati** | X | X | X |
-| **Esportare in più formati** | X | X | X |
-| **Backup e ripristino** |  | x |  |
-| **Visualizzare i parametri del server** | X | X | X |
-| **Visualizzare le connessioni client** | X | X | X |
+|                                     | **MySQL Workbench 6.x e versioni successive** | **Navicat 12** | **PHPMyAdmin 4.x e versioni successive** | **dbForge Studio per MySQL 9,0** |
+| :---------------------------------- | :----------------------------- | :------------- | :-------------------------| :------------------------------- |
+| **Creare, aggiornare, leggere, scrivere, eliminare** | X | X | X | X |
+| **Connessione SSL** | X | X | X | X |
+| **Completamento automatico della query SQL** | X | X |  | X |
+| **Importare ed esportare dati** | X | X | X | X |
+| **Esportare in più formati** | X | X | X | X |
+| **Backup e ripristino** |  | X |  | X |
+| **Visualizzare i parametri del server** | X | X | X | X |
+| **Visualizzare le connessioni client** | X | X | X | X |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

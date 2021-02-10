@@ -107,7 +107,7 @@
         - name: Aprire una richiesta di supporto per gli errori di distribuzione
           href: fix-deployment-provisioning-failures.md
     - name: Domande frequenti
-      href: faq.md
+      href: faq.yml
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

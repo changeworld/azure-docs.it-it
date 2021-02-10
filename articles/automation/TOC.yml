@@ -252,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: Eseguire query sui log da Avvio/Arresto di macchine virtuali durante gli orari di minore attività
           href: automation-solution-vm-management-logs.md
+        - name: Rimuovi Avvio/Arresto di macchine virtuali durante gli orari di minore attività
+          href: automation-solution-vm-management-remove.md
         - name: Risolvere i problemi relativi ad Avvio/Arresto di macchine virtuali durante gli orari di minore attività
           href: troubleshoot/start-stop-vm.md
     - name: Gestione degli aggiornamenti

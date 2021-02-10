@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 37a9294b156bd41b72e777696f10a1c4ac2bb354
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 9136947767bffb7bea800cdd2a735794baf8f329
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832760"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007364"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -41,7 +41,7 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 - [Ottimizzazione della regola migliorata con i grafici di anteprima della regola di analisi](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-## <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Procedura guidata per le regole di analisi: miglioramento dell'esperienza di modifica delle query (anteprima pubblica)
+### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Procedura guidata per le regole di analisi: miglioramento dell'esperienza di modifica delle query (anteprima pubblica)
 
 La creazione guidata regola di analisi pianificata di Azure Sentinel fornisce ora i miglioramenti seguenti per la scrittura e la modifica delle query:
 

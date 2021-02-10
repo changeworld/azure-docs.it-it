@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8192d7104daf1474a2123331183edf05e6fa1ada
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968605"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007415"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitoraggio di Azure per i provider di soluzioni SAP (anteprima)
 
@@ -41,7 +41,7 @@ Se i clienti non configurano alcun provider al momento della distribuzione della
 
 I clienti possono configurare uno o più provider di tipo *SAP Hana* per abilitare la raccolta di dati da SAP Hana database. Il provider di SAP HANA si connette al database di SAP HANA tramite la porta SQL, estrae i dati di telemetria dal database e li inserisce nell'area di lavoro Log Analytics della sottoscrizione del cliente. Il provider di SAP HANA raccoglie i dati ogni 1 minuto dal database SAP HANA.  
 
-Nella versione di anteprima pubblica, i clienti possono prevedere di visualizzare i dati seguenti con SAP HANA provider: utilizzo dell'infrastruttura sottostante, SAP HANA stato dell'host, SAP HANA la replica del sistema e dati di telemetria del backup SAP HANA. Per configurare SAP HANA provider, l'indirizzo IP host, il numero di porta HANA SQL e il nome utente e la password SYSTEMDB sono obbligatori. Si consiglia ai clienti di configurare SAP HANA provider rispetto a SYSTEMDB, tuttavia è possibile configurare altri provider con altri tenant del database.
+Nella versione di anteprima pubblica, i clienti possono prevedere di visualizzare i dati seguenti con SAP HANA provider: utilizzo dell'infrastruttura sottostante, SAP HANA stato dell'host, SAP HANA la replica del sistema e dati di telemetria del backup SAP HANA. Per configurare SAP HANA provider, l'indirizzo IP host, il numero di porta HANA SQL e il nome utente e la password SYSTEMDB sono obbligatori. Si consiglia ai clienti di configurare SAP HANA provider rispetto a SYSTEMDB, tuttavia è possibile configurare più provider con altri tenant del database.
 
 ![Monitoraggio di Azure per i provider di soluzioni SAP-SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
@@ -68,10 +68,38 @@ Per configurare un provider di cluster a disponibilità elevata, sono necessari 
    Per configurare il provider di cluster a disponibilità elevata, sono necessarie le informazioni seguenti:
    
    - **Nome**. Nome del provider. Deve essere univoco per questa istanza di monitoraggio di Azure per le soluzioni SAP.
-   - **Endpoint Prometeo**. In genere http \: // \<servername or ip address\> : 9664/Metrics.
+   - **Endpoint Prometeo**. http \: // \<servername or ip address\> : 9664/metrica.
    - **SID**. Per i sistemi SAP, usare il SID SAP. Per gli altri sistemi, ad esempio i cluster NFS, usare un nome di tre caratteri per il cluster. Il SID deve essere diverso dagli altri cluster monitorati.   
    - **Nome del cluster**. Nome del cluster usato durante la creazione del cluster. Il nome del cluster si trova nella proprietà del cluster `cluster-name` .
    - **Nome host**. Nome host Linux della macchina virtuale.  
+
+
+## <a name="provider-type-os-linux"></a>Sistema operativo di tipo provider (Linux)
+I clienti possono configurare uno o più provider del sistema operativo di tipo provider (Linux) per abilitare la raccolta di dati da BareMetal o nodo VM. Il provider del sistema operativo (Linux) si connette a BareMetal o ai nodi della VM, usando [Node_Exporter](https://github.com/prometheus/node_exporter)   endpoint, estrae i dati di telemetria dai nodi e li inserisce nell'area di lavoro log Analytics nella sottoscrizione del cliente. Il provider del sistema operativo (Linux) raccoglie i dati ogni 60 secondi per la maggior parte delle metriche dai nodi. 
+
+Nella versione di anteprima pubblica, i clienti possono prevedere di visualizzare i dati seguenti con il provider del sistema operativo (Linux): 
+   - Utilizzo CPU, utilizzo CPU per processo 
+   - Utilizzo dischi, lettura I/O lettura & 
+   - Distribuzione della memoria, utilizzo della memoria, utilizzo della memoria di swap 
+   - Utilizzo rete, in ingresso rete & i dettagli del traffico in uscita. 
+
+Per configurare un provider del sistema operativo (Linux), sono necessari due passaggi principali:
+1. Installare [Node_Exporter](https://github.com/prometheus/node_exporter)   in ogni nodo Baremetal o VM.
+   Sono disponibili due opzioni per l'installazione di [Node_exporter](https://github.com/prometheus/node_exporter): 
+      - Per l'installazione di automazione con Ansible usare [Node_Exporter](https://github.com/prometheus/node_exporter) in ogni nodo BAREMETAL o VM per installare il provider del sistema operativo (Linux).  
+      - Eseguire un' [installazione manuale](https://prometheus.io/docs/guides/node-exporter/).
+
+2. Configurare un provider del sistema operativo (Linux) per ogni istanza del nodo BareMetal o VM nell'ambiente in uso. 
+   Per configurare il provider del sistema operativo (Linux), è necessario disporre delle seguenti informazioni: 
+      - Name. Nome del provider. Deve essere univoco per questa istanza di monitoraggio di Azure per le soluzioni SAP. 
+      - Endpoint dell'utilità di esportazione del nodo. In genere http:// <servername or ip address> : 9100/metrica 
+
+> [!NOTE]
+> 9100 è una porta esposta per Node_Exporter endpoint.
+
+> [!Warning]
+> Assicurarsi che l'utilità di esportazione del nodo continui a funzionare dopo il riavvio del nodo. 
+
 
 ## <a name="provider-type-microsoft-sql-server"></a>Tipo di provider Microsoft SQL Server
 
@@ -79,7 +107,7 @@ I clienti possono configurare uno o più provider di tipo *Microsoft SQL Server*
 
 Nella versione di anteprima pubblica, i clienti possono prevedere di visualizzare i dati seguenti con SQL Server provider: l'utilizzo dell'infrastruttura sottostante, le prime istruzioni SQL, la tabella più grande, i problemi registrati nei log degli errori SQL Server, i processi di blocco e altri.  
 
-Per configurare Microsoft SQL Server provider sono necessari l'ID del sistema SAP, l'indirizzo IP dell'host, il numero di porta SQL Server nonché il nome e la password dell'account di accesso SQL Server.
+Per configurare Microsoft SQL Server provider sono necessari l'ID del sistema SAP, l'indirizzo IP dell'host, il numero di porta SQL Server e il nome di accesso SQL Server e la password.
 
 ![Monitoraggio di Azure per i provider di soluzioni SAP-SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 

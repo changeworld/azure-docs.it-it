@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: ed13837eabadc38cee50efac3b9340c973c8ea70
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d22bb05ad6db3630e9b0242e098fd81f65e34b05
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492434"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007313"
 ---
 # <a name="it-service-management-connector-overview"></a>Panoramica di IT Service Management Connector
 
@@ -32,7 +32,8 @@ Connettore di Gestione dei servizi IT supporta le connessioni con gli strumenti 
 -   Cherwell
 
    >[!NOTE]
-> Microsoft propone ai clienti Cherwell e Provance di usare l' [azione webhook](./action-groups.md#webhook) per Cherwell e l'endpoint di Provance come altra soluzione per l'integrazione.
+> A partire da 1-Oct-2020, le integrazioni di Cherwell e Provance ITSM con avviso di Azure non saranno più abilitate per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate.
+> Saranno supportate le connessioni ITSM esistenti.
 
 Con Gestione dei servizi IT è possibile:
 

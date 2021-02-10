@@ -3,12 +3,12 @@ title: Concetti-aggiornamenti e aggiornamenti del cloud privato
 description: Informazioni sui processi e le funzionalità di aggiornamento principali della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 2d5f789304cc264f07aad1865b0bcb2ed4182d4b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536985"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006702"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Aggiornamenti e aggiornamenti del cloud privato della soluzione VMware di Azure
 
@@ -53,7 +53,7 @@ Oltre a eseguire aggiornamenti, la soluzione VMware di Azure esegue un backup de
 
 In momenti di errore, la soluzione VMware di Azure può ripristinarli dal backup della configurazione. 
 
-Per ulteriori informazioni sulle versioni del software VMware, vedere l'articolo relativo al [concetto di cloud e cluster privati](concepts-private-clouds-clusters.md) e le [domande frequenti](faq.md).
+Per ulteriori informazioni sulle versioni del software VMware, vedere l'articolo relativo al [concetto di cloud e cluster privati](concepts-private-clouds-clusters.md) e le [domande frequenti](faq.yml).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

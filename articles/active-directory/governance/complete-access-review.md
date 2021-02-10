@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
+ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779549"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008200"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -48,35 +48,47 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
     Per visualizzare le istanze future delle verifiche di accesso, passare alla verifica di accesso e selezionare revisioni pianificate.
 
-    Nella pagina **Panoramica** è possibile visualizzare lo stato di avanzamento. Nessun diritto di accesso viene modificato nella directory fino al completamento della verifica.
+    Nella pagina **Panoramica** è possibile visualizzare lo stato dell'istanza corrente. Nessun diritto di accesso viene modificato nella directory fino al completamento della verifica.
 
-    ![Analisi di accesso-stato](./media/complete-access-review/overview-progress.png)
-    
-    Se si visualizza una verifica di accesso che esamina l'accesso guest tra Microsoft 365 gruppi (anteprima), nel pannello panoramica viene elencato ogni gruppo della verifica.  
+     ![Revisione di tutti i gruppi aziendali](./media/complete-access-review/all-company-group.png)
 
-   ![esaminare l'accesso guest tra gruppi Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+    Tutti i pannelli sotto la corrente sono visualizzabili solo durante la durata di ogni istanza di revisione. 
 
-    Fare clic su un gruppo per visualizzare lo stato di avanzamento della revisione in tale gruppo.
+    Nella pagina risultati vengono fornite ulteriori informazioni su ogni utente in revisione nell'istanza, inclusa la possibilità di arrestare, reimpostare e scaricare i risultati.
+
+    ![Esaminare l'accesso guest tra gruppi Microsoft 365](./media/complete-access-review/all-company-group-results.png)
+
+
+    Se si visualizza una verifica di accesso che esamina l'accesso guest tra Microsoft 365 gruppi (anteprima), nel pannello panoramica viene elencato ogni gruppo della verifica. 
+   
+    ![esaminare l'accesso guest tra gruppi Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Fare clic su un gruppo per visualizzare lo stato di avanzamento della revisione sul gruppo, nonché per arrestare, reimpostare, applicare ed eliminare.
 
    ![esaminare i dettagli dell'accesso guest nei gruppi di Microsoft 365](./media/complete-access-review/progress-group-review.png)
 
 1. Se si desidera arrestare una verifica di accesso prima di aver raggiunto la data di fine pianificata, fare clic sul pulsante **Arresta** .
 
-    Quando si arresta una revisione, i revisori non saranno più in grado di fornire risposte. Non è possibile riavviare una verifica dopo che è stata interrotta.
+    Quando si arresta una verifica, i revisori non saranno più in grado di fornire risposte. Non è possibile riavviare una verifica dopo che è stata interrotta.
 
 1. Se non si è più interessati alla verifica di accesso, è possibile eliminarlo facendo clic sul pulsante **Elimina** .
 
 ## <a name="apply-the-changes"></a>Applicare le modifiche.
 
-Se l' **opzione applica automaticamente i risultati alla risorsa** è stata abilitata e si basa sulle selezioni effettuate in **al termine delle impostazioni**, l'applicazione automatica verrà eseguita dopo la data di fine della verifica o quando si arresta manualmente la revisione.
+Se l' **opzione applica automaticamente i risultati alla risorsa** è stata abilitata in base alle impostazioni selezionate in **al termine**, l'applicazione automatica verrà eseguita dopo la data di fine della verifica o quando si arresta manualmente la revisione.
 
-Se l' **opzione applica automaticamente i risultati alla risorsa** non è stata abilitata per la revisione, fare clic su **applica** per applicare manualmente le modifiche. Se l'accesso di un utente è stato negato durante la verifica, quando si fa clic su **applica** Azure ad rimuove l'assegnazione dell'applicazione o dell'appartenenza.
+Se l' **opzione applica automaticamente i risultati alla risorsa** non è stata abilitata per la revisione, passare a **esaminare la cronologia** in **serie** dopo la scadenza della verifica oppure la revisione è stata arrestata in anticipo, quindi fare clic sull'istanza della revisione che si desidera applicare.
 
 ![Applicare le modifiche della verifica di accesso](./media/complete-access-review/apply-changes.png)
 
+Fare clic su **applica** per applicare manualmente le modifiche. Se l'accesso di un utente è stato negato durante la verifica, quando si fa clic su **applica** Azure ad rimuove l'assegnazione dell'applicazione o dell'appartenenza.
+
+![Pulsante Applica modifiche verifica di accesso](./media/complete-access-review/apply-changes-button.png)
+
+
 Lo stato della revisione passerà da **completato** a stati intermedi, ad esempio l' **applicazione** e infine il **risultato** di stato applicato. È possibile che, dopo alcuni minuti, eventuali utenti rifiutati vengano rimossi dall'appartenenza al gruppo o dall'assegnazione dell'applicazione.
 
-Se per una verifica si configura l'applicazione automatica o si seleziona **Applica**, questa operazione non avrà alcun effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico. Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
+L'applicazione manuale o automatica dei risultati non ha effetto su un gruppo che ha origine in una directory locale o in un gruppo dinamico. Per modificare un gruppo che ha origine in locale, scaricare i risultati e applicare queste modifiche alla rappresentazione del gruppo in questa directory.
 
 ## <a name="retrieve-the-results"></a>Recuperare i risultati
 

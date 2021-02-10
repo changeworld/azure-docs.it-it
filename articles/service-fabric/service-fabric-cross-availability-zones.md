@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918924"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007041"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -374,8 +374,8 @@ Per supportare più zone di disponibilità, è necessario abilitare il nodeType 
 * Il primo valore è **multipleAvailabilityZones** che deve essere impostato su true per NodeType.
 * Il secondo valore è **sfZonalUpgradeMode** ed è facoltativo. Questa proprietà non può essere modificata se nel cluster è già presente un oggetto NodeType con più AZ.
       La proprietà controlla il raggruppamento logico di macchine virtuali in domini di aggiornamento.
-          Se il valore è impostato su false (modalità flat): le VM sotto il tipo di nodo verranno raggruppate in UD ignorando le informazioni sulla zona in 5 UDs.
-          Se il valore viene omesso o è impostato su true (modalità gerarchica): le macchine virtuali verranno raggruppate per riflettere la distribuzione di zona in un massimo di 15 domini di UDs. Ognuna delle 3 zone avrà 5 domini di stato.
+          Se il valore è impostato su "Parallel": le macchine virtuali sotto il nodo NodeType verranno raggruppate in UDs ignorando le informazioni sulla zona in 5 UDs.
+          Se il valore viene omesso o impostato su "gerarchico", le macchine virtuali verranno raggruppate in modo da riflettere la distribuzione di zona in un massimo di 15 UDs. Ognuna delle 3 zone avrà 5 domini di stato.
           Questa proprietà definisce solo il comportamento di aggiornamento per l'applicazione ServiceFabric e gli aggiornamenti del codice. Gli aggiornamenti del set di scalabilità di macchine virtuali sottostanti saranno comunque paralleli in tutte le AZ.
       Questa proprietà non avrà alcun effetto sulla distribuzione di UD per i tipi di nodo per i quali non sono abilitate più zone.
 * Il terzo valore è **vmssZonalUpgradeMode = Parallel**. Si tratta di una proprietà *obbligatoria* da configurare nel cluster, se viene aggiunto un NodeType con più AZs. Questa proprietà definisce la modalità di aggiornamento per gli aggiornamenti del set di scalabilità di macchine virtuali che si verificheranno in parallelo in tutte le AZ a una sola volta.

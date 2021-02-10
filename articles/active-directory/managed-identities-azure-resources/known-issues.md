@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825801"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008537"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -48,6 +48,10 @@ No. Le identità gestite e le registrazioni App Azure AD non sono la stessa cosa
 Registrazioni app hanno due componenti: un oggetto applicazione e un oggetto entità servizio. Le identità gestite per le risorse di Azure hanno solo uno di questi componenti: un oggetto entità servizio. 
 
 Le identità gestite non hanno un oggetto applicazione nella directory, ovvero ciò che viene comunemente usato per concedere le autorizzazioni dell'app per MS Graph. Al contrario, le autorizzazioni di Microsoft Graph per le identità gestite devono essere concesse direttamente all'entità servizio.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>È possibile usare la stessa identità gestita in più aree?
+
+In breve, sì, è possibile usare le identità gestite assegnate dall'utente in più di un'area di Azure. La risposta più lunga è che, mentre le identità gestite assegnate dall'utente vengono create come risorse internazionali, l' [entità servizio](../develop/app-objects-and-service-principals.md#service-principal-object) (SPN) associata creata in Azure ad è disponibile a livello globale. L'entità servizio può essere usata da qualsiasi area di Azure e la relativa disponibilità dipende dalla disponibilità di Azure AD. Se, ad esempio, è stata creata un'identità gestita assegnata dall'utente nell'area South-Central e tale area non è più disponibile, questo problema influisca solo sulle attività del [piano di controllo](../../azure-resource-manager/management/control-plane-and-data-plane.md) sull'identità gestita stessa.  Le attività eseguite dalle risorse già configurate per l'utilizzo delle identità gestite non saranno interessate.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Le identità gestite per le risorse di Azure funzionano con i Servizi cloud di Azure?
 

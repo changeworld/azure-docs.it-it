@@ -62,6 +62,9 @@
           href: zone-redundancy.md
         - name: Procedure consigliate per il registro contenitori
           href: container-registry-best-practices.md
+        - name: Immagini a più Arch
+          href: push-multi-architecture-images.md
+          displayName: multi-architecture
         - name: Gestire immagini pubbliche
           href: buffer-gate-public-content.md
     - name: Guide pratiche

@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ecef7e13c107a07b6dac52a467315d2a5f1f9090
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: b6f9987c21ecdcf0e1b5358486312dceb26c8b82
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539843"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008554"
 ---
 # <a name="azure-communication-services-ui-framework"></a>Framework dell'interfaccia utente di servizi di comunicazione Azure
 
@@ -47,7 +47,7 @@ La comprensione di questi requisiti ti aiuterà a scegliere la libreria client a
 
 Per informazioni dettagliate sulla disponibilità delle funzionalità nei vari [SDK di interfaccia utente](ui-sdk-features.md), vedere qui, ma sono riepilogati i compromessi chiave.
 
-|Libreria client/SDK|Complessità di implementazione|    Funzionalità di personalizzazione|  Chiamata| Chat| [Interoperabilità team](./../voice-video-calling/teams-interop.md)
+|Libreria client/SDK|Complessità di implementazione|    Funzionalità di personalizzazione|  Chiamata| Chat| [Interoperabilità team](./../teams-interop.md)
 |---|---|---|---|---|---|---|
 |Componenti compositi|Bassa|Bassa|✔|✔|✕
 |Componenti di base|Livello medio|Livello medio|✔|✔|✕

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820875"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007057"
 ---
 # <a name="common-questions"></a>Domande frequenti
 
@@ -42,6 +42,10 @@ Tramite Spostamento risorse è attualmente possibile spostare tra aree le risors
 
 Non è possibile selezionare dischi come risorse per lo spostamento tra le aree. Tuttavia, i dischi vengono spostati come parte di uno spostamento della macchina virtuale.
 
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>Cosa si intende per spostare un gruppo di risorse?
+
+Quando si seleziona una risorsa per lo spostamento, il gruppo di risorse corrispondente viene aggiunto automaticamente per lo spostamento. Questa operazione è necessaria perché la risorsa di destinazione deve essere inserita in un gruppo di risorse come se fosse nella destinazione. È possibile scegliere di personalizzare e fornire un gruppo di risorse exsiting, una volta aggiunto per lo spostamento. Si noti che lo spostamento di un gruppo di risorse **non** significa che tutte le risorse nel gruppo di risorse di origine verranno spostate.
+
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>È possibile spostare le risorse tra le sottoscrizioni quando si spostano in aree diverse?
 
 È possibile modificare la sottoscrizione dopo aver spostato le risorse nell'area di destinazione. [Altre](../azure-resource-manager/management/move-resource-group-and-subscription.md) informazioni sullo stato di trasferimento delle risorse in una sottoscrizione diversa. 
@@ -69,7 +73,7 @@ Sì, sia in transito che inattivi.
 - Se si spostano risorse tra aree nel portale, questo processo viene eseguito automaticamente.
 - Se si spostano le risorse usando PowerShell, si eseguono i cmdlet per assegnare un'identità assegnata dal sistema alla raccolta e quindi si assegna un ruolo con le autorizzazioni appropriate per la sottoscrizione all'entità Identity. 
 
-### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Quali autorizzazioni di identità gestite sono necessarie per il motore risorse?
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Quali autorizzazioni di identità gestite sono necessarie per il motore risorse? 
 
 Per l'identità gestita di Spostamento risorse di Azure sono necessarie almeno le autorizzazioni seguenti: 
 

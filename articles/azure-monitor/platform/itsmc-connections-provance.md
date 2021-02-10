@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 19d2ef1d4d711738d60938aac502dfd490e021a1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 0cdbcf0a895a2fc9b81df464f364e04aa79abf99
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729675"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006769"
 ---
 # <a name="connect-provance-with-it-service-management-connector"></a>Connettere Provance a IT Service Management Connector
 
 Questo articolo fornisce informazioni su come configurare la connessione tra l'istanza di Provance e IT Service Management Connector (connettore) in Log Analytics per gestire centralmente gli elementi di lavoro.
 
 > [!NOTE]
-> Microsoft propone ai clienti Cherwell e Provance di usare l' [azione webhook](./action-groups.md#webhook) per Cherwell e l'endpoint di Provance come altra soluzione per l'integrazione.
+> A partire da 1-Oct-2020 l'integrazione di ITSM Provence con Azure Alert non verrà più abilitata per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate.
+> Saranno supportate le connessioni ITSM esistenti.
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Provance a Connettore di Gestione dei servizi IT in Azure.
 
@@ -69,6 +70,6 @@ Seguire questa procedura per creare una connessione Provance:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica sul connettore ITSM](itsmc-overview.md)
+* [Panoramica di Connettore di Gestione dei servizi IT](itsmc-overview.md)
 * [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Risolvere i problemi di Connettore di Gestione dei servizi IT](./itsmc-resync-servicenow.md)

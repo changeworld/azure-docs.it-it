@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
-  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-  ms.translationtype: HT
+  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
+  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96186406"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "100007755"
 landingContent:
 - title: Informazioni su Gemelli digitali di Azure
   linkLists:
@@ -23,6 +23,14 @@ landingContent:
     links:
     - text: Cos'è il servizio Gemelli digitali di Azure?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: Modelli personalizzati
+      url: concepts-models.md
+    - text: Gemelli digitali e grafo dei gemelli
+      url: concepts-twins-graph.md
+    - text: Linguaggio di query
+      url: concepts-query-language.md
 - title: Guida di avvio rapido per iniziare
   linkLists:
   - linkListType: quickstart
@@ -43,20 +51,6 @@ landingContent:
     links:
     - text: Connettere una soluzione end-to-end
       url: tutorial-end-to-end.md
-- title: Informazioni
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Modelli personalizzati
-      url: concepts-models.md
-  - linkListType: concept
-    links:
-    - text: Gemelli digitali e grafo dei gemelli
-      url: concepts-twins-graph.md
-  - linkListType: concept
-    links:
-    - text: Linguaggio di query
-      url: concepts-query-language.md
 - title: Sviluppo
   linkLists:
   - linkListType: how-to-guide
@@ -115,3 +109,19 @@ landingContent:
     links:
     - text: Swagger personalizzati per il connettore di App per la logica
       url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+- title: Apprendimento basato su scenari con Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 'Percorso di apprendimento: sviluppare con i dispositivi gemelli digitali di Azure'
+      url: /learn/paths/develop-azure-digital-twins/
+  - linkListType: learn
+    links:
+    - text: 'Modulo Learn: Introduzione ai dispositivi gemelli digitali di Azure'
+      url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
+    - text: 'Modulo Learn: creare un grafico dei gemelli digitali di Azure per una linea di produzione di Chocolate Factory'
+      url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
+    - text: 'Modulo Learn: inserire i dati nei dispositivi gemelli digitali di Azure'
+      url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
+    - text: 'Modulo Learn: output dai dispositivi gemelli digitali di Azure ai servizi downstream'
+      url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/

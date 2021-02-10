@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 1128504ee5f8c086d6a3c30a9fdd021550394f3f
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981766"
+ms.locfileid: "100007398"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
@@ -24,13 +24,14 @@ Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versi
 ## <a name="february-2021"></a>2021 febbraio
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leggere l'anteprima pubblica dell'API v 3.2 con supporto OCR per le lingue 73
-L'anteprima pubblica dell'API v 3.2 di Visione artificiale include le funzionalità seguenti:
+L'anteprima pubblica dell'API v 3.2 di Visione artificiale, disponibile come servizio cloud e contenitore Docker, include gli aggiornamenti seguenti:
 * [OCR per le lingue 73](./language-support.md#optical-character-recognition-ocr) , incluse le lingue cinese semplificato e tradizionale, giapponese, coreano e latino.
-* Output delle righe di testo nell'ordine di lettura naturale.
-* Classificare le righe di testo come stile di grafia o non insieme a un punteggio di confidenza (solo lingue latine).
-* Per un documento di più pagine è possibile estrarre il testo solo per le pagine o l'intervallo di pagine selezionati.
+* Ordine di lettura naturale per l'output della riga di testo.
+* Classificazione dello stile di grafia per le righe di testo insieme a un punteggio di confidenza (solo lingue latine).
+* Estrai il testo solo per le pagine selezionate per un documento a più pagine.
+* Disponibile come [contenitore](./computer-vision-how-to-install-containers.md?tabs=version-3-2) non distribuibile per la distribuzione locale.
 
-Per altre informazioni, vedere [leggere le funzionalità in anteprima](concept-recognizing-text.md#natural-reading-order-output) .
+[Altre](concept-recognizing-text.md) informazioni sull'API Read.
 
 > [!div class="nextstepaction"]
 > [Usare l'anteprima pubblica dell'API v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: dfd8f94dc7ab4e428647b8f44a86a2cd06634e2a
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807242"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006684"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -98,7 +98,7 @@ Una funzione può anche semplificare un'Unione di uso comune. Ad esempio, è pos
 <!-- Bookmark added for backward compatibility with old heading -->
 Le query tra aree di lavoro possono ora essere incluse nelle regole di analisi pianificate, soggette alle limitazioni seguenti:
 
-- In una singola query è possibile includere fino a 15 aree di lavoro.
+- In una singola query è possibile includere fino a 20 aree di lavoro.
 - Azure Sentinel deve essere distribuito in ogni area di lavoro a cui viene fatto riferimento nella query.
 
 > [!NOTE] 

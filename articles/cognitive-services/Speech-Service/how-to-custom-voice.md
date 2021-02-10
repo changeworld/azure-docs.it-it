@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 4e487a3eab70e7d561468a8fac2103e177d2abc5
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524976"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007296"
 ---
 # <a name="get-started-with-custom-voice"></a>Introduzione a Voce personalizzata
 
@@ -60,12 +60,24 @@ Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, sarà
 
 ## <a name="how-to-create-a-project"></a>Come creare un progetto
 
-Contenuto come dati, modelli, test ed endpoint sono organizzati in **progetti** nel portale vocale personalizzato. Ogni progetto è specifico per un paese/lingua e il sesso della voce che si vuole creare. Ad esempio, è possibile creare un progetto per una voce femminile per i bot della chat del Call Center che usano la lingua inglese nella Stati Uniti (en-US).
+Contenuto come dati, modelli, test ed endpoint sono organizzati in **progetti** nel portale vocale personalizzato. Ogni progetto è specifico per un paese/lingua e il sesso della voce che si vuole creare. Ad esempio, è possibile creare un progetto per una voce femminile per i bot della chat del Call Center che usano la lingua inglese nella Stati Uniti (' en-US ').
 
 Per creare il primo progetto, selezionare la scheda **voce vocale/voce personalizzata** , quindi fare clic su **nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, vengono visualizzate quattro schede: **dati**, **Training**, **testing** e **distribuzione**. Usare i collegamenti forniti nei [passaggi successivi](#next-steps) per informazioni su come usare ogni scheda.
 
 > [!IMPORTANT]
 > Il [portale Voice personalizzato](https://aka.ms/custom-voice) è stato aggiornato di recente. Se sono stati creati dati, modelli, test e endpoint pubblicati in precedenza nel portale di CRIS.ai o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità obsolete.
+
+## <a name="how-to-migrate-to-custom-neural-voice"></a>Come eseguire la migrazione a una voce neurale personalizzata
+
+Se si utilizza la voce personalizzata non neurale (o standard), provare a eseguire la migrazione alla voce neurale personalizzata immediatamente dopo la procedura riportata di seguito. Il passaggio a una voce neurale personalizzata ti aiuterà a sviluppare voci più realistiche per interfacce di conversazione ancora più naturali e consentire ai tuoi clienti e agli utenti finali di trarre vantaggio dalla più recente tecnologia di sintesi vocale, in modo responsabile. 
+
+1. Per altre informazioni sui [criteri](https://aka.ms/gating-overview) , vedere l'articolo su come limitare l'accesso e [applicarlo qui](https://aka.ms/customneural). Si noti che l'accesso al servizio di Voice Neural personalizzato è soggetto alla esclusiva discrezione di Microsoft in base ai criteri di idoneità. I clienti possono accedere alla tecnologia solo dopo che l'applicazione è stata rivista e si sono impegnate a usarla in linea con i [principi di intelligenza artificiale responsabili](https://microsoft.com/ai/responsible-ai) e il [codice di comportamento](https://aka.ms/custom-neural-code-of-conduct). 
+2. Una volta approvata l'applicazione, verrà fornito l'accesso alla funzionalità di training "neurale". Assicurarsi di accedere al [portale vocale personalizzato](https://speech.microsoft.com/customvoice) usando la stessa sottoscrizione di Azure fornita nell'applicazione. 
+    > [!IMPORTANT]
+    > Per proteggere il talento vocale e impedire il training di modelli vocali con la registrazione non autorizzata o senza la conferma da parte del talento vocale, è necessario che il cliente carichi un rendiconto registrato del talento vocale per concedere il suo consenso. Quando si prepara lo script di registrazione, assicurarsi di includere la frase. "I [dichiarare il nome e il cognome] sono consapevoli che le registrazioni della mia voce verranno usate da [stato nome della società] per creare e usare una versione sintetica della mia voce".
+    > Questa frase deve essere caricata nella scheda **Voice Talent** come file di consenso verbale. Verrà usato per verificare se le registrazioni nei set di impostazioni di training vengono eseguite dalla stessa persona che rilascia il consenso.
+3. Dopo aver creato il modello di Voice neurale personalizzato, distribuire il modello vocale in un nuovo endpoint. Per creare un nuovo endpoint Voice personalizzato con il modello di voce neurale, passare a **Text-to-Speech > distribuzione voice > personalizzata**. Selezionare **Distribuisci modello** e immettere un **nome** e una **Descrizione** per l'endpoint personalizzato. Selezionare quindi il modello di voce neurale personalizzato da associare a questo endpoint e confermare la distribuzione.  
+4. Aggiornare il codice nelle app se è stato creato un nuovo endpoint con un nuovo modello. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

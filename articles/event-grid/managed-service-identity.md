@@ -3,12 +3,12 @@ title: Recapito di eventi, identità del servizio gestito e collegamento privato
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di Griglia di eventi di Azure e per usarla per inviare eventi alle destinazioni supportate.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: ca154c252976911627184a63386cba1544ed21e0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054418"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007772"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
 Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini personalizzati di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
@@ -237,7 +237,7 @@ az eventgrid event-subscription create
 ```
 
 ### <a name="use-the-azure-cli---azure-storage-queue"></a>Usare l'interfaccia della riga di comando di Azure-coda archiviazione di Azure 
-Questa sezione illustra come usare l'interfaccia della riga di comando di Azure per consentire l'uso di un'identità assegnata dal sistema per recapitare gli eventi a una coda di archiviazione di Azure. L'identità deve essere un membro di **Collaboratore ai dati dei BLOB di archiviazione** nell'account di archiviazione.
+Questa sezione illustra come usare l'interfaccia della riga di comando di Azure per consentire l'uso di un'identità assegnata dal sistema per recapitare gli eventi a una coda di archiviazione di Azure. L'identità deve essere un membro del ruolo di **mittente del messaggio di dati della coda di archiviazione** nell'account di archiviazione. Deve essere anche un membro del ruolo **Collaboratore ai dati del BLOB di archiviazione** nell'account di archiviazione usato per i messaggi non recapitabili.
 
 #### <a name="define-variables"></a>Definire le variabili  
 
