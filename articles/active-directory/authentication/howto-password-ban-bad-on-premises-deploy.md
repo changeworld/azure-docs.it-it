@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220287"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091041"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
@@ -85,7 +85,8 @@ Si applicano i requisiti di base seguenti:
 * Per tutti i computer, inclusi i controller di dominio, in cui sono installati Azure AD componenti di protezione delle password è necessario che sia installato il runtime di C universale.
     * È possibile ottenere il runtime assicurandosi di avere tutti gli aggiornamenti da Windows Update. In alternativa, è possibile ottenerlo in un pacchetto di aggiornamento specifico del sistema operativo. Per ulteriori informazioni, vedere [aggiornamento per Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * È necessario un account con Active Directory privilegi di amministratore di dominio nel dominio radice della foresta per registrare la foresta di Windows Server Active Directory con Azure AD.
-* Il servizio di distribuzione delle chiavi deve essere abilitato in tutti i controller di dominio nel dominio che esegue Windows Server 2012. Per impostazione predefinita, questo servizio viene abilitato tramite l'avvio manuale del trigger.
+* Il servizio di distribuzione delle chiavi deve essere abilitato in tutti i controller di dominio che eseguono Windows Server 2012 e versioni successive. Per impostazione predefinita, questo servizio viene abilitato tramite l'avvio manuale del trigger.
+
 * La connettività di rete deve esistere tra almeno un controller di dominio in ogni dominio e almeno un server che ospita il servizio proxy per la protezione Azure AD password. Questa connettività deve consentire al controller di dominio di accedere alla porta di mapping degli endpoint RPC 135 e alla porta del server RPC nel servizio proxy.
     * Per impostazione predefinita, la porta del server RPC è una porta RPC dinamica, ma può essere configurata per l' [utilizzo di una porta statica](#static).
 * Tutti i computer in cui verrà installato il servizio proxy Azure AD password protection dovranno avere accesso di rete agli endpoint seguenti:

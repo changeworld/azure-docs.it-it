@@ -1,5 +1,5 @@
 ---
-title: Come eseguire Jupyter notebook nell'area di lavoro
+title: Eseguire Jupyter notebook nell'area di lavoro
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire Jupyter notebook senza uscire dall'area di lavoro in Azure Machine Learning Studio.
 services: machine-learning
@@ -11,89 +11,27 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 46e0687056d697afc2d4355bdf900af138273eaf
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 06ae46eb96db39f44cd052e6e9b0d1a19f898007
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061835"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091523"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
+# <a name="run-jupyter-notebooks-in-your-workspace"></a>Eseguire Jupyter notebook nell'area di lavoro
 
 Informazioni su come eseguire i notebook di Jupyter direttamente nell'area di lavoro in Azure Machine Learning Studio. Sebbene sia possibile avviare [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), è anche possibile modificare ed eseguire i notebook senza uscire dall'area di lavoro.
+
+Per informazioni su come creare e gestire i file, inclusi i notebook, vedere [creare e gestire file nell'area di lavoro](how-to-manage-files.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree) prima di iniziare.
 * Un'area di lavoro di Machine Learning. Vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 
-## <a name="create-notebooks"></a><a name="create"></a> Creare notebook
-
-Nell'area di lavoro di Azure Machine Learning creare un nuovo Jupyter Notebook e iniziare a lavorare. Il notebook appena creato viene archiviato nella risorsa di archiviazione dell'area di lavoro predefinita. Questo notebook può essere condiviso con chiunque abbia accesso all'area di lavoro. 
-
-Per creare un nuovo notebook: 
-
-1. Aprire l'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
-1. A sinistra selezionare **Notebooks** (Notebook). 
-1. Selezionare l'icona  **Create new file** (Crea nuovo file) sopra l'elenco **User files** (File utente) nella sezione **My files** (File personali).
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file"::: (Crea nuovo file)
-
-1. Assegnare un nome al file. 
-1. Per i file di Jupyter notebook, selezionare **notebook** come tipo di file.
-1. Selezionare una directory di file.
-1. Selezionare **Create** (Crea).
-
-È anche possibile creare file di testo.  Selezionare **Text** (Testo) come tipo di file e aggiungere l'estensione al nome (ad esempio, myfile.py o myfile.txt)  
-
-È anche possibile caricare cartelle e file, inclusi i notebook, con gli strumenti disponibili nella parte superiore della pagina Notebooks (Notebook).  I notebook e la maggior parte dei tipi di file di testo vengono visualizzati nella sezione di anteprima.  Non sono disponibili anteprime per la maggior parte degli altri tipi di file.
-
-> [!IMPORTANT]
-> Il contenuto di notebook e script può potenzialmente leggere i dati delle sessioni e accedere ai dati senza l'organizzazione in Azure.  Caricare solo file da origini attendibili. Per altre informazioni, vedere [procedure consigliate per il codice protetto](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
-
-### <a name="clone-samples"></a>Clonare gli esempi
-
-L'area di lavoro contiene una cartella **Samples** (Esempi) con notebook progettati per facilitare l'esplorazione dell'SDK ed essere usati come esempi per i propri progetti di Machine Learning.  È possibile clonare questi notebook nella propria cartella nel contenitore di archiviazione dell'area di lavoro.  
-
-Per un esempio, vedere [Esercitazione: Creare il primo esperimento di Machine Learning](tutorial-1st-experiment-sdk-setup.md#azure).
-
-### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Usare i file GIT e controllare le versioni dei file personali
-
-È possibile accedere a tutte le operazioni di GIT usando una finestra del terminale. Tutti i file e le cartelle GIT verranno archiviati nel file system dell'area di lavoro.
-
-> [!NOTE]
-> Aggiungere i file e le cartelle in un punto qualsiasi della cartella **~/cloudfiles/code/Users** in modo che siano visibili in tutti gli ambienti Jupyter.
-
-Per accedere al terminale:
-
-1. Aprire l'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
-1. A sinistra selezionare **Notebooks** (Notebook).
-1. Selezionare un notebook che si trova nella sezione **User files** (File utente) sul lato sinistro.  Se non sono presenti notebook, prima [creare un notebook](#create)
-1. Selezionare una destinazione di **calcolo** o crearne una nuova e attendere che sia in esecuzione.
-1. Selezionare l'icona **Open terminal** (Apri terminale).
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Aprire il terminale":::
-
-1. Se l'icona non viene visualizzata, selezionare il **...** a destra della destinazione di calcolo e quindi selezionare **Apri terminale**.
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal"::: (Apri terminale)
-
-
-Vedere altre informazioni su come [clonare i repository GIT nel file system dell'area di lavoro](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
-
-### <a name="copy-and-paste-in-terminal"></a>Copiare e incollare nel terminale
-
-> * Windows: `Ctrl-Insert` per copiare e usare `Ctrl-Shift-v` o `Shift-Insert` per incollare.
-> * Mac OS: `Cmd-c` per copiare e `Cmd-v` per incollare.
-> * FireFox o Internet Explorer potrebbero non supportare correttamente le autorizzazioni per gli appunti.
-
-### <a name="share-notebooks-and-other-files"></a>Condividere notebook e altri file
-
-Copiare e incollare l'URL per condividere un notebook o un file.  Solo gli altri utenti dell'area di lavoro possono accedere a questo URL.  Vedere altre informazioni su come [concedere l'accesso all'area di lavoro](how-to-assign-roles.md).
-
 ## <a name="edit-a-notebook"></a>Modificare un notebook
 
-Per modificare un notebook, aprire un notebook nella sezione **User files** (File utente) dell'area di lavoro. Fare clic sulla cella che si vuole modificare. 
+Per modificare un notebook, aprire un notebook nella sezione **User files** (File utente) dell'area di lavoro. Fare clic sulla cella che si vuole modificare.  Se non sono presenti notebook in questa sezione, vedere [creare e gestire i file nell'area di lavoro](how-to-manage-files.md).
 
 È possibile modificare il notebook senza connettersi a un'istanza di calcolo.  Quando si desidera eseguire le celle nel notebook, selezionare o creare un'istanza di calcolo.  Se si seleziona un'istanza di calcolo arrestata, questa verrà avviata automaticamente quando si esegue la prima cella.
 
@@ -101,7 +39,7 @@ Quando un'istanza di calcolo è in esecuzione, è anche possibile usare il compl
 
 È anche possibile avviare Jupyter o JupyterLab dalla barra degli strumenti del notebook.  Azure Machine Learning non offre aggiornamenti e correzioni di bug di Jupyter o JupyterLab poiché sono prodotti open source non coperti dal supporto tecnico Microsoft.
 
-### <a name="focus-mode"></a>Modalità messa a fuoco
+## <a name="focus-mode"></a>Modalità messa a fuoco
 
 Usare la modalità messa a fuoco per espandere la visualizzazione corrente in modo da potersi concentrare sulle schede attive. La modalità messa a fuoco nasconde Esplora file dei notebook.
 
@@ -110,14 +48,13 @@ Usare la modalità messa a fuoco per espandere la visualizzazione corrente in mo
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Attiva/Nascondi modalità messa a fuoco/visualizzazione standard":::
 
-
-### <a name="use-intellisense"></a>Usare IntelliSense
+## <a name="use-intellisense"></a>Usare IntelliSense
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) è un supporto per il completamento del codice che include numerose funzionalità: Elenca membri, informazioni sul parametro, informazioni rapide e completa parola. Queste funzionalità consentono di acquisire altre informazioni sul codice in uso, tengono traccia dei parametri che si digitano e aggiungono le chiamate a proprietà e metodi con poche sequenze di tasti.  
 
 Quando si digita il codice, premere CTRL + barra spaziatrice per attivare IntelliSense.
 
-### <a name="clean-your-notebook-preview"></a>Pulire il notebook (anteprima)
+## <a name="clean-your-notebook-preview"></a>Pulire il notebook (anteprima)
 
 > [!IMPORTANT]
 > La funzionalità di raccolta è attualmente disponibile in anteprima pubblica.
@@ -133,7 +70,7 @@ Nel corso della creazione di un notebook, in genere si finisce con le celle usat
 
 Il nuovo notebook contiene solo celle di codice, con tutte le celle necessarie per produrre gli stessi risultati della cella selezionata per la raccolta.
 
-### <a name="save-and-checkpoint-a-notebook"></a>Salvare e Checkpoint un notebook
+## <a name="save-and-checkpoint-a-notebook"></a>Salvare e Checkpoint un notebook
 
 Azure Machine Learning crea un file del checkpoint quando si crea un file *ipynb* .
 
@@ -145,24 +82,34 @@ Ogni notebook viene salvato in automatico ogni 30 secondi. Salvataggio automatic
  
 Selezionare **Checkpoint** dal menu notebook per creare un checkpoint denominato e ripristinare il blocco appunti a un checkpoint salvato.
 
-## <a name="delete-a-notebook"></a>Eliminare un notebook
+## <a name="export-a-notebook"></a>Esportare un notebook
 
-*Non è possibile* eliminare i notebook della cartella **Samples** (Esempi).  Questi notebook fanno parte di Studio e vengono aggiornati ogni volta che viene pubblicato un nuovo SDK.  
+Nella barra degli strumenti del notebook selezionare il menu e quindi **Esporta come** per esportare il notebook come uno dei tipi supportati:
 
-*È possibile* eliminare i notebook della cartella **User files** (File utente) in uno dei modi seguenti:
+* Notebook
+* Python
+* HTML
+* LaTeX
 
-* In Studio selezionare **...** alla fine di una cartella o un file.  Assicurarsi di usare un browser supportato (Microsoft Edge, Chrome o Firefox).
-* Da qualsiasi barra degli strumenti del notebook selezionare [**Apri terminale**](#terminal)  per accedere alla finestra del terminale per l'istanza di calcolo.
-* In Jupyter o JupyterLab con i relativi strumenti.
+:::image type="content" source="media/how-to-run-jupyter-notebooks/export-notebook.png" alt-text="Esportare un notebook nel computer":::
+
+Il file esportato viene salvato nel computer.
 
 ## <a name="run-a-notebook-or-python-script"></a>Eseguire un notebook o uno script Python
 
-Per eseguire un notebook o uno script Python, connettersi prima di tutto a un' [istanza di calcolo](concept-compute-instance.md)in esecuzione. Se non è presente un'istanza di calcolo, seguire questa procedura per crearne una: 
+Per eseguire un notebook o uno script Python, connettersi prima di tutto a un' [istanza di calcolo](concept-compute-instance.md)in esecuzione.
 
-1. Selezionare **+** nella barra degli strumenti del notebook o dello script. 
-2. Assegnare un nome al calcolo e scegliere le **dimensioni della macchina virtuale**. 
-3. Selezionare **Create** (Crea).
-4. L'istanza di calcolo è connessa automaticamente al file.  È ora possibile eseguire le celle del notebook o lo script Python usando lo strumento a sinistra dell'istanza di calcolo
+* Se non è presente un'istanza di calcolo, seguire questa procedura per crearne una:
+
+    1. Nella barra degli strumenti del notebook o dello script a destra dell'elenco a discesa calcolo selezionare **+ nuovo calcolo**. A seconda delle dimensioni dello schermo, questo potrebbe trovarsi in un menu **..** ..
+        :::image type="content" source="media/how-to-run-jupyter-notebooks/new-compute.png" alt-text="Crea nuovo calcolo":::
+    1. Assegnare un nome al calcolo e scegliere le **dimensioni della macchina virtuale**. 
+    1. Selezionare **Create** (Crea).
+    1. L'istanza di calcolo è connessa automaticamente al file.  È ora possibile eseguire le celle del notebook o lo script Python usando lo strumento a sinistra dell'istanza di calcolo.
+
+* Se si dispone di un'istanza di calcolo arrestata, selezionare  **Avvia calcolo** a destra dell'elenco a discesa calcolo. A seconda delle dimensioni dello schermo, questo potrebbe trovarsi in un menu **..** ..
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Avviare l'istanza di calcolo":::
 
 È possibile visualizzare e usare solo le istanze di calcolo create.  I file della cartella **User files** (File utente) vengono archiviati separatamente dalla macchina virtuale e sono condivisi tra tutte le istanze di calcolo nell'area di lavoro.
 
@@ -209,33 +156,12 @@ Queste azioni reimposteranno lo stato del notebook e ripristineranno tutte le va
 | Arrestare il calcolo     |    Non vengono eseguite celle  |
 | Aprire il notebook in Jupyter o JupyterLab     |    Il notebook viene aperto in una nuova scheda.  |
 
-### <a name="add-new-kernels"></a>Aggiungere nuovi kernel
+## <a name="add-new-kernels"></a>Aggiungere nuovi kernel
 
-Il notebook troverà automaticamente tutti i kernel Jupyter installati nell'istanza di calcolo connessa.  Per aggiungere un kernel all'istanza di calcolo:
+[Usare il terminale ](how-to-access-terminal.md#add-new-kernels) per creare e aggiungere nuovi kernel all'istanza di calcolo. Il notebook troverà automaticamente tutti i kernel Jupyter installati nell'istanza di calcolo connessa.
 
-1. Selezionare [**Apri terminale**](#terminal) sulla barra degli strumenti del notebook.
-1. Usare la finestra del terminale per creare un nuovo ambiente.  Il codice seguente, ad esempio, crea `newenv` :
-    ```shell
-    conda create -y --name newenv
-    ```
-1. Attivare l'ambiente.  Ad esempio, dopo aver creato `newenv`:
+Usare l'elenco a discesa kernel a destra per passare a uno dei kernel installati.  
 
-    ```shell
-    conda activate newenv
-    ```
-1. Installare il pacchetto PIP e ipykernel nel nuovo ambiente e creare un kernel per la conda ENV
-
-    ```shell
-    conda install -y pip
-    conda install -y ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-1. Dopo aver installato il kernel, aggiornare la pagina e aprire un notebook. Verrà ora visualizzato il nuovo kernel nell'elenco kernel.
-
-> [!NOTE]
-> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione**, anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
-
-È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 
 ### <a name="status-indicators"></a>Indicatori di stato
 

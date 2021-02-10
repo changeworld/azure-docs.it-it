@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762984"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090599"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
@@ -83,10 +83,6 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
     - I gruppi dinamici *non sono supportati* per l'implementazione a fasi.
     - Gli oggetti Contact all'interno del gruppo impediscono l'aggiunta del gruppo.
 
-- È comunque necessario eseguire il passaggio finale dall'autenticazione federata all'autenticazione cloud usando Azure AD Connect o PowerShell. L'implementazione a fasi non cambia i domini da federati a gestiti.  Per ulteriori informazioni sul dominio cutover, vedere [eseguire la migrazione dalla Federazione alla sincronizzazione degli hash delle password](plan-migrate-adfs-password-hash-sync.md) e [migrare dalla Federazione all'autenticazione pass-through](plan-migrate-adfs-pass-through-authentication.md)
-
-
-
 - Quando un gruppo di sicurezza viene aggiunto per l'implementazione a fasi per la prima volta, il limite di utenti è 200 per evitare che si verifichi un timeout nell'esperienza utente. Dopo aver aggiunto il gruppo, è possibile aggiungervi altri utenti direttamente, se necessario.
 
 - Mentre gli utenti sono in fase di implementazione temporanea, quando EnforceCloudPasswordPolicyForPasswordSyncedUsers è abilitato, i criteri di scadenza delle password sono impostati su 90 giorni senza alcuna opzione per personalizzarli. 
@@ -95,7 +91,9 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
 
 - Join ibrido di Windows 10 o Azure AD aggiunta del token di aggiornamento primario per tutte le versioni, quando l'UPN locale dell'utente non è instradabile. Questo scenario esegue il fallback all'endpoint WS-Trust durante la modalità di implementazione temporanea, ma smette di funzionare quando la migrazione di gestione temporanea è completa e l'accesso utente non è più basato sul server federativo.
 
-
+  >[!NOTE]
+  >È comunque necessario eseguire il passaggio finale dall'autenticazione federata all'autenticazione cloud usando Azure AD Connect o PowerShell. L'implementazione temporanea non cambia i domini da federati a gestiti.  Per ulteriori informazioni sul dominio cutover, vedere [eseguire la migrazione dalla Federazione alla sincronizzazione degli hash delle password](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) e [migrare dalla Federazione all'autenticazione pass-through](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  
 ## <a name="get-started-with-staged-rollout"></a>Introduzione all'implementazione a fasi
 
 Per testare l'accesso tramite *sincronizzazione dell'hash delle password* usando l'implementazione a fasi, seguire le istruzioni preliminari illustrate nella sezione successiva.
@@ -257,3 +255,5 @@ A: Sì. Per informazioni su come usare PowerShell per eseguire l'implementazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Anteprima di Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Modificare il metodo di accesso con la sincronizzazione dell'hash delle password](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Modificare il metodo di accesso per l'autenticazione pass-through](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
