@@ -1,22 +1,18 @@
 ---
 title: Copiare dati da e verso Azure Databricks Delta Lake
 description: Informazioni su come copiare dati da e verso Azure Databricks Delta Lake usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: bdf71276d59dec9a19e29ae7f49cb92a0512c05a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221143"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364240"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiare dati da e verso Azure Databricks Delta Lake usando Azure Data Factory
 
@@ -151,8 +147,8 @@ Per copiare dati da Azure Databricks Delta Lake, nella sezione **origine** dell'
 | type                         | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **AzureDatabricksDeltaLakeSource**. | Sì      |
 | query          | Specificare la query SQL per leggere i dati. Per il controllo Time Travel, seguire il modello seguente:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | No       |
 | exportSettings | Impostazioni avanzate utilizzate per recuperare i dati dalla tabella Delta. | No       |
-| ***In `exportSettings` :** _ |  |  |
-| tipo | Il tipo di comando Export, impostato su _ * AzureDatabricksDeltaLakeExportCommand * *. | Sì |
+| ***In `exportSettings` :*** |  |  |
+| tipo | Tipo di comando Export impostato su **AzureDatabricksDeltaLakeExportCommand**. | Sì |
 | dateFormat | Formattare il tipo di data in stringa con un formato di data. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd` . | No |
 | timestampFormat | Formattare il tipo di timestamp in stringa con formato timestamp. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 
@@ -265,8 +261,8 @@ Per copiare dati in Azure Databricks Delta Lake, nella sezione **sink** dell'att
 | type          | Proprietà Type del sink dell'attività di copia, impostata su **AzureDatabricksDeltaLakeSink**. | Sì      |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nella tabella Delta di databricks in ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati o aggiungere un'istruzione TRUNCATE TABLE o vacuum. | No       |
 | importSettings | Impostazioni avanzate utilizzate per scrivere dati nella tabella Delta. | No |
-| **_In `importSettings` :_* _ |                                                              |  |
-| tipo | Tipo di comando Import impostato su _ * AzureDatabricksDeltaLakeImportCommand * *. | Sì |
+| ***In `importSettings` :*** |                                                              |  |
+| tipo | Tipo di comando Import impostato su **AzureDatabricksDeltaLakeImportCommand**. | Sì |
 | dateFormat | Formattare la stringa in un tipo di data con un formato di data. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd` . | No |
 | timestampFormat | Formattare la stringa in un tipo timestamp con formato timestamp. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 

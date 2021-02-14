@@ -1,19 +1,17 @@
 ---
 title: Eseguire la migrazione delle tabelle del database SQL di Azure ad Azure CosmosDB con Azure Data Factory
 description: Usare uno schema di database normalizzato esistente dal database SQL di Azure ed eseguire la migrazione a un contenitore denormalizzato di Azure CosmosDB con Azure Data Factory.
-services: data-factory
 author: kromerm
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.author: makromer
-ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383943"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Eseguire la migrazione dello schema del database normalizzato dal database SQL di Azure al contenitore denormalizzato di Azure Cosmos DB
 
@@ -50,7 +48,7 @@ Il contenitore CosmosDB risultante incorpora la query interna in un unico docume
 
 2. Aggiungere un'attività flusso di dati
 
-3. Nell'attività flusso di dati selezionare **nuovo flusso di dati di mapping** .
+3. Nell'attività flusso di dati selezionare **nuovo flusso di dati di mapping**.
 
 4. Questo grafico del flusso di dati verrà costruito sotto
 

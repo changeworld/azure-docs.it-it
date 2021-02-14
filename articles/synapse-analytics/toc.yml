@@ -113,6 +113,8 @@
                   href: ./security/workspace-data-exfiltration-protection.md
                 - name: Area di lavoro di Synapse con hub con collegamento privato
                   href: ./security/synapse-private-link-hubs.md
+                - name: Connettersi a un account di archiviazione protetto
+                  href: ./security/connect-to-a-secure-storage-account.md
             - name: Autenticazione e pass-through
               items:
                 - name: Azure Active Directory
@@ -571,7 +573,11 @@
         - name: Usare Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: Gestire le librerie
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
+          items:
+            - name: Aggiungere e gestire le librerie
+              href: ./spark/apache-spark-azure-portal-add-libraries.md
+            - name: Risolvere gli errori di installazione della libreria
+              href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Usare notebook e strumenti IDE
           items:
             - name: Gestire i notebook

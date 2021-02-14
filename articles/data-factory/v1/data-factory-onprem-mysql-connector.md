@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da MySQL usando Azure Data Factory
 description: Informazioni su come spostare i dati dal database di MySQL mediante Data factory di Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c39435d2249981a45798ffe0717054fa7b0717
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872103"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387326"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -46,11 +41,11 @@ Per Gestione dati Gateway per connettersi al database MySQL, è necessario insta
 > [!TIP]
 > Se si è verificato un errore in "autenticazione non riuscita perché la parte remota ha chiuso il flusso di trasporto", provare a aggiornare il connettore MySQL/NET alla versione successiva.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
-- È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+- È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET** e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -151,9 +146,9 @@ Come primo passaggio, impostare il Gateway di gestione dati. Le istruzioni sono 
 
 **Set di dati di input MySQL:**
 
-L'esempio presuppone che sia stata creata una tabella "MyTable" in MySQL e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
+Nell'esempio si presuppone che sia stata creata una tabella "MyTable" in MySQL e che contenga una colonna denominata "timestampcolumn" per i dati delle serie temporali.
 
-Impostando "external" su "true" si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+Impostando "External": "true" si comunica al servizio Data Factory che la tabella è esterna al data factory e non è prodotta da un'attività nel data factory.
 
 ```JSON
     {
@@ -332,7 +327,7 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | SMALLINT |Int16 |
 | text |string |
 | time |TimeSpan |
-|  timestamp |Datetime |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | TINYINT |Int16 |

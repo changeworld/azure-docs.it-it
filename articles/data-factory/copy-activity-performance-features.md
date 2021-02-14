@@ -1,23 +1,18 @@
 ---
 title: Funzionalità di ottimizzazione delle prestazioni dell'attività di copia
 description: Informazioni sulle funzionalità chiave che consentono di ottimizzare le prestazioni dell'attività di copia in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
-ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324332"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387802"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funzionalità di ottimizzazione delle prestazioni dell'attività di copia
 
@@ -126,10 +121,10 @@ Quando si specifica un valore per la `parallelCopies` proprietà, prendere in co
 
 Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare l'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 come archivio di staging provvisorio. La funzionalità di staging è particolarmente utile nei casi seguenti:
 
-- **Si vuole inserire dati da diversi archivi dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) tramite la polibase, copiare i dati da/a fiocco di neve o inserire dati da Amazon spostamento/HDFS performantly.** Per ulteriori informazioni, vedere:
+- **Si vuole inserire dati da diversi archivi dati in Azure sinapsi Analytics tramite la polibase, copiare i dati da/in fiocco di neve o inserire dati da Amazon spostamento/HDFS performantly.** Per ulteriori informazioni, vedere:
   - [Usare la polibase per caricare i dati in Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
   - [Connettore fiocco di neve](connector-snowflake.md)
-  - [Connettore Amazon per lo spostamento](connector-amazon-redshift.md)
+  - [Connettore di Amazon Redshift](connector-amazon-redshift.md)
   - [Connettore HDFS](connector-hdfs.md)
 - **Non è necessario aprire porte diverse dalla porta 80 e dalla porta 443 nel firewall a causa dei criteri IT aziendali.** Ad esempio, quando si copiano dati da un archivio dati locale a un database SQL di Azure o ad Azure sinapsi Analytics, è necessario attivare la comunicazione TCP in uscita sulla porta 1433 per Windows Firewall e il firewall aziendale. In questo scenario, la copia di staging può trarre vantaggio dal runtime di integrazione self-hosted per prima cosa copiare i dati in una risorsa di archiviazione di staging tramite HTTP o HTTPS sulla porta 443, quindi caricare i dati dalla gestione temporanea al database SQL o Azure sinapsi Analytics. In questo flusso non è necessario abilitare la porta 1433.
 - **A volte è necessario un po' di tempo per eseguire uno spostamento dati ibrido, ovvero per copiare da un archivio dati locale a un archivio dati cloud, su una connessione di rete lenta.** Per migliorare le prestazioni, è possibile usare la copia di staging per comprimere i dati in locale, in modo che sia necessario meno tempo per spostare i dati nell'archivio dati di staging nel cloud. Sarà quindi possibile decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
@@ -148,7 +143,7 @@ Attualmente, non è possibile copiare i dati tra due archivi dati connessi trami
 
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se si desidera che i dati vengano gestiti temporaneamente nello spazio di archiviazione prima di caricarli in un archivio dati di destinazione. Quando si imposta **enableStaging** su `TRUE` , specificare le proprietà aggiuntive elencate nella tabella seguente. 
 
-| Proprietà | Descrizione | Valore predefinito | Obbligatoria |
+| Proprietà | Descrizione | Valore predefinito | Necessario |
 | --- | --- | --- | --- |
 | enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
 | linkedServiceName |Specificare il nome di un archivio [BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o di [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) servizio collegato, che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
@@ -198,7 +193,7 @@ I costi vengono addebitati in base a due passaggi: durata della copia e tipo di 
 Vedere gli altri articoli relativi all'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
-- [Guida alla scalabilità e alle prestazioni dell'attività di copia](copy-activity-performance.md)
+- [Guida a prestazioni e scalabilità dell'attività di copia](copy-activity-performance.md)
 - [Risolvere i problemi delle prestazioni dell'attività di copia](copy-activity-performance-troubleshooting.md)
 - [Usare Azure Data Factory per migrare i dati dal data Lake o da data warehouse ad Azure](data-migration-guidance-overview.md)
 - [Eseguire la migrazione dei dati da un archivio dati Amazon S3 ad Archiviazione di Azure](data-migration-guidance-s3-azure-storage.md)

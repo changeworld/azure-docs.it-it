@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da DB2 usando Azure Data Factory
 description: Informazioni su come spostare dati da un database DB2 locale mediante l'attività di copia di Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001066"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387360"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Spostare dati da DB2 mediante l'attività di copia di Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -59,7 +54,7 @@ Il connettore Data Factory DB2 supporta le piattaforme e le versioni di IBM DB2 
 > - DB2 per i (AS400): consente all'utente esperto di creare una raccolta per l'utente normale prima di eseguire l'attività di copia. Per creare la raccolta usare il comando: `create collection <username>`
 > - DB2 per z/OS o LUW: usare un account con privilegi elevati, ovvero utente esperto o amministratore con autorità di pacchetto e autorizzazioni BIND, BINDADD, GRANT EXECUTE TO PUBLIC, per eseguire l'attività di copia una volta. Il pacchetto necessario viene creato automaticamente durante la copia. In seguito è possibile tornare a essere un utente normale per le successive esecuzioni delle operazioni di copia.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con un'attività di copia per spostare i dati da un archivio dati DB2 usando diversi strumenti e API: 
 
 - Il modo più semplice per creare una pipeline è usare la Copia guidata di Azure Data Factory. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md). 
@@ -317,7 +312,7 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Data |Datetime |
-| Ora |TimeSpan |
+| Tempo |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
 | Char |string |
@@ -343,7 +338,7 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Data |Datetime |
-| Ora |TimeSpan |
+| Tempo |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
 | Char |string |

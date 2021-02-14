@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione di documenti
-ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584720"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364793"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -228,7 +228,7 @@ Seguire i passaggi precedenti per etichettare almeno cinque moduli.
 Facoltativamente, è possibile impostare il tipo di dati previsto per ogni tag. Aprire il menu di scelta rapida a destra di un tag e selezionare un tipo dal menu. Questa funzionalità consente all'algoritmo di rilevamento di creare determinati presupposti che consentiranno di migliorare l'accuratezza del rilevamento del testo. Garantisce inoltre che i valori rilevati vengano restituiti in un formato standardizzato nell'output JSON finale. Le informazioni sul tipo di valore vengono salvate nel file *fields.json* nello stesso percorso dei file di etichette.
 
 > [!div class="mx-imgBorder"]
-> ![Selezione del tipo di valore con lo strumento di etichettatura di esempio](../media/whats-new/formre-value-type.png)
+> ![Selezione del tipo di valore con lo strumento di etichettatura di esempio](../media/whats-new/value-type.png)
 
 Sono attualmente supportati i tipi di valore e le varianti seguenti:
 * `string`

@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Impala usando Azure Data Factory
 description: Informazioni su come copiare dati da Impala in archivi dati di sink supportati usando un'attività di copia in una pipeline di data factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810ee757b70550c9dbeea708266b3fec48669571
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418219"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378571"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiare dati da Impala usando Azure Data Factory
 

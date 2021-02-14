@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 0221022c342735744d59f956d6047b4abf23b5cf
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937662"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516516"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limiti nel database di Azure per PostgreSQL-server flessibile
 
@@ -66,6 +66,13 @@ Una connessione PostgreSQL, anche inattiva, può occupare circa 10 MB di memoria
 
 - La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata. Se si vuole eseguire l'aggiornamento alla versione principale successiva, eseguire un [dump e ripristinarlo](../howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
 
+### <a name="storage"></a>Archiviazione
+
+- Una volta configurata, non è possibile ridurre le dimensioni di archiviazione.
+- Attualmente la funzionalità di aumento automatico dell'archiviazione non è disponibile. Monitorare l'utilizzo e aumentare lo spazio di archiviazione a una dimensione superiore. 
+- Quando l'utilizzo dello spazio di archiviazione raggiunge il 95% o se la capacità disponibile è inferiore a 5 GiB, il server passa automaticamente alla modalità di sola **lettura** per evitare errori associati a situazioni complete del disco. 
+- Si consiglia di impostare le regole di avviso per `storage used` o `storage percent` quando superano determinate soglie, in modo da poter intervenire in modo proattivo, ad esempio aumentando le dimensioni di archiviazione. Ad esempio, è possibile impostare un avviso se la percentuale di archiviazione supera il 80% di utilizzo.
+  
 ### <a name="networking"></a>Rete
 
 - Lo stato di VNET non è attualmente supportato.

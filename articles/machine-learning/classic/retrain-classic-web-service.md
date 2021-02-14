@@ -3,22 +3,22 @@ title: 'ML Studio (classico): ripetere il training di un servizio Web classico-A
 description: Informazioni su come ripetere il training di un modello e aggiornare un servizio Web classico per usare il modello appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 90c968ee953e80238775639964cb09a25741b33d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325784"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517570"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ripetere il training e distribuire un servizio Web classico in studio (classico)
 
-**si applica a:** ![ Segno di spunta verde. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ X che indica No. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**si applica a:** ![ Segno di spunta verde. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ X che indica No.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. In questo articolo viene illustrato come ripetere il training di un servizio Web classico di studio (classico). Per una guida su come ripetere il training di un nuovo servizio Web di studio (classico), [vedere questo articolo sulle procedure.](retrain-machine-learning-model.md)
@@ -48,7 +48,7 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
 1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
 1. Nella parte inferiore del dashboard del servizio Web fare clic su **Gestisci endpoint anteprima**.
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 1. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [abilitare la registrazione per i servizi web Machine Learning](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto
@@ -76,7 +76,7 @@ La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codic
 
 Ora è possibile usare il modello con training per aggiornare l'endpoint dei punteggi creato prima.
 
-Il codice di esempio seguente mostra come usare *BaseLocation* , *RelativeLocation* , *SasBlobToken* e l'URL PATCH per aggiornare l'endpoint.
+Il codice di esempio seguente mostra come usare *BaseLocation*, *RelativeLocation*, *SasBlobToken* e l'URL PATCH per aggiornare l'endpoint.
 
 ```csharp
 private async Task OverwriteModel()

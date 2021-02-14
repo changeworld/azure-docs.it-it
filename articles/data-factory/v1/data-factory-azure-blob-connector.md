@@ -1,23 +1,18 @@
 ---
 title: Copiare dati da e verso archiviazione BLOB di Azure
 description: "Informazioni su come copiare dati BLOB in Azure Data Factory. Usare l'esempio: Come copiare dati da e verso l'archivio BLOB di Azure e il database SQL di Azure."
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f1343f900e12bff09c0436ca52d8b091fe48a181
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462637"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393548"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -77,11 +72,11 @@ Per specificare un set di dati per rappresentare i dati di input o di output in 
 
 Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
-Data Factory supporta i valori di tipo basati su .NET conformi a CLS per specificare informazioni sul tipo nella sezione "structure" in relazione allo schema su origini dati di lettura come BLOB di Azure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. La data factory esegue automaticamente le conversioni quando si spostano dati da un archivio dati di origine a un archivio dati di sink.
+Data Factory supporta i seguenti valori di tipo basati su .NET conformi a CLS per fornire informazioni sul tipo in "Structure" per le origini dati dello schema in lettura come BLOB di Azure: Int16, Int32, Int64, Single, Double, Decimal, byte [], bool, String, Guid, DateTime, DateTimeOffset, TimeSpan. La data factory esegue automaticamente le conversioni quando si spostano dati da un archivio dati di origine a un archivio dati di sink.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso, il formato e così via dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureBlob** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Sì |
 | fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: `Data.<Guid>.txt` (ad esempio:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
@@ -187,7 +182,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Crea una risorsa** nell'angolo in alto a sinistra, selezionare **Intelligence e analisi** e quindi **Data factory**.
 3. Nel riquadro **Nuova data factory**:  
-    1. Immettere **ADFBlobConnectorDF** come **nome**. È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore `*Data factory name “ADFBlobConnectorDF” is not available`, modificare il nome della data factory, ad esempio, nomeutenteADFBlobConnectorDF, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
+    1. Immettere **ADFBlobConnectorDF** come **nome**. È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore `*Data factory name "ADFBlobConnectorDF" is not available`, modificare il nome della data factory, ad esempio, nomeutenteADFBlobConnectorDF, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
     2. Selezionare la **sottoscrizione** di Azure.
     3. Per Gruppo di risorse, selezionare **Usa esistente** per selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
     4. Selezionare una **località** per la data factory.
@@ -508,7 +503,7 @@ Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Az
 
 **Set di dati di input BLOB di Azure:**
 
-I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica a Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. l'impostazione "External": "true" informa Data Factory che la tabella è esterna al data factory e non è prodotta da un'attività nel data factory.
 
 ```json
 {
@@ -656,9 +651,9 @@ Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Az
 
 **Set di dati di input SQL Azure:**
 
-L'esempio presuppone che sia stata creata una tabella "MyTable" in SQL Azure e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
+Nell'esempio si presuppone che sia stata creata una tabella "MyTable" in SQL Azure e che contenga una colonna denominata "timestampcolumn" per i dati delle serie temporali.
 
-Impostando "external" su "true" si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+Impostando "External": "true" si informa Data Factory servizio che la tabella è esterna alla data factory e non è prodotta da un'attività nel data factory.
 
 ```json
 {

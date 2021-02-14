@@ -1,21 +1,18 @@
 ---
 title: Trasformare i dati usando l'attività MapReduce di Hadoop
 description: Informazioni su come elaborare i dati eseguendo programmi Hadoop MapReduce in un cluster Azure HDInsight da un'istanza di Azure Data Factory.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 7685c2075b371ce22930b14187c27bcb0879c962
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f03906586d6226c92cfa69e1a139d4c876cbf723
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375885"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Hadoop MapReduce in Azure Data Factory
 
@@ -112,7 +109,7 @@ Vedere [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using-h
     }
 }
 ```
-È possibile specificare eventuali argomenti per il programma MapReduce nella sezione **arguments** . In fase di esecuzione, vengono visualizzati alcuni argomenti aggiuntivi (ad esempio: mapreduce.job.tags) dal framework di MapReduce. Per differenziare gli argomenti con gli argomenti di MapReduce, è consigliabile usare sia l'opzione che il valore come argomenti, come illustrato nell'esempio seguente (-s,--input,--output e così via sono opzioni immediatamente seguite dai valori).
+È possibile specificare eventuali argomenti per il programma MapReduce nella sezione **arguments**. In fase di esecuzione, vengono visualizzati alcuni argomenti aggiuntivi (ad esempio: mapreduce.job.tags) dal framework di MapReduce. Per differenziare gli argomenti con gli argomenti di MapReduce, è consigliabile usare sia l'opzione che il valore come argomenti, come illustrato nell'esempio seguente (-s,--input,--output e così via sono opzioni immediatamente seguite dai valori).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati:

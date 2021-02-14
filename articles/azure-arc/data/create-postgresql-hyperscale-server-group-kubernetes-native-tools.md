@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 250c1ef837793c2149ff653f395f40272cf43335
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955247"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384946"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Creare un gruppo di server con iperscalabilità PostgreSQL usando gli strumenti di Kubernetes
 
@@ -44,14 +44,14 @@ data:
   password: <your base64 encoded password>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: pg1-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: postgresql-12
 metadata:
   generation: 1
-  name: example
+  name: pg1
 spec:
   engine:
     extensions:
@@ -107,7 +107,7 @@ echo '<your string to encode here>' | base64
 
 ### <a name="customizing-the-name"></a>Personalizzazione del nome
 
-Il valore del modello è' example ' per l'attributo Name.  Questa operazione può essere modificata, ma deve essere costituita da caratteri che seguono gli standard di denominazione DNS.  È anche necessario modificare il nome del segreto in modo che corrisponda.  Ad esempio, se si modifica il nome del gruppo di server di iperscala PostgreSQL in ' postgres1', è necessario modificare il nome del segreto da' Example-Login-Secret ' a' postgres1-login-Secret '
+Il modello ha un valore di ' PG1' per l'attributo Name.  Questa operazione può essere modificata, ma deve essere costituita da caratteri che seguono gli standard di denominazione DNS.  È anche necessario modificare il nome del segreto in modo che corrisponda.  Ad esempio, se si modifica il nome del gruppo di server di iperscala PostgreSQL in ' PG2', è necessario modificare il nome del segreto da' PG1-login-Secret ' a' PG2-login-Secret '
 
 ### <a name="customizing-the-engine-version"></a>Personalizzazione della versione del motore
 
@@ -152,10 +152,10 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 Il completamento della creazione del gruppo di server per l'iperscala PostgreSQL potrebbe richiedere alcuni minuti. È possibile monitorare lo stato di avanzamento in un'altra finestra del terminale con i comandi seguenti:
 
 > [!NOTE]
->  I comandi di esempio seguenti presuppongono che sia stato creato un gruppo di server di iperscala PostgreSQL denominato ' postgres1' e uno spazio dei nomi Kubernetes con il nome ' Arc '.  Se è stato usato un nome di gruppo di server con iperscalabilità di PostgreSQL o spazio dei nomi diverso, è possibile sostituire ' Arc ' è postgres1' con i nomi.
+>  I comandi di esempio seguenti presuppongono che sia stato creato un gruppo di server di iperscala PostgreSQL denominato ' PG1' e uno spazio dei nomi Kubernetes con il nome ' Arc '.  Se è stato usato un nome di gruppo di server con iperscalabilità di PostgreSQL o spazio dei nomi diverso, è possibile sostituire ' Arc ' è PG1' con i nomi.
 
 ```console
-kubectl get postgresql-12/postgres1 --namespace arc
+kubectl get postgresql-12/pg1 --namespace arc
 ```
 
 ```console
@@ -168,7 +168,7 @@ kubectl get pods --namespace arc
 kubectl describe po/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/postgres1-0 --namespace arc
+#kubectl describe po/pg1-0 --namespace arc
 ```
 
 ## <a name="troubleshooting-creation-problems"></a>Risoluzione dei problemi di creazione

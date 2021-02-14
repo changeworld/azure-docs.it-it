@@ -3,14 +3,14 @@ title: Schema delle risorse di Application Insights basate sull'area di lavoro i
 description: Informazioni sul nuovo schema e struttura della tabella per monitoraggio di Azure Application Insights risorse basate sull'area di lavoro.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931054"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385966"
 ---
-# <a name="workspace-based-resource-changes-preview"></a>Modifiche alle risorse basate sull'area di lavoro (anteprima)
+# <a name="workspace-based-resource-changes"></a>Modifiche alle risorse basate sull'area di lavoro
 
 Prima dell'introduzione delle [risorse Application Insights basate sull'area di lavoro](create-workspace-resource.md), i dati Application Insights sono stati archiviati separatamente dagli altri dati di log in monitoraggio di Azure. Entrambi sono basati su Esplora dati di Azure e usano lo stesso linguaggio di query kusto (KQL). Questa operazione è descritta in [log in monitoraggio di Azure](../platform/data-platform-logs.md).
 
@@ -18,7 +18,7 @@ Con i dati delle risorse Application Insights basati sull'area di lavoro vengono
 
 ## <a name="table-structure"></a>Struttura della tabella
 
-| Nome tabella legacy | Nome nuova tabella | Descrizione |
+| Nome tabella legacy | Nuovo nome della tabella | Descrizione |
 |:---|:---|:---|
 | availabilityResults | AppAvailabilityResults |  Dati di riepilogo da test di disponibilità.|
 | browserTimings | AppBrowserTimings | Dati sulle prestazioni del client, ad esempio il tempo impiegato per elaborare i dati in ingresso.|
@@ -41,7 +41,7 @@ La maggior parte delle colonne ha lo stesso nome con maiuscole e minuscole diver
 
 Tabella legacy: disponibilità
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -75,7 +75,7 @@ Tabella legacy: disponibilità
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
 |size|real|Dimensione|real|
-|esito positivo|string|Operazione completata|Bool|
+|esito positivo|string|Operazione riuscita|Bool|
 | timestamp|Datetime|TimeGenerated|Datetime|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
@@ -85,7 +85,7 @@ Tabella legacy: disponibilità
 
 Tabella legacy: browserTimings
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -129,7 +129,7 @@ Tabella legacy: browserTimings
 
 Tabella legacy: dipendenze
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -146,7 +146,7 @@ Tabella legacy: dipendenze
 |cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinamico|Proprietà|Dynamic|
 |customMeasurements|dinamico|Misurazioni|Dynamic|
-|Data|string|Dati|string|
+|data|string|Data|string|
 |duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
@@ -162,10 +162,10 @@ Tabella legacy: dipendenze
 |resultCode|string|ResultCode|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|esito positivo|string|Operazione completata|Bool|
+|esito positivo|string|Operazione riuscita|Bool|
 |target|string|Destinazione|string|
 | timestamp|Datetime|TimeGenerated|Datetime|
-|type|string|TipoDipendenza|string|
+|tipo|string|TipoDipendenza|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -174,7 +174,7 @@ Tabella legacy: dipendenze
 
 Tabella legacy: customEvents
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -211,7 +211,7 @@ Tabella legacy: customEvents
 
 Tabella legacy: customMetrics
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -241,7 +241,7 @@ Tabella legacy: customMetrics
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|value|real|rimosso||
+|Valore|real|rimosso||
 |valueCount|INT|ValueCount|INT|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
@@ -252,7 +252,7 @@ Tabella legacy: customMetrics
 
 Tabella legacy: visualizzazioni
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -293,7 +293,7 @@ Tabella legacy: visualizzazioni
 
 Tabella legacy: performanceCounters
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -326,13 +326,13 @@ Tabella legacy: performanceCounters
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|value|real|Valore|real|
+|Valore|real|Valore|real|
 
 ### <a name="apprequests"></a>AppRequests
 
 Tabella legacy: richieste
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -365,7 +365,7 @@ Tabella legacy: richieste
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
 |source|string|Source (Sorgente)|string|
-|esito positivo|string|Operazione completata|Bool|
+|esito positivo|string|Operazione riuscita|Bool|
 | timestamp|Datetime|TimeGenerated|Datetime|
 |url|string|URL|string|
 |user_AccountId|string|UserAccountId|string|
@@ -376,7 +376,7 @@ Tabella legacy: richieste
 
 Tabella legacy: eccezioni
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|
@@ -419,7 +419,7 @@ Tabella legacy: eccezioni
 |session_Id|string|SessionId|string|
 |severityLevel|INT|SeverityLevel|INT|
 | timestamp|Datetime|TimeGenerated|Datetime|
-|type|string|ExceptionType|string|
+|tipo|string|ExceptionType|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -428,7 +428,7 @@ Tabella legacy: eccezioni
 
 Tabella legacy: tracce
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
 |appId|string|\_GUID risorsa|string|
 |application_Version|string|AppVersion|string|

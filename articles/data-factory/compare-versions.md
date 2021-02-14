@@ -1,21 +1,17 @@
 ---
 title: Confrontare Azure Data Factory con Data Factory versione 1
 description: Questo articolo mette a confronto Azure Data Factory e Azure Data Factory versione 1.
-services: data-factory
-documentationcenter: ''
 author: kromerm
-manager: anandsub
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: makromer
-ms.openlocfilehash: c6a46f6c8a57b681f66bb98fced17bf0e2464fcd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
-ms.translationtype: HT
+ms.openlocfilehash: dc5a4c92ee4ac0acd4a69ef94fec0981e328d829
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638245"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393718"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Confrontare Azure Data Factory con Data Factory versione 1
 
@@ -30,7 +26,7 @@ La tabella seguente mette a confronto le funzionalità di Data Factory con quell
 | ------- | --------- | --------- | 
 | Set di dati | Vista denominata di dati che fa riferimento ai dati da usare nelle attività come input e output. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archivio BLOB di Azure da cui l'attività dovrà leggere i dati.<br/><br/>La **disponibilità** definisce il modello di sezionamento dell'intervallo di elaborazione del set di dati (ad esempio ogni ora, ogni giorno e così via). | I set di dati sono gli stessi nella versione corrente. Non è tuttavia necessario definire pianificazioni della **disponibilità** per i set di dati. È possibile definire una risorsa trigger che può pianificare le pipeline da un paradigma di utilità di pianificazione basata sul tempo. Per altre informazioni, vedere [Trigger](concepts-pipeline-execution-triggers.md#trigger-execution) e [Set di dati](concepts-datasets-linked-services.md). | 
 | Servizi collegati | I servizi collegati sono simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. | I servizi collegati sono gli stessi di Data Factory versione 1, ma con una nuova proprietà **connectVia** per l'utilizzo dell'ambiente di calcolo del runtime di integrazione della versione corrente di Data Factory. Per altre informazioni, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md) e le [proprietà del servizio collegato per l'archivio BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties). |
-| Pipeline | Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività che insieme eseguono un compito. Per pianificare ed eseguire le pipeline, si usano startTime, endTime e isPaused. | Le pipeline sono gruppi di attività eseguite sui dati. La pianificazione delle attività nella pipeline è tuttavia stata separata in nuove risorse trigger. È possibile pensare alle pipeline della versione corrente di Data Factory come “unità di flusso di lavoro” che vengono pianificate separatamente tramite trigger. <br/><br/>Le pipeline non hanno “finestre” di esecuzione temporale nella versione corrente di Data Factory. I concetti di startTime, endTime e isPaused di Data Factory versione 1 non sono più presenti nella versione corrente di Data Factory. Per altre informazioni, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md) e [Pipeline e attività](concepts-pipelines-activities.md). |
+| Pipeline | Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività che insieme eseguono un compito. Per pianificare ed eseguire le pipeline, si usano startTime, endTime e isPaused. | Le pipeline sono gruppi di attività eseguite sui dati. La pianificazione delle attività nella pipeline è tuttavia stata separata in nuove risorse trigger. È possibile considerare le pipeline nella versione corrente di Data Factory più "unità di flusso di lavoro" pianificate separatamente tramite trigger. <br/><br/>Le pipeline non dispongono di "Windows" dell'esecuzione del tempo nella versione corrente di Data Factory. I concetti di startTime, endTime e isPaused di Data Factory versione 1 non sono più presenti nella versione corrente di Data Factory. Per altre informazioni, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md) e [Pipeline e attività](concepts-pipelines-activities.md). |
 | attività | Le attività definiscono le azioni da eseguire sui dati in una pipeline. Sono supportate attività di spostamento dei dati (attività di copia) e di trasformazione dei dati (ad esempio Hive, Pig e MapReduce). | Nella versione corrente di Data Factory le attività sono ancora azioni definite all'interno di una pipeline. La versione corrente di Data Factory introduce nuove [attività del flusso di controllo](concepts-pipelines-activities.md#control-flow-activities). Queste attività vengono usate in un flusso di controllo (cicli e diramazioni). Le attività di spostamento dati e di trasformazione dati supportate nella versione 1 sono supportate anche nella versione corrente. Nella versione corrente è possibile definire attività di trasformazione senza usare i set di dati. |
 | Invio di attività e spostamento dei dati di tipo ibrido | Il [gateway di gestione dati](v1/data-factory-data-management-gateway.md), ora denominato runtime di integrazione, supporta lo spostamento di dati tra ambiente locale e cloud.| Il gateway di gestione dati è ora denominato runtime di integrazione self-hosted e offre le stesse funzionalità disponibili nella versione 1. <br/><br/> Il runtime di integrazione Azure-SSIS nella versione corrente di Data Factory supporta anche la distribuzione e l'esecuzione di pacchetti di SQL Server Integration Services (SSIS) nel cloud. Per altre informazioni, vedere il [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).|
 | Parametri | ND | I parametri sono coppie chiave-valore di impostazioni di configurazione di sola lettura definite nelle pipeline. È possibile passare argomenti per i parametri quando si esegue manualmente la pipeline. Se si usa un trigger per l'utilità di pianificazione, anche il trigger può passare valori per i parametri. Le attività all'interno della pipeline usano i valori dei parametri.  |
@@ -69,7 +65,7 @@ Le pipeline possono essere attivate su richiesta (basate su eventi, ad esempio B
 L'[attività ExecutePipeline](control-flow-execute-pipeline-activity.md) consente a una pipeline di Data Factory di richiamare un'altra pipeline.
 
 ### <a name="delta-flows"></a>Flussi delta
-Un caso d'uso chiave nel modello ETL è rappresentato dai "caricamenti differenziali", con cui vengono caricati solo i dati che sono stati modificati dall'ultima iterazione di una pipeline. Le nuove funzionalità della versione corrente, ad esempio l'[attività Lookup](control-flow-lookup-activity.md), la pianificazione flessibile e il flusso di controllo, permettono di attuare questo caso d'uso in modo naturale. Per un'esercitazione con istruzioni dettagliate, vedere [Esercitazione: Copia incrementale](tutorial-incremental-copy-powershell.md).
+Un caso di utilizzo chiave nei modelli ETL è costituito da "carichi Delta", in cui vengono caricati solo i dati che sono stati modificati dopo l'ultima iterazione di una pipeline. Le nuove funzionalità della versione corrente, ad esempio l'[attività Lookup](control-flow-lookup-activity.md), la pianificazione flessibile e il flusso di controllo, permettono di attuare questo caso d'uso in modo naturale. Per un'esercitazione con istruzioni dettagliate, vedere [Esercitazione: Copia incrementale](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Altre attività di flusso di controllo
 Di seguito sono riportate alcune altre attività di flusso di controllo supportate dalla versione corrente di Data Factory. 
@@ -92,7 +88,7 @@ Ad esempio, si può usare SQL Server Data Tools o SQL Server Management Studio p
 ## <a name="flexible-scheduling"></a>Pianificazione flessibile
 Nella versione corrente di Data Factory non è necessario definire pianificazioni della disponibilità per i set di dati. È possibile definire una risorsa trigger che può pianificare le pipeline da un paradigma di utilità di pianificazione basata sul tempo. È anche possibile passare parametri alle pipeline da un trigger per un modello di pianificazione ed esecuzione flessibile. 
 
-Le pipeline non hanno “finestre” di esecuzione temporale nella versione corrente di Data Factory. I concetti di startTime, endTime e isPaused di Data Factory versione 1 non esistono nella versione corrente di Data Factory. Per altre informazioni su come creare e quindi pianificare una pipeline nella versione corrente di Data Factory, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
+Le pipeline non dispongono di "Windows" dell'esecuzione del tempo nella versione corrente di Data Factory. I concetti di startTime, endTime e isPaused di Data Factory versione 1 non esistono nella versione corrente di Data Factory. Per altre informazioni su come creare e quindi pianificare una pipeline nella versione corrente di Data Factory, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
 
 ## <a name="support-for-more-data-stores"></a>Supporto per più archivi dati
 La versione corrente supporta la copia di dati da e verso un maggior numero di archivi dati rispetto alla versione 1. Per un elenco degli archivi dati supportati, vedere gli articoli seguenti:
@@ -118,13 +114,13 @@ Per altre informazioni, vedere [Differenza tra l'attività personalizzata in Dat
 ## <a name="sdks"></a>SDK
  La versione corrente di Data Factory offre un set più ampio di SDK utilizzabili per creare, gestire e monitorare le pipeline.
 
-- **.NET SDK** : .NET SDK è aggiornato nella versione corrente.
+- **.NET SDK**: .NET SDK è aggiornato nella versione corrente.
 
-- **PowerShell** : i cmdlet di PowerShell sono aggiornati nella versione corrente. Il nome dei cmdlet della versione corrente contiene **DataFactoryV2** , ad esempio Get-AzDataFactoryV2. 
+- **PowerShell**: i cmdlet di PowerShell sono aggiornati nella versione corrente. Il nome dei cmdlet della versione corrente contiene **DataFactoryV2**, ad esempio Get-AzDataFactoryV2. 
 
-- **Python SDK** : questo SDK è una novità nella versione corrente.
+- **Python SDK**: questo SDK è una novità nella versione corrente.
 
-- **API REST** : l'API REST è aggiornata nella versione corrente. 
+- **API REST**: l'API REST è aggiornata nella versione corrente. 
 
 Gli SDK aggiornati nella versione corrente non sono compatibili con i client versione 1. 
 

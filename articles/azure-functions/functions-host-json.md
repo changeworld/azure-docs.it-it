@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654813"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374049"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -39,6 +39,7 @@ Nell'esempio seguente *host.jssu* file per la versione 2. x + sono state specifi
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -216,6 +217,10 @@ Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sul
 | thresholdForSnapshotting | 1 | Il numero di volte in cui Application Insights deve visualizzare un'eccezione prima di chiedere gli snapshot. |
 | uploaderProxy | Null | Esegue l'override del server proxy utilizzato nel processo di caricamento dello snapshot. Potrebbe essere necessario usare questa impostazione se l'applicazione si connette a Internet tramite un server proxy. Il Snapshot Collector viene eseguito all'interno del processo dell'applicazione e utilizzerà le stesse impostazioni del proxy. Tuttavia, il caricatore di snapshot viene eseguito come processo separato e potrebbe essere necessario configurare manualmente il server proxy. Se questo valore è null, Snapshot Collector tenterà di rilevare automaticamente l'indirizzo del proxy esaminando System .NET. WebRequest. DefaultWebProxy e passando il valore al caricatore dello snapshot. Se questo valore non è null, il rilevamento automatico non viene usato e il server proxy specificato qui verrà usato nell'Uploader dello snapshot. |
 
+## <a name="blobs"></a>blob
+
+Le impostazioni di configurazione sono reperibili in [trigger e associazioni del BLOB di archiviazione](functions-bindings-storage-blob.md#hostjson-settings).  
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 L'impostazione di configurazione è reperibile in [Trigger e associazioni di Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -378,7 +383,7 @@ La dipendenza gestita è una funzionalità attualmente supportata solo con le fu
 
 ## <a name="queues"></a>queues
 
-Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di Archiviazione code](functions-bindings-storage-queue-output.md#host-json).  
+Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di Archiviazione code](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="retry"></a>retry
 

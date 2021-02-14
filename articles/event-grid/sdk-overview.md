@@ -3,12 +3,12 @@ title: SDK Griglia di eventi di Azure
 description: Vengono descritti gli SDK per la Griglia di eventi di Azure. Questi SDK forniscono gestione, pubblicazione e consumo.
 ms.topic: reference
 ms.date: 07/07/2019
-ms.openlocfilehash: 5e93448ef703be88583cd59ae5eee9d1993c4054
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5b79f7cb7ae0112e2dacd077289786fc7b5c956
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322530"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516757"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDK Griglia di eventi per la gestione e la pubblicazione
 
@@ -21,7 +21,7 @@ Gli SDK di gestione consentono di creare, aggiornare ed eliminare gli argomenti 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
 * [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
-* [Node](https://www.npmjs.com/package/azure-arm-eventgrid)
+* [Node](https://www.npmjs.com/package/@azure/arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)
 

@@ -3,12 +3,12 @@ title: Considerazioni sull'archiviazione per Funzioni di Azure
 description: Informazioni sui requisiti di archiviazione di Funzioni di Azure e sulla crittografia dei dati archiviati.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936159"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517264"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerazioni sull'archiviazione per Funzioni di Azure
 
@@ -27,7 +27,7 @@ Funzioni di Azure richiede un account di Archiviazione di Azure quando si crea u
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Questo perché Funzioni di Azure si basa internamente su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle. Questi account includono gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Questo perché Funzioni di Azure si basa internamente su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle. Questi account includono gli account di archiviazione solo BLOB e archiviazione Premium di Azure.
 
 Per altre informazioni sui tipi di account di archiviazione, vedere l'[introduzione ai servizi di Archiviazione di Azure](../storage/common/storage-introduction.md#core-storage-services). 
 

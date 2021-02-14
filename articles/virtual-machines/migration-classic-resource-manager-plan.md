@@ -1,22 +1,22 @@
 ---
 title: Pianificazione della migrazione dal modello classico al Azure Resource Manager
-description: Questo articolo illustra come pianificare la migrazione delle risorse IaaS dal modello classico al Azure Resource Manager in Linux.
-services: virtual-machines-linux
+description: Questo articolo illustra come pianificare la migrazione delle risorse IaaS dal modello classico al Azure Resource Manager.
+services: virtual-machines
 author: tanmaygore
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 271a20c5c9b6e157343246afb79f40894fe8a097
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c29ca5f51e59775479fa5e97e88b28dba110d866
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904731"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366076"
 ---
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Pianificazione della migrazione delle risorse IaaS dal modello classico al Azure Resource Manager in Linux
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 
 > [!IMPORTANT]
 > Attualmente, circa il 90% delle VM IaaS USA [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e saranno completamente ritirate il 1 ° marzo 2023. [Scopri di più]( https://aka.ms/classicvmretirement) su questa deprecazione e sul [modo in cui influiscono sull'utente](classic-vm-deprecation.md#how-does-this-affect-me).
@@ -30,7 +30,7 @@ Il percorso di migrazione include quattro fasi generali:
 
 ![Fasi di migrazione](./media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Pianificazione
+## <a name="plan"></a>Piano
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerazioni tecniche e compromessi
 

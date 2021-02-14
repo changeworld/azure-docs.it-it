@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8e6c13600cb5940351d31b54af403584cc68a5f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937674"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515649"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -133,9 +133,6 @@ Per un utente che non è un amministratore globale o un amministratore di utenti
 | [Amministratore applicazione](../roles/permissions-reference.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | [Amministratore applicazione cloud](../roles/permissions-reference.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | User | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app |  |
-
-> [!NOTE]
-> Se un utente aggiunge un gruppo di sicurezza o un gruppo di Microsoft 365, il gruppo non può essere assegnabile come ruolo. Se l'utente aggiunge un gruppo assegnabile ai ruoli quando crea il pacchetto di accesso, deve essere anche il proprietario di tale gruppo assegnabile al ruolo. Per ulteriori informazioni, fare riferimento a [creare un gruppo assegnabile ai ruoli in Azure Active Directory](../roles/groups-create-eligible.md).
 
 Per determinare il ruolo con privilegi minimi per un'attività, è anche possibile fare riferimento ai [ruoli di amministratore per attività di amministrazione in Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 

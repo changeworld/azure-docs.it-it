@@ -1,21 +1,18 @@
 ---
 title: Espressioni e funzioni in Azure Data Factory
 description: Questo articolo fornisce informazioni sulle espressioni e funzioni che è possibile usare per la creazione di entità di data factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 1b10146e59cefb17ff267eb0b470dd83004a7c2a
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 997700b27f52af174dab914097ceeef8d20ff148
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976572"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385626"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 

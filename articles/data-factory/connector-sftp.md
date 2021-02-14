@@ -1,23 +1,18 @@
 ---
 title: Copiare dati da e sul server SFTP
 description: Informazioni su come copiare dati da e nel server SFTP usando Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: c1f49fffae091dd0d069c48cea75c3da40def645
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346079"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393463"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copiare i dati da e verso il server SFTP usando Azure Data Factory
 
@@ -229,13 +224,13 @@ Le proprietà seguenti sono supportate per SFTP nelle `storeSettings` impostazio
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La proprietà *Type* in `storeSettings` deve essere impostata su *SftpReadSettings*. | Sì                                           |
-| ***Individuare i file da copiare** _ |  |  |
-| OPZIONE 1: percorso statico<br> | Copiare il percorso del file o della cartella specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `_`. |  |
+| ***Individuare i file da copiare*** |  |  |
+| OPZIONE 1: percorso statico<br> | Copiare il percorso del file o della cartella specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `*`. |  |
 | OPZIONE 2: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un singolo carattere); usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. <br>Per altri esempi, vedere [esempi di filtro di file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | OPZIONE 2: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly sotto il folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un singolo carattere); utilizzare `^` per eseguire l'escape se il nome file effettivo presenta caratteri jolly o il carattere di escape.  Per altri esempi, vedere [esempi di filtro di file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 3: un elenco di file<br>- fileListPath | Indica la copia di un set di file specificato. Puntare a un file di testo che include un elenco di file da copiare, ovvero un file per riga, con il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [esempi di elenco di file](#file-list-examples). |No |
-| ***Impostazioni aggiuntive** _ |  | |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono _true * (impostazione predefinita) e *false*.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
+| ***Impostazioni aggiuntive*** |  | |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono *true* (predefinito) e *false*.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia di file binari. Valore predefinito: false. |No |
 | modifiedDatetimeStart    | I file vengono filtrati in base all' *Ultima modifica* apportata all'attributo. <br>I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di `modifiedDatetimeStart` a `modifiedDatetimeEnd` . L'ora viene applicata al fuso orario UTC nel formato *2018-12-01T05:00:00Z*. <br> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è null, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati.<br/>Questa proprietà non è applicabile quando si configura `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                            |

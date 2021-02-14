@@ -3,7 +3,7 @@ title: Risolvere i problemi di gestione dei diritti-Azure AD
 description: Informazioni su alcuni elementi da controllare per la risoluzione dei problemi Azure Active Directory la gestione dei diritti.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bca78195d4fb7bb265c4a7fd8d78ea49a35335b6
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 5b01321c2cbb15be5526bbe9ed04f52238390574
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746712"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516890"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
@@ -47,7 +47,6 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 * Quando si rimuove un membro di un team, questi vengono rimossi anche dal gruppo di Microsoft 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](/microsoftteams/office-365-groups#group-membership)a un gruppo.
 
-* Verificare che la directory non sia configurata per varie aree geografiche. Attualmente la gestione entitlement non supporta varie posizioni geografiche per SharePoint Online. Per poter essere gestiti con la gestione entitlement, i siti di SharePoint Online devono trovarsi nella posizione geografica predefinita. Per altre informazioni, vedere funzionalità per più aree [geografiche in OneDrive e SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pacchetti di accesso
 
@@ -141,7 +140,7 @@ Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione d
 
 * Quando si applicano più criteri, i criteri selezionati automaticamente o i criteri visualizzati per il richiedente sono basati sulla logica di priorità seguente:
 
-    | Priorità dei criteri | Scope |
+    | Priorità dei criteri | Ambito |
     | --- | --- |
     | P1 | Utenti e gruppi specifici nella directory o in organizzazioni connesse specifiche |
     | P2 | Tutti i membri della directory (esclusi i guest) |

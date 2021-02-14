@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937885"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103193"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
@@ -42,7 +42,7 @@ Per registrare l'applicazione, è possibile usare:
 > Il portale da usare varia a seconda che l'applicazione venga eseguita nel cloud pubblico Microsoft Azure o in un cloud nazionale o sovrano. Per altre informazioni, vedere [cloud nazionali](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>. 
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.

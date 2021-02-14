@@ -6,15 +6,15 @@ author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: HT
+ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503912"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517383"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio (versione classica)
 
@@ -48,12 +48,12 @@ Completare la [seconda parte dell'esercitazione](tutorial-part2-credit-risk-trai
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 Per consentire ad altri utenti di usare il modello predittivo sviluppato in questa esercitazione, il modello può essere distribuito come servizio Web in Azure.
 
-Fino a questo punto è stato sperimentato il training del modello, ma il servizio distribuito non dovrà più eseguire il training, perché genererà le stime assegnando un punteggio all'input dell'utente in base al modello. Di conseguenza, è necessario eseguire alcuni preparativi per convertire questo esperimento da esperimento di ***training** _ a esperimento _*_predittivo_*_. 
+Fino a questo punto è stato sperimentato il training del modello, ma il servizio distribuito non dovrà più eseguire il training, perché genererà le stime assegnando un punteggio all'input dell'utente in base al modello. Quindi, verranno eseguite alcune operazioni preliminari per la conversione di questo esperimento da un esperimento ***Training** _ a un esperimento _ *_Predictive_**. 
 
 La preparazione per la distribuzione è un processo che prevede tre passaggi:  
 
 1. Rimuovere uno dei modelli
-1. Convertire l'esperimento di training* creato in un *esperimento predittivo*
+1. Convertire l'*esperimento di training* creato in un *esperimento predittivo*
 1. Distribuire l'esperimento predittivo come servizio Web
 
 ### <a name="remove-one-of-the-models"></a>Rimuovere uno dei modelli

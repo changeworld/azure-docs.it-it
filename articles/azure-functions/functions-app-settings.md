@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881924"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378299"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -19,7 +19,7 @@ Le impostazioni dell'app in un'app per le funzioni contengono le opzioni di conf
 Sono disponibili altre opzioni di configurazione globali nel file [host.json](functions-host-json.md) e nel file [local.settings.json](functions-run-local.md#local-settings-file).
 
 > [!NOTE]  
-> È possibile utilizzare le impostazioni dell'applicazione per eseguire l'override host.jssull'impostazione di valori senza dover modificare il host.jsnel file stesso. Questa operazione è utile per gli scenari in cui è necessario configurare o modificare host.jsspecifiche sulle impostazioni per un ambiente specifico. Questo consente anche di modificare host.jssulle impostazioni senza dover ripubblicare il progetto. Per altre informazioni, vedere l' [ articolohost.jssu riferimento](functions-host-json.md#override-hostjson-values).  
+> È possibile utilizzare le impostazioni dell'applicazione per eseguire l'override host.jssull'impostazione di valori senza dover modificare il host.jsnel file stesso. Questa operazione è utile per gli scenari in cui è necessario configurare o modificare host.jsspecifiche sulle impostazioni per un ambiente specifico. Questo consente anche di modificare host.jssulle impostazioni senza dover ripubblicare il progetto. Per altre informazioni, vedere l' [ articolohost.jssu riferimento](functions-host-json.md#override-hostjson-values). Per le modifiche alle impostazioni dell'app per le funzioni è necessario riavviare l'app per le funzioni.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -213,7 +213,7 @@ Il valore di questa impostazione indica un URL dell'indice del pacchetto persona
 
 Per altre informazioni, vedere [dipendenze personalizzate](functions-reference-python.md#remote-build-with-extra-index-url) nella Guida di riferimento per gli sviluppatori Python.
 
-## <a name="scale_controller_logging_enable"></a>\_ \_ Abilitazione della registrazione del controller di ridimensionamento \_
+## <a name="scale_controller_logging_enabled"></a>registrazione del controller di SCALAbilità \_ \_ \_ abilitata
 
 _Questa impostazione è attualmente disponibile in anteprima._  
 
@@ -221,7 +221,7 @@ Questa impostazione controlla la registrazione dal controller di scalabilità di
 
 |Chiave|Valore di esempio|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights: Verbose|
 
 Il valore di questa chiave viene fornito nel formato `<DESTINATION>:<VERBOSITY>` , che viene definito come segue:
 
@@ -235,7 +235,7 @@ Stringa di connessione per l'account di archiviazione in cui il codice e la conf
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nome];AccountKey=[chiave]|
 
-Utilizzato solo quando si esegue la distribuzione in un piano a consumo o Premium in esecuzione in Windows. Non supportato per Linux. La modifica o la rimozione di questa impostazione può impedire l'avvio dell'app per le funzioni. Per altre informazioni, vedere [questo articolo sulla risoluzione dei problemi](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+Utilizzato solo quando si esegue la distribuzione a un piano Premium o a un piano a consumo in esecuzione in Windows. Non supportato per i piani di consumo che eseguono Linux. La modifica o la rimozione di questa impostazione può impedire l'avvio dell'app per le funzioni. Per altre informazioni, vedere [questo articolo sulla risoluzione dei problemi](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>SITO Web \_ CONTENTOVERVNET
 
@@ -253,7 +253,7 @@ Il percorso del file per il codice e la configurazione dell'app per le funzioni 
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Usato solo dalle app per le funzioni in un piano a consumo o Premium in esecuzione in Windows. Non supportato per Linux. La modifica o la rimozione di questa impostazione può impedire l'avvio dell'app per le funzioni. Per altre informazioni, vedere [questo articolo sulla risoluzione dei problemi](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Utilizzato solo quando si esegue la distribuzione a un piano Premium o a un piano a consumo in esecuzione in Windows. Non supportato per i piani di consumo che eseguono Linux. La modifica o la rimozione di questa impostazione può impedire l'avvio dell'app per le funzioni. Per altre informazioni, vedere [questo articolo sulla risoluzione dei problemi](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 Quando si usa un Azure Resource Manager per creare un'app per le funzioni durante la distribuzione, non includere WEBSITE_CONTENTSHARE nel modello. Questa impostazione dell'applicazione viene generata durante la distribuzione. Per altre informazioni, vedere [automatizzare la distribuzione delle risorse per l'app per le funzioni](functions-infrastructure-as-code.md#windows).   
 

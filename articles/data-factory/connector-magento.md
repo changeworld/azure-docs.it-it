@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Magento tramite Azure Data Factory (anteprima)
 description: Informazioni su come copiare dati da Magento in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 2e27c54b6d5a95de92f77e61f5a1e11e1fd53ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534a7cd8c9a40a807d05ef40b084a7c73c0a7710
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416910"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378469"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copiare dati da Magento tramite Azure Data Factory (anteprima)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +32,7 @@ Questo connettore Magento è supportato per le attività seguenti:
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

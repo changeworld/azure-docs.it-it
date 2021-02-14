@@ -3,22 +3,22 @@ title: 'ML Studio (classico): gestire i servizi Web-Azure'
 description: Gestisci i tuoi Machine Learning i servizi Web nuovi e classici usando il portale dei servizi Web di Microsoft Azure Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 37f10cc8eb3d606d99eb5b3f821a486e9e4ea2fe
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8b04119f4a9ff702356f942cec5bebed1e23926b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322344"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515938"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
@@ -120,7 +120,7 @@ Per gestire i servizi Web classici:
 1. Accedere al [portale dei servizi Web di Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) usando l'account di Microsoft Azure associato alla sottoscrizione di Azure.
 2. Fare clic su **Classic Web Services** (Servizi Web classici).
 
-Per gestire un servizio Web classico, fare clic su **Classic Web Services** (Servizi Web classici). Nella pagina relativa ai servizi Web classici è possibile:
+Per gestire un servizio Web classico, fare clic su **Classic Web Services**(Servizi Web classici). Nella pagina relativa ai servizi Web classici è possibile:
 
 * Fare clic sul servizio Web per visualizzare gli endpoint associati.
 * Eliminare un servizio Web.

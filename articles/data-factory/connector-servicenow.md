@@ -1,22 +1,18 @@
 ---
 title: Copiare dati da ServiceNow
 description: Informazioni su come copiare dati da ServiceNow in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7ebc422a9fd8503c5a3b004e1d06cb5ebfb987
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415342"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378452"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiare dati da ServiceNow usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +30,7 @@ Questo connettore ServiceNow è supportato per le attività seguenti:
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -120,12 +116,11 @@ Per copiare dati da ServiceNow, impostare il tipo di origine nell'attività di c
 
 Tenere presente quanto segue quando si specifica lo schema e la colonna per ServiceNow nella query, e **fare riferimento ai [suggerimenti sulle prestazioni](#performance-tips) per le implicazioni della copia per le prestazioni**.
 
-- **Schema:** specificare lo schema come `Actual` o `Display` nella query ServiceNow, che è possibile individuare come parametro di `sysparm_display_value` come true o false quando si chiamano le [API RESTful di ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Schema:** specificare lo schema come `Actual` o `Display` nella query ServiceNow, che è possibile individuare come parametro di `sysparm_display_value` come true o false quando si chiamano le [API RESTful di ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Colonna:** il nome di colonna per il valore effettivo nello schema `Actual` è `[column name]_value`, mentre il valore visualizzato nello schema `Display` è `[column name]_display_value`. Si noti il nome della colonna deve essere mappato allo schema usato nella query.
 
 **Query di esempio:** 
- `SELECT col_value FROM Actual.alm_asset` O 
-`SELECT col_display_value FROM Display.alm_asset`
+ `SELECT col_value FROM Actual.alm_asset` O`SELECT col_display_value FROM Display.alm_asset`
 
 **Esempio:**
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fe031fa6de86b8059ba175fc4e1df6385ca7e796
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551026"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379022"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -39,6 +39,7 @@ Gli aggiornamenti in febbraio includono:
 - [Collegamento diretto ai criteri dalla pagina dei dettagli delle raccomandazioni](#direct-link-to-policy-from-recommendation-details-page)
 - [La raccomandazione per la classificazione dati SQL non influisca più sul punteggio sicuro](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Le automazione dei flussi di lavoro possono essere attivate dalle modifiche apportate alle valutazioni di conformità normative (anteprima)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [Miglioramenti della pagina inventario asset](#asset-inventory-page-enhancements)
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Consigli sulla protezione del carico di lavoro Kubernetes rilasciati per la disponibilità generale (GA)
 
@@ -70,16 +71,32 @@ Se si sta esaminando l'elenco di raccomandazioni nella Guida di [riferimento](re
 
 
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>La raccomandazione per la classificazione dati SQL non influisca più sul punteggio sicuro
-
 I **dati sensibili ai consigli nei database SQL devono essere classificati in modo da** non influire più sul punteggio sicuro. Si tratta dell'unica raccomandazione nel controllo di sicurezza **applica classificazione dati** , in modo che il controllo disponga ora di un valore di Punteggio sicuro pari a 0.
 
 
 ### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>Le automazione dei flussi di lavoro possono essere attivate dalle modifiche apportate alle valutazioni di conformità normative (anteprima)
-
 È stato aggiunto un terzo tipo di dati alle opzioni trigger per le automazioni del flusso di lavoro: modifiche alle valutazioni di conformità normative.
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Uso delle modifiche alle valutazioni della conformità normativa per attivare un'automazione del flusso di lavoro" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
+
+### <a name="asset-inventory-page-enhancements"></a>Miglioramenti della pagina inventario asset
+La pagina inventario asset del Centro sicurezza è stata migliorata nei modi seguenti:
+
+- I riepiloghi nella parte superiore della pagina includono ora **sottoscrizioni non registrate**, che mostrano il numero di sottoscrizioni senza il Centro sicurezza abilitato.
+
+    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Numero di sottoscrizioni non registrate nei riepiloghi nella parte superiore della pagina inventario asset":::
+
+- I filtri sono stati espansi e migliorati in modo da includere:
+    - **Conteggi** : ogni filtro presenta il numero di risorse che soddisfano i criteri di ogni categoria
+
+        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Conteggi nei filtri nella pagina inventario asset del Centro sicurezza di Azure":::
+
+    - **Contiene il filtro delle esenzioni** (facoltativo): consente di limitare i risultati a risorse che hanno/non hanno esenzioni. Questo filtro non viene visualizzato per impostazione predefinita, ma è accessibile dal pulsante **Aggiungi filtro** .
+
+        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Aggiunta del filtro ' contiene esenzione ' nella pagina di inventario asset del Centro sicurezza di Azure":::
+
+Altre informazioni su come [esplorare e gestire le risorse con inventario asset](asset-inventory.md).
 
 ## <a name="january-2021"></a>Gennaio 2021
 
@@ -630,7 +647,7 @@ Il dashboard Conformità con le normative del Centro sicurezza fornisce informaz
 
 Il dashboard include un set predefinito di standard normativi. Se uno degli standard forniti non è pertinente per l'organizzazione, è ora un processo semplice per rimuoverli dall'interfaccia utente per una sottoscrizione. Gli standard possono essere rimossi solo a livello della *sottoscrizione*, non nell'ambito del gruppo di gestione.
 
-Per altre informazioni, vedere [Rimozione di uno standard dal dashboard](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
+Per altre informazioni, vedere [rimuovere uno standard dal dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
 
 
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Rimossa la tabella Microsoft.Security/securityStatuses da Azure Resource Graph (ARG)

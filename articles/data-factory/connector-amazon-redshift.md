@@ -1,21 +1,17 @@
 ---
 title: Copiare dati da Amazon spostamento
 description: Informazioni su come copiare dati da Amazon Redshift in archivi dati di sink supportati usando Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008325"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364257"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiare dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]

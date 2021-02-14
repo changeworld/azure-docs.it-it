@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da una tabella Web usando Azure Data Factory
 description: Informazioni sul connettore Tabella Web del servizio Azure Data Factory, che consente di copiare dati da una tabella Web in archivi dati supportati da Data Factory come sink.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab45868afd8d1b7ba1f61f5eaacca283817e6d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410208"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367011"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiare dati da Tabella Web usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -47,7 +42,7 @@ In particolare, il connettore Tabella Web supporta **l'estrazione del contenuto 
 
 Per usare questo connettore di tabelle Web, è necessario impostare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo relativo alla [Integration Runtime self-hosted](create-self-hosted-integration-runtime.md) .
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -93,7 +88,7 @@ Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Sì |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per la procedura per ottenere l'indice di una tabella in una pagina HTML, vedere [ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
+| indice |Indice della tabella nella risorsa. Per la procedura per ottenere l'indice di una tabella in una pagina HTML, vedere [ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 **Esempio:**
 

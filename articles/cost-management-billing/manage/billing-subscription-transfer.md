@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979434"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367198"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -91,9 +91,12 @@ Se si verificano problemi durante il trasferimento delle sottoscrizioni, usare l
 
 ### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Il proprietario della fatturazione della sottoscrizione di Azure originale lascia l'organizzazione
 
-È possibile che il proprietario della fatturazione originale che ha creato un account Azure e una sottoscrizione di Azure lasci l'organizzazione. Se si verifica questa situazione, l'identità dell'utente non è più nel Azure Active Directory dell'organizzazione. La sottoscrizione di Azure non dispone quindi di un proprietario della fatturazione. Questa situazione impedisce a chiunque di eseguire operazioni di fatturazione per l'account, inclusa la visualizzazione e il pagamento di fatture. La sottoscrizione potrebbe entrare in uno stato scaduto. Alla fine, la sottoscrizione potrebbe essere disabilitata a causa di un mancato pagamento. Infine, la sottoscrizione può essere eliminata e influisce su ogni servizio eseguito nella sottoscrizione.
+> [!Note]
+> Questa sezione si applica in modo specifico a un account di fatturazione per un contratto per i clienti Microsoft. Controllare se si dispone dell'accesso a un contratto per i [clienti Microsoft](mca-request-billing-ownership.md#check-for-access).
 
-Quando una sottoscrizione non dispone più di un proprietario della fatturazione valido, Azure invia un messaggio di posta elettronica ad altri proprietari di fatturazione, amministratori del servizio, coamministratori e proprietari della sottoscrizione che li informano della situazione e fornisce un collegamento per accettare la proprietà di fatturazione della sottoscrizione. Uno degli utenti può selezionare il collegamento per accettare la proprietà della fatturazione. Per altre informazioni sui ruoli di fatturazione, vedere ruoli di [fatturazione](understand-mca-roles.md) e ruoli [classici e ruoli RBAC di Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+È possibile che il proprietario dell'account di fatturazione originale che ha creato un account Azure e una sottoscrizione di Azure lasci l'organizzazione. Se si verifica questa situazione, l'identità dell'utente non è più nel Azure Active Directory dell'organizzazione. La sottoscrizione di Azure non dispone quindi di un proprietario della fatturazione. Questa situazione impedisce a chiunque di eseguire operazioni di fatturazione per l'account, inclusa la visualizzazione e il pagamento di fatture. La sottoscrizione potrebbe entrare in uno stato scaduto. Alla fine, la sottoscrizione potrebbe essere disabilitata a causa di un mancato pagamento. Infine, la sottoscrizione può essere eliminata e influisce su ogni servizio eseguito nella sottoscrizione.
+
+Quando una sottoscrizione non dispone più di un proprietario di account di fatturazione valido, Azure invia un messaggio di posta elettronica ad altri proprietari dell'account di fatturazione, agli amministratori del servizio (se presenti), Co-Administrators (se presente) e ai proprietari della sottoscrizione che li informano della situazione e fornisce un collegamento per accettare la proprietà di fatturazione della sottoscrizione. Uno degli utenti può selezionare il collegamento per accettare la proprietà della fatturazione. Per altre informazioni sui ruoli di fatturazione, vedere ruoli di [fatturazione](understand-mca-roles.md) e ruoli [classici e ruoli RBAC di Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Ecco un esempio di come appare il messaggio di posta elettronica.
 

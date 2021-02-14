@@ -1,23 +1,18 @@
 ---
 title: Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 description: Informazioni sui fattori principali che influiscono sulle prestazioni dello spostamento di dati in Azure Data Factory quando si usa l'attività di copia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5910b94dba03f105197a94cf1ea1805f45249f3f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451356"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377211"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -28,7 +23,7 @@ ms.locfileid: "96451356"
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Copy activity performance and tuning guide for Data Factory](../copy-activity-performance.md) (Guida alle prestazioni dell'attività di copia e all'ottimizzazione per Data Factory).
 
-L'attività di copia di Azure Data Factory offre una soluzione di caricamento dei dati di primo livello in quanto a sicurezza, affidabilità e prestazioni. Consente di copiare decine di terabyte di dati ogni giorno in un'ampia gamma di archivi dati locali e cloud. Prestazioni di caricamento dei dati velocissime sono fondamentali per garantire di potersi concentrare sul problema centrale dei "big data": realizzare soluzioni avanzate di analisi e ricevere informazioni approfondite da tutti i dati.
+L'attività di copia di Azure Data Factory offre una soluzione di caricamento dei dati di primo livello in quanto a sicurezza, affidabilità e prestazioni. Consente di copiare decine di terabyte di dati ogni giorno in un'ampia gamma di archivi dati locali e cloud. Le prestazioni di caricamento dei dati velocissime sono fondamentali per garantire la possibilità di concentrarsi sul problema principale "Big Data": creare soluzioni di analisi avanzate e ottenere informazioni approfondite da tutti i dati.
 
 Azure fornisce un set di soluzioni di archiviazione dei dati e data warehouse di livello aziendale, e l'attività di copia offre un'esperienza di caricamento dei dati altamente ottimizzata, facile da configurare e impostare. Con un'unica attività di copia, è possibile ottenere:
 
@@ -203,7 +198,7 @@ Quando si attiva lo spostamento dei dati usando un archivio di staging, è possi
 Attualmente non è possibile copiare dati tra due archivi dati locali usando un archivio di staging. Questa opzione sarà presto disponibile.
 
 ### <a name="configuration"></a>Configurazione
-Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se i dati devono essere inseriti in un archivio BLOB di Azure di staging prima del caricamento in un archivio dati di destinazione. Se si imposta **enableStaging** su TRUE, specificare le proprietà aggiuntive elencate nella tabella seguente. Se non è già disponibile, è necessario creare un servizio collegato alla firma di accesso condiviso di archiviazione o di Archiviazione di Azure per lo staging.
+Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se i dati devono essere inseriti in un archivio BLOB di Azure di staging prima del caricamento in un archivio dati di destinazione. Se si imposta **enableStaging** su TRUE, specificare le proprietà aggiuntive elencate nella tabella seguente. Se non si ha un servizio, è anche necessario creare un servizio collegato di archiviazione di Azure o di archiviazione con firma di accesso condiviso per la gestione temporanea.
 
 | Proprietà | Descrizione | Valore predefinito | Necessario |
 | --- | --- | --- | --- |
@@ -254,7 +249,7 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
 
    ![Dettagli esecuzione attività](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
-   È possibile confrontare le prestazioni e la configurazione dello scenario personalizzato con le [informazioni di riferimento sulle prestazioni](#performance-reference) dell'attività di copia ottenute dai test e pubblicate più avanti.
+   Più avanti in questo articolo, è possibile confrontare le prestazioni e la configurazione dello scenario con i [riferimenti alle prestazioni](#performance-reference) dell'attività di copia dai test.
 2. **Diagnosticare e ottimizzare le prestazioni**. Se le prestazioni osservate non soddisfano le aspettative, è necessario identificare gli eventuali colli di bottiglia e quindi ottimizzare le prestazioni per rimuovere o ridurre l'effetto dei colli di bottiglia. Una descrizione completa della diagnosi delle prestazioni non rientra nell'ambito di questo articolo, ma di seguito sono riportate alcune considerazioni comuni:
 
    * Funzionalità per le prestazioni:
@@ -371,7 +366,7 @@ Prestare attenzione al numero di set di dati e di attività di copia che richied
 
 **Test e analisi**: la velocità effettiva dell'attività di copia è inferiore a 2 Mbps ed è molto inferiore al benchmark delle prestazioni.
 
-**Analisi e ottimizzazione delle prestazioni**: per risolvere il problema delle prestazioni, occorre vedere prima di tutto come vengono elaborati e spostati i dati.
+**Analisi e ottimizzazione delle prestazioni**: per risolvere il problema relativo alle prestazioni, è ora possibile esaminare il modo in cui i dati vengono elaborati e spostati.
 
 1. **Lettura dei dati**: il gateway apre una connessione a SQL Server e invia la query. SQL Server risponde inviando il flusso di dati al gateway tramite Intranet.
 2. **Serializzazione e compressione dei dati**: il gateway serializza il flusso dei dati in formato CSV e comprime i dati in un flusso bzip2.
@@ -413,7 +408,7 @@ In tal caso, la compressione dati bzip2 potrebbe rallentare l'intera pipeline. I
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:
 
 * Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../../storage/blobs/storage-performance-checklist.md).

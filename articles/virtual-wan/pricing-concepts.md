@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905537"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517689"
 ---
 # <a name="about-virtual-wan-pricing"></a>Informazioni sui prezzi della rete WAN virtuale
 
@@ -23,8 +23,7 @@ La rete WAN virtuale di Azure offre più servizi di rete e sicurezza in un frame
 Il prezzo di ogni servizio nella rete WAN virtuale è. Pertanto, il suggerimento di un singolo prezzo non è applicabile alla rete WAN virtuale. Il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) fornisce un meccanismo per derivare il costo, basato sui servizi di cui è stato effettuato il provisioning in una rete WAN virtuale. Questo articolo descrive le domande frequenti sui prezzi della rete WAN virtuale.
 
 >[!NOTE]
->Per informazioni aggiornate sui prezzi, vedere [prezzi della rete WAN virtuale](https://azure.microsoft.com/pricing/details/virtual-wan/).
->
+>Per informazioni aggiornate sui prezzi, vedere [prezzi della rete WAN virtuale](https://azure.microsoft.com/pricing/details/virtual-wan/). Gli addebiti tra hub (hub to Hub) non vengono visualizzati nella pagina dei prezzi della rete WAN virtuale perché sono soggetti a Inter-Region (intra/Intercontinental) addebitano i costi di [trasferimento dati di Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="common-pricing-questions"></a><a name="questions"></a>Domande comuni sui prezzi
 

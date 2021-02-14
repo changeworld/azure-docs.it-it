@@ -1,24 +1,18 @@
 ---
 title: "Esercitazione: Usare l'API REST per creare una pipeline di Azure Data Factory "
 description: In questa esercitazione si usa l'API REST per creare una pipeline di Azure Data Factory con un'attività di copia per copiare i dati da una risorsa di Archiviazione BLOB di Azure al database SQL di Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 7488834252dcd4e231c2d91a1435838befe7b1d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053819"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377024"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare l'API REST per creare una pipeline di Azure Data Factory per copiare dati 
 > [!div class="op_single_selector"]
@@ -351,7 +345,7 @@ In questo passaggio si crea un'istanza di Azure Data Factory denominata **ADFCop
 
 Tenere presente quanto segue:
 
-* È necessario specificare un nome univoco globale per la Data factory di Azure. Se nei risultati viene visualizzato l'errore **Il nome "ADFCopyTutorialDF" per la data factory non è disponibile**, seguire questa procedura:  
+* È necessario specificare un nome univoco globale per la Data factory di Azure. Se viene visualizzato l'errore nei risultati: il **nome della data factory "ADFCopyTutorialDF" non è disponibile**, seguire questa procedura:  
   
   1. Cambiare il nome, ad esempio nomeutenteADFCopyTutorialDF, nel file **datafactory.json** .
   2. Nel primo comando in cui viene assegnato un valore alla variabile **$cmd** sostituire ADFCopyTutorialDF con il nuovo nome ed eseguire il comando. 
@@ -526,7 +520,7 @@ In questa esercitazione è stata usata l'API REST per creare una data factory di
 2. Creare **servizi collegati**:
    1. Un servizio collegato di Archiviazione di Azure per collegare l'account di archiviazione di Azure che include i dati di input.     
    2. Un servizio collegato di Azure SQL per collegare il database che contiene i dati di output. 
-3. Creare **set di dati**che descrivono dati di input e dati di output per le pipeline.
+3. Creare **set di dati** che descrivono dati di input e dati di output per le pipeline.
 4. Creare una **pipeline** con un'attività di copia con BlobSource come origine e SqlSink come sink. 
 
 ## <a name="next-steps"></a>Passaggi successivi
