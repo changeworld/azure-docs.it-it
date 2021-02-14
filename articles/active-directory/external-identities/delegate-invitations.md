@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546172"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365549"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
 
@@ -45,8 +45,6 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
 
 4. In **restrizioni di accesso utente Guest (anteprima)** scegliere il livello di accesso che si desidera che gli utenti Guest dispongano di:
   
-    ![Impostazioni delle restrizioni di accesso utente Guest](./media/delegate-invitations/guest-user-access.png)
-
    - **Gli utenti Guest hanno lo stesso accesso dei membri (più inclusivo)**: questa opzione consente agli utenti Guest lo stesso accesso alle risorse Azure ad e ai dati di directory come utenti membro.
 
    - **Gli utenti Guest hanno accesso limitato alle proprietà e alle appartenenze degli oggetti directory**: (impostazione predefinita) questa impostazione blocca i guest da determinate attività di directory, ad esempio l'enumerazione di utenti, gruppi o altre risorse di directory. I guest possono visualizzare l'appartenenza di tutti i gruppi non nascosti.
@@ -69,13 +67,11 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
 
 6. In **password** monouso per i guest scegliere le impostazioni appropriate. per ulteriori informazioni, vedere la pagina relativa all'autenticazione della password monouso per la [posta elettronica](one-time-passcode.md):
 
-   ![Impostazioni di password monouso per la posta elettronica](./media/delegate-invitations/email-otp-settings.png)
-
-   - **Abilitare automaticamente il codice di accesso monouso tramite posta elettronica per i guest nel 2021 marzo**. Predefinita Se la funzionalità di accesso monouso per il messaggio di posta elettronica non è già abilitata per il tenant, verrà attivata automaticamente il 2021 marzo. Non è necessaria alcuna azione aggiuntiva se si desidera che la funzionalità sia abilitata in quel momento. Se la funzionalità è già stata abilitata o disabilitata, questa opzione non sarà disponibile.
+   - **Abilitare automaticamente il codice di accesso monouso tramite posta elettronica per i guest nel 2021 ottobre**. Predefinita Se la funzionalità di accesso monouso per il messaggio di posta elettronica non è già abilitata per il tenant, verrà attivata automaticamente nel 2021 ottobre. Non è necessaria alcuna azione aggiuntiva se si desidera che la funzionalità sia abilitata in quel momento. Se la funzionalità è già stata abilitata o disabilitata, questa opzione non sarà disponibile.
 
    - **Consente di abilitare il codice di posta elettronica monouso per i guest**. Attiva la funzionalità di accesso monouso della posta elettronica per il tenant.
 
-   - **Disabilitare il codice di posta elettronica monouso per i guest**. Disattiva la funzionalità di accesso monouso di un messaggio di posta elettronica per il tenant e impedisce l'attivazione della funzionalità nel 2021 marzo.
+   - **Disabilitare il codice di posta elettronica monouso per i guest**. Disattiva la funzionalità di accesso monouso della posta elettronica per il tenant e impedisce l'attivazione della funzionalità nel 2021 ottobre.
 
    > [!NOTE]
    > Invece delle opzioni precedenti, verrà visualizzato l'interruttore seguente se è stata abilitata o disabilitata questa funzionalità o se in precedenza è stato scelto l'anteprima:

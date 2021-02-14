@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 89e0c62b580c0c354fc7277e61b452005a86e3d9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577795"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374542"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Ridurre i costi con app Azure istanze riservate del servizio
 
@@ -37,24 +37,12 @@ Prima di acquistare una prenotazione, è necessario determinare le dimensioni de
 - È possibile usare le API per ottenere raccomandazioni di acquisto sia per l'ambito condiviso sia per l'ambito di una singola sottoscrizione. Per altre informazioni, vedere [API di raccomandazione per l'acquisto di istanze riservate per i clienti aziendali](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Per i clienti Contratto Enterprise (EA) e Microsoft Customer Agreement (MCA), i consigli di acquisto per gli ambiti di abbonamento condiviso e singolo sono disponibili con il [pacchetto di contenuto Informazioni dettagliate sul consumo di Azure Power bi](/power-bi/service-connect-to-azure-consumption-insights).
 
-#### <a name="instance-size-flexibility-setting"></a>Impostazione della flessibilità delle dimensioni istanza
-
-L'impostazione della flessibilità delle dimensioni dell'istanza determina quali servizi ottengono gli sconti per le istanze riservate.
-
-Se l'impostazione è on o off, gli sconti per la prenotazione si applicano automaticamente a qualsiasi utilizzo di istanza riservata Premium V3 corrispondente.
-
 ### <a name="analyze-your-usage-information"></a>Analizzare le informazioni sull'utilizzo
 
 Analizzare le informazioni sull'utilizzo per determinare le prenotazioni da acquistare. I dati di utilizzo sono disponibili nel file di utilizzo e nelle API. Usarli insieme per determinare la prenotazione da acquistare. Verificare la presenza di istanze Premium V3 con utilizzo elevato su base giornaliera per determinare la quantità di prenotazioni da acquistare.
 
 Il file di utilizzo Mostra gli addebiti per periodo di fatturazione e utilizzo giornaliero. Per informazioni sul download del file di utilizzo, vedere [visualizzare e scaricare gli addebiti e l'utilizzo di Azure](../understand/download-azure-daily-usage.md). Quindi, usando le informazioni sul file di utilizzo, è possibile [determinare la prenotazione da acquistare](determine-reservation-purchase.md).
 
-### <a name="purchase-restriction-considerations"></a>Considerazioni sulla restrizione degli acquisti
-
-Gli sconti per le prenotazioni non sono validi per le seguenti istanze Premium V3:
-
-- **Istanze di anteprima o Promote** : tutte le serie di istanze riservate V3 Premium V3 o le dimensioni disponibili in anteprima o usano il contatore promozionale.
-- **Cloud** : le prenotazioni non sono disponibili per l'acquisto nelle aree Germania o Cina.
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Acquistare un'istanza riservata Premium V3
 
@@ -79,7 +67,6 @@ Se si dispone di un contratto Enterprise, è possibile utilizzare l' **opzione A
 | Ambito | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato. </li><li>**Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.</li><li>**Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul> |
 | Region | Area di Azure coperta dalla prenotazione. |
 | Dimensioni dell'istanza riservata Premium V3 | Dimensioni delle istanze riservate Premium V3. |
-| Ottimizza per | Per impostazione predefinita, è selezionata la flessibilità delle dimensioni delle istanze riservate Premium V3. Fare clic su **Impostazioni avanzate** per modificare il valore di flessibilità delle dimensioni dell'istanza per applicare lo sconto di prenotazione ad altre istanze riservate Premium V3 nello stesso [gruppo dimensioni istanza riservata Premium V3](../../virtual-machines/reserved-vm-instance-size-flexibility.md). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Offre una maggiore fiducia nella capacità di avviare le istanze riservate Premium V3 quando necessario. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
 | Termine | Un anno o tre anni. Esiste anche un termine di 5 anni disponibile solo per le istanze riservate HBv2 Premium V3. |
 | Quantità | Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze riservate Premium V3 che possono ottenere lo sconto per la fatturazione. Se, ad esempio, si eseguono 10 \_ istanze standard di D2 Premium V3 negli Stati Uniti orientali, è necessario specificare Quantity come 10 per ottimizzare il vantaggio per tutte le istanze riservate Premium V3 in esecuzione. |
 

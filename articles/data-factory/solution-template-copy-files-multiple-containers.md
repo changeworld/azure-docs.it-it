@@ -1,22 +1,18 @@
 ---
 title: Copiare file da più contenitori
 description: Informazioni su come usare un modello di soluzione per copiare file da più contenitori usando Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629426"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376089"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copia più cartelle con Azure Data Factory
 
@@ -37,8 +33,8 @@ Il modello contiene tre attività:
 - **Copia** copia ogni cartella dall'archivio di archiviazione di origine nell'archivio di destinazione.
 
 Il modello definisce i parametri seguenti:
-- *SourceFileFolder* fa parte del percorso della cartella padre dell'archivio dell'origine dati: *SourceFileFolder/SourceFileDirectory* , in cui è possibile ottenere un elenco delle sottocartelle. 
-- *SourceFileDirectory* fa parte del percorso della cartella padre dell'archivio dell'origine dati: *SourceFileFolder/SourceFileDirectory* , in cui è possibile ottenere un elenco delle sottocartelle. 
+- *SourceFileFolder* fa parte del percorso della cartella padre dell'archivio dell'origine dati: *SourceFileFolder/SourceFileDirectory*, in cui è possibile ottenere un elenco delle sottocartelle. 
+- *SourceFileDirectory* fa parte del percorso della cartella padre dell'archivio dell'origine dati: *SourceFileFolder/SourceFileDirectory*, in cui è possibile ottenere un elenco delle sottocartelle. 
 - *DestinationFileFolder* fa parte del percorso della cartella padre: *DestinationFileFolder/DestinationFileDirectory* in cui verranno copiati i file nell'archivio di destinazione. 
 - *DestinationFileDirectory* fa parte del percorso della cartella padre: *DestinationFileFolder/DestinationFileDirectory* in cui verranno copiati i file nell'archivio di destinazione. 
 
@@ -54,7 +50,7 @@ Se si desidera copiare più contenitori in cartelle radice tra gli archivi di ar
 
     ![Creare una nuova connessione alla destinazione](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Selezionare **Usa questo modello** .
+3. Selezionare **Usa questo modello**.
 
     ![Usa questo modello](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -62,7 +58,7 @@ Se si desidera copiare più contenitori in cartelle radice tra gli archivi di ar
 
     ![Mostra la pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selezionare **Debug** , immettere i valori in **Parametri** , quindi selezionare **Fine** .
+5. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
 
     ![Eseguire la pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

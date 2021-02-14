@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630854"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374984"
 ---
 # <a name="smb-multichannel-performance"></a>Prestazioni di SMB multicanale
 
@@ -110,7 +110,7 @@ Il carico è stato generato in base a un singolo file GiB 128. Con SMB multicana
 
 - In una singola scheda di interfaccia di rete con dimensioni di i/o medie maggiori (> ~ 16K), sono stati apportati miglioramenti significativi nelle operazioni di lettura e scrittura.
 - Per le dimensioni di i/o più piccole, si è verificato un lieve effetto del 10% sulle prestazioni quando SMB multicanale è stato abilitato. Questo problema può essere risolto diffondendo il carico su più file o disabilitando la funzionalità.
-- Le prestazioni sono ancora limitate da  [limiti di file singolo](storage-files-scale-targets.md#file-level-limits).
+- Le prestazioni sono ancora limitate da [limiti di file singolo](storage-files-scale-targets.md#file-scale-targets).
 
 ## <a name="optimizing-performance"></a>Ottimizzazione delle prestazioni
 

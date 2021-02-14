@@ -4,18 +4,14 @@ description: Descrive i ruoli e le autorizzazioni richiesti per creare data fact
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053772"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364478"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
 
@@ -54,14 +50,13 @@ Il ruolo **Collaboratore Data factory**, a livello di gruppo di risorse o superi
 
 Le autorizzazioni per Azure Repos e GitHub sono indipendenti dalle autorizzazioni di Data Factory. Di conseguenza, un utente con autorizzazioni di repository che è solo un membro del ruolo lettore può modificare le risorse figlio di Data Factory ed eseguire il commit delle modifiche nel repository, ma non può pubblicare tali modifiche.
 
+
 > [!IMPORTANT]
 > La distribuzione dei modelli di Resource Manager con il ruolo **Collaboratore Data factory** non eleva le autorizzazioni. Ad esempio, se si distribuisce un modello che crea una macchina virtuale di Azure e non si è autorizzati a creare macchine virtuali, la distribuzione ha esito negativo con un errore di autorizzazione.
 
-> [!IMPORTANT]
-> L'autorizzazione **Microsoft. DataFactory/factorys/Write** è obbligatoria in entrambe le modalità all'interno del contesto di pubblicazione.
-
-- Questa autorizzazione è necessaria solo in modalità Live quando il cliente modifica i parametri globali.
-- Questa autorizzazione è sempre obbligatoria in modalità git poiché ogni volta che il cliente pubblica, perché l'oggetto factory con l'ultimo ID commit viene aggiornato.
+   In contesto di pubblicazione, l'autorizzazione **Microsoft. DataFactory/factorys/Write** si applica alle modalità seguenti.
+- Tale autorizzazione è necessaria solo in modalità dinamica quando il cliente modifica i parametri globali.
+- Tale autorizzazione è sempre richiesta in modalità git, perché ogni volta che il cliente pubblica, l'oggetto factory con l'ultimo ID commit deve essere aggiornato.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenari personalizzati e ruoli personalizzati
 
@@ -95,6 +90,7 @@ Ecco alcuni esempi che illustrano cosa si può ottenere con i ruoli personalizza
 - Consentire a un utente di aggiornare una data factory da PowerShell o da SDK, ma non nel portale di Azure.
 
   Assegnare il ruolo **collaboratore** predefinito alla risorsa di data factory per l'utente. Questo ruolo consente all'utente di vedere le risorse nel portale di Azure, ma di non poter interagire con i pulsanti **Pubblica** e **Pubblica tutti**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

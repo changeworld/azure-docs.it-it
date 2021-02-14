@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/10/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ee281e60a0eb6f6192e63a9733146714e4aaf2eb
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510683"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104383"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -35,7 +35,7 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.AppConfiguration/configurationStores |Sì | No | [Configurazione app](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft.AppPlatform/Spring | Sì | No | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | Sì| No | [Account di Automazione](./metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft. AVS/privateClouds | No | No | |
+|Microsoft. AVS/privateClouds | No | No | [Soluzione Azure VMware](./metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Sì | No | [Account Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft.Cache/Redis | Sì | Sì | [Cache Redis di Azure](./metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Servizi cloud classici](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
@@ -54,7 +54,7 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Sì | Sì | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
 |Microsoft.DataFactory/datafactories| Sì| No | [Data factory V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
 |Microsoft.DataFactory/factories |Sì | No | [Data factory V2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/accounts | Sì | No | |
+|Microsoft.DataShare/accounts | Sì | No | [Condivisioni di dati](./metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servers | No | No | [DB per MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[Database per MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers | No | No | [Database per PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
@@ -62,7 +62,7 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.DBforPostgreSQL/flexibleServers | Sì | No | [DB per PostgreSQL (server flessibili)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Sì | No |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Sì | No | [Servizi Device provisioning](./metrics-supported.md#microsoftdevicesprovisioningservices) |
-|Microsoft. DigitalTwins/digitalTwinsInstances | Sì | No | |
+|Microsoft. DigitalTwins/digitalTwinsInstances | Sì | No | [Gemelli digitali](./metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | Sì | No | [Cosmos DB](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
 |Microsoft.EventGrid/domains | Sì | No | [Domini di Griglia di eventi](./metrics-supported.md#microsofteventgriddomains) |
 |Microsoft. EventGrid/systemTopics | Sì | No | [Argomenti del sistema di griglia di eventi](./metrics-supported.md#microsofteventgridsystemtopics) |
@@ -87,10 +87,10 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.Network/expressRouteCircuits | Sì | No |[Circuiti ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/expressRoutePorts | Sì | No |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (solo per SKU Standard)| Sì| No | [Bilanciamento del carico](./metrics-supported.md#microsoftnetworkloadbalancers) |
-|Microsoft. Network/natGateways| No | No | |
-|Microsoft. Network/privateEndpoints| No | No | |
-|Microsoft.Network/privateLinkServices| No | No |
-|Microsoft.Network/publicipaddresses | No | No |[Indirizzi IP pubblici](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft. Network/natGateways| No | No | [Gateway NAT](./metrics-supported.md#microsoftnetworknatgateways) |
+|Microsoft. Network/privateEndpoints| No | No | [Endpoint privati](./metrics-supported.md#microsoftnetworkprivateendpoints) |
+|Microsoft.Network/privateLinkServices| No | No | [Servizi di collegamento privato](./metrics-supported.md#microsoftnetworkprivatelinkservices) |
+|Microsoft.Network/publicipaddresses | No | No | [Indirizzi IP pubblici](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | Sì | No | [Profili di gestione traffico](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Sì | No | [Aree di lavoro di Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft. peering/peering | Sì | No | [Peering](./metrics-supported.md#microsoftpeeringpeerings) |
@@ -107,7 +107,7 @@ Ecco l'elenco completo delle origini delle metriche di monitoraggio di Azure sup
 |Microsoft.Storage/storageAccounts/fileServices | Sì| No | [Account di archiviazione-file](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
 |Microsoft.Storage/storageAccounts/queueServices | Sì| No | [Account di archiviazione-code](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
 |Microsoft.Storage/storageAccounts/tableServices | Sì| No | [Account di archiviazione-tabelle](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
-|Microsoft.StorageCache/caches | Sì | No | |
+|Microsoft.StorageCache/caches | Sì | No | [Cache HPC](./metrics-supported.md#microsoftstoragecachecaches) |
 |Microsoft. StorageSync/storageSyncServices | Sì | No | [Servizi di sincronizzazione archiviazione](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Sì | No | [Analisi di flusso](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
 |Microsoft.Synapse/workspaces | Sì | No | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |

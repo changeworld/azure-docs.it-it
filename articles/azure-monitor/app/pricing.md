@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556127"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384504"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -286,15 +286,18 @@ Per disabilitare i messaggi di posta elettronica relativi al limite di utilizzo 
 
 Per chi ha adottato da tempo Azure Application Insights, sono ancora disponibili due piani tariffari: Basic ed Enterprise. Il piano tariffario Basic è identico a quello descritto sopra ed è il piano predefinito. Include tutte le funzionalità del piano Enterprise, senza alcun costo aggiuntivo. Nel piano Basic la fatturazione viene effettuata principalmente in base al volume di dati inseriti.
 
-> [!NOTE]
-> Questi piani tariffari legacy sono stati rinominati. Il piano tariffario Enterprise è ora denominato **Per Node** e il piano tariffario Basic **Per GB**. Questi nuovi nomi vengono usati di seguito e nel portale di Azure.  
+Questi piani tariffari legacy sono stati rinominati. Il piano tariffario Enterprise è ora denominato **Per Node** e il piano tariffario Basic **Per GB**. Questi nuovi nomi vengono usati di seguito e nel portale di Azure.  
 
-Il piano Per Node (in precedenza Enterprise) prevede un addebito per nodo e una determinata quantità di dati giornaliera per ogni nodo. Nel piano tariffario Per Node vengono addebitati i dati inseriti in aggiunta alla quantità inclusa. Se si usa Operations Management Suite, è consigliabile scegliere il piano Per Node.
+Il piano Per Node (in precedenza Enterprise) prevede un addebito per nodo e una determinata quantità di dati giornaliera per ogni nodo. Nel piano tariffario Per Node vengono addebitati i dati inseriti in aggiunta alla quantità inclusa. Se si usa Operations Management Suite, è consigliabile scegliere il piano Per Node. Nel mese di aprile 2018 è stato [introdotto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuovo modello di determinazione dei prezzi per Monitoraggio di Azure. Questo modello adotta un semplice modello di "pagamento in base al consumo" per tutto il portfolio dei servizi di monitoraggio. Scopri di più sul [nuovo modello tariffario](../platform/usage-estimated-costs.md).
 
 Per i prezzi correnti nella valuta e nell'area locali, vedere i [prezzi di Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> Nel mese di aprile 2018 è stato [introdotto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuovo modello di determinazione dei prezzi per Monitoraggio di Azure. Questo modello adotta un semplice modello di "pagamento in base al consumo" per tutto il portfolio dei servizi di monitoraggio. Altre informazioni sul [nuovo modello di determinazione dei prezzi](../platform/usage-estimated-costs.md), su come [valutare l'impatto del passaggio a questo modello](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) in base ai modelli di uso e su [come acconsentire esplicitamente al nuovo modello](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Informazioni sull'utilizzo fatturato nel livello enterprise legacy (per nodo) 
+
+Come descritto di seguito in modo più dettagliato, il livello aziendale legacy (per nodo) combina l'utilizzo di tutte le risorse Application Insights in una sottoscrizione per calcolare il numero di nodi e l'eccedenza di dati. A causa di questo processo combinato, l' **utilizzo di tutte le risorse Application Insights in una sottoscrizione viene segnalato solo a una delle risorse**.  Questo consente di riconciliare l' [utilizzo fatturato](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) con l'utilizzo osservato per ogni risorsa Application Insights molto complicata. 
+
+> [!WARNING]
+> A causa della complessità del rilevamento e della comprensione dell'utilizzo di Application Insights risorse nel livello enterprise legacy (per nodo), è consigliabile usare il piano tariffario con pagamento in base al consumo corrente. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Piano Per Node e diritti della sottoscrizione di Operations Management Suite
 
@@ -347,4 +350,3 @@ Poiché tale piano è applicabile solo ai clienti con una sottoscrizione Operati
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

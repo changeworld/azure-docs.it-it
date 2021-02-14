@@ -7,14 +7,14 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 936a667948c888f3ca7c53eaa5be9cc97facf5f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979624"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375358"
 ---
-# <a name="modify-target-settings"></a>Modificare le impostazioni di destinazione
+# <a name="modify-destination-settings"></a>Modificare le impostazioni di destinazione
 
 Questo articolo descrive come modificare le impostazioni di destinazione quando si spostano le risorse tra aree di Azure con il [motore di risorse di Azure](overview.md).
 
@@ -38,7 +38,7 @@ Le impostazioni di configurazione che è possibile modificare sono riepilogate n
 --- | --- | --- 
 **Nome della VM.** | Opzioni:<br/><br/> -Creare una nuova VM con lo stesso nome nell'area di destinazione.<br/><br/> -Creare una nuova macchina virtuale con un nome diverso nell'area di destinazione.<br/><br/> -Usare una macchina virtuale esistente nell'area di destinazione.<br/><br/> Se si crea una nuova macchina virtuale, ad eccezione delle impostazioni modificate, alla nuova VM di destinazione vengono assegnate le stesse impostazioni dell'origine.
 **Zona di disponibilità della macchina virtuale** | Zona di disponibilità in cui verrà inserita la macchina virtuale di destinazione. Selezionare **non applicabile** se non si vuole modificare le impostazioni di origine o se non si vuole collocare la macchina virtuale in una zona di disponibilità.
-**SKU di VM** | Il [tipo di macchina virtuale](https://azure.microsoft.com/pricing/details/virtual-machines/series/) , disponibile nell'area di destinazione, che verrà usato per la macchina virtuale di destinazione.<br/><br/> La macchina virtuale di destinazione selezionata non deve essere inferiore alla VM di origine.
+**SKU di VM** | [Tipo di macchina virtuale](https://azure.microsoft.com/pricing/details/virtual-machines/series/) , disponibile nell'area di destinazione, che verrà usata per la macchina virtuale di destinazione.<br/><br/> La macchina virtuale di destinazione selezionata non deve essere inferiore alla VM di origine.
 * * Set di disponibilità VM | Set di disponibilità in cui verrà inserita la macchina virtuale di destinazione. Selezionare **non applicabile**  . non è necessario modificare le impostazioni di origine o se non si vuole inserire la VM in un set di disponibilità.
 **Insieme di credenziali delle chiavi VM** | Insieme di credenziali delle chiavi associato quando si Abilita crittografia dischi di Azure in una macchina virtuale.
 **Crittografia dischi impostata** | Il set di crittografia del disco associato se la macchina virtuale utilizza una chiave gestita dal cliente per la crittografia lato server.
@@ -48,7 +48,7 @@ Le impostazioni di configurazione che è possibile modificare sono riepilogate n
 * * Nome del servizio di bilanciamento del carico, SKU e zona * * | Specifica il nome, lo SKU (Basic o standard) e la zona per il servizio di bilanciamento del carico.<br/><br/> È consigliabile usare lo sKU standard.<br/><br/> Se si vuole che la zona sia ridondante, specificare come **ridondanza** della zona.
 **Dipendenze delle risorse** | Opzioni per ogni dipendenza:<br/><br/>-La risorsa usa risorse dipendenti dall'origine che si sposteranno nell'area di destinazione.<br/><br/> -La risorsa usa risorse dipendenti diverse che si trovano nell'area di destinazione. In questo caso, è possibile scegliere tra le risorse simili nell'area di destinazione.
 
-### <a name="edit-vm-target-settings"></a>Modificare le impostazioni di destinazione della macchina virtuale
+### <a name="edit-vm-destination-settings"></a>Modificare le impostazioni di destinazione della macchina virtuale
 
 Se non si desiderano risorse dipendenti dall'area di origine alla destinazione, sono disponibili due opzioni:
 
@@ -86,9 +86,9 @@ Quando si spostano le risorse del database SQL di Azure, è possibile modificare
 **Nome** | Creare un nuovo database con lo stesso nome nell'area di destinazione.<br/><br/> Creare un nuovo database con un nome diverso nell'area di destinazione.<br/><br/> Usare un database esistente nell'area di destinazione. | Creare un nuovo pool elastico con lo stesso nome nell'area di destinazione.<br/><br/> Creare un nuovo pool elastico con un nome diverso nell'area di destinazione.<br/><br/> Usare un pool elastico esistente nell'area di destinazione.
 **Ridondanza della zona** | Per spostarsi da un'area che supporta la ridondanza della zona in un'area che non lo è, digitare **Disable** nell'impostazione della zona.<br/><br/> Per spostarsi da un'area che non supporta la ridondanza della zona in un'area che lo fa, digitare **Enable** nell'impostazione zone. | Per spostarsi da un'area che supporta la ridondanza della zona in un'area che non lo è, digitare **Disable** nell'impostazione della zona.<br/><br/> Per spostarsi da un'area che non supporta la ridondanza della zona in un'area che lo fa, digitare **Enable** nell'impostazione zone.
 
-### <a name="edit-sql-target-settings"></a>Modificare le impostazioni di destinazione SQL
+### <a name="edit-sql-destination-settings"></a>Modificare le impostazioni di destinazione SQL
 
-Modificare le impostazioni di destinazione per una risorsa del database SQL di Azure come indicato di seguito: 
+Per modificare le impostazioni di destinazione per una risorsa del database SQL di Azure, seguire questa procedura: 
 
 1. In **tra le aree**, per la risorsa che si vuole modificare, fare clic sulla voce di **configurazione di destinazione** .
 2. In **impostazioni di configurazione** specificare le impostazioni di destinazione riepilogate nella tabella precedente.

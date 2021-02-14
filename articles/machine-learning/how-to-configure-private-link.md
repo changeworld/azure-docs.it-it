@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/30/2020
-ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.date: 02/09/2021
+ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979182"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368014"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
@@ -31,8 +31,9 @@ Il collegamento privato di Azure consente di connettersi all'area di lavoro usan
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se si prevede di usare un'area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente, è necessario richiedere questa funzionalità usando un ticket di supporto. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Se si prevede di usare un'area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente, è necessario richiedere questa funzionalità usando un ticket di supporto. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+* È necessario disporre di una rete virtuale esistente in cui creare l'endpoint privato. Prima di aggiungere l'endpoint privato, è inoltre necessario [disabilitare i criteri di rete per gli endpoint privati](../private-link/disable-private-endpoint-network-policy.md) .
 ## <a name="limitations"></a>Limitazioni
 
 * L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non è disponibile nelle aree di Azure per enti pubblici o Azure Cina 21Vianet.
@@ -73,6 +74,19 @@ L' [estensione dell'interfaccia della riga di comando di Azure per Machine Learn
 * `--pe-vnet-name`: Rete virtuale esistente in cui creare l'endpoint privato.
 * `--pe-subnet-name`: Nome della subnet in cui creare l'endpoint privato. Il valore predefinito è `default`.
 
+Questi parametri sono oltre ad altri parametri obbligatori per il comando create. Ad esempio, il comando seguente crea una nuova area di lavoro nell'area Stati Uniti occidentali, usando un gruppo di risorse esistente e VNet:
+
+```azurecli
+az ml workspace create -r myresourcegroup \
+    -l westus \
+    -n myworkspace \
+    --pe-name myprivateendpoint \
+    --pe-auto-approval \
+    --pe-resource-group myresourcegroup \
+    --pe-vnet-name myvnet \
+    --pe-subnet-name mysubnet
+```
+
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
 La scheda __rete__ in Azure Machine Learning Studio consente di configurare un endpoint privato. Tuttavia, richiede una rete virtuale esistente. Per altre informazioni, vedere [creare aree di lavoro nel portale](how-to-manage-workspace.md).
@@ -82,10 +96,6 @@ La scheda __rete__ in Azure Machine Learning Studio consente di configurare un e
 ## <a name="add-a-private-endpoint-to-a-workspace"></a>Aggiungere un endpoint privato a un'area di lavoro
 
 Usare uno dei metodi seguenti per aggiungere un endpoint privato a un'area di lavoro esistente:
-
-> [!IMPORTANT]
->
-> È necessario disporre di una rete virtuale esistente in cui creare l'endpoint privato. Prima di aggiungere l'endpoint privato, è inoltre necessario [disabilitare i criteri di rete per gli endpoint privati](../private-link/disable-private-endpoint-network-policy.md) .
 
 > [!WARNING]
 >

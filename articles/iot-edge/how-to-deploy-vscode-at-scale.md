@@ -9,12 +9,12 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9ae7009468b548cb9386fd405abfbe110d62f9a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043817"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377517"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Distribuisci moduli IoT Edge su larga scala usando Visual Studio Code
 
@@ -82,7 +82,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                 "createOptions": "{}"
               }
             },
@@ -91,7 +91,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
@@ -229,7 +229,7 @@ Dopo aver configurato il manifesto di distribuzione e i tag configurati nel disp
   | Parametro | Descrizione |
   | --- | --- |
   | ID distribuzione | Nome della distribuzione che verrà creata nell'hub Internet. Assegnare alla distribuzione un nome univoco contenente al massimo 128 lettere minuscole. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`. |
-  | Condizione di destinazione | Immettere una condizione di destinazione per determinare quali dispositivi saranno assegnati a questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.Ad esempio, `tags.environment='test' and properties.reported.devicemodel='4000x'` . |
+  | Condizione di destinazione | Immettere una condizione di destinazione per determinare quali dispositivi saranno assegnati a questa distribuzione.  La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.  Ad esempio: `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
   | Priorità |  Numero intero positivo. Se due o più distribuzioni sono destinate allo stesso dispositivo, viene applicata la distribuzione con il valore numerico più elevato per Priority. |
 
   Dopo aver specificato la priorità, nel terminale dovrebbe essere visualizzato un output simile a quello illustrato di seguito:

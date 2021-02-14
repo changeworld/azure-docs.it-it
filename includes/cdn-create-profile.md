@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c6352ee9d29e4e45aa4be449046a0715fee06047
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
-ms.translationtype: HT
+ms.openlocfilehash: 9a003b5c42a6ef4c699a3768d15ae08f86d56e52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165910"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367292"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
 
@@ -31,7 +31,7 @@ Un profilo di rete CDN è un contenitore per endpoint della rete CDN e specifica
    
     | Impostazione  | valore |
     | -------- | ----- |
-    | **Nome** | Immettere *cdn-profile-123* come nome del profilo. Il nome deve essere univoco a livello globale. Se è già in uso, immettere un nome diverso. |
+    | **Nome** | Immettere *cdn-profile-123* come nome del profilo. |
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa. |
     | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *CDNQuickstart-rg* come nome del gruppo di risorse oppure selezionare **Usa esistente** e scegliere *CDNQuickstart-rg* se il gruppo è già disponibile. | 
     | **Località del gruppo di risorse** | Selezionare una località vicina nell'elenco a discesa. |

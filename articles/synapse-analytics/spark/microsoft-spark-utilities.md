@@ -1,7 +1,7 @@
 ---
 title: Introduzione alle utilità di Microsoft Spark
 description: 'Esercitazione: MSSparkutils nei notebook di Azure sinapsi Analytics'
-author: ruxu
+author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954294"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368660"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introduzione alle utilità di Microsoft Spark
 
@@ -25,9 +25,9 @@ Microsoft Spark Utilities (MSSparkUtils) è un pacchetto incorporato che consent
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configurare l'accesso a Azure Data Lake Storage Gen2 
 
-I notebook sinapsi usano il pass-through di Azure Active Directory (Azure AD) per accedere agli account di ADLS Gen2. È necessario essere un **collaboratore dell'archiviazione BLOB** per accedere alla ADLS Gen2 account (o alla cartella). 
+I notebook sinapsi usano il pass-through di Azure Active Directory (Azure AD) per accedere agli account di ADLS Gen2. Per accedere all'account o alla cartella di ADLS Gen2, è necessario essere un **collaboratore dati di archiviazione BLOB** . 
 
-Le pipeline sinapsi usano l'identità dell'area di lavoro (MSI) per accedere agli account di archiviazione. Per usare MSSparkUtils nelle attività della pipeline, l'identità dell'area di lavoro deve essere **collaboratore dell'archiviazione BLOB** per accedere alla ADLS Gen2 account (o alla cartella).
+Le pipeline sinapsi usano l'identità dell'area di lavoro (MSI) per accedere agli account di archiviazione. Per usare MSSparkUtils nelle attività della pipeline, l'identità dell'area di lavoro deve essere **collaboratore dati di archiviazione BLOB** per accedere alla ADLS Gen2 account (o alla cartella).
 
 Per assicurarsi che il Azure AD e l'identità del servizio gestito dell'area di lavoro abbiano accesso all'account ADLS Gen2, attenersi alla procedura seguente:
 1. Aprire il [portale di Azure](https://portal.azure.com/) e l'account di archiviazione a cui si vuole accedere. È possibile passare al contenitore specifico a cui si vuole accedere.

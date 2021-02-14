@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/10/2020
-ms.openlocfilehash: baeb5fbadfaf128c2c491a1fdb7e880b413878d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
-ms.translationtype: HT
+ms.openlocfilehash: 041b930a0c2fa82727216b4ca0c8367387d0d801
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491087"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367257"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Avvio rapido: Creare un account, un database, un contenitore ed elementi di Azure Cosmos dal portale di Azure
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -51,11 +51,11 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
     |Impostazione|valore|Descrizione |
     |---|---|---|
     |Subscription|Nome sottoscrizione|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos. |
-    |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo** , quindi immettere un nome univoco per il nuovo gruppo di risorse. |
+    |Gruppo di risorse|Nome del gruppo di risorse|Selezionare un gruppo di risorse oppure fare clic su **Crea nuovo**, quindi immettere un nome univoco per il nuovo gruppo di risorse. |
     |Nome account|Un nome univoco|Immettere un nome per identificare l'account Azure Cosmos. Dato che al nome specificato viene aggiunto *documents.azure.com* per creare l'URI, usare un nome univoco.<br><br>Il nome può contenere solo lettere minuscole, numeri e il segno meno (-). Deve avere una lunghezza compresa tra 3 e 31 caratteri.|
     |API|Il tipo di account da creare|Selezionare **Core (SQL)** per creare un database di documenti e una query con la sintassi SQL. <br><br>L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API: Core (SQL) e MongoDB per dati dei documenti, Gremlin per i dati dei grafici, Tabelle di Azure e Cassandra. Attualmente, è necessario creare un account separato per ogni API. <br><br>[Altre informazioni sull'API SQL](introduction.md).|
     |Modalità di capacità|Provisioning velocità effettiva o Serverless|Selezionare **Provisioning velocità effettiva** per creare un account in modalità [Provisioning velocità effettiva](set-throughput.md). Selezionare **Serverless** per creare un account in modalità [Serverless](serverless.md).|
-    |Applica sconto per il livello gratuito|Applica o Non applicare|Azure Cosmos DB livello gratuito offre i primi 400 UR/s e 5 GB di spazio di archiviazione gratuiti per account. Altre informazioni sul [livello gratuito](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+    |Applicare lo sconto del livello gratuito Azure Cosmos DB|Applica o Non applicare|Azure Cosmos DB livello gratuito offre i primi 400 UR/s e 5 GB di spazio di archiviazione gratuiti per account. Altre informazioni sul [livello gratuito](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|Area più vicina ai propri utenti|Selezionare una posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.|
     |Tipo di account|Produzione o Non di produzione|Selezionare **Produzione** se l'account verrà usato per un carico di lavoro di produzione. Selezionare **Non di produzione** se l'account non verrà usato per un carico di lavoro di produzione, ad esempio per lo sviluppo, il test, il controllo di qualità o lo staging. Si tratta di un'impostazione di tag delle risorse di Azure che consente di ottimizzare l'esperienza del portale, ma non influisce sull'account Azure Cosmos DB sottostante. È possibile modificare questo valore in qualsiasi momento.|
     |Ridondanza geografica|Abilitare o disabilitare|Abilitare o disabilitare la distribuzione globale nell'account associando la propria area a un'altra area. È possibile aggiungere altre aree al proprio account in un secondo momento.|
@@ -66,12 +66,12 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
 > È possibile avere fino a un account Azure Cosmos DB del livello gratuito per ogni sottoscrizione di Azure ed è necessario acconsentire esplicitamente durante la creazione dell'account. Se l'opzione per l'applicazione dello sconto per il livello gratuito non è visualizzata, un altro account nella sottoscrizione è già stato abilitato per il livello gratuito.
 
 > [!NOTE]
-> Le opzioni seguenti non sono disponibili se si seleziona **Serverless** come **modalità di capacità** :
+> Le opzioni seguenti non sono disponibili se si seleziona **Serverless** come **modalità di capacità**:
 > - Applica sconto per il livello gratuito
 > - Ridondanza geografica
 > - Scritture in più aree
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Pagina del nuovo account per Azure Cosmos DB":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Pagina del nuovo account per Azure Cosmos DB":::
 
 1. Selezionare **Rivedi e crea**. È possibile ignorare le sezioni **Rete** e **Tag**.
 
@@ -99,7 +99,7 @@ Passare al [portale di Azure](https://portal.azure.com/) per creare un account A
     |Impostazione|Valore consigliato|Descrizione
     |---|---|---|
     |**ID database**|ToDoList|Immettere *ToDoList* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/, \\, #, ?` o spazi finali. Selezionare l'opzione **Provision database throughput** (Provisioning delle unità di elaborazione del database) che consente di condividere le unità di elaborazione del database con tra tutti i contenitori al suo interno. Questa opzione permette anche di risparmiare sui costi. |
-    |**Velocità effettiva**|400|Lasciare la velocità effettiva a 400 unità di richiesta al secondo (UR/s). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.<br><br>**Nota** : questa impostazione non è disponibile quando si crea un nuovo contenitore in un account serverless.| 
+    |**Velocità effettiva**|400|Lasciare la velocità effettiva a 400 unità di richiesta al secondo (UR/s). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.<br><br>**Nota**: questa impostazione non è disponibile quando si crea un nuovo contenitore in un account serverless.| 
     |**ID contenitore**|Items|Immettere *Items* come nome per il nuovo contenitore. Gli ID contenitore prevedono gli stessi requisiti relativi ai caratteri dei nomi di database.|
     |**Chiave di partizione**| /category| L'esempio descritto in questo articolo usa */category* come chiave di partizione.|
 
@@ -116,7 +116,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
    
    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Creare nuovi documenti in Esplora dati nel portale di Azure":::
    
-1. Aggiungere la struttura seguente al documento sul lato destro del riquadro **Documenti** :
+1. Aggiungere la struttura seguente al documento sul lato destro del riquadro **Documenti**:
 
      ```json
      {
@@ -145,7 +145,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
 Se si vuole eliminare solo il database e usare l'account Azure Cosmos in futuro, è possibile eliminare il database con i passaggi seguenti:
 
 * Accedere all'account Azure Cosmos.
-* Aprire **Esplora dati** , fare clic con il pulsante destro del mouse sul database che si vuole eliminare e selezionare **Elimina database**.
+* Aprire **Esplora dati**, fare clic con il pulsante destro del mouse sul database che si vuole eliminare e selezionare **Elimina database**.
 * Immettere l'ID o il nome del database per confermare l'operazione di eliminazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi

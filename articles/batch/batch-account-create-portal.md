@@ -4,12 +4,12 @@ description: Informazioni su come creare un account Azure Batch nel portale di A
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 943fd145dbd4964e0d43d91f726ea5a79fda59de
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896003"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368507"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
@@ -67,6 +67,9 @@ Per visualizzare le [quote delle risorse](batch-quota-limit.md) valide per l'acc
 ## <a name="additional-configuration-for-user-subscription-mode"></a>Configurazione aggiuntiva per la modalità Sottoscrizione utente
 
 Se si sceglie di creare un account Batch in modalità Sottoscrizione utente, prima di creare l'account eseguire questi passaggi aggiuntivi.
+
+> [!IMPORTANT]
+> L'utente che crea l'account batch in modalità sottoscrizione utente deve avere l'assegnazione di ruolo Collaboratore o proprietario per la sottoscrizione in cui verrà creato l'account batch.
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Consentire ad Azure Batch di accedere alla sottoscrizione (operazione occasionale)
 

@@ -2,19 +2,16 @@
 title: Formato binario in Azure Data Factory
 description: In questo argomento viene descritto come gestire il formato binario in Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: be4338942057cf52bf26b7fd1e15f77e724d49f8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc5b54e99584b74b287fa66deba1694419b46b16
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348909"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393684"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binario in Azure Data Factory
 
@@ -36,7 +33,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | type             | La proprietà Type del set di dati deve essere impostata su **Binary**. | Sì      |
 | posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location` . **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
 | compressione | Gruppo di proprietà per configurare la compressione dei file. Configurare questa sezione quando si desidera eseguire la compressione/decompressione durante l'esecuzione dell'attività. | No |
-| type | Codec di compressione utilizzato per leggere/scrivere file binari. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **tar** o **TarGzip**. <br>**Nota** quando si usa l'attività di **ZipDeflate** copia per decomprimere i / **TarGzip** / file **tar** ZipDeflate TarGzip e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source compressed file>/` , usare `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` nell' [origine dell'attività di copia](#binary-as-source) per controllare se mantenere il nome dei file compressi come struttura di cartelle.| No       |
+| type | Codec di compressione utilizzato per leggere/scrivere file binari. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **tar** o **TarGzip**. <br>**Nota** quando si usa l'attività di copia per decomprimere i /  / file **tar** ZipDeflate TarGzip e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source compressed file>/` , usare `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` nell' [origine dell'attività di copia](#binary-as-source) per controllare se mantenere il nome dei file compressi come struttura di cartelle.| No       |
 | livello | Rapporto di compressione. Applicare quando il set di dati viene usato nel sink dell'attività di copia.<br>I valori consentiti sono **ottimali** o più **veloci**.<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](/dotnet/api/system.io.compression.compressionlevel) . | No       |
 
 Di seguito è riportato un esempio di set di dati binario nell'archivio BLOB di Azure:
@@ -73,7 +70,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="binary-as-source"></a>Binario come origine
 
-Nella sezione attività di copia **_ \_ source \**** sono supportate le proprietà seguenti.
+Nella sezione ***\* origine \**** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -120,7 +117,7 @@ Nella sezione attività di copia **_ \_ source \**** sono supportate le propriet
 
 ### <a name="binary-as-sink"></a>Binario come sink
 
-Le proprietà seguenti sono supportate nella sezione relativa all'attività di copia **_ \_ sink \****.
+Nella sezione ***\* sink \**** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |

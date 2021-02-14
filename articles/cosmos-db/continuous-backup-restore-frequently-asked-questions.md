@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 1cf94964f420f7a7d4fc0f6ba0b77813b3e75787
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539183"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393225"
 ---
 # <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Domande frequenti sulla Azure Cosmos DB funzionalità di ripristino temporizzato (anteprima)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -31,7 +31,7 @@ Durata del ripristino dipendente dalla dimensione dei dati.
 Il ripristino potrebbe non avvenire a seconda che le risorse chiave come i database o i contenitori esistano in quel momento. È possibile verificare immettendo il tempo ed esaminando il database o il contenitore selezionato per un determinato periodo di tempo. Se non è presente alcuna risorsa da ripristinare, il processo di ripristino non funziona.
 
 ### <a name="how-can-i-track-if-an-account-is-being-restored"></a>Come è possibile verificare se è in corso il ripristino di un account?
-Dopo aver inviato il comando Restore e dopo aver atteso la stessa pagina, una volta completata l'operazione, la barra di stato indica che il messaggio dell'account è stato ripristinato correttamente. È anche possibile cercare l'account ripristinato e [tenere traccia dello stato dell'account da ripristinare](continuous-backup-restore-portal.md#track-restore-status). Durante l'esecuzione del ripristino, lo stato dell'account sarà "creazione", al termine dell'operazione di ripristino, lo stato dell'account verrà modificato in "online".
+Dopo aver inviato il comando Restore e dopo aver atteso la stessa pagina, una volta completata l'operazione, la barra di stato indica che il messaggio dell'account è stato ripristinato correttamente. È anche possibile cercare l'account ripristinato e [tenere traccia dello stato dell'account da ripristinare](continuous-backup-restore-portal.md#track-restore-status). Durante l'esecuzione del ripristino, lo stato dell'account verrà *creato*, al termine dell'operazione di ripristino, lo stato dell'account verrà modificato in in *linea*.
 
 Analogamente per PowerShell e l'interfaccia della riga di comando, è possibile tenere traccia dello stato di avanzamento dell'operazione di ripristino eseguendo il `az cosmosdb show` comando come segue:
 
@@ -39,7 +39,7 @@ Analogamente per PowerShell e l'interfaccia della riga di comando, è possibile 
 az cosmosdb show --name "accountName" --resource-group "resourceGroup"
 ```
 
-Il provisioningState Mostra "succeeded" quando l'account è online.
+Il provisioningState Mostra l' *esito positivo* quando l'account è online.
 
 ```json
 {
@@ -60,7 +60,7 @@ Il provisioningState Mostra "succeeded" quando l'account è online.
 ### <a name="how-can-i-find-out-whether-an-account-was-restored-from-another-account"></a>Come è possibile verificare se un account è stato ripristinato da un altro account?
 Eseguire il `az cosmosdb show` comando, nell'output, è possibile notare che il valore della `createMode` Proprietà. Se il valore è impostato per il **ripristino**. indica che l'account è stato ripristinato da un altro account. La `restoreParameters` proprietà contiene ulteriori dettagli, ad esempio `restoreSource` , con l'ID dell'account di origine. L'ultimo GUID nel `restoreSource` parametro è il InstanceId dell'account di origine.
 
-Nell'output seguente, ad esempio, l'ID istanza dell'account di origine è "7b4bb-f6a0-430e-ade1-638d781830cc"
+Nell'output seguente, ad esempio, l'ID istanza dell'account di origine è *7b4bb-f6a0-430e-ade1-638d781830cc*
 
 ```json
 "restoreParameters": {
@@ -75,9 +75,9 @@ Nell'output seguente, ad esempio, l'ID istanza dell'account di origine è "7b4bb
 Viene ripristinato l'intero database della velocità effettiva condivisa. Non è possibile scegliere un subset di contenitori in un database di velocità effettiva condivisa per il ripristino.
 
 ### <a name="what-is-the-use-of-instanceid-in-the-account-definition"></a>Qual è l'uso di InstanceID nella definizione dell'account?
-In un determinato momento, Azure Cosmos DB proprietà "AccountName" dell'account è globalmente univoca mentre è attiva. Tuttavia, dopo l'eliminazione dell'account, è possibile creare un altro account con lo stesso nome e quindi "AccountName" non è più sufficiente per identificare un'istanza di un account. 
+In un determinato momento, Azure Cosmos DB proprietà dell'account `accountName` è globalmente univoca mentre è attiva. Tuttavia, dopo l'eliminazione dell'account, è possibile creare un altro account con lo stesso nome e quindi "AccountName" non è più sufficiente per identificare un'istanza di un account. 
 
-ID o "instanceId" è una proprietà di un'istanza di un account e viene usata per evitare ambiguità tra più account (in tempo reale ed eliminato) se hanno lo stesso nome per il ripristino. È possibile ottenere l'ID istanza eseguendo i `Get-AzCosmosDBRestorableDatabaseAccount` comandi o  `az cosmosdb restorable-database-account` . Il valore dell'attributo Name indica "InstanceID".
+ID o `instanceId` è una proprietà di un'istanza di un account che viene utilizzata per evitare ambiguità tra più account (in tempo reale ed eliminato) se hanno lo stesso nome per il ripristino. È possibile ottenere l'ID istanza eseguendo i `Get-AzCosmosDBRestorableDatabaseAccount` comandi o  `az cosmosdb restorable-database-account` . Il valore dell'attributo Name indica "InstanceID".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

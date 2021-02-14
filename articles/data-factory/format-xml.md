@@ -2,19 +2,16 @@
 title: Formato XML in Azure Data Factory
 description: In questo argomento viene descritto come gestire il formato XML in Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 1555d8b97f89b567cb1769c0ba10ecf50bca4366
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a4082e1e00ecb1d3b0157fcc35616704eaab0aae
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352600"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386357"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML in Azure Data Factory
 
@@ -35,7 +32,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | encodingName     | Tipo di codifica utilizzato per leggere/scrivere file di test. <br>I valori consentiti sono i seguenti: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
 | nullValue | Specifica la rappresentazione di stringa del valore null.<br/>Il valore predefinito è una **stringa vuota**. | No |
 | compressione | Gruppo di proprietà per configurare la compressione dei file. Configurare questa sezione quando si desidera eseguire la compressione/decompressione durante l'esecuzione dell'attività. | No |
-| type<br>(*in `compression`*) | Codec di compressione utilizzato per leggere/scrivere file XML. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **tar**, **Snapper** o **LZ4**. Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate", "TarGzip" e "tar".<br>**Nota** quando si usa l'attività di **ZipDeflate** copia per decomprimere i / **TarGzip** / file **tar** ZipDeflate TarGzip e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source compressed file>/` , usare `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` nell' [origine dell'attività di copia](#xml-as-source) per controllare se mantenere il nome dei file compressi come struttura di cartelle. | No.  |
+| type<br>(*in `compression`*) | Codec di compressione utilizzato per leggere/scrivere file XML. <br>I valori consentiti sono **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **tar**, **Snapper** o **LZ4**. Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate", "TarGzip" e "tar".<br>**Nota** quando si usa l'attività di copia per decomprimere i /  / file **tar** ZipDeflate TarGzip e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source compressed file>/` , usare `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` nell' [origine dell'attività di copia](#xml-as-source) per controllare se mantenere il nome dei file compressi come struttura di cartelle. | No.  |
 | livello<br/>(*in `compression`*) | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci**.<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale**: l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](/dotnet/api/system.io.compression.compressionlevel) . | No       |
 
 Di seguito è riportato un esempio di set di dati XML nell'archivio BLOB di Azure:
@@ -71,7 +68,7 @@ Informazioni su come eseguire il mapping dei dati XML e del formato/archivio dat
 
 ### <a name="xml-as-source"></a>XML come origine
 
-Nella sezione attività di copia **_ \_ source \**** sono supportate le proprietà seguenti. Scopri di più sul [comportamento del connettore XML](#xml-connector-behavior).
+Nella sezione ***\* origine \**** dell'attività di copia sono supportate le proprietà seguenti. Scopri di più sul [comportamento del connettore XML](#xml-connector-behavior).
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -100,7 +97,7 @@ In mapping di flussi di dati è possibile leggere e scrivere in formato XML negl
 
 Nella tabella seguente sono elencate le proprietà supportate da un'origine XML. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Scopri di più sul [comportamento del connettore XML](#xml-connector-behavior). Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) . 
 
-| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No | String[] | wildcardPaths |
 | Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No | string | partitionRootPath |
@@ -111,7 +108,7 @@ Nella tabella seguente sono elencate le proprietà supportate da un'origine XML.
 | Modalità di convalida | Specifica se convalidare il XML Schema. | No | `None` (impostazione predefinita, nessuna convalida)<br>`xsd` (convalida con XSD)<br>`dtd` (convalida tramite DTD). | validationMode |
 | Spazi dei nomi | Indica se abilitare lo spazio dei nomi durante l'analisi dei file XML. | No | `true` (impostazione predefinita) o `false` | spazi dei nomi |
 | Coppie di prefisso dello spazio dei nomi | URI dello spazio dei nomi da anteporre al mapping, che viene usato per assegnare un nome ai campi durante l'analisi del file XML.<br/>Se per un file XML sono abilitati lo spazio dei nomi e lo spazio dei nomi, per impostazione predefinita il nome del campo corrisponde a quello presente nel documento XML.<br>Se è presente un elemento definito per l'URI dello spazio dei nomi in questa mappa, il nome del campo è `prefix:fieldName` . | No | Matrice con modello`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
-| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | No | `true` o `false` | ignoreNoFilesFound |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Esempio di script di origine XML
 

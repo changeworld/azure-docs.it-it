@@ -1,21 +1,17 @@
 ---
 title: Configurare le prestazioni per il Azure-SSIS Integration Runtime
 description: Informazioni su come configurare le proprietà del runtime di integrazione Azure-SSIS per garantire prestazioni elevate
-services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: ''
-manager: anandsub
-ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635321"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364393"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
 
@@ -118,11 +114,11 @@ L'asse y è il numero di pacchetti che hanno completato l'esecuzione in un'ora. 
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** regola la scalabilità del runtime di integrazione. La velocità effettiva del runtime di integrazione è proporzionale al valore di **AzureSSISNodeNumber** . Impostare inizialmente **AzureSSISNodeNumber** su un valore contenuto, monitorare la velocità effettiva del runtime di integrazione, quindi regolare il valore per lo scenario in uso. Per riconfigurare il conteggio dei nodi del ruolo di lavoro, vedere [Gestire un runtime di integrazione SSIS-Azure](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** regola la scalabilità del runtime di integrazione. La velocità effettiva del runtime di integrazione è proporzionale al valore di **AzureSSISNodeNumber**. Impostare inizialmente **AzureSSISNodeNumber** su un valore contenuto, monitorare la velocità effettiva del runtime di integrazione, quindi regolare il valore per lo scenario in uso. Per riconfigurare il conteggio dei nodi del ruolo di lavoro, vedere [Gestire un runtime di integrazione SSIS-Azure](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode** , può aumentare la velocità effettiva complessiva del runtime di integrazione. Se si desidera aumentare il valore massimo, è necessario utilizzare Azure PowerShell per aggiornare **AzureSSISMaxParallelExecutionsPerNode** . È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/sizes-general.md).
+Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Se si desidera aumentare il valore massimo, è necessario utilizzare Azure PowerShell per aggiornare **AzureSSISMaxParallelExecutionsPerNode**. È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/sizes-general.md).
 
 | Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -145,7 +141,7 @@ Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti,
 | \_E32 standard \_ v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
 | \_E64 standard \_ v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
 
-Di seguito sono riportate le linee guida per l'impostazione del valore corretto per la proprietà **AzureSSISMaxParallelExecutionsPerNode** : 
+Di seguito sono riportate le linee guida per l'impostazione del valore corretto per la proprietà **AzureSSISMaxParallelExecutionsPerNode**: 
 
 1. Impostare la proprietà inizialmente su un valore ridotto.
 2. Aumentare il valore di una piccola quantità per controllare se la velocità effettiva complessiva migliora.

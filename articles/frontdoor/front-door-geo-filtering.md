@@ -13,18 +13,19 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449259"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369425"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtro geografico in un dominio per lo sportello anteriore di Azure
 
 Per impostazione predefinita, il front-end di Azure risponderà a tutte le richieste degli utenti, indipendentemente dalla località da cui provengono. In alcuni scenari può essere opportuno limitare l'accesso all'applicazione Web da parte di paesi o aree geografiche. Il servizio Web Application Firewall (WAF) nella porta anteriore consente di definire un criterio usando regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da paesi o aree geografiche specifiche. 
 
-Un criterio WAF contiene un set di regole personalizzate. La regola è costituita da condizioni di corrispondenza, un'azione e una priorità. In una condizione di corrispondenza è possibile definire una variabile di corrispondenza, un operatore e un valore di corrispondenza. Per una regola di filtro geografico, è REMOTE_ADDR una variabile di corrispondenza, l'operatore è geomatch e il valore è un codice di due lettere paese/area di interesse. Per creare una regola di filtro geografico basato sul percorso, è possibile combinare una condizione geomatch e una condizione di corrispondenza della stringa REQUEST_URI.
+Un criterio WAF contiene un set di regole personalizzate. La regola è costituita da condizioni di corrispondenza, un'azione e una priorità. In una condizione di corrispondenza è possibile definire una variabile di corrispondenza, un operatore e un valore di corrispondenza. Per una regola di filtro geografico, è REMOTE_ADDR una variabile di corrispondenza, l'operatore è geomatch e il valore è un codice di due lettere paese/area di interesse. Il codice paese "ZZ" o il paese "sconosciuto" acquisisce gli indirizzi IP non ancora mappati a un paese nel set di dati. È possibile aggiungere ZZ alla condizione di corrispondenza per evitare falsi positivi. Per creare una regola di filtro geografico basato sul percorso, è possibile combinare una condizione geomatch e una condizione di corrispondenza della stringa REQUEST_URI. 
+
 
 È possibile configurare un criterio di filtro geografico per la porta anteriore usando [Azure PowerShell](front-door-tutorial-geo-filtering.md) o usando un [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97687409"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393242"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,9 +32,9 @@ Il livello di calcolo senza server per database singoli nel database SQL di Azur
 ### <a name="performance-configuration"></a>Configurazione delle prestazioni
 
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
-- Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
+- Il **ritardo di sospensione automatica** è un parametro configurabile che definisce il periodo di tempo in cui il database deve essere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare la sospensione automatica.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>Costo
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -48,16 +48,16 @@ Per informazioni più dettagliate sui costi, vedere [fatturazione](serverless-ti
 
 Il modello serverless è caratterizzato da un rapporto qualità-prezzo ottimizzato per database singoli con modelli di utilizzo intermittenti e imprevedibili che possono permettersi qualche ritardo all'avvio del calcolo dopo periodi di inattività. Al contrario, il livello di calcolo con provisioning è caratterizzato da un rapporto prezzo-prestazioni ottimizzato per database singoli o per più database in pool elastici con un utilizzo medio più elevato che non possono tollerare ritardi nella fase di avvio del calcolo.
 
-### <a name="scenarios-well-suited-for-serverless-compute"></a>Scenari particolarmente adatti per il calcolo serverless
+### <a name="scenarios-well-suited-for-serverless-compute"></a>Scenari particolarmente adatti per le risorse di calcolo senza server
 
 - Database singoli con modelli di utilizzo intermittenti e non prevedibili intercalati con periodi di inattività e un utilizzo inferiore medio del calcolo nel tempo.
 - Singoli database nel livello di calcolo di cui è stato effettuato il provisioning che vengono spesso ridimensionati e i clienti che preferiscono delegare il ridimensionamento del calcolo al servizio.
 - Nuovi database singoli senza cronologia di utilizzo in cui il dimensionamento del calcolo è difficile o impossibile da stimare prima della distribuzione nel database SQL.
 
-### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenari particolarmente adatti per il calcolo con provisioning
+### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scenari particolarmente adatti per il calcolo di cui è stato effettuato il provisioning
 
 - Database singoli con modelli di utilizzo più regolari e prevedibili e un utilizzo di calcolo medio superiore nel tempo.
-- Database che non possono tollerare compromessi delle prestazioni dovuti a blocchi di memoria più frequenti o ritardi nella ripresa automatica da uno stato di sospensione.
+- Database che non tollerano compromessi in termini di prestazioni derivanti da ritardi o ritardi di memoria più frequenti durante la ripresa da uno stato di sospensione.
 - Più database con modelli di utilizzo intermittenti e imprevedibili che possono essere consolidati in pool elastici per migliorare l'ottimizzazione delle prestazioni.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Confronto con il livello di calcolo con provisioning
@@ -93,28 +93,28 @@ A differenza dei database di calcolo con provisioning, la memoria della cache SQ
 - L'utilizzo della cache attiva è considerato basso quando la dimensione totale delle voci della cache utilizzate più di recente scende al di sotto di una soglia per un determinato periodo di tempo.
 - Quando viene attivato il recupero della cache, le dimensioni della cache di destinazione vengono ridotte in modo incrementale a una frazione della dimensione precedente e il recupero continua solo se l'utilizzo rimane ridotto.
 - Quando si verifica il recupero della cache, i criteri per la selezione delle voci della cache da rimuovere sono gli stessi criteri di selezione per i database di calcolo con provisioning quando il numero di richieste di memoria è elevato.
-- Le dimensioni della cache non vengono mai ridotte al di sotto del limite di memoria minimo come definito da min Vcore, che può essere configurato.
+- Le dimensioni della cache non vengono mai ridotte al di sotto del limite di memoria minimo definito da min Vcore, che può essere configurato.
 
 Nei database di calcolo senza server e con provisioning, le voci della cache possono essere eliminate se viene utilizzata tutta la memoria disponibile.
 
-Si noti che quando l'utilizzo della CPU è basso, l'utilizzo della cache attiva può rimanere elevato a seconda del modello di utilizzo e impedire il recupero di memoria.  Inoltre, dopo l'arresto dell'attività dell'utente, è possibile che si verifichi un ulteriore ritardo prima che il recupero della memoria avvenga a causa di processi in background periodici che rispondono all'attività  Ad esempio, le attività Delete e QDS Cleanup generano record fantasma contrassegnati per l'eliminazione, ma non vengono eliminati fisicamente fino a quando non viene eseguito il processo di pulizia fantasma che può comportare la lettura di pagine di dati nella cache.
+Si noti che quando l'utilizzo della CPU è basso, l'utilizzo della cache attiva può rimanere elevato a seconda del modello di utilizzo e impedire il recupero di memoria.  Inoltre, è possibile che si verifichino ritardi quando l'attività dell'utente si interrompe prima che venga riattivata la memoria a causa di processi in background periodici che rispondono a attività utente precedenti  Ad esempio, le attività Delete e QDS Cleanup generano record fantasma contrassegnati per l'eliminazione, ma non vengono eliminati fisicamente fino a quando non viene eseguito il processo di pulizia fantasma che può comportare la lettura di pagine di dati nella cache.
 
 #### <a name="cache-hydration"></a>Idratazione della cache
 
 La cache SQL cresce man mano che i dati vengono recuperati dal disco nello stesso modo e con la stessa velocità dei database di cui è stato effettuato il provisioning. Quando il database è occupato, è possibile che la cache cresca senza vincoli fino al limite massimo di memoria.
 
-## <a name="autopausing-and-autoresuming"></a>Sospensione e ripresa di autosospensione
+## <a name="auto-pause-and-auto-resume"></a>Sospensione automatica e riavvio automatico
 
-### <a name="autopausing"></a>Sospensione dell'autosospensione
+### <a name="auto-pause"></a>Sospensione automatica
 
 La sospensione automatica viene attivata se tutte le condizioni seguenti sono vere per la durata del ritardo di sospensione automatica:
 
 - Numero di sessioni = 0
 - CPU = 0 per il carico di lavoro dell'utente in esecuzione nel pool di utenti
 
-Se lo si desidera, viene fornita un'opzione per disabilitare la sospensione.
+Viene fornita un'opzione per disabilitare la sospensione automatica, se lo si desidera.
 
-Le funzionalità seguenti non supportano la sospensione automatica, ma supportano la scalabilità automatica.  Se viene utilizzata una delle funzionalità seguenti, è necessario disabilitare la sospensione e il database rimarrà online indipendentemente dalla durata dell'inattività del database:
+Le funzionalità seguenti non supportano la sospensione automatica, ma supportano la scalabilità automatica.  Se viene utilizzata una delle funzionalità seguenti, la sospensione automatica dovrebbe essere disabilitata e il database rimarrà online indipendentemente dalla durata dell'inattività del database:
 
 - Replica geografica (gruppi di replica geografica attiva e failover automatico).
 - Conservazione dei backup a lungo termine (LTR).
@@ -122,15 +122,15 @@ Le funzionalità seguenti non supportano la sospensione automatica, ma supportan
 - Alias DNS
 - Il database dei processi usato nei processi elastici (anteprima).
 
-La sospensione dell'autosospensione è temporaneamente bloccata durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.  In questi casi, la sospensione automatico diventa nuovamente consentita al termine dell'aggiornamento del servizio.
+La sospensione automatica è temporaneamente bloccata durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.  In questi casi, la sospensione automatica diventa nuovamente consentita al termine dell'aggiornamento del servizio.
 
-### <a name="autoresuming"></a>Riavvio
+### <a name="auto-resuming"></a>Ripresa automatica
 
 La ripresa automatica viene attivata se si verifica una delle condizioni seguenti in qualsiasi momento:
 
-|Funzionalità|Trigger di ripresa automatica|
+|Funzionalità|Riavvio automatico del trigger|
 |---|---|
-|Autenticazione e autorizzazione|Login|
+|Autenticazione e autorizzazione|Accedi|
 |Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
@@ -139,7 +139,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 |Valutazione della vulnerabilità|Analisi ad hoc e analisi periodiche se abilitate|
 |Esecuzione di query sulle prestazioni dell'archivio dati|Modifica o visualizzazione delle impostazioni dell'archivio query|
 |Raccomandazioni per le prestazioni|Visualizzazione o applicazione delle raccomandazioni per le prestazioni|
-|Ottimizzazione automatica|Applicazione e verifica delle indicazioni di ottimizzazione automatica, ad esempio l'indicizzazione automatica|
+|Ottimizzazione automatica|Applicazione e verifica di suggerimenti per l'ottimizzazione automatica, ad esempio l'indicizzazione automatica|
 |Copia del database|Crea database come copia.<br>Esportare in un file BACPAC.|
 |Sincronizzazione dati SQL|Sincronizzazione tra database hub e membro che viene eseguita secondo un calendario configurabile o manualmente|
 |Modifica di alcuni metadati del database|Aggiunta di nuovi tag del database.<br>Modifica del ritardo massimo Vcore, minimo Vcore o di sospensione.|
@@ -155,7 +155,7 @@ Se un database senza server viene sospeso, il primo account di accesso riprender
 
 ### <a name="latency"></a>Latenza
 
-La latenza per il riavvio e la sospensione di un database senza server è in genere un ordine di 1 minuto per il riavvio e 1-10 minuti di sospensione.
+La latenza per il riavvio automatico e la sospensione automatica di un database senza server è in genere un ordine di 1 minuto per il riavvio automatico e 1-10 minuti per la sospensione automatica.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Transparent Data Encryption gestita dal cliente (BYOK)
 
@@ -209,7 +209,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-Per informazioni dettagliate, vedere [create database](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+Per informazioni dettagliate, vedere [create database](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).  
 
 ### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Spostare un database dal livello di calcolo di cui è stato effettuato il provisioning nel livello di calcolo senza server
 
@@ -234,14 +234,14 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Usare Transact-SQL (T-SQL)
 
-Quando si usa T-SQL, vengono applicati i valori predefiniti per il ritardo minimo di Vcore e di sospensione.
+Quando si usa T-SQL, vengono applicati i valori predefiniti per il ritardo minimo Vcore e la pausa automatica.
 
 ```sql
 ALTER DATABASE testdb 
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-Per informazioni dettagliate, vedere [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
+Per informazioni dettagliate, vedere [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 ### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Spostare un database dal livello di calcolo senza server al livello di calcolo di cui è stato effettuato il provisioning
 
@@ -253,7 +253,7 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 Per modificare il valore massimo o minimo per Vcore e il ritardo di sospensione, viene eseguita usando il comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando gli `MaxVcore` `MinVcore` argomenti, e `AutoPauseDelayInMinutes` .
 
-### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
 Per modificare il vcore massimo o minimo e il ritardo di sospensione, è necessario usare il comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) nell'interfaccia della riga di comando di Azure usando gli `capacity` `min-capacity` argomenti, e `auto-pause-delay` .
 

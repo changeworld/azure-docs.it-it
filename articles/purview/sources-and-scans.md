@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6432cc9affd34c0fa9b832aea91932a2b9e7540f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: references_regions
+ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576673"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383892"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Origini dati e tipi di file supportati in Azure
 
@@ -70,6 +71,28 @@ Campionamento di file per i set di risorse in base ai tipi di file:
 - **Altri tipi di file strutturati (JSON, XML, txt)** -1 nei file 100 sono campionati (analisi L3) in una cartella o un gruppo di file di partizione considerati come ' set di risorse '
 - **Oggetti SQL e entità CosmosDB** : ogni file è stato analizzato con L3.
 - **Tipi di file di documento** . ogni file è stato analizzato con L3. I modelli di set di risorse non si applicano a questi tipi di file.
+
+## <a name="scan-regions"></a>Aree di analisi
+Di seguito è riportato un elenco di tutte le aree dell'origine dati di Azure (data center) in cui viene eseguito lo scanner di competenza. Se l'origine dati di Azure si trova in un'area esterna a questo elenco, lo scanner verrà eseguito nell'area dell'istanza di ambito.
+ 
+### <a name="purview-scanner-regions"></a>Aree dello scanner di competenza
+
+- EastUs
+- EastUs2 
+- SouthCentralUS
+- WestUs
+- WestUs2
+- SoutheastAsia
+- Europa occidentale
+- NorthEurope
+- UkSouth
+- AustraliaEast
+- CanadaCentral
+- BrazilSouth
+- CentralIndia
+- JapanEast
+- SouthAfricaNorth
+- FranceCentral
 
 ## <a name="classification"></a>Classificazione
 

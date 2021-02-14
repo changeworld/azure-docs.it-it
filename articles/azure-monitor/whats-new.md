@@ -5,17 +5,61 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 01/11/2021
-ms.openlocfilehash: 6347bd3710a4727b9d3f820072ffff21cb57752d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
-ms.translationtype: HT
+ms.date: 02/10/2021
+ms.openlocfilehash: 35bfc9c752243a69912b0732c4105712fa4a6086
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071868"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377670"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
 Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati in modo significativo. L'articolo verrà aggiornato la prima settimana di ogni mese per includere gli aggiornamenti degli articoli del mese precedente.
+
+## <a name="january-2021"></a>Gennaio 2021 
+
+### <a name="general"></a>Generale 
+- [Domande frequenti su monitoraggio di Azure](faq.md) : Aggiunta voce per informazioni sul dispositivo per Application Insights.
+### <a name="agents"></a>Agenti  
+- [Raccolta di eventi di Event Tracing for Windows (ETW) per i log di monitoraggio di Azure di Analysis](platform/data-sources-event-tracing-windows.md) : nuovo articolo.
+- [Regole di raccolta dati in monitoraggio di Azure (anteprima)](platform/data-collection-rule-overview.md) : sono stati aggiunti collegamenti a esempi di PowerShell e cli.
+
+### <a name="alerts"></a>Avvisi  
+- [Configurare Azure per connettere gli strumenti ITSM usando l'esportazione sicura](platform/itsm-connector-secure-webhook-connections-azure-configuration.md) -nuovo articolo.
+- [Errori di stato del connettore nel dashboard di connettore](platform/itsmc-dashboard-errors.md) -nuovo articolo.
+- [Esaminare gli errori usando il dashboard di connettore](platform/itsmc-dashboard.md) -nuovo articolo.
+- [Risoluzione dei problemi relativi agli avvisi delle metriche di Azure](platform/alerts-troubleshoot-metric.md) -sezioni aggiunte per le soglie dinamiche.
+- [Risolvere i problemi in it Service Management Connector](platform/itsmc-troubleshoot-overview.md) -nuovo articolo.
+
+### <a name="application-insights"></a>Application Insights
+- [Applicazione Azure informazioni dettagliate](app/correlation.md) sulla correlazione di dati di telemetria-aggiunta della traccia quando un modulo ne chiama un altro in OpenCensus Python.
+- [Application Insights per le pagine Web](app/javascript.md) -nuovo articolo.
+- [Fare clic su Analytics auto-Collection plugin per Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md) -nuovo articolo.
+- [Monitora le tue app senza modifiche al codice-strumentazione automatica per monitoraggio di Azure Application Insights](app/codeless-overview.md) colonna Python aggiunta.
+- [Plug-in React per Application Insights JavaScript SDK](app/javascript-react-plugin.md) - Nuovo articolo.
+- [Processori di telemetria (anteprima): Application Insights di monitoraggio di Azure per Java](app/java-standalone-telemetry-processors.md) -riscritto.
+- [Analisi dell'utilizzo con applicazione Azure Insights](app/usage-overview.md) -nuovo articolo.
+- [Usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure per individuare problemi relativi all'app Web](app/change-analysis.md) . errore aggiunto messges.
+
+
+### <a name="insights"></a>Informazioni dettagliate    
+- [Monitoraggio di Azure per Esplora dati di Azure (anteprima)](insights/data-explorer.md) -nuovo articolo.
+
+### <a name="logs"></a>Log    
+- [Chiave gestita dal cliente di monitoraggio di Azure](platform/customer-managed-keys.md) : introduce l'identità gestita assegnata dall'utente.
+- [Monitoraggio di Azure registra i cluster dedicati](log-query/logs-dedicated-clusters.md) : codice di risposta aggiornato.
+- [Query tra servizi-monitoraggio di Azure e azure Esplora dati (anteprima)](platform/azure-monitor-troubleshooting-logs.md) -nuovo articolo.
+
+### <a name="metrics"></a>Metriche
+- [Aggregazione delle metriche di monitoraggio di Azure e visualizzazione illustrata](platform/metrics-aggregation-explained.md) -nuovo articolo.
+
+### <a name="platform-logs"></a>Log della piattaforma
+- [Servizi e categorie supportati nei log delle risorse di monitoraggio di Azure](platform/resource-logs-categories.md) -nuovo articolo.
+
+### <a name="visualizations"></a>Visualizzazioni
+- [Origini dati delle cartelle di lavoro di monitoraggio di Azure](platform/workbooks-data-sources.md) : aggiunta di merge e analisi delle modifiche.
+
 
 ## <a name="december-2020"></a>Dicembre 2020
 

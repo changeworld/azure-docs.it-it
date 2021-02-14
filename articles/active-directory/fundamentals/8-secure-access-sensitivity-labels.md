@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725129"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365362"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Controllare l'accesso con le etichette di riservatezza 
 
@@ -66,7 +66,7 @@ Quando si pensa di governare l'accesso esterno al contenuto, determinare quanto 
 
 * Quali impostazioni predefinite devono essere applicate per i dati HBI, i siti o i gruppi di Microsoft 365?
 
-* Dove si useranno le etichette di riservatezza per [etichettare e monitorare](/microsoft-365/compliance/label-analytics?view=o365-worldwide), anziché [applicare la crittografia](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) o [applicare restrizioni di accesso ai contenitori](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
+* Dove si useranno le etichette di riservatezza per [etichettare e monitorare](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide), anziché [applicare la crittografia](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) o [applicare restrizioni di accesso ai contenitori](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
 
 **Per la posta elettronica e il contenuto**
 

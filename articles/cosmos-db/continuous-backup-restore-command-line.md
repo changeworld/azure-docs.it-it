@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2e09542cbe56df7c8d6984a98fe77142f543ec03
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9ea71dae746ac423e7b17b6235b4d5cd3e143cd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539195"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377330"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-cli"></a>Configurare e gestire il backup continuo e il ripristino temporizzato (anteprima) con l'interfaccia della riga di comando di Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -46,7 +46,7 @@ Questo articolo descrive come eseguire il provisioning di un account con backup 
 
 ## <a name="provision-a-sql-api-account-with-continuous-backup"></a><a id="provision-sql-api"></a>Effettuare il provisioning di un account API SQL con backup continuo
 
-Per eseguire il provisioning di un account API SQL con backup continuo, `--backup-policy-type Continuous` è necessario passare un argomento aggiuntivo insieme al comando di provisioning normale. Il comando seguente è un esempio di un account di scrittura con area singola denominato `pitracct2` con criteri di backup continuo creati nell'area "Stati Uniti occidentali" nel gruppo di risorse "Myrg":
+Per eseguire il provisioning di un account API SQL con backup continuo, `--backup-policy-type Continuous` è necessario passare un argomento aggiuntivo insieme al comando di provisioning normale. Il comando seguente è un esempio di un account di scrittura con area singola denominato `pitracct2` con criteri di backup continuo creati nell'area *Stati Uniti occidentali* sotto il gruppo di risorse *Myrg* :
 
 ```azurecli-interactive
 
@@ -61,7 +61,7 @@ az cosmosdb create \
 
 ## <a name="provision-an-azure-cosmos-db-api-for-mongodb-account-with-continuous-backup"></a><a id="provision-mongo-api"></a>Effettuare il provisioning di un'API Azure Cosmos DB per l'account MongoDB con backup continuo
 
-Il comando seguente mostra un esempio di un account di scrittura a area singola denominato `pitracct3` con criteri di backup continuo creato l'area "Stati Uniti occidentali" nel gruppo di risorse "Myrg":
+Il comando seguente mostra un esempio di un account di scrittura in una singola area denominato `pitracct3` con criteri di backup continuo creati nell'area *Stati Uniti occidentali* sotto il gruppo di risorse *Myrg* :
 
 ```azurecli-interactive
 
@@ -145,13 +145,13 @@ La risposta include tutti gli account di database (Live ed Deleted) che possono 
   }
 ```
 
-Analogamente a "CreationTime" o "DeletionTime" per l'account, sono presenti anche "CreationTime" o "DeletionTime" per l'area. Questi tempi consentono di scegliere l'area corretta e un intervallo di tempo valido per il ripristino in tale area.
+Proprio come `CreationTime` o `DeletionTime` per l'account, esiste anche un oggetto `CreationTime` o `DeletionTime` per l'area. Questi tempi consentono di scegliere l'area corretta e un intervallo di tempo valido per il ripristino in tale area.
 
 **Elencare tutte le versioni dei database in un account di database attivo**
 
 Elencando tutte le versioni dei database è possibile scegliere il database corretto in uno scenario in cui il tempo effettivo di esistenza del database è sconosciuto.
 
-Eseguire il comando CLI seguente per elencare tutte le versioni dei database. Questo comando funziona solo con gli account Live. I parametri "instanceId" e "location" vengono ottenuti dalle proprietà "Name" e "location" nella risposta del `az cosmosdb restorable-database-account list` comando. L'attributo instanceId è anche una proprietà dell'account del database di origine in fase di ripristino:
+Eseguire il comando CLI seguente per elencare tutte le versioni dei database. Questo comando funziona solo con gli account Live. I `instanceId` parametri e `location` vengono ottenuti dalle `name` proprietà e `location` nella risposta del `az cosmosdb restorable-database-account list` comando. L'attributo instanceId è anche una proprietà dell'account del database di origine in fase di ripristino:
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
@@ -198,7 +198,7 @@ Questo output del comando ora indica quando è stato creato ed eliminato un data
 
 **Elencare tutte le versioni dei contenitori SQL di un database in un account di database attivo**
 
-Usare il comando seguente per elencare tutte le versioni dei contenitori SQL. Questo comando funziona solo con gli account Live. Il parametro "databaseRid" è il "ResourceId" del database che si desidera ripristinare. È il valore dell'attributo "ownerResourceid" trovato nella risposta del `az cosmosdb sql restorable-database list` comando.
+Usare il comando seguente per elencare tutte le versioni dei contenitori SQL. Questo comando funziona solo con gli account Live. Il `databaseRid` parametro è l'oggetto `ResourceId` del database che si desidera ripristinare. È il valore dell' `ownerResourceid` attributo trovato nella risposta del `az cosmosdb sql restorable-database list` comando.
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
@@ -265,7 +265,7 @@ az cosmosdb sql restorable-resource list \
 
 ## <a name="enumerate-restorable-resources-for-mongodb-api-account"></a><a id="enumerate-mongodb-api"></a>Enumerare le risorse ripristinabili per l'account dell'API MongoDB
 
-I comandi di enumerazione descritti di seguito consentono di individuare le risorse disponibili per il ripristino in diversi timestamp. Inoltre, forniscono anche un feed di eventi chiave per l'account ripristinabile, il database e le risorse del contenitore. Analogamente all'API SQL, è possibile usare il `az cosmosdb` comando ma con "MongoDB" come parametro anziché con "SQL". Questi comandi funzionano solo per gli account Live.
+I comandi di enumerazione descritti di seguito consentono di individuare le risorse disponibili per il ripristino in diversi timestamp. Inoltre, forniscono anche un feed di eventi chiave per l'account ripristinabile, il database e le risorse del contenitore. Analogamente a quanto avviene con l'API SQL, è possibile usare il `az cosmosdb` comando ma con `mongodb` come parametro anziché con `sql` . Questi comandi funzionano solo per gli account Live.
 
 **Elencare tutte le versioni dei database MongoDB in un account di database attivo**
 

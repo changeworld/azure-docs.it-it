@@ -3,12 +3,12 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491325"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368490"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -80,7 +80,7 @@ Per impostazione predefinita, le chiavi vengono archiviate in un contenitore di 
 |---------|---------|---------|---------|
 |Account di archiviazione diverso     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Archivia le chiavi nell'archiviazione BLOB di un secondo account di archiviazione, in base all'URL SAS fornito. Le chiavi vengono crittografate prima di essere archiviate usando un segreto univoco per l'app per le funzioni. |
 |File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Le chiavi vengono salvate in modo permanente nella file system, crittografate prima dell'archiviazione usando un segreto univoco per l'app per le funzioni. |
-|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | L'insieme di credenziali deve disporre di un criterio di accesso corrispondente all'identità gestita assegnata dal sistema della risorsa di hosting. I criteri di accesso devono concedere all'identità le autorizzazioni segrete seguenti: `Get` ,, `Set` `List` e `Delete` . <br/>Quando viene eseguito in locale, viene usata l'identità dello sviluppatore e le impostazioni devono trovarsi nella [local.settings.jssu file](functions-run-local.md#local-settings-file). | 
+|Insieme di credenziali chiave di Azure  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | L'insieme di credenziali deve disporre di un criterio di accesso corrispondente all'identità gestita assegnata dal sistema della risorsa di hosting. I criteri di accesso devono concedere all'identità le autorizzazioni segrete seguenti: `Get` ,, `Set` `List` e `Delete` . <br/>Quando viene eseguito in locale, viene usata l'identità dello sviluppatore e le impostazioni devono trovarsi nella [local.settings.jssu file](functions-run-local.md#local-settings-file). | 
 |Segreti di Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (facoltativo) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Supportato solo quando si esegue il runtime di funzioni in Kubernetes. Quando `AzureWebJobsKubernetesSecretName` non è impostato, il repository viene considerato di sola lettura. In questo caso, i valori devono essere generati prima della distribuzione. Il Azure Functions Core Tools genera automaticamente i valori durante la distribuzione in Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Autenticazione/autorizzazione
@@ -106,6 +106,8 @@ Le stringhe di connessione e altre credenziali archiviate nelle impostazioni del
 #### <a name="managed-identities"></a>Identità gestite
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
+
+È possibile utilizzare le identità gestite al posto dei segreti per le connessioni da alcuni trigger e associazioni. Vedere [connessioni basate su identità](#identity-based-connections).
 
 Per altre informazioni, vedere [Come usare le identità gestite nel servizio app e in Funzioni di Azure](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
@@ -136,6 +138,14 @@ Per impostazione predefinita, è anche possibile crittografare le impostazioni n
 Sebbene le impostazioni applicazione siano sufficienti per la maggior parte delle funzioni, è consigliabile condividere gli stessi segreti tra più servizi. In questo caso, l'archiviazione ridondante dei segreti comporta un numero maggiore di potenziali vulnerabilità. Un approccio più sicuro prevede l'uso di un servizio di archiviazione segreta centrale e di riferimenti a questo servizio anziché ai segreti stessi.      
 
 [Azure Key Vault](../key-vault/general/overview.md) è un servizio che supporta la gestione centralizzata dei segreti con controllo completo sui criteri di accesso e sulla cronologia di controllo. È possibile usare un riferimento a Key Vault invece di una stringa di connessione o di una chiave nelle impostazioni applicazione. Per altre informazioni, vedere [Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure](../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+
+### <a name="identity-based-connections"></a>Connessioni basate su identità
+
+Le identità possono essere usate al posto dei segreti per la connessione ad alcune risorse. Questo ha il vantaggio di non richiedere la gestione di un segreto e offre controllo di accesso e controllo di accesso più granulari. 
+
+Quando si scrive codice che crea la connessione ai [servizi di Azure che supportano l'autenticazione di Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), è possibile scegliere di usare un'identità anziché una stringa di connessione o un segreto. I dettagli per entrambi i metodi di connessione sono trattati nella documentazione per ogni servizio.
+
+Alcune estensioni di binding e trigger di funzioni di Azure possono essere configurate tramite una connessione basata su identità. Attualmente sono incluse le estensioni [BLOB di Azure](./functions-bindings-storage-blob.md) e di [Accodamento di Azure](./functions-bindings-storage-queue.md) . Per informazioni sulla configurazione di queste estensioni per l'uso di un'identità, vedere [come usare le connessioni basate su identità in funzioni di Azure](./functions-reference.md#configure-an-identity-based-connection).
 
 ### <a name="set-usage-quotas"></a>Impostare le quote di utilizzo
 

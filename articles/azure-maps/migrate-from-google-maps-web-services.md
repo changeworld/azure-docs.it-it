@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624039"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386850"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Esercitazione: Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -54,7 +54,7 @@ La tabella seguente illustra le API del servizio Mappe di Azure che forniscono f
 
 Le API dei servizi seguenti non sono attualmente disponibili in Mappe di Azure:
 
-- Georilevazione
+- Georilevazione: Azure Maps dispone di un servizio denominato Geolocation, ma fornisce l'indirizzo IP alle informazioni sulla posizione, ma attualmente non supporta la triangolazione di celle o WiFi.
 - Dettagli e foto di luoghi - I numeri di telefono e gli URL dei siti Web sono disponibili nell'API di ricerca di Mappe di Azure.
 - URL mappa
 - Strade più vicine - Ciò è possibile usando l'SDK Web come mostrato [qui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), ma al momento non disponibile come servizio.

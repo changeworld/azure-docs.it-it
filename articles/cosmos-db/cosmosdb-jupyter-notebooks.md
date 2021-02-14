@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 8dca9e3e29796618b905c4d266eb674f82565969
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.openlocfilehash: 4f57d2793a28f4bbb201764c67af82f31d0b9333
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097618"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369799"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Supporto di notebook di Jupyter predefiniti in Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,5 +61,7 @@ I notebook di Jupyter possono includere diversi tipi di componenti, ognuno organ
 Per iniziare a usare i notebook di Jupyter predefiniti in Azure Cosmos DB, vedere gli articoli seguenti:
 
 * [Abilitare i notebook in un account Azure Cosmos](enable-notebooks.md)
+* [Esplora la raccolta di esempi di notebook](https://cosmos.azure.com/gallery.html)
 * [Usare funzionalità e comandi del notebook Python](use-python-notebook-features-and-commands.md)
 * [Usare funzionalità e comandi dei notebook C#](use-csharp-notebook-features-and-commands.md)
+* [Importare notebook da un repository GitHub](import-github-notebooks.md)

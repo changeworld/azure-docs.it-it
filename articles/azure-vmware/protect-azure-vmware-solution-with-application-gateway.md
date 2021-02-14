@@ -2,13 +2,13 @@
 title: Usare applicazione Azure gateway per proteggere le app Web in una soluzione VMware di Azure
 description: Configurare applicazione Azure gateway per esporre in modo sicuro le app Web in esecuzione in una soluzione VMware di Azure.
 ms.topic: how-to
-ms.date: 02/08/2021
-ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/10/2021
+ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988642"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384198"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Usare applicazione Azure gateway per proteggere le app Web in una soluzione VMware di Azure
 
@@ -35,7 +35,7 @@ Il diagramma mostra lo scenario di test usato per convalidare il gateway applica
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagramma che illustra lo scenario di test usato per convalidare il gateway applicazione con le applicazioni Web della soluzione VMware di Azure." border="false":::
 
-L'istanza del gateway applicazione viene distribuita nell'hub in una subnet dedicata. Ha un indirizzo IP pubblico di Azure. È consigliabile attivare la protezione DDoS standard per la rete virtuale. Il server Web è ospitato in una soluzione VMware di Azure cloud privato dietro i router NSX T0 e T1. La soluzione VMware di Azure usa [ExpressRoute copertura globale](../expressroute/expressroute-global-reach.md) per abilitare la comunicazione con l'hub e i sistemi locali.
+L'istanza del gateway applicazione viene distribuita nell'hub in una subnet dedicata. Ha un indirizzo IP pubblico di Azure. È consigliabile attivare la protezione DDoS standard per la rete virtuale. Il server Web è ospitato in una soluzione VMware di Azure cloud privato dietro i gateway NSX T0 e T1. La soluzione VMware di Azure usa [ExpressRoute copertura globale](../expressroute/expressroute-global-reach.md) per abilitare la comunicazione con l'hub e i sistemi locali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,7 +57,7 @@ L'istanza del gateway applicazione viene distribuita nell'hub in una subnet dedi
 
 4. Aggiungere un pool back-end delle VM eseguite nell'infrastruttura della soluzione VMware di Azure. Specificare i dettagli dei server Web in esecuzione nel cloud privato della soluzione VMware di Azure e selezionare **Aggiungi**.  Quindi selezionare **Avanti: Configuration>**.
 
-1. Nella scheda **configurazione** selezionare **Aggiungi una regola di routing**.
+5. Nella scheda **configurazione** selezionare **Aggiungi una regola di routing**.
 
 6. Nella scheda **listener** specificare i dettagli per il listener. Se si seleziona HTTPS, è necessario fornire un certificato, da un file PFX o da un certificato di Azure Key Vault esistente. 
 
@@ -67,7 +67,7 @@ L'istanza del gateway applicazione viene distribuita nell'hub in una subnet dedi
 
 9. Se si desidera configurare regole basate sul percorso, selezionare **Aggiungi più destinazioni per creare una regola basata sul percorso**. 
 
-10. Aggiungere una regola basata sul percorso e selezionare **Aggiungi**. Ripetere per aggiungere altre regole basate sul percorso. 
+10. Aggiungere una regola basata sul percorso e selezionare **Aggiungi**. Ripetere l'aggiunta per aggiungere altre regole basate sul percorso. 
 
 11. Al termine dell'aggiunta di regole basate sul percorso, selezionare di nuovo **Aggiungi** . quindi selezionare **Next: Tags>**. 
 
@@ -77,7 +77,7 @@ L'istanza del gateway applicazione viene distribuita nell'hub in una subnet dedi
 
 ## <a name="configuration-examples"></a>Esempi di configurazione
 
-Questa sezione illustra come configurare il gateway applicazione con le VM della soluzione VMware di Azure come pool back-end per questi casi d'uso: 
+Verrà ora configurato il gateway applicazione con macchine virtuali della soluzione VMware di Azure come pool back-end per i casi d'uso seguenti: 
 
 - [Hosting di più siti](#hosting-multiple-sites)
 - [Routing per URL](#routing-by-url)
@@ -94,7 +94,7 @@ Questa procedura illustra come definire i pool di indirizzi back-end usando le m
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Screenshot che mostra il riepilogo dei dettagli di un server Web in VSphere Client.":::
 
-    Per illustrare questa esercitazione è stato usato Windows Server 2016 con il ruolo Internet Information Services (IIS). Una volta installate le VM, eseguire i comandi di PowerShell seguenti per configurare IIS in ognuna delle macchine virtuali. 
+    È stato usato Windows Server 2016 con il ruolo Internet Information Services (IIS) installato. Una volta installate le VM, eseguire i comandi di PowerShell seguenti per configurare IIS in ognuna delle macchine virtuali. 
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -121,7 +121,7 @@ Questa procedura illustra come definire i pool di indirizzi back-end usando le m
 
 ### <a name="routing-by-url"></a>Routing per URL
 
-Questa procedura illustra come definire i pool di indirizzi back-end usando le macchine virtuali in esecuzione in un cloud privato della soluzione VMware di Azure in un gateway applicazione esistente. Si creano quindi le regole di routing per garantire che il traffico Web raggiunga i server appropriati nei pool.
+I passaggi seguenti definiscono i pool di indirizzi back-end usando le macchine virtuali in esecuzione in un cloud privato della soluzione VMware di Azure. Il cloud privato si trova in un gateway applicazione esistente. Si creano quindi le regole di routing per garantire che il traffico Web raggiunga i server appropriati nei pool.
 
 1. Nel cloud privato creare un pool di macchine virtuali per rappresentare il Web farm. 
 

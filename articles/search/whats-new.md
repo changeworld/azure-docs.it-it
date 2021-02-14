@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 08491dcaf66789f13aa9f2e058303a28e7ab8388
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099524"
+ms.locfileid: "100104604"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -24,7 +24,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrizione | Disponibilità  |
 |------------------------------|---------------|---------------|
 | [Reimposta documenti (anteprima)](search-howto-run-reset-indexers.md) |  Rielabora i documenti di ricerca selezionati singolarmente nei carichi di lavoro dell'indicizzatore. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
-| Supporto per la zona di disponibilità | I servizi di ricerca con due o più repliche in determinate aree, come elencato in [scalabilità per le prestazioni](search-performance-optimization.md), ottengono la resilienza con repliche in due o più percorsi fisici distinti.  | L'area e la data della creazione del servizio di ricerca determinano la disponibilità. Per informazioni dettagliate, vedere il documento relativo all'ottimizzazione delle prestazioni. |
+| [Zone di disponibilità](search-performance-optimization.md#availability-zones)| I servizi di ricerca con due o più repliche in determinate aree, come elencato in [questo articolo](search-performance-optimization.md#availability-zones), ottengono la resilienza con repliche in due o più percorsi fisici distinti.  | L'area e la data della creazione del servizio di ricerca determinano la disponibilità. Per informazioni dettagliate, vedere il documento relativo all'ottimizzazione delle prestazioni. |
 
 ## <a name="january-2021"></a>Gennaio 2021
 
@@ -36,7 +36,8 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 
 | Month | Funzionalità | Descrizione |
 |-------|---------|-------------|
-| Novembre | [Crittografia della chiave gestita dal cliente (estesa)](search-security-manage-encryption-keys.md) | estende la crittografia gestita dal cliente sull'intera gamma di asset creati e gestiti da un servizio di ricerca. Disponibile a livello generale.|
+| Novembre | [Crittografia della chiave gestita dal cliente (estesa)](search-security-manage-encryption-keys.md) | Estende la crittografia gestita dal cliente sull'intera gamma di asset creati e gestiti da un servizio di ricerca. Disponibile a livello generale.|
+| Settembre | [Estensione Visual Studio Code per Azure ricerca cognitiva](search-get-started-vs-code.md) | Aggiunge un'area di lavoro, la navigazione, IntelliSense e i modelli per la creazione di indici, indicizzatori, origini dati e skillsets. | Anteprima pubblica |
 | Settembre | [Identità del servizio gestito (indicizzatori)](search-howto-managed-identities-data-sources.md) | Disponibile a livello generale.  |
 | Settembre | [Richieste in uscita tramite un collegamento privato](search-indexer-howto-access-private.md) | Disponibile a livello generale.  |
 | Settembre | [API REST di gestione (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Disponibile a livello generale. |

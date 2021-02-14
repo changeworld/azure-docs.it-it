@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299766"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367997"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -29,7 +29,7 @@ Questo articolo include risposte alle domande frequenti su Azure Active Director
 ## <a name="general-questions"></a>Domande generali
 **D: si gestiscono più directory Azure AD. Ricerca per categorie passare a quello con Azure Active Directory Premium?**
 
-Per spostarsi tra tenant di Azure AD diversi, selezionare il **Nome utente** attualmente connesso nell'angolo in alto a destra e scegliere l'account appropriato. Se l'account non è incluso nell'elenco, selezionare **Disconnetti** e quindi usare le credenziali di amministratore globale della directory con Azure Active Directory Premium abilitato per l'accesso.
+Per spostarsi tra tenant di Azure AD diversi, selezionare il **Nome utente** attualmente connesso nell'angolo in alto a destra e scegliere l'account appropriato. Se l'account non è elencato, selezionare **disconnettersi** e quindi usare le credenziali di amministratore globale della directory con Azure Active Directory Premium (P1 o P2) abilitata per l'accesso.
 
 **D: Quali versioni dei ruoli di identità sono supportate da Azure AD Connect Health?**
 
@@ -37,9 +37,9 @@ La tabella seguente elenca i ruoli e le versioni del sistema operativo supportat
 
 |Ruolo| Sistema operativo/Versione|
 |--|--|
-|Active Directory Federation Services (ADFS)| <ul><li> Windows Server 2012  </li> <li>R2 per Windows Server 2012 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+|Active Directory Federation Services (ADFS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Versione 1.0.9125 o successiva|
-|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>R2 per Windows Server 2012 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 
 Le installazioni di Windows Server Core non sono supportate.
 
@@ -47,8 +47,8 @@ Si noti che le funzionalità offerte dal servizio possono variare in base al ruo
 
 **D: Quante licenze è necessario avere per monitorare l'infrastruttura?**
 
-* Per il primo agente di Connect Health è necessaria almeno una licenza Premium di Azure AD.
-* Ogni agente registrato successivamente richiede altre 25 licenze Azure AD Premium.
+* Il primo agente di Connect Health richiede almeno una licenza Azure AD Premium (P1 o P2).
+* Ogni agente registrato aggiuntivo richiede 25 licenze aggiuntive Azure AD Premium (P1 o P2).
 * Il numero di agenti è uguale al numero totale di agenti registrati in tutti i ruoli monitorati (AD FS, Azure AD Connect e/o AD DS).
 * Le licenze di Azure Active Directory Connect Health non richiedono l'assegnazione a utenti specifici. È necessario soltanto disporre del numero di licenze valide.
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 0de3c46eba0b9364e38c4a952a320ac1c3de512f
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 95747bb68a904212e7e075fc29b2497932d66e5f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583570"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103856"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
 
@@ -35,9 +35,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opzione 1 (rapida): Registrare e configurare automaticamente l'app e quindi scaricare il codice di esempio
 >
-> 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Se l'account ha accesso a più tenant, selezionare l'account in alto a destra e quindi impostare la sessione del portale sul tenant di Azure Active Directory (Azure AD) desiderato.
-> 1. Aprire il nuovo riquadro [Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) nel portale di Azure.
+> 1. Passare all'esperienza di avvio rapido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Portale di Azure - Registrazioni app</a>.
 > 1. Immettere un nome per l'applicazione e quindi fare clic su **Registra**.
 > 1. Passare al riquadro Avvio rapido e visualizzare la guida di avvio rapido per Angular. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione.
 >
@@ -45,8 +43,8 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 >
 > #### <a name="step-1-register-the-application"></a>Passaggio 1: Registrare l'applicazione
 >
-> 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Se l'account ha accesso a più tenant, selezionare l'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
+> 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
+> 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 > 1. Seguire le istruzioni per [registrare un'applicazione a pagina singola](./scenario-spa-app-registration.md) nel portale di Azure.
 > 1. Aggiungere una nuova piattaforma nel riquadro **Autenticazione** della registrazione dell'app e registrare l'URI di reindirizzamento: `http://localhost:4200/`.
 > 1. Questo avvio rapido usa il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Nella sezione **concessione implicita e flussi ibridi** selezionare **token ID** e token di **accesso**. I token ID e i token di accesso sono obbligatori perché l'app consente l'accesso agli utenti e chiama un'API.

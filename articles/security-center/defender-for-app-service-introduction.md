@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2a3253d1ed8b0814fc20b3256a0f98d3aa0949f6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916714"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393310"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduzione ad Azure Defender per il servizio app
 
@@ -23,13 +23,13 @@ App Azure servizio è una piattaforma completamente gestita per la creazione e l
 
 ## <a name="availability"></a>Disponibilità
 
-|Aspetto|Dettagli|
-|----|:----|
-|Stato della versione:|Disponibilità generale (GA)|
-|Prezzi:|[Azure Defender per il servizio app](azure-defender.md) è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)<br>Nella pagina prezzi e impostazioni è elencato il numero di istanze per la **quantità di risorse**. Tale numero è il numero totale di istanze di calcolo, in tutti i piani di servizio app in questa sottoscrizione, in esecuzione al momento dell'apertura della pagina piano tariffario.<br>Per convalidare il conteggio, aprire i **piani di servizio app** nel portale di Azure e verificare il numero di istanze di calcolo usate da ogni piano.|
-|Piani di servizio app supportati:|![Sì](./media/icons/yes-icon.png) Basic, Standard, Premium, Isolato o Linux<br>![No](./media/icons/no-icon.png) Gratuito, Condiviso o Consumo<br>[Altre informazioni sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
-|||
+| Aspetto                       | Dettagli                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Stato della versione:               | Disponibilità generale (GA)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Prezzi:                     | [Azure Defender per il servizio app](azure-defender.md) è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)<br>La fatturazione avviene in base alle istanze di calcolo totali in tutti i piani|
+| Piani di servizio app supportati: | Sono supportati tutti i piani di servizio app (con un'eccezione, vedere più avanti). [Altre informazioni sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).<br>Funzioni di Azure sul piano a consumo non è supportato. [Altre informazioni sulle opzioni di hosting di funzioni di Azure](../azure-functions/functions-scale.md).                                                                                                                                                                                                                                                                   |
+| Cloud:                      | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)                                                                                                                                                                                                                                                                                                                                                                                 |
+|                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quali sono i vantaggi di Azure Defender per il servizio app?
 

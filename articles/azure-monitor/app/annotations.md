@@ -3,12 +3,12 @@ title: Annotazioni sulla versione per Application Insights | Documentazione Micr
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993721"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386034"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
@@ -81,7 +81,7 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
 
 A questo punto, ogni volta che si usa il modello di versione per distribuire una nuova versione, viene inviata un'annotazione a Application Insights. Le annotazioni possono essere visualizzate nei percorsi seguenti:
 
-Il riquadro Usage (utilizzo) in cui è possibile creare manualmente le annotazioni sulla versione:
+Il riquadro **Usage (utilizzo** ) in cui è possibile creare manualmente le annotazioni sulla versione:
 
 ![Screenshot del grafico a barre con il numero di visite utente visualizzate in un periodo di ore. Le annotazioni di versione vengono visualizzate come segni di spunta verdi sopra il grafico che indica il momento in cui si è verificata una versione](./media/annotations/usage-pane.png)
 

@@ -5,16 +5,19 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690054"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370104"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
-La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali di Azure.
+La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali di Azure. 
+
+> [!TIP]
+> Per indicazioni sulla modellazione per operare in questi limiti funzionali, vedere procedure consigliate [per la progettazione di modelli](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
 
 | Area | Funzionalità | Limite predefinito | Regolabile? |
 | --- | --- | --- | --- |
@@ -24,10 +27,11 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Gemelli digitali | Numero di relazioni in uscita da un singolo gemello | 5\.000 | No |
 | Gemelli digitali | Dimensioni massime (del corpo JSON in una richiesta PUT o PATCH) di un singolo gemello | 32 KB | No |
 | Gemelli digitali | Dimensioni massime payload richiesta | 32 KB | No | 
-| Routing. | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
-| Routing. | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
+| Routing | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
+| Routing | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
 | Modelli | Numero di modelli all'interno di una singola istanza di Azure Digital Twins | 10,000 | Sì |
 | Modelli | Numero di modelli che possono essere caricati in una singola chiamata API | 250 | No |
+| Modelli | Dimensioni massime (del corpo JSON in una richiesta PUT o PATCH) di un singolo modello | 1 MB | No |
 | Modelli | Numero di elementi restituiti in una singola pagina | 100 | No |
 | Query | Numero di elementi restituiti in una singola pagina | 100 | Sì |
 | Query | Numero di `AND`  /  `OR` espressioni in una query | 50 | Sì |
