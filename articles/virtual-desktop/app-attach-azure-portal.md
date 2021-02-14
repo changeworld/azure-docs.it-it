@@ -3,15 +3,15 @@ title: Windows Virtual Desktop MSIX app per il portale di connessione anteprima-
 description: Come configurare la connessione all'app MSIX per desktop virtuale di Windows usando il portale di Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185955"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373471"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurare la connessione all'app MSIX con il portale di Azure
 
@@ -65,7 +65,7 @@ A questo punto, è necessario scaricare e configurare l'interfaccia di gestione 
 
 Per configurare l'interfaccia di gestione:
 
-1. [Aprire il portale di anteprima](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Aprire il portale di Azure](https://portal.azure.com).
 2. Se viene richiesto di prendere in considerazione l'estensione Trustworthy, selezionare **Consenti**.
 
       > [!div class="mx-imgBorder"]
@@ -171,6 +171,9 @@ Per pubblicare le app:
 ## <a name="assign-a-user-to-an-app-group"></a>Assegnare un utente a un gruppo di app
 
 Dopo aver assegnato le app MSIX a un gruppo di app, è necessario concedere agli utenti l'accesso. È possibile assegnare l'accesso aggiungendo utenti o gruppi di utenti a un gruppo di app con le applicazioni MSIX pubblicate. Seguire le istruzioni riportate in [gestire i gruppi di app con la portale di Azure](manage-app-groups.md) per assegnare gli utenti a un gruppo di app.
+
+>[!NOTE]
+>Le app Remote di collegamento app MSIX possono scomparire dal feed quando si testano le app Remote durante l'anteprima pubblica. Le app non vengono visualizzate perché il pool host che si sta usando nell'ambiente di valutazione viene servito da un broker desktop remoto nell'ambiente di produzione. Poiché il broker di desktop remoto nell'ambiente di produzione non registra la presenza dell'app MSIX Connetti app Remote, le app non verranno visualizzate nel feed.
 
 ## <a name="change-msix-package-state"></a>Modificare lo stato del pacchetto MSIX
 

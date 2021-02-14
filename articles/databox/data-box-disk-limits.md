@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 9975533e00b0ca184e7cc16c5d8ea51d4eafa0a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573191"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361707"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limiti di Azure Data Box Disk
 
@@ -64,7 +64,7 @@ Di seguito sono riportati i limiti per le dimensioni dei dati che possono essere
 
 | Tipo di dati             | Limite predefinito          |
 |--------------------------|------------------------|
-| BLOB in blocchi, BLOB di pagine    | Per informazioni aggiornate su questi limiti, vedere [obiettivi di scalabilità di archiviazione BLOB di Azure](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [obiettivi di scalabilità di archiviazione standard di Azure](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)e [file di Azure scalabilità di destinazione](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets). <br /><br /> I limiti includono i dati di tutte le origini, tra cui Data Box Disk.|
+| BLOB in blocchi, BLOB di pagine    | Per informazioni aggiornate su questi limiti, vedere obiettivi di [scalabilità di archiviazione BLOB di Azure](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [obiettivi di scalabilità di archiviazione standard di Azure](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)e destinazioni di [scalabilità file di Azure](../storage/files/storage-files-scale-targets.md). <br /><br /> I limiti includono i dati di tutte le origini, tra cui Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Limiti delle dimensioni degli oggetti di Azure

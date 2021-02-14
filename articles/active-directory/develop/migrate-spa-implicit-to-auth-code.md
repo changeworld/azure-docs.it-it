@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fc5d9cbd02490748c17a9f40a1440c5ad0c46278
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754956"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104111"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Eseguire la migrazione di un'app a pagina singola JavaScript da una concessione implicita al flusso del codice di autorizzazione
 
@@ -41,7 +41,7 @@ Se si vuole continuare a usare la registrazione app esistente per le applicazion
 
 Seguire questa procedura per le registrazioni app che sono attualmente configurate con gli URI di reindirizzamento della piattaforma **Web**:
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a> e selezionare il tenant del **Azure Active Directory** .
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a> e selezionare il tenant **Azure Active Directory**.
 1. In **Registrazioni app** selezionare l'applicazione e quindi **Autenticazione**.
 1. Nel riquadro della piattaforma **Web** sotto gli **URI di reindirizzamento** selezionare il banner di avviso che indica che è necessario eseguire la migrazione degli URI.
 

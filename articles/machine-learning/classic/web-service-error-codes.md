@@ -8,19 +8,19 @@ ms.author: keli19
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 24e0fa530b370782af730a2383df1240bbf5c859
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5a457a673500c542dd6130d5cfadd73ab677f7b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308650"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518352"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Machine Learning Studio (classica)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 I codici di errore seguenti possono essere restituiti da un'operazione in un servizio Web Azure Machine Learning Studio (classico).
@@ -31,7 +31,7 @@ I codici di errore seguenti possono essere restituiti da un'operazione in un ser
  
 Questa classe di errori indica che un argomento specificato nel codice non è valido. Potrebbe trattarsi di una credenziale o della località di una risorsa di archiviazione di Azure oppure un elemento passato al servizio Web. Esaminare il campo "codice" dell'errore nella sezione "dettagli" per diagnosticare quale argomento specifico non è valido.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | BadParameterValue | Il valore del parametro fornito non rispetta la regola del parametro per il parametro. |
 | BadSubscriptionId | L'ID sottoscrizione usato per calcolare il punteggio non corrisponde a quello presente nella risorsa. |
@@ -82,7 +82,7 @@ Questa classe di errori indica che un argomento specificato nel codice non è va
  
 È stato specificato un argomento utente non valido.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | InputMismatchError | I dati di input non corrispondono allo schema di porte di input. |
 | InputParseError | L'analisi dei vettori di input non è riuscita.  Assicurarsi che il vettore di input abbia il numero corretto di colonne e di tipi di dati.  Informazioni aggiuntive: {0}. |
@@ -94,7 +94,7 @@ Questa classe di errori indica che un argomento specificato nel codice non è va
  
 La richiesta non è valida nel contesto corrente.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | CannotStartJob | Il processo non può essere avviato perché ha stato {0}. |
 | IncompatibleModel | Il modello non è compatibile con la versione della richiesta. La versione della richiesta supporta solo i modelli di output con datatable singola. |
@@ -114,7 +114,7 @@ Si è verificato un errore durante l'esecuzione del modulo.
  
 Il pacchetto del servizio Web non è valido. Assicurarsi che il pacchetto del servizio Web specificato sia corretto e riprovare.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | FormatError | Il formato del pacchetto del servizio Web non è corretto. Dettagli: {0} |
 | RuntimesError | L'elemento grafico del pacchetto del servizio Web non è valido. Dettagli: {0} |
@@ -124,7 +124,7 @@ Il pacchetto del servizio Web non è valido. Assicurarsi che il pacchetto del se
  
 La richiesta non è autorizzata ad accedere alla risorsa.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | AdminRequestUnauthorized | Non autorizzata |
 | ManagementRequestUnauthorized | Non autorizzata |
@@ -134,7 +134,7 @@ La richiesta non è autorizzata ad accedere alla risorsa.
  
 La risorsa non è stata trovata.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | ModelPackageNotFound | Il pacchetto di modelli non è stato trovato. Verificare che l'ID del pacchetto di modelli sia corretto e riprovare. |
 | WebServiceIdNotFoundInWorkspace | Il servizio Web in questa area di lavoro non è stato trovato. I valori webServiceId e workspaceId non corrispondono. Assicurarsi che il servizio Web specificato sia parte dell'area di lavoro e riprovare. |
@@ -145,7 +145,7 @@ La risorsa non è stata trovata.
  
 L'operazione non è stata completata nel tempo consentito.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | RequestCanceled | La richiesta è stata annullata dal client. |
 | ScoreRequestTimeout | Si è verificato il timeout dell'esecuzione della richiesta. |
@@ -154,7 +154,7 @@ L'operazione non è stata completata nel tempo consentito.
  
 La risorsa esiste già.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | ModelOutputMetadataMismatch | Il nome del parametro di output non è valido. Provare a usare il modulo dell'editor di metadati per rinominare le colonne e riprovare. |
  
@@ -162,7 +162,7 @@ La risorsa esiste già.
  
 Il modello ha superato la quota di memoria assegnata ad esso.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | OutOfMemoryLimit | Il modello ha utilizzato una quantità di memoria superiore rispetto a quella prevista. La quantità massima di memoria consentita per il modello è {0} MB. Controllare il modello per individuare problemi. |
  
@@ -170,7 +170,7 @@ Il modello ha superato la quota di memoria assegnata ad esso.
  
 Si è verificato un errore interno durante l'esecuzione.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | AdminAuthenticationFailed |  |
 | BackendArgumentError |  |
@@ -223,7 +223,7 @@ Il pacchetto di modelli non è valido. Verificare che il pacchetto di modelli sp
  
 Il pacchetto del servizio Web non è valido. Verificare che il pacchetto Web specificato sia corretto e riprovare.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | ModuleError | L'elemento grafico del pacchetto del servizio Web non è valido. Dettagli: {0} |
  
@@ -236,7 +236,7 @@ Non è possibile eseguire la ricerca, perché i contenitori sono in fase di iniz
  
 Il servizio è temporaneamente non disponibile.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | NoMoreResources | Non sono disponibili risorse per la richiesta. |
 | RequestThrottled | La richiesta è stata limitata per l'endpoint {0}. La concorrenza massima per l'endpoint è {1}. |
@@ -248,7 +248,7 @@ Il servizio è temporaneamente non disponibile.
  
 L'operazione non è stata completata nel tempo consentito.
  
-| Codice errore | Messaggio utente |
+| Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | BackendInitializationTimeout | L'inizializzazione del servizio Web non è stata completata nel tempo consentito. |
 | BackendScoreTimeout | L'esecuzione della richiesta del servizio Web non è stata completata nel tempo consentito. |

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: ginle
-ms.openlocfilehash: ae78aa80594e46b02d77adcafed961e801780d4f
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 6dff16f4a68f3db4ff841141e7d7025e794cca8f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430260"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100105182"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configurare chiavi gestite dal cliente inattive
 
@@ -26,7 +26,7 @@ In Azure questa operazione viene in genere eseguita usando una chiave di crittog
 - [Aggiungere un criterio di accesso all'istanza di Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
 - [Generare una chiave in Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
-## <a name="specify-the-azure-key-vault-key"></a>Specificare la chiave di Azure Key Vault
+## <a name="using-azure-portal"></a>Uso del portale di Azure
 
 Quando si crea l'account dell'API di Azure per FHIR in portale di Azure, è possibile visualizzare un'opzione di configurazione "crittografia dei dati" in "Impostazioni database" nella scheda "impostazioni aggiuntive". Per impostazione predefinita, verrà scelta l'opzione chiave gestita dal servizio. 
 
@@ -44,9 +44,100 @@ Per gli account FHIR esistenti, è possibile visualizzare la scelta relativa all
 
 È inoltre possibile creare una nuova versione della chiave specificata. Successivamente i dati verranno crittografati con la nuova versione senza interruzioni del servizio. Si può anche rimuovere l'accesso alla chiave per rimuovere l'accesso ai dati. Quando la chiave è disabilitata, le query generano un errore. Se la chiave è riabilitata, le query risulteranno riuscite.
 
+
+
+
+## <a name="using-azure-powershell"></a>Uso di Azure PowerShell
+
+Con l'URI della chiave di Azure Key Vault, è possibile configurare CMK tramite PowerShell eseguendo il comando PowerShell seguente:
+
+```powershell
+New-AzHealthcareApisService
+    -Name "myService"
+    -Kind "fhir-R4"
+    -ResourceGroupName "myResourceGroup"
+    -Location "westus2"
+    -CosmosKeyVaultKeyUri "https://<my-vault>.vault.azure.net/keys/<my-key>"
+```
+
+## <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+
+Come per il metodo PowerShell, è possibile configurare CMK passando l'URI della chiave di Azure Key Vault sotto il `key-vault-key-uri` parametro ed eseguendo il comando CLI seguente: 
+
+```azurecli-interactive
+az healthcareapis service create
+    --resource-group "myResourceGroup"
+    --resource-name "myResourceName"
+    --kind "fhir-R4"
+    --location "westus2"
+    --cosmos-db-configuration key-vault-key-uri="https://<my-vault>.vault.azure.net/keys/<my-key>"
+
+```
+## <a name="using-azure-resource-manager-template"></a>Uso del modello di Azure Resource Manager
+
+Con l'URI della chiave di Azure Key Vault, è possibile configurare CMK passandolo sotto la proprietà **keyVaultKeyUri** nell'oggetto **Properties** .
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "services_myService_name": {
+            "defaultValue": "myService",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.HealthcareApis/services",
+            "apiVersion": "2020-03-30",
+            "name": "[parameters('services_myService_name')]",
+            "location": "westus2",
+            "kind": "fhir-R4",
+            "properties": {
+                "accessPolicies": [],
+                "cosmosDbConfiguration": {
+                    "offerThroughput": 400,
+                    "keyVaultKeyUri": "https://<my-vault>.vault.azure.net/keys/<my-key>"
+                },
+                "authenticationConfiguration": {
+                    "authority": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    "audience": "[concat('https://', parameters('services_myService_name'), '.azurehealthcareapis.com')]",
+                    "smartProxyEnabled": false
+                },
+                "corsConfiguration": {
+                    "origins": [],
+                    "headers": [],
+                    "methods": [],
+                    "maxAge": 0,
+                    "allowCredentials": false
+                }
+            }
+        }
+    ]
+}
+```
+
+Ed è possibile distribuire il modello con lo script di PowerShell seguente:
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$accountLocation = "West US 2"
+$keyVaultKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-key>"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile "deploy.json" `
+    -accountName $accountName `
+    -location $accountLocation `
+    -keyVaultKeyUri $keyVaultKeyUri
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come configurare le chiavi gestite dal cliente inattive. Successivamente, è possibile consultare la sezione relativa alle domande frequenti Azure Cosmos DB: 
+In questo articolo si è appreso come configurare le chiavi gestite dal cliente inattive usando portale di Azure, PowerShell, l'interfaccia della riga di comando e Gestione risorse modello. Per altre domande possibili, vedere la sezione relativa alle domande frequenti su Azure Cosmos DB: 
  
 >[!div class="nextstepaction"]
 >[Cosmos DB: come configurare CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3c291d9a9d48b6f75148b673848b8451521bab91
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8d69033dedc3a45263b087c9b9ee5b156af460be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615802"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361061"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -166,7 +166,7 @@ Con l'integrazione con controllo degli accessi in base al ruolo di Azure, AKS us
 
 ![Controllo degli accessi in base al ruolo di Azure per Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-Come illustrato nel diagramma precedente, quando si usa l'integrazione del controllo degli accessi in base al ruolo di Azure, tutte le richieste all'API Kubernetes seguiranno lo stesso flusso di autenticazione illustrato nella [sezione Azure Active Integration](#azure-active-directory-integration). 
+Come illustrato nel diagramma precedente, quando si usa l'integrazione del controllo degli accessi in base al ruolo di Azure, tutte le richieste all'API Kubernetes seguiranno lo stesso flusso di autenticazione illustrato nella sezione relativa all' [integrazione Azure Active Directory](#azure-active-directory-integration). 
 
 In seguito, invece di basarsi esclusivamente su Kubernetes RBAC per l'autorizzazione, la richiesta verrà effettivamente autorizzata da Azure, purché l'identità che ha effettuato la richiesta sia presente in AAD. Se l'identità non esiste in AAD, ad esempio un account del servizio Kubernetes, il controllo degli accessi in base al ruolo di Azure non viene avviata e sarà il Kubernetes RBAC normale.
 
@@ -174,6 +174,8 @@ In questo scenario è possibile assegnare agli utenti uno dei quattro ruoli pred
 
 Questa funzionalità consentirà, ad esempio, di concedere agli utenti solo le autorizzazioni per la risorsa AKS tra le sottoscrizioni, ma di configurare e assegnare loro il ruolo e le autorizzazioni che avranno all'interno di ognuno di questi cluster che controlla l'accesso all'API Kubernetes. Ad esempio, è possibile concedere il `Azure Kubernetes Service RBAC Viewer` ruolo nell'ambito della sottoscrizione e il destinatario sarà in grado di elencare e ottenere tutti gli oggetti Kubernetes da tutti i cluster, ma non di modificarli.
 
+> [!IMPORTANT]
+> Prima di usare questa funzionalità, è necessario abilitare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes. Per informazioni dettagliate e istruzioni dettagliate, [vedere qui](manage-azure-rbac.md).
 
 #### <a name="built-in-roles"></a>Ruoli predefiniti
 
@@ -186,7 +188,6 @@ AKS fornisce i quattro ruoli predefiniti seguenti. Sono simili ai [ruoli predefi
 | Amministratore RBAC del servizio Kubernetes di Azure  | Consente l'accesso dell'amministratore, che deve essere concesso all'interno di uno spazio dei nomi. Consente l'accesso in lettura/scrittura alla maggior parte delle risorse in uno spazio dei nomi (o ambito del cluster), inclusa la possibilità di creare ruoli e associazioni di ruolo all'interno dello spazio dei nomi. Questo ruolo non consente l'accesso in scrittura alla quota di risorse o allo spazio dei nomi stesso. |
 | Amministrazione del cluster RBAC del servizio Kubernetes di Azure  | Consente l'accesso con privilegi avanzati per eseguire qualsiasi azione su qualsiasi risorsa. Fornisce il controllo completo su tutte le risorse nel cluster e in tutti gli spazi dei nomi. |
 
-**Per informazioni su come abilitare RBAC di Azure per l'autorizzazione Kubernetes, [vedere qui](manage-azure-rbac.md).**
 
 ## <a name="summary"></a>Riepilogo
 

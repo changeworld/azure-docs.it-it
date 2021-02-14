@@ -1,21 +1,17 @@
 ---
 title: 'Trasformare i dati con Spark in Azure Data Factory '
 description: Questa esercitazione offre istruzioni dettagliate per la trasformazione dei dati tramite l'attività Spark in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: cf425ecb1a8aebf594828bfba50e9aba8ca9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409097"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377619"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando l'attività Spark in Azure Data Factory
 
@@ -182,7 +178,7 @@ Tenere presente quanto segue:
 
 
 ## <a name="create-a-data-factory"></a>Creare una data factory 
-Sono state create definizioni di servizio collegato e pipeline nei file JSON. Verrà ora creata una data factory e verranno distribuiti i file JSON del servizio collegato e della pipeline usando i cmdlet di PowerShell. Eseguire questi comandi di PowerShell uno alla volta: 
+Sono state create definizioni di servizio collegato e pipeline nei file JSON. A questo punto, è possibile creare un data factory e distribuire i file JSON del servizio collegato e della pipeline usando i cmdlet di PowerShell. Eseguire questi comandi di PowerShell uno alla volta: 
 
 1. Impostare le variabili una alla volta.
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc8d211160e757c78a8e2adafad703118628e6dc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004153"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095045"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aggiornare le informazioni sui gruppi nel portale App personali
 
@@ -27,6 +27,11 @@ ms.locfileid: "96004153"
 
 >[!Important]
 >Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](../manage-apps/index.yml).
+>
+> Se viene visualizzato un errore di accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-groups-information"></a>Visualizzare le informazioni sui gruppi
 
@@ -40,7 +45,11 @@ Se l'amministratore ha concesso l'autorizzazione a visualizzare il riquadro **Gr
 
 1. Accedere all'account aziendale o dell'istituto di istruzione.
 
-2. Aprire il Web browser e passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile un indirizzamento a una pagina personalizzata per l'organizzazione come https://myapps.microsoft.com/contoso.com.
+2. Aprire il Web browser e passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione. Ad esempio, è possibile un indirizzamento a una pagina personalizzata per l'organizzazione come https://myapps.microsoft.com/contoso.com. Se si esegue l'accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 
     Viene visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 

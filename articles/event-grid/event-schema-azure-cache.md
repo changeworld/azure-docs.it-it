@@ -2,24 +2,21 @@
 title: Cache di Azure per Redis come origine griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi di cache di Azure per Redis con griglia di eventi di Azure
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 02/11/2021
 author: curib
 ms.author: cauribeg
-ms.openlocfilehash: f446f3f469a7404e6e74ba67ee24bf32578fe9d8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 1a2995bc9ef40cd4eab320ce1bb4c5faf61e0e6e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055971"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371278"
 ---
 # <a name="azure-cache-for-redis-as-an-event-grid-source"></a>Cache di Azure per Redis come origine di griglia di eventi
 
 Questo articolo fornisce le proprietà e lo schema per la cache di Azure per gli eventi Redis. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). 
 
-## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
-
-### <a name="list-of-events-for-azure-cache-for-redis-rest-apis"></a>Elenco di eventi per le API REST di cache di Azure per Redis
-
+## <a name="available-event-types"></a>Tipi di evento disponibili
 Questi eventi vengono attivati quando un client Esporta, importa o ridimensiona chiamando la cache di Azure per le API REST di Redis. L'evento di applicazione di patch viene attivato dall'aggiornamento di Redis.
 
  |Nome evento |Descrizione|
@@ -29,12 +26,10 @@ Questi eventi vengono attivati quando un client Esporta, importa o ridimensiona 
  |**Microsoft. cache. PatchingCompleted** |Attivato al termine dell'applicazione di patch. |
  |**Microsoft. cache. ScalingCompleted** |Attivato quando il ridimensionamento viene completato. |
 
-<a name="example-event"></a>
-### <a name="the-contents-of-an-event-response"></a>Contenuto della risposta di un evento
+## <a name="example-event"></a>Evento di esempio
+Quando viene attivato un evento, il servizio Griglia di eventi invia i dati relativi all'evento all'endpoint di sottoscrizione. Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento di cache di Azure per Redis.
 
-Quando viene attivato un evento, il servizio Griglia di eventi invia i dati relativi all'evento all'endpoint di sottoscrizione.
-
-Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento di cache di Azure per Redis.
+# <a name="event-grid-event-schema"></a>[Schema di eventi di Griglia di eventi](#tab/event-grid-event-schema)
 
 ### <a name="microsoftcachepatchingcompleted-event"></a>Evento Microsoft. cache. PatchingCompleted
 
@@ -104,29 +99,126 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento di cach
 "eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
 ```
 
-### <a name="event-properties"></a>Proprietà degli eventi
+# <a name="cloud-event-schema"></a>[Schema evento cloud](#tab/cloud-event-schema)
+
+
+### <a name="microsoftcachepatchingcompleted-event"></a>Evento Microsoft. cache. PatchingCompleted
+
+```json
+[{
+    "id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+    "type": "Microsoft.Cache.PatchingCompleted",
+    "source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+    "data": {
+        "name": "PatchingCompleted",
+        "timestamp": "2020-12-09T21:50:19.9995668+00:00",
+        "status": "Succeeded"
+    },
+    "subject": "PatchingCompleted",
+    "time": "2020-12-09T21:50:19.9995668+00:00",
+    "specversion": "1.0"
+}]
+```
+
+### <a name="microsoftcacheimportrdbcompleted-event"></a>Evento Microsoft. cache. ImportRDBCompleted
+
+```json
+[{
+    "id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+    "type": "Microsoft.Cache.ImportRDBCompleted",
+    "source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+    "data": {
+        "name": "ImportRDBCompleted",
+        "timestamp": "2020-12-09T21:50:19.9995668+00:00",
+        "status": "Succeeded"
+    },
+    "subject": "ImportRDBCompleted",
+    "eventTime": "2020-12-09T21:50:19.9995668+00:00",
+    "specversion": "1.0"
+}]
+```
+
+### <a name="microsoftcacheexportrdbcompleted-event"></a>Evento Microsoft. cache. ExportRDBCompleted
+
+```json
+[{
+    "id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+    "type": "Microsoft.Cache.ExportRDBCompleted",
+    "source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+    "data": {
+        "name": "ExportRDBCompleted",
+        "timestamp": "2020-12-09T21:50:19.9995668+00:00",
+        "status": "Succeeded"
+    },
+    "subject": "ExportRDBCompleted",
+    "time": "2020-12-09T21:50:19.9995668+00:00",
+    "specversion": "1.0"
+}]
+```
+
+### <a name="microsoftcachescalingcompleted"></a>Microsoft. cache. ScalingCompleted
+
+```json
+[{
+    "id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+    "type": "Microsoft.Cache.ScalingCompleted",
+    "source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+    "data": {
+        "name": "ScalingCompleted",
+        "timestamp": "2020-12-09T21:50:19.9995668+00:00",
+        "status": "Succeeded"
+    },
+    "subject": "ScalingCompleted",
+    "time": "2020-12-09T21:50:19.9995668+00:00",
+    "specversion": "1.0"
+}]
+```
+
+---
+
+## <a name="event-properties"></a>Proprietà degli eventi
+
+# <a name="event-grid-event-schema"></a>[Schema di eventi di Griglia di eventi](#tab/event-grid-event-schema)
 
 Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
-| data | object | Cache di Azure per i dati dell'evento Redis. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
+| `topic` | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene specificato da Griglia di eventi. |
+| `subject` | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
+| `eventType` | string | Uno dei tipi di evento registrati per l'origine evento. |
+| `eventTime` | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| `id` | string | Identificatore univoco dell'evento. |
+| `data` | object | Cache di Azure per i dati dell'evento Redis. |
+| `dataVersion` | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| `metadataVersion` | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
+
+
+# <a name="cloud-event-schema"></a>[Schema evento cloud](#tab/cloud-event-schema)
+
+
+Un evento presenta i seguenti dati di primo livello:
+
+| Proprietà | Type | Descrizione |
+| -------- | ---- | ----------- |
+| `source` | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene specificato da Griglia di eventi. |
+| `subject` | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
+| `type` | string | Uno dei tipi di evento registrati per l'origine evento. |
+| `time` | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| `id` | string | Identificatore univoco dell'evento. |
+| `data` | object | Cache di Azure per i dati dell'evento Redis. |
+| `specversion` | string | Versione della specifica dello schema CloudEvents. |
+
+---
+
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| timestamp | string | L'ora in cui si è verificato l'evento. |
-| name | string | Nome dell'evento. |
-| status | string | Lo stato dell'evento. Operazione non riuscita o completata. |
-
+| `timestamp` | string | L'ora in cui si è verificato l'evento. |
+| `name` | string | Nome dell'evento. |
+| `status` | string | Lo stato dell'evento. Operazione non riuscita o completata. |
 
 ## <a name="quickstarts"></a>Avvi rapidi
 

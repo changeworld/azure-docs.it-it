@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027000"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361622"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurare le impostazioni di Multi-Factor Authentication Azure AD
 
@@ -65,9 +65,7 @@ Per bloccare un utente, completare i passaggi seguenti:
 
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **MFA** > **Blocca/Sblocca utenti**.
 1. Selezionare **Aggiungi** per bloccare un utente.
-1. Selezionare il **gruppo di replica** e quindi scegliere *impostazioni predefinite di Azure*.
-
-    Immettere il nome utente per l'utente bloccato come `username\@domain.com` , quindi specificare un commento nel campo *motivo* .
+1. Immettere il nome utente per l'utente bloccato come `username@domain.com` , quindi specificare un commento nel campo *motivo* .
 1. Quando si è pronti, selezionare **OK** per bloccare l'utente.
 
 ### <a name="unblock-a-user"></a>Sbloccare un utente

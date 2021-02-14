@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096390"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518165"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Risolvere i problemi di peering di rete virtuale
 
@@ -233,7 +233,7 @@ Per risolvere questo problema, eliminare il peering da entrambe le reti virtuali
 
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Non è possibile eseguire il peering di una rete virtuale Databricks
 
-Per risolvere questo problema, configurare il peering di reti virtuali in **Azure Databricks**, quindi specificare la rete virtuale di destinazione usando **ID risorsa**. Per altre informazioni, vedere [Peering di una rete virtuale Databricks con una rete virtuale remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+Per risolvere questo problema, configurare il peering di reti virtuali in **Azure Databricks**, quindi specificare la rete virtuale di destinazione usando **ID risorsa**. Per altre informazioni, vedere [Peering di una rete virtuale Databricks con una rete virtuale remota](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>La rete virtuale remota non ha un gateway
 

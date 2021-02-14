@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 7b97edcac8bed23e03569d733746b547f5440cee
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609610"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095121"
 ---
 # <a name="user-collections-preview-in-my-apps"></a>Raccolte utenti (anteprima) nelle app personali
 
@@ -33,6 +33,12 @@ In questo articolo si apprenderà come:
 - Nascondi raccolte
 - Mostra raccolte nascoste
 - Elimina raccolte
+
+>[!Note]
+>Se viene visualizzato un errore durante l'accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="create-a-collection"></a>Creare una raccolta
 
@@ -103,6 +109,7 @@ Per nascondere una raccolta:
 Per rendere visibile una raccolta nascosta:
 
 1. Passare alle [raccolte di app personali](https://myapplications.microsoft.com/?endUserCollections) e accedere con l'account aziendale o dell'Istituto di istruzione.
+
 1. Aprire il menu pagina :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="selezionare l'icona con i puntini di sospensione per il menu a livello di pagina":::e quindi selezionare **Gestisci**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="Il menu della pagina contiene il comando Gestisci per gestire le app":::

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/12/2021
+ms.openlocfilehash: 4b431220dbab49b74f38a8f37be8aac1a0c5c460
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019636"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382889"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
@@ -452,15 +452,21 @@ Per chiamare API che eseguono codice personalizzato o non sono disponibili come 
 >
 > Per altre informazioni sulla creazione di ISEs, vedere [connettersi alle reti virtuali di Azure da app](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)per la logica di Azure.
 
+## <a name="get-ready-for-deployment"></a>Prepararsi alla distribuzione
+
+Anche se si creano connessioni dall'interno di un'app per la logica, le connessioni sono risorse di Azure separate con le proprie definizioni di risorse. Per esaminare queste definizioni delle risorse di connessione, [scaricare l'app per la logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è prevalentemente pronto per la distribuzione.
+
 <a name="block-connections"></a>
 
 ## <a name="block-creating-connections"></a>Blocca la creazione di connessioni
 
 Se l'organizzazione non consente la connessione a risorse specifiche usando i connettori in app per la logica di Azure, è possibile [bloccare la funzionalità per creare le connessioni](../logic-apps/block-connections-connectors.md) per connettori specifici nei flussi di lavoro delle app per la logica usando [criteri di Azure](../governance/policy/overview.md). Per altre informazioni, vedere [bloccare le connessioni create da connettori specifici in app](../logic-apps/block-connections-connectors.md)per la logica di Azure.
 
-## <a name="get-ready-for-deployment"></a>Prepararsi alla distribuzione
+## <a name="known-issues"></a>Problemi noti
 
-Anche se si creano connessioni dall'interno di un'app per la logica, le connessioni sono risorse di Azure separate con le proprie definizioni di risorse. Per esaminare queste definizioni delle risorse di connessione, [scaricare l'app per la logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è prevalentemente pronto per la distribuzione.
+#### <a name="error-badgateway-client-request-id-guid"></a>Errore: BadGateway. ID richiesta client:' {GUID}'
+
+Questo errore risulta dall'aggiornamento dei tag in un'app per la logica in cui una o più connessioni non supportano l'autenticazione OAuth Azure Active Directory (Azure AD), ad esempio SFTP ad SQL, per suddividere tali connessioni. Per evitare questo comportamento, evitare di aggiornare i tag.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

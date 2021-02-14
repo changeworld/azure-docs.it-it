@@ -329,9 +329,10 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertire un modello di set di scalabilità per l'uso di dischi gestiti
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Usare host dedicati (anteprima)
-          href: ../virtual-machines/dedicated-hosts.md
+        - name: Usare host dedicati
           items:
+            - name: Panoramica
+              href: ../virtual-machines/dedicated-hosts.md
             - name: CLI
               href: ../virtual-machines/linux/dedicated-hosts-cli.md
             - name: PowerShell

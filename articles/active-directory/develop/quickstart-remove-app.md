@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 8953f9ca174414c55e6e06774167d3951d0bbd41
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4afffb558b9cbf53a762b1b2bb1ce544e554feaf
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090239"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103890"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Come rimuovere un'applicazione registrata con Microsoft Identity Platform
 
@@ -39,9 +39,10 @@ Le applicazioni registrate dall'utente o dalla relativa organizzazione vengono r
 
 Per eliminare un'applicazione, è possibile elencarla come proprietario dell'applicazione o disporre di privilegi di amministratore.
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-1. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** dell'applicazione.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
+1. Se si ha accesso a più tenant, usare il filtro **directory + sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto per selezionare il tenant in cui è registrata l'app.
+1. Cercare e selezionare il **Azure Active Directory**. 
+1. In **Gestisci** selezionare **registrazioni app**  e selezionare l'applicazione che si desidera configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** dell'applicazione.
 1. Nella pagina **Panoramica** selezionare **Elimina**.
 1. Selezionare **Sì** per confermare l'eliminazione dell'app.
 

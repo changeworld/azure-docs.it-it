@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: a214e91307308e191ce92b6461c1454d2cc7dd2b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132551"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370479"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
@@ -162,9 +162,7 @@ Sì, è possibile collegare l'ID partner per Azure Stack.
 
 **Come si collega il proprio ID partner se l'azienda usa [Azure Lighthouse](../../lighthouse/overview.md) per accedere alle risorse dei clienti?**
 
-Se si esegue l'onboarding dei clienti nella gestione delle risorse delegata di Azure tramite la [pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), l'ID MPN (Microsoft Partner Network) verrà associato automaticamente.
-
-Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi invece che nel tenant di ogni cliente. Per semplicità, è consigliabile creare un account di entità servizio nel tenant, associarlo all'ID MPN, quindi concedergli l'accesso a tutti i clienti di cui si esegue l'onboarding con un [ruolo predefinito di Azure idoneo per ricevere il credito ottenuto dai partner](/partner-center/azure-roles-perms-pec). Per altre informazioni, vedere [Collegare l'ID partner per verificare l'impatto sulle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
+Affinché le attività del Faro di Azure vengano riconosciute, è necessario associare l'ID MPN ad almeno un account utente che ha accesso a ogni sottoscrizione caricata. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi invece che nel tenant di ogni cliente. Per semplicità, è consigliabile creare un account di entità servizio nel tenant, associarlo all'ID MPN, quindi concedergli l'accesso a tutti i clienti di cui si esegue l'onboarding con un [ruolo predefinito di Azure idoneo per ricevere il credito ottenuto dai partner](/partner-center/azure-roles-perms-pec). Per altre informazioni, vedere [Collegare l'ID partner per verificare l'impatto sulle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Come si spiega il collegamento amministrazione partner al cliente?**
 

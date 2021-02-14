@@ -1,26 +1,26 @@
 ---
 title: Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure
-description: Informazioni su come proteggere le VM della soluzione VMware di Azure con gli strumenti di sicurezza nativi di Azure da un singolo dashboard nel centro sicurezza di Azure.
+description: Proteggi le VM della soluzione VMware di Azure con gli strumenti di sicurezza nativi di Azure dal dashboard del Centro sicurezza di Azure.
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 02/12/2021
+ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584958"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516363"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure
 
-Gli strumenti di sicurezza nativi di Azure offrono un'infrastruttura sicura per un ambiente ibrido di Azure, una soluzione VMware di Azure e macchine virtuali (VM) locali. Questo articolo illustra come configurare gli strumenti di Azure per la sicurezza dell'ambiente ibrido. Verranno utilizzati diversi strumenti per identificare e risolvere tipi diversi di minacce.
+Gli strumenti di sicurezza nativi di Azure offrono protezione per un ambiente ibrido di Azure, una soluzione VMware di Azure e macchine virtuali (VM) locali. Questo articolo illustra come configurare gli strumenti di Azure per la sicurezza dell'ambiente ibrido. Questi strumenti verranno usati per identificare e risolvere varie minacce.
 
 ## <a name="azure-native-services"></a>Servizi nativi di Azure
 
-Ecco un breve riepilogo di ogni servizio nativo di Azure:
+Ecco un breve riepilogo dei servizi nativi di Azure:
 
 - **Log Analytics area di lavoro:** Log Analytics area di lavoro è un ambiente univoco per archiviare i dati di log. Ogni area di lavoro include un proprio repository di dati e una configurazione specifica. Le origini dati e le soluzioni sono configurate per archiviare i dati in un'area di lavoro specifica.
-- **Centro sicurezza di Azure:** Il Centro sicurezza di Azure è un sistema di gestione della sicurezza dell'infrastruttura unificata. Rafforza il comportamento di sicurezza dei data center e offre protezione avanzata dalle minacce tra i carichi di lavoro ibridi nel cloud o in locale.
-- **Sentinel di Azure:** Azure Sentinel è una soluzione per la gestione degli eventi di sicurezza, gestione e risposta automatica (SIEM) e per la sicurezza delle orchestrazioni (SOAR) nativa del cloud. Fornisce analisi di sicurezza e Intelligence per le minacce intelligenti in un ambiente. Si tratta di una soluzione unica per il rilevamento di avvisi, la visibilità delle minacce, la ricerca proattiva e la risposta alle minacce.
+- **Centro sicurezza di Azure:** Il Centro sicurezza di Azure è un sistema di gestione della sicurezza dell'infrastruttura unificata. Rafforza la sicurezza dei data center e offre protezione avanzata dalle minacce nei carichi di lavoro ibridi nel cloud o in locale.
+- **Sentinel di Azure:** Azure Sentinel è una soluzione di gestione degli eventi di sicurezza (SIEM) nativa del cloud. Fornisce analisi della sicurezza, rilevamento degli avvisi e risposta automatica alle minacce in un ambiente.
 
 ## <a name="topology"></a>Topologia
 
@@ -30,13 +30,13 @@ L'agente Log Analytics Abilita la raccolta di dati di log da Azure, dalla soluzi
 
 Una volta raccolti i log dall'area di lavoro Log Analytics, è possibile configurare l'area di lavoro Log Analytics con il Centro sicurezza di Azure. Il Centro sicurezza di Azure valuterà lo stato della vulnerabilità delle macchine virtuali della soluzione VMware di Azure e genererà un avviso per eventuali vulnerabilità critiche. Ad esempio, valuta le patch del sistema operativo mancanti, le configurazioni di sicurezza e gli [Endpoint Protection](../security-center/security-center-services.md).
 
-È possibile configurare l'area di lavoro Log Analytics con Azure Sentinel per il rilevamento degli avvisi, la visibilità delle minacce, la ricerca proattiva e la risposta alle minacce. Nel diagramma precedente, il Centro sicurezza di Azure è connesso ad Azure Sentinel usando il connettore del Centro sicurezza di Azure. Il Centro sicurezza di Azure Invia la vulnerabilità dell'ambiente a Sentinel di Azure per creare un evento imprevisto ed eseguire il mapping con altre minacce. È inoltre possibile creare la query delle regole pianificate per rilevare attività indesiderate e convertirle in eventi imprevisti.
+È possibile configurare l'area di lavoro Log Analytics con Azure Sentinel per il rilevamento degli avvisi, la visibilità delle minacce, la ricerca e la risposta alle minacce. Nel diagramma precedente, il Centro sicurezza di Azure è connesso ad Azure Sentinel usando il connettore del Centro sicurezza di Azure. Il Centro sicurezza di Azure Invia la vulnerabilità dell'ambiente a Sentinel di Azure per creare un evento imprevisto ed eseguire il mapping con altre minacce. È inoltre possibile creare la query delle regole pianificate per rilevare attività indesiderate e convertirle in eventi imprevisti.
 
 ## <a name="benefits"></a>Vantaggi
 
 - I servizi nativi di Azure possono essere usati per la sicurezza dell'ambiente ibrido in Azure, nella soluzione VMware di Azure e nei servizi locali.
 - Usando un'area di lavoro Log Analytics, è possibile raccogliere i dati o i log in un singolo punto e presentare gli stessi dati a diversi servizi nativi di Azure.
-- Il Centro sicurezza di Azure offre una serie di funzionalità, tra cui:
+- Il Centro sicurezza di Azure offre molte funzionalità, tra cui:
     - Monitoraggio dell'integrità dei file
     - Rilevamento di attacchi non file
     - Valutazione patch del sistema operativo 
@@ -50,15 +50,15 @@ Una volta raccolti i log dall'area di lavoro Log Analytics, è possibile configu
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
-Sarà necessaria un'area di lavoro Log Analytics per raccogliere dati da diverse origini. Per ulteriori informazioni, vedere [la pagina relativa alla creazione di un'area di lavoro log Analytics dalla portale di Azure](../azure-monitor/learn/quick-create-workspace.md). 
+Per raccogliere dati da diverse origini, è necessaria un'area di lavoro Log Analytics. Per ulteriori informazioni, vedere [la pagina relativa alla creazione di un'area di lavoro log Analytics dalla portale di Azure](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Distribuire il Centro sicurezza e configurare le macchine virtuali della soluzione VMware di Azure
 
-Il Centro sicurezza di Azure è uno strumento preconfigurato e non richiede la distribuzione. Nella portale di Azure cercare **Centro sicurezza** e selezionarlo.
+Il Centro sicurezza di Azure è uno strumento preconfigurato che non richiede la distribuzione. Nella portale di Azure cercare **Centro sicurezza** e selezionarlo.
 
 ### <a name="enable-azure-defender"></a>Abilitare Azure Defender
 
-Azure Defender estende la protezione avanzata dalle minacce del Centro sicurezza di Azure nei tuoi carichi di lavoro ibridi sia in locale che nel cloud. Per proteggere le macchine virtuali della soluzione VMware di Azure, sarà quindi necessario abilitare Azure Defender. 
+Azure Defender estende la protezione avanzata dalle minacce del Centro sicurezza di Azure nei tuoi carichi di lavoro ibridi, sia in locale che nel cloud. Per proteggere le macchine virtuali della soluzione VMware di Azure, è necessario abilitare Azure Defender. 
 
 1. Nel centro sicurezza selezionare **Guida introduttiva**.
 
@@ -149,7 +149,7 @@ A questo punto si è pronti per connettere Sentinel di Azure con le origini dati
 
 ## <a name="create-rules-to-identify-security-threats"></a>Creare regole per identificare le minacce per la sicurezza
 
-Dopo aver connesso le origini dati ad Azure Sentinel, è possibile creare regole per generare avvisi in base alle minacce rilevate. Nell'esempio seguente viene creata una regola per identificare i tentativi di accesso a Windows Server con la password errata.
+Dopo aver connesso le origini dati ad Azure Sentinel, è possibile creare regole per generare avvisi per le minacce rilevate. Nell'esempio seguente viene creata una regola per i tentativi di accesso a Windows Server con la password errata.
 
 1. Nella pagina Panoramica di Azure Sentinel, in configurazioni, selezionare **Analytics**.
 
@@ -196,7 +196,7 @@ Dopo aver connesso le origini dati ad Azure Sentinel, è possibile creare regole
 
 Dopo il terzo tentativo di accesso a Windows Server, la regola creata attiva un evento imprevisto per ogni tentativo non riuscito.
 
-## <a name="view-generated-alerts"></a>Visualizza avvisi generati
+## <a name="view-alerts"></a>Visualizzare gli avvisi
 
 È possibile visualizzare gli eventi imprevisti generati con Sentinel di Azure. È anche possibile assegnare gli eventi imprevisti e chiuderli una volta risolti, tutti dall'interno di Sentinel di Azure.
 

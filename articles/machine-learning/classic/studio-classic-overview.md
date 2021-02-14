@@ -7,15 +7,15 @@ ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 0a18f9adb8c3723619b44b30bfa334edf4300c0d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: HT
+ms.openlocfilehash: ad0550dc20edfbc10fb8877ad049c27fc2edf086
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509492"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517536"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>Che cosa è possibile fare con Machine Learning Studio (versione classica)?
 
@@ -30,14 +30,14 @@ Machine Learning Studio (versione classica) è uno strumento basato sul trascina
 
 Per sviluppare un modello di analisi predittiva, in genere si usano dati provenienti da una o più origini, che vengono trasformati e analizzati tramite varie funzioni di modifica dei dati e statistiche e da cui viene generato un set di risultati. Lo sviluppo di un modello come questo è un processo iterativo. Man mano che si modificano le varie funzioni e i relativi parametri, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training.
 
-Machine Learning Studio (versione classica) offre un'area di lavoro grafica e interattiva per eseguire facilmente le operazioni di compilazione, test e iterazione di un modello di analisi predittiva. Trascinare la selezione di **_set di dati_* _ e _*_moduli_*_ di analisi in un'area di disegno interattiva, collegandoli tra loro per ottenere un _*_esperimento_*_ da eseguire in Machine Learning Studio (versione classica). Per eseguire l'iterazione della progettazione del modello, modificare l'esperimento, salvare eventualmente una copia e ripeterne l'esecuzione. Quando si è pronti, è possibile convertire l'_*_esperimento di training_*_ in un _*_esperimento predittivo_*_ e quindi pubblicarlo come _*_servizio Web_*_ in modo che altri utenti possano accedere al modello.
+Machine Learning Studio (versione classica) offre un'area di lavoro grafica e interattiva per eseguire facilmente le operazioni di compilazione, test e iterazione di un modello di analisi predittiva. È possibile trascinare * i set di elementi **DataSet** e i _*_moduli_*_ di analisi in un'area di disegno interattiva, connetterli insieme per formare un _*_esperimento_*_, che viene eseguito in Machine Learning Studio (classico). Per eseguire l'iterazione della progettazione del modello, modificare l'esperimento, salvare eventualmente una copia e ripeterne l'esecuzione. Quando si è pronti, è possibile convertire l' _*_esperimento di training_*_ in un _*_esperimento predittivo_*_ e quindi pubblicarlo come *_servizio Web_** in modo che sia possibile accedere al modello da altri.
 
 Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire un modello di analisi predittiva.
 
 ![Diagramma di Machine Learning Studio (versione classica): Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="download-the-ml-studio-classic-overview-diagram"></a>Scaricare il diagramma della panoramica di ML Studio (versione classica)
-Scaricare il diagramma _ *Panoramica delle funzionalità di Microsoft ML Studio (versione classica)* * per una panoramica generale delle funzionalità del servizio. Per tenerlo a portata di mano, stampare il diagramma in formato tabloid (27 x 43 cm circa).
+Scaricare il diagramma **Panoramica delle funzionalità di Microsoft ML Studio (versione classica)** per una panoramica generale delle funzionalità di Machine Learning Studio (versione classica). Per tenerlo a portata di mano, stampare il diagramma in formato tabloid (27 x 43 cm circa).
 
 **Scaricare il diagramma qui: [Panoramica delle funzionalità di Microsoft Machine Learning Studio (versione classica)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
 ![Panoramica delle funzionalità di Microsoft Machine Learning Studio (versione classica)](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)

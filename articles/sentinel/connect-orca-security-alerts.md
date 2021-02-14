@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18a50e3d06135f2c17b7e7c5b2969be33f408c62
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076279"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093081"
 ---
 # <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Connettere gli avvisi di sicurezza di Orca ad Azure Sentinel 
 
@@ -46,7 +46,7 @@ Una volta stabilita la connessione, i dati vengono visualizzati in Log Analytics
 Per utilizzare lo schema pertinente in Log Analytics per gli avvisi Orca, cercare `OrcaAlerts_CL` .
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
-Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log Analytics. 
+Potrebbero essere necessari fino a 20 minuti prima che i log inizino a essere visualizzati in Log Analytics. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

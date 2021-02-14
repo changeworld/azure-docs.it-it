@@ -1,24 +1,18 @@
 ---
 title: Copia i nuovi file in modo incrementale in base al nome del file partizionato ora
 description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per caricare in modo incrementale i nuovi file in base al nome del file partizionato ora.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: ae66bb025f2a49a79120fe86e0de7c4a3ccf26ca
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8e68852434a4a8bea43b575523a60c9346b2a569
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555380"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384776"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Consente di copiare in modo incrementale i nuovi file in base al nome del file partizionato ora utilizzando lo strumento Copia dati
 
@@ -38,8 +32,8 @@ In questa esercitazione si segue questa procedura:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure** : Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure** : usare l'archiviazione BLOB come archivio dati di _origine_  e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-account-create.md).
+* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_  e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -50,13 +44,13 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     ![caricamento dei file](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 
     > [!NOTE]
-    > Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 3:38 il 17 marzo 2020, è possibile creare il percorso della cartella come **origine/2020/03/17/03/** dalla regola di **origine/{year}/{month}/{day}/{hour}** /.
+    > Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 3:38 il 17 marzo 2020, è possibile creare il percorso della cartella come **origine/2020/03/17/03/** dalla regola di **origine/{year}/{month}/{day}/{hour}**/.
 
 2. Creare un contenitore denominato **Destination**. Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **Crea una risorsa**  >  **integrazione**  >  **Data Factory** :
+1. Nel menu sinistro selezionare **Crea una risorsa** > **Integrazione** > **Data factory**:
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -99,7 +93,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     c. In **tipo di trigger** selezionare **finestra a cascata**.
 
-    d. In **ricorrenza** immettere **1 ora** /e.
+    d. In **ricorrenza** immettere **1 ora**/e.
 
     e. Selezionare **Avanti**.
 
@@ -126,18 +120,18 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     b. In **comportamento caricamento file** selezionare **caricamento incrementale: cartella/nomi file partizionati in base al tempo**.
 
-    c. Scrivere il percorso della cartella dinamica come **origine/{year}/{month}/{day}/{hour}** /e modificare il formato, come illustrato nella schermata seguente. Controllare la **copia binaria** e fare clic su **Avanti**.
+    c. Scrivere il percorso della cartella dinamica come **origine/{year}/{month}/{day}/{hour}**/e modificare il formato, come illustrato nella schermata seguente. Controllare la **copia binaria** e fare clic su **Avanti**.
 
     ![Screenshot mostra la finestra di dialogo Scegli file o cartella di input con una cartella selezionata.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
-5. Nella pagina **archivio dati di destinazione** selezionare il **AzureBlobStorage** , che è lo stesso account di archiviazione dell'archivio dell'origine dati, quindi fare clic su **Avanti**.
+5. Nella pagina **archivio dati di destinazione** selezionare il **AzureBlobStorage**, che è lo stesso account di archiviazione dell'archivio dell'origine dati, quindi fare clic su **Avanti**.
 
     ![Pagina dell'archivio dati di destinazione](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png)
 6. Nella pagina **scegliere il file o la cartella di output** seguire questa procedura:
 
     a. Individuare e selezionare la cartella di **destinazione** , quindi fare clic su **Scegli**.
 
-    b. Scrivere il percorso della cartella dinamica come **destinazione/{year}/{month}/{day}/{hour}** /e modificare il formato come segue:
+    b. Scrivere il percorso della cartella dinamica come **destinazione/{year}/{month}/{day}/{hour}**/e modificare il formato come segue:
 
     ![Screenshot mostra la finestra di dialogo scegliere il file o la cartella di output.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
