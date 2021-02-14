@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013703"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104247"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procedura: aggiungere i ruoli dell'app all'applicazione e riceverli nel token
 
@@ -49,7 +49,7 @@ Il numero di ruoli aggiunti ai limiti del manifesto dell'applicazione applicati 
 
 Per creare un ruolo app usando l'interfaccia utente di portale di Azure:
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi scegliere il tenant Azure Active Directory che contiene la registrazione dell'app a cui si vuole aggiungere un ruolo app.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **registrazioni app** e quindi selezionare l'applicazione in cui si desidera definire i ruoli dell'app.
@@ -74,7 +74,7 @@ Per creare un ruolo app usando l'interfaccia utente di portale di Azure:
 
 Per aggiungere ruoli modificando direttamente il manifesto:
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi scegliere il tenant Azure Active Directory che contiene la registrazione dell'app a cui si vuole aggiungere un ruolo app.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **registrazioni app** e quindi selezionare l'applicazione in cui si desidera definire i ruoli dell'app.
@@ -136,7 +136,7 @@ Una volta aggiunti i ruoli dell'app nell'applicazione, è possibile assegnare ut
 
 Per assegnare utenti e gruppi ai ruoli utilizzando la portale di Azure:
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. In **Azure Active Directory** selezionare **applicazioni aziendali** nel menu di spostamento a sinistra.
 1. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni. Se l'applicazione non viene visualizzata nell'elenco, usare i filtri nella parte superiore dell'elenco **tutte le applicazioni** per limitare l'elenco o scorrere verso il basso nell'elenco per individuare l'applicazione.
 1. Selezionare l'applicazione in cui si vuole assegnare ruoli a utenti o gruppi di sicurezza.
@@ -158,7 +158,7 @@ Quando si assegnano i ruoli dell'app a un'applicazione, si creano le *autorizzaz
 
 Per assegnare i ruoli dell'app a un'applicazione usando il portale di Azure:
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. In **Azure Active Directory** selezionare **registrazioni app** nel menu di spostamento a sinistra.
 1. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni. Se l'applicazione non viene visualizzata nell'elenco, usare i filtri nella parte superiore dell'elenco **tutte le applicazioni** per limitare l'elenco o scorrere verso il basso nell'elenco per individuare l'applicazione.
 1. Selezionare l'applicazione a cui si vuole assegnare un ruolo app.

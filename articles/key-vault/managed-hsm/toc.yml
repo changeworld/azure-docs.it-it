@@ -39,8 +39,6 @@
       href: access-control.md
     - name: Ruoli predefiniti locali di Controllo degli accessi in base al ruolo
       href: built-in-roles.md
-- name: Guide pratiche
-  items: null
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell

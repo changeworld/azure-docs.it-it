@@ -6,18 +6,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/08/2021
+ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e3f6eeab13a29eddd671411f46ac2220c10f68f
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 08491dcaf66789f13aa9f2e058303a28e7ab8388
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820858"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099524"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
 Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio. Vedere l' [elenco delle funzionalità di anteprima](search-api-preview.md) per visualizzare le funzionalità disponibili in anteprima pubblica.
+
+## <a name="february-2021"></a>2021 febbraio
+
+|Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrizione | Disponibilità  |
+|------------------------------|---------------|---------------|
+| [Reimposta documenti (anteprima)](search-howto-run-reset-indexers.md) |  Rielabora i documenti di ricerca selezionati singolarmente nei carichi di lavoro dell'indicizzatore. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
+| Supporto per la zona di disponibilità | I servizi di ricerca con due o più repliche in determinate aree, come elencato in [scalabilità per le prestazioni](search-performance-optimization.md), ottengono la resilienza con repliche in due o più percorsi fisici distinti.  | L'area e la data della creazione del servizio di ricerca determinano la disponibilità. Per informazioni dettagliate, vedere il documento relativo all'ottimizzazione delle prestazioni. |
 
 ## <a name="january-2021"></a>Gennaio 2021
 

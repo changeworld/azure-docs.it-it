@@ -9,21 +9,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e1cfae18265dc00cda9fb66f7b9b5dbbdf6d64d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798194"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092384"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Modificare la password dell'account aziendale o dell'istituto di istruzione dalla pagina Cambia password
 
 La pagina **Cambia password** del portale **Account personale** consente di aggiornare una password esistente per l'account aziendale o dell'istituto di istruzione, a condizione che l'utente ricordi la password e che l'account non sia stato bloccato. Se si dimentica la password, se l'account è stato bloccato o se la password non è mai stata inviata dall'organizzazione, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare una password nota per un account aziendale o dell'istituto di istruzione esistente. Se si sta provando ad accedere a un account personale come ad esempio Xbox, Hotmail o Outlook.com, provare i suggerimenti nell'articolo [Quando non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Se si è un amministratore che sta cercando di trovare altre informazioni su come testare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere l'articolo sulla [reimpostazione della password self-service](../authentication/tutorial-enable-sspr.md).
+>Questo articolo è destinato agli utenti che tentano di aggiornare una password nota per un account aziendale o dell'istituto di istruzione esistente. Se si sta provando ad accedere a un account personale come ad esempio Xbox, Hotmail o Outlook.com, provare i suggerimenti nell'articolo [Quando non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Se viene visualizzato un errore durante l'accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se si è un amministratore che sta cercando di trovare altre informazioni su come testare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere l'articolo sulla [reimpostazione della password self-service](../authentication/tutorial-enable-sspr.md).
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Aggiornare una password dalla pagina Cambia password
 

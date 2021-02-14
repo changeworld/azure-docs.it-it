@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798211"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096209"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gestire i dispositivi connessi dalla pagina Dispositivi
 
@@ -27,7 +27,12 @@ La pagina **Dispositivi** del portale **Account personale** consente di gestire 
 - Disabilitare i dispositivi di cui non si è più proprietari, quelli smarriti o che sono stati rubati.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni su un dispositivo connesso a un account aziendale o dell'istituto di istruzione esistente. Se si è un amministratore in cerca di informazioni sulla gestione dei dispositivi per i dipendenti e altri usi, vedere la [documentazione relativa alle identità dei dispositivi](../devices/index.yml).
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni su un dispositivo connesso a un account aziendale o dell'istituto di istruzione esistente. Se viene visualizzato un errore durante l'accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se si è un amministratore in cerca di informazioni sulla gestione dei dispositivi per i dipendenti e altri usi, vedere la [documentazione relativa alle identità dei dispositivi](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Visualizzare i dispositivi connessi
 
@@ -62,7 +67,7 @@ Se si è bloccati dal dispositivo o si è verificato un'errore irreversibile, è
 
     ![Pagina Dispositivo con opzione chiave BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Selezionare **Visualizza le chiavi di BitLocker** per il dispositivo bloccato e annotare la chiave per il dispositivo bloccato.
+2. Selezionare **Visualizza chiavi BitLocker** per il dispositivo bloccato e annotare la chiave BitLocker per il dispositivo bloccato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -74,7 +79,7 @@ Dopo aver visualizzato i dispositivi connessi, è possibile:
 
 - visualizzare l'[attività di accesso](my-account-portal-sign-ins-page.md);
 
-- visualizzare in che modo l'organizzazione [usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
+- Visualizzare in che modo l'organizzazione [usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
 
 - Modificare le [impostazioni del portale Account personale](my-account-portal-settings.md)
 

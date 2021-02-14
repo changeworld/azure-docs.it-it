@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013669"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104196"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: configurare le condizioni del servizio e l'informativa sulla privacy per un'app
 
@@ -58,11 +58,11 @@ Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy s
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso del portale di Azure
 Seguire questa procedura nella portale di Azure.
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, selezionare il tenant AzureAD corretto (non B2C).
-2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
-3. Aprire il riquadro **personalizzazione** .
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a> e selezionare il tenant di Azure ad corretto (non B2C).
+2. Passare alla sezione **registrazioni app** e selezionare l'app.
+3. In **Gestisci** selezionare **personalizzazione**.
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
-5. Salvare le modifiche.
+5. Selezionare **Salva**.
 
     ![Le proprietà dell'app contengono le condizioni per l'utilizzo e gli URL dell'informativa](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 

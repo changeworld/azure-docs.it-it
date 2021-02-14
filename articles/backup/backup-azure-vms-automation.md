@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure con PowerShell
 description: Viene descritto come eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 66b8fe0109a4dd2e054106b67f893def2ee596b0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804803"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095087"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -526,6 +526,53 @@ Un utente può ripristinare in modo selettivo pochi dischi anziché l'intero set
 > È necessario eseguire il backup selettivo dei dischi per ripristinare i dischi in modo selettivo. Altre informazioni sono disponibili [qui](selective-disk-backup-restore.md#selective-disk-restore).
 
 Dopo aver ripristinato i dischi, passare alla sezione successiva per creare la macchina virtuale.
+
+#### <a name="restore-disks-to-a-secondary-region"></a>Ripristinare i dischi in un'area secondaria
+
+Se il ripristino tra aree è abilitato nell'insieme di credenziali con cui sono state protette le VM, i dati di backup vengono replicati nell'area secondaria. È possibile utilizzare i dati di backup per eseguire un ripristino. Per attivare un ripristino nell'area secondaria, seguire questa procedura:
+
+1. [Recuperare l'ID dell'](#fetch-the-vault-id) insieme di credenziali con cui sono protette le VM.
+1. Selezionare l' [elemento di backup corretto da ripristinare](#select-the-vm-when-restoring-files).
+1. Selezionare il punto di ripristino appropriato nell'area secondaria che si vuole usare per eseguire il ripristino.
+
+    Per completare questo passaggio, eseguire questo comando:
+
+    ```powershell
+    $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
+    $rp=$rp[0]
+    ```
+
+1. Eseguire il cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) con il `-RestoreToSecondaryRegion` parametro per attivare un ripristino nell'area secondaria.
+
+    Per completare questo passaggio, eseguire questo comando:
+
+    ```powershell
+    $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
+    ```
+
+    L'output sarà simile all'esempio seguente:
+
+    ```output
+    WorkloadName     Operation             Status              StartTime                 EndTime          JobID
+    ------------     ---------             ------              ---------                 -------          ----------
+    V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+    ```
+
+1. Eseguire il cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) con il `-UseSecondaryRegion` parametro per monitorare il processo di ripristino.
+
+    Per completare questo passaggio, eseguire questo comando:
+
+    ```powershell
+    Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
+    ```
+
+    L'output sarà simile all'esempio seguente:
+
+    ```output
+    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+    ------------     ---------            ------               ---------                 -------                   -----
+    V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
+    ```
 
 ## <a name="replace-disks-in-azure-vm"></a>Sostituire i dischi nella macchina virtuale di Azure
 

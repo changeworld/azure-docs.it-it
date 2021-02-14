@@ -781,6 +781,8 @@
             - name: Avvisi di disponibilità
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
+            - name: Report contratto di servizio
+              href: app/sla-report.md
             - name: Risoluzione dei problemi
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -794,8 +796,8 @@
         - name: Flusso metriche attive
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
-        - name: Report contratto di servizio
-          href: app/sla-report.md
+        - name: Integrazione degli elementi di lavoro
+          href: app/work-item-integration.md
         - name: Metriche
           items:
             - name: Metriche basate su log e preaggregate

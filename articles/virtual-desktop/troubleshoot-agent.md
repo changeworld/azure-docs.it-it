@@ -6,19 +6,19 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475253"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099949"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Risolvere i problemi comuni relativi all'agente desktop virtuale di Windows
 
 L'agente desktop virtuale di Windows può causare problemi di connessione a causa di più fattori:
    - Errore nel broker che impedisce all'agente di arrestare il servizio.
    - Problemi con gli aggiornamenti.
-   - Problemi di installazione di durante l'installazione dell'agente, che interrompe la connessione all'host sessione.
+   - Problemi di installazione durante l'installazione dell'agente, che interrompe la connessione all'host sessione.
 
 In questo articolo vengono illustrate le soluzioni a questi scenari comuni e viene illustrato come risolvere i problemi di connessione.
 
@@ -184,7 +184,7 @@ Per risolvere questo problema, modificare la soglia di heartbeat:
 1. Aprire il prompt dei comandi come amministratore.
 2. Immettere il comando **qwinsta** ed eseguirlo.
 3. Dovrebbero essere visualizzati due componenti dello stack: **RDP-TCP** e **RDP-SxS**. 
-   - A seconda della versione del sistema operativo in uso, **RDP-SxS** può essere seguito dal numero di build, come illustrato nello screenshot seguente. In caso contrario, assicurarsi di scrivere questo numero per un momento successivo.
+   - A seconda della versione del sistema operativo in uso, **RDP-SxS** può essere seguito dal numero di Build. In caso contrario, assicurarsi di scrivere questo numero per un momento successivo.
 4. Aprire l'editor del Registro di sistema.
 5. Passare a **HKEY_LOCAL_MACHINE**  >  **System**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **WinStations**.
 6. In **WinStations** è possibile visualizzare diverse cartelle per diverse versioni dello stack. Selezionare la cartella corrispondente al numero di versione del passaggio 3.
@@ -207,7 +207,7 @@ Per risolvere questo problema, creare spazio sul disco:
 Aprire una finestra di PowerShell come amministratore ed eseguire il cmdlet seguente:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 Se lo stato elencato per l'host della sessione o gli host nel pool di host è sempre non **disponibile** o in corso di **aggiornamento**, l'installazione dell'agente o dello stack potrebbe non riuscire

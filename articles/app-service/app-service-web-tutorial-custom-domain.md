@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
-ms.translationtype: HT
+ms.openlocfilehash: eea42ab17311b85bdce429e22e8d0ed694e2f0ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608266"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096345"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -309,17 +309,20 @@ Se si riceve un errore HTTP 404 (Non trovato) quando si seleziona l'URL del domi
 - Nel dominio personalizzato configurato manca un record A o un record CNAME.
 - Il browser client ha memorizzato nella cache l'indirizzo IP precedente del dominio. Cancellare la cache e testare nuovamente la risoluzione del DNS. In un computer Windows cancellare la cache con `ipconfig /flushdns`.
 
-<a name="virtualdir" aria-hidden="true"></a>
-
 ## <a name="migrate-an-active-domain"></a>Eseguire la migrazione di un dominio attivo
 
 Per eseguire la migrazione di un sito live e del relativo nome di dominio DNS al Servizio app senza tempi di inattività, vedere [Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure](manage-custom-dns-migrate-domain.md).
+
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="redirect-to-a-custom-directory"></a>Reindirizzare a una directory personalizzata
 
 Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Alcuni framework Web, però, non vengono avviati nella directory radice. Ad esempio, [Laravel](https://laravel.com/) viene avviato nella sottodirectory `public`. Per continuare con l'esempio relativo al DNS `contoso.com`, un'app di questo tipo è accessibile all'indirizzo `http://contoso.com/public`, ma si vuole indirizzare l'URL `http://contoso.com` alla directory `public`. Questa operazione non interessa la risoluzione del DNS, ma implica la personalizzazione della directory virtuale.
 
-Per personalizzare una directory virtuale, selezionare **Impostazioni applicazione** nel riquadro sinistro della pagina dell'app Web.
+Per personalizzare una directory virtuale per le app di Windows, selezionare **Impostazioni applicazione** nel riquadro sinistro della pagina dell'app Web. 
+
+> [!NOTE]
+> Le app Linux non hanno questa pagina. Per modificare la radice del sito per le app Linux, vedere le guide di configurazione specifiche della lingua (ad esempio,[php](configure-language-php.md?pivots=platform-linux#change-site-root)).
 
 Nella parte inferiore della pagina la directory virtuale radice `/` punta per impostazione predefinita a `site\wwwroot`, che è la directory radice del codice dell'app. Modificare il percorso in modo che la directory punti, ad esempio, a `site\wwwroot\public` e salvare le modifiche.
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/12/2021
+ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055179"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104502"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -70,7 +70,7 @@ Ogni URL contiene i parametri di query `sp`, `sv`e `sig` come descritto nella ta
 
 | Query parameter (Parametro di query) | Descrizione |
 |-----------------|-------------|
-| `sp` | Specifica le autorizzazioni per i metodi HTTP consentiti. |
+| `sp` | Specifica le autorizzazioni per i metodi HTTP consentiti da utilizzare. |
 | `sv` | Specifica la versione usata per generare la firma. |
 | `sig` | Specifica la firma da usare per l'autenticazione dell'accesso al trigger. La firma viene generata attraverso l'algoritmo SHA256 con una chiave di accesso privata in tutti i percorsi e le proprietà dell'URL. La chiave non viene mai esposta né pubblicata, inoltre continua a essere crittografata e archiviata nell'ambito dell'app per la logica. L'app per la logica autorizza solo i trigger che contengono una firma valida creata con la chiave privata. |
 |||
@@ -123,11 +123,11 @@ Nel corpo includere la proprietà `KeyType` come `Primary` o `Secondary`. Questa
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Abilitare Azure Active Directory Open Authentication (Azure AD OAuth)
 
-Per le chiamate in ingresso a un endpoint creato da un trigger basato su richiesta, è possibile abilitare [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml) definendo o aggiungendo un criterio di autorizzazione per l'app per la logica. In questo modo, le chiamate in ingresso usano i [token di accesso](../active-directory/develop/access-tokens.md) OAuth per l'autorizzazione.
+Per le chiamate in ingresso a un endpoint creato da un trigger basato su richiesta, è possibile abilitare [Azure ad OAuth](../active-directory/develop/index.yml) definendo o aggiungendo un criterio di autorizzazione per l'app per la logica. In questo modo, le chiamate in ingresso usano i [token di accesso](../active-directory/develop/access-tokens.md) OAuth per l'autorizzazione.
 
 Quando l'app per la logica riceve una richiesta in ingresso che include un token di accesso OAuth, il servizio app per la logica di Azure Confronta le attestazioni del token con le attestazioni specificate da ciascun criterio di autorizzazione. Se esiste una corrispondenza tra le attestazioni del token e tutte le attestazioni in almeno un criterio, l'autorizzazione ha esito positivo per la richiesta in ingresso. Il token può avere più attestazioni rispetto al numero specificato dal criterio di autorizzazione.
 
-Prima di abilitare Azure AD OAuth, esaminare le considerazioni seguenti:
+#### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Considerazioni prima di abilitare Azure AD OAuth
 
 * Una chiamata in ingresso all'endpoint della richiesta può usare un solo schema di autorizzazione, Azure AD OAuth o la [firma di accesso condiviso (SAS)](#sas). Sebbene l'uso di uno schema non disabilita l'altro schema, l'uso di entrambi gli schemi contemporaneamente causa un errore perché il servizio app per la logica non conosce lo schema da scegliere.
 
@@ -180,11 +180,15 @@ Prima di abilitare Azure AD OAuth, esaminare le considerazioni seguenti:
    }
    ```
 
+#### <a name="enable-azure-ad-oauth-for-your-logic-app"></a>Abilitare Azure AD OAuth per l'app per la logica
+
+Seguire questa procedura per il modello di portale di Azure o del Azure Resource Manager:
+
 <a name="define-authorization-policy-portal"></a>
 
-#### <a name="define-authorization-policy-in-azure-portal"></a>Definire i criteri di autorizzazione in portale di Azure
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, seguire questa procedura per aggiungere uno o più criteri di autorizzazione all'app per la logica:
+Nella [portale di Azure](https://portal.azure.com)aggiungere uno o più criteri di autorizzazione all'app per la logica:
 
 1. Nel [portale di Azure](https://portal.microsoft.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
 
@@ -216,9 +220,9 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
 <a name="define-authorization-policy-template"></a>
 
-#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definire i criteri di autorizzazione nel modello di Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Modello di Resource Manager](#tab/azure-resource-manager)
 
-Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per la logica, seguire questa procedura e la sintassi seguente:
+Nel modello ARM definire un criterio di autorizzazione seguendo questi passaggi e la sintassi seguente:
 
 1. Nella `properties` sezione relativa alla [definizione di risorsa dell'app](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)per la logica aggiungere un `accessControl` oggetto, se non ne esiste alcuno, che contiene un `triggers` oggetto.
 
@@ -271,6 +275,8 @@ Ecco la sintassi da seguire:
 ],
 ```
 
+---
+
 <a name="include-auth-header"></a>
 
 #### <a name="include-authorization-header-in-request-trigger-outputs"></a>Includi intestazione ' Authorization ' negli output del trigger di richiesta
@@ -310,11 +316,13 @@ Oltre alla firma di accesso condiviso (SAS) è possibile che l'utente voglia lim
 
 Indipendentemente dagli indirizzi IP specificati, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta tramite l' [API REST di app per la logica: trigger del flusso di lavoro-eseguire](/rest/api/logic/workflowtriggers/run) la richiesta o usando gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
 
+Per limitare gli indirizzi IP in ingresso per l'app per la logica, seguire questa procedura per il modello di portale di Azure o del Azure Resource Manager:
+
 <a name="restrict-inbound-ip-portal"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Limitare gli intervalli di indirizzi IP in ingresso in portale di Azure
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Quando si usa il portale per limitare gli indirizzi IP in ingresso per l'app per la logica, queste restrizioni influiscono su trigger *e* azioni, nonostante la descrizione nel portale in **indirizzi IP in ingresso consentiti**. Per configurare le restrizioni sui trigger separatamente dalle azioni, usare l' [ `accessControl` oggetto nel modello di Azure Resource Manager dell'app per la logica](#restrict-inbound-ip-template) o nell'API REST di app per la [logica: Workflow-create o Update](/rest/api/logic/workflows/createorupdate).
+Nel [portale di Azure](https://portal.azure.com), questo filtro interessa sia i trigger *che* le azioni, contrariamente alla descrizione nel portale in **indirizzi IP in ingresso consentiti**. Per configurare questo filtro separatamente per i trigger e per le azioni, usare l' `accessControl` oggetto in un modello di Azure Resource Manager per l'app per la logica o l' [API REST di app per la logica: Workflow-create o Update operation](/rest/api/logic/workflows/createorupdate).
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
@@ -323,23 +331,23 @@ Quando si usa il portale per limitare gli indirizzi IP in ingresso per l'app per
 1. Nella sezione **configurazione di controllo di accesso** , in **indirizzi IP in ingresso consentiti**, scegliere il percorso per lo scenario:
 
    * Per rendere l'app per la logica richiamabile solo come app per la logica annidata usando l'azione predefinita app per la logica di [Azure](../logic-apps/logic-apps-http-endpoint.md), selezionare **solo altre app** per la logica, che funziona *solo* quando si usa l'azione app per la logica di **Azure** per chiamare l'app per la logica nidificata.
-   
+
      Questa opzione scrive una matrice vuota nella risorsa dell'app per la logica e richiede che solo le chiamate da app per la logica padre che usano l'azione predefinita app per la logica di **Azure** possano attivare l'app per la logica nidificata.
 
    * Per fare in modo che l'app per la logica richiamabile solo come app annidata usando l'azione HTTP, selezionare **intervalli IP specifici**, *non* **solo altre app** per la logica. Quando viene visualizzata la casella **intervalli IP per trigger** , immettere gli [indirizzi IP in uscita](../logic-apps/logic-apps-limits-and-config.md#outbound)dell'app per la logica padre. Un intervallo IP valido usa i formati seguenti: x. x.x. x */x* o *x. x.* x. x-x. x. x. x.
-   
+
      > [!NOTE]
      > Se si usa l'opzione **solo altre app** per la logica e l'azione http per chiamare l'app per la logica nidificata, la chiamata viene bloccata e viene ricevuto un errore "401 non autorizzato".
-        
+
    * Per gli scenari in cui si desidera limitare le chiamate in ingresso da altri IP, quando viene visualizzata la casella **intervalli IP per trigger** , specificare gli intervalli di indirizzi IP accettati dal trigger. Un intervallo IP valido usa i formati seguenti: x. x.x. x */x* o *x. x.* x. x-x. x. x. x.
 
 1. Facoltativamente, in **limitare le chiamate per ottenere i messaggi di input e di output dalla cronologia di esecuzione agli indirizzi IP forniti**, è possibile specificare gli intervalli di indirizzi IP per le chiamate in ingresso che possono accedere ai messaggi di input e di output nella cronologia di esecuzione.
 
 <a name="restrict-inbound-ip-template"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Modello di Resource Manager](#tab/azure-resource-manager)
 
-Se si [automatizza la distribuzione per le app per la logica usando modelli di gestione risorse](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile specificare gli intervalli di indirizzi IP in ingresso consentiti nella definizione di risorsa dell'app per la logica usando la `accessControl` sezione. In questa sezione usare le `triggers` sezioni, `actions` e facoltative in `contents` base alle esigenze, includendo la `allowedCallerIpAddresses` sezione con la `addressRange` proprietà e impostando il valore della proprietà sull'intervallo di indirizzi IP consentiti nel formato x. x.x. x */x* o *x.* x. x. x-x. x.x. x.
+Nel modello ARM specificare gli intervalli di indirizzi IP in ingresso consentiti nella definizione di risorsa dell'app per la logica usando la `accessControl` sezione. In questa sezione usare le `triggers` sezioni, `actions` e facoltative in `contents` base alle esigenze, includendo la `allowedCallerIpAddresses` sezione con la `addressRange` proprietà e impostando il valore della proprietà sull'intervallo di indirizzi IP consentiti nel formato x. x.x. x */x* o *x.* x. x. x-x. x.x. x.
 
 * Se l'app per la logica nidificata usa l' **unica opzione altre** app per la logica, che consente le chiamate in ingresso solo da altre app per la logica che usano l'azione app per la logica di Azure, impostare la `addressRange` proprietà su una matrice vuota (**[]**).
 
@@ -439,6 +447,8 @@ Questo esempio illustra una definizione di risorsa per un'app per la logica anni
 }
 ```
 
+---
+
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>Accesso alle operazioni di app per la logica
@@ -473,11 +483,15 @@ Per controllare l'accesso agli input e agli output nella cronologia di esecuzion
 
 ### <a name="restrict-access-by-ip-address-range"></a>Limitare l'accesso in base all'intervallo di indirizzi IP
 
-È possibile limitare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica, in modo che solo le richieste provenienti da intervalli di indirizzi IP specifici possano visualizzare tali dati. Ad esempio, per impedire a tutti gli utenti di accedere a input e output, specificare un intervallo di indirizzi IP come `0.0.0.0-0.0.0.0`. Questa restrizione può essere rimossa solo da una persona con autorizzazioni di amministratore che fornisce l'accesso "just-in-time" ai dati dell'app per la logica. È possibile specificare gli intervalli di indirizzi IP da limitare usando il portale di Azure o in un modello di Azure Resource Manager usato per la distribuzione dell'app per la logica.
+È possibile limitare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica, in modo che solo le richieste provenienti da intervalli di indirizzi IP specifici possano visualizzare tali dati.
 
-#### <a name="restrict-ip-ranges-in-azure-portal"></a>Limitare gli intervalli di indirizzi IP in portale di Azure
+Ad esempio, per impedire a tutti gli utenti di accedere a input e output, specificare un intervallo di indirizzi IP come `0.0.0.0-0.0.0.0`. Questa restrizione può essere rimossa solo da una persona con autorizzazioni di amministratore che fornisce l'accesso "just-in-time" ai dati dell'app per la logica.
 
-1. Nel portale di Azure aprire l'app per la logica in Progettazione app per la logica.
+Per specificare gli intervalli di indirizzi IP consentiti, attenersi alla procedura seguente per il modello di portale di Azure o del Azure Resource Manager:
+
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
 1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
 
@@ -487,9 +501,9 @@ Per controllare l'accesso agli input e agli output nella cronologia di esecuzion
 
    Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
-#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli di indirizzi IP nel modello di Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Modello di Resource Manager](#tab/azure-resource-manager)
 
-Se si [automatizza la distribuzione per le app per la logica usando i modelli di Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile specificare gli intervalli IP usando la sezione `accessControl` con la sezione `contents` nella definizione di risorsa dell'app per la logica, ad esempio:
+Nel modello ARM specificare gli intervalli IP usando la `accessControl` sezione con la `contents` sezione nella definizione di risorsa dell'app per la logica, ad esempio:
 
 ``` json
 {
@@ -528,11 +542,41 @@ Se si [automatizza la distribuzione per le app per la logica usando i modelli di
 }
 ```
 
+---
+
 <a name="obfuscate"></a>
 
 ### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Proteggere i dati nella cronologia di esecuzione usando l'offuscamento
 
-Molti trigger e azioni hanno impostazioni per la protezione degli input, degli output o di entrambi dalla cronologia di esecuzione di un'app per la logica. Prima di usare queste impostazioni per facilitare la protezione dei dati, [tenere conto di queste considerazioni](#obfuscation-considerations).
+Molti trigger e azioni hanno impostazioni per la protezione degli input, degli output o di entrambi dalla cronologia di esecuzione di un'app per la logica. Prima di usare queste impostazioni per proteggere questi dati, esaminare le considerazioni seguenti:
+
+* Quando si oscurano gli input o gli output in un trigger o un'azione, le app per la logica non inviano i dati protetti ad Azure Log Analytics. Non è inoltre possibile aggiungere [proprietà rilevate](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a tale trigger o azione per il monitoraggio.
+
+* [L'API app per la logica per la gestione della cronologia del flusso di lavoro](/rest/api/logic/) non restituisce output protetti.
+
+* Per proteggere gli output da un'azione che nasconde gli input o nasconde in modo esplicito gli output, attivare manualmente **gli output protetti** in tale azione.
+
+* Assicurarsi di attivare gli **input protetti** o gli **output protetti** nelle azioni downstream in cui si prevede che la cronologia di esecuzione nasconda i dati.
+
+  **Impostazione degli output protetti**
+
+  Quando si attivano manualmente gli **output protetti** in un trigger o un'azione, app per la logica nasconde questi output nella cronologia di esecuzione. Se un'azione downstream usa in modo esplicito questi output protetti come input, app per la logica nasconde gli input dell'azione nella cronologia di esecuzione, ma *non abilita* l'impostazione degli **input protetti** dell'azione.
+
+  ![Output protetti come input e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  Le azioni Compose, Parse JSON e Response hanno solo l'impostazione degli **input protetti**. Se attivata, l'impostazione nasconde anche gli output di tali azioni. Se queste azioni usano in modo esplicito gli output protetti upstream come input, le app per la logica nascondono gli input e gli output di tali azioni, ma *non abilitano* l'impostazione degli **input protetti** delle azioni. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
+
+  ![Output protetti come input con effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  **Impostazione degli input protetti**
+
+  Quando si attivano manualmente gli **input protetti** in un trigger o un'azione, app per la logica nasconde questi input nella cronologia di esecuzione. Se un'azione downstream usa in modo esplicito gli output visibili da tale trigger o azione come input, l'app per la logica nasconde gli input dell'azione downstream nella cronologia di esecuzione, ma *non abilita* gli **input protetti** in questa azione e non nasconde gli output di questa azione.
+
+  ![Input protetti e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
+
+  Se le azioni Compose, Parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, app per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione degli **input protetti** dell'azione. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
+
+  ![Input protetti e effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 #### <a name="secure-inputs-and-outputs-in-the-designer"></a>Proteggere gli input e gli output nella finestra di progettazione
 
@@ -575,8 +619,6 @@ Nel trigger sottostante o nella definizione di azione aggiungere o aggiornare la
 * `"inputs"`: protegge gli input nella cronologia di esecuzione.
 * `"outputs"`: protegge gli output nella cronologia di esecuzione.
 
-Di seguito sono riportate alcune [considerazioni da esaminare](#obfuscation-considerations) quando si usano queste impostazioni per proteggere questi dati.
-
 ```json
 "<trigger-or-action-name>": {
    "type": "<trigger-or-action-type>",
@@ -594,38 +636,6 @@ Di seguito sono riportate alcune [considerazioni da esaminare](#obfuscation-cons
    <other-attributes>
 }
 ```
-
-<a name="obfuscation-considerations"></a>
-
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>Considerazioni sulla protezione di input e output
-
-* Quando si oscurano gli input o gli output in un trigger o un'azione, le app per la logica non inviano i dati protetti ad Azure Log Analytics. Non è inoltre possibile aggiungere [proprietà rilevate](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a tale trigger o azione per il monitoraggio.
-
-* [L'API app per la logica per la gestione della cronologia del flusso di lavoro](/rest/api/logic/) non restituisce output protetti.
-
-* Per proteggere gli output da un'azione che nasconde gli input o nasconde in modo esplicito gli output, attivare manualmente **gli output protetti** in tale azione.
-
-* Assicurarsi di attivare gli **input protetti** o gli **output protetti** nelle azioni downstream in cui si prevede che la cronologia di esecuzione nasconda i dati.
-
-  **Impostazione degli output protetti**
-
-  Quando si attivano manualmente gli **output protetti** in un trigger o un'azione, app per la logica nasconde questi output nella cronologia di esecuzione. Se un'azione downstream usa in modo esplicito questi output protetti come input, app per la logica nasconde gli input dell'azione nella cronologia di esecuzione, ma *non abilita* l'impostazione degli **input protetti** dell'azione.
-
-  ![Output protetti come input e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
-
-  Le azioni Compose, Parse JSON e Response hanno solo l'impostazione degli **input protetti**. Se attivata, l'impostazione nasconde anche gli output di tali azioni. Se queste azioni usano in modo esplicito gli output protetti upstream come input, le app per la logica nascondono gli input e gli output di tali azioni, ma *non abilitano* l'impostazione degli **input protetti** delle azioni. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
-
-  ![Output protetti come input con effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
-
-  **Impostazione degli input protetti**
-
-  Quando si attivano manualmente gli **input protetti** in un trigger o un'azione, app per la logica nasconde questi input nella cronologia di esecuzione. Se un'azione downstream usa in modo esplicito gli output visibili da tale trigger o azione come input, l'app per la logica nasconde gli input dell'azione downstream nella cronologia di esecuzione, ma *non abilita* gli **input protetti** in questa azione e non nasconde gli output di questa azione.
-
-  ![Input protetti e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
-
-  Se le azioni Compose, Parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, app per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione degli **input protetti** dell'azione. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
-
-  ![Input protetti e effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 <a name="secure-action-parameters"></a>
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: ba58af8d3d28efcc7f97be01a96202a2203a3459
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 1290a13f23f49a99d5b9d962d93d91bc3331356d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796933"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093132"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Esercitazione: Configurare l'accesso Single Sign-On tra Azure Active Directory e F5
 
@@ -26,7 +26,8 @@ Questa esercitazione descrive come integrare F5 con Azure Active Directory (Azur
 * Abilitare gli utenti per l'accesso automatico a F5 con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con l'accesso Single Sign-On in Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+> [!NOTE]
+> F5 [ora: acquisto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview)APM Big-IP.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -113,18 +114,18 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di F5 in Azure AD, è necessario aggiungere F5 dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **F5** nella casella di ricerca.
 1. Selezionare **F5** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per F5
+## <a name="configure-and-test-azure-ad-sso-for-f5"></a>Configurare e testare Azure AD SSO per F5
 
 Configurare e testare l'accesso SSO di Azure AD con F5 usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in F5.
 
-Per configurare e testare l'accesso SSO di Azure AD con F5, completare le procedure di base seguenti:
+Per configurare e testare Azure AD SSO con F5, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
@@ -137,7 +138,7 @@ Per configurare e testare l'accesso SSO di Azure AD con F5, completare le proced
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **F5** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **F5** del portale di Azure trovare la sezione **Gestisci** e selezionare **Single Sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -183,19 +184,10 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **F5**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
-1. Fare clic su **Accesso condizionale**.
-1. Fare clic su **Nuovi criteri**.
-1. È ora possibile visualizzare l'app F5 come risorsa per i criteri di accesso condizionale e applicare qualsiasi accesso condizionale, tra cui autenticazione a più fattori, controllo di accesso in base al dispositivo o criteri di protezione delle identità.
 
 ## <a name="configure-f5-sso"></a>Configurare l'accesso Single Sign-On di F5
 
@@ -355,9 +347,9 @@ Usare questa sezione se non è possibile usare la configurazione guidata oppure 
 
     f. **Matching Source (Origine corrispondente) = %{session.server.landinguri}** 
 
-    g. **Matching Value (Valore corrispondente)     = /** _
+    g. **Matching Value (Valore corrispondente) = /** *
 
-    h. Fare clic su _ *Update** (Aggiorna)
+    h. Fare clic su **Update** (Aggiorna).
 
     i. Fare clic su **OK**.
 
@@ -449,26 +441,24 @@ In questa sezione viene creato un utente di nome B.Simon in F5. Collaborare con 
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di F5 nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di F5 per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Avviato da SP:
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso F5 in cui è possibile avviare il flusso di accesso.  
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* Passare direttamente all'URL di accesso a F5 e avviare il flusso di accesso da qui.
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Avviato da IDP:
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+* Fare clic su **test questa applicazione** in portale di Azure e si dovrebbe accedere automaticamente al F5 per il quale si configura l'accesso SSO 
 
-- [Provare F5 con Azure AD](https://aad.portal.azure.com/)
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro F5 in app personali, se è stato configurato in modalità SP si verrà reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso e, se configurato in modalità IDP, si dovrebbe accedere automaticamente al F5 per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Configurare l'accesso Single Sign-On di F5 per l'applicazione Kerberos](kerbf5-tutorial.md)
+> [!NOTE]
+> F5 [ora: acquisto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview)APM Big-IP.
 
-- [Configurare l'accesso Single Sign-On di F5 per l'applicazione Advanced Kerberos](advance-kerbf5-tutorial.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [F5 BIG-IP APM e integrazione Azure AD per l'accesso ibrido sicuro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+Dopo aver configurato F5 è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-- [Esercitazione per la distribuzione della VM F5 BIG-IP Virtual Edition in Azure IaaS per l'accesso ibrido sicuro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
-
-- [Esercitazione per l'integrazione di Azure Active Directory Single Sign-On con F5 BIG-IP per VPN senza password](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn) 
