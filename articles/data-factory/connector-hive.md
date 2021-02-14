@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Hive usando Azure Data Factory
 description: Informazioni su come copiare dati da Hive in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8f6e85d82c01663e404f7046f84706feb209ba5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844957"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367028"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copiare e trasformare i dati da hive usando Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -183,8 +178,8 @@ La tabella seguente elenca le proprietà supportate da un'origine hive. È possi
 | Query | Se format è `query` , la query di origine sul servizio collegato hive | Sì, se format è `query` | string | query |
 | Gestione temporanea | La tabella hive verrà sempre preparata per la gestione temporanea. | sì | `true` | gestione temporanea |
 | Contenitore di archiviazione | Contenitore di archiviazione usato per la gestione temporanea dei dati prima della lettura da hive o scrittura in hive. Il cluster hive deve avere accesso a questo contenitore. | sì | string | storageContainer |
-| Database di gestione temporanea | Schema/database in cui l'account utente specificato nel servizio collegato può accedere a. Viene usato per creare tabelle esterne durante la gestione temporanea e rilasciate in seguito | No | `true` o `false` | stagingDatabaseName |
-| Script pre-SQL | Codice SQL da eseguire nella tabella hive prima di leggere i dati | No | string | preSQLs |
+| Database di gestione temporanea | Schema/database in cui l'account utente specificato nel servizio collegato può accedere a. Viene usato per creare tabelle esterne durante la gestione temporanea e rilasciate in seguito | no | `true` o `false` | stagingDatabaseName |
+| Script pre-SQL | Codice SQL da eseguire nella tabella hive prima di leggere i dati | no | string | preSQLs |
 
 #### <a name="source-example"></a>Esempio di origine
 

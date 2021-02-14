@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 969ca74d628da2bf91e0a7c091c9792f2676fb71
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095682"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373675"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -213,7 +213,7 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 | Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | ![Disponibile][check] |
 | Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
 
-Vedere l'elenco seguente per configurare l'identità gestita per Azure Data Factory V2 (nelle aree in cui è disponibile):
+Vedere l'elenco seguente per configurare l'identità gestita per l'hub di Azure (in aree in cui sono disponibili):
 
 - [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 

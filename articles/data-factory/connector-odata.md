@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da origini OData usando Azure Data Factory
 description: Informazioni su come copiare dati da origini OData in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 146f9ea918f75e0521209d9db712bdcab76a8e7e
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 90cc4e3f9915db424cec89cfc764771b5be785e9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096590"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389723"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiare dati da un'origine OData tramite Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +34,7 @@ Questo connettore OData è supportato per le attività seguenti:
 In particolare, il connettore OData supporta:
 
 - OData versioni 3.0 e 4.0.
-- Copia dei dati con una delle seguenti autenticazioni: **anonima**, di **base**, **Windows**e dell' **entità servizio AAD**.
+- Copia dei dati con una delle seguenti autenticazioni: **anonima**, di **base**, **Windows** e dell' **entità servizio AAD**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,7 +54,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **OData**. |Sì |
 | url | URL radice del servizio OData. |Sì |
-| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonymous**, **Basic**, **Windows**e **AadServicePrincipal**. OAuth basato su utente non è supportato. È inoltre possibile configurare le intestazioni di autenticazione nella `authHeader` Proprietà.| Sì |
+| authenticationType | Tipo di autenticazione usato per la connessione all'origine OData. I valori consentiti sono **Anonymous**, **Basic**, **Windows** e **AadServicePrincipal**. OAuth basato su utente non è supportato. È inoltre possibile configurare le intestazioni di autenticazione nella `authHeader` Proprietà.| Sì |
 | authHeaders | Intestazioni di richiesta HTTP aggiuntive per l'autenticazione.<br/> Ad esempio, per usare l'autenticazione con chiave API, è possibile selezionare "Anonymous" come tipo di autenticazione e specificare la chiave API nell'intestazione. | No |
 | userName | Specificare **userName** se si usa l'autenticazione di base o di Windows. | No |
 | password | Specificare la proprietà **password** per l'account utente indicato per **userName**. Contrassegnare questo campo come di tipo **SecureString** per l'archiviazione sicura in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -70,7 +65,7 @@ Per il servizio collegato OData sono supportate le proprietà seguenti:
 | servicePrincipalEmbeddedCertPassword | Specificare la password del certificato se il certificato è protetto con una password. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).  | No|
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | No |
 | aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione.| No |
-| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione AAD. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
+| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione AAD. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment** e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 **Esempio 1: uso dell'autenticazione anonima**
@@ -229,7 +224,7 @@ Questa sezione presenta un elenco delle proprietà supportate dal set di dati OD
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere [Set di dati e servizi collegati](concepts-datasets-linked-services.md). 
 
-Per copiare dati da OData, impostare la proprietà**type** del set di dati su **ODataResource**. Sono supportate le proprietà seguenti:
+Per copiare dati da OData, impostare la proprietà **type** del set di dati su **ODataResource**. Sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

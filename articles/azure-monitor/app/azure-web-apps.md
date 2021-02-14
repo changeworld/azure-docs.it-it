@@ -4,19 +4,19 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186372"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365226"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
 L'abilitazione del monitoraggio nelle applicazioni Web ASP.NET e ASP.NET Core basate su [app Azure Services](../../app-service/index.yml) è ora più semplice che mai. Mentre in precedenza era necessario installare manualmente un'estensione del sito, la versione più recente dell'agente è ora incorporata nell'immagine del servizio app per impostazione predefinita. Questo articolo illustra l'abilitazione del monitoraggio Application Insights, oltre a fornire indicazioni preliminari per l'automazione del processo per le distribuzioni su larga scala.
 
 > [!NOTE]
-> L'aggiunta manuale di un'estensione del sito di Application Insights tramite le estensioni **degli strumenti di sviluppo**  >  **Extensions** è deprecata. Questo metodo di installazione dell'estensione dipende da aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora  [preinstallata](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio app. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate sull'agente per abilitare il monitoraggio di seguito, verrà automaticamente rimossa l'estensione deprecata.
+> L'aggiunta manuale di un'estensione del sito di Application Insights tramite le estensioni **degli strumenti di sviluppo**  >   è deprecata. Questo metodo di installazione dell'estensione dipende da aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora  [preinstallata](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio app. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate sull'agente per abilitare il monitoraggio di seguito, verrà automaticamente rimossa l'estensione deprecata.
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
@@ -59,7 +59,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
  
  Di seguito è riportato un riepilogo dei dati raccolti per ogni route:
         
-| Dati | Raccolta ASP.NET Basic | Raccolta consigliata ASP.NET |
+| Data | Raccolta ASP.NET Basic | Raccolta consigliata ASP.NET |
 | --- | --- | --- |
 | Aggiunge le tendenze di utilizzo della CPU, della memoria e delle operazioni di I/O |Sì |Sì |
 | Raccoglie le tendenze di utilizzo e consente la correlazione dei risultati di disponibilità con le transazioni | Sì |Sì |
@@ -75,7 +75,8 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Sono supportate le seguenti versioni di ASP.NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
+> [!IMPORTANT]
+> Sono supportate le seguenti versioni di ASP.NET Core: ASP.NET Core 2,1, 3,1 e 5,0. Le versioni 2,0, 2,2 e 3,0 sono state ritirate e non sono più supportate. Eseguire l'aggiornamento a una [versione supportata](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) di .NET Core per il funzionamento della strumentazione automatica.
 
 La definizione del Framework completo da ASP.NET Core, la distribuzione autonoma e le applicazioni basate su Linux non sono attualmente **supportate** con il monitoraggio basato su agenti/estensioni. La[Strumentazione manuale](./asp-net-core.md) tramite codice funzionerà in tutti gli scenari precedenti.
 
@@ -90,7 +91,7 @@ La definizione del Framework completo da ASP.NET Core, la distribuzione autonoma
 
      ![Instrumentazione dell'App Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Dopo aver specificato la risorsa da usare, è possibile scegliere come si vuole Application Insights raccogliere i dati per piattaforma per l'applicazione. ASP.NET Core offre una **raccolta consigliata** o **disabilitata** per ASP.NET Core 2,1, 2,2, 3,0 e 3,1.
+2. Dopo aver specificato la risorsa da usare, è possibile scegliere come si vuole Application Insights raccogliere i dati per piattaforma per l'applicazione. ASP.NET Core offre una **raccolta consigliata** o **disabilitata** per ASP.NET Core 2,1 e 3,1.
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -163,7 +164,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | valore |
+|Nome impostazione app |  Definizione | Valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -419,6 +420,12 @@ Se si vuole testare il monitoraggio lato client e server senza codice per ASP.NE
 ### <a name="connection-string-and-instrumentation-key"></a>Stringa di connessione e chiave di strumentazione
 
 Quando si usa il monitoraggio senza codice, è necessaria solo la stringa di connessione. Tuttavia, è comunque consigliabile impostare la chiave di strumentazione in modo da mantenere la compatibilità con le versioni precedenti dell'SDK quando viene eseguita la strumentazione manuale.
+
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>Differenza tra la metrica standard e la metrica del servizio Application Insights rispetto app Azure?
+
+Application Insights raccoglie i dati di telemetria per le richieste effettuate all'applicazione. Se l'errore si è verificato in webapps/IIS e la richiesta non è stata raggiunta dall'applicazione utente, Application Insights non avrà alcun telemetria.
+
+La durata per `serverresponsetime` calcolato da Application Insights non corrisponde necessariamente al tempo di risposta del server osservato dalle app Web. Ciò è dovuto al fatto che Application Insights conta solo la durata della richiesta effettiva raggiunta dall'applicazione. Se la richiesta è bloccata o accodata in IIS, il tempo di attesa verrà incluso nelle metriche dell'app Web, ma non in Application Insights metrica.
 
 ## <a name="release-notes"></a>Note sulla versione
 

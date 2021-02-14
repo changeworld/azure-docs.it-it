@@ -4,110 +4,164 @@ description: Informazioni su come creare una condivisione file di Azure che può
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 323eed77d6f7a6ccfcdd0a7c7aecff3a125300dc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: dc23dec8a8d59a7762e93cdfaa2a39d824506e7b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602663"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382124"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Come creare una condivisione NFS
-
-Le condivisioni file di Azure sono condivisioni file completamente gestite che si trovano nel cloud. È possibile accedervi usando il protocollo Server Message Block o il protocollo NFS (Network File System). Questo articolo illustra la creazione di una condivisione file che usa il protocollo NFS. Per altre informazioni su entrambi i protocolli, vedere [protocolli di condivisione file di Azure](storage-files-compare-protocols.md).
+Le condivisioni file di Azure sono condivisioni file completamente gestite che si trovano nel cloud. Questo articolo illustra la creazione di una condivisione file che usa il protocollo NFS. Per altre informazioni su entrambi i protocolli, vedere [protocolli di condivisione file di Azure](storage-files-compare-protocols.md).
 
 ## <a name="limitations"></a>Limitazioni
-
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
 ### <a name="regional-availability"></a>Disponibilità a livello di area
-
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-
-- Creare un [account filestorage](storage-how-to-create-premium-fileshare.md).
-
-    > [!IMPORTANT]
-    > È possibile accedere alle condivisioni NFS solo da reti attendibili. Le connessioni alla condivisione NFS devono avere origine da una delle origini seguenti:
-
+- È possibile accedere alle condivisioni NFS solo da reti attendibili. Le connessioni alla condivisione NFS devono avere origine da una delle origini seguenti:
     - È possibile [creare un endpoint privato](storage-files-networking-endpoints.md#create-a-private-endpoint) (scelta consigliata) o [limitare l'accesso all'endpoint pubblico](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Configurare una VPN da punto a sito (P2S) in Linux per l'uso con file di Azure](storage-files-configure-p2s-vpn-linux.md).
     - [Configurare una VPN da sito a sito per l'uso con file di Azure](storage-files-configure-s2s-vpn.md).
     - Configurare [ExpressRoute](../../expressroute/expressroute-introduction.md).
-- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="register-the-nfs-41-protocol"></a>Registrare il protocollo NFS 4,1
-
 Se si usa il modulo Azure PowerShell o l'interfaccia della riga di comando di Azure, registrare la funzionalità usando i comandi seguenti:
 
-### <a name="powershell"></a>PowerShell
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per registrare la funzionalità NFS 4,1 per File di Azure.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```azurepowershell
+# Connect your PowerShell session to your Azure account, if you have not already done so.
 Connect-AzAccount
-$context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
+
+# Set the actively selected subscription, if you have not already done so.
+$subscriptionId = "<yourSubscriptionIDHere>"
+$context = Get-AzSubscription -SubscriptionId $subscriptionId
 Set-AzContext $context
-Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
+
+# Register the NFS 4.1 feature with Azure Files to enable the preview.
+Register-AzProviderFeature `
+    -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowNfsFileShares 
+    
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli
+# Connect your Azure CLI to your Azure account, if you have not already done so.
 az login
-az feature register --name AllowNfsFileShares \
-                    --namespace Microsoft.Storage \
-                    --subscription <yourSubscriptionIDHere>
-az provider register --namespace Microsoft.Storage
+
+# Provide the subscription ID for the subscription where you would like to 
+# register the feature
+subscriptionId="<yourSubscriptionIDHere>"
+
+az feature register \
+    --name AllowNfsFileShares \
+    --namespace Microsoft.Storage \
+    --subscription $subscriptionId
+
+az provider register \
+    --namespace Microsoft.Storage
 ```
 
-## <a name="verify-feature-registration"></a>Verificare la registrazione delle funzionalità
+---
 
 L'approvazione della registrazione può richiedere fino a un'ora. Per verificare che la registrazione sia stata completata, usare i comandi seguenti:
 
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfsFileShares
-```
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-```azurecli
-az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
-```
-
-## <a name="verify-storage-account-kind"></a>Verificare il tipo di account di archiviazione
-
-Attualmente, solo gli account filestorage possono creare condivisioni NFS. 
-
 # <a name="portal"></a>[Portale](#tab/azure-portal)
-
-Per verificare il tipo di account di archiviazione in cui si dispone, passare all'portale di Azure. Quindi, dall'account di archiviazione, selezionare **Proprietà**. Dal pannello delle proprietà, esaminare il valore in **tipo di account**, il valore deve essere **filestorage**.
+Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per controllare la registrazione della funzionalità NFS 4,1 per File di Azure. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Per verificare di avere un account filestorage, è possibile usare il comando seguente:
-
 ```azurepowershell
-$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
-$accountKind.Kind
+Get-AzProviderFeature `
+    -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowNfsFileShares
 ```
-
-L'output deve essere **filestorage**. in caso contrario, l'account di archiviazione è di tipo errato. Per creare un account **filestorage** , vedere [come creare una condivisione file Premium di Azure](storage-how-to-create-premium-fileshare.md).
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-Per verificare di avere un account filestorage, è possibile usare il comando seguente:
-
 ```azurecli
-az storage account show -g yourResourceGroup -n yourStorageAccountName
+az feature show \
+    --name AllowNfsFileShares \
+    --namespace Microsoft.Storage \
+    --subscription $subscriptionId
 ```
 
-L'output deve contenere **"Kind": "filestorage"**. in caso contrario, l'account di archiviazione è di tipo errato. Per creare un account **filestorage** , vedere [come creare una condivisione file Premium di Azure](storage-how-to-create-premium-fileshare.md).
-
 ---
+
+## <a name="create-a-filestorage-storage-account"></a>Creare un account di archiviazione filestorage
+Attualmente, le condivisioni NFS 4,1 sono disponibili solo come condivisioni file Premium. Per distribuire una condivisione file Premium con il supporto del protocollo NFS 4,1, è necessario creare prima un account di archiviazione filestorage. Un account di archiviazione è un oggetto di livello superiore in Azure che rappresenta un pool condiviso di spazio di archiviazione che può essere usato per distribuire più condivisioni file di Azure.
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+Per creare un account di archiviazione filestorage, passare al portale di Azure.
+
+1. Nella portale di Azure selezionare account di **archiviazione** nel menu a sinistra.
+
+    ![portale di Azure pagina principale selezionare account di archiviazione](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+
+2. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
+3. Selezionare la sottoscrizione in cui creare l'account di archiviazione.
+4. Selezionare il gruppo di risorse in cui creare l'account di archiviazione
+
+5. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
+6. Selezionare la località per l'account di archiviazione o usare la località predefinita.
+7. Per **prestazioni** selezionare **Premium**.
+
+    È necessario selezionare **Premium** per l' **archiviazione filestorage** come opzione disponibile nell'elenco a discesa **tipo di account** .
+
+8. Selezionare **tipo di account** e scegliere **filestorage**.
+9. Lasciare la **replica** impostata sul valore predefinito di **archiviazione con ridondanza locale (con ridondanza locale)**.
+
+    ![Come creare un account di archiviazione per una condivisione file Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
+
+10. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
+11. Selezionare **Crea**.
+
+Una volta creata la risorsa dell'account di archiviazione, passare a essa.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Per creare un account di archiviazione filestorage, aprire un prompt di PowerShell ed eseguire i comandi seguenti, ricordando di sostituire `<resource-group>` e `<storage-account>` con i valori appropriati per l'ambiente in uso.
+
+```powershell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$location = "westus2"
+
+$storageAccount = New-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -SkuName Premium_LRS `
+    -Location $location `
+    -Kind FileStorage
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+Per creare un account di archiviazione filestorage, aprire il terminale ed eseguire i comandi seguenti, ricordando di sostituire `<resource-group>` e `<storage-account>` con i valori appropriati per l'ambiente.
+
+```azurecli-interactive
+resourceGroup="<resource-group>"
+storageAccount="<storage-account>"
+location="westus2"
+
+az storage account create \
+    --resource-group $resourceGroup \
+    --name $storageAccount \
+    --location $location \
+    --sku Premium_LRS \
+    --kind FileStorage
+```
+---
+
 ## <a name="create-an-nfs-share"></a>Creare una condivisione NFS
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
@@ -124,7 +178,7 @@ Ora che è stato creato un account filestorage e configurato la rete, è possibi
     - Nessuno squash radice-utente remoto (radice) riceve l'accesso come radice.
     - Tutti gli accessi squash-all utente sono mappati a UID (65534) e GID (65534).
     
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot del pannello di creazione della condivisione file":::
 
@@ -138,7 +192,7 @@ Ora che è stato creato un account filestorage e configurato la rete, è possibi
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Per aggiornare la versione di PowerShell, vedere [aggiornamento di Windows PowerShell esistente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Per aggiornare la versione di PowerShell, vedere [aggiornamento di Windows PowerShell esistente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)
     
 1. Installare la versione più recente del modulo PowershellGet.
 
@@ -154,41 +208,40 @@ Ora che è stato creato un account filestorage e configurato la rete, è possibi
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0&preserve-view=true)
    
 1. Per creare una condivisione file Premium con il modulo Azure PowerShell, usare il cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) .
 
-> [!NOTE]
-> Le dimensioni della condivisione di cui è stato effettuato il provisioning sono specificate dalla quota di condivisione, le condivisioni file vengono fatturate in base alle dimensioni con provisioning Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/files/).
+    > [!NOTE]
+    > Le condivisioni file Premium vengono fatturate usando un modello di cui è stato effettuato il provisioning. Le dimensioni del provisioning della condivisione sono specificate `QuotaGiB` sotto. Per ulteriori informazioni, vedere informazioni sul modello di cui è stato effettuato il [provisioning](understanding-billing.md#provisioned-model) e la [pagina dei prezzi file di Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 
-  ```powershell
-  New-AzRmStorageShare `
-   -ResourceGroupName $resourceGroupName `
-   -StorageAccountName $storageAccountName `
-   -Name myshare `
-   -EnabledProtocol NFS `
-   -RootSquash RootSquash `
-   -Context $storageAcct.Context
-  ```
+    ```powershell
+    New-AzRmStorageShare `
+        -StorageAccount $storageAccount `
+        -Name myshare `
+        -EnabledProtocol NFS `
+        -RootSquash RootSquash `
+        -QuotaGiB 1024
+    ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
 Per creare una condivisione file Premium con l'interfaccia della riga di comando di Azure, usare il comando [AZ storage Share create](/cli/azure/storage/share-rm) .
 
 > [!NOTE]
-> Le dimensioni della condivisione di cui è stato effettuato il provisioning sono specificate dalla quota di condivisione, le condivisioni file vengono fatturate in base alle dimensioni con provisioning Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/files/).
+> Le condivisioni file Premium vengono fatturate usando un modello di cui è stato effettuato il provisioning. Le dimensioni del provisioning della condivisione sono specificate `quota` sotto. Per ulteriori informazioni, vedere informazioni sul modello di cui è stato effettuato il [provisioning](understanding-billing.md#provisioned-model) e la [pagina dei prezzi file di Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ```azurecli-interactive
 az storage share-rm create \
-    --storage-account $STORAGEACCT \
+    --resource-group $resourceGroup \
+    --storage-account $storageAccount \
+    --name "myshare" \
     --enabled-protocol NFS \
     --root-squash RootSquash \
-    --name "myshare" 
+    --quota 1024
 ```
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Ora che è stata creata una condivisione NFS, per usarla è necessario montarla nel client Linux. Per informazioni dettagliate, vedere [come montare una condivisione NFS](storage-files-how-to-mount-nfs-shares.md).
 
 Se si verificano problemi, vedere [risolvere i problemi relativi alle condivisioni file NFS di Azure](storage-troubleshooting-files-nfs.md).

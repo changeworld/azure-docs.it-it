@@ -1,23 +1,19 @@
 ---
 title: Creare trigger di pianificazione in Azure Data Factory
 description: Informazioni su come creare un trigger in Azure Data Factory per l'esecuzione di una pipeline in base a una pianificazione.
-services: data-factory
-documentationcenter: ''
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001984"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387581"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -78,7 +74,7 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 
     ![Monitorare le esecuzioni attivate](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Passa alla visualizzazione pianificazione delle **esecuzioni del trigger**  \  **Schedule** . 
+1. Passa alla visualizzazione pianificazione delle **esecuzioni del trigger**  \   . 
 
     ![Monitorare le esecuzioni del trigger](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -355,7 +351,7 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 | **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. Questa proprietà è facoltativa.  <br> Per il fuso orario UTC, format è `'yyyy-MM-ddTHH:mm:ssZ'` , per un altro fuso orario, format è `'yyyy-MM-ddTHH:mm:ss'` . |
 | **Fuso orario** | Fuso orario in cui viene creato il trigger. Questa impostazione ha effetto su **StartTime**, **EndTime** e **Schedule**. Vedere l' [elenco di fusi orari supportati](#time-zone-option) |
 | **ricorrenza** | Oggetto recurrence che specifica le regole di ricorrenza per il trigger. L'oggetto recurrence supporta gli elementi **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando viene definito un oggetto recurrence, l'elemento **frequency** è obbligatorio. Gli altri elementi dell'oggetto recurrence sono facoltativi. |
-| **frequenza** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
+| **frequency** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
 | **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "week", il trigger si ripete ogni 3 settimane. |
 | **pianificazione** | Pianificazione della ricorrenza per il trigger. Un trigger con un valore **frequency** specificato modifica la ricorrenza in base a una pianificazione di ricorrenza. La proprietà **schedule** contiene modifiche per la ricorrenza basate su minuti, ore, giorni della settimana, giorni del mese e numero della settimana.
 
@@ -371,7 +367,7 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 | **startTime** | string | Sì | nessuno | Date-Ore ISO-8601 | per il fuso orario UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> per altro fuso orario `"2013-01-09T09:30:00-08:00"` |
 | **Fuso orario** | string | Sì | nessuno | [Valori del fuso orario](#time-zone-option)  | `"UTC"` |
 | **ricorrenza** | Oggetto | Sì | nessuno | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervallo** | Numero | No | 1 | Da 1 a 1.000 | `"interval":10` |
+| **intervallo** | Number | No | 1 | Da 1 a 1.000 | `"interval":10` |
 | **endTime** | string | Sì | nessuno | Valore di data e ora che fa riferimento a un momento nel futuro. | per il fuso orario UTC `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> per altro fuso orario `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **pianificazione** | Oggetto | No | nessuno | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 

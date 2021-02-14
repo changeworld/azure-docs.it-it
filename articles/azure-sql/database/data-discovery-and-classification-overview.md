@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
-ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185358"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392766"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -183,6 +183,13 @@ Gestire le classificazioni e le raccomandazioni per il database SQL di Azure e I
 - [Get](/rest/api/sql/sensitivitylabels/get): Ottiene l'etichetta di riservatezza della colonna specificata.
 - [List Current by database](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): ottiene le etichette di riservatezza correnti del database specificato.
 - [Elenco consigliato per database](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): ottiene le etichette di riservatezza consigliate del database specificato.
+
+
+## <a name="faq---advanced-classification-capabilities"></a>Domande frequenti: funzionalità di classificazione avanzate
+
+**Domanda**: [Azure competenza](https://docs.microsoft.com/azure/purview/overview) sostituisce SQL Data Discovery & classificazione o SQL Data Discovery & classificazione verrà ritirata a breve?
+**Risposta**: continuiamo a supportare SQL Data Discovery & classificazione e ti invitiamo ad adottare competenze di [Azure](https://docs.microsoft.com/azure/purview/overview) con funzionalità più avanzate per promuovere funzionalità di classificazione avanzate e governance dei dati. Se si decide di ritirare tutti i servizi, le funzionalità, l'API o lo SKU, si riceverà una notifica di avanzamento, incluso un percorso di migrazione o di transizione. Altre informazioni sui criteri del ciclo di vita di Microsoft sono disponibili qui.
+
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807547"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518080"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -23,7 +23,7 @@ Questo articolo illustra come usare il portale di Azure per la registrazione e l
 
 ## <a name="create-a-security-group-for-permissions"></a>Creare un gruppo di sicurezza per le autorizzazioni
 
-Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'identità gestita del catalogo.
+Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'identità gestita di competenza.
 
 1. Nella [portale di Azure](https://portal.azure.com)cercare **Azure Active Directory**.
 1. Creare un nuovo gruppo di sicurezza nel Azure Active Directory, seguendo la procedura [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -35,11 +35,11 @@ Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Tipo di gruppo di sicurezza":::
 
-1. Aggiungere l'identità gestita del catalogo a questo gruppo di sicurezza. Selezionare **membri**, quindi selezionare **+ Aggiungi membri**.
+1. Aggiungere l'identità gestita di competenza a questo gruppo di sicurezza. Selezionare **membri**, quindi selezionare **+ Aggiungi membri**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Aggiungere l'istanza gestita del catalogo al gruppo.":::
 
-1. Cercare il catalogo e selezionarlo.
+1. Cercare l'identità gestita di competenza e selezionarla.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Aggiungi catalogo eseguendo una ricerca":::
 
@@ -61,14 +61,14 @@ Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Immagine che illustra come consentire alle entità servizio di ottenere le autorizzazioni di sola lettura Power BI API di amministrazione":::
 
     > [!Caution]
-    > Quando si consente al gruppo di sicurezza creato (con l'identità gestita del catalogo dati come membro) di usare le API di amministrazione di Power BI di sola lettura, si consente anche di accedere ai metadati (ad esempio, i nomi di dashboard e report, i proprietari, le descrizioni e così via) per tutti gli elementi di Power BI in questo tenant. Una volta che i metadati sono stati inseriti nell'ambito di Azure, le autorizzazioni di competenza, non Power BI autorizzazioni, determinano chi può visualizzare tali metadati.
+    > Quando si consente al gruppo di sicurezza creato (che ha l'identità gestita di competenza come membro) di usare le API di amministrazione di Power BI di sola lettura, si consente anche di accedere ai metadati (ad esempio, i nomi di dashboard e report, i proprietari, le descrizioni e così via) per tutti gli elementi di Power BI nel tenant. Una volta che i metadati sono stati inseriti nell'ambito di Azure, le autorizzazioni di competenza, non Power BI autorizzazioni, determinano chi può visualizzare tali metadati.
 
     > [!Note]
     > È possibile rimuovere il gruppo di sicurezza dalle impostazioni dello sviluppatore, ma i metadati estratti in precedenza non verranno rimossi dall'account di competenza. Se lo si desidera, è possibile eliminarlo separatamente.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Registrare il Power BI e configurare un'analisi
 
-Ora che sono state concesse le autorizzazioni per il catalogo per connettersi all'API di amministrazione del tenant di Power BI, è possibile configurare l'analisi dal portale del catalogo.
+Ora che sono state concesse le autorizzazioni di gestione delle identità gestite per la connessione all'API di amministrazione del tenant di Power BI, è possibile configurare l'analisi da Azure competenza Studio.
 
 Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenza 
 

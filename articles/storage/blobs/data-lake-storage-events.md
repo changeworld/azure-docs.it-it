@@ -9,18 +9,18 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 738ed3b819a62760408341184daca8a8ba555029
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: f5fa4ad357e937fed7df5be24a1fc78409a0259b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913675"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516397"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Esercitazione: Implementare il modello di acquisizione data lake per aggiornare una tabella di Databricks Delta
 
 Questa esercitazione descrive come gestire eventi in un account di archiviazione che include uno spazio dei nomi gerarchico.
 
-Verrà compilata una piccola soluzione che permette a un utente di popolare una tabella di Databricks Delta caricando un file con valori delimitati da virgole (CSV) che descrive un ordine di vendita. Questa soluzione verrà compilata connettendo una sottoscrizione di Griglia di eventi, una funzione di Azure e un [processo](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
+Verrà compilata una piccola soluzione che permette a un utente di popolare una tabella di Databricks Delta caricando un file con valori delimitati da virgole (CSV) che descrive un ordine di vendita. Questa soluzione verrà compilata connettendo una sottoscrizione di Griglia di eventi, una funzione di Azure e un [processo](/azure/databricks/jobs) in Azure Databricks.
 
 In questa esercitazione si apprenderà come:
 
@@ -116,7 +116,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
 4. Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 
-Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creare un cluster Spark in Azure Databricks).
+Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create) (Creare un cluster Spark in Azure Databricks).
 
 ### <a name="create-a-notebook"></a>Creare un notebook
 
@@ -153,7 +153,7 @@ Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluste
     Questo codice crea un widget denominato **source_file**. Più avanti si creerà una funzione di Azure che chiama questo codice e passa un percorso di file al widget.  Questo codice autentica anche l'entità servizio con l'account di archiviazione e crea alcune variabili da usare in altre celle.
 
     > [!NOTE]
-    > In un ambiente di produzione è consigliabile archiviare la chiave di autenticazione in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della chiave di autenticazione. <br><br>Ad esempio, invece di usare la riga di codice `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, si userà la riga di codice seguente: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>Dopo aver completato questa esercitazione, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) nel sito Web di Azure Databricks per alcuni esempi di questo approccio.
+    > In un ambiente di produzione è consigliabile archiviare la chiave di autenticazione in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della chiave di autenticazione. <br><br>Ad esempio, invece di usare la riga di codice `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, si userà la riga di codice seguente: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>Dopo aver completato questa esercitazione, vedere l'articolo [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) nel sito Web di Azure Databricks per alcuni esempi di questo approccio.
 
 2. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 

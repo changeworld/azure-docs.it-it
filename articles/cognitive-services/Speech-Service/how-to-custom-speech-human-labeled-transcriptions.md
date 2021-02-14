@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560282"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388856"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Come creare trascrizioni con etichetta umana
 
@@ -24,7 +24,12 @@ Se si vuole migliorare l'accuratezza del riconoscimento, in particolare per i pr
 Per migliorare il riconoscimento è necessario un ampio esempio di dati di trascrizione, quindi è consigliabile fornire tra 10 e 20 ore di dati di trascrizione. In questa pagina, verranno esaminate le linee guida progettate per facilitare la creazione di trascrizioni di alta qualità. Questa guida è suddivisa in base alle impostazioni locali, con sezioni per l'inglese (Stati Uniti), cinese mandarino e tedesco.
 
 > [!NOTE]
-> Non tutti i modelli di base supportano la personalizzazione con i file audio. Se un modello di base non la supporta, il training utilizzerà semplicemente il testo delle trascrizioni in modo analogo all'utilizzo del testo correlato.
+> Non tutti i modelli di base supportano la personalizzazione con i file audio. Se un modello di base non la supporta, il training utilizzerà semplicemente il testo delle trascrizioni in modo analogo all'utilizzo del testo correlato. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) .
+
+> [!NOTE]
+> Nei casi in cui si modifica il modello di base utilizzato per il training e si dispone di audio nel set di dati di training, verificare *sempre* se il nuovo modello di base selezionato [supporta il training con dati audio](language-support.md#speech-to-text). Se il modello di base usato in precedenza non supporta il training con dati audio e il set di dati di training contiene audio, i tempi di training con il nuovo modello di base aumenteranno **drasticamente** e potranno passare da diverse ore a diversi giorni. Ciò vale soprattutto se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
+>
+> Se si affronta il problema descritto nel paragrafo precedente, è possibile ridurre rapidamente il tempo di training riducendo la quantità di audio nel set di dati o rimuovendo completamente il testo e lasciando solo il testo. La seconda opzione è consigliata se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
 
 ## <a name="us-english-en-us"></a>Inglese Stati Uniti (en-US)
 

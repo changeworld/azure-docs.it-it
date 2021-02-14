@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d5556ffb18a7a67e9415310f221e470761bf8cb8
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032933"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098640"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Valuta i risultati dell'esperimento di Machine Learning automatizzato
 
@@ -192,7 +192,7 @@ explained_variance|Spiegazione della varianza misura la misura in cui un modello
 mean_absolute_error|Media Absolute Error è il valore previsto del valore assoluto della differenza tra la destinazione e la stima.<br><br> **Obiettivo:** Più vicino a 0 migliore <br> **Intervallo:** [0, inf) <br><br> Tipi <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, il mean_absolute_error diviso per l'intervallo di dati. | [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|Errore percentuale assoluto medio (MAPE) è una misura della differenza media tra un valore stimato e il valore effettivo.<br><br> **Obiettivo:** Più vicino a 0 migliore <br> **Intervallo:** [0, inf) ||
 median_absolute_error|median_absolute_error è il valore mediano di tutte le differenze assolute tra il target e la stima. Questa perdita è significativa per gli outlier.<br><br> **Obiettivo:** Più vicino a 0 migliore <br> **Intervallo:** [0, inf)<br><br>Tipi <br> `median_absolute_error`<br> `normalized_median_absolute_error`: la median_absolute_error divisa per l'intervallo di dati. |[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R ^ 2 è il coefficiente di determinazione o la riduzione percentuale di errori quadratici rispetto a un modello di base che restituisce la media. <br> <br> **Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** (-inf, 1]|[Calcolo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R ^ 2 è il coefficiente di determinazione o la riduzione percentuale di errori quadratici rispetto a un modello di base che restituisce la media. <br> <br> **Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [-1, 1] <br><br> Nota: R ^ 2 ha spesso l'intervallo (-inf, 1], ma i valori negativi per i modelli non corretti vengono ritagliati da-1 in modo automatico.|[Calcolo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Radice errore quadratico medio (valori RMSE) è la radice quadrata della differenza quadrata prevista tra la destinazione e la stima. Per uno strumento di stima non distorta, valori RMSE è uguale alla deviazione standard.<br> <br> **Obiettivo:** Più vicino a 0 migliore <br> **Intervallo:** [0, inf)<br><br>Tipi<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: la root_mean_squared_error divisa per l'intervallo di dati. |[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Radice errore quadratico medio di log è la radice quadrata dell'errore logaritmico quadrato previsto.<br><br>**Obiettivo:** Più vicino a 0 migliore <br> **Intervallo:** [0, inf) <br> <br>Tipi <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: la root_mean_squared_log_error divisa per l'intervallo di dati.  |[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| La correlazione di Spearman è una misura non parametrica della monotonicità della relazione tra due set di dati. A differenza della correlazione di Pearson, quella di Spearman non presuppone che entrambi i set di dati siano normalmente distribuiti. Analogamente ad altri coefficienti di correlazione, il Lancieri può variare tra-1 e 1 con 0, per cui non ci sono correlazioni. Le correlazioni di-1 o 1 implicano una relazione monotona esatta. <br><br> Speara è una metrica per la correlazione degli ordini di rango che indica che le modifiche apportate ai valori stimati o effettivi non cambiano il risultato di Spearn se non modificano l'ordine di rango dei valori stimati o effettivi.<br> <br> **Obiettivo:** Più vicino a 1 migliore <br> **Intervallo:** [-1, 1]|[Calcolo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

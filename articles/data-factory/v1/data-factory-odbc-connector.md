@@ -1,23 +1,18 @@
 ---
 title: Spostare dati da archivi dati ODBC
 description: Informazioni su come spostare dati da archivi dati ODBC con Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c68b1f4d76a1899ce473c57f3a6d5de1eab71c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e847592127d19eba3370255385f5b969b87e886e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636868"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380101"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Spostare dati da archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,12 +39,12 @@ Oltre a Gateway di gestione dati, è necessario installare anche il driver ODBC 
 > [!NOTE]
 > Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati ODBC usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata** . Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio** , **Azure PowerShell** , **Azure Resource Manager modello** , **API .NET** e **API REST** . Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET** e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -203,9 +198,9 @@ Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono 
 
 **Set di dati di input ODBC**
 
-L'esempio presuppone che sia stata creata una tabella "MyTable" in un archivio dati ODBC e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
+Nell'esempio si presuppone che sia stata creata una tabella "MyTable" in un database ODBC e che contenga una colonna denominata "timestampcolumn" per i dati delle serie temporali.
 
-Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
+Impostando "external": "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 ```json
 {
@@ -293,7 +288,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Attività di copia in una pipeline con origine ODBC (RelationalSource) e sink BLOB (BlobSink)**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink** . La query SQL specificata per la proprietà **query** consente di selezionare i dati da copiare nell'ultima ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** consente di selezionare i dati da copiare nell'ultima ora.
 
 ```json
 {
@@ -355,16 +350,16 @@ Per informazioni sul mapping delle colonne del set di dati di origine alle colon
 Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="troubleshoot-connectivity-issues"></a>Risolvere i problemi di connettività
-Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati** .
+Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Gestione configurazione di Gateway di gestione dati**.
 
-1. Avviare **Gestione configurazione di Gateway di gestione dati** . È possibile eseguire direttamente "C:\Programmi\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft** , come mostrato nell'immagine seguente.
+1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\Programmi\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft**, come mostrato nell'immagine seguente.
 
     ![Ricerca nel gateway](./media/data-factory-odbc-connector/search-gateway.png)
 2. Passare alla scheda **Diagnostica** .
 
     ![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
 3. Selezionare il **tipo** di dati archiviati (servizio collegato).
-4. Specificare l' **autenticazione** e immettere le **credenziali** o la **stringa di connessione** usati per la connessione all'archivio dati.
+4. Specificare l'**autenticazione** e immettere le **credenziali** o la **stringa di connessione** usati per la connessione all'archivio dati.
 5. Fare clic su **Test connessione** per testare la connessione all'archivio dati.
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni

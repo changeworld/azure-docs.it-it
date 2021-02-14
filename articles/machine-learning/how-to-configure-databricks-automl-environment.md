@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7c5544ec5f89cfbf2451c19430a99b64825f90bc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: daeb0d666c0dfb8306663da1d8d59dfba6adc359
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872605"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516924"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configurare un ambiente di sviluppo con Azure Databricks e AutoML in Azure Machine Learning 
 
@@ -131,7 +131,7 @@ Per provarlo:
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
     ```
 
-    In alternativa, è possibile usare gli script init se si continuano a risolvere i problemi di installazione con le librerie di Python. Questo approccio non è ufficialmente supportato. Per altre informazioni, vedere [script init con ambito cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+    In alternativa, è possibile usare gli script init se si continuano a risolvere i problemi di installazione con le librerie di Python. Questo approccio non è ufficialmente supportato. Per altre informazioni, vedere [script init con ambito cluster](/azure/databricks/clusters/init-scripts#cluster-scoped-init-scripts).
 
 * **Errore di importazione: non è possibile importare il nome `Timedelta` da `pandas._libs.tslibs`**: se viene visualizzato questo errore quando si usa Machine Learning automatico, eseguire le due righe seguenti nel notebook:
     ```

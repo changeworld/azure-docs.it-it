@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ef753043218f259c69082dbb8682517be79cf95c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862143"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099796"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -51,7 +51,7 @@ L'istanza di calcolo di Azure Machine Learning consente di creare, eseguire il t
 
 È possibile eseguire notebook Jupyter in [vs code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) usando l'istanza di calcolo come server remoto senza necessità di SSH. È anche possibile abilitare l'integrazione VS Code tramite l' [estensione SSH remota](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-È possibile [installare i pacchetti](how-to-create-manage-compute-instance.md#install-packages) e [aggiungere i kernel](how-to-create-manage-compute-instance.md#add-new-kernels) all'istanza di calcolo.  
+È possibile [installare i pacchetti](how-to-access-terminal.md#install-packages) e [aggiungere i kernel](how-to-access-terminal.md#add-new-kernels) all'istanza di calcolo.  
 
 Gli strumenti e gli ambienti seguenti sono già installati nell'istanza di calcolo: 
 
@@ -77,7 +77,7 @@ Gli strumenti e gli ambienti seguenti sono già installati nell'istanza di calco
 |Anaconda Python||
 |Jupyter ed estensioni||
 |Jupyterlab ed estensioni||
-[Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>da PyPI|Include la maggior parte dei pacchetti aggiuntivi di azureml.  Per visualizzare l'elenco completo, [aprire una finestra del terminale nell'istanza di calcolo in uso](how-to-run-jupyter-notebooks.md#terminal) e avviare l'esecuzione <br/> `conda list -n azureml_py36 azureml*` |
+[Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>da PyPI|Include la maggior parte dei pacchetti aggiuntivi di azureml.  Per visualizzare l'elenco completo, [aprire una finestra del terminale nell'istanza di calcolo in uso](how-to-access-terminal.md) e avviare l'esecuzione <br/> `conda list -n azureml_py36 azureml*` |
 |Altri pacchetti PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacchetti Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacchetti Deep Learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -132,10 +132,10 @@ Queste azioni possono essere controllate da RBAC di Azure:
 
 Per creare un'istanza di calcolo è necessario disporre delle autorizzazioni per le azioni seguenti:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft. MachineLearningServices/Workspaces/checkComputeNameAvailability/Action*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>Creare un'istanza di calcolo
+### <a name="create-a-compute-instance"></a><a name="create"></a>Creare un'istanza di ambiente di calcolo
 
 Nell'area di lavoro in Azure Machine Learning Studio [creare una nuova istanza di calcolo](how-to-create-attach-compute-studio.md#compute-instance) dalla sezione **calcolo** o nella sezione **notebook** quando si è pronti per eseguire uno dei notebook. 
 

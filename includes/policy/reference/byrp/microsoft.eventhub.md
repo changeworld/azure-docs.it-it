@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a3652b22405191a9102358d0e65dedb37efa3f79
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 558d1f59186e908de8d7debcc7df118aa0676c6c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560516"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097220"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -18,6 +18,6 @@ ms.locfileid: "99560516"
 |[È consigliabile definire le regole di autorizzazione nell'istanza di Hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4826e5f-6a27-407c-ae3e-9582eb39891d) |Controlla l'esistenza di regole di autorizzazione nelle entità di Hub eventi per concedere l'accesso con privilegi minimi |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Hub/EventHub_AuditEventHubAccessRules_Audit.json) |
 |[Distribuisci le impostazioni di diagnostica per hub eventi nell'hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef7b61ef-b8e4-4c91-8e78-6946c6b0023f) |Distribuisce le impostazioni di diagnostica per l'hub eventi per lo streaming in un hub eventi a livello di area quando viene creato o aggiornato un hub eventi in cui manca questa impostazione di diagnostica. |DeployIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/EventHub_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Distribuisci le impostazioni di diagnostica per l'hub eventi nell'area di lavoro Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f6e93e8-6b31-41b1-83f6-36e449a42579) |Distribuisce le impostazioni di diagnostica per l'hub eventi per lo streaming in un'area di lavoro Log Analytics a livello di area quando viene creato o aggiornato un hub eventi in cui manca questa impostazione di diagnostica. |DeployIfNotExists, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/EventHub_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
-|[È consigliabile abilitare i log di diagnostica in Hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83a214f7-d01a-484b-91a9-ed54470c9a6a) |Controlla l'abilitazione dei log di diagnostica consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Hub/EventHub_AuditDiagnosticLog_Audit.json) |
 |[Gli spazi dei nomi dell'hub eventi devono usare una chiave gestita dal cliente per la crittografia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1ad735a-e96f-45d2-a7b2-9a4932cab7ec) |Hub eventi di Azure supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft (impostazione predefinita) o chiavi gestite dal cliente. La scelta di crittografare i dati tramite chiavi gestite dal cliente consente di assegnare, ruotare, disabilitare e revocare l'accesso alle chiavi che hub eventi utilizzerà per crittografare i dati nello spazio dei nomi. Si noti che hub eventi supporta solo la crittografia con chiavi gestite dal cliente per gli spazi dei nomi in cluster dedicati. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Hub/EventHub_CustomerManagedKeyEnabled_Audit.json) |
 |[Gli hub eventi devono usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd63edb4a-c612-454d-b47d-191a724fcbf0) |Questo criterio controlla gli hub eventi che non sono configurati per usare un endpoint servizio di rete virtuale. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_EventHub_AuditIfNotExists.json) |
+|[I log delle risorse nell'hub eventi devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83a214f7-d01a-484b-91a9-ed54470c9a6a) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Hub/EventHub_AuditDiagnosticLog_Audit.json) |

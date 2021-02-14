@@ -8,12 +8,12 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538849"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393140"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Backup continuo con funzionalità di ripristino temporizzato (anteprima) in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB esegue il backup dei dati in background senza richiedere la velo
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB il backup dei dati nell'archivio BLOB di Azure." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-L'intervallo di tempo disponibile per il ripristino (noto anche come periodo di memorizzazione) è il valore inferiore dei due seguenti: "30 giorni indietro in passato da adesso" o "fino al momento della creazione delle risorse". Il punto nel tempo per il ripristino può essere qualsiasi timestamp entro il periodo di memorizzazione.
+L'intervallo di tempo disponibile per il ripristino (noto anche come periodo di memorizzazione) è il valore inferiore dei due: *30 giorni dopo il ritorno da adesso* o *fino al momento della creazione delle risorse*. Il punto nel tempo per il ripristino può essere qualsiasi timestamp entro il periodo di memorizzazione.
 
 Nella versione di anteprima pubblica è possibile ripristinare l'account Azure Cosmos DB per l'API SQL o i contenuti MongoDB temporizzati in un altro account usando [portale di Azure](continuous-backup-restore-portal.md), l' [interfaccia della riga di comando di Azure](continuous-backup-restore-command-line.md) (az CLI), [Azure PowerShell](continuous-backup-restore-powershell.md)o il [Azure Resource Manager](continuous-backup-restore-template.md).
 
@@ -59,17 +59,18 @@ Le seguenti configurazioni non vengono ripristinate dopo il recupero temporizzat
 
 ## <a name="restore-scenarios"></a>Scenari di ripristino
 
-Di seguito sono riportati alcuni scenari chiave che vengono risolti dalla funzionalità di ripristino temporizzato. Gli scenari [a] tramite [c] dimostrano come attivare un ripristino se il timestamp di ripristino è noto in anticipo. Tuttavia, potrebbero verificarsi scenari in cui non si conosce l'ora esatta dell'eliminazione accidentale o del danneggiamento. Scenari [d] e [e] illustrano come _individuare_ il timestamp di ripristino usando le nuove API del feed di eventi nel database o nei contenitori ripristinabili.
+Di seguito sono riportati alcuni scenari chiave che vengono risolti dalla funzionalità di ripristino temporizzato. Gli scenari [a] tramite [c] dimostrano come attivare un ripristino se il timestamp di ripristino è noto in anticipo.
+Tuttavia, potrebbero verificarsi scenari in cui non si conosce l'ora esatta dell'eliminazione accidentale o del danneggiamento. Scenari [d] e [e] illustrano come _individuare_ il timestamp di ripristino usando le nuove API del feed di eventi nel database o nei contenitori ripristinabili.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Eventi del ciclo di vita con timestamp per un account ripristinabile." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **Ripristina account eliminato** : tutti gli account eliminati che è possibile ripristinare sono visibili dal riquadro **ripristino** . Ad esempio, se "account A" viene eliminato al timestamp T3. In questo caso il timestamp appena prima della T3, della località, del nome dell'account di destinazione, del gruppo di risorse e del nome dell'account di destinazione è sufficiente per il ripristino da [portale di Azure](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)o l' [interfaccia](continuous-backup-restore-command-line.md#trigger-restore)della riga di comando.  
+a. **Ripristina account eliminato** : tutti gli account eliminati che è possibile ripristinare sono visibili dal riquadro **ripristino** . Ad esempio, se *l'account a* viene eliminato al timestamp T3. In questo caso il timestamp appena prima della T3, della località, del nome dell'account di destinazione, del gruppo di risorse e del nome dell'account di destinazione è sufficiente per il ripristino da [portale di Azure](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)o l' [interfaccia](continuous-backup-restore-command-line.md#trigger-restore)della riga di comando.  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Eventi del ciclo di vita con timestamp per un database e un contenitore ripristinabili." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **Ripristinare i dati di un account in una determinata area** , ad esempio se "account a" è presente in due aree "Stati Uniti orientali" e "Stati Uniti occidentali" in timestamp T3. Se è necessaria una copia dell'account A in "Stati Uniti occidentali", è possibile eseguire un ripristino temporizzato dall' [portale di Azure](continuous-backup-restore-portal.md), da [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)o dall' [interfaccia](continuous-backup-restore-command-line.md#trigger-restore) della riga di comando con Stati Uniti occidentali come percorso di destinazione.
+b. **Ripristinare i dati di un account in una determinata area** , ad esempio se *l'account a* è presente in due aree *Stati Uniti orientali* e *Stati Uniti occidentali* al timestamp T3. Se è necessaria una copia dell'account A negli *Stati Uniti occidentali*, è possibile eseguire un ripristino temporizzato dall' [portale di Azure](continuous-backup-restore-portal.md), da [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)o dall' [interfaccia](continuous-backup-restore-command-line.md#trigger-restore) della riga di comando con Stati Uniti occidentali come percorso di destinazione.
 
-c. Eseguire il **ripristino da un'operazione di scrittura o eliminazione accidentale all'interno di un contenitore con un timestamp di ripristino noto** , ad esempio se si è **certi** che il contenuto di "container 1" in "database 1" è stato modificato accidentalmente in timestamp T3. È possibile eseguire un ripristino temporizzato dall' [portale di Azure](continuous-backup-restore-portal.md#restore-live-account), da [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)o dall' [interfaccia](continuous-backup-restore-command-line.md#trigger-restore) della riga di comando a un altro account in timestamp T3 per ripristinare lo stato desiderato del contenitore.
+c. Eseguire il **ripristino da un'operazione di scrittura o eliminazione accidentale all'interno di un contenitore con un timestamp di ripristino noto** , ad esempio se si è **certi** che il contenuto del *contenitore 1* nel *database 1* è stato modificato accidentalmente al timestamp T3. È possibile eseguire un ripristino temporizzato dall' [portale di Azure](continuous-backup-restore-portal.md#restore-live-account), da [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)o dall' [interfaccia](continuous-backup-restore-command-line.md#trigger-restore) della riga di comando a un altro account in timestamp T3 per ripristinare lo stato desiderato del contenitore.
 
 d. **Ripristinare un account a un momento precedente prima dell'eliminazione accidentale del database** : nella [portale di Azure](continuous-backup-restore-portal.md#restore-live-account)è possibile utilizzare il riquadro feed eventi per determinare quando un database è stato eliminato e individuare l'ora di ripristino. Analogamente, con l'interfaccia della riga di comando di [Azure](continuous-backup-restore-command-line.md#trigger-restore) e [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), è possibile individuare l'evento di eliminazione del database enumerando il feed degli eventi di database e quindi attivare il comando Restore con i parametri necessari.
 
@@ -81,7 +82,7 @@ Azure Cosmos DB consente di isolare e limitare le autorizzazioni di ripristino p
 
 ## <a name="pricing"></a><a id="continuous-backup-pricing"></a>Prezzi
 
-Azure Cosmos DB account con backup continuo abilitato comporterà un addebito mensile aggiuntivo per "archiviare il backup" e per "ripristinare i dati". Il costo di ripristino viene aggiunto ogni volta che viene avviata l'operazione di ripristino. Se si configura un account con backup continuo ma non si ripristinano i dati, nella fattura verranno inclusi solo i costi di archiviazione dei backup.
+Azure Cosmos DB gli account con backup continuo abilitato comporteranno un addebito mensile aggiuntivo per *archiviare il backup* e *ripristinare i dati*. Il costo di ripristino viene aggiunto ogni volta che viene avviata l'operazione di ripristino. Se si configura un account con backup continuo ma non si ripristinano i dati, nella fattura verranno inclusi solo i costi di archiviazione dei backup.
 
 L'esempio seguente si basa sul prezzo di un account Azure Cosmos distribuito in un'area non governativa negli Stati Uniti. I prezzi e i calcoli possono variare a seconda dell'area in uso. per informazioni più aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 

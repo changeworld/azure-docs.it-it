@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: 'Panoramica di Azure Data Science Virtual Machine: una macchina virtuale semplice da usare nella piattaforma cloud di Azure con librerie e strumenti preinstallati e configurati per scenari di data science.'
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
+ms.openlocfilehash: bd2333d89e4d1789b3464606b49f624609ef67d5
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322502"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518760"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Cos'è la Azure Data Science Virtual Machine per Linux e Windows?
 
@@ -44,7 +43,7 @@ Data Science Virtual Machine è un'immagine VM per data science ma [Azure Machin
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Confronto con le istanze di ambiente di calcolo di AzureML
 
-Le [istanze di ambiente di calcolo di Azure Machine Learning](../concept-compute-instance.md) sono un'immagine VM completamente configurata e __gestita__ , mentre Data Science Virtual Machine è una VM __non gestita__.
+Le [istanze di ambiente di calcolo di Azure Machine Learning](../concept-compute-instance.md) sono un'immagine VM completamente configurata e __gestita__, mentre Data Science Virtual Machine è una VM __non gestita__.
 
 Le differenze essenziali tra queste due offerte di prodotti sono illustrate di seguito:
 

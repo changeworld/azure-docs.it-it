@@ -1,19 +1,17 @@
 ---
 title: Attività Power Query in Azure Data Factory
 description: Informazioni su come usare l'attività Power Query per le funzionalità di data wrangling in una pipeline Data Factory
-services: data-factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: c0ad769ceba4fc3fa7f602d70188ea1942ca73aa
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: fc4f20db55f8e7e0b2f92cb8309c1c128b235089
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791695"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385456"
 ---
 # <a name="power-query-activity-in-data-factory"></a>Attività di Power query in data factory
 

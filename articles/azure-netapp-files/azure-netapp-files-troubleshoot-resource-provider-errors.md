@@ -13,20 +13,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483466"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374882"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Risolvere i problemi del provider di risorse di Azure NetApp Files 
 
 Questo articolo descrive gli errori comuni del provider di risorse Azure NetApp Files, le cause, le soluzioni e le soluzioni alternative (se disponibili).
 
 ## <a name="common-azure-netapp-files-resource-provider-errors"></a>Errori comuni del provider di risorse Azure NetApp Files
+
+***La creazione di `netAppAccounts` è stata limitata in questa area.***
+
+Questa situazione si verifica quando la sottoscrizione è attesa per Azure NetApp Files e l'utente tenta di creare un account NetApp.
+
+* Causa:   
+Il provider di risorse di Azure per Azure NetApp Files non è stato registrato correttamente. 
+ 
+* Soluzione:   
+Completare tutti i passaggi descritti nella pagina relativa alla [registrazione del provider di risorse NetApp di Azure](azure-netapp-files-register.md#resource-provider) dopo la attesa della sottoscrizione.
 
 ***BareMetalTenantId non può essere modificato.***  
 
@@ -84,7 +94,7 @@ Questo errore si verifica quando si tenta di modificare il nome di dominio in Ac
 * Causa:   
 Si sta tentando di aggiornare la proprietà del nome di dominio.
 * Soluzione:    
-No. Non è possibile modificare il nome di dominio.
+Nessuna. Non è possibile modificare il nome di dominio.
 * Soluzione alternativa:   
 Eliminare tutti i volumi usando la configurazione Active Directory. Eliminare quindi la configurazione di Active Directory e ricreare i volumi.
 
@@ -108,7 +118,7 @@ Questo errore è un'eccezione non gestita in cui la cause non è nota.
 * Soluzione:   
 Contattare il supporto tecnico di Azure per segnalare il motivo dettagliato nei log.
 * Soluzione alternativa:   
-No.
+Nessuna.
 
 ***Il nome del percorso del file può contenere solo lettere, numeri e trattini (""-"").***
 
@@ -250,7 +260,7 @@ L'API sottostante non risponde, causando un errore interno. Questo errore è pro
 * Soluzione:   
 Il problema è probabile che sia temporaneo. La richiesta deve avere esito positivo in un secondo momento.
 * Soluzione alternativa:   
-No. L'API sottostante è essenziale per la gestione dei volumi.
+Nessuna. L'API sottostante è essenziale per la gestione dei volumi.
 
 ***Non è stato trovato alcun ID risultato operazione per ' {0} '.***
 
@@ -259,7 +269,7 @@ Questo errore indica che un errore interno impedisce il completamento dell'opera
 * Causa:   
 Si è verificato un errore interno che ha impedito il completamento dell'operazione.
 * Soluzione:   
-Questo errore è probabile che sia temporaneo. Attendere qualche minuto e riprovare. Se il problema persiste, creare un ticket per il supporto tecnico per esaminare il problema.
+Questo errore è probabile che sia temporaneo. Attendere alcuni minuti e riprovare. Se il problema persiste, creare un ticket per il supporto tecnico per esaminare il problema.
 * Soluzione alternativa:   
 Attendere alcuni minuti e verificare se il problema persiste.
 
@@ -294,7 +304,7 @@ Si sta tentando di creare (non aggiornare) un'Active Directory, ma ne esiste gi�
 * Soluzione:   
 Se la configurazione del Active Directory non è in uso, è possibile eliminare prima la configurazione esistente, quindi ripetere l'operazione di creazione.
 * Soluzione alternativa:   
-No. È consentita una sola Active Directory.
+Nessuna. È consentita una sola Active Directory.
 
 ***L'operazione ' {Operation}' non è supportata.***
 
@@ -331,7 +341,7 @@ Questo errore si verifica quando si tenta di modificare la destinazione di monta
 La destinazione di montaggio viene definita al momento della creazione e non può essere modificata successivamente.
 Gli snapshot non contengono proprietà che possono essere modificate.
 * Soluzione:   
-No. Tali risorse non dispongono di proprietà che possono essere modificate.
+Nessuna. Tali risorse non dispongono di proprietà che possono essere modificate.
 
 ***Dimensioni del pool troppo piccole per la dimensione totale del volume.***
 
@@ -380,7 +390,7 @@ Questo errore si verifica quando si tenta di aggiornare o applicare `ProtocolTyp
 * Causa:   
 La `ProtocolType` proprietà viene impostata quando viene creato il volume.  Non può essere aggiornata.
 * Soluzione:   
-No.
+Nessuna.
 * Soluzione alternativa:   
 Creare un altro volume con i nuovi tipi di protocollo.
 
@@ -435,7 +445,7 @@ La lunghezza del nome del server SMB supera i 10 caratteri.
 * Soluzione:   
 Usare un nome di server più breve. La lunghezza massima è di 10 caratteri.
 * Soluzione alternativa:   
-No.  Vedere la soluzione sopra. 
+Nessuna.  Vedere la soluzione sopra. 
 
 ***SubnetId non può essere modificato.***
 
@@ -457,7 +467,7 @@ Questo errore si verifica quando si tenta di creare un nuovo volume, ma `subnetI
 * Soluzione:   
 Controllare il valore di per `subnetId` verificare che contenga un oggetto `resourceId` per la subnet utilizzata.
 * Soluzione alternativa:   
-No. Vedere la soluzione sopra. 
+Nessuna. Vedere la soluzione sopra. 
 
 ***La subnet deve avere una delega ' Microsoft. NetApp/volumes '.***
 
@@ -490,7 +500,7 @@ L'API sottostante sta inviando un errore sconosciuto. Questo errore è probabile
 * Soluzione:   
 È probabile che il problema sia temporaneo e che la richiesta abbia esito positivo in un secondo momento. Se il problema persiste, creare un ticket di supporto per esaminare il problema.
 * Soluzione alternativa:   
-No. L'API sottostante è essenziale per la gestione dei volumi.
+Nessuna. L'API sottostante è essenziale per la gestione dei volumi.
 
 ***Valore ricevuto per una proprietà sconosciuta ' {propertyName}'.***
 
@@ -510,7 +520,7 @@ Ridurre il numero di proprietà definite nella richiesta per eliminare la propri
 * Causa:   
 La risorsa che si sta tentando di aggiornare non supporta l'operazione di aggiornamento. È possibile modificare le proprietà solo dei volumi.
 * Soluzione:   
-No. La risorsa che si sta tentando di aggiornare non supporta l'operazione di aggiornamento. Pertanto, non può essere modificato.
+Nessuna. La risorsa che si sta tentando di aggiornare non supporta l'operazione di aggiornamento. Pertanto, non può essere modificato.
 * Soluzione alternativa:   
 Per un volume, creare una nuova risorsa con l'aggiornamento sul posto ed eseguire la migrazione dei dati.
 
@@ -567,7 +577,7 @@ Il volume non esiste o la creazione non è riuscita.
 * Soluzione:   
 Verificare che sia in corso la modifica del volume corretto e che la creazione del volume abbia avuto esito positivo. In alternativa, verificare che il volume per il quale si sta creando uno snapshot esista.
 * Soluzione alternativa:   
-No.  Vedere la soluzione sopra. 
+Nessuna.  Vedere la soluzione sopra. 
 
 ***Il token di creazione specificato esiste già***
 

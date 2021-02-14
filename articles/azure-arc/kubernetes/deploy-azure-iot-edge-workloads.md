@@ -2,46 +2,52 @@
 title: Distribuire i carichi di lavoro di Azure IoT Edge (Anteprima)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/10/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Distribuire i carichi di lavoro di Azure IoT Edge
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
-ms.openlocfilehash: 88c480f93bfe28a424441a1c5857c623efb4e1d3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f228b79f14ab24281415cd4bd5964fc86a095d3c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091648"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390437"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Distribuire i carichi di lavoro di Azure IoT Edge (Anteprima)
 
 ## <a name="overview"></a>Panoramica
 
-Azure Arc e Azure IoT Edge integrano correttamente le reciproche funzionalità. Azure Arc offre meccanismi per gli operatori del cluster per configurare i componenti di base di un cluster e applicare i criteri del cluster. IoT Edge consente agli operatori di applicazioni di distribuire e gestire in modalità remota i carichi di lavoro su larga scala con utili inserimenti nel cloud e primitive di comunicazione bidirezionale. Il diagramma seguente illustra questo concetto:
+Azure Arc e Azure IoT Edge sono facilmente complementari alle funzionalità. 
+
+Azure Arc fornisce meccanismi per gli operatori di cluster per la configurazione dei componenti di base di un cluster e per l'applicazione e l'applicazione dei criteri del cluster. 
+
+Azure IoT Edge consente agli operatori di applicazioni di distribuire e gestire in modalità remota i carichi di lavoro su larga scala con pratici inserimenti nel cloud e primitive di comunicazione bidirezionale. 
+
+Il diagramma seguente illustra la relazione tra Azure Arc e Azure IoT Edge:
 
 ![Configurazione di IoT Arc](./media/edge-arc.png)
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-* [Registrare un dispositivo IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) e [distribuire il modulo del sensore di temperatura simulato](../../iot-edge/quickstart-linux.md#deploy-a-module). Assicurarsi di prendere nota della stringa di connessione del dispositivo.
+* [Registrare un dispositivo IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) e [distribuire il modulo del sensore di temperatura simulato](../../iot-edge/quickstart-linux.md#deploy-a-module). Prendere nota della stringa di connessione del dispositivo per i *valori. YAML* indicata di seguito.
 
 * Usare il [supporto di IoT Edge per Kubernetes](https://aka.ms/edgek8sdoc) per distribuirlo tramite l'operatore Flux di Azure Arc.
 
-* Scaricare il file [**values.yaml**](https://github.com/Azure/iotedge/blob/preview/iiot/kubernetes/charts/edge-kubernetes/values.yaml) per il grafico Helm di IoT Edge e sostituire il segnaposto **deviceConnectionString** alla fine del file con quello indicato nel passaggio 1. È possibile impostare qualsiasi altra opzione di installazione del grafico supportata in base alle necessità. Creare uno spazio dei nomi per il carico di lavoro IoT Edge e crearvi un segreto:
+* Scaricare il file [*values. YAML*](https://github.com/Azure/iotedge/blob/preview/iiot/kubernetes/charts/edge-kubernetes/values.yaml) per IOT Edge grafico Helm e sostituire il `deviceConnectionString` segnaposto alla fine del file con la stringa di connessione annotata in precedenza. Impostare eventuali altre opzioni di installazione del grafico supportate in base alle esigenze. Creare uno spazio dei nomi per il carico di lavoro IoT Edge e generarvi un segreto:
 
-    ```
-    $ kubectl create ns iotedge
+  ```
+  $ kubectl create ns iotedge
 
-    $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
-    ```
+  $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
+  ```
 
-    È anche possibile configurarlo in remoto usando l'[esempio di configurazione del cluster](./use-gitops-connected-cluster.md).
+  È anche possibile configurare in remoto usando l' [esempio di configurazione del cluster](./use-gitops-connected-cluster.md).
 
 ## <a name="connect-a-cluster"></a>Connettere un cluster
 
-Usare l'estensione `connectedk8s` dell'interfaccia della riga di comando `az` per connettere un cluster Kubernetes ad Azure Arc:
+Usare l' `az` estensione dell'interfaccia della riga `connectedk8s` di comando di Azure per connettere un cluster Kubernetes ad Azure Arc:
 
   ```
   az connectedk8s connect --name AzureArcIotEdge --resource-group AzureArcTest
@@ -49,21 +55,21 @@ Usare l'estensione `connectedk8s` dell'interfaccia della riga di comando `az` pe
 
 ## <a name="create-a-configuration-for-iot-edge"></a>Creare una configurazione per IoT Edge
 
-Repository di esempio: https://github.com/veyalla/edgearc
+Il [repository git di esempio](https://github.com/veyalla/edgearc) punta al grafico Helm IOT Edge e fa riferimento al segreto creato nella sezione prerequisiti.
 
-Questo repository punta al grafico Helm di IoT Edge e fa riferimento al segreto creato nella sezione prerequisiti.
+Usare l' `az` estensione dell'interfaccia della riga `k8sconfiguration` di comando di Azure per creare una configurazione che colleghi il cluster connesso al repository git:
 
-1. Usare l'estensione `k8sconfiguration` dell'interfaccia della riga di comando `az` per creare una configurazione per collegare il cluster connesso al repository GIT:
+  ```
+  az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
+  ```
 
-    ```
-    az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
-    ```
+In pochi minuti dovrebbero essere visualizzati i moduli del carico di lavoro IoT Edge distribuiti nello `iotedge` spazio dei nomi del cluster. 
 
-    In uno o due minuti dovrebbero essere visualizzati i moduli del carico di lavoro IoT Edge distribuiti nello spazio dei nomi `iotedge` del cluster. È possibile visualizzare i log del pod `SimulatedTemperatureSensor` nello spazio dei nomi per vedere i valori di esempio generati. È anche possibile vedere i messaggi in arrivo all'hub IoT usando l'[estensione Toolkit dell'hub IoT di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+Visualizzare i `SimulatedTemperatureSensor` Log pod nello spazio dei nomi per visualizzare i valori di esempio generati. È anche possibile vedere i messaggi in arrivo all'hub IoT usando l'[estensione Toolkit dell'hub IoT di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## <a name="cleanup"></a>Pulizia
 
-È possibile rimuovere la configurazione usando:
+Rimuovere la configurazione utilizzando:
 
 ```
 az k8sconfiguration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge

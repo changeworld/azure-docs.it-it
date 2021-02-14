@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.author: banders
-ms.openlocfilehash: debe02a89e10712ad8a0b8d61b0fdc3f8a4bd7b2
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577790"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369731"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>In che modo gli sconti per le prenotazioni si applicano alle istanze app Azure Service Premium V3 e agli indicatori isolati
 
@@ -40,10 +40,6 @@ Lo sconto di prenotazione di Azure viene applicato per l'esecuzione di istanze P
 4.  Nell'ora 4 l'istanza 1 viene eseguita per 0,5 ore e l'istanza 2 per 1 ora. L'istanza 1 è completamente coperta dalla prenotazione, come anche 0,5 ore dell'istanza 2. Viene addebitata la tariffa con pagamento in base al consumo per le rimanenti 0,5 ore.
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Understand reservation usage](understand-reserved-instance-usage-ea.md) (Informazioni sull'utilizzo della prenotazione).
-
-### <a name="discount-can-apply-to-different-sizes"></a>Lo sconto può essere applicato a diverse dimensioni
-
-Quando si acquista un'istanza Premium V3 riservata e si seleziona **ottimizzato per la flessibilità delle dimensioni dell'istanza**, il code coverage si applica alle dimensioni dell'istanza Premium V3 selezionate. Può anche essere applicabile ad altre dimensioni di istanze che si trovano nello stesso gruppo di flessibilità delle dimensioni delle istanze della serie.
 
 ## <a name="how-reservation-discounts-apply-to-isolated-stamps"></a>Come vengono applicati gli sconti per le prenotazioni a indicatori isolati
 

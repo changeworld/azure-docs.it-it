@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2019
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c19ad34c2ae9b5fbbdb2f9e3afd78a868b0a3712
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.openlocfilehash: f67a4e71d3f580609c2c0354776d614e0b9c1a28
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Esercitazione: Integrazione di Azure Active Directory con Ivanti Service Manager
 
-Questa esercitazione descrive come integrare Ivanti Service Manager (ISM) con Azure Active Directory (Azure AD).
-L'integrazione di Ivanti Service Manager (ISM) con Azure AD offre i vantaggi seguenti:
+In questa esercitazione si apprenderà come integrare ivanti Service Manager (ISM) con Azure Active Directory (Azure AD). Quando si integra ivanti Service Manager (ISM) con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a Ivanti Service Manager (ISM).
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Ivanti Service Manager (ISM) con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi ha accesso a ivanti Service Manager (ISM).
+* Abilitare gli utenti per l'accesso automatico a ivanti Service Manager (ISM) con i rispettivi account di Azure AD.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Per iniziare, sono necessari gli elementi seguenti:
 
-Per configurare l'integrazione di Azure AD con Ivanti Service Manager (ISM), sono necessari gli elementi seguenti:
-
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Ivanti Service Manager (ISM) abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di ivanti Service Manager (ISM) Single Sign-On abilitata per l'accesso SSO.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -44,63 +40,41 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * Ivanti Service Manager (ISM) supporta l'accesso SSO avviato da **SP e IDP**
 * Ivanti Service Manager (ISM) supporta il provisioning utenti **Just In Time** (JIT)
 
-## <a name="adding-ivanti-service-manager-ism-from-the-gallery"></a>Aggiunta di Ivanti Service Manager (ISM) dalla raccolta
+## <a name="add-ivanti-service-manager-ism-from-the-gallery"></a>Aggiungere ivanti Service Manager (ISM) dalla raccolta
 
 Per configurare l'integrazione di Ivanti Service Manager (ISM) in Azure AD, è necessario aggiungere Ivanti Service Manager (ISM) dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Ivanti Service Manager (ISM) dalla raccolta, seguire questa procedura:**
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **IVANTI Service Manager (ISM)** nella casella di ricerca.
+1. Selezionare **Ivanti Service Manager (ISM)** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+## <a name="configure-and-test-azure-ad-sso-for-ivanti-service-manager-ism"></a>Configurare e testare Azure AD SSO per ivanti Service Manager (ISM)
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+Configurare e testare Azure AD SSO con ivanti Service Manager (ISM) usando un utente di test di nome **B. Simon**. Per il funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente Azure AD e l'utente correlato in ivanti Service Manager (ISM).
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+Per configurare e testare Azure AD SSO con ivanti Service Manager (ISM), seguire questa procedura:
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare Ivanti Service Manager (ISM) SSO](#configure-ivanti-service-manager-ism-sso)** per configurare le impostazioni di Single Sign-on sul lato applicazione.
+    1. **[Creare un utente di test di Ivanti Service Manager (ISM)](#create-ivanti-service-manager-ism-test-user)** : per avere una controparte di B. Simon in ivanti Service Manager (ISM) collegata alla rappresentazione Azure ad dell'utente.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-4. Nella casella di ricerca digitare **Ivanti Service Manager (ISM)** , selezionare **Ivanti Service Manager (ISM)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella pagina di integrazione dell'applicazione **Ivanti Service Manager (ISM)** del portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
-     ![Ivanti Service Manager (ISM) nell'elenco risultati](common/search-new-app.png)
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Ivanti Service Manager (ISM) usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Ivanti Service Manager (ISM).
-
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Ivanti Service Manager (ISM), è necessario completare le procedure di base seguenti:
-
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Ivanti Service Manager (ISM)](#configure-ivanti-service-manager-ism-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Ivanti Service Manager (ISM)](#create-ivanti-service-manager-ism-test-user)** : per avere una controparte di Britta Simon in Ivanti Service Manager (ISM) collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
-
-Per configurare l'accesso Single Sign-On di Azure AD con Ivanti Service Manager (ISM), seguire questa procedura:
-
-1. Nella pagina di integrazione dell'applicazione **Ivanti Service Manager (ISM)** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
-
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
-
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
-
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
-
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
-
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
-
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
-
-    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     
@@ -112,16 +86,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con Ivanti Service Manager 
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
-
-    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<customer>.saasit.com/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Ivanti Service Manager (ISM)](https://www.ivanti.com/support/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/certificateraw.png)
 
@@ -129,66 +101,33 @@ Per configurare l'accesso Single Sign-On di Azure AD con Ivanti Service Manager 
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
-
-    b. Identificatore Azure AD
-
-    c. URL di chiusura sessione
-
-### <a name="configure-ivanti-service-manager-ism-single-sign-on"></a>Configurare l'accesso Single Sign-On per Ivanti Service Manager (ISM)
-
-Per configurare l'accesso Single Sign-On sul lato **Ivanti Service Manager (ISM)** , è necessario inviare il file **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Ivanti Service Manager (ISM)](https://www.ivanti.com/support/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
-
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
-
-2. Selezionare **Nuovo utente** in alto nella schermata.
-
-    ![Pulsante Nuovo utente](common/new-user.png)
-
-3. In Proprietà utente seguire questa procedura.
-
-    ![Finestra di dialogo Utente](common/user-properties.png)
-
-    a. Nel campo **Nome** immettere **BrittaSimon**.
-  
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio, usare BrittaSimon@contoso.com
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
-
-    d. Fare clic su **Crea**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Selezionare **Nuovo utente** in alto nella schermata.
+1. In **Proprietà utente** seguire questa procedura:
+   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Ivanti Service Manager (ISM).
+In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On concedendo l'accesso a ivanti Service Manager (ISM).
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Ivanti Service Manager (ISM)** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Ivanti Service Manager (ISM)** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+## <a name="configure-ivanti-service-manager-ism-sso"></a>Configurare ivanti Service Manager (ISM) SSO
 
-2. Nell'elenco delle applicazioni selezionare **Ivanti Service Manager (ISM)** .
-
-    ![Collegamento di Ivanti Service Manager (ISM) nell'elenco delle applicazioni](common/all-applications.png)
-
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
-
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
-
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+Per configurare l'accesso Single Sign-On sul lato **Ivanti Service Manager (ISM)** , è necessario inviare il file **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Ivanti Service Manager (ISM)](https://www.ivanti.com/support/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-ivanti-service-manager-ism-test-user"></a>Creare un utente di test di Ivanti Service Manager (ISM)
 
@@ -197,16 +136,22 @@ In questa sezione viene creato un utente di nome Britta Simon in Ivanti Service 
 > [!Note]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di Ivanti Service Manager (ISM)](https://www.ivanti.com/support/contact).
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+## <a name="test-sso"></a>Testare l'accesso SSO
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di Ivanti Service Manager (ISM) nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Ivanti Service Manager (ISM) per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Avviato da SP:
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso ivanti Service Manager (ISM) in cui è possibile avviare il flusso di accesso.  
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* Passare direttamente all'URL di accesso a ivanti Service Manager (ISM) e avviare il flusso di accesso da qui.
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Avviato da IDP:
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+* Fare clic su **test questa applicazione** in portale di Azure e si dovrebbe accedere automaticamente al Service Manager IVANTI (ISM) per il quale si configura l'accesso SSO. 
+
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro ivanti Service Manager (ISM) in app personali, se configurato in modalità SP, si verrà reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso e, se configurata in modalità IDP, si dovrebbe accedere automaticamente al Service Manager ivanti (ISM) per il quale si configura SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver configurato ivanti Service Manager (ISM) è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

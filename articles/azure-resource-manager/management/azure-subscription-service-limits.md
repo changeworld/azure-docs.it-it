@@ -3,12 +3,12 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0a20d38d0f8d5be4a19dcdb8b6b846699bac6cc1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ac35f09e1a7274019a8ca504fc697ca81de000f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920469"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370106"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -364,6 +364,9 @@ Per i limiti del database SQL, vedere limiti [delle risorse del database SQL per
 
 Per i limiti di Azure sinapsi Analytics, vedere [limiti delle risorse della sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
+## <a name="azure-files-and-azure-file-sync"></a>File di Azure e Sincronizzazione file di Azure
+Per altre informazioni sui limiti per File di Azure e Sincronizzazione file, vedere [obiettivi di scalabilità e prestazioni di file di Azure](../../storage/files/storage-files-scale-targets.md).
+
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 
 <!--like # storage accts -->
@@ -378,16 +381,6 @@ Per altre informazioni sui limiti per gli account di archiviazione standard, ved
 ### <a name="azure-blob-storage-limits"></a>Limiti relativi ad Archiviazione BLOB di Azure
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### <a name="azure-files-limits"></a>Limiti relativi a File di Azure
-
-Per altre informazioni sui limiti di File di Azure, vedere [obiettivi di scalabilità e prestazioni di file di Azure](../../storage/files/storage-files-scale-targets.md).
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### <a name="azure-file-sync-limits"></a>Limiti relativi a Sincronizzazione file di Azure
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-queue-storage-limits"></a>Limiti relativi ad Archiviazione code di Azure
 

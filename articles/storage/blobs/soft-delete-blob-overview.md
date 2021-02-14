@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979293"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390358"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminazione temporanea per i BLOB
 
@@ -83,7 +83,7 @@ Quando viene chiamato **Delete Blob** su un BLOB di base (qualsiasi BLOB che non
 > [!NOTE]  
 > Quando un BLOB eliminato temporaneamente viene sovrascritto, viene generato automaticamente uno snapshot eliminato temporaneamente dello stato del BLOB prima dell'operazione di scrittura. Il nuovo BLOB eredita il livello del BLOB sovrascritto.
 
-L'eliminazione temporanea non salva i dati in caso di eliminazione di contenitori o account, né quando i metadati e le proprietà del BLOB vengono sovrascritti. Per proteggere un account di archiviazione dall'eliminazione, è possibile configurare un blocco usando il Azure Resource Manager. Per ulteriori informazioni, vedere l'articolo Azure Resource Manager [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+L'eliminazione temporanea non salva i dati in caso di eliminazione di contenitori o account, né quando i metadati e le proprietà del BLOB vengono sovrascritti. Per proteggere un account di archiviazione dall'eliminazione, è possibile configurare un blocco usando il Azure Resource Manager. Per ulteriori informazioni, vedere l'articolo Azure Resource Manager [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).  Per proteggere i contenitori da eliminazioni accidentali, configurare l'eliminazione temporanea del contenitore per l'account di archiviazione. Per altre informazioni, vedere [eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 

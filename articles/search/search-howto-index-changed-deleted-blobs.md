@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: b23dabb4388331de9e37ee9db1d4b9d727ccde68
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430561"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383535"
 ---
-# <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Come configurare il rilevamento delle modifiche e dell'eliminazione per i BLOB in Azure ricerca cognitiva indicizzazione
+# <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Rilevamento di modifiche ed eliminazioni nell'indicizzazione BLOB (ricerca cognitiva di Azure)
 
 Dopo la creazione di un indice di ricerca iniziale, potrebbe essere necessario che i processi indicizzatori successivi rilevino solo documenti nuovi e modificati. Per il contenuto della ricerca originato dall'archiviazione BLOB di Azure, il rilevamento delle modifiche viene eseguito automaticamente quando si usa una pianificazione per attivare l'indicizzazione. Per impostazione predefinita, il servizio indicizza solo i BLOB modificati, come determinato dal timestamp del BLOB `LastModified` . Diversamente da altre origini dati supportate dagli indicizzatori di ricerca, i BLOB hanno sempre un timestamp, che elimina la necessità di configurare manualmente un criterio di rilevamento delle modifiche.
 

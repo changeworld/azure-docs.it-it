@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Elenco di SharePoint Online usando Azure Data Factory
 description: Informazioni su come copiare dati da Elenco di SharePoint Online in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474948"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393429"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiare dati da Elenco di SharePoint Online usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -196,7 +191,7 @@ Quando si copiano dati da Elenco di SharePoint Online, vengono usati i mapping s
 | Più righe di testo                          | Edm.String                                           | string                                   |
 | Scelta (menu da cui scegliere)                    | Edm.String                                           | string                                   |
 | Numero (1, 1.0, 100)                            | Edm.Double                                           | Double                                   |
-| Valuta ($, ¥, €)                              | Edm.Double                                           | Double                                   |
+| Valuta ($, ¥, &euro; )                              | Edm.Double                                           | Double                                   |
 | Data e ora                                   | Edm.DateTime                                         | Datetime                                 |
 | Ricerca (informazioni già presenti nel sito)       | Edm.Int32                                            | Int32                                    |
 | Sì/No (casella di controllo)                              | Edm.Boolean                                          | Boolean                                  |
