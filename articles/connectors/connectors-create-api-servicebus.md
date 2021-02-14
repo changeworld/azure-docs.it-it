@@ -3,16 +3,16 @@ title: Scambiare messaggi con il bus di servizio di Azure
 description: Creare attività e flussi di lavoro automatizzati per l'invio e la ricezione di messaggi tramite il bus di servizio di Azure in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019711"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367419"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -169,7 +169,7 @@ Quando si crea un'app per la logica, è possibile selezionare il modello **di re
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Ritardi negli aggiornamenti dell'app per la logica in corso
 
-Se l'intervallo di polling di un trigger del bus di servizio è ridotto, ad esempio 10 secondi, gli aggiornamenti dell'app per la logica potrebbero non essere effettivi per un massimo di 10 minuti. Per ovviare a questo problema, è possibile aumentare temporaneamente l'intervallo di polling a un valore più grande, ad esempio 30 secondi o 1 minuto, prima di aggiornare l'app per la logica. Dopo aver effettuato l'aggiornamento, è possibile reimpostare l'intervallo di polling sul valore originale. 
+Se l'intervallo di polling di un trigger del bus di servizio è ridotto, ad esempio 10 secondi, gli aggiornamenti dell'app per la logica potrebbero non essere effettivi per un massimo di 10 minuti. Per risolvere questo problema, è possibile disabilitare l'app per la logica, apportare le modifiche e quindi abilitare di nuovo l'app per la logica.
 
 <a name="connector-reference"></a>
 

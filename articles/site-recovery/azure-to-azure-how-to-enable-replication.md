@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 49929cfe0abc634dc4b704aba1c7b11a5d7dd777
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424789"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383586"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replica delle macchine virtuali di Azure in un'altra area di Azure
 
@@ -53,8 +53,11 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
    - **Rete virtuale di destinazione**: per impostazione predefinita, Site Recovery crea una nuova rete virtuale nell'area di destinazione con un suffisso "ASR" nel nome. Questa rete è mappata alla rete di origine ed è usata per protezione futura. [Altre informazioni](./azure-to-azure-network-mapping.md) sul mapping di rete.
    - Gli **account di archiviazione di destinazione (la macchina virtuale di origine non usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione simulando la configurazione dell'archiviazione della VM di origine. Nel caso in cui l'account di archiviazione esista già, verrà riusato.
    - **Dischi gestiti dalla replica (la macchina virtuale di origine usa dischi gestiti)**: Site Recovery crea nuovi dischi gestiti dalla replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (standard o Premium) del disco gestito della VM di origine.
-   - **Account di archiviazione della cache:** Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nella posizione di destinazione. Questo account di archiviazione deve essere standard.
-   - **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "ASR" nel nome, per le macchine virtuali che fanno parte di un set di disponibilità nell'area di origine. Se il set di disponibilità creato da Site Recovery esiste già, verrà riutilizzato.
+   - **Account di archiviazione della cache:** Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nel percorso di destinazione. Questo account di archiviazione deve essere standard.
+   - **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "Azure Site Recovery" nel nome, per le macchine virtuali che fanno parte di un set di disponibilità nell'area di origine. Se il set di disponibilità creato da Site Recovery esiste già, verrà riutilizzato.
+     >[!NOTE]
+     >Quando si configurano i set di disponibilità di destinazione, configurare diversi set di disponibilità per le macchine virtuali di dimensioni diverse. 
+     >
    - **Zone di disponibilità di destinazione**: per impostazione predefinita, Site Recovery assegna nell'area di origine lo stesso numero di zona dell'area di origine se l'area di destinazione supporta le zone di disponibilità.
 
      Se l'area di destinazione non supporta le zone di disponibilità, per impostazione predefinita le macchine virtuali di destinazione vengono configurate come istanze singole. Se necessario, è possibile configurare tali macchine virtuali in modo che siano incluse nel set di disponibilità dell'area di destinazione facendo clic su 'Personalizza'.
@@ -79,9 +82,9 @@ Se si aggiungono dischi a una macchina virtuale di Azure per cui è abilitata la
 
 Per abilitare la replica per un disco aggiunto, procedere come segue:
 
-1.  Nell'insieme di credenziali > **elementi replicati**fare clic sulla macchina virtuale a cui è stato aggiunto il disco.
-2.  Fare clic su **dischi**e quindi selezionare il disco dati per il quale si desidera abilitare la replica (questi dischi hanno uno stato **non protetto** ).
-3.  In **Dettagli disco**fare clic su **Abilita replica**.
+1.  Nell'insieme di credenziali > **elementi replicati** fare clic sulla macchina virtuale a cui è stato aggiunto il disco.
+2.  Fare clic su **dischi** e quindi selezionare il disco dati per il quale si desidera abilitare la replica (questi dischi hanno uno stato **non protetto** ).
+3.  In **Dettagli disco** fare clic su **Abilita replica**.
 
     ![Abilitare la replica per il disco aggiunto](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
 
@@ -103,7 +106,7 @@ Dopo l'esecuzione del processo di abilitazione della replica e il completamento 
 
         ![Screenshot che illustra come personalizzare le impostazioni della sottoscrizione di destinazione.](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 3. Fare clic su **Personalizza** per modificare le impostazioni di replica.
-4. In **coerenza**tra più macchine virtuali selezionare le macchine virtuali che si desidera replicare insieme.
+4. In **coerenza** tra più macchine virtuali selezionare le macchine virtuali che si desidera replicare insieme.
     - Tutte le macchine virtuali in un gruppo di replica avranno punti di ripristino coerenti con l'arresto anomalo del sistema e coerenti con l'app quando si esegue il failover.
     - L'abilitazione della coerenza tra più macchine virtuali può influisca sulle prestazioni del carico di lavoro (in quanto si tratta di una CPU Dovrebbe essere abilitata solo se i computer eseguono lo stesso carico di lavoro ed è necessaria la coerenza tra più computer.
     - Ad esempio, se un'applicazione ha 2 SQL Server macchine virtuali e due server Web, è necessario aggiungere solo le VM SQL Server a un gruppo di replica.

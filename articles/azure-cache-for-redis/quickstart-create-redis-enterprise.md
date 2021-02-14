@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: Crea una cache di livello Enterprise'
-description: Questo argomento di avvio rapido illustra come creare un'istanza di livello Enterprise della cache di Azure per Redis
+title: 'Guida introduttiva: creare una cache Redis Enterprise'
+description: Questa Guida introduttiva illustra come creare un'istanza di cache di Azure per Redis nei livelli Enterprise
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/28/2020
-ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
-ms.translationtype: HT
+ms.date: 02/08/2021
+ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795680"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365005"
 ---
-# <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Guida introduttiva: Crea una cache di livello Enterprise (anteprima)
+# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Guida introduttiva: creare una cache di redis Enterprise (anteprima)
 
 I livelli Enterprise della cache di Azure per Redis offrono una soluzione [Redis Enterprise](https://redislabs.com/redis-enterprise/) completamente integrata e gestita in Azure. Sono attualmente disponibili in anteprima. L'anteprima include due nuovi livelli:
 * Enterprise, che usa memoria volatile (DRAM) in una macchina virtuale per archiviare i dati
@@ -22,7 +22,7 @@ I livelli Enterprise della cache di Azure per Redis offrono una soluzione [Redis
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account](https://azure.microsoft.com/). Per altre informazioni, vedere i [requisiti del livello Enterprise](cache-overview.md#enterprise-tier-requirements).
+Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account](https://azure.microsoft.com/). Per altre informazioni, vedere i [requisiti del livello Enterprise](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
 
 ## <a name="create-a-cache"></a>Creare una cache
 1. Per creare una cache, accedere al portale di Azure seguendo il collegamento nell'invito all'anteprima e quindi selezionare **Crea una risorsa**.

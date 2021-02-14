@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f0c9a01e43f12e8fbe597c85c22b79c0994305e3
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 41662c5e4cc0ed9458f8b1b1279e2753daed789f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938869"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518454"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versioni principali di PostgreSQL supportate
 
@@ -29,11 +29,8 @@ La versione secondaria corrente è 10,11. Per ulteriori informazioni sui miglior
 ## <a name="postgresql-version-96"></a>PostgreSQL versione 9,6
 La versione secondaria corrente è 9.6.16. Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione secondaria, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/release-9-6-16.html) .
 
-## <a name="postgresql-version-95"></a>PostgreSQL versione 9,5
-La versione secondaria corrente è 9.5.20. Per informazioni sui miglioramenti e sulle correzioni in questa versione secondaria, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-20.html) .
-
-> [!NOTE]
-> In linea con i criteri di [controllo delle versioni](https://www.postgresql.org/support/versioning/)della community di Postgres, database di Azure per PostgreSQL ritirerà Postgres versione 9,5 l'11 febbraio 2021. Per ulteriori informazioni e restrizioni, vedere [criteri di controllo delle versioni di database di Azure per PostgreSQL](concepts-version-policy.md) .
+## <a name="postgresql-version-95-retired"></a>PostgreSQL versione 9,5 (ritirata)
+In linea con i [criteri di controllo delle versioni](https://www.postgresql.org/support/versioning/)della community Postgres, database di Azure per PostgreSQL è stato ritirato Postgres versione 9,5 a partire dall'11 febbraio 2021. Per ulteriori informazioni e restrizioni, vedere [criteri di controllo delle versioni di database di Azure per PostgreSQL](concepts-version-policy.md) . Se la versione principale è in esecuzione, eseguire l'aggiornamento a una versione più recente, preferibilmente a PostgreSQL 11.
 
 ## <a name="managing-upgrades"></a>Gestione degli aggiornamenti
 Il progetto PostgreSQL rilascia periodicamente versioni secondarie per correggere i bug segnalati. Database di Azure per PostgreSQL applica automaticamente patch ai server attraverso release minori durante le distribuzioni mensili del servizio. 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e4d25b5ec50346c7a2ecabff835209218d1a3b63
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093404"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518692"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurare le destinazioni di calcolo per il training e la distribuzione dei modelli
 
@@ -225,7 +225,7 @@ Per collegare Azure Databricks come destinazione di calcolo, fornire le informaz
 
 * __Databricks nome di calcolo__: il nome che si vuole assegnare a questa risorsa di calcolo.
 * __Nome area di lavoro databricks__: nome dell'area di lavoro Azure Databricks.
-* __Token di accesso di databricks__: il token di accesso usato per l'autenticazione Azure Databricks. Per generare un token di accesso vedere il documento [Authentication](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) (Autenticazione).
+* __Token di accesso di databricks__: il token di accesso usato per l'autenticazione Azure Databricks. Per generare un token di accesso vedere il documento [Authentication](/azure/databricks/dev-tools/api/latest/authentication) (Autenticazione).
 
 Il codice seguente illustra come associare Azure Databricks come destinazione di calcolo con Azure Machine Learning SDK (__l'area di lavoro databricks deve essere presente nella stessa sottoscrizione dell'area di lavoro di AML__):
 

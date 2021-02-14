@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 5bd1a9111528146224561995feaecf54612a1c78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16eefc8dd3f693e108e457782dc9d076180ba8e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535662"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520596"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Somiglianza e punteggio in Ricerca cognitiva di Azure
 
@@ -21,7 +21,7 @@ Il punteggio fa riferimento al calcolo di un punteggio di ricerca per ogni eleme
 
 Per impostazione predefinita, vengono restituiti i primi 50 elementi nella risposta, ma è possibile usare il parametro **$top** per restituire un numero minore o maggiore di elementi, fino a un massimo di 1000 elementi in una singola risposta, e il parametro **$skip** per ottenere il set di risultati successivo.
 
-Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Ricerca cognitiva di Azure trova documenti che corrispondono ai termini di ricerca (alcuni o tutti, in base a [searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)), preferendo i documenti che includono molte istanze del termine di ricerca. Il punteggio di ricerca aumenta ancora di più se il termine risulta raro nell'indice di dati, ma comune all'interno del documento. La base di questo approccio al calcolo della rilevanza è nota come *TF-IDF* (Term Frequency-Inverse Document Frequency).
+Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei dati e della query. Ricerca cognitiva di Azure trova documenti che corrispondono ai termini di ricerca (alcuni o tutti, in base a [searchMode](/rest/api/searchservice/search-documents#query-parameters)), preferendo i documenti che includono molte istanze del termine di ricerca. Il punteggio di ricerca aumenta ancora di più se il termine risulta raro nell'indice di dati, ma comune all'interno del documento. La base di questo approccio al calcolo della rilevanza è nota come *TF-IDF* (Term Frequency-Inverse Document Frequency).
 
 I valori dei punteggi di ricerca possono essere ripetuti in un set di risultati. Quando più occorrenze hanno lo stesso punteggio di ricerca, l'ordine degli stessi elementi con punteggio non è definito e non è quindi stabile. Eseguire di nuovo la query. È possibile che la posizione degli elementi cambi, soprattutto se si usa il servizio gratuito o un servizio fatturabile con più repliche. Se due elementi hanno punteggio identico, non vi è alcuna garanzia su quale elemento verrà visualizzato per primo.
 
@@ -105,6 +105,6 @@ Per una query destinata ai campi "Description" e "title", una risposta che inclu
 È possibile utilizzare questi punti dati nelle soluzioni di assegnazione dei [punteggi personalizzate](https://github.com/Azure-Samples/search-ranking-tutorial) oppure utilizzare le informazioni per eseguire il debug dei problemi di rilevanza della ricerca.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
  [Profili di Punteggio](index-add-scoring-profiles.md) [API REST](/rest/api/searchservice/) [documentazione](/rest/api/searchservice/search-documents) di riferimento API di ricerca di [Azure ricerca cognitiva .NET SDK](/dotnet/api/overview/azure/search)

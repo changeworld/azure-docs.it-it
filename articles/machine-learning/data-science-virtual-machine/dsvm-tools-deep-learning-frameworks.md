@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Framework e strumenti per Deep learning disponibili in Data Science Virtual Machine di Azure.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309036"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519491"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Apprendimento avanzato e Framework di intelligenza artificiale per Azure Data Science VM
 I Framework per Deep Learning in DSVM sono elencati di seguito.
@@ -146,5 +145,5 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | ------------- | ------------- |
 | Versioni supportate | 1.0.3 |
 | Edizioni DSVM supportate      | Ubuntu 16.04 |
-| Come viene configurata o installata sulla macchina virtuale per data science?  |Theano viene installato in Python 2,7 ( _radice_ ) e nell'ambiente Python 3,5 ( _PY35_ ). |
+| Come viene configurata o installata sulla macchina virtuale per data science?  |Theano viene installato in Python 2,7 (_radice_) e nell'ambiente Python 3,5 (_PY35_). |
 | Come eseguirla      |  Terminale: attivare la versione di Python desiderata (root o PY35), eseguire python, quindi importare Theano.<br/>* Jupyter: selezionare il kernel Python 2,7 o 3,5, quindi importare Theano.  <br/>Per aggirare un bug recente della libreria del kernel matematico (MKL), è necessario innanzitutto impostare il livello di threading MKL nel modo seguente:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

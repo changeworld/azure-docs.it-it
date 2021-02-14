@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni su come creare account utente comuni che possono essere usati tra più istanze di Data Science Virtual Machine. È possibile usare Azure Active Directory o un'istanza di Active Directory locale per l'autenticazione degli utenti alla Data Science Virtual Machine.
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale, processo di data science del team
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 43ef0f55f0b0f3ff9008f0ddf240ad0ea4f37df6
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009229"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519729"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurare un'identità comune in un Data Science Virtual Machine
 

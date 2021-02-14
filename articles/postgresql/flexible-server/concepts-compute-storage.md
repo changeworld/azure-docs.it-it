@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710074"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519389"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opzioni di calcolo e archiviazione nel database di Azure per PostgreSQL-server flessibile
 
@@ -65,7 +65,7 @@ Le specifiche dettagliate dei tipi di server disponibili sono le seguenti:
 | E48s_v3              | 48     | GiB 384     | 18000              | 750 MiB/sec                 |
 | E64s_v3              | 64     | 432 GiB     | 18000              | 750 MiB/sec                 |
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per PostgreSQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server PostgreSQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
@@ -89,7 +89,7 @@ Si noti che gli IOPS sono limitati anche dal tipo di macchina virtuale. Anche se
 È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server.
 
 >[!NOTE]
-> Lo spazio di archiviazione può essere scalato solo, non inattivo.
+> L'archiviazione può essere solo aumentata, non ridotta.
 
 È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche rilevanti per il monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di io](concepts-monitoring.md).
 
@@ -151,7 +151,10 @@ Quando contrassegnato con un \* , la larghezza di banda di i/O è limitata dal t
 
 Quando si raggiunge il limite di archiviazione, il server inizierà a restituire errori e impedirà ulteriori modifiche. Questo può anche causare problemi con altre attività operative, ad esempio i backup e l'archiviazione WAL.
 
+Per evitare questa situazione, quando l'utilizzo dell'archiviazione raggiunge il 95% o se la capacità disponibile è inferiore a 5 GiB, il server passa automaticamente alla **modalità di sola lettura**.
+
 Si consiglia di monitorare attivamente lo spazio su disco in uso e aumentare le dimensioni del disco in anticipo rispetto alla situazione di archiviazione. È possibile impostare un avviso per ricevere una notifica quando l'archiviazione del server si avvicina all'esterno del disco, in modo da evitare eventuali problemi di esaurimento del disco. Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-on-metrics.md).
+
 
 ### <a name="storage-auto-grow"></a>Aumento automatico dell'archiviazione
 

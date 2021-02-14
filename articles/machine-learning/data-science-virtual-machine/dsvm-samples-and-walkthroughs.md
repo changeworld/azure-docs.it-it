@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Con questi esempi e procedure dettagliate, viene illustrato come gestire le attività e gli scenari comuni con i Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012570"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519763"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Esempi sulle macchine virtuali di Data Science di Azure
 
@@ -28,7 +27,7 @@ Le macchine virtuali di Data Science di Azure (Dsvm) includono un set completo d
 Per eseguire questi esempi, è necessario avere effettuato il provisioning di un [Data Science Virtual Machine di Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Esempi disponibili
-| Categoria di esempi | Descrizione | Percorsi |
+| Categoria di esempi | Descrizione | Posizioni |
 | ------------- | ------------- | ------------- |
 | Linguaggio R  | Gli esempi illustrano scenari come la connessione con gli archivi dati cloud basati su Azure e la modalità di confronto tra R e Microsoft Machine Learning Server Open Source. Spiegano inoltre come rendere operativo i modelli in Microsoft Machine Learning Server e SQL Server. <br/> [Linguaggio R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguaggio di programmazione di Python  | Gli esempi illustrano scenari come la connessione con gli archivi dati cloud basati su Azure e come usare Azure Machine Learning.  <br/> [Linguaggio di programmazione di Python](#python-language) | <br/>`~notebooks` <br/><br/>|

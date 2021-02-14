@@ -3,22 +3,22 @@ title: 'ML Studio (classico): eseguire script Python-Azure'
 description: Informazioni su come usare il modulo Execute Python script per usare il codice Python negli esperimenti di Machine Learning Studio (classico) e nei servizi Web.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 822bb43aaeb3cc1cf5914bb1600ef754441c4206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310210"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519984"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Eseguire script di Python Machine Learning in Azure Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Python è uno strumento prezioso nello strumento di molti data scientist. Viene usato in ogni fase dei flussi di lavoro di apprendimento automatico tipici, tra cui esplorazione dei dati, estrazione di funzionalità, training e convalida del modello e distribuzione.

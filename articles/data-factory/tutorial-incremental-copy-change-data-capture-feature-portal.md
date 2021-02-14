@@ -1,22 +1,17 @@
 ---
 title: Eseguire la copia incrementale dei dati tramite Change Data Capture
 description: In questa esercitazione verrà creata una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da una tabella nel database dell'istanza gestita di SQL di Azure in Archiviazione di Azure.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555917"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391270"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Caricare dati in modo incrementale dall'istanza gestita di SQL di Azure in Archiviazione di Azure tramite la tecnologia Change Data Capture
 
@@ -90,10 +85,10 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
     ```sql
      insert into customers 
-        (customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-        (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-        (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
     ```
 
@@ -113,7 +108,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
    Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
 
-    *Il nome della data factory "ADFTutorialDataFactory" non è disponibile.*
+    *Il nome "ADFTutorialDataFactory" per la data factory non è disponibile.*
 3. Selezionare **V2** per **version**.
 4. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 5. Per il **gruppo di risorse**, eseguire una di queste operazioni:

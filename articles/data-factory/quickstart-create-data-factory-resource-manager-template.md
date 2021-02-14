@@ -1,22 +1,20 @@
 ---
 title: Creare un'istanza di Azure Data Factory usando un modello di Azure Resource Manager (ARM)
 description: Creare una pipeline di Azure Data Factory di esempio usando un modello di Azure Resource Manager (ARM).
-services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: f3e76bf16b702adb26183209d36189a53b695c40
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497487"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373845"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Avvio rapido: Creare un'istanza di Azure Data Factory con un modello di Azure Resource Manager
 

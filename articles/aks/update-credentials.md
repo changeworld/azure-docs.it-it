@@ -5,12 +5,12 @@ description: Informazioni su come aggiornare o reimpostare l'entità servizio o 
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427514"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389009"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aggiornare o ruotare le credenziali per il servizio Azure Kubernetes (AKS)
 
@@ -48,6 +48,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 
 Per aggiornare le credenziali per l'entità servizio esistente, ottenere l'ID dell'entità servizio del cluster usando il comando [az aks show][az-aks-show]. L'esempio seguente ottiene l'ID per il cluster denominato *myAKSCluster* nel gruppo di risorse *myResourceGroup*. L'ID entità servizio è impostato come variabile denominata *SP_ID* per l'uso in un comando aggiuntivo. Questi comandi usano la sintassi bash.
 
+> [!WARNING]
+> Quando si reimpostano le credenziali del cluster in un cluster AKS che usa i set di scalabilità di macchine virtuali di Azure, viene eseguito un [aggiornamento dell'immagine del nodo][node-image-upgrade] per aggiornare i nodi con le nuove informazioni sulle credenziali.
+
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
@@ -82,7 +85,7 @@ L'output è simile all'esempio seguente: Prendere nota dei propri valori `appId`
 }
 ```
 
-A questo punto definire le variabili per l'ID dell'entità servizio e il segreto client usando l'output dal proprio comando [az ad sp create-for-rbac][az-ad-sp-create], come illustrato nell'esempio seguente. L' *SP_ID* è l' *appId* e l' *SP_SECRET* è la *password* :
+A questo punto definire le variabili per l'ID dell'entità servizio e il segreto client usando l'output dal proprio comando [az ad sp create-for-rbac][az-ad-sp-create], come illustrato nell'esempio seguente. L'*SP_ID* è l'*appId* e l'*SP_SECRET* è la *password*:
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -96,7 +99,7 @@ Continuare ora ad [aggiornare il cluster AKS con le nuove credenziali dell'entit
 > [!IMPORTANT]
 > Per i cluster di grandi dimensioni, l'aggiornamento del cluster AKS con una nuova entità servizio può richiedere molto tempo.
 
-Indipendentemente dal fatto che si sia scelto di aggiornare le credenziali per l'entità servizio esistente o di creare un'entità servizio, aggiornare il cluster AKS con le nuove credenziali usando il comando [az aks update-credentials][az-aks-update-credentials]. Vengono usate le variabili per *--service-principal* e *--client-secret* :
+Indipendentemente dal fatto che si sia scelto di aggiornare le credenziali per l'entità servizio esistente o di creare un'entità servizio, aggiornare il cluster AKS con le nuove credenziali usando il comando [az aks update-credentials][az-aks-update-credentials]. Vengono usate le variabili per *--service-principal* e *--client-secret*:
 
 ```azurecli-interactive
 az aks update-credentials \
@@ -138,3 +141,4 @@ In questo articolo è stata aggiornata l'entità servizio per il cluster AKS e l
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: ./node-image-upgrade.md

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c4ad270b989e0e212c1d362ae4bfafc91fe07f3e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 61ba50f8ec9e1de18238160b23096670753cffd6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943578"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367504"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -158,7 +158,9 @@ Concedere alla rete CDN di Azure l'autorizzazione ad accedere ai certificati (se
 
 5. Selezionare **Aggiungi**. 
 
-    La rete CDN di Azure può ora accedere a questo insieme di credenziali delle chiavi e ai certificati (segreti) in esso archiviati.
+> [!NOTE]
+> La rete CDN di Azure può ora accedere a questo insieme di credenziali delle chiavi e ai certificati (segreti) in esso archiviati. Qualsiasi istanza della rete CDN creata in questa sottoscrizione avrà accesso ai certificati in questo insieme di credenziali delle chiavi. 
+
  
 ### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Selezionare il certificato da distribuire per la rete CDN di Azure
  

@@ -1,22 +1,18 @@
 ---
 title: Integrazione e recapito continui in Azure Data Factory
 description: Informazioni su come usare l'integrazione e il recapito continui per spostare le pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: jroth
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680295"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383603"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 

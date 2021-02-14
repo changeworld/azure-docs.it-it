@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni sugli strumenti e i Framework di apprendimento automatico preinstallati nella Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ac71d8d7830f1d740d0156886a364b1d53ab247f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014211"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519559"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Strumenti di machine learning e data science sulle macchine virtuali di Data Science di Azure
 Le macchine virtuali di Data Science di Azure (Dsvm) hanno un ampio set di strumenti e librerie per machine learning disponibili nei linguaggi più diffusi, come Python, R e Julia.

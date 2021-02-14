@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a1fb1c1be8a0203d9f36712fda8e30f0f9354091
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fc3ad3e1597d9b38bd095875c8a6f11260e8711
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576116"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515174"
 ---
 È possibile distribuire i profili per i client VPN di Azure (Windows 10) usando Microsoft Intune. Questo articolo consente di creare un profilo di Intune usando le impostazioni personalizzate.
 
@@ -46,21 +46,14 @@ Per altre opzioni supportate, vedere l'articolo relativo a [VPNV2 CSP](https://d
       <PluginProfile>
         <ServerUrlList>azuregateway-7cee0077-d553-4323-87df-069c331f58cb-053dd0f6af02.vpn.azure.com</ServerUrlList> 
         <CustomConfiguration>
+
         </CustomConfiguration>
         <PluginPackageFamilyName>Microsoft.AzureVpn_8wekyb3d8bbwe</PluginPackageFamilyName>
       </PluginProfile>
     </VPNProfile>
    ```
 1. Modificare la voce tra ```<ServerUrlList>``` e ```</ServerUrlList>``` con la voce del profilo scaricato (azurevpnconfig.xml). Modificare il nome di dominio completo "TrustedNetworkDetection" per adattarlo all'ambiente.
-1. Aprire il profilo scaricato di Azure (azurevpnconfig.xml) e copiare il contenuto negli appunti evidenziando il testo e premendo <ctrl> + C. copiare tutti gli elementi tra le seguenti righe di AzVpnProfile, ma non copiare le righe AzVpnProfile:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-   For example - copy the text in your xml that is located here.
-   </AzVpnProfile>
-   ```
+1. Aprire il profilo scaricato di Azure (azurevpnconfig.xml) e copiare l'intero contenuto negli appunti evidenziando il testo e premendo CTRL + C. 
 1. Incollare il testo copiato dal passaggio precedente nel file creato nel passaggio 2 tra i ```<CustomConfiguration>  </CustomConfiguration>``` tag. Salvare il file con un'estensione XML.
 1. Annotare il valore nei ```<name>  </name>``` tag. Nome del profilo. Questo nome sarà necessario quando si crea il profilo in Intune. Chiudere il file e ricordare il percorso in cui viene salvato.
 

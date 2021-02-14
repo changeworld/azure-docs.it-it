@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979224"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390573"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Supporto del feed delle modifiche nell'archiviazione BLOB di Azure
 
@@ -159,7 +159,7 @@ Vedere [elaborare i log dei feed delle modifiche nell'archivio BLOB di Azure](st
 
 Il feed di modifiche è un log delle modifiche organizzate in  *segmenti* orari, ma aggiunte e aggiornate a intervalli di pochi minuti. Questi segmenti vengono creati solo quando sono presenti eventi di modifica del BLOB che si verificano in quell'ora. Ciò consente all'applicazione client di utilizzare le modifiche che si verificano in intervalli di tempo specifici senza dover eseguire ricerche nell'intero log. Per altre informazioni, vedere le [specifiche](#specifications).
 
-Un segmento orario disponibile del feed di modifiche viene descritto in un file manifesto che specifica i percorsi dei file del feed delle modifiche per il segmento. L'elenco della `$blobchangefeed/idx/segments/` directory virtuale Mostra questi segmenti ordinati in base all'ora. Il percorso del segmento descrive l'inizio dell'intervallo di tempo orario rappresentato dal segmento. È possibile utilizzare tale elenco per filtrare i segmenti di log che interessano.
+Un segmento orario disponibile del feed di modifiche viene descritto in un file manifesto che specifica i percorsi dei file del feed delle modifiche per il segmento. L'elenco della `$blobchangefeed/idx/segments/` directory virtuale Mostra questi segmenti ordinati in base all'ora. Il percorso del segmento descrive l'inizio dell'intervallo di tempo orario rappresentato dal segmento. È possibile utilizzare tale elenco per filtrare i segmenti dei log di interesse.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    

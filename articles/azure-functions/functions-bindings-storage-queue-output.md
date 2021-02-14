@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 778424cbb81f8fe51a57dd41d94aa9015ffad94e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001253"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381512"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Associazioni di output di archiviazione code di Azure per funzioni di Azure
 
@@ -398,13 +398,15 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. Impostare su `$return` per fare riferimento al valore restituito della funzione.|
 |**queueName** |**QueueName** | Nome della coda. |
-|**connection** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**connection** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome.<br><br>Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>Se si usa [la versione 5. x o una versione successiva dell'estensione](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), anziché una stringa di connessione, è possibile fornire un riferimento a una sezione di configurazione che definisce la connessione. Vedere [connessioni](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Predefinito
 
 Scrivere un singolo messaggio della coda usando un parametro di metodo, ad esempio `out T paramName` . È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
 
@@ -420,7 +422,18 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 * `ICollector<T>` o `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
+### <a name="additional-types"></a>Tipi aggiuntivi
+
+Anche le app che usano la [versione 5.0.0 o successiva dell'estensione di archiviazione](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) possono usare i tipi di [Azure SDK per .NET](/dotnet/api/overview/azure/storage.queues-readme). Questa versione Elimina il supporto per i `CloudQueue` tipi legacy e `CloudQueueMessage` a favore dei tipi seguenti:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient) per la scrittura di più messaggi in coda
+
+Per esempi relativi all'uso di questi tipi, vedere [il repository GitHub per l'estensione](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
+
+### <a name="default"></a>Predefinito
 
 Scrivere un singolo messaggio della coda usando un parametro di metodo, ad esempio `out T paramName` . `paramName`È il valore specificato nella `name` proprietà di *function.jssu*. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
 
@@ -435,6 +448,15 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 
 * `ICollector<T>` o `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+### <a name="additional-types"></a>Tipi aggiuntivi
+
+Anche le app che usano la [versione 5.0.0 o successiva dell'estensione di archiviazione](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) possono usare i tipi di [Azure SDK per .NET](/dotnet/api/overview/azure/storage.queues-readme). Questa versione Elimina il supporto per i `CloudQueue` tipi legacy e `CloudQueueMessage` a favore dei tipi seguenti:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient) per la scrittura di più messaggi in coda
+
+Per esempi relativi all'uso di questi tipi, vedere [il repository GitHub per l'estensione](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -469,38 +491,6 @@ Sono disponibili due opzioni per l'output di un messaggio della coda da una funz
 | Coda | [Codici di errore della coda](/rest/api/storageservices/queue-service-error-codes) |
 | Blob, Table, Queue | [Codici di errore di archiviazione](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Table, Queue |  [Risoluzione dei problemi](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
-
-<a name="host-json"></a>  
-
-## <a name="hostjson-settings"></a>impostazioni host.json
-
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il host.jsdi esempio nel file seguente contiene solo le impostazioni versione 2. x + per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere [host.jsdi riferimento per funzioni di Azure](functions-host-json.md).
-
-> [!NOTE]
-> Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "queues": {
-            "maxPollingInterval": "00:00:02",
-            "visibilityTimeout" : "00:00:30",
-            "batchSize": 16,
-            "maxDequeueCount": 5,
-            "newBatchThreshold": 8
-        }
-    }
-}
-```
-
-|Proprietà  |Predefinito | Descrizione |
-|---------|---------|---------|
-|maxPollingInterval|00:00:01|L'intervallo massimo tra i polling di coda. Il valore minimo è 00:00:00.100 (100 ms) e incrementa fino a 00:01:00 (1 min).  In 1. x il tipo di dati è millisecondi e in 2. x e versioni successive si tratta di un intervallo di tempo.|
-|visibilityTimeout|00:00:00|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo. |
-|batchSize|16|Il numero di messaggi in coda che il runtime di Funzioni recupera simultaneamente e di processi in parallelo. Quando il numero elaborato viene ridotto a `newBatchThreshold`, il runtime ottiene un altro batch e inizia l'elaborazione dei messaggi. Di conseguenza, il numero massimo di messaggi simultanei elaborati per ogni funzione è `batchSize` più `newBatchThreshold`. Questo limite si applica separatamente a ogni funzione attivata dalla coda. <br><br>Se si vuole evitare l'esecuzione in parallelo per i messaggi ricevuti su una coda, è possibile impostare `batchSize` su 1. Tuttavia, questa impostazione elimina solo la concorrenza se l'app per le funzioni viene eseguita su una singola macchina virtuale (VM). Se l'app per le funzioni scala orizzontalmente più macchine virtuali, ogni macchina virtuale potrebbe eseguire un'istanza di ogni funzione attivata dalla coda.<br><br>Il valore massimo per `batchSize` è 32. |
-|maxDequeueCount|5|Il numero di volte per provare l'elaborazione di un messaggio prima di essere spostato nella coda non elaborabile.|
-|newBatchThreshold|batchSize/2|Ogni volta che il numero di messaggi elaborati simultaneamente viene ridotto a questo numero, il runtime recupera un altro batch.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

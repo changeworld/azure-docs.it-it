@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da e verso Oracle usando Azure Data Factory
 description: Informazioni su come copiare dati da archivi di origine supportati in un database Oracle o da Oracle in archivi di sink supportati, usando Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91407827"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381342"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 
@@ -59,7 +54,7 @@ In particolare, questo connettore Oracle supporta:
 
 Il runtime di integrazione fornisce un driver Oracle incorporato. Non è pertanto necessario installare manualmente un driver quando si copiano dati da e in Oracle.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -154,13 +149,13 @@ Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due 
         "type": "Oracle",
         "typeProperties": {
             "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -219,7 +214,7 @@ Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `OracleSource` . | Sì |
 | oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si Abilita il caricamento partizionato, è necessario associare tutti i parametri di partizione predefiniti corrispondenti nella query. Per esempi, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Oracle. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da un database Oracle è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Oracle. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da un database Oracle è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
 | partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None` . | No |
 | partitionNames | Elenco di partizioni fisiche che devono essere copiate. <br>Si applica quando l'opzione di partizione è `PhysicalPartitionsOfTable`. Se si usa una query per recuperare i dati di origine, associare `?AdfTabularPartitionName` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
 | partitionColumnName | Specifica il nome della colonna di origine **nel tipo Integer** che verrà usata dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, la chiave primaria della tabella viene rilevata automaticamente e utilizzata come colonna della partizione. <br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfRangePartitionColumnName` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
@@ -375,7 +370,7 @@ Quando si copiano dati da e in Oracle, vengono applicati i mapping seguenti. Per
 | timestamp |Datetime |
 | TIMESTAMP WITH LOCAL TIME ZONE |string |
 | TIMESTAMP WITH TIME ZONE |string |
-| UNSIGNED INTEGER |Numero |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |string |
 | XML |string |
 

@@ -1,24 +1,20 @@
 ---
 title: Rete virtuale gestita & endpoint privati gestiti
 description: Informazioni sulla rete virtuale gestita e sugli endpoint privati gestiti in Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980379"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379574"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -51,7 +47,7 @@ Gli endpoint privati gestiti sono endpoint privati creati nella Azure Data Facto
 
 ![Nuovo endpoint privato gestito](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory supporta i collegamenti privati. Il collegamento privato consente di accedere ai servizi di Azure (PaaS), ad esempio archiviazione di Azure, Azure Cosmos DB, Azure sinapsi Analytics (in precedenza SQL Data Warehouse)).
+Azure Data Factory supporta i collegamenti privati. Il collegamento privato consente di accedere ai servizi di Azure (PaaS), ad esempio archiviazione di Azure, Azure Cosmos DB, Azure sinapsi Analytics.
 
 Quando si usa un collegamento privato, il traffico tra gli archivi dati e la rete virtuale gestita attraversa interamente la rete dorsale Microsoft. Il collegamento privato protegge da rischi di esfiltrazione dei dati. Per stabilire un collegamento privato a una risorsa, è necessario creare un endpoint privato.
 
@@ -86,7 +82,7 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - File di Azure
 - Azure Data Lake Gen2
 - Database SQL di Azure (senza includere Istanza gestita SQL di Azure)
-- Azure Synapse Analytics (in precedenza SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL di Azure CosmosDB
 - Insieme di credenziali chiave di Azure
 - Servizio di collegamento privato di Azure
@@ -115,7 +111,7 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - Archiviazione di Azure e Azure Data Lake Gen2 non sono supportati per la connessione tramite un endpoint pubblico dalla rete virtuale gestita di ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Creazione del servizio collegato di Azure Key Vault 
-- Quando si crea un servizio collegato per Azure Key Vault, non esiste alcun riferimento Azure Integration Runtime. Non è quindi possibile creare un endpoint privato durante la creazione del servizio collegato di Azure Key Vault. Tuttavia, quando si crea un servizio collegato per gli archivi dati che fa riferimento Azure Key Vault servizio collegato e questo servizio collegato fa riferimento Azure Integration Runtime con la rete virtuale gestita abilitata, è possibile creare un endpoint privato per il servizio collegato Azure Key Vault durante la creazione. 
+- Quando si crea un servizio collegato per Azure Key Vault, non esiste alcun riferimento ad Azure Integration Runtime. Non è quindi possibile creare un endpoint privato durante la creazione del servizio collegato di Azure Key Vault. Tuttavia, quando si crea un servizio collegato per gli archivi dati che fa riferimento Azure Key Vault servizio collegato e questo servizio collegato fa riferimento Azure Integration Runtime con la rete virtuale gestita abilitata, è possibile creare un endpoint privato per il servizio collegato Azure Key Vault durante la creazione. 
 - L'operazione di **test della connessione** per il servizio collegato di Azure Key Vault convalida solo il formato dell'URL, ma non esegue alcuna operazione di rete.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001236"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381495"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Trigger di archiviazione code di Azure per funzioni di Azure
 
@@ -357,13 +357,15 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction**| n/d | Solo nel file *function.json*. Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | n/d |Nome della variabile che contiene il payload dell'elemento della coda nel codice della funzione.  |
 |**queueName** | **QueueName**| Nome della coda sulla quale eseguire il polling. |
-|**connection** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**connection** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome.<br><br>Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>Se si usa [la versione 5. x o una versione successiva dell'estensione](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), anziché una stringa di connessione, è possibile fornire un riferimento a una sezione di configurazione che definisce la connessione. Vedere [connessioni](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Predefinito
 
 Accedere ai dati del messaggio usando un parametro di metodo, ad esempio `string paramName` . È possibile definire associazioni con uno dei seguenti tipi:
 
@@ -374,7 +376,17 @@ Accedere ai dati del messaggio usando un parametro di metodo, ad esempio `string
 
 Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### <a name="additional-types"></a>Tipi aggiuntivi
+
+Anche le app che usano la [versione 5.0.0 o successiva dell'estensione di archiviazione](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) possono usare i tipi di [Azure SDK per .NET](/dotnet/api/overview/azure/storage.queues-readme). Questa versione Elimina il supporto per il `CloudQueueMessage` tipo legacy a favore dei tipi seguenti:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+Per esempi relativi all'uso di questi tipi, vedere [il repository GitHub per l'estensione](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
+
+### <a name="default"></a>Predefinito
 
 Accedere ai dati del messaggio usando un parametro di metodo, ad esempio `string paramName` . `paramName`È il valore specificato nella `name` proprietà di *function.jssu*. È possibile definire associazioni con uno dei seguenti tipi:
 
@@ -384,6 +396,14 @@ Accedere ai dati del messaggio usando un parametro di metodo, ad esempio `string
 * [CloudQueueMessage]
 
 Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="additional-types"></a>Tipi aggiuntivi
+
+Anche le app che usano la [versione 5.0.0 o successiva dell'estensione di archiviazione](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) possono usare i tipi di [Azure SDK per .NET](/dotnet/api/overview/azure/storage.queues-readme). Questa versione Elimina il supporto per il `CloudQueueMessage` tipo legacy a favore dei tipi seguenti:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+Per esempi relativi all'uso di questi tipi, vedere [il repository GitHub per l'estensione](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -448,7 +468,7 @@ Il trigger della coda impedisce automaticamente a una funzione di elaborare un m
 
 ## <a name="hostjson-properties"></a>Proprietà di host.json
 
-Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che controllano il comportamento del trigger della coda. Per informazioni dettagliate sulle impostazioni disponibili, vedere la sezione [host.jsimpostazioni](functions-bindings-storage-queue-output.md#hostjson-settings) .
+Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che controllano il comportamento del trigger della coda. Per informazioni dettagliate sulle impostazioni disponibili, vedere la sezione [host.jsimpostazioni](functions-bindings-storage-queue.md#hostjson-settings) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

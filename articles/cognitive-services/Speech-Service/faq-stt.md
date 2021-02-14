@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226557"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388618"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -140,7 +140,7 @@ Vedere [quote e limiti per i servizi di riconoscimento vocale](speech-services-q
 
 Per ottenere risultati più rapidi, usare una delle [aree](custom-speech-overview.md#set-up-your-azure-account) in cui è disponibile hardware dedicato per il training. In generale, il servizio elabora circa 10 ore di dati audio al giorno in aree con hardware di questo tipo. Può elaborare circa 1 ora di dati audio al giorno in altre aree. È possibile copiare il modello completamente sottoposto a training in un'altra area usando l' [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Il training con solo testo è molto più veloce e in genere viene completato in pochi minuti.
 
-Alcuni modelli di base non possono essere personalizzati con dati audio. Il servizio utilizzerà semplicemente il testo della trascrizione per il training e ignorerà i dati audio. Il training verrà completato molto più velocemente e i risultati saranno uguali a quelli di training con solo testo.
+Alcuni modelli di base non possono essere personalizzati con dati audio. Il servizio utilizzerà semplicemente il testo della trascrizione per il training e ignorerà i dati audio. Il training verrà completato molto più velocemente e i risultati saranno uguali a quelli di training con solo testo. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) .
 
 ## <a name="accuracy-testing"></a>Test di accuratezza
 

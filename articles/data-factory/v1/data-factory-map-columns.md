@@ -1,28 +1,24 @@
 ---
 title: Mapping delle colonne del set di dati in Azure Data Factory
 description: Informazioni su come eseguire il mapping delle colonne di origine alle colonne di destinazione.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318876"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371125"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. 
 
-Mapping di colonne utilizzabile per specificare come le colonne specificate nella "struttura" di mapping della tabella di origine alle colonne specificate nella "struttura" della tabella di sink. La proprietà **columnMapping** è disponibile nella sezione **typeProperties** dell'attività di copia.
+Il mapping delle colonne può essere utilizzato per specificare come le colonne specificate nella "struttura" della tabella di origine vengono mappate alle colonne specificate nella "struttura" della tabella di sink. La proprietà **columnMapping** è disponibile nella sezione **typeProperties** dell'attività di copia.
 
 Il mapping di colonne supporta gli scenari seguenti:
 
@@ -31,7 +27,7 @@ Il mapping di colonne supporta gli scenari seguenti:
 
 Le seguenti sono condizioni di errore che generano un'eccezione:
 
-* Un numero inferiore o superiore di colonne nella "struttura" della tabella di sink di quanto specificato nel mapping.
+* Un numero minore di colonne o più colonne nella "struttura" della tabella di sink rispetto a quanto specificato nel mapping.
 * Mapping duplicato.
 * Il risultato della query SQL non ha un nome colonna specificato nel mapping.
 
@@ -140,7 +136,7 @@ Il codice JSON seguente definisce un'attività di copia in una pipeline. Le colo
 ![Flusso del mapping di colonne](./media/data-factory-map-columns/column-mapping-flow.png)
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Esempio 2: mapping di colonne con query SQL da Azure SQL al BLOB di Azure
-In questo esempio, una query SQL viene utilizzata per estrarre dati da Azure SQL invece di specificare semplicemente il nome della tabella e i nomi delle colonne nella sezione "struttura". 
+In questo esempio viene usata una query SQL per estrarre i dati da Azure SQL invece di specificare semplicemente il nome della tabella e i nomi delle colonne nella sezione "Structure". 
 
 ```json
 {
@@ -172,7 +168,7 @@ In questo esempio, una query SQL viene utilizzata per estrarre dati da Azure SQL
         }
 }
 ```
-In questo caso, i risultati della query vengono prima mappati alle colonne specificate in "struttura" di origine. Successivamente, le colonne di origine "struttura" vengono mappate alle colonne nel sink "struttura" con le regole specificate nel columnMappings.  Si supponga che la query restituisca 5 colonne, due in più di quelle specificate nella "struttura" dell'origine.
+In questo caso, i risultati della query vengono prima mappati alle colonne specificate nella "struttura" di origine. Successivamente, viene eseguito il mapping delle colonne dell'origine "Structure" alle colonne nel sink "Structure" con le regole specificate in columnMappings.  Si supponga che la query restituisca 5 colonne, altre due colonne rispetto a quelle specificate nella "struttura" di origine.
 
 **Flusso del mapping di colonne**
 

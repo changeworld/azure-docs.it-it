@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/28/2017
+ms.date: 02/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fa7616a740e8246fa08e950494428095f41ee404
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966191"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382855"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
 
@@ -41,7 +41,7 @@ Di seguito sono indicati i requisiti software per i client di archiviazione che 
 
 | Sistemi operativi supportati | Versione richiesta | Requisiti aggiuntivi/note |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |I volumi iSCSI StorSimple sono supportati per l'uso solo con i tipi di disco di Windows seguenti:<ul><li>Volume semplice su disco di base</li><li>Volume semplice e con mirroring su disco dinamico</li></ul>Sono supportati solo gli iniziatori iSCSI software presenti in modo nativo nel sistema operativo. Gli iniziatori iSCSI hardware non sono supportati.<br></br>Le funzionalità ODX e di thin provisioning di Windows Server 2012 e 2016 sono supportate se si usa un volume iSCSI StorSimple.<br><br>StorSimple consente di creare volumi di thin provisioning o di provisioning completo. Non è in grado di creare volumi con provisioning parziale.<br><br>La riformattazione di un volume con thin provisioning può richiedere molto tempo. È consigliabile eliminare il volume e quindi crearne uno nuovo invece di riformattarlo. Se tuttavia si preferisce riformattare un volume:<ul><li>Eseguire il comando seguente prima della riformattazione per evitare ritardi nel recupero dello spazio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Al termine della formattazione usare il comando seguente per riabilitare il recupero dello spazio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Applicare l'hotfix per Windows Server 2012 descritto nell'articolo [KB 2878635](https://support.microsoft.com/kb/2870270) al computer Windows Server.</li></ul></li></ul></ul> Se si configura Gestione snapshot StorSimple o l'adattatore StorSimple per SharePoint, passare a [Requisiti software per i componenti facoltativi](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |I volumi iSCSI StorSimple sono supportati per l'uso solo con i tipi di disco di Windows seguenti:<ul><li>Volume semplice su disco di base</li><li>Volume semplice e con mirroring su disco dinamico</li></ul>Sono supportati solo gli iniziatori iSCSI software presenti in modo nativo nel sistema operativo. Gli iniziatori iSCSI hardware non sono supportati.<br></br>Le funzionalità ODX e di thin provisioning di Windows Server 2012 e 2016 sono supportate se si usa un volume iSCSI StorSimple.<br><br>StorSimple consente di creare volumi di thin provisioning o di provisioning completo. Non è in grado di creare volumi con provisioning parziale.<br><br>La riformattazione di un volume con thin provisioning può richiedere molto tempo. È consigliabile eliminare il volume e quindi crearne uno nuovo invece di riformattarlo. Se tuttavia si preferisce riformattare un volume:<ul><li>Eseguire il comando seguente prima della riformattazione per evitare ritardi nel recupero dello spazio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Al termine della formattazione usare il comando seguente per riabilitare il recupero dello spazio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Applicare l'hotfix per Windows Server 2012 descritto nell'articolo [KB 2878635](https://support.microsoft.com/kb/2870270) al computer Windows Server.</li></ul></li></ul></ul> Se si configura Gestione snapshot StorSimple o l'adattatore StorSimple per SharePoint, passare a [Requisiti software per i componenti facoltativi](#software-requirements-for-optional-components). <br> Se il client Windows Server usa il protocollo SMB per accedere al dispositivo StorSimple, passare a [ottimizzazione delle prestazioni per i file server SMB](/windows-server/administration/performance-tuning/role/file-server/smb-file-server) per istruzioni sull'aumento dell'elaborazione parallela.|
 | VMware ESX |5.5 e 6.0 |Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple. |
 | Linux RHEL/CentOS |5, 6 e 7 |Supporto per client Linux iSCSI con iniziatore Open-iSCSI versioni 5, 6 e 7. |
 | Linux |SUSE Linux 11 | |
@@ -63,7 +63,7 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
 
 Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario aprire le porte nel firewall per consentire il traffico iSCSI, cloud e di gestione. La tabella seguente mostra l'elenco delle porte che devono essere aperte nel firewall. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Fuori* o *in uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
-| Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatoria | Note |
+| Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Necessario | Note |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |In uscita |WAN |No |<ul><li>La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |In uscita |WAN |Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li><li>Questa porta viene usata anche su entrambi i controller per operazioni di garbage collection.</li></ul> |
@@ -233,7 +233,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 * Verificare che entrambi i moduli controller dello chassis EBOD, entrambi i cavi SAS e tutte le unità disco rigido siano sempre installati.
 * In caso di guasto di un modulo controller dell'enclosure EBOD, richiedere immediatamente una sostituzione.
 * Se un modulo controller dello chassis EBOD smette di funzionare, prima di sostituirlo assicurarsi che l'altro modulo controller sia attivo. Per verificare che un controller sia attivo, vedere [Identificare il controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio Device Manager di StorSimple accedendo a **monitoraggio**  >  **integrità hardware**.
+* Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio gestione dispositivi di StorSimple accedendo a **monitoraggio**  >  **integrità hardware**.
 * Se un cavo SAS non funziona o deve essere sostituito (per determinare lo stato del cavo, coinvolgere il supporto tecnico Microsoft), assicurarsi di rimuovere solo il cavo SAS che richiede la sostituzione.
 * Non rimuovere contemporaneamente entrambi i cavi SAS dal sistema in qualsiasi momento.
 

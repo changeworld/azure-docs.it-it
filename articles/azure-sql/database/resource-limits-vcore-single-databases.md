@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2021
-ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735242"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518046"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,14 +42,14 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |VCore min-max|0.5-1|0.5-2|0,5-4|0,75-6|1.0-8|
 |Memoria min-max (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3.00-24|
 |Ritardo di sospensione automatico min-max (minuti)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
+|Supporto per columnstore|Sì*|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|512|1024|1024|1024|1536|
 |Dimensioni massime del log (GB)|154|307|307|307|461|
 |Dimensioni massime dati TempDB (GB)|32|64|128|192|256|
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Numero massimo di IOPS dati *|320|640|1280|1920|2560|
+|Numero massimo di IOPS dati \*\*|320|640|1280|1920|2560|
 |Velocità massima log (MBps)|4.5|9|18|27|36|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|75|150|300|450|600|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|
@@ -58,7 +58,8 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Gli obiettivi di servizio con configurazioni max Vcore più piccole potrebbero avere memoria insufficiente per la creazione e l'utilizzo di indici columnstore.  Se si verificano problemi di prestazioni con l'archivio colonne, aumentare la configurazione di max Vcore per aumentare la memoria massima disponibile.  
+\*\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generazione di calcolo quinta generazione (parte 2)
 
@@ -212,7 +213,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Dimensioni massime del log (TB)|Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
-|Numero massimo di IOPS SSD locali *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
+|Numero massimo di IOPS SSD locali *|64000 |72000 |80000 |96000 |128000 |160000 |204800 |
 |Velocità massima log (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |Latenza di I/O (approssimativa)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|

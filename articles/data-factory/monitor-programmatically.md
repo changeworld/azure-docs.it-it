@@ -1,22 +1,18 @@
 ---
 title: Monitorare a livello di codice una data factory di Azure
 description: Informazioni su come monitorare una pipeline in una data factory con diversi Software Development Kit (SDK).
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556563"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379897"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorare a livello di codice una data factory di Azure
 
@@ -28,12 +24,23 @@ Informazioni su come monitorare una pipeline in una data factory con diversi Sof
 
 ## <a name="data-range"></a>Intervallo di dati
 
-Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. Quando si eseguono query a livello di codice relative ai dati delle esecuzioni della pipeline di Data Factory, ad esempio con il comando di PowerShell `Get-AzDataFactoryV2PipelineRun` non sono presenti date massime per i parametri facoltativi `LastUpdatedAfter` e `LastUpdatedBefore`. Se, invece, si eseguono query sui dati dell'anno precedente, la query non restituisce un errore ma solo i dati di esecuzione della pipeline degli ultimi 45 giorni.
+Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. Quando si eseguono query a livello di codice relative ai dati delle esecuzioni della pipeline di Data Factory, ad esempio con il comando di PowerShell `Get-AzDataFactoryV2PipelineRun` non sono presenti date massime per i parametri facoltativi `LastUpdatedAfter` e `LastUpdatedBefore`. Tuttavia, se si esegue una query per i dati relativi all'anno precedente, ad esempio, non si riceverà un errore ma solo i dati di esecuzione della pipeline dagli ultimi 45 giorni.
 
-Per rendere permanenti i dati di esecuzione della pipeline per più di 45 giorni, impostare la registrazione diagnostica con [Monitoraggio di Azure](monitor-using-azure-monitor.md).
+Se si vuole tenere i dati di esecuzione della pipeline per più di 45 giorni, configurare la registrazione diagnostica con [monitoraggio di Azure](monitor-using-azure-monitor.md).
+
+## <a name="pipeline-run-information"></a>Informazioni sull'esecuzione della pipeline
+
+Per le proprietà di esecuzione della pipeline, vedere informazioni di [riferimento sull'API PipelineRun](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Un'esecuzione di pipeline presenta uno stato diverso durante il ciclo di vita. i possibili valori dello stato di esecuzione sono elencati di seguito:
+
+* Queued
+* InProgress
+* Completato
+* Non riuscito
+* Canceling
+* Cancellati
 
 ## <a name="net"></a>.NET
-Per una descrizione completa di creazione e monitoraggio di una pipeline con .NET SDK, vedere [Creare una data factory e una pipeline con .NET SDK](quickstart-create-data-factory-dot-net.md).
+Per una procedura dettagliata completa di creazione e monitoraggio di una pipeline con .NET SDK, vedere [creare una data factory e una pipeline con .NET](quickstart-create-data-factory-dot-net.md).
 
 1. Aggiungere il codice seguente per controllare continuamente lo stato dell'esecuzione della pipeline fino al termine della copia dei dati.
 
@@ -45,7 +52,7 @@ Per una descrizione completa di creazione e monitoraggio di una pipeline con .NE
     {
         pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
         Console.WriteLine("Status: " + pipelineRun.Status);
-        if (pipelineRun.Status == "InProgress")
+        if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
             System.Threading.Thread.Sleep(15000);
         else
             break;
@@ -71,7 +78,7 @@ Per una descrizione completa di creazione e monitoraggio di una pipeline con .NE
 Per la documentazione completa su .NET SDK, vedere le [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory) (Informazioni di riferimento su .NET SDK di Data Factory).
 
 ## <a name="python"></a>Python
-Per una descrizione completa di creazione e monitoraggio di una pipeline con Python SDK, vedere [Creare una data factory e una pipeline con Python](quickstart-create-data-factory-python.md).
+Per una procedura dettagliata completa di creazione e monitoraggio di una pipeline con Python SDK, vedere [creare una data factory e una pipeline con Python](quickstart-create-data-factory-python.md).
 
 Per monitorare l'esecuzione della pipeline, aggiungere il codice seguente
 
@@ -89,7 +96,7 @@ print_activity_run_details(activity_runs_paged[0])
 Per la documentazione completa su Python SDK, vedere [Data Factory](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>API REST
-Per una descrizione completa sulla creazione e sul monitoraggio di una pipeline con API REST, vedere [Creare una data factory di Azure e una pipeline usando l'API REST](quickstart-create-data-factory-rest-api.md).
+Per una procedura dettagliata completa di creazione e monitoraggio di una pipeline con l'API REST, vedere [creare una data factory e una pipeline usando l'API REST](quickstart-create-data-factory-rest-api.md).
  
 1. Eseguire lo script seguente per verificare continuamente lo stato di esecuzione della pipeline fino al termine della copia dei dati.
 
@@ -99,7 +106,7 @@ Per una descrizione completa sulla creazione e sul monitoraggio di una pipeline 
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {
@@ -119,7 +126,7 @@ Per una descrizione completa sulla creazione e sul monitoraggio di una pipeline 
 Per la documentazione completa sull'API REST, vedere [Data Factory REST API Reference](/rest/api/datafactory/) (Informazioni di riferimento sull'API REST di Data Factory).
 
 ## <a name="powershell"></a>PowerShell
-Per una descrizione completa sulla creazione e sul monitoraggio di una pipeline con PowerShell, vedere [Creare una data factory e una pipeline con PowerShell](quickstart-create-data-factory-powershell.md).
+Per una procedura dettagliata completa di creazione e monitoraggio di una pipeline con PowerShell, vedere [creare una data factory e una pipeline con PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Eseguire lo script seguente per verificare continuamente lo stato di esecuzione della pipeline fino al termine della copia dei dati.
 
@@ -128,12 +135,12 @@ Per una descrizione completa sulla creazione e sul monitoraggio di una pipeline 
         $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
-            if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+            if ( ($run.Status -ne "InProgress") -and ($run.Status -ne "Queued") ) {
+                Write-Output ("Pipeline run finished. The status is: " +  $run.Status)
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output ("Pipeline is running...status: " + $run.Status)
         }
 
         Start-Sleep -Seconds 30

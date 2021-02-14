@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da HDFS locale
 description: Informazioni su come spostare dati da un HDFS locale con Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4393ebeb8b1e287bd881233418a902fc523f7f5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 52e176e0fed85b649d482614667d695db539e5d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589618"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383076"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Spostare dati da HDFS locale con Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +39,7 @@ Il servizio Data Factory supporta la connessione a un HDFS locale tramite il Gat
 
 Anche se è possibile installare il gateway nello stesso computer locale o nella stessa VM di Azure di HDFS, è consigliabile installarlo in un diverso computer o in una diversa VM IaaS di Azure. La presenza del gateway su un computer separato riduce i conflitti di risorse e consente di ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al computer con un HDFS.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine HDFS usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -112,14 +107,15 @@ Un servizio collegato collega un archivio dati a una data factory. Viene creato 
     }
 }
 ```
+
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **FileShare** , che include il set di dati HDFS, presenta le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| folderPath |Percorso della cartella. Esempio: `myfolder`<br/><br/>Usare il carattere di escape "\" per i caratteri speciali nella stringa. Ad esempio: per cartella\sottocartella specificare cartella\\\\sottocartella e per d:\cartellaesempio specificare l'unità d:\\\\cartellaesempio.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
+| folderPath |Percorso della cartella. Esempio: `myfolder`<br/><br/>Usare il carattere di escape ' \' per i caratteri speciali nella stringa. Ad esempio: per cartella\sottocartella specificare cartella\\\\sottocartella e per d:\cartellaesempio specificare l'unità d:\\\\cartellaesempio.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt` (ad esempio:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. |No |
 | format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
@@ -226,7 +222,7 @@ Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono 
 
 **Set di dati di input HDFS:** Questo set di dati fa riferimento alla cartella HDFS DataTransfer/UnitTest/. La pipeline copia tutti i file di questa cartella nella destinazione.
 
-Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
+Impostando "external": "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 ```JSON
 {
@@ -357,31 +353,31 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
 #### <a name="requirement"></a>Requisito:
 
-* Il computer gateway deve essere aggiunto all'area di autenticazione di Kerberos e non può essere aggiunto a un dominio di Windows.
+* Il computer del gateway deve essere aggiunto all'area di autenticazione Kerberos e non può essere aggiunto a un dominio Windows.
 
 #### <a name="how-to-configure"></a>Modalità di configurazione:
 
 **Nel computer del gateway:**
 
-1.  Eseguire l'utilità **Ksetup** per configurare l'area di autenticazione e il server KDC Kerberos.
+1. Eseguire l'utilità **Ksetup** per configurare l'area di autenticazione e il server KDC Kerberos.
 
-    Il computer deve essere configurato come membro di un gruppo di lavoro poiché un'area di autenticazione di Kerberos è diversa da un dominio di Windows. È possibile farlo configurando l'area di autenticazione di Kerberos e aggiungendo un server KDC come indicato di seguito. Sostituire *REALM.COM* con la propria rispettiva area di autenticazione, se necessario.
+   Il computer deve essere configurato come membro di un gruppo di lavoro poiché un'area di autenticazione di Kerberos è diversa da un dominio di Windows. È possibile farlo configurando l'area di autenticazione di Kerberos e aggiungendo un server KDC come indicato di seguito. Sostituire *REALM.COM* con la propria rispettiva area di autenticazione, se necessario.
 
-    ```cmd
-    C:> Ksetup /setdomain REALM.COM
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup /setdomain REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ```
 
-    **Riavviare** il computer dopo aver eseguito questi 2 comandi.
+   **Riavviare** il computer dopo aver eseguito questi 2 comandi.
 
-2.  Verificare la configurazione con il comando **Ksetup**. L'output dovrebbe essere simile al seguente:
+2. Verificare la configurazione con il comando **Ksetup**. L'output dovrebbe essere simile al seguente:
 
-    ```cmd
-    C:> Ksetup
-    default realm = REALM.COM (external)
-    REALM.com:
-        kdc = <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup
+   default realm = REALM.COM (external)
+   REALM.com:
+      kdc = <your_kdc_server_address>
+   ```
 
 **In Azure Data Factory:**
 
@@ -390,8 +386,8 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 ### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opzione 2: Abilitare il trust reciproco tra il dominio di Windows e l'area di autenticazione di Kerberos
 
 #### <a name="requirement"></a>Requisito:
-*   Il computer del gateway deve essere aggiunto a un dominio di Windows.
-*   È necessaria l'autorizzazione per aggiornare le impostazioni del controller di dominio.
+*    Il computer del gateway deve essere aggiunto a un dominio di Windows.
+*    È necessaria l'autorizzazione per aggiornare le impostazioni del controller di dominio.
 
 #### <a name="how-to-configure"></a>Modalità di configurazione:
 
@@ -450,54 +446,54 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
 **Nel controller di dominio:**
 
-1.  Eseguire i comandi **Ksetup** seguenti per aggiungere una voce dell'area di autenticazione:
+1. Eseguire i comandi **Ksetup** seguenti per aggiungere una voce dell'area di autenticazione:
 
-    ```cmd
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
-    ```
+   ```cmd
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
-2.  Stabilire una relazione di trust dal dominio di Windows all'area di autenticazione di Kerberos. [password] è la password per l'entità di sicurezza **krbtgt/REALM.COM\@AD.COM**.
+2. Stabilire una relazione di trust dal dominio di Windows all'area di autenticazione di Kerberos. [password] è la password per l'entità di sicurezza **krbtgt/REALM.COM\@AD.COM**.
 
-    ```cmd
-    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
-    ```
+   ```cmd
+   netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+   ```
 
-3.  Selezionare l'algoritmo di crittografia usato in Kerberos.
+3. Selezionare l'algoritmo di crittografia usato in Kerberos.
 
-    1. Passare a Server Manager > Gestione Criteri di gruppo > Dominio > Oggetti Criteri di gruppo > Criteri dominio attivi o predefiniti e selezionare Modifica.
+   1. Passare a Server Manager > Gestione Criteri di gruppo > Dominio > Oggetti Criteri di gruppo > Criteri dominio attivi o predefiniti e selezionare Modifica.
 
-    2. Nella finestra popup **Editor Gestione criteri di gruppo**, passare a Configurazione computer > Criteri > Impostazioni di Windows > Impostazioni di sicurezza > Criteri locali > Opzioni di sicurezza e configurare **Sicurezza di rete: configura tipi di crittografia consentiti per Kerberos**.
+   2. Nella finestra popup **Editor Gestione criteri di gruppo**, passare a Configurazione computer > Criteri > Impostazioni di Windows > Impostazioni di sicurezza > Criteri locali > Opzioni di sicurezza e configurare **Sicurezza di rete: configura tipi di crittografia consentiti per Kerberos**.
 
-    3. Selezionare l'algoritmo di crittografia da usare per connettersi a KDC. In genere, è possibile selezionare semplicemente tutte le opzioni.
+   3. Selezionare l'algoritmo di crittografia da usare per connettersi a KDC. In genere, è possibile selezionare semplicemente tutte le opzioni.
 
-        ![Configurare i tipi di crittografia per Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+      ![Configurare i tipi di crittografia per Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
 
-    4. Utilizzare il comando **Ksetup** per specificare l'algoritmo di crittografia da usare nell'area di autenticazione specifica.
+   4. Utilizzare il comando **Ksetup** per specificare l'algoritmo di crittografia da usare nell'area di autenticazione specifica.
 
-       ```cmd
-       C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
-       ```
+      ```cmd
+      ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+      ```
 
-4.  Creare il mapping tra l'account di dominio e l'entità Kerberos per poter usare quest'ultima nel dominio di Windows.
+4. Creare il mapping tra l'account di dominio e l'entità Kerberos per poter usare quest'ultima nel dominio di Windows.
 
-    1. Avviare Strumenti di amministrazione > **Utenti e computer di Active Directory**.
+   1. Avviare Strumenti di amministrazione > **Utenti e computer di Active Directory**.
 
-    2. Configurare funzionalità avanzate facendo clic su **Visualizza** > **Funzionalità avanzate**.
+   2. Configurare funzionalità avanzate facendo clic su **Visualizza** > **Funzionalità avanzate**.
 
-    3. Individuare l'account per cui si desidera creare i mapping e fare clic con il tasto destor del mouse per visualizzare **Mapping nomi**. Fare clic sulla scheda **Nomi Kerberos**.
+   3. Individuare l'account per cui si desidera creare i mapping e fare clic con il tasto destor del mouse per visualizzare **Mapping nomi**. Fare clic sulla scheda **Nomi Kerberos**.
 
-    4. Aggiungere un'entità di sicurezza dall'area di autenticazione.
+   4. Aggiungere un'entità di sicurezza dall'area di autenticazione.
 
-        ![Eseguire il mapping di sicurezza e identità](media/data-factory-hdfs-connector/map-security-identity.png)
+      ![Eseguire il mapping di sicurezza e identità](media/data-factory-hdfs-connector/map-security-identity.png)
 
 **Nel computer del gateway:**
 
 * Eseguire i comandi **Ksetup** seguenti per aggiungere una voce dell'area di autenticazione.
 
    ```cmd
-   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
 **In Azure Data Factory:**
@@ -506,7 +502,6 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
 > [!NOTE]
 > Per eseguire il mapping dal set di dati di origine alle colonne del set di dati sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
-
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

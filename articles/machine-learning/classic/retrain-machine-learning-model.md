@@ -3,22 +3,22 @@ title: 'ML Studio (classico): ripetere il training di un servizio Web-Azure'
 description: Informazioni su come aggiornare un servizio Web per l'uso di un modello di apprendimento automatico appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325812"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517587"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 La ripetizione del training è un modo per garantire che i modelli di Machine Learning rimangano accurati e si basino sui dati più rilevanti disponibili. Questo articolo illustra come ripetere il training e distribuire un modello di machine learning come nuovo servizio Web in studio (classico). Se si sta cercando di ripetere il training di un servizio Web classico, [vedere questo articolo delle procedure](retrain-classic-web-service.md).
@@ -29,13 +29,13 @@ Questo articolo presuppone che si disponga già di un servizio Web predittivo di
 
 1. Distribuire un **servizio Web di ripetizione del training**
 1. Eseguire il training di un nuovo modello usando il **servizio Web di ripetizione del training**
-1. Aggiornare l' **esperimento predittivo** esistente per usare il nuovo modello
+1. Aggiornare l'**esperimento predittivo** esistente per usare il nuovo modello
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-retraining-web-service"></a>Distribuire la ripetizione del training del servizio Web
 
-Un servizio Web di ripetizione del training consente di ripetere il training del modello con un nuovo set di parametri, come nuovi dati, e salvarlo per usarlo in seguito. Quando si connette un **output del servizio Web** a un **modello di training** , l'esperimento di training restituisce un nuovo modello da usare.
+Un servizio Web di ripetizione del training consente di ripetere il training del modello con un nuovo set di parametri, come nuovi dati, e salvarlo per usarlo in seguito. Quando si connette un **output del servizio Web** a un **modello di training**, l'esperimento di training restituisce un nuovo modello da usare.
 
 Usare la procedura seguente per distribuire un servizio Web di ripetizione del training:
 
@@ -50,7 +50,7 @@ Usare la procedura seguente per distribuire un servizio Web di ripetizione del t
 
     Ora è possibile distribuire l'esperimento di training come un servizio Web di ripetizione del training che ottiene come output un modello sottoposto a training e i risultati di valutazione del modello.
 
-1. Fare clic su **Set Up Web Service** (Configura servizio Web) nella parte inferiore dell'area di disegno dell'esperimento.
+1. Fare clic su **Set Up Web Service**(Configura servizio Web) nella parte inferiore dell'area di disegno dell'esperimento.
 1. Selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Il portale dei servizi Web Microsoft Azure Machine Learning visualizzerà la pagina **Deploy Web Service** (Distribuisci servizio Web).
 1. Digitare un nome per il servizio Web e scegliere un piano di pagamento.
 1. Selezionare **Distribuisci**.
@@ -64,7 +64,7 @@ Usare la procedura seguente per chiamare le API per la ripetizione del training:
 1. Creare un'applicazione console c# in Visual Studio: **nuovo**  >  **progetto**  >  **Visual c#**  >  app console **desktop classico di Windows**  >  **(.NET Framework)**.
 1. Accedere al portale dei servizi Web Machine Learning.
 1. Fare clic sul servizio Web usato.
-1. Fare clic su **Consume** (Uso).
+1. Fare clic su **Consume**(Uso).
 1. Nella sezione **Sample Code** (Codice di esempio) nella parte inferiore della pagina **Consume** (Uso) fare clic su **Batch**.
 1. Copiare il codice C# di esempio per l'esecuzione batch e incollarlo nel file Program.cs, verificando che lo spazio dei nomi rimanga invariato.
 
@@ -76,7 +76,7 @@ La schermata seguente illustra la pagina **Consume** (Utilizzo) del portale di s
 
 ### <a name="update-the-apikey-declaration"></a>Aggiornare la dichiarazione apikey
 
-Individuare la dichiarazione **apikey** :
+Individuare la dichiarazione **apikey**:
 
 ```csharp
 const string apiKey = "abc123"; // Replace this with the API key for the web service
@@ -96,7 +96,7 @@ Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\tem
 1. Nella colonna di spostamento a sinistra fare clic su **BLOB**.
 1. Selezionare un contenitore esistente oppure crearne uno nuovo e salvare il nome.
 
-Individuare le dichiarazioni *StorageAccountName* , *StorageAccountKey* e *StorageContainerName* e aggiornare i valori salvati dal portale.
+Individuare le dichiarazioni *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e aggiornare i valori salvati dal portale.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Di seguito è riportato un esempio di output della ripetizione del training:
 
 Quando si esegue l'applicazione, l'output include l'URL e il token di firma di accesso condiviso necessari per accedere ai risultati della valutazione.
 
-È possibile visualizzare i risultati delle prestazioni del modello sottoposto nuovamente a training combinando *BaseLocation* , *RelativeLocation* e *SasBlobToken* dai risultati di output per *output2* e incollando l'URL completo nella barra degli indirizzi del browser.
+È possibile visualizzare i risultati delle prestazioni del modello sottoposto nuovamente a training combinando *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output per *output2* e incollando l'URL completo nella barra degli indirizzi del browser.
 
 Esaminare i risultati per determinare se le prestazioni del modello appena sottoposto a training sono migliori di quello esistente.
 
-Salvare *BaseLocation* , *RelativeLocation* e *SasBlobToken* dai risultati di output.
+Salvare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output.
 
 ## <a name="update-the-predictive-experiment"></a>Aggiornare l'esperimento predittivo
 

@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Distribuire un modello collegato'
 description: Informazioni su come distribuire un modello collegato
-ms.date: 01/12/2021
+ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 4ec49fad35e958f010461abf2ee0e3dab8077d55
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: b69d4e8d2748cffec6a4f0cddfa20e6722653c76
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134195"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519015"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Esercitazione: Distribuire un modello collegato
 
-Nelle [esercitazioni precedenti](./deployment-tutorial-local-template.md) si è appreso come distribuire un modello archiviato nel computer locale. Per distribuire soluzioni complesse, è possibile suddividere un modello in più modelli e distribuire questi modelli tramite un modello principale. In questa esercitazione si apprenderà come distribuire un modello principale che contiene il riferimento a un modello collegato. Quando il modello principale viene distribuito, viene attivata la distribuzione del modello collegato. Si apprenderà anche come archiviare e proteggere il modello collegato usando il token di firma di accesso condiviso. Per completare l'esercitazione, sono necessari circa **12 minuti**.
+Nelle [esercitazioni precedenti](./deployment-tutorial-local-template.md) si è appreso come distribuire un modello archiviato nel computer locale. Per distribuire soluzioni complesse, è possibile suddividere un modello in più modelli e distribuire questi modelli tramite un modello principale. In questa esercitazione si apprenderà come distribuire un modello principale che contiene il riferimento a un modello collegato. Quando il modello principale viene distribuito, viene attivata la distribuzione del modello collegato. Si apprenderà anche come archiviare e proteggere i modelli usando il token SAS. Per completare l'esercitazione, sono necessari circa **12 minuti**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,15 +32,18 @@ Nelle esercitazioni precedenti si è distribuito un modello che crea un account 
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-Il modello seguente è il modello principale. L'oggetto evidenziato `Microsoft.Resources/deployments` mostra come chiamare un modello collegato. Il modello collegato non può essere archiviato come file locale o file disponibile unicamente nella rete locale. È possibile specificare solo un valore URI che includa HTTP o HTTPS. Il servizio Resource Manager deve poter accedere al modello. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento. L'URI viene passato al modello usando un parametro. Vedere la definizione del parametro evidenziato.
+Il modello seguente è il modello principale. L'oggetto evidenziato `Microsoft.Resources/deployments` mostra come chiamare un modello collegato. Il modello collegato non può essere archiviato come file locale o file disponibile unicamente nella rete locale. È possibile specificare un valore URI del modello collegato che include HTTP o HTTPS oppure usare la proprietà _relativePath_ per distribuire un modello collegato remoto in un percorso relativo al modello padre. Un'opzione consiste nell'inserire il modello principale e il modello collegato in un account di archiviazione.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
-
-Salvare una copia del modello principale nel computer locale con l'estensione _JSON_, ad esempio _azuredeploy.json_. Non è necessario salvare una copia del modello collegato. Il modello collegato verrà copiato da un repository GitHub in un account di archiviazione.
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="34-52":::
 
 ## <a name="store-the-linked-template"></a>Archiviare il modello collegato
 
-Con lo script di PowerShell seguente viene creato un account di archiviazione, viene creato un contenitore e il modello collegato viene copiato da un repository GitHub nel contenitore. Una copia del modello collegato viene archiviata in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
+Sia il modello principale che il modello collegato vengono archiviati in GitHub:
+
+Con lo script di PowerShell seguente viene creato un account di archiviazione, viene creato un contenitore e vengono copiati i due modelli da un repository GitHub al contenitore. Questi due modelli sono:
+
+- Modello principale: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+- Modello collegato: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Selezionare **Prova** per aprire Cloud Shell, selezionare **Copia** per copiare lo script di PowerShell e fare clic con il pulsante destro del mouse sul riquadro della shell per incollare lo script:
 
@@ -55,11 +58,15 @@ $resourceGroupName = $projectName + "rg"
 $storageAccountName = $projectName + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$mainTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json"
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json"
 
-# Download the template
-Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+$mainFileName = "azuredeploy.json" # A file name used for downloading and uploading the main template.Add-PSSnapin
+$linkedFileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the templates
+Invoke-WebRequest -Uri $mainTemplateURL -OutFile "$home/$mainFileName"
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$linkedFileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -76,11 +83,17 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the template
+# Upload the templates
 Set-AzStorageBlobContent `
     -Container $containerName `
-    -File "$home/$fileName" `
-    -Blob $fileName `
+    -File "$home/$mainFileName" `
+    -Blob $mainFileName `
+    -Context $context
+
+Set-AzStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$linkedFileName" `
+    -Blob $linkedFileName `
     -Context $context
 
 Write-Host "Press [ENTER] to continue ..."
@@ -88,7 +101,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
-Per distribuire un modello privato in un account di archiviazione, generare un token di firma di accesso condiviso e includerlo nell'URI del modello. Impostare l'ora di scadenza in modo da garantire un tempo sufficiente per completare la distribuzione. Il BLOB contenente il modello sarà accessibile solo da parte del proprietario dell'account. Tuttavia, quando si crea un token di firma di accesso condiviso per il BLOB, quest'ultimo sarà accessibile a tutti gli utenti con quell'URI. Se l'URI viene intercettato da un altro utente, quest'ultimo sarà in grado di accedere al modello. Usare un token di firma di accesso condiviso è un buon metodo per limitare l'accesso ai modelli, ma è necessario non includere direttamente nel modello dati sensibili come le password.
+Per distribuire i modelli in un account di archiviazione, generare un token di firma di accesso condiviso e fornirlo al parametro _-QueryString_ . Impostare l'ora di scadenza in modo da garantire un tempo sufficiente per completare la distribuzione. I BLOB contenenti i modelli sono accessibili solo al proprietario dell'account. Tuttavia, quando si crea un token di firma di accesso condiviso per un BLOB, il BLOB è accessibile a tutti gli utenti con tale token SAS. Se un altro utente intercetta l'URI e il token di firma di accesso condiviso, tale utente sarà in grado di accedere al modello. Usare un token di firma di accesso condiviso è un buon metodo per limitare l'accesso ai modelli, ma è necessario non includere direttamente nel modello dati sensibili come le password.
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](./deployment-tutorial-local-template.md#create-resource-group).
 
@@ -97,69 +110,66 @@ Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
-$projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
-$templateFile = Read-Host -Prompt "Enter the main template file and path"
+$projectName = Read-Host -Prompt "Enter the same project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 
 $resourceGroupName="${projectName}rg"
 $storageAccountName="${projectName}store"
 $containerName = "templates"
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 $key = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 $context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 
-# Generate a SAS token
-$linkedTemplateUri = New-AzStorageBlobSASToken `
+$mainTemplateUri = $context.BlobEndPoint + "$containerName/azuredeploy.json"
+$sasToken = New-AzStorageContainerSASToken `
     -Context $context `
     -Container $containerName `
-    -Blob $fileName `
     -Permission r `
-    -ExpiryTime (Get-Date).AddHours(2.0) `
-    -FullUri
+    -ExpiryTime (Get-Date).AddHours(2.0)
+$newSas = $sasToken.substring(1)
 
-# Deploy the template
+
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
   -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFile `
+  -TemplateUri $mainTemplateUri `
+  -QueryString $newSas `
   -projectName $projectName `
-  -linkedTemplateUri $linkedTemplateUri `
   -verbose
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
+echo "Enter a project name that is used to generate resource names:" &&
+read projectName &&
 
-echo "Enter a project name that is used to generate resource names:"
-read projectName
-echo "Enter the main template file:"
-read templateFile
+resourceGroupName="${projectName}rg" &&
+storageAccountName="${projectName}store" &&
+containerName="templates" &&
 
-resourceGroupName="${projectName}rg"
-storageAccountName="${projectName}store"
-containerName="templates"
-fileName="linkedStorageAccount.json"
+key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv) &&
 
-key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
-
-linkedTemplateUri=$(az storage blob generate-sas \
+sasToken=$(az storage container generate-sas \
   --account-name $storageAccountName \
   --account-key $key \
-  --container-name $containerName \
-  --name $fileName \
+  --name $containerName \
   --permissions r \
-  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
-  --full-uri)
+  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'`) &&
+sasToken=$(echo $sasToken | sed 's/"//g')&&
 
-linkedTemplateUri=$(echo $linkedTemplateUri | sed 's/"//g')
+blobUri=$(az storage account show -n $storageAccountName -g $resourceGroupName -o tsv --query primaryEndpoints.blob) &&
+templateUri="${blobUri}${containerName}/azuredeploy.json" &&
+
 az deployment group create \
   --name DeployLinkedTemplate \
   --resource-group $resourceGroupName \
-  --template-file $templateFile \
-  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --template-uri $templateUri \
+  --parameters projectName=$projectName \
+  --query-string $sasToken \
   --verbose
 ```
 

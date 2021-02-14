@@ -1,22 +1,17 @@
 ---
 title: Copiare e trasformare i dati in Azure Synapse Analytics
 description: Informazioni su come copiare dati in e da Azure Synapse Analytics e come trasformare i dati in Azure Synapse Analytics usando Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 386547aa6e815ad6ba7d860c513a3e24c4040cca
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/10/2021
+ms.openlocfilehash: 38306b2fb3c0a51aeedbf1ebd9079dd787783093
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223231"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364291"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics usando Azure Data Factory
 
@@ -68,7 +63,7 @@ Per un servizio collegato ad Azure Synapse Analytics sono supportate le propriet
 | servicePrincipalId  | Specificare l'ID client dell'applicazione.                         | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
 | tenant              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
-| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione Azure AD. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment** e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
+| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione Azure AD. <br/> I valori consentiti sono `AzurePublic` ,, `AzureChina` `AzureUsGovernment` e `AzureGermany` . Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
 | connectVia          | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No                                                           |
 
 Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relative, rispettivamente, ai prerequisiti e agli esempi JSON:
@@ -270,11 +265,11 @@ Per copiare dati da Azure Synapse Analytics, impostare la proprietà **type** ne
 | sqlReaderQuery               | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No       |
 | storedProcedureParameters    | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No       |
-| isolationLevel | Specifica il comportamento di blocco della transazione per l'origine SQL. I valori consentiti sono: **ReadCommitted**, **READUNCOMMITTED**, **RepeatableRead**, **Serializable**, **snapshot**. Se non specificato, viene usato il livello di isolamento predefinito del database. Per altre informazioni dettagliate, vedere [questo documento](/dotnet/api/system.data.isolationlevel). | No |
+| isolationLevel | Specifica il comportamento di blocco della transazione per l'origine SQL. I valori consentiti sono: **ReadCommitted**, **READUNCOMMITTED**, **RepeatableRead**, **Serializable**, **snapshot**. Se non specificato, viene usato il livello di isolamento predefinito del database. Per ulteriori informazioni, vedere [System. Data. IsolationLevel](/dotnet/api/system.data.isolationlevel). | No |
 | partitionOptions | Specifica le opzioni di partizionamento dei dati usate per caricare i dati da Azure sinapsi Analytics. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da un'analisi di sinapsi di Azure è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
 | partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None` . | No |
-| **_In `partitionSettings` :_* _ | | |
-| partitionColumnName | Specificare il nome della colonna di origine _ *nel tipo Integer o date/DateTime** ( `int` , `smallint` , `bigint` , `date` , `smalldatetime` , `datetime` , `datetime2` o `datetimeoffset` ) che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfDynamicRangePartitionCondition ` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-azure-synapse-analytics) . | No |
+| ***In `partitionSettings` :*** | | |
+| partitionColumnName | Specificare il nome della colonna di origine **in un tipo Integer o data/ora** ( `int` ,, `smallint` `bigint` , `date` , `smalldatetime` , `datetime` , `datetime2` o `datetimeoffset` ) che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfDynamicRangePartitionCondition ` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-azure-synapse-analytics) . | No |
 | partitionUpperBound | Valore massimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.  <br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-azure-synapse-analytics) . | No |
 | partitionLowerBound | Valore minimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-azure-synapse-analytics) . | No |
 
@@ -282,7 +277,7 @@ Per copiare dati da Azure Synapse Analytics, impostare la proprietà **type** ne
 
 - Quando si usa stored procedure nell'origine per recuperare i dati, tenere presente che se il stored procedure è stato progettato per restituire uno schema diverso quando viene passato un valore di parametro diverso, potrebbe verificarsi un errore o un risultato imprevisto durante l'importazione dello schema dall'interfaccia utente o durante la copia dei dati nel database SQL con la creazione automatica della tabella.
 
-**Esempio: uso della query SQL**
+#### <a name="example-using-sql-query"></a>Esempio: uso della query SQL
 
 ```json
 "activities":[
@@ -314,7 +309,7 @@ Per copiare dati da Azure Synapse Analytics, impostare la proprietà **type** ne
 ]
 ```
 
-**Esempio: uso della stored procedure**
+#### <a name="example-using-stored-procedure"></a>Esempio: uso della stored procedure
 
 ```json
 "activities":[
@@ -350,7 +345,7 @@ Per copiare dati da Azure Synapse Analytics, impostare la proprietà **type** ne
 ]
 ```
 
-**Stored procedure di esempio:**
+#### <a name="sample-stored-procedure"></a>Stored procedure di esempio:
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -529,7 +524,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 
 3. Se l'origine è una cartella, `recursive` nell'attività di copia deve essere impostato su true.
 
-4. `wildcardFolderPath` , `wildcardFilename` , `modifiedDateTimeStart` , `modifiedDateTimeEnd` , `prefix` `enablePartitionDiscovery` e `additionalColumns` non sono specificati.
+4. `wildcardFolderPath` , `wildcardFilename` , `modifiedDateTimeStart` , `modifiedDateTimeEnd` , `prefix` , `enablePartitionDiscovery` e `additionalColumns` non sono specificati.
 
 >[!NOTE]
 >Se l'origine è una cartella, PolyBase recupera i file dalla cartella e da tutte le relative sottocartelle e non recupera i dati dai file il cui nome inizia con un carattere di sottolineatura (_) o un punto (.), come documentato nella sezione [Argomenti](/sql/t-sql/statements/create-external-table-transact-sql#arguments-2) in relazione all'argomento LOCATION.
@@ -578,6 +573,9 @@ Per usare questa funzionalità, creare un [servizio collegato di archiviazione B
 >- Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di gestione temporanea, informazioni sulle configurazioni necessarie per il [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
 >- Se l'archiviazione di Azure di gestione temporanea è configurata con l'endpoint del servizio VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione. vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
+>[!IMPORTANT]
+>Se l'archiviazione di Azure di gestione temporanea è configurata con un endpoint privato gestito e il firewall di archiviazione è abilitato, è necessario usare l'autenticazione di identità gestita e concedere le autorizzazioni di lettura dati BLOB di archiviazione per la SQL Server sinapsi per assicurarsi che possa accedere ai file di gestione temporanea durante il caricamento di base.
+
 ```json
 "activities":[
     {
@@ -617,7 +615,7 @@ Per usare questa funzionalità, creare un [servizio collegato di archiviazione B
 
 ### <a name="best-practices-for-using-polybase"></a>Procedure consigliate per l'uso di PolyBase
 
-Le sezioni seguenti illustrano le procedure consigliate in aggiunta a quelle descritte in [Procedure consigliate per Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+Le sezioni seguenti illustrano le procedure consigliate in aggiunta alle procedure consigliate [per l'analisi delle sinapsi di Azure](../synapse-analytics/sql/best-practices-sql-pool.md).
 
 #### <a name="required-database-permission"></a>Autorizzazione database obbligatoria
 
@@ -637,17 +635,17 @@ Per ottenere la migliore velocità effettiva possibile, assegnare una classe di 
 
 #### <a name="polybase-troubleshooting"></a>Risoluzione dei problemi di PolyBase
 
-**Caricamento nella colonna Decimal**
+#### <a name="loading-to-decimal-column"></a>Caricamento nella colonna Decimal
 
-Se i dati di origine sono in formato testo o in altri archivi compatibili non di base (usando la copia di staging e la polibase) e contiene un valore vuoto da caricare nella colonna decimal di Azure sinapsi Analytics, è possibile che venga raggiunto l'errore seguente:
+Se i dati di origine sono in formato testo o in altri archivi compatibili non di base (usando la copia di staging e la polibase) e contiene un valore vuoto da caricare nella colonna decimal di Azure sinapsi Analytics, è possibile che venga ricevuto l'errore seguente:
 
-```
+```output
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
 La soluzione consiste nel deselezionare l'opzione "**Use type default**" (Tipo di uso predefinito) (false) nel sink dell'attività di copia -> PolyBase Settings (Impostazioni PolyBase). "[USE_TYPE_DEFAULT](/sql/t-sql/statements/create-external-file-format-transact-sql#arguments)" è una configurazione nativa di PolyBase che specifica come gestire valori mancanti nei file di testo delimitato quando PolyBase recupera i dati dal file di testo.
 
-**`tableName` in Azure Synapse Analytics**
+#### <a name="check-the-tablename-property-in-azure-synapse-analytics"></a>Controllare la proprietà TableName in Azure sinapsi Analytics
 
 La tabella seguente fornisce alcuni esempi di come specificare la proprietà **tableName** nel set di dati JSON, mostrando diverse combinazioni di nomi di schema e di tabella.
 
@@ -660,19 +658,29 @@ La tabella seguente fornisce alcuni esempi di come specificare la proprietà **t
 
 Se viene visualizzato l'errore seguente, il problema potrebbe essere costituito dal valore specificato per la proprietà **tableName**. Per informazioni sul modo corretto di specificare i valori per la proprietà JSON **tableName**, vedere la tabella precedente.
 
-```
+```output
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-**Colonne con valori predefiniti**
+#### <a name="columns-with-default-values"></a>Colonne con valori predefiniti
 
 Attualmente, la funzionalità PolyBase in Data Factory accetta solo lo stesso numero di colonne disponibili nella tabella di destinazione. Nel caso di una tabella con quattro colonne di cui una definita con un valore predefinito, ad esempio, i dati di input devono comunque contenere quattro colonne. Un set di dati di input con tre colonne restituisce un errore simile al messaggio seguente:
 
-```
+```output
 All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 Il valore NULL è una forma speciale di valore predefinito. Se la colonna ammette valori Null, i dati di input nel BLOB per tale colonna possono essere vuoti, ma non possono essere mancanti dal set di dati di input. PolyBase inserisce NULL per i valori mancanti in Azure Synapse Analytics.
+
+#### <a name="external-file-access-failed"></a>Accesso al file esterno non riuscito
+
+Se viene visualizzato l'errore seguente, assicurarsi di usare l'autenticazione di identità gestita e di avere concesso le autorizzazioni di lettura dati BLOB di archiviazione per l'identità gestita dell'area di lavoro di Azure sinapsi.
+
+```output
+Job failed due to reason: at Sink '[SinkName]': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External file access failed due to internal error: 'Error occurred while accessing HDFS: Java exception raised on call to HdfsBridge_IsDirExist. Java exception message:\r\nHdfsBridge::isDirExist 
+```
+
+Per altre informazioni, vedere [Grant Permissions to Managed Identity dopo la creazione dell'area di lavoro](../synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions.md#grant-permissions-to-managed-identity-after-workspace-creation).
 
 ## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics"></a><a name="use-copy-statement"></a> Usare l'istruzione COPY per caricare i dati in Azure sinapsi Analytics
 

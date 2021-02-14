@@ -3,25 +3,25 @@ title: Monitorare l'integrità di un'applicazione IoT Central di Azure | Microso
 description: In qualità di operatore o amministratore, monitorare l'integrità complessiva dei dispositivi connessi all'applicazione IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1c16da10a8a7853b1392383855aba0ff24424f33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760761"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515870"
 ---
-# <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorare l'integrità complessiva dei dispositivi connessi a un'applicazione IoT Central
+# <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Monitorare l'integrità complessiva di un'applicazione IoT Central
 
 > [!NOTE]
 > Le metriche sono disponibili solo per le applicazioni IoT Central versione 3. Per informazioni su come controllare la versione dell'applicazione, vedere [informazioni sull'applicazione](./howto-get-app-info.md).
 
 *Questo articolo si applica a operatori e amministratori.*
 
-Questo articolo illustra come usare il set di metriche fornito da IoT Central per valutare l'integrità complessiva dei dispositivi connessi all'applicazione IoT Central.
+Questo articolo illustra come usare il set di metriche fornito da IoT Central per valutare l'integrità dei dispositivi connessi all'applicazione IoT Central e l'integrità delle esportazioni di dati in esecuzione.
 
 Le metriche sono abilitate per impostazione predefinita per l'applicazione IoT Central e sono accessibili dall' [portale di Azure](https://portal.azure.com/). La [piattaforma dati di monitoraggio di Azure espone queste metriche](../../azure-monitor/platform/data-platform-metrics.md) e offre diversi modi per interagire con loro. Ad esempio, è possibile usare i grafici nell'portale di Azure, un'API REST o query in PowerShell o nell'interfaccia della riga di comando di Azure.
 
@@ -31,7 +31,7 @@ Le applicazioni che usano il piano di valutazione gratuita non hanno una sottosc
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Visualizzare le metriche nell'portale di Azure
 
-La procedura seguente presuppone che si disponga di un' [applicazione IoT Central](./quick-deploy-iot-central.md) con alcuni [dispositivi connessi](./tutorial-connect-device.md).
+I passaggi seguenti presuppongono che sia presente un' [applicazione IoT Central](./quick-deploy-iot-central.md) con alcuni [dispositivi connessi](./tutorial-connect-device.md) o un' [esportazione dei dati](howto-export-data.md)in esecuzione.
 
 Per visualizzare IoT Central metriche nel portale:
 

@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: fb7cb0638ca86ea736749e6fb35e2295128162aa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7fc57b46055281c64b39767047f6b7cb5b748ad2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032984"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373828"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurare un dispositivo IoT Edge per comunicare tramite un server proxy
 
@@ -85,7 +85,7 @@ Nei passaggi seguenti viene illustrato un esempio di installazione di Windows tr
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-Se si hanno credenziali complesse per il server proxy che non è possibile includere nell'URL, usare il parametro `-ProxyCredential` all'interno di `-InvokeWebRequestParameters`. ad esempio:
+Se si hanno credenziali complesse per il server proxy che non è possibile includere nell'URL, usare il parametro `-ProxyCredential` all'interno di `-InvokeWebRequestParameters`. Ad esempio,
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -245,7 +245,7 @@ Con le variabili di ambiente incluse la definizione del modulo sarà simile a qu
 "edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
         "createOptions": ""
     },
     "env": {
@@ -275,7 +275,7 @@ Se nel file config.yaml è stata inclusa la variabile di ambiente **UpstreamProt
 
 Se il proxy che si sta tentando di usare esegue l'ispezione del traffico su connessioni protette da TLS, è importante notare che l'autenticazione con i certificati X. 509 non funziona. IoT Edge stabilisce un canale TLS crittografato end-to-end con il certificato e la chiave forniti. Se il canale è danneggiato per l'ispezione del traffico, il proxy non può ristabilire il canale con le credenziali appropriate e l'hub e il servizio Device provisioning in hub Internet restituiscono un `Unauthorized` errore.
 
-Per usare un proxy che esegue l'ispezione del traffico, è necessario usare l'autenticazione della firma di accesso condiviso o avere l'hub delle cose e il servizio Device provisioning in hub Internet aggiunto a un oggetto allow per evitare il controllo.
+Per usare un proxy che esegue l'ispezione del traffico, è necessario usare l'autenticazione della firma di accesso condiviso o avere l'hub delle cose e il servizio Device provisioning in hub Internet Services aggiunto a un elenco Consenti per evitare l'ispezione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

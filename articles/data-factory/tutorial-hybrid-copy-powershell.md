@@ -1,22 +1,18 @@
 ---
 title: Copiare dati da SQL Server ad Archiviazione BLOB con PowerShell
 description: Informazioni su come copiare dati da un archivio dati locale al cloud di Azure usando un runtime di integrazione self-hosted in Azure Data Factory.
-services: data-factory
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: bed497dfdc25ec2815f51795a1f40847586ce798
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
-ms.translationtype: HT
+ms.openlocfilehash: fc709147c61152bc85db96a059501a12c40a9332
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510312"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391219"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure
 

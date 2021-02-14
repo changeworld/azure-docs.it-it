@@ -4,16 +4,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/16/2020
+ms.date: 02/10/2021
 ms.author: tamram
-ms.openlocfilehash: 96d8100f2cffcfb001a693575128ce19e742225d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 483f5853c321eee4ac6d10543f0e360a0a5e54b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534134"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373752"
 ---
-Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che dovrà avere. In base alle procedure consigliate, è sempre preferibile concedere solo l'ambito più restrittivo possibile.
+Prima di assegnare un ruolo di controllo degli accessi in base al ruolo di Azure a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. In base alle procedure consigliate, è sempre preferibile concedere solo l'ambito più restrittivo possibile. I ruoli di controllo degli accessi in base al ruolo definiti in un ambito più ampio vengono ereditati dalle risorse sottostanti.
 
 L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di accesso alle risorse BLOB e code di Azure, a partire dall'ambito più restrittivo:
 
