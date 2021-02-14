@@ -1,18 +1,17 @@
 ---
 title: Risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory
 description: Informazioni su come risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551077"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376463"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -83,8 +82,8 @@ Scenario di esempio: il valore del numero massimo di processi simultanei è attu
 Il limite per il numero di processi simultanei dipende dalla memoria e dal core della logica del computer. Provare a modificare il valore verso il basso in un valore, ad esempio 24, quindi visualizzare il risultato.
 
 > [!TIP] 
-> - Per altre informazioni sul conteggio dei core logici e per determinare il numero di core logici del computer, vedere [quattro modi per trovare il numero di core nella CPU in Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> - Per informazioni su come calcolare Math. log, vedere il [calcolo logaritmico](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    Per altre informazioni sul conteggio dei core logici e per determinare il numero di core logici del computer, vedere [quattro modi per trovare il numero di core nella CPU in Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    Per informazioni su come calcolare Math. log, vedere il [calcolo logaritmico](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>Problema relativo al certificato SSL a disponibilità elevata del runtime di integrazione self-hosted

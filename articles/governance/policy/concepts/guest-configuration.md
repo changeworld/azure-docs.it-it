@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come i criteri di Azure usano il client di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210121"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104808"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -142,11 +142,15 @@ Quando si assegnano definizioni che iniziano con _Configura_, è necessario asse
 
 Le definizioni dei criteri di controllo disponibili per la configurazione Guest includono il tipo di risorsa **Microsoft. HybridCompute/machines** . Tutti i computer di cui è stato eseguito l'onboarding in [Azure Arc per server](../../../azure-arc/servers/overview.md) inclusi nell'ambito dell'assegnazione dei criteri vengono inclusi automaticamente.
 
+## <a name="troubleshooting-guest-configuration"></a>Risoluzione dei problemi di configurazione Guest
+
+Per altre informazioni sulla risoluzione dei problemi di configurazione Guest, vedere [risoluzione dei problemi di criteri di Azure](../troubleshoot/general.md).
+
 ### <a name="multiple-assignments"></a>Assegnazioni multiple
 
 Le definizioni dei criteri di configurazione Guest supportano attualmente solo l'assegnazione della stessa assegnazione Guest una volta per ogni computer, anche se l'assegnazione dei criteri USA parametri diversi.
 
-## <a name="client-log-files"></a>File di log del client
+### <a name="client-log-files"></a>File di log del client
 
 L'estensione Configurazione guest scrive i file di log nei percorsi seguenti:
 
@@ -180,6 +184,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### <a name="client-files"></a>File client
+
+Il client di configurazione Guest Scarica i pacchetti di contenuto in un computer ed estrae il contenuto.
+Per verificare quale contenuto è stato scaricato e archiviato, visualizzare i percorsi delle cartelle indicati di seguito.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## <a name="guest-configuration-samples"></a>Esempi di Configurazione guest
 

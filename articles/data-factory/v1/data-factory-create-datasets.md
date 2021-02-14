@@ -1,22 +1,18 @@
 ---
 title: Creare set di impostazioni in Azure Data Factory
 description: Informazioni su come creare set di dati in Azure Data Factory con esempi che usano proprietà quali anchorDateTime e offset.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9bf6ff2971de57338dc299d48e24f6ffebd4b6b5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495940"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376837"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Set di impostazioni in Azure Data Factory (versione 1)
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -77,7 +73,7 @@ Un set di dati in Data Factory viene definito in formato JSON come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | Descrizione | Obbligatorio | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |N/D |
 | type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [tipo di set di dati](#Type). |Sì |N/D |
@@ -231,7 +227,7 @@ Viene prodotto il set di dati di output ogni ora entro gli orari di inizio e fin
 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione availability:
 
-| Proprietà | Descrizione | Obbligatorio | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |N/D |
 | interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |N/D |
@@ -283,7 +279,7 @@ La sezione **policy** nella definizione del set di dati stabilisce i criteri o l
 | minimumSizeMB |Verifica che i dati presenti nell'**archiviazione BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |Archiviazione BLOB di Azure |No |N/D |
 | minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>Tabella di Azure</li></ul> |No |N/D |
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 **minimumSizeMB:**
 
 ```json

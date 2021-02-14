@@ -1,22 +1,18 @@
 ---
 title: Copiare i dati da e in Azure Data Lake Storage Gen1
 description: Informazioni su come copiare dati da archivi dati di origine supportati ad Azure Data Lake Storage o da Data Lake Storage ad archivi di sink supportati, usando Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/31/2020
-ms.openlocfilehash: e788fc5ff95f8c3dac1e90956908cb2ef950dd4b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 29ca77e5d707fc6207308492d0ea882b9881e31b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347354"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386816"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage Gen1 tramite Azure Data Factory
 
@@ -207,15 +203,15 @@ Le proprietà seguenti sono supportate per Azure Data Lake Storage Gen1 nelle im
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                     |
 | ------------------------ | ------------------------------------------------------------ | -------------------------------------------- |
 | type                     | La proprietà type in `storeSettings` deve essere impostata su **AzureDataLakeStoreReadSettings**. | Sì                                          |
-| **_Individuare i file da copiare:_* _ |  |  |
-| OPZIONE 1: percorso statico<br> | Copia dal percorso di cartella/file specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `_`. |  |
+| ***Individuare i file da copiare:*** |  |  |
+| OPZIONE 1: percorso statico<br> | Copia dal percorso di cartella/file specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `*`. |  |
 | OPZIONE 2: intervallo di nomi<br>- listAfter | Recuperare le cartelle o i file il cui nome è seguito da questo valore in ordine alfabetico (esclusivo). Usa il filtro sul lato servizio per ADLS Gen1, che offre prestazioni migliori rispetto a un filtro con caratteri jolly. <br/>Data Factory applica questo filtro al percorso definito nel set di dati ed è supportato un solo livello di entità. Per altri esempi, vedere [esempi di filtro di intervallo di nomi](#name-range-filter-examples). | No |
 | OPZIONE 2: intervallo di nomi<br/>- listBefore | Recuperare le cartelle o i file il cui nome è prima di questo valore in ordine alfabetico (inclusivo). Usa il filtro sul lato servizio per ADLS Gen1, che offre prestazioni migliori rispetto a un filtro con caratteri jolly.<br>Data Factory applica questo filtro al percorso definito nel set di dati ed è supportato un solo livello di entità. Per altri esempi, vedere [esempi di filtro di intervallo di nomi](#name-range-filter-examples). | No |
 | OPZIONE 3: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | OPZIONE 3: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel percorso folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 4: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
-| ***Impostazioni aggiuntive:** _ |  | |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono _ *true** (impostazione predefinita) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
+| ***Impostazioni aggiuntive:*** |  | |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia di file binari. Valore predefinito: false. |No |
 | modifiedDatetimeStart    | Filtro di file basato sull'attributo: Ultima modifica. <br>I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, il che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.<br/>Questa proprietà non è applicabile quando si configura `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                           |

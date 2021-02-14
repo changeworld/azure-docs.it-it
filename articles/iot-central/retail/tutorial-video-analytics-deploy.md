@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e524905aaeed54de6501eb6f024bf28dbab9c594
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831944"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362166"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Esercitazione: come distribuire un'applicazione IoT Central usando il modello di applicazione video Analytics-oggetto e rilevamento movimento
 
@@ -22,6 +22,13 @@ Per una panoramica dei componenti principali dell'applicazione *analisi dei movi
 Il video seguente offre una procedura dettagliata su come usare il _modello applicazione video Analytics-oggetto e rilevamento movimento_ per distribuire una soluzione IOT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+In questa serie di esercitazioni si apprenderà come:
+
+> [!div class="checklist"]
+> * Distribuire l'applicazione
+> * Distribuire un'istanza di IoT Edge che si connette all'applicazione
+> * Monitorare e gestire l'applicazione
 
 ## <a name="prerequisites"></a>Prerequisiti
 

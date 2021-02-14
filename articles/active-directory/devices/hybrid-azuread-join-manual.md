@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: 651e7156faf8305edb0a1541e957dd2abf3a71b8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860015"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365753"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -75,7 +75,7 @@ Per i dispositivi Windows 10 versione 1703 o precedente, se l'organizzazione ric
 
 A partire da Windows 10 1803, anche se il tentativo di aggiunta ad Azure AD ibrido di un dispositivo in un dominio federato con AD FS non riesce e Azure AD Connect è configurato per la sincronizzazione degli oggetti computer/dispositivo con Azure AD, il dispositivo proverà a completare l'aggiunta ad Azure AD ibrido usando il computer/dispositivo sincronizzato.
 
-Per verificare se il dispositivo può accedere alle risorse Microsoft sopra riportate con l'account di sistema, è possibile usare lo script disponibile per [testare la connettività durante la registrazione dei dispositivi](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0).
+Per verificare se il dispositivo può accedere alle risorse Microsoft sopra riportate con l'account di sistema, è possibile usare lo script disponibile per [testare la connettività durante la registrazione dei dispositivi](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="verify-configuration-steps"></a>Verificare i passaggi di configurazione
 

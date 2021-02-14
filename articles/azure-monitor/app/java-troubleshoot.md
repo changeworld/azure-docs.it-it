@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133243"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097552"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Risoluzione dei problemi e domande e risposte per Application Insights SDK per Java
 
@@ -170,7 +170,7 @@ Supponendo che [l'app sia stata impostata per Application Insights][java], fare 
 
 Sì, purché il server possa inviare dati di telemetria al portale di Application Insights tramite la rete Internet pubblica.
 
-Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
+Potrebbe essere necessario [aprire alcune porte in uscita nel firewall del server](./ip-addresses.md#outgoing-ports) per consentire all'SDK di inviare dati al portale.
 
 ## <a name="data-retention"></a>Conservazione dei dati
 **Per quanto tempo vengono conservati i dati nel portale? Tale conservazione è sicura?**
@@ -192,7 +192,7 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 * [Scrivere codice per tenere traccia dell'utilizzo dell'app][track]
 * [Acquisire i log di diagnostica][javalogs]
 
-## <a name="get-help"></a>Ottieni supporto
+## <a name="get-help"></a>Ottenere aiuto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Registrare un problema su GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 

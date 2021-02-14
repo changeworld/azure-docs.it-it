@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
-ms.translationtype: HT
+ms.openlocfilehash: 3da3b1694a16507203d7f1f1f6cb5df58dd54423
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542270"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366178"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un server di Database di Azure per MySQL
 
@@ -180,6 +180,32 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 ```
 
 ---
+
+## <a name="exporting-arm-template-from-the-portal"></a>Esportazione del modello ARM dal portale
+È possibile [esportare un modello ARM](../azure-resource-manager/templates/export-template-portal.md) dal portale di Azure. Per esportare un modello sono disponibili due modi:
+
+- [Esportare da un gruppo di risorse o una risorsa](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Questa opzione genera un nuovo modello da risorse esistenti. Il modello esportato è uno "snapshot" dello stato corrente del gruppo di risorse. È possibile esportare un intero gruppo di risorse o risorse specifiche all'interno di tale gruppo di risorse.
+- [Esporta prima della distribuzione o dalla cronologia](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Questa opzione consente di recuperare una copia esatta di un modello utilizzato per la distribuzione.
+
+Quando si esporta il modello, nella ```"properties":{ }``` sezione della risorsa MySQL server si noterà che ```administratorLogin``` e ```administratorLoginPassword``` non verranno inclusi per motivi di sicurezza. Prima di distribuire il modello, è **necessario** aggiungere questi parametri al modello. in questo modo, il modello ha esito negativo.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforMySQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

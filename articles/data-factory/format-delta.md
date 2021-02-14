@@ -3,16 +3,15 @@ title: Formato Delta in Azure Data Factory
 description: Trasformare e spostare i dati da un Delta Lake usando il formato Delta
 author: djpmsft
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854972"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386493"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta in Azure Data Factory
 
@@ -30,15 +29,15 @@ Questo connettore è disponibile come set di dati [inline](data-flow-source.md#i
 
 Nella tabella seguente sono elencate le proprietà supportate da un'origine Delta. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
 
-| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `delta` | sì | `delta` | format |
 | File system | Contenitore/file system di Delta Lake | sì | string | fileSystem |
 | Percorso della cartella | Il diretto di Delta Lake | sì | string | folderPath |
-| Tipo di compressione | Tipo di compressione della tabella Delta | No | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
+| Tipo di compressione | Tipo di compressione della tabella Delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Livello di compressione | Scegliere se la compressione viene completata il più rapidamente possibile o se il file risultante deve essere compresso in modo ottimale. | obbligatorio se `compressedType` si specifica. | `Optimal` o `Fastest` | compressionLevel |
-| Tempo di viaggio | Scegliere se eseguire una query su uno snapshot precedente di una tabella Delta | No | Query per timestamp: timestamp <br> Query per versione: integer | timestampAsOf <br> versionAsOf |
-| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | No | `true` o `false` | ignoreNoFilesFound |
+| Tempo di viaggio | Scegliere se eseguire una query su uno snapshot precedente di una tabella Delta | no | Query per timestamp: timestamp <br> Query per versione: integer | timestampAsOf <br> versionAsOf |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>Importa schema
 
@@ -67,12 +66,12 @@ source(output(movieId as integer,
 
 Nella tabella seguente sono elencate le proprietà supportate da un sink Delta. È possibile modificare queste proprietà nella scheda **Impostazioni** .
 
-| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `delta` | sì | `delta` | format |
 | File system | Contenitore/file system di Delta Lake | sì | string | fileSystem |
 | Percorso della cartella | Il diretto di Delta Lake | sì | string | folderPath |
-| Tipo di compressione | Tipo di compressione della tabella Delta | No | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
+| Tipo di compressione | Tipo di compressione della tabella Delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Livello di compressione | Scegliere se la compressione viene completata il più rapidamente possibile o se il file risultante deve essere compresso in modo ottimale. | obbligatorio se `compressedType` si specifica. | `Optimal` o `Fastest` | compressionLevel |
 | Vacuum | Specificare la soglia di conservazione in ore per le versioni precedenti della tabella. Il valore predefinito è 0 o inferiore a 30 giorni | sì | Integer | vuoto |
 | Update (metodo) | Consente di specificare quali operazioni di aggiornamento sono consentite sul Delta Lake. Per i metodi che non vengono inseriti, è necessaria una trasformazione alter Row precedente per contrassegnare le righe. | sì | `true` o `false` | cancellabile <br> inseribile <br> aggiornabile <br> merge |

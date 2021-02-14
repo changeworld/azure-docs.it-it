@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 02/09/2021
 ms.author: chmutali
-ms.openlocfilehash: f260bca196839a091ae7d12be6d5f85912bf92db
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2b1a43ee6b13d32c0eaed92538cf9c25405e061b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255985"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104332"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Integrazione di Azure Active Directory provisioning con la giornata lavorativa
 
@@ -448,6 +448,21 @@ Supponiamo di voler recuperare le certificazioni associate a un utente. Queste i
 Supponiamo di voler recuperare i *gruppi di provisioning* assegnati a un ruolo di lavoro. Queste informazioni sono disponibili come parte del set di *dati di provisioning dell'account* . Per ottenere questo set di dati come parte della risposta *Get_Workers* , utilizzare il seguente XPath: 
 
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
+
+## <a name="handling-different-hr-scenarios"></a>Gestione di scenari HR diversi
+
+### <a name="retrieving-international-job-assignments-and-secondary-job-details"></a>Recupero delle assegnazioni di processi internazionali e dei dettagli dei processi secondari
+
+Per impostazione predefinita, il connettore giorni lavorativi recupera gli attributi associati al processo principale del processo di lavoro. Il connettore supporta inoltre il recupero di *dati aggiuntivi* relativi ai processi associati alle assegnazioni di processi internazionali o ai processi secondari. 
+
+Per recuperare gli attributi associati alle assegnazioni di processi internazionali, attenersi alla procedura seguente: 
+
+1. Impostare l'URL della connessione per la giornata lavorativa usa l'API del servizio Web della giornata lavorativa versione 30,0 Impostare di conseguenza i [valori XPath corretti](workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30) nell'app di provisioning dei giorni lavorativi. 
+1. Usare il selettore `@wd:Primary_Job=0` sul `Worker_Job_Data` nodo per recuperare l'attributo corretto. 
+   * **Esempio 1:** Per ottenere `SecondaryBusinessTitle` l'utilizzo di XPath `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Title/text()`
+   * **Esempio 2:** Per ottenere `SecondaryBusinessLocation` l'utilizzo di XPath `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Location_Reference/@wd:Descriptor`
+
+ 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

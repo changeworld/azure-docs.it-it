@@ -1,22 +1,18 @@
 ---
 title: Trasformazione con Azure Databricks
 description: Informazioni su come usare un modello di soluzione per trasformare i dati usando un notebook di Databricks in Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ee663423071458605f37f07293693dbc91f592bb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461243"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362115"
 ---
 # <a name="transformation-with-azure-databricks"></a>Trasformazione con Azure Databricks
 
@@ -132,7 +128,7 @@ Nella nuova pipeline la maggior parte delle impostazioni viene configurata autom
 
 1. Nel **file di attività di** **copia dei dati** , selezionare le schede **origine** e **sink** . Se necessario, modificare le impostazioni.
 
-   - **Source** ![ Scheda origine scheda origine](media/solution-template-Databricks-notebook/copy-source-settings.png)
+   -  ![ Scheda origine scheda origine](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
    - **Scheda sink scheda sink** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 

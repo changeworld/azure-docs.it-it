@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 17ef0cb7efcd2a76b46a6bb0dbc82268895dae00
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 86807899c06cb333238344b7168b5675e8f2e9a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222201"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366586"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importare chiavi con protezione HSM in Key Vault
 
@@ -38,9 +38,10 @@ Il trasferimento delle chiavi con protezione HSM in Key Vault è supportato tram
 |Fortanix|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Produttore|Moduli di protezione hardware di All LiquidSecurity con<ul><li>Firmware con versione 2.0.4 o successiva</li><li>Firmware con versione 3.2 o successiva</li></ul>|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV (Enterprise Key Management System)|Più marchi e modelli di moduli di protezione hardware, tra cui<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Per dettagli, vedere il [sito di Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
-|Securosys SA|Produttore, modulo di protezione hardware come servizio|Famiglia di moduli di protezione hardware Primus, Securosys Clouds HSM|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
+|Securosys SA|Produttore,<br/>modulo di protezione hardware come servizio|Famiglia di moduli di protezione hardware Primus, Securosys Clouds HSM|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |StorMagic|ISV (Enterprise Key Management System)|Più marchi e modelli di moduli di protezione hardware, tra cui<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Per dettagli, vedere il [sito di StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
-|IBM|Produttore|IBM 476x, CryptoExpress|Usare il nuovo metodo BYOK] (HSM-protected-Keys-byok.md)|
+|IBM|Produttore|IBM 476x, CryptoExpress|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
+|Utimaco|Produttore,<br/>modulo di protezione hardware come servizio|u. trust anchor, CryptoServer|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |||||
 
 ## <a name="next-steps"></a>Passaggi successivi

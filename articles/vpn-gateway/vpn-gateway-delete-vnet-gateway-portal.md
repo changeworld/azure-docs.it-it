@@ -4,20 +4,20 @@ description: Eliminare un gateway di rete virtuale usando il portale di Azure
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 10/16/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 7d9ae31b5701707589d79fd5f3d7eb0802038eb9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 413fd8c7f03ef44abe4bece39ca717c533dea66b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148229"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376386"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminare un gateway di rete virtuale usando il portale
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md) (PowerShell (classico))
 

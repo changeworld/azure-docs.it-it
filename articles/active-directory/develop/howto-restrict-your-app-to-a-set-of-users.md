@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178739"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104146"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedura: limitare l'app Azure AD a un set di utenti in un tenant Azure AD
 
@@ -47,7 +47,7 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Applicazioni aziendali (richiede il ruolo di amministratore globale)
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portale di Azure</a> come **amministratore globale**.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a> come **amministratore globale**.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
@@ -57,15 +57,15 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti del tenant devono prima essere assegnati a questa applicazione o non saranno in grado di accedere a questa applicazione.
 1. Selezionare **Salva**.
 
-### <a name="app-registration"></a>Registrazione delle app
+### <a name="app-registration"></a>Registrazione dell'app
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app**.
 1. Creare o selezionare l'app che si vuole gestire. È necessario essere il **proprietario** di questa applicazione.
 1. Nella pagina Panoramica dell'applicazione **selezionare il collegamento** **applicazione gestita in directory locale** nella sezione **informazioni** di base.
-1. In **Gestisci** selezionare **Proprietà**.
+1. In **Gestione** selezionare **Proprietà**.
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti del tenant devono prima essere assegnati a questa applicazione o non saranno in grado di accedere a questa applicazione.
 1. Selezionare **Salva**.
 

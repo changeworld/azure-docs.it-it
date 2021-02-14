@@ -1,23 +1,18 @@
 ---
 title: Strumento dati per copiare i file nuovi e aggiornati in modo incrementale
 description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per caricare in modo incrementale i nuovi file in base a LastModifiedDate.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555414"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361146"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia i file nuovi e modificati in modo incrementale in base a LastModifiedDate utilizzando lo strumento Copia dati
 
@@ -39,8 +34,8 @@ In questa esercitazione si completeranno le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure** : Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure** : usare l'archiviazione BLOB per gli archivi dati di origine e sink. Se non si ha un account di archiviazione di Azure, seguire le istruzioni riportate in [creare un account di archiviazione](../storage/common/storage-account-create.md).
+* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure**: usare l'archiviazione BLOB per gli archivi dati di origine e sink. Se non si ha un account di archiviazione di Azure, seguire le istruzioni riportate in [creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ## <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -52,7 +47,7 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel riquadro a sinistra selezionare **Crea risorsa**. Selezionare **Integration**  >  **Data Factory** di integrazione:
+1. Nel riquadro a sinistra selezionare **Crea risorsa**. Selezionare   >  **Data Factory** di integrazione:
 
    ![Selezionare Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -106,13 +101,13 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
     a. Selezionare  **Crea nuova connessione** per aggiungere una connessione.
 
-    b. Selezionare **archiviazione BLOB di Azure** dalla raccolta e quindi selezionare **continue (continua** ):
+    b. Selezionare **archiviazione BLOB di Azure** dalla raccolta e quindi selezionare **continue (continua**):
 
     ![Seleziona archiviazione Blog di Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
     c. Nella pagina **nuovo servizio collegato (archiviazione BLOB di Azure)** selezionare l'account di archiviazione dall'elenco **nome account di archiviazione** . Testare la connessione e quindi selezionare **Crea**.
 
-    d. Selezionare il nuovo servizio collegato e quindi fare clic su **Avanti** :
+    d. Selezionare il nuovo servizio collegato e quindi fare clic su **Avanti**:
 
    ![Selezionare il nuovo servizio collegato](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
@@ -124,7 +119,7 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
     b. In **comportamento caricamento file** selezionare **caricamento incrementale: LastModifiedDate**.
 
-    c. Selezionare **copia binaria** , quindi selezionare **Avanti** :
+    c. Selezionare **copia binaria** , quindi selezionare **Avanti**:
 
      ![Scegliere la pagina file o cartella di input](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
@@ -132,7 +127,7 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
 6. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) completare questa procedura:
 
-    a. Cercare e selezionare la cartella di **destinazione** , quindi **scegliere Scegli** :
+    a. Cercare e selezionare la cartella di **destinazione** , quindi **scegliere Scegli**:
 
     ![Scegliere la pagina file o cartella di output](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 

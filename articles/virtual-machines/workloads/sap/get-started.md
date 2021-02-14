@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 25d9d53b9bc597b5eb51586c594dd631609f476e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549389"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362149"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -84,6 +84,7 @@ In questa sezione vengono illustrati i documenti sull'integrazione di Microsoft 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
+- 02/11/2021: modifiche alla [disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) per modificare i comandi del cluster pacemaker per RHEL 8. x
 - 02/03/2021: modificare la [configurazione di pacemaker in RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) per aggiornare pcmk_host_map nel comando STONITH create
 - 02/03/2021: modificare la [configurazione di pacemaker in SLES in Azure](./high-availability-guide-suse-pacemaker.md) per aggiungere pcmk_host_map nel comando STONITH create 
 - 02/03/2021: altre informazioni sulle impostazioni dell'utilità di pianificazione di I/O per SUSE nell'articolo [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md)
