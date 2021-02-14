@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550845"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102258"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -29,7 +29,7 @@ Ripristino di emergenza di server fisici | Replica di server fisici Windows/Linu
 
 ## <a name="on-premises-virtualization-servers"></a>Server di virtualizzazione locali
 
-**Server** | **Requirements** | **Dettagli**
+**Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Server vCenter | Versione 7,0 & aggiornamenti successivi in questa versione, 6,7, 6,5, 6,0 o 5,5 | Si consiglia di usare un server vCenter nella distribuzione di ripristino di emergenza.
 Host vSphere | Versione 7,0 & aggiornamenti successivi in questa versione, 6,7, 6,5, 6,0 o 5,5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Il server di elaborazione viene eseguito per impostazione predefinita nel server di configurazione. [Altre informazioni](vmware-physical-azure-config-process-server-overview.md)
@@ -41,7 +41,7 @@ Il server di configurazione è un computer locale in cui vengono eseguiti tutti 
 - Per le macchine virtuali VMware, è possibile impostare il server di configurazione scaricando un modello OVF per creare una VM VMware.
 - Per i server fisici, configurare manualmente il computer del server di configurazione.
 
-**Componente** | **Requirements**
+**Componente** | **Requisiti**
 --- |---
 Core CPU | 8
 RAM | 16 GB
@@ -180,7 +180,7 @@ Ridimensionamento del disco nella macchina virtuale replicata | Supportato nella
 Aggiunta del disco alla macchina virtuale replicata | Non supportata.<br/> Disabilitare la replica per la macchina virtuale, aggiungere il disco e quindi abilitare nuovamente la replica.
 
 > [!NOTE]
-> Qualsiasi modifica all'identità del disco non è supportata. Se, ad esempio, il partizionamento del disco è stato modificato da GPT a MBR o viceversa, l'identità del disco verrà modificata. In uno scenario di questo tipo, la replica verrà interrotta e sarà necessaria una nuova installazione. 
+> Qualsiasi modifica all'identità del disco non è supportata. Se, ad esempio, il partizionamento del disco è stato modificato da GPT a MBR o viceversa, l'identità del disco verrà modificata. In uno scenario di questo tipo, la replica verrà interrotta e sarà necessaria una nuova installazione. Per i computer Linux, la modifica del nome del dispositivo non è supportata perché ha un effetto sull'identità del disco.
 
 ## <a name="network"></a>Rete
 
@@ -285,7 +285,7 @@ Dischi gestiti | Sì
 
 Le macchine virtuali locali replicate in Azure devono soddisfare i requisiti della macchina virtuale di Azure riepilogati in questa tabella. Quando Site Recovery esegue un controllo dei prerequisiti per la replica, il controllo ha esito negativo se alcuni dei requisiti non vengono soddisfatti.
 
-**Componente** | **Requirements** | **Dettagli**
+**Componente** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Sistema operativo guest | Verificare i [sistemi operativi supportati](#replicated-machines) per le macchine replicate. | Il controllo ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negativo se non supportato.

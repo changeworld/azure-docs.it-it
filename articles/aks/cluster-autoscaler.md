@@ -4,12 +4,12 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223143"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373250"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -273,6 +273,9 @@ az aks nodepool update \
 ```
 
 Se si vuole abilitare di nuovo il ridimensionamento automatico del cluster in un cluster esistente, è possibile riabilitarlo usando il comando [AZ AKS nodepool Update][az-aks-nodepool-update] , specificando i `--enable-cluster-autoscaler` `--min-count` parametri, e `--max-count` .
+
+> [!NOTE]
+> Se si prevede di usare il servizio di scalabilità automatica del cluster con nodepools che si estendono su più zone e si sfruttano le funzionalità di pianificazione correlate a zone come la pianificazione topologica del volume, si consiglia di avere un nodepool per area e di abilitare `--balance-similar-node-groups` tramite il profilo di scalabilità automatica. In questo modo si garantisce che il ridimensionamento automatico aumenti correttamente e tenti di mantenere le dimensioni del nodepools bilanciato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

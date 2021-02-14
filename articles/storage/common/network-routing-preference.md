@@ -11,18 +11,21 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797626"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362744"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurare la preferenza di routing di rete per Archiviazione di Azure (anteprima)
 
 È possibile configurare la [preferenza di routing](../../virtual-network/routing-preference-overview.md) di rete (anteprima) per l'account di archiviazione di Azure per specificare come deve essere instradato il traffico di rete dai client all'account tramite Internet. Per impostazione predefinita, il traffico proveniente da Internet viene instradato all'endpoint pubblico dell'account di archiviazione tramite la [rete globale Microsoft](../../networking/microsoft-global-network.md). Archiviazione di Azure prevede altre opzioni per configurare il routing del traffico all'account di archiviazione.
 
 La configurazione della preferenza di routing offre la flessibilità necessaria per ottimizzare il traffico per prestazioni di rete elevate o per i costi. Quando si configura una preferenza di routing, si specifica come verrà indirizzato il traffico all'endpoint pubblico per l'account di archiviazione per impostazione predefinita. È anche possibile pubblicare endpoint specifici della route per l'account di archiviazione.
+
+> [!NOTE]
+> Questa funzionalità non è supportata negli account di archiviazione configurati per l'uso del livello di prestazioni Premium o dell'archiviazione con ridondanza della zona (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Rete globale Microsoft rispetto a routing Internet
 

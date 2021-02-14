@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: de42854f512a69b7b70a15a10fe8499ca1d0bf8b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 45fa5cf4c76577cb5e8ba9bf482f4aab7301e3c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017730"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391491"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB
 
@@ -28,6 +28,9 @@ Archiviazione di Azure fornisce estensioni per PowerShell che consentono di acce
 Le estensioni di archiviazione di Azure sono supportate per le operazioni sui dati BLOB. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'entità di sicurezza Azure AD con cui si accede a PowerShell. Le autorizzazioni per i contenitori di archiviazione di Azure vengono assegnate tramite RBAC di Azure. Se ad esempio è stato assegnato il ruolo **lettore dati BLOB** , è possibile eseguire i comandi di scripting per leggere i dati da un contenitore. Se è stato assegnato il ruolo di **collaboratore dati BLOB** , è possibile eseguire i comandi di scripting per la lettura, la scrittura o l'eliminazione di un contenitore o dei dati in essi contenuti.
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di archiviazione di Azure in un contenitore, vedere [chiamare le operazioni di archiviazione con token OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+
+> [!IMPORTANT]
+> Quando un account di archiviazione è bloccato con un blocco Azure Resource Manager **ReadOnly** , l'operazione [list keys](/rest/api/storagerp/storageaccounts/listkeys) non è consentita per l'account di archiviazione. L' **elenco delle chiavi** è un'operazione post e tutte le operazioni post vengono impedite quando si configura un blocco **ReadOnly** per l'account. Per questo motivo, quando l'account è bloccato con un blocco **ReadOnly** , gli utenti che non dispongono già delle chiavi dell'account devono usare Azure ad credenziali per accedere ai dati BLOB. In PowerShell includere il `-UseConnectedAccount` parametro per creare un oggetto **AzureStorageContext** con le credenziali Azure ad.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Chiamare i comandi di PowerShell usando credenziali Azure AD
 

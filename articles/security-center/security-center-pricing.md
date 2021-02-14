@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c12ad505777111499fb354709ce606189398458f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805359"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391932"
 ---
 # <a name="pricing-of-azure-security-center"></a>Prezzi del Centro sicurezza di Azure
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione alle minacce e il rilevamento intelligente che consente di tenere il passo con i rischi informatici in rapida evoluzione.
@@ -118,10 +118,9 @@ Se si ha già una licenza per Microsoft Defender per endpoint, non sarà necessa
 Per confermare lo sconto, contattare il team di supporto del Centro sicurezza e fornire le informazioni appropriate per ID area di lavoro, area e licenza per ogni licenza pertinente.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione? 
-No. Se si abilita [Azure Defender per i server](defender-for-servers-introduction.md) in una sottoscrizione, verrà applicata una fatturazione oraria solo per i server in esecuzione. Non si riceveranno addebiti per tutto il tempo in cui eventuali server sono disattivati. 
+No. Quando si abilita [Azure Defender per i server](defender-for-servers-introduction.md) in una sottoscrizione, non vengono addebitati i costi per i server che si trovano nello stato "deallocato" mentre sono in tale stato.
 
-> [!TIP]
-> Ciò vale anche per gli altri tipi di risorsa protetti dal Centro sicurezza. 
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Macchine virtuali di Azure che mostrano un computer deallocato":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?
 Sì. Se si abilita [Azure Defender per i server](defender-for-servers-introduction.md) in una sottoscrizione, i computer al suo interno ottengono una gamma di protezioni anche se l'agente di Log Analytics non è stato installato.

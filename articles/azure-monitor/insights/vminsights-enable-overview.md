@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 655a146ccde9c75629d0a991a6a3aafa91f40764
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 18be0f7d1bd8622735f24bf20161d652846112f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233968"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373420"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Abilitare Monitoraggio di Azure per le macchine virtuali
 
@@ -66,7 +66,7 @@ Vedere l'elenco seguente di considerazioni sul supporto Linux di Dependency Agen
 ## <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
 Monitoraggio di Azure per le macchine virtuali richiede un'area di lavoro Log Analytics. Per informazioni dettagliate e requisiti di questa area di lavoro, vedere [configurare l'area di lavoro log Analytics per monitoraggio di Azure per le macchine virtuali](vminsights-configure-workspace.md) .
 ## <a name="agents"></a>Agenti
-Monitoraggio di Azure per le macchine virtuali richiede l'installazione dei due agenti seguenti in ogni macchina virtuale o set di scalabilità di macchine virtuali da monitorare. Per eseguire l'onboarding della risorsa, installare questi agenti e connetterli all'area di lavoro.  Vedere [requisiti di rete](../platform/log-analytics-agent.md#network-requirements) per i requisiti di rete per questi agenti.
+Monitoraggio di Azure per le macchine virtuali richiede l'installazione dei due agenti seguenti in ogni macchina virtuale o set di scalabilità di macchine virtuali da monitorare. Per eseguire l'onboarding della risorsa, installare questi agenti e connetterli all'area di lavoro.  
 
 - [Agente log Analytics](../platform/log-analytics-agent.md). Raccoglie gli eventi e i dati sulle prestazioni dalla macchina virtuale o dal set di scalabilità di macchine virtuali e li recapita all'area di lavoro Log Analytics. I metodi di distribuzione per l'agente di Log Analytics nelle risorse di Azure usano l'estensione della macchina virtuale per [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md).
 - Dependency Agent. Raccoglie i dati individuati sui processi in esecuzione nella macchina virtuale e sulle dipendenze del processo esterno, che vengono utilizzate dalla [funzionalità mappa in monitoraggio di Azure per le macchine virtuali](vminsights-maps.md). Dependency Agent si basa sull'agente di Log Analytics per recapitare i dati a monitoraggio di Azure. I metodi di distribuzione per Dependency Agent nelle risorse di Azure usano l'estensione della macchina virtuale per [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
@@ -84,6 +84,10 @@ Di seguito sono riportati diversi metodi per la distribuzione di questi agenti.
 | [Installazione manuale](./vminsights-enable-hybrid.md) | Installare gli agenti nel sistema operativo guest nei computer ospitati all'esterno di Azure, inclusi nel Data Center o in altri ambienti cloud. |
 
 
+## <a name="network-requirements"></a>Requisiti di rete
+
+- Per informazioni sui requisiti di rete per l'agente di Log Analytics, vedere [requisiti di rete](../platform/log-analytics-agent.md#network-requirements) .
+- Dependency Agent richiede una connessione dalla macchina virtuale all'indirizzo 169.254.169.254. Si tratta dell'endpoint del servizio metadati di Azure. Verificare che le impostazioni del firewall consentano le connessioni a questo endpoint.
 
 
 ## <a name="management-packs"></a>Management Pack

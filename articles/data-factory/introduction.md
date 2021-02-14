@@ -1,20 +1,17 @@
 ---
 title: Introduzione a Data factory di Azure
 description: Informazioni su Azure Data Factory, un servizio di integrazione dei dati cloud che consente di orchestrare e automatizzare lo spostamento e la trasformazione dei dati.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 00ae812536e73f432b9bddb93fc1b4a958b379f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
-ms.translationtype: HT
+ms.openlocfilehash: 8fef4bbc0c0e77c1e152b8c2c44254e091b0e5a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97812869"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392545"
 ---
 # <a name="what-is-azure-data-factory"></a>Che cos'è Azure Data Factory?
 

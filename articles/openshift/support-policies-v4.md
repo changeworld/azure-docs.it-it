@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c58b267874f013a4660428e23abd41810a0fbf34
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521139"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093166"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Criteri di supporto di Azure Red Hat OpenShift
 
@@ -26,6 +26,7 @@ Alcune configurazioni per i cluster di Azure Red Hat OpenShift 4 possono influen
 * Il cluster deve avere almeno due nodi del ruolo di lavoro. Non ridimensionare i ruoli di lavoro del cluster a zero o tentare un arresto del cluster normale.
 * Non rimuovere o modificare i servizi Prometheus e Alertmanager del cluster.
 * Non rimuovere le regole Alertmanager del servizio.
+* Non rimuovere o modificare i gruppi di sicurezza di rete.
 * Non rimuovere o modificare la registrazione del servizio Azure Red Hat OpenShift (pod MDSD).
 * Non rimuovere o modificare il segreto pull del cluster "arosvc.azurecr.io".
 * Tutte le macchine virtuali del cluster devono avere accesso diretto a Internet in uscita, almeno agli endpoint di Azure Resource Manager (ARM) e di registrazione dei servizi (Geneva).  Non è supportata alcuna forma d'uso di proxy HTTPS.

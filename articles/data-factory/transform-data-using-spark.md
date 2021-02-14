@@ -1,21 +1,18 @@
 ---
 title: Trasformare i dati con Attività Spark
 description: Informazioni su come trasformare i dati eseguendo programmi Spark da una pipeline di Azure Data Factory usando l'attività Spark.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: cac64b17e7aad9aa2bf88386f21d5f82b3013fa3
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e5c50d2cbd16ad2808dab485ad2b2870d6f3d350
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566776"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392358"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Spark in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]

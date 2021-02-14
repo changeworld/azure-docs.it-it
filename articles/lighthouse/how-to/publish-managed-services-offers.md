@@ -1,14 +1,14 @@
 ---
 title: Pubblicare un'offerta di servizio gestito in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che carica i clienti nel Faro di Azure.
-ms.date: 12/17/2020
+ms.date: 02/10/2021
 ms.topic: how-to
-ms.openlocfilehash: f6bd504185fab3fc698019a3eb8c530ba93f8abc
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 9abac28d982e5b33bc4952f73336810abcb44e45
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791374"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372061"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure Marketplace
 
@@ -18,9 +18,7 @@ In questo articolo si apprenderà come pubblicare un'offerta di servizio gestito
 
 Per creare e pubblicare le offerte, è necessario disporre di un [account valido nel centro](../../marketplace/partner-center-portal/create-account.md) per i partner. Se non si dispone già di un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) consentirà di creare un account nel centro per i partner e di iscriversi al programma Commercial Marketplace.
 
-In base ai [requisiti di certificazione dell'offerta del servizio gestito](/legal/marketplace/certification-policies#7004-business-requirements), è necessario disporre di un livello di competenza della [piattaforma Cloud Silver o Gold](/partner-center/learn-about-competencies) oppure essere un [msp esperto di Azure](https://partner.microsoft.com/membership/azure-expert-msp) per pubblicare un'offerta di servizio gestito. È anche necessario [immettere una destinazione lead che creerà un record nel sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) ogni volta che un cliente distribuisce l'offerta.
-
-L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](../../cost-management-billing/manage/link-partner-id.md) alle offerte pubblicate per tenere traccia dell'impatto sugli engagement dei clienti.
+In base ai [requisiti di certificazione dell'offerta del servizio gestito](/legal/marketplace/certification-policies#700-managed-services), è necessario disporre di un livello di competenza della [piattaforma Cloud Silver o Gold](/partner-center/learn-about-competencies) oppure essere un [msp esperto di Azure](https://partner.microsoft.com/membership/azure-expert-msp) per pubblicare un'offerta di servizio gestito. È anche necessario [immettere una destinazione lead che creerà un record nel sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) ogni volta che un cliente distribuisce l'offerta.
 
 Se non si vuole pubblicare un'offerta in Azure Marketplace o non soddisfare tutti i requisiti, è possibile caricare i clienti manualmente usando modelli di Azure Resource Manager. Per altre informazioni, vedere [onboarding an Customer to Azure Lighthouse](onboard-customer.md).
 
@@ -38,9 +36,9 @@ La tabella seguente consente di determinare se eseguire l'onboarding dei clienti
 
 ## <a name="create-your-offer"></a>Creare l'offerta
 
-Per istruzioni dettagliate su come creare l'offerta, incluse tutte le informazioni e gli asset che è necessario fornire, vedere [creare un'offerta di servizio gestito](../../marketplace/plan-managed-service-offer.md).
+Per istruzioni dettagliate su come creare l'offerta, incluse tutte le informazioni e gli asset che è necessario fornire, vedere [creare un'offerta di servizio gestito](../../marketplace/create-managed-service-offer.md).
 
-Per informazioni sul processo di pubblicazione generale, vedere la [Guida alla pubblicazione su Azure Marketplace e AppSource](../../marketplace/overview.md). È anche necessario esaminare i [criteri di certificazione del Marketplace commerciale](/legal/marketplace/certification-policies), in particolare la sezione [Servizi gestiti](/legal/marketplace/certification-policies#700-managed-services).
+Per informazioni sul processo di pubblicazione generale, vedere la [documentazione sul Marketplace commerciale](../../marketplace/overview.md). È anche necessario esaminare i [criteri di certificazione del Marketplace commerciale](/legal/marketplace/certification-policies), in particolare la sezione [Servizi gestiti](/legal/marketplace/certification-policies#700-managed-services).
 
 Una volta che un cliente ha aggiunto l'offerta, sarà in grado di delegare una o più sottoscrizioni o gruppi di risorse, che verranno quindi caricati [in Azure Lighthouse](#the-customer-onboarding-process).
 
@@ -49,7 +47,7 @@ Una volta che un cliente ha aggiunto l'offerta, sarà in grado di delegare una o
 
 ## <a name="publish-your-offer"></a>Pubblicare l'offerta
 
-Dopo aver completato tutte le sezioni, il passaggio successivo consiste nel pubblicare l'offerta in Azure Marketplace. Selezionare il pulsante **Pubblica** per attivare l'offerta. Altre informazioni su questo processo sono disponibili [qui](../../marketplace/plan-managed-service-offer.md). 
+Dopo aver completato tutte le sezioni, il passaggio successivo consiste nel pubblicare l'offerta in Azure Marketplace. Selezionare il pulsante **Pubblica** per attivare l'offerta. Altre informazioni su questo processo sono disponibili [qui](../../marketplace/review-publish-offer.md).
 
 È possibile [pubblicare una versione aggiornata dell'offerta](../..//marketplace/partner-center-portal/update-existing-offer.md) in qualsiasi momento. Ad esempio, potrebbe essere necessario aggiungere una nuova definizione di ruolo a un'offerta pubblicata in precedenza. Quando si esegue questa operazione, i clienti che hanno già aggiunto l'offerta vedranno un'icona nella pagina [**Provider di servizi**](view-manage-service-providers.md) del portale di Azure che consente di sapere che è disponibile un aggiornamento. Ogni cliente sarà in grado di [esaminare le modifiche](view-manage-service-providers.md#update-service-provider-offers) e decidere se desiderano eseguire l'aggiornamento alla nuova versione. 
 
@@ -65,5 +63,6 @@ Quando il cliente delega una sottoscrizione (o uno o più gruppi di risorse all'
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sul [Marketplace commerciale](../../marketplace/overview.md).
+- [Collegare l'ID partner](partner-earned-credit.md) per tenere traccia dell'effetto tra gli impegni dei clienti.
 - Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).
 - [Visualizzare e gestire i clienti](view-manage-customers.md) passando a **Clienti personali** nel portale di Azure.

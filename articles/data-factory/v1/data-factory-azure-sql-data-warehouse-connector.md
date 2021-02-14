@@ -1,23 +1,18 @@
 ---
 title: Copiare dati da e verso Azure sinapsi Analytics
 description: Informazioni su come copiare dati da e verso Azure sinapsi Analytics usando Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0d071599b72f6a71bdff815f514311fb87f53d5b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452359"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392086"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copiare dati da e verso Azure sinapsi Analytics usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -47,7 +42,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 ## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
 Il connettore Azure sinapsi Analytics supporta l'autenticazione di base.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con un'attività di copia che sposta i dati da e verso un'analisi delle sinapsi di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline che copia i dati da e verso Azure sinapsi Analytics consiste nell'usare la procedura guidata copia dati. Vedere [esercitazione: caricare i dati in Azure sinapsi Analytics con data factory](../load-azure-sql-data-warehouse.md) per una rapida procedura dettagliata sulla creazione di una pipeline usando la copia guidata dati.
@@ -81,7 +76,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **AzureSqlDWTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella o della vista nel database di analisi delle sinapsi di Azure a cui fa riferimento il servizio collegato. |Sì |
 
@@ -305,7 +300,7 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| Bit | Bit |
+| bit | bit |
 | Decimal | Decimal |
 | Numeric | Decimal |
 | Float | Float |
@@ -375,7 +370,7 @@ Il mapping è uguale al [mapping del tipo di dati SQL Server per ADO.NET](/dotne
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 È anche possibile eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati sink nella definizione dell'attività di copia. Per altre informazioni, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 

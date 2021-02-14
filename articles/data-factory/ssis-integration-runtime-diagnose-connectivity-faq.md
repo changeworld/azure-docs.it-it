@@ -1,21 +1,18 @@
 ---
 title: Usare la funzionalità diagnostica connettività nel runtime di integrazione SSIS
 description: Risolvere i problemi di connessione nel runtime di integrazione SSIS utilizzando la funzionalità di connettività di diagnostica.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
-manager: yidetu
 ms.date: 06/07/2020
-ms.openlocfilehash: 698a9c062596a3439d95ac0d586854fc6616fdd6
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 1fb9a0c77a7cdc286c7c206d6eb33e43917ee719
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556546"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361860"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>Usare la funzionalità diagnostica connettività nel runtime di integrazione SSIS
 

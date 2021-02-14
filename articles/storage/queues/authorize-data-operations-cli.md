@@ -6,17 +6,17 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01b78fa3250f371cfc4d713668531664ef8c139e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587605"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363169"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Come autorizzare l'accesso ai dati della coda con l'interfaccia della riga di comando di Azure
 
@@ -34,6 +34,9 @@ I comandi dell'interfaccia della riga di comando di Azure per la lettura e scrit
 
 Per usare il `--auth-mode` parametro, verificare di aver installato l'interfaccia della riga di comando di Azure v 2.0.46 o versione successiva. Eseguire `az --version` per controllare la versione installata.
 
+> [!NOTE]
+> Quando un account di archiviazione è bloccato con un blocco Azure Resource Manager **ReadOnly** , l'operazione [list keys](/rest/api/storagerp/storageaccounts/listkeys) non è consentita per l'account di archiviazione. L' **elenco delle chiavi** è un'operazione post e tutte le operazioni post vengono impedite quando si configura un blocco **ReadOnly** per l'account. Per questo motivo, quando l'account è bloccato con un blocco **ReadOnly** , gli utenti che non dispongono già delle chiavi dell'account devono usare Azure ad credenziali per accedere ai dati della coda.
+
 > [!IMPORTANT]
 > Se si omette il `--auth-mode` parametro o lo si imposta su `key` , l'interfaccia della riga di comando di Azure tenterà di usare la chiave di accesso dell'account per l'autorizzazione. In questo caso, Microsoft consiglia di specificare la chiave di accesso nel comando o nella `AZURE_STORAGE_KEY` variabile di ambiente. Per ulteriori informazioni sulle variabili di ambiente, vedere la sezione [impostare le variabili di ambiente per i parametri di autorizzazione](#set-environment-variables-for-authorization-parameters).
 >
@@ -41,7 +44,7 @@ Per usare il `--auth-mode` parametro, verificare di aver installato l'interfacci
 
 ## <a name="authorize-with-azure-ad-credentials"></a>Autorizzare con Azure AD credenziali
 
-Quando si accede all'interfaccia della riga di comando di Azure con Azure AD credenziali, viene restituito un token di accesso OAuth 2,0. Il token viene usato automaticamente dall'interfaccia della riga di comando di Azure per autorizzare le operazioni sui dati successive nell'archivio BLOB o nell'archiviazione code. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
+Quando si accede all'interfaccia della riga di comando di Azure con Azure AD credenziali, viene restituito un token di accesso OAuth 2,0. Il token viene usato automaticamente dall'interfaccia della riga di comando di Azure per autorizzare le operazioni sui dati successive sull'archiviazione code. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
 
 È possibile assegnare autorizzazioni per accodare i dati a un'entità di sicurezza Azure AD tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni sui ruoli di Azure in archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC di Azure](../common/storage-auth-aad-rbac-portal.md).
 
@@ -55,7 +58,7 @@ Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione
 
 L'esempio seguente illustra come creare una coda dall'interfaccia della riga di comando di Azure usando le credenziali Azure AD. Per creare la coda, è necessario accedere all'interfaccia della riga di comando di Azure e sono necessari un gruppo di risorse e un account di archiviazione.
 
-1. Prima di creare la coda, assegnare il ruolo di [collaboratore dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac-portal.md).
+1. Prima di creare la coda, assegnare il ruolo di [collaboratore dati della coda di archiviazione](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > La propagazione delle assegnazioni dei ruoli può richiedere alcuni minuti.

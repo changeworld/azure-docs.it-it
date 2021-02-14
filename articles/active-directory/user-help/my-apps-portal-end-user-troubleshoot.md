@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833980"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094968"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Risolvere i problemi del portale delle app personali
 
@@ -31,9 +31,9 @@ Se si riscontrano problemi con l'installazione dell'estensione di accesso sicuro
 
     - **Microsoft Edge.** Esecuzione su Windows 10 Anniversary Edition o versioni successive.
 
-    - **Google Chrome.** Esecuzione su Windows 7 o versione successiva e in Mac OS X o versione successiva.
+    - **Google Chrome.** In esecuzione su Windows 7 o versione successiva e in macOS X o versione successiva.
 
-    - **Mozilla Firefox 26.0 o versione successiva.** Esecuzione su Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
+    - **Mozilla Firefox 26.0 o versione successiva.** In esecuzione in Windows XP SP2 o versioni successive e in macOS X 10,6 o versione successiva.
 
     - **Internet Explorer 11.** Esecuzione su Windows 7 o versioni successive (supporto limitato).
 
@@ -46,6 +46,11 @@ Se si riscontrano problemi con l'installazione dell'estensione di accesso sicuro
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Non è possibile accedere al portale delle **app personali**
 
 Se si verificano problemi durante l'accesso al portale delle **app personali**, è possibile provare a eseguire le operazioni seguenti:
+
+- Se viene visualizzato un errore di accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 - Assicurarsi di usare l'URL corretto. Deve essere https://myapps.microsoft.com o una pagina personalizzata dell'organizzazione, ad esempio https://myapps.microsoft.com/contoso.com.
 

@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: locale, OCR, Docker, contenitore
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008588"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391772"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installare i contenitori Docker per l'OCR di lettura (anteprima) 
 
@@ -41,7 +41,7 @@ Il contenitore OCR Read 3,2-Preview fornisce:
 * Punteggi di confidenza.
 * Supporto per documenti con testo stampato e scritto a mano.
 * Possibilità di estrarre il testo solo da una o più pagine selezionate in un documento.
-* Scegliere l'ordine di output della riga di testo da predefinito a un ordine di lettura più naturale.
+* Scegliere l'ordine di output della riga di testo da predefinito a un ordine di lettura più naturale solo per le lingue latine.
 * Classificazione della riga di testo come stile manoscritto o non solo per le lingue latine.
 
 Se si usa attualmente la lettura di contenitori 2,0, vedere la [Guida alla migrazione](read-container-migration-guide.md) per informazioni sulle modifiche apportate alle nuove versioni.

@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/14/2020
-ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
-ms.translationtype: HT
+ms.date: 02/11/2021
+ms.openlocfilehash: fb9f12b3b31f1049cd4d9306294783e514331229
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331642"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382192"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un database di Azure per PostgreSQL: server singolo
 
@@ -68,32 +68,32 @@ Selezionare il collegamento seguente per distribuire il modello di database di A
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-Nella pagina **Distribuire Database di Azure per PostgreSQL con la rete virtuale** :
+Nella pagina **Distribuire Database di Azure per PostgreSQL con la rete virtuale**:
 
-1. In **Gruppo di risorse** selezionare **Crea nuovo** , immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
+1. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
 
 2. Se è stato creato un nuovo gruppo di risorse, selezionare un valore per **Località** per il gruppo di risorse e il nuovo server.
 
-3. Immettere i valori per **Nome server** , **Account di accesso amministratore** e **Password di accesso amministratore**.
+3. Immettere i valori per **Nome server**, **Account di accesso amministratore** e **Password di accesso amministratore**.
 
     :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Finestra Distribuisci Database di Azure per PostgreSQL con la rete virtuale, modello di avvio rapido di Azure, portale di Azure":::
 
 4. Modificare le altre impostazioni predefinite in base alle esigenze:
 
-    * **Sottoscrizione** : sottoscrizione di Azure da usare per il server.
-    * **Capacità SKU** : capacità di vCore, che può essere *2* (impostazione predefinita), *4* , *8* , *16* , *32* o *64*.
-    * **Nome SKU** : prefisso del livello SKU, famiglia SKU e capacità dello SKU, uniti da caratteri di sottolineatura, ad esempio *B_Gen5_1* , *GP_Gen5_2* (impostazione predefinita) o *MO_Gen5_32*.
-    * **Dimensioni SKU (MB)** : dimensioni di archiviazione in megabyte del database di Azure per il server PostgreSQL (impostazione predefinita *51200* ).
-    * **Livello SKU** : livello di distribuzione, ad esempio *Basic* , *Utilizzo generico* (impostazione predefinita) o *Ottimizzato per la memoria*.
-    * **Famiglia SKU** : *Gen4* o *Gen5* (impostazione predefinita), che indica la generazione hardware per la distribuzione del server.
-    * **Versione di Postgresql** : versione del server PostgreSQL da distribuire, ad esempio *9.5* , *9.6* , *10* o *11* (impostazione predefinita).
-    * **Giorni di conservazione backup** : periodo desiderato per la conservazione del backup con ridondanza geografica, in giorni (impostazione predefinita *7* ).
-    * **Backup con ridondanza geografica** : *Abilitato* o *Disabilitato* (impostazione predefinita), a seconda dei requisiti per il ripristino di emergenza geografico.
-    * **Nome rete virtuale** : nome della rete virtuale (impostazione predefinita *azure_postgresql_vnet* ).
-    * **Nome subnet** : nome della subnet (impostazione predefinita *azure_postgresql_subnet* ).
-    * **Nome regola di rete virtuale** :nome della regola di rete virtuale che consente la subnet (impostazione predefinita *AllowSubnet* ).
-    * **Prefisso dell'indirizzo della rete virtuale** : prefisso dell'indirizzo della rete virtuale (impostazione predefinita *10.0.0.0/16* ).
-    * **Prefisso subnet** : prefisso dell'indirizzo per la subnet (impostazione predefinita *10.0.0.0/16* ).
+    * **Sottoscrizione**: sottoscrizione di Azure da usare per il server.
+    * **Capacità SKU**: capacità di vCore, che può essere *2* (impostazione predefinita), *4*, *8*, *16*, *32* o *64*.
+    * **Nome SKU**: prefisso del livello SKU, famiglia SKU e capacità dello SKU, uniti da caratteri di sottolineatura, ad esempio *B_Gen5_1*, *GP_Gen5_2* (impostazione predefinita) o *MO_Gen5_32*.
+    * **Dimensioni SKU (MB)** : dimensioni di archiviazione in megabyte del database di Azure per il server PostgreSQL (impostazione predefinita *51200*).
+    * **Livello SKU**: livello di distribuzione, ad esempio *Basic*, *Utilizzo generico* (impostazione predefinita) o *Ottimizzato per la memoria*.
+    * **Famiglia SKU**: *Gen4* o *Gen5* (impostazione predefinita), che indica la generazione hardware per la distribuzione del server.
+    * **Versione di Postgresql**: versione del server PostgreSQL da distribuire, ad esempio *9.5*, *9.6*, *10* o *11* (impostazione predefinita).
+    * **Giorni di conservazione backup**: periodo desiderato per la conservazione del backup con ridondanza geografica, in giorni (impostazione predefinita *7*).
+    * **Backup con ridondanza geografica**: *Abilitato* o *Disabilitato* (impostazione predefinita), a seconda dei requisiti per il ripristino di emergenza geografico.
+    * **Nome rete virtuale**: nome della rete virtuale (impostazione predefinita *azure_postgresql_vnet*).
+    * **Nome subnet**: nome della subnet (impostazione predefinita *azure_postgresql_subnet*).
+    * **Nome regola di rete virtuale**:nome della regola di rete virtuale che consente la subnet (impostazione predefinita *AllowSubnet*).
+    * **Prefisso dell'indirizzo della rete virtuale**: prefisso dell'indirizzo della rete virtuale (impostazione predefinita *10.0.0.0/16*).
+    * **Prefisso subnet**: prefisso dell'indirizzo per la subnet (impostazione predefinita *10.0.0.0/16*).
 
 5. Leggere le condizioni, quindi selezionare **Accetto le condizioni riportate sopra**.
 
@@ -174,6 +174,34 @@ read -p "Press [ENTER] to continue: "
 ```
 
 ---
+
+## <a name="exporting-arm-template-from-the-portal"></a>Esportazione del modello ARM dal portale
+È possibile [esportare un modello ARM](../azure-resource-manager/templates/export-template-portal.md) dal portale di Azure. Per esportare un modello sono disponibili due modi:
+
+- [Esportare da un gruppo di risorse o una risorsa](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Questa opzione genera un nuovo modello da risorse esistenti. Il modello esportato è uno "snapshot" dello stato corrente del gruppo di risorse. È possibile esportare un intero gruppo di risorse o risorse specifiche all'interno di tale gruppo di risorse.
+- [Esporta prima della distribuzione o dalla cronologia](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Questa opzione consente di recuperare una copia esatta di un modello utilizzato per la distribuzione.
+
+Quando si esporta il modello, nella ```"properties":{ }```  sezione della risorsa server PostgreSQL si noterà che ```administratorLogin``` e non verranno ```administratorLoginPassword``` inclusi per motivi di sicurezza. Prima di distribuire il modello, è **necessario** aggiungere questi parametri al modello. in questo modo, il modello ha esito negativo.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforPostgreSQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
+
+
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

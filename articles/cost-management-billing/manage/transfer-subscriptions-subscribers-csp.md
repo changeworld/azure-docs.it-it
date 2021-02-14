@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962111"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363050"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -36,6 +36,7 @@ Quando la richiesta viene approvata, il CSP può fornire una fattura combinata a
 
 Per trasferire altre sottoscrizioni di Azure a un partner CSP, il sottoscrittore deve spostare le risorse dalle sottoscrizioni di origine alle sottoscrizioni CSP. Usare il materiale sussidiario seguente per spostare le risorse tra le sottoscrizioni.
 
+1. Stabilire una [relazione del rivenditore](/partner-center/request-a-relationship-with-a-customer) con il cliente. Esaminare la [Panoramica sull'autorizzazione](/partner-center/regional-authorization-overview) dell'area CSP per assicurarsi che sia il tenant del cliente che quello del partner si trovino nelle stesse aree autorizzate.
 1. Collaborare con il partner CSP per creare sottoscrizioni di Azure CSP di destinazione.
 1. Verificare che le sottoscrizioni CSP di origine e di destinazione si trovino nello stesso tenant di Azure Active Directory (Azure AD).  
     Non è possibile modificare il tenant di Azure AD per una sottoscrizione Azure CSP. Al contrario, è necessario aggiungere o associare la sottoscrizione di origine al tenant di Azure AD CSP. Per altre informazioni, vedere [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

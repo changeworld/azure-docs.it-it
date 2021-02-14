@@ -1,22 +1,17 @@
 ---
 title: Eseguire la migrazione di carichi di lavoro SQL Server Integration Services (SSIS) locali a SSIS in Azure Data Factory (ADF)
 description: Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in ADF.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: ef4b01e38a60d6770ba476988fab934ada0bc631
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635695"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373607"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Eseguire la migrazione di carichi di lavoro SSIS locali a SSIS in ADF
 
@@ -28,7 +23,7 @@ Quando si esegue la migrazione dei carichi di lavoro del database da SQL Server 
 
 Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) supporta l'esecuzione di pacchetti SSIS. Una volta eseguito il provisioning di Azure-SSIS IR, è possibile usare strumenti familiari, ad esempio SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) e utilità della riga di comando, ad esempio dtinstall/dtutil/dtexec, per distribuire ed eseguire i pacchetti in Azure. Per altre informazioni, vedere [Panoramica di Azure SSIS Lift-and-Shift](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
-Questo articolo evidenzia il processo di migrazione dei carichi di lavoro ETL da SSIS locale a SSIS in ADF. Il processo di migrazione è costituito da due fasi: **Valutazione** e **Migrazione** .
+Questo articolo evidenzia il processo di migrazione dei carichi di lavoro ETL da SSIS locale a SSIS in ADF. Il processo di migrazione è costituito da due fasi: **Valutazione** e **Migrazione**.
 
 ## <a name="assessment"></a>Valutazione
 
@@ -49,7 +44,7 @@ Data Migration Assistant (DMA) è uno strumento scaricabile gratuitamente per qu
   - MSDB, ovvero un database di sistema in SQL Server usato per archiviare i pacchetti SSIS.
   - File system gestito, ovvero una cartella specifica nel percorso di installazione SQL Server usato per archiviare i pacchetti SSIS.
 
-DMA supporta attualmente la valutazione batch dei pacchetti archiviati nel **file System** , nell' **Archivio pacchetti** e nel **Catalogo SSIS** a partire da **DMA versione v 5.0** .
+DMA supporta attualmente la valutazione batch dei pacchetti archiviati nel **file System**, nell' **Archivio pacchetti** e nel **Catalogo SSIS** a partire da **DMA versione v 5.0**.
 
 Ottieni [DMA](/sql/dma/dma-overview)ed [Esegui la valutazione del pacchetto](/sql/dma/dma-assess-ssis).
 

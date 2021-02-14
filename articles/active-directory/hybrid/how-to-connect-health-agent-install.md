@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 57362aa84886d7b7d764617ce5a43ca2393bed52
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0e644b7937f6ccb23b4833405b8f4ed3119879a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018242"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362285"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione agente Azure AD Connect Health
 
@@ -34,7 +34,7 @@ Nella tabella seguente sono elencati i requisiti per l'utilizzo di Azure AD Conn
 
 | Requisito | Descrizione |
 | --- | --- |
-| Azure AD Premium è installato. |Azure AD Connect Health è una funzionalità di Azure AD Premium. Per ulteriori informazioni, vedere la pagina [relativa all'iscrizione per Azure ad Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />Per avviare una versione di valutazione gratuita di 30 giorni, vedere [avviare una versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/). |
+| È presente un Azure AD Premium (P1 o P2) sottoscrizione.  |Azure AD Connect Health è una funzionalità di Azure AD Premium (P1 o P2). Per ulteriori informazioni, vedere la pagina [relativa all'iscrizione per Azure ad Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />Per avviare una versione di valutazione gratuita di 30 giorni, vedere [avviare una versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/). |
 | Si è un amministratore globale in Azure AD. |Per impostazione predefinita, solo gli amministratori globali possono installare e configurare gli agenti di integrità, accedere al portale ed eseguire qualsiasi operazione all'interno Azure AD Connect Health. Per altre informazioni, vedere [Amministrare la directory di Azure AD](../fundamentals/active-directory-whatis.md). <br /><br /> Usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile consentire ad altri utenti dell'organizzazione di accedere a Azure AD Connect Health. Per ulteriori informazioni, vedere controllo [Azure ad Connect Health degli accessi in base al ruolo di Azure](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Importante**: usare un account aziendale o dell'Istituto di istruzione per installare gli agenti. Non è possibile usare un account Microsoft. Per altre informazioni, vedere [iscriversi ad Azure come organizzazione](../fundamentals/sign-up-organization.md). |
 | L'agente di Azure AD Connect Health viene installato in ogni server di destinazione. | Gli agenti di integrità devono essere installati e configurati nei server di destinazione in modo che possano ricevere dati e fornire funzionalità di monitoraggio e analisi. <br /><br />Ad esempio, per ottenere i dati dall'infrastruttura di Active Directory Federation Services (AD FS), è necessario installare l'agente nel server AD FS e nel server proxy applicazione Web. Analogamente, per ottenere i dati dall'infrastruttura Azure AD Domain Services locale (Azure AD DS), è necessario installare l'agente sui controller di dominio.  |
 | Gli endpoint del servizio di Azure hanno connettività in uscita. | Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health. Se i firewall bloccano la connettività in uscita, aggiungere gli [endpoint di connettività in uscita](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) all'elenco Consenti. |
@@ -130,7 +130,7 @@ La funzionalità di analisi dell'utilizzo deve raccogliere e analizzare i dati. 
 
 1. Nella schermata Start aprire **Server Manager**, quindi aprire **criteri di sicurezza locali**. In alternativa, nella barra delle applicazioni aprire **Server Manager**, quindi selezionare **strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella *Security protezione\Criteri locali\Assegnazione Rights Assignment* . Fare quindi doppio clic su **genera controlli di sicurezza**.
-3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungerlo all'elenco. Quindi scegliere **OK**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungerlo all'elenco. Selezionare **OK**.
 4. Per abilitare il controllo, aprire una finestra del prompt dei comandi con privilegi elevati. Quindi, eseguire il comando seguente: 
     
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
@@ -149,7 +149,7 @@ La funzionalità di analisi dell'utilizzo deve raccogliere e analizzare i dati. 
 
 1. Nella schermata Start aprire **Server Manager**, quindi aprire **criteri di sicurezza locali**. In alternativa, nella barra delle applicazioni aprire **Server Manager**, quindi selezionare **strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella *Security protezione\Criteri locali\Assegnazione Rights Assignment* , quindi fare doppio clic su **genera controlli di sicurezza**.
-3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungere l'account del servizio ad FS all'elenco. Quindi scegliere **OK**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se non è elencato, selezionare **Aggiungi utente o gruppo** e aggiungere l'account del servizio ad FS all'elenco. Selezionare **OK**.
 4. Per abilitare il controllo, aprire una finestra del prompt dei comandi con privilegi elevati. Quindi, eseguire il comando seguente: 
 
     `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
@@ -195,7 +195,7 @@ Per verificare che l'agente sia stato installato, cercare i servizi seguenti nel
 ![Screenshot che mostra la Azure AD Connect Health in esecuzione per i servizi di sincronizzazione nel server.](./media/how-to-connect-health-agent-install/services.png)
 
 > [!NOTE]
-> Tenere presente che è necessario avere Azure AD Premium per usare Azure AD Connect Health. Se non si dispone di Azure AD Premium, non è possibile completare la configurazione nella portale di Azure. Per ulteriori informazioni, vedere i [requisiti](how-to-connect-health-agent-install.md#requirements).
+> Tenere presente che è necessario disporre di Azure AD Premium (P1 o P2) per usare Azure AD Connect Health. Se non si dispone di Azure AD Premium, non è possibile completare la configurazione nella portale di Azure. Per ulteriori informazioni, vedere i [requisiti](how-to-connect-health-agent-install.md#requirements).
 >
 >
 
@@ -355,7 +355,7 @@ Ecco un esempio:
 
 `Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443`
 
-Esempio:
+In questo esempio:
 * L' `address` impostazione può essere un nome di server risolvibile da DNS o un indirizzo IPv4.
 * È possibile omettere `port` . In tal caso, 443 è la porta predefinita.
 
@@ -390,7 +390,7 @@ Test-AzureADConnectHealthConnectivity -Role ADFS
 Il parametro role accetta attualmente i valori seguenti:
 
 * AD FS
-* Sincronizzazione
+* Sincronizza
 * ADDS
 
 > [!NOTE]
