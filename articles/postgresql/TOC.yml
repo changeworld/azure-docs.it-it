@@ -30,6 +30,9 @@
     - name: Criteri di controllo delle versioni
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: Problemi noti & limitazioni
+      href: concepts-known-issues-limitations.md
+      displayName: 'issues, limitations, postgresql'
 - name: Server unico
   expanded: true
   items:

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 02/08/2021
+ms.openlocfilehash: 1228234b6a2904c453ec92f3c09a7b3f55604953
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961482"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363764"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Ruoli personalizzati per SQL Server ad Azure SQL Istanza gestita migrazioni online
 
@@ -32,7 +32,7 @@ La sezione AssignableScopes della stringa JSON di definizione del ruolo consente
 > [!NOTE]
 > L'ultimo requisito del ruolo personalizzato potrebbe essere rimosso, in quanto il nuovo codice SQL Istanza gestita viene distribuito in Azure.
 
-**Ruolo personalizzato per l'ID app**. Questo ruolo è necessario per la migrazione del servizio migrazione del database di Azure a livello di *risorsa* o di *gruppo di risorse* . per ulteriori informazioni sull'ID app, vedere l'articolo [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md).
+**Ruolo personalizzato per l'ID app**. Questo ruolo è necessario per la migrazione del servizio migrazione del database di Azure a livello di *risorsa* o di *gruppo di risorse* che ospita il servizio migrazione del database di Azure. per altre informazioni sull'ID app, vedere l'articolo [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```json
 {
@@ -63,7 +63,7 @@ La sezione AssignableScopes della stringa JSON di definizione del ruolo consente
 }
 ```
 
-**Ruolo personalizzato per l'ID app: sottoscrizione**. Questo ruolo è necessario per la migrazione del servizio migrazione del database di Azure a livello di *sottoscrizione* .
+**Ruolo personalizzato per l'ID app: sottoscrizione**. Questo ruolo è necessario per la migrazione del servizio migrazione del database di Azure a livello di *sottoscrizione* che ospita il istanza gestita SQL.
 
 ```json
 {
@@ -87,8 +87,8 @@ Per altre informazioni, vedere l'articolo [ruoli personalizzati di Azure](../rol
 
 Dopo aver creato questi ruoli personalizzati, è necessario aggiungere assegnazioni di ruolo a utenti e ID APP alle risorse o ai gruppi di risorse appropriati:
 
-* È necessario concedere il ruolo "ID app-ruolo DMS" all'ID APP che verrà usato per le migrazioni e anche all'account di archiviazione, all'istanza del servizio migrazione del database di Azure e ai livelli di risorse di SQL Istanza gestita.
-* Il ruolo "DMS Role-App ID-sub" deve essere concesso all'ID APP a livello di sottoscrizione (la concessione della risorsa o del gruppo di risorse avrà esito negativo). Questo requisito è temporaneo finché non viene distribuito un aggiornamento del codice.
+* È necessario concedere il ruolo "ID app-ruolo DMS" all'ID APP che verrà usato per le migrazioni e anche all'account di archiviazione, all'istanza del servizio migrazione del database di Azure e ai livelli di risorse di SQL Istanza gestita. Viene concesso a livello di risorsa o di gruppo di risorse che ospita il servizio migrazione del database di Azure.
+* Il ruolo "DMS Role-App ID-sub" deve essere concesso all'ID APP a livello di sottoscrizione che ospita il Istanza gestita SQL (la concessione alla risorsa o al gruppo di risorse avrà esito negativo). Questo requisito è temporaneo finché non viene distribuito un aggiornamento del codice.
 
 ## <a name="expanded-number-of-roles"></a>Numero espanso di ruoli
 
@@ -138,7 +138,7 @@ Se il numero di ruoli personalizzati nell'Azure Active Directory non costituisce
 }
 ```
 
-## <a name="role-assignment"></a>Assegnazione di ruolo
+## <a name="role-assignment"></a>Assegnazione del ruolo
 
 Per assegnare un ruolo a utenti/ID APP, aprire il portale di Azure, seguire questa procedura:
 

@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f7d81d14ca561e6d4d897994088b2fc01b2c7701
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467801"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362855"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sicurezza e protezione dei dati per Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 La sicurezza è un problema fondamentale quando si adotta una nuova tecnologia, soprattutto se la tecnologia viene usata con dati riservati o proprietari. Azure Stack Edge Pro R e Azure Stack Edge Mini R aiutano a garantire che solo le entità autorizzate possano visualizzare, modificare o eliminare i dati.
 
@@ -66,7 +66,7 @@ Per altre informazioni, vedere [ottenere una chiave di attivazione](azure-stack-
 
 Le password assicurano che solo gli utenti autorizzati possano accedere ai dati. I dispositivi R Azure Stack Edge Pro vengono avviati in uno stato bloccato.
 
-È possibile scegliere:
+È possibile:
 
 - Connettersi all'interfaccia utente Web locale del dispositivo tramite un browser e quindi specificare una password per accedere al dispositivo.
 - Connettersi in remoto all'interfaccia di PowerShell del dispositivo tramite HTTP. La gestione remota è attivata per impostazione predefinita. La gestione remota è configurata anche per l'uso di just enough Administration (JEA) per limitare le operazioni che gli utenti possono eseguire. È quindi possibile specificare la password del dispositivo per accedere al dispositivo. Per altre informazioni, vedere [connettersi in remoto al dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md).

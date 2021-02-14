@@ -1,22 +1,18 @@
 ---
 title: Attività webhook in Azure Data Factory
 description: L'attività webhook non continua l'esecuzione della pipeline fino a quando non convalida il set di dati collegato con determinati criteri specificati dall'utente.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499408"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361486"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
 
@@ -53,7 +49,7 @@ Un'attività webhook può controllare l'esecuzione delle pipeline tramite il cod
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 **name** | Nome dell'attività del webhook. | string | Sì |
 **type** | Deve essere impostato su "webhook". | string | Sì |
@@ -69,7 +65,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatorio
 
 Un'attività webhook supporta i tipi di autenticazione seguenti.
 
-### <a name="none"></a>Nessuno
+### <a name="none"></a>nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà di **autenticazione** .
 

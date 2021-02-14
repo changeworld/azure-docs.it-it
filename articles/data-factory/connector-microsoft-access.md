@@ -1,22 +1,18 @@
 ---
 title: Copiare dati da e in Microsoft Access
 description: Informazioni su come copiare dati da e in Microsoft Access usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/28/2020
-ms.openlocfilehash: 00966af4e0fc83015726d86a4c7cb5724ad38633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a17876385e3a48543c8185a0f48a3e4016afa1a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513370"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374389"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-using-azure-data-factory"></a>Copiare dati da e in Microsoft Access usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -42,7 +38,7 @@ Per usare questo connettore di Microsoft Access, è necessario:
 >[!NOTE]
 >Microsoft Access 2016 versione del driver ODBC non funziona con questo connettore. Usare invece la versione del driver 2013 o 2010.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,7 +51,7 @@ Per il servizio collegato di Microsoft Access sono supportate le proprietà segu
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type deve essere impostata su: **MicrosoftAccess** | Sì |
-| connectionString | Stringa di connessione ODBC che esclude la parte delle credenziali. È possibile specificare la stringa di connessione o usare il DSN di sistema (nome dell'origine dati) configurato nel computer Integration Runtime (è necessario comunque specificare la parte delle credenziali nel servizio collegato di conseguenza).<br> È anche possibile inserire una password in Azure Key Vault ed estrarre la  `password`   configurazione dalla stringa di connessione.Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md)   .| Sì |
+| connectionString | Stringa di connessione ODBC che esclude la parte delle credenziali. È possibile specificare la stringa di connessione o usare il DSN di sistema (nome dell'origine dati) configurato nel computer Integration Runtime (è necessario comunque specificare la parte delle credenziali nel servizio collegato di conseguenza).<br> È anche possibile inserire una password in Azure Key Vault ed estrarre la `password` configurazione dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) .| Sì |
 | authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati di Microsoft Access.<br/>I valori consentiti sono **Base** e **Anonimo**. | Sì |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | No |
 | password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |

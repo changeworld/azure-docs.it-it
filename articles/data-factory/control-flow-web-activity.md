@@ -1,22 +1,17 @@
 ---
 title: Attività Web in Azure Data Factory
 description: Informazioni su come usare l'attività Web, una delle attività del flusso di controllo supportate da Data Factory, per richiamare un endpoint REST da una pipeline.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361520"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -103,7 +98,7 @@ La tabella seguente indica i requisiti per il contenuto JSON:
 
 Di seguito sono riportati i tipi di autenticazione supportati nell'attività Web.
 
-### <a name="none"></a>Nessuno
+### <a name="none"></a>nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
 

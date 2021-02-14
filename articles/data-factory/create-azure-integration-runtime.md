@@ -1,21 +1,17 @@
 ---
 title: Creare un runtime di integrazione di Azure in Azure Data Factory
 description: Informazioni su come creare il runtime di integrazione di Azure in Azure Data Factory, che viene usato per copiare i dati e inviare le attività di trasformazione.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: 97f3a8f79e503b8870baf67ee982b0091d926b1e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ecf2a74a16234084fbac4d1c26157d1703b56a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895342"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373063"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Come creare e configurare il runtime di integrazione di Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,7 +37,7 @@ Per creare e configurare una Azure IR, è possibile utilizzare le procedure segu
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-Per il runtime di integrazione di Azure, il tipo deve essere impostato su **Managed** . Non è necessario specificare i dettagli del calcolo perché è completamente gestito in modo elastico nel cloud. Specificare i dettagli del calcolo, ad esempio le dimensioni del nodo e il numero di nodi, quando si vuole creare un runtime di integrazione SSIS di Azure. Per altre informazioni, vedere [Creare e configurare il runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md).
+Per il runtime di integrazione di Azure, il tipo deve essere impostato su **Managed**. Non è necessario specificare i dettagli del calcolo perché è completamente gestito in modo elastico nel cloud. Specificare i dettagli del calcolo, ad esempio le dimensioni del nodo e il numero di nodi, quando si vuole creare un runtime di integrazione SSIS di Azure. Per altre informazioni, vedere [Creare e configurare il runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md).
 
 È possibile configurare un Azure IR esistente per modificarne il percorso usando il Set-AzDataFactoryV2IntegrationRuntime cmdlet di PowerShell. Per altre informazioni sulla località di un runtime di integrazione di Azure, vedere [Introduction to integration runtime](concepts-integration-runtime.md) (Introduzione al runtime di integrazione).
 
@@ -52,16 +48,16 @@ Usare la procedura seguente per creare un Azure IR usando Azure Data Factory int
 
    ![Pulsante Gestisci nella home page](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Selezionare **Runtime di integrazione** nel riquadro sinistro, quindi selezionare **+ Nuovo** .
+1. Selezionare **Runtime di integrazione** nel riquadro sinistro, quindi selezionare **+ Nuovo**.
 
    ![Screenshot che evidenzia i runtime di integrazione nel riquadro sinistro e il pulsante + nuovo.](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Nella pagina di **installazione di Integration Runtime** selezionare **Azure, self-hosted** e quindi selezionare **continue (continua** ). 
+1. Nella pagina di **installazione di Integration Runtime** selezionare **Azure, self-hosted** e quindi selezionare **continue (continua**). 
 
-1. Nella pagina seguente selezionare **Azure** per creare una Azure IR e quindi fare clic su **continua** .
+1. Nella pagina seguente selezionare **Azure** per creare una Azure IR e quindi fare clic su **continua**.
    ![Creare un runtime di integrazione](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
-1. Immettere un nome per il Azure IR e selezionare **Crea** .
+1. Immettere un nome per il Azure IR e selezionare **Crea**.
    ![Creare una Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Al termine della creazione verrà visualizzata una notifica popup. Nella pagina **Integration Runtimes (runtime di integrazione** ) assicurarsi che nell'elenco sia visualizzato il runtime di integrazione appena creato.

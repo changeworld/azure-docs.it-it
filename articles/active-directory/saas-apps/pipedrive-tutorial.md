@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: f85cb97406e8b6cbb4811268696fc36f47ec3adb
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.openlocfilehash: 6f0002f3b8de76bded536c4f434f757c4ac96df6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896549"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382549"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pipedrive"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Pipedrive
 
@@ -25,8 +25,6 @@ Questa esercitazione descrive come integrare Pipedrive con Azure Active Director
 * Controllare in Azure AD chi può accedere a Pipedrive.
 * Abilitare gli utenti per l'accesso automatico a Pipedrive con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,25 +38,23 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Pipedrive supporta l'accesso SSO avviato da **SP e IDP**
-* Dopo aver configurato Pipedrive SSO, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-
-## <a name="adding-pipedrive-from-the-gallery"></a>Aggiunta di Pipedrive dalla raccolta
+## <a name="add-pipedrive-from-the-gallery"></a>Aggiungere PipeDrive dalla raccolta
 
 Per configurare l'integrazione di Pipedrive in Azure AD, è necessario aggiungere Pipedrive dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Pipedrive** nella casella di ricerca.
 1. Selezionare **Pipedrive** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-pipedrive"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Pipedrive
+## <a name="configure-and-test-azure-ad-sso-for-pipedrive"></a>Configurare e testare Azure AD SSO per PipeDrive
 
 Configurare e testare l'accesso SSO di Azure AD con Pipedrive usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Pipedrive.
 
-Per configurare e testare l'accesso SSO di Azure AD con Pipedrive, completare le procedure di base seguenti:
+Per configurare e testare Azure AD SSO con PipeDrive, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
@@ -71,19 +67,19 @@ Per configurare e testare l'accesso SSO di Azure AD con Pipedrive, completare le
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Pipedrive** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **PipeDrive** del portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<COMPANY-NAME>.pipedrive.com/sso/auth/samlp/metadata.xml`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<COMPANY-NAME>.pipedrive.com/sso/auth/samlp`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<COMPANY-NAME>.pipedrive.com/`
 
@@ -100,7 +96,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | ------------ | --------- |
     | email | user.mail |
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il **certificato (Base64)** e quindi selezionare **Scarica** per scaricare il certificato e salvarlo nel computer. Copiare anche l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il **certificato (Base64)** e quindi selezionare **Scarica** per scaricare il certificato e salvarlo nel computer. Copiare anche l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](./media/pipedrive-tutorial/certificate-data.png)
 
@@ -112,7 +108,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -127,15 +123,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Pipedrive**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-pipedrive-sso"></a>Configurare l'accesso Single Sign-On di Pipedrive
@@ -144,23 +134,23 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **User Profile** (Profilo utente) e selezionare **Settings** (Impostazioni).
 
-    ![Screenshot che mostra l'opzione "Settings" selezionata nel menu "User Profile".](./media/pipedrive-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione "Settings" selezionata nel menu "User Profile".](./media/pipedrive-tutorial/configure-1.png)
 
 1. Scorrere verso il basso fino al centro sicurezza e selezionare **Single sign-on**.
 
-    ![Screenshot che mostra l'opzione "Single Sign-On" selezionata in "Security Center".](./media/pipedrive-tutorial/configure2.png)
+    ![Screenshot che mostra l'opzione "Single Sign-On" selezionata in "Security Center".](./media/pipedrive-tutorial/configure-2.png)
 
 1. Nella sezione **SAML configuration for pipedrive** (Configurazione SAML per Pipedrive) seguire questa procedura:
 
-    ![Screenshot che mostra la sezione "SAML Configuration for Pipedrive" con le caselle di testo evidenziate.](./media/pipedrive-tutorial/configure3.png)
+    ![Screenshot che mostra la sezione "SAML Configuration for Pipedrive" con le caselle di testo evidenziate.](./media/pipedrive-tutorial/configure-3.png)
 
-    a. Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore dell' **URL dei metadati di federazione dell'app** copiato dal portale di Azure.
+    a. Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
 
     b. Nella casella di testo **Single Sign On (SSO) url** (URL di accesso SSO) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     c. Nella casella di testo **Single Log Out (SLO) url** (URL di disconnessione) incollare il valore di **URL disconnessione** copiato dal portale di Azure.
 
-    d. Nella casella di testo **x.509 certificate** ( **Certificato x.509** ) aprire nel Blocco note il file del **certificato (Base64)** scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella di testo, infine salvare le modifiche.
+    d. Nella casella di testo **x.509 certificate** (**Certificato x.509**) aprire nel Blocco note il file del **certificato (Base64)** scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella di testo, infine salvare le modifiche.
 
 ### <a name="create-pipedrive-test-user"></a>Creare l'utente di test di Pipedrive
 
@@ -168,15 +158,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Scorrere verso il basso fino a company (società) e selezionare **manage users** (gestisci utenti).
 
-    ![Screenshot che mostra l'opzione "Manage users" selezionata nel menu "Company".](./media/pipedrive-tutorial/user1.png)
+    ![Screenshot che mostra l'opzione "Manage users" selezionata nel menu "Company".](./media/pipedrive-tutorial/user-1.png)
 
 1. Fare clic su **Add users** (Aggiungi utenti).
     
-    ![Screenshot che mostra la pagina "Manage users" con il pulsante "Add users" selezionato sul lato destro.](./media/pipedrive-tutorial/user2.png)
+    ![Screenshot che mostra la pagina "Manage users" con il pulsante "Add users" selezionato sul lato destro.](./media/pipedrive-tutorial/user-2.png)
 
 1. Nella sezione **Manage users** (Gestisci utenti) seguire questa procedura:
 
-    ![Configurazione di Pipedrive](./media/pipedrive-tutorial/user3.png)
+    ![Configurazione di Pipedrive](./media/pipedrive-tutorial/user-3.png)
 
     a. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio `B.Simon@contoso.com`.
 
@@ -188,18 +178,21 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Pipedrive nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Pipedrive per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+#### <a name="sp-initiated"></a>Avviato da SP:
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di PipeDrive, in cui è possibile avviare il flusso di accesso.  
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* Passare direttamente all'URL di accesso di PipeDrive e avviare il flusso di accesso da qui.
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+#### <a name="idp-initiated"></a>Avviato da IDP:
 
-- [Provare Pipedrive con Azure AD](https://aad.portal.azure.com/)
+* Fare clic su **test questa applicazione** in portale di Azure e si dovrebbe accedere automaticamente al PipeDrive per il quale si configura l'accesso SSO. 
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro PipeDrive in My Apps (app personali), se configurato in modalità SP, si verrà reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso e, se configurato in modalità IDP, si dovrebbe accedere automaticamente al PipeDrive per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver configurato PipeDrive, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

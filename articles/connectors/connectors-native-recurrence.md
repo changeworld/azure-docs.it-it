@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 9565ad1efc5ae3dc03b94c78ce8ce52e8dd48c65
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3749a7080bf17c020b48ae3ebc3cff3aa998eeef
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019194"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382294"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti con il trigger di ricorrenza nelle app per la logica di Azure
 
@@ -59,12 +59,12 @@ Per le differenze tra questo trigger e il trigger della finestra temporale scorr
    ||||||
 
    > [!IMPORTANT]
-   > Quando le ricorrenze non specificano opzioni di pianificazione avanzate, le ricorrenze future sono basate sull'ultima esecuzione.
-   > Le ore di inizio per queste ricorrenze potrebbero risultare derivanti da fattori quali la latenza durante le chiamate di archiviazione. Per assicurarsi che l'app per la logica non perda una ricorrenza, soprattutto quando la frequenza è in giorni o più, usare una di queste opzioni:
+   > Se una ricorrenza non specifica una [data e un'ora di inizio](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time)specifiche, la prima ricorrenza viene eseguita immediatamente quando si salva o si distribuisce l'app per la logica, nonostante l'installazione della ricorrenza del trigger. Per evitare questo comportamento, specificare una data e un'ora di inizio per il momento in cui si desidera che venga eseguita la prima ricorrenza.
+   >
+   > Se una ricorrenza non specifica altre opzioni di pianificazione avanzate, ad esempio orari specifici per l'esecuzione di ricorrenze future, tali ricorrenze si basano sull'ultima esecuzione. Di conseguenza, le ore di inizio per tali ricorrenze potrebbero andare alla deriva a causa di fattori quali la latenza durante le chiamate di archiviazione. 
+   > Per assicurarsi che l'app per la logica non perda una ricorrenza, soprattutto quando la frequenza è espressa in giorni o più, provare le opzioni seguenti:
    > 
-   > * Consente di specificare un'ora di inizio per la ricorrenza.
-   > 
-   > * Specificare le ore e i minuti di esecuzione della ricorrenza utilizzando le proprietà denominate **in queste ore** e **in questi minuti**.
+   > * Specificare una data e un'ora di inizio per la ricorrenza più le ore specifiche in cui eseguire le ricorrenze successive usando le proprietà denominate **in queste ore** e **in questi minuti**, che sono disponibili solo per le frequenze di **giorno** e **settimana** .
    > 
    > * Utilizzare il [trigger finestra temporale scorrevole](../connectors/connectors-native-sliding-window.md)anziché il trigger ricorrenza.
 

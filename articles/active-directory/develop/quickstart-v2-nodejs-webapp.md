@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: f7f14b91dc69eeba4ac06f6608f6151634dc38d3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225631"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103499"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Avvio rapido: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
 
@@ -30,7 +30,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice che 
 
 ## <a name="register-your-application"></a>Registrare l'applicazione
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.

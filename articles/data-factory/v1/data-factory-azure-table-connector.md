@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da e verso la tabella di Azure
 description: Informazioni su come spostare i dati da e verso l'archiviazione tabelle di Azure mediante Data factory di Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1d7802a3fe4fb904aad7fd9257edbf8b10efe127
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cc8e0272dc690ed541883ae943c118cbbe2f1854
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637429"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392120"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -33,12 +28,12 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un'archiviazione tabelle di Azure usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata** . Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio** , **Azure PowerShell** , **Azure Resource Manager modello** , **API .NET** e **API REST** . Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET** e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
 
@@ -51,7 +46,7 @@ Quando si usa la procedura guidata, le definizioni JSON per queste entità di da
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un'archiviazione tabelle di Azure: 
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
-Esistono due tipi di servizi collegati, che consentono di collegare un archivio BLOB di Azure a una data factory di Azure. I due tipi di servizi sono il servizio collegato **AzureStorage** e il servizio collegato **AzureStorageSas** . Il servizio collegato Archiviazione di Azure garantisce alla data factory l'accesso globale ad Archiviazione di Azure. Invece il servizio collegato Firma di accesso condiviso di Archiviazione di Azure garantisce alla data factory l'accesso limitato o a scadenza ad Archiviazione di Azure. Non esistono altre differenze tra questi due servizi collegati. Scegliere il servizio collegato più adatto alle proprie esigenze. Le sezioni seguenti forniscono altri dettagli su questi due servizi collegati.
+Esistono due tipi di servizi collegati, che consentono di collegare un archivio BLOB di Azure a una data factory di Azure. I due tipi di servizi sono il servizio collegato **AzureStorage** e il servizio collegato **AzureStorageSas**. Il servizio collegato Archiviazione di Azure garantisce alla data factory l'accesso globale ad Archiviazione di Azure. Invece il servizio collegato Firma di accesso condiviso di Archiviazione di Azure garantisce alla data factory l'accesso limitato o a scadenza ad Archiviazione di Azure. Non esistono altre differenze tra questi due servizi collegati. Scegliere il servizio collegato più adatto alle proprie esigenze. Le sezioni seguenti forniscono altri dettagli su questi due servizi collegati.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
@@ -82,7 +77,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | AzureTableSourceQuery |Usare la query personalizzata per leggere i dati. |Stringa di query della tabella di Azure. Vedere gli esempi nella sezione successiva. |No. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
-| azureTableSourceIgnoreTableNotFound |Indica se ignorare l'eccezione di tabella inesistente. |true<br/>false |No |
+| azureTableSourceIgnoreTableNotFound |Indica se ignorare l'eccezione di tabella inesistente. |true<br/>FALSE |No |
 
 ### <a name="azuretablesourcequery-examples"></a>esempi di azureTableSourceQuery
 Se la colonna della tabella di Azure è di tipo stringa:
@@ -155,13 +150,13 @@ Nell'esempio vengono copiati i dati appartenenti alla partizione predefinita in 
   }
 }
 ```
-Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas** . Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-service-properties) .  
+Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-service-properties) .  
 
 **Set di dati di input di tabelle di Azure**
 
-Nell'esempio si presuppone di aver creato una tabella "MyTable" in tabelle di Azure.
+Nell'esempio si presuppone che sia stata creata una tabella "MyTable" nella tabella di Azure.
 
-Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
+Impostando "external": "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 ```JSON
 {
@@ -250,7 +245,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Attività di copia in una pipeline con AzureTableSource e BlobSink:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **AzureTableSource** e il tipo di **sink** è impostato su **BlobSink** . La query SQL specificata con la proprietà **AzureTableSourceQuery** seleziona i dati da copiare dalla partizione predefinita ogni ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **AzureTableSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata con la proprietà **AzureTableSourceQuery** seleziona i dati da copiare dalla partizione predefinita ogni ora.
 
 ```JSON
 {
@@ -323,11 +318,11 @@ L'esempio copia i dati di una serie temporale da un BLOB di Azure a una tabella 
 }
 ```
 
-Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas** . Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-service-properties) .
+Azure Data Factory supporta due tipi di servizi collegati di Archiviazione di Azure, **AzureStorage** e **AzureStorageSas**. Per il primo specificare la stringa di connessione che include la chiave dell'account e per il secondo specificare l'URI di firma di accesso condiviso. Per informazioni dettagliate, vedere la sezione [Servizi collegati](#linked-service-properties) .
 
 **Set di dati di input BLOB di Azure:**
 
-I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data Factory che il set di dati è esterno a Data Factory e non è prodotto da un'attività al suo interno.
+I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. l'impostazione "External": "true" informa il servizio Data Factory che il set di dati è esterno al data factory e non è prodotto da un'attività nel data factory.
 
 ```JSON
 {
@@ -396,7 +391,7 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 
 **Set di dati di output di tabelle di Azure**
 
-Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in tabelle di Azure. Creare una tabella di Azure con il numero di colonne atteso nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
+L'esempio copia i dati in una tabella denominata "MyTable" nella tabella di Azure. Creare una tabella di Azure con il numero di colonne atteso nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
 
 ```JSON
 {
@@ -417,7 +412,7 @@ Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in tabel
 
 **Copiare attività in una pipeline con BlobSource e AzureTableSink:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **AzureTableSink** .
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **AzureTableSink**.
 
 ```JSON
 {
@@ -540,7 +535,7 @@ Dato il precedente mapping dei tipi dal tipo OData di tabelle di Azure al tipo d
 | name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
-Quindi si definisce il set di dati di tabelle di Azure come indicato di seguito. Non è necessario specificare la sezione "struttura" con informazioni sul tipo perché le informazioni sul tipo sono già state specificate nell'archivio dati sottostante.
+Quindi si definisce il set di dati di tabelle di Azure come indicato di seguito. Non è necessario specificare la sezione "Structure" con le informazioni sul tipo perché le informazioni sul tipo sono già state specificate nell'archivio dati sottostante.
 
 ```JSON
 {

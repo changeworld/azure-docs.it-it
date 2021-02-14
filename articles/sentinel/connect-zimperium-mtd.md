@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 86854fa22a49f09e5d3d2fc5fdb53c245850fbac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cbf1c52af1d2902ae0726fc0dd98dbf12cecc44
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77587941"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097450"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Connettere Zimperium Mobile Threat Defense ad Azure Sentinel
 
@@ -58,7 +58,7 @@ Per usare lo schema pertinente in Log Analytics per Zimperium Mobile Threat Defe
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
 
-Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log Analytics.
+Potrebbero essere necessari fino a 20 minuti prima che i log inizino a essere visualizzati in Log Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

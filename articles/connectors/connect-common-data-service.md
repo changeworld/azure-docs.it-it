@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355121"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382353"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Creare e gestire i record in Common Data Service (Microsoft dataverse) usando app per la logica di Azure
 
 > [!NOTE]
 > Nel novembre 2020 Common Data Service è stato rinominato in Microsoft dataverse.
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Common Data Service](/connectors/commondataservice/)è possibile creare flussi di lavoro automatizzati per la gestione dei record nel [Common Data Service, ora Microsoft dataverse](/powerapps/maker/common-data-service/data-platform-intro) database. Questi flussi di lavoro possono creare record, aggiornare record ed eseguire altre operazioni. È anche possibile ottenere informazioni dal database Common Data Service e rendere disponibile l'output per altre azioni da usare nell'app per la logica. Ad esempio, quando un record viene aggiornato nel database di Common Data Service, è possibile inviare un messaggio di posta elettronica usando il connettore Office 365 Outlook.
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Common Data Service](/connectors/commondataservice/)è possibile creare flussi di lavoro automatizzati per la gestione dei record nel [Common Data Service, ora Microsoft dataverse](/powerapps/maker/common-data-service/data-platform-intro) database. Questi flussi di lavoro possono creare record, aggiornare record ed eseguire altre operazioni. È anche possibile ottenere informazioni dal database dataverse e rendere disponibile l'output per altre azioni da usare nell'app per la logica. Ad esempio, quando un record viene aggiornato nel database dataverse, è possibile inviare un messaggio di posta elettronica usando il connettore Office 365 Outlook.
 
 Questo articolo illustra come creare un'app per la logica che crea un record di attività ogni volta che viene creato un nuovo record lead.
 
@@ -32,7 +32,7 @@ Questo articolo illustra come creare un'app per la logica che crea un record di 
   * [Informazioni: Introduzione a Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [Panoramica di Power Platform-environments](/power-platform/admin/environments-overview)
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) e l'app per la logica da cui si vuole accedere ai record nel database di Common Data Service. Per avviare l'app per la logica con un trigger di Common Data Service, è necessaria un'app per la logica vuota. Se non si ha familiarità con app per la logica di Azure, vedere [avvio rapido: creare il primo flusso di lavoro usando app per la logica di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) e l'app per la logica da cui si vuole accedere ai record nel database dataverse. Per avviare l'app per la logica con un trigger di Common Data Service, è necessaria un'app per la logica vuota. Se non si ha familiarità con app per la logica di Azure, vedere [avvio rapido: creare il primo flusso di lavoro usando app per la logica di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-common-data-service-trigger"></a>Aggiungi Common Data Service trigger
 
@@ -52,11 +52,11 @@ Per questo esempio, aggiungere il trigger Common Data Service che viene attivato
 
    ![Attivare le informazioni per l'ambiente da monitorare](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | Proprietà | Obbligatoria | Description |
+   | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Environment** | Sì | Ambiente da monitorare, ad esempio, "Fabrikam Sales Production". Per altre informazioni, vedere [Panoramica di Power Platform-environments](/power-platform/admin/environments-overview). |
    | **Nome entità** | Sì | Entità da monitorare, ad esempio, "Lead" |
-   | **Ambito** | Sì | Origine che ha creato il nuovo record, ad esempio un utente nella propria business unit o qualsiasi utente dell'organizzazione. Questo esempio USA "business unit". |
+   | **Scope** | Sì | Origine che ha creato il nuovo record, ad esempio un utente nella propria business unit o qualsiasi utente dell'organizzazione. Questo esempio USA "business unit". |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Aggiungi Common Data Service azione
@@ -73,7 +73,7 @@ Aggiungere ora una Common Data Service azione che crea un record di attività pe
 
    ![Informazioni sull'azione per l'ambiente in cui creare il record](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | Proprietà | Obbligatoria | Description |
+   | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome organizzazione** | Sì | L'ambiente in cui si desidera creare il record, che non deve necessariamente essere lo stesso ambiente del trigger, ma è "Fabrikam Sales Production" in questo esempio |
    | **Nome entità** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" |
@@ -90,7 +90,7 @@ Aggiungere ora una Common Data Service azione che crea un record di attività pe
 
       ![Selezionare i trigger output da usare nel record attività](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | Output del trigger | Description |
+      | Output del trigger | Descrizione |
       |----------------|-------------|
       | **Nome** | Il primo nome del record principale da usare come contatto principale nel record dell'attività |
       | **Cognome** | Cognome del record principale da usare come contatto principale nel record dell'attività |
@@ -170,6 +170,62 @@ Questo esempio Mostra come l'azione **Crea un nuovo record** crea un nuovo recor
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
 Per informazioni tecniche sulla base della descrizione di spavalderia del connettore, ad esempio trigger, azioni, limiti e altri dettagli, vedere la [pagina di riferimento del connettore](/connectors/commondataservice/).
+
+## <a name="troubleshooting-problems"></a>Risoluzione dei problemi
+
+### <a name="calls-from-multiple-environments"></a>Chiamate da più ambienti
+
+Entrambi i connettori, Common Data Service e Common Data Service (ambiente corrente), archiviano informazioni sui flussi di lavoro delle app per la logica che richiedono e ricevono notifiche sulle modifiche dell'entità usando l' `callbackregistrations` entità in Microsoft dataverse. Se si copia un'organizzazione dataverse, verranno copiati anche tutti i webhook. Se si copia l'organizzazione prima di disabilitare i flussi di lavoro di cui è stato eseguito il mapping all'organizzazione, eventuali webhook copiati puntano anche alle stesse app per la logica, che quindi ricevono notifiche da più organizzazioni.
+
+Per arrestare le notifiche indesiderate, eliminare la registrazione del callback dall'organizzazione che invia tali notifiche attenendosi alla procedura seguente:
+
+1. Identificare l'organizzazione dataverse da cui si desidera rimuovere le notifiche e accedere a tale organizzazione.
+
+1. Nel browser Chrome trovare la registrazione di callback che si vuole eliminare attenendosi alla procedura seguente:
+
+   1. Esaminare l'elenco generico per tutte le registrazioni di callback nell'URI OData seguente, in modo che sia possibile visualizzare i dati all'interno dell' `callbackregistrations` entità:
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > Se non viene restituito alcun valore, è possibile che non si disponga delle autorizzazioni per visualizzare il tipo di entità o che l'utente non sia connesso all'organizzazione corretta.
+
+   1. Filtrare il nome logico dell'entità di attivazione `entityname` e l'evento di notifica corrispondente al flusso di lavoro dell'app per la logica (messaggio). Ogni tipo di evento viene mappato all'integer del messaggio nel modo seguente:
+
+      | Tipo di evento | Integer del messaggio |
+      |------------|-----------------|
+      | Crea | 1 |
+      | Delete | 2 |
+      | Aggiorna | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      Questo esempio Mostra come filtrare `Create` le notifiche in un'entità denominata `nov_validation` usando l'URI OData seguente per un'organizzazione di esempio:
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Screenshot che mostra la finestra del browser e l'URI OData nella barra degli indirizzi.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > Se esistono più trigger per la stessa entità o evento, è possibile filtrare l'elenco usando filtri aggiuntivi, ad esempio gli `createdon` `_owninguser_value` attributi e. Il nome dell'utente proprietario viene visualizzato sotto `/api/data/v9.0/systemusers({id})` .
+
+   1. Dopo aver individuato l'ID per la registrazione di callback che si desidera eliminare, attenersi alla seguente procedura:
+   
+      1. Nel browser Chrome aprire il Strumenti di sviluppo di Chrome (tastiera: F12).
+
+      1. Nella parte superiore della finestra selezionare la scheda **console** .
+
+      1. Nel prompt della riga di comando immettere questo comando, che invia una richiesta di eliminazione della registrazione di callback specificata:
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Assicurarsi di eseguire la richiesta da una pagina di interfaccia client non unificata (UCI), ad esempio dalla pagina di risposta dell'API o OData. In caso contrario, la logica nel file app.js potrebbe interferire con questa operazione.
+
+   1. Per confermare che la registrazione del callback non esiste più, controllare l'elenco delle registrazioni di callback.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

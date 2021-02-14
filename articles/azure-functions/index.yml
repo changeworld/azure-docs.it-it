@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 10c606ab86a577f22167197138e56a14d176b88a
-  ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
-  ms.translationtype: HT
+  ms.openlocfilehash: 65b2c25bde616f8a2bbc9abf6439871d288306b9
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/19/2021
-  ms.locfileid: "98570134"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100363033"
 landingContent:
 - title: Informazioni su Funzioni di Azure
   linkLists:
@@ -128,14 +128,22 @@ landingContent:
       url: functions-how-to-azure-devops.md
     - text: Distribuire con il plug-in Jenkins
       url: /azure/developer/jenkins/deploy-to-azure-functions
-- title: Prestazioni e monitoraggio
+- title: Procedure consigliate per le prestazioni e il monitoraggio
   linkLists:
   - linkListType: concept
     links:
+    - text: Prestazioni e affidabilità
+      url: functions-best-practices.md
+    - text: Gestire le connessioni
+      url: manage-connections.md
+    - text: Considerazioni sulle risorse di archiviazione
+      url: storage-considerations.md
+    - text: Gestione degli errori e tentativi di funzione
+      url: functions-bindings-error-pages.md
+    - text: Sicurezza
+      url: security-concepts.md
     - text: Funzioni di Monitoraggio
       url: functions-monitoring.md
-    - text: Ottimizzare le prestazioni
-      url: functions-best-practices.md
     - text: Considerazioni sulla rete
       url: functions-networking-options.md
   - linkListType: how-to-guide

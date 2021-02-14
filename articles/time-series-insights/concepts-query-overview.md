@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736752"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374134"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Esecuzione di query sui dati da Azure Time Series Insights Gen2
 
@@ -54,13 +54,12 @@ La maggior parte di queste API supporta l'operazione di esecuzione batch per abi
 
 ## <a name="time-series-query-tsq-apis"></a>API TSQ (Time Series Query)
 
-Queste API sono disponibili in entrambi i punti vendita (caldo e a freddo) nella soluzione di archiviazione a più livelli. I parametri URL query vengono utilizzati per specificare il [tipo di archivio](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) in cui deve essere eseguita la query:
+Queste API sono disponibili in entrambi i punti vendita (caldo e a freddo) nella soluzione di archiviazione a più livelli. 
 
 * [Get Events API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents): consente la query e il recupero di eventi non elaborati e dei timestamp degli eventi associati Man mano che vengono registrati nel Azure Time Series Insights Gen2 dal provider di origine. Questa API consente il recupero di eventi non elaborati per un determinato ID della serie temporale e un intervallo di ricerca. Questa API supporta la paginazione per recuperare il set di dati completo della risposta per l'input selezionato.
 
   > [!IMPORTANT]
-
-  > * Come parte delle [prossime modifiche apportate alle regole di escape e Flat JSON](./ingestion-rules-update.md), le matrici verranno archiviate come tipo **dinamico** . Le proprietà del payload archiviate come questo tipo sono **accessibili solo tramite l'API Get Events**.
+  > Come parte delle [prossime modifiche apportate alle regole di escape e Flat JSON](./ingestion-rules-update.md), le matrici verranno archiviate come tipo **dinamico** . Le proprietà del payload archiviate come questo tipo sono **accessibili solo tramite l'API Get Events**.
 
 * [Get Series API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries): consente di eseguire query e recuperare i valori calcolati e i timestamp degli eventi associati applicando calcoli definiti dalle variabili in eventi non elaborati. Queste variabili possono essere definite nel modello Time Series o fornite inline nella query. Questa API supporta la paginazione per recuperare il set di dati completo della risposta per l'input selezionato.
 
@@ -69,6 +68,16 @@ Queste API sono disponibili in entrambi i punti vendita (caldo e a freddo) nella
   Per un intervallo e un intervallo di ricerca specificati, questa API restituisce una risposta aggregata per ogni intervallo per variabile per un ID di serie temporale. Il numero di intervalli nel set di dati della risposta viene calcolato contando i segni di graduazione dell'epoca (il numero di millisecondi trascorsi dal 1 ° gennaio 1970) e dividendo i segni di graduazione in base alle dimensioni dell'intervallo specificato nella query.
 
   I timestamp restituiti nel set di risposte sono i limiti dell'intervallo sinistro, non gli eventi campionati dall'intervallo.
+
+
+### <a name="selecting-store-type"></a>Selezione del tipo di archivio
+
+Le API precedenti possono essere eseguite solo su uno dei due tipi di archiviazione (a freddo o a caldo) in una singola chiamata. I parametri URL query vengono utilizzati per specificare il [tipo di archivio](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) in cui deve essere eseguita la query. 
+
+Se non si specifica alcun parametro, per impostazione predefinita la query verrà eseguita nell'archivio a freddo. Se una query si estende in un intervallo di tempo che si sovrappone sia all'archivio a freddo che a quello caldo, è consigliabile instradare la query a Cold Store per ottenere la migliore esperienza perché warm Store conterrà solo dati parziali. 
+
+[Azure Time Series Insights Explorer](./concepts-ux-panels.md) e il [connettore Power bi](./how-to-connect-power-bi.md) effettuano chiamate alle API precedenti e selezionano automaticamente il parametro storeType corretto, se pertinente. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

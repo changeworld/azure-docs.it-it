@@ -4,12 +4,12 @@ description: Informazioni sulla gestione dei certificati in un cluster Service F
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901267"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099507"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestione dei certificati nei cluster Service Fabric
 
@@ -427,6 +427,7 @@ L'estensione KVVM, come agente di provisioning, viene eseguita in modo continuo 
 È possibile che sia stato notato il flag ' linkOnRenewal ' dell'estensione KVVM e il fatto che sia impostato su false. Qui viene illustrato in dettaglio il comportamento controllato da questo flag e le sue implicazioni sul funzionamento di un cluster. Si noti che questo comportamento è specifico di Windows.
 
 In base alla [definizione](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```

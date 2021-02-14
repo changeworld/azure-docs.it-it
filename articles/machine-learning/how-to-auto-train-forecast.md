@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132083"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392324"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 
@@ -194,6 +194,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              **forecasting_parameters)
 ```
 
+La quantità di dati necessaria per eseguire correttamente il training di un modello di previsione con Machine Learning automatico è influenzata dai `forecast_horizon` `n_cross_validations` valori, e `target_lags` o `target_rolling_window_size` specificati quando si configura il `AutoMLConfig` . 
+
+Nella formula seguente viene calcolata la quantità di dati cronologici necessari per costruire funzionalità della serie temporale.
+
+Dati cronologici minimi richiesti: (2x `forecast_horizon` ) + # `n_cross_validations` + Max (Max ( `target_lags` ), `target_rolling_window_size` )
+
+Verrà generata un'eccezione di errore per tutte le serie del set di dati che non soddisfano la quantità di dati cronologici necessaria per le impostazioni pertinenti specificate. 
+
 ### <a name="featurization-steps"></a>Procedura conteggi
 
 In ogni esperimento di Machine Learning automatizzato, le tecniche di ridimensionamento automatico e di normalizzazione vengono applicate ai dati per impostazione predefinita. Queste tecniche sono tipi di **conteggi** che aiutano *determinati* algoritmi sensibili alle funzionalità su scale diverse. Altre informazioni sui passaggi predefiniti di conteggi in [conteggi in AutoML](how-to-configure-auto-features.md#automatic-featurization)
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 Ripetere i passaggi necessari per caricare i dati futuri in un dataframe e quindi eseguire `best_run.predict(test_data)` per stimare i valori futuri.
 
 > [!NOTE]
-> Non è possibile stimare i valori per un numero di periodi maggiore di `forecast_horizon`. È necessario rieseguire il training del modello con un orizzonte più ampio per stimare i valori futuri oltre l'orizzonte corrente.
+> Le stime in-Sample non sono supportate per la previsione con ML automatico quando `target_lags` e/o `target_rolling_window_size` sono abilitati.
 
 
 ## <a name="example-notebooks"></a>Notebook di esempio

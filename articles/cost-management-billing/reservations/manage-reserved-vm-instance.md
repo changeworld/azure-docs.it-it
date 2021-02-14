@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 02/09/2021
 ms.author: banders
-ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562974"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392273"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -35,7 +35,7 @@ Per visualizzare un ordine di prenotazione, passare a **Prenotazioni**, selezion
 
 ![Esempio di dettagli dell'ordine di prenotazione che mostra l'ID ordine di prenotazione ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
-Una prenotazione eredita le autorizzazioni dal relativo ordine di prenotazione.
+Una prenotazione eredita le autorizzazioni dal relativo ordine di prenotazione. Per scambiare o rimborsare una prenotazione, l'utente deve essere aggiunto all'ordine di prenotazione.
 
 ## <a name="change-the-reservation-scope"></a>Cambiare l'ambito della prenotazione
 

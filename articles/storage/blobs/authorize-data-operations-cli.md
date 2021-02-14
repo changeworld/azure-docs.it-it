@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 060bfb6c88bbed8ba12c5b5ebfd2e9617f5abfb2
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 06b37e8b25d932115384124a45156c801fb9708f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637476"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361673"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Scegliere come autorizzare l'accesso ai dati BLOB con l'interfaccia della riga di comando di Azure
 
@@ -33,6 +33,9 @@ I comandi dell'interfaccia della riga di comando di Azure per la lettura e la sc
 - Impostare il `--auth-mode` parametro sul valore legacy `key` per tentare di recuperare la chiave di accesso dell'account da usare per l'autorizzazione. Se si omette il `--auth-mode` parametro, l'interfaccia della riga di comando di Azure tenterà anche di recuperare la chiave di accesso.
 
 Per usare il `--auth-mode` parametro, verificare di avere installato l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire `az --version` per controllare la versione installata.
+
+> [!NOTE]
+> Quando un account di archiviazione è bloccato con un blocco Azure Resource Manager **ReadOnly** , l'operazione [list keys](/rest/api/storagerp/storageaccounts/listkeys) non è consentita per l'account di archiviazione. L' **elenco delle chiavi** è un'operazione post e tutte le operazioni post vengono impedite quando si configura un blocco **ReadOnly** per l'account. Per questo motivo, quando l'account è bloccato con un blocco **ReadOnly** , gli utenti che non dispongono già delle chiavi dell'account devono usare Azure ad credenziali per accedere ai dati BLOB.
 
 > [!IMPORTANT]
 > Se si omette il `--auth-mode` parametro o lo si imposta su `key` , l'interfaccia della riga di comando di Azure tenterà di usare la chiave di accesso dell'account per l'autorizzazione. In questo caso, Microsoft consiglia di specificare la chiave di accesso nel comando o nella variabile di ambiente **AZURE_STORAGE_KEY** . Per ulteriori informazioni sulle variabili di ambiente, vedere la sezione [impostare le variabili di ambiente per i parametri di autorizzazione](#set-environment-variables-for-authorization-parameters).
@@ -82,6 +85,9 @@ az storage container create \
     --account-key <key>
     --auth-mode key
 ```
+
+> [!IMPORTANT]
+> Quando un account di archiviazione è bloccato con un blocco Azure Resource Manager **ReadOnly** , l'operazione [list keys](/rest/api/storagerp/storageaccounts/listkeys) non è consentita per l'account di archiviazione. L' **elenco delle chiavi** è un'operazione post e tutte le operazioni post vengono impedite quando si configura un blocco **ReadOnly** per l'account. Per questo motivo, quando l'account è bloccato con un blocco **ReadOnly** , gli utenti devono accedere ai dati con Azure ad credenziali.
 
 ## <a name="authorize-with-a-sas-token"></a>Autorizzare con un token di firma di accesso condiviso
 
