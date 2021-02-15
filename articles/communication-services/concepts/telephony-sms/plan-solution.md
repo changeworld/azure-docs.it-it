@@ -1,7 +1,7 @@
 ---
-title: Pianificare l'uso della soluzione per SMS e telefonia di Servizi di comunicazione di Azure
+title: Tipi di numeri di telefono in Servizi di comunicazione di Azure
 titleSuffix: An Azure Communication Services concept document
-description: Informazioni su come pianificare in modo efficace l'uso dei numeri di telefono e della telefonia.
+description: Informazioni su come usare in modo efficace tipi diversi di numeri di telefono per SMS e telefonia.
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -10,26 +10,21 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 271d7ce38d50fd21975327eb1f21528aeacc485e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
-ms.translationtype: HT
+ms.openlocfilehash: 97ac8a63740bb3a0df74a2a698cacecf842760e9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937237"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366467"
 ---
-# <a name="plan-your-telephony-and-sms-solution"></a>Pianificare l'uso della soluzione di telefonia e SMS
+# <a name="phone-number-types-in-azure-communication-services"></a>Tipi di numeri di telefono in Servizi di comunicazione di Azure
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Servizi di comunicazione di Azure consente di usare i numeri di telefono per effettuare chiamate vocali e inviare messaggi SMS con la rete PSTN (Public Switched Telephone Network). In questo documento verranno esaminati i tipi di numero di telefono, le opzioni di configurazione e la disponibilità a livello di area per pianificare la soluzione di telefonia e SMS usando Servizi di comunicazione.
 
-
-
-
-
-## <a name="phone-number-types-in-azure-communication-services"></a>Tipi di numeri di telefono in Servizi di comunicazione di Azure
- 
+## <a name="number-types-and-features"></a>Tipi di numeri e funzionalità
 Servizi di comunicazione offre due tipi di numero di telefono, ossia **numero locale** e **numero verde**. 
 
 ### <a name="local-numbers"></a>Numeri locali
@@ -52,7 +47,7 @@ La tabella seguente riepiloga i tipi di numeri di telefono disponibili:
 | Numero verde         | \+ 1 (*codice* area n. verde) XXX XX XX | US                      | Chiamate (in uscita), SMS (in ingresso/in uscita)| Assegnazione di numeri di telefono tramite sistemi IRV (Interactive Voice Response), bot o applicazioni di SMS                                        |
 
 
-## <a name="phone-number-features-in-azure-communication-services"></a>Funzionalità dei numeri di telefono in Servizi di comunicazione di Azure 
+### <a name="phone-number-features-in-azure-communication-services"></a>Funzionalità dei numeri di telefono in Servizi di comunicazione di Azure 
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -92,5 +87,6 @@ Attualmente, la disponibilità dei numeri di telefono è limitata alle sottoscri
 ### <a name="conceptual-documentation"></a>Documentazione concettuale
 
 - [Concetti relativi alle chiamate vocali e video](../voice-video-calling/about-call-types.md)
+- [Concetti relativi alla telefonia](./telephony-concept.md)
 - [Flussi delle chiamate](../call-flows.md)
 - [Prezzi](../pricing.md)

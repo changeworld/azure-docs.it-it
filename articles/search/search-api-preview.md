@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 983322800198246bcfaecec92fe0b2b74e587756
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bf2ff2fc20d3581a297881fbd9e6db15d825814d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952098"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518998"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funzionalità in anteprima in Azure ricerca cognitiva
 
@@ -24,7 +24,7 @@ Le funzionalità di anteprima che passano alla disponibilità generale vengono r
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
 | [**Azure Machine Learning (AML) Skill**](cognitive-search-aml-skill.md) | Arricchimento con intelligenza artificiale| Un nuovo tipo di competenze per integrare un endpoint di inferenza da Azure Machine Learning. Introduzione a [questa esercitazione](cognitive-search-tutorial-aml-custom-skill.md). | Usare l' [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) o 2019-05-06-Preview. Disponibile anche nel portale, in progettazione di competenze, supponendo che ricerca cognitiva e i servizi di Azure ML siano distribuiti nella stessa sottoscrizione. |
-| [**parametro featuresMode**](/rest/api/searchservice/search-documents#featuresmode) | Pertinenza (Punteggio) | Espansione del Punteggio di pertinenza per includere i dettagli: Punteggio di somiglianza per campo, frequenza del termine per campo e numero di token univoci corrispondenti. È possibile utilizzare questi punti dati nelle soluzioni di assegnazione dei [punteggi personalizzate](https://github.com/Azure-Samples/search-ranking-tutorial). | Aggiungere questo parametro di query usando i [documenti di ricerca (REST)](/rest/api/searchservice/search-documents) con API-Version = 2020-06 -30-preview o 2019-05-06-Preview. |
+| [**parametro featuresMode**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Pertinenza (Punteggio) | Espansione del Punteggio di pertinenza per includere i dettagli: Punteggio di somiglianza per campo, frequenza del termine per campo e numero di token univoci corrispondenti. È possibile utilizzare questi punti dati nelle soluzioni di assegnazione dei [punteggi personalizzate](https://github.com/Azure-Samples/search-ranking-tutorial). | Aggiungere questo parametro di query usando i [documenti di ricerca (REST)](/rest/api/searchservice/preview-api/search-documents) con API-Version = 2020-06 -30-preview o 2019-05-06-Preview. |
 | [**Sessioni di debug**](cognitive-search-debug-session.md) | Portale, arricchimento AI (competenze) | Editor di competenze in-Session utilizzato per analizzare e risolvere i problemi relativi a un insieme di competenze. Le correzioni applicate durante una sessione di debug possono essere salvate in un skillt nel servizio. | Solo portale, usando i collegamenti a metà pagina nella pagina Panoramica per aprire una sessione di debug. |
 | [**Eliminazione temporanea BLOB nativi**](search-howto-index-changed-deleted-blobs.md) | Indicizzatori, BLOB di Azure| L'indicizzatore di archiviazione BLOB di Azure in Azure ricerca cognitiva riconoscerà i BLOB in uno stato di eliminazione temporanea e rimuoverà il documento di ricerca corrispondente durante l'indicizzazione. | Aggiungere questa impostazione di configurazione usando [Crea indicizzatore (REST)](/rest/api/searchservice/create-indexer) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |
 | [**Abilità ricerca entità personalizzata**](cognitive-search-skill-custom-entity-lookup.md ) | Arricchimento AI (competenze) | Abilità cognitiva che cerca il testo da un elenco personalizzato di parole e frasi definito dall'utente. Con questo elenco vengono etichettati tutti i documenti con entità corrispondenti. La competenza supporta anche un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non proprio esatte. | Fare riferimento a questa esperienza di anteprima usando l'editor di competenze nel portale o creare un insieme di [competenze (REST)](/rest/api/searchservice/create-skillset) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |

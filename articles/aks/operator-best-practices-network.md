@@ -5,12 +5,12 @@ description: Informazioni sulle procedure consigliate per l'operatore del cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482726"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366569"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -19,7 +19,7 @@ Quando si creano e si gestiscono cluster nel servizio Azure Kubernetes, viene fo
 Questo articolo sulle procedure consigliate è incentrato sulla sicurezza e la connettività di rete per gli operatori del cluster. In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
-> * Confrontare le modalità di rete kubenet e Azure CNI nel servizio Azure Kubernetes
+> * Confrontare le modalità di rete kubenet e Azure container Network Interface (CNI) in AKS
 > * Pianificare la connettività e gli indirizzi IP necessari
 > * Distribuire il traffico usando i bilanciamenti del carico, i controller in ingresso o un web application firewall (WAF)
 > * Connettersi in modo sicuro ai nodi del cluster
@@ -33,11 +33,13 @@ Le reti virtuali forniscono la connettività di base per consentire ai clienti e
 * **Funzionalità di rete kubenet**: Azure gestisce le risorse di rete virtuale durante la distribuzione del cluster e usa il plug-in [kubenet][kubenet] di Kubernetes.
 * **Rete di Azure CNI** : viene distribuita in una rete virtuale e usa il plug-in di Azure per la rete di [contenitori di Azure (CNI)][cni-networking] Kubernetes. Ai pod vengono assegnati IP singoli che possono essere instradati ad altri servizi di rete o a risorse locali.
 
-Container Networking Interface (CNI) è un protocollo indipendente dal fornitore che consente al runtime del contenitore di indirizzare le richieste a un provider di rete. Azure CNI assegna gli indirizzi IP ai pod e ai nodi e offre funzionalità di gestione degli indirizzi IP (IPAM) durante la connessione a reti virtuali Azure esistenti. A ogni risorsa di nodi e pod viene assegnato un indirizzo IP nella rete virtuale di Azure e non è necessario alcun routing aggiuntivo per comunicare con altri servizi o risorse.
+Per le distribuzioni di produzione, kubenet e Azure CNI sono opzioni valide.
+
+### <a name="cni-networking"></a>Rete CNI
+
+Container Networking Interface (CNI) è un protocollo indipendente dal fornitore che consente al runtime del contenitore di indirizzare le richieste a un provider di rete. Azure CNI assegna gli indirizzi IP ai pod e ai nodi e offre funzionalità di gestione degli indirizzi IP (IPAM) durante la connessione a reti virtuali Azure esistenti. Ogni nodo e risorsa Pod riceve un indirizzo IP nella rete virtuale di Azure e non è necessario alcun routing aggiuntivo per comunicare con altre risorse o servizi.
 
 ![Diagramma che illustra due nodi ognuno dei quali è connesso da bridge a una singola rete virtuale di Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
-
-Per le distribuzioni di produzione, kubenet e Azure CNI sono opzioni valide.
 
 Un vantaggio rilevante della rete CNI di Azure per la produzione è il modello di rete che consente di separare il controllo e la gestione delle risorse. Dal punto di vista della sicurezza, è spesso preferibile che siano team diversi a gestire e proteggere tali risorse. Le funzionalità di rete Azure CNI consentono di connettersi a risorse Azure esistenti, a risorse locali o ad altri servizi direttamente tramite gli indirizzi IP assegnati a ogni pod.
 
@@ -47,22 +49,26 @@ Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale 
 
 Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation]. Anziché un'entità servizio, è anche possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
 
-Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire gli eventi di scalabilità orizzontale o gli aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio di indirizzi aggiuntivo è particolarmente importante se si usano i contenitori di Windows Server, perché i pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire gli eventi di scalabilità orizzontale o gli aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio degli indirizzi aggiuntivo è particolarmente importante se si usano i contenitori di Windows Server, perché i pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 Per calcolare l'indirizzo IP richiesto, vedere [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][advanced-networking] (Configurare le funzionalità di rete Azure CNI nel servizio Azure Kubernetes).
+
+Quando si crea un cluster con Azure CNI networking, si specificano altri intervalli di indirizzi utilizzabili dal cluster, ad esempio l'indirizzo del Bridge Docker, l'IP del servizio DNS e l'intervallo di indirizzi del servizio. In generale, questi intervalli di indirizzi non devono sovrapporsi e non devono sovrapporsi ad alcuna rete associata al cluster, incluse le reti virtuali, le subnet, le reti locali e le reti con peering. Per informazioni dettagliate sui limiti e sul dimensionamento per questi intervalli di indirizzi, vedere [configurare la rete CNI di Azure in AKS][advanced-networking].
 
 ### <a name="kubenet-networking"></a>Funzionalità di rete kubenet
 
 Anche se con kubenet non è necessario configurare le reti virtuali prima della distribuzione del cluster, questo metodo presenta alcuni svantaggi:
 
-* Nodi e pod vengono inseriti in subnet IP diverse. Per instradare il traffico tra pod e nodi, si usano il routing definito dall'utente e l'inoltro IP. Questo routing aggiuntivo può comportare una riduzione delle prestazioni di rete.
+* Nodi e pod vengono inseriti in subnet IP diverse. Per instradare il traffico tra pod e nodi, si usano il routing definito dall'utente e l'inoltro IP. Questo routing aggiuntivo può ridurre le prestazioni della rete.
 * Le connessioni alle reti locali esistenti o le operazioni di peering con altre reti virtuali di Azure possono risultare complesse.
 
-Kubenet è adatto per carichi di lavoro di sviluppo o di test di dimensioni ridotte, in quanto non è necessario creare la rete virtuale e le subnet separatamente rispetto al cluster del servizio Azure Kubernetes. Anche i siti Web semplici con traffico ridotto o il trasferimento in modalità lift-and-shift dei carichi di lavoro nei contenitori possono sfruttare la semplicità dei cluster del servizio Azure Kubernetes distribuiti con le funzionalità di rete kubenet. Per la maggior parte delle distribuzioni di produzione, è consigliabile effettuare la pianificazione e usare le funzionalità di rete Azure CNI. È anche possibile [configurare gli intervalli di indirizzi IP e le reti virtuali usando kubenet][aks-configure-kubenet-networking].
+Kubenet è adatto per carichi di lavoro di sviluppo o di test di dimensioni ridotte, in quanto non è necessario creare la rete virtuale e le subnet separatamente rispetto al cluster del servizio Azure Kubernetes. Anche i siti Web semplici con traffico ridotto o il trasferimento in modalità lift-and-shift dei carichi di lavoro nei contenitori possono sfruttare la semplicità dei cluster del servizio Azure Kubernetes distribuiti con le funzionalità di rete kubenet. Per la maggior parte delle distribuzioni di produzione, è consigliabile effettuare la pianificazione e usare le funzionalità di rete Azure CNI.
+
+È anche possibile [configurare gli intervalli di indirizzi IP e le reti virtuali usando kubenet][aks-configure-kubenet-networking]. Analogamente alla rete CNI di Azure, questi intervalli di indirizzi non devono sovrapporsi e non devono sovrapporsi ad alcuna rete associata al cluster, incluse le reti virtuali, le subnet, le reti locali e con peering. Per informazioni dettagliate sui limiti e sul dimensionamento per questi intervalli di indirizzi, vedere [usare la rete kubenet con gli intervalli di indirizzi IP in AKS][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribuire il traffico in ingresso
 
-**Suggerimento per la procedura consigliata**: per distribuire il traffico HTTP o HTTPS alle applicazioni, usare controller e risorse in ingresso. I controller in ingresso offrono funzionalità aggiuntive rispetto a un normale servizio di bilanciamento del carico di Azure e possono essere gestiti come risorse native di Kubernetes.
+**Suggerimento per la procedura consigliata**: per distribuire il traffico HTTP o HTTPS alle applicazioni, usare controller e risorse in ingresso. I controller di ingresso offrono funzionalità aggiuntive rispetto a un servizio di bilanciamento del carico di Azure normale e possono essere gestiti come risorse Kubernetes native.
 
 Un servizio di bilanciamento del carico di Azure può distribuire il traffico dei clienti alle applicazioni del cluster del servizio Azure Kubernetes, ma è limitato a quanto riconosce di tale traffico. Una risorsa di bilanciamento del carico funziona al livello 4 e distribuisce il traffico in base al protocollo o alle porte. La maggior parte delle applicazioni Web che usano HTTP o HTTPS deve usare le risorse e i controller in ingresso Kubernetes, che funzionano al livello 7. I controller e le risorse in ingresso possono distribuire il traffico in base all'URL dell'applicazione e gestire la terminazione TLS/SSL. Questa funzionalità consente anche di ridurre il numero di indirizzi IP che vengono esposti e di cui si esegue il mapping. Con un servizio di bilanciamento del carico, ogni applicazione necessita in genere di un indirizzo IP pubblico che è stato assegnato e di cui viene eseguito il mapping al servizio nel cluster del servizio Azure Kubernetes. Con una risorsa in ingresso, un singolo indirizzo IP può distribuire il traffico a più applicazioni.
 
@@ -118,7 +124,7 @@ Un controller in ingresso che distribuisce il traffico ai servizi e alle applica
 
 ![Un web application firewall (WAF), come il gateway applicazione di Azure, può proteggere e distribuire il traffico per il cluster del servizio Azure Kubernetes.](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Un web application firewall (WAF) garantisce un ulteriore livello di sicurezza grazie al filtro del traffico in entrata. OWASP (Open Web Application Security Project) fornisce un insieme di regole da seguire in caso di attacchi come il Cross Site Scripting o la cookie poisoning. [Applicazione Azure gateway][app-gateway] (attualmente disponibile in anteprima in AKS) è un WAF che può integrarsi con i cluster AKS per fornire queste funzionalità di sicurezza, prima che il traffico raggiunga le applicazioni e il cluster AKS. Anche altre soluzioni di terze parti svolgono queste funzioni ed è quindi possibile continuare a sfruttare gli investimenti esistenti o le competenze già acquisite per un determinato prodotto.
+Un web application firewall (WAF) fornisce un livello di sicurezza aggiuntivo filtrando il traffico in ingresso. OWASP (Open Web Application Security Project) fornisce un insieme di regole da seguire in caso di attacchi come il Cross Site Scripting o la cookie poisoning. [Applicazione Azure gateway][app-gateway] (attualmente disponibile in anteprima in AKS) è un WAF che può integrarsi con i cluster AKS per fornire queste funzionalità di sicurezza, prima che il traffico raggiunga le applicazioni e il cluster AKS. Anche altre soluzioni di terze parti svolgono queste funzioni ed è quindi possibile continuare a sfruttare gli investimenti esistenti o le competenze già acquisite per un determinato prodotto.
 
 Le risorse in ingresso e il servizio di bilanciamento del carico continuano a essere eseguiti nel cluster del servizio Azure Kubernetes per perfezionare ulteriormente la distribuzione del traffico. Il gateway applicazione può essere gestito centralmente come controller in ingresso con una definizione delle risorse. Per iniziare, [creare un controller in ingresso del gateway applicazione][app-gateway-ingress].
 

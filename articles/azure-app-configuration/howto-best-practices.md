@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 33661eafee6b180819b18d9a9a980eff1e2aeceb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737202"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371550"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
 
@@ -92,7 +92,7 @@ La configurazione dell'app è servizio a livello di area. Per le applicazioni co
 
 ## <a name="client-applications-in-app-configuration"></a>Applicazioni client nella configurazione dell'app 
 
-Richieste eccessive alla configurazione dell'app possono comportare una limitazione o addebiti in eccedenza. Le applicazioni sfruttano i vantaggi della memorizzazione nella cache e dell'aggiornamento intelligente attualmente disponibile per ottimizzare il numero di richieste inviate. È possibile eseguire il mirroring di questo processo in applicazioni client a volume elevato evitando connessioni dirette all'archivio di configurazione. Al contrario, le applicazioni client si connettono a un servizio personalizzato e questo servizio comunica con l'archivio di configurazione. Questa soluzione proxy può garantire che le applicazioni client non affrontino il limite di limitazione nell'archivio di configurazione. Per ulteriori informazioni sulla limitazione, vedere [le domande frequenti](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Richieste eccessive alla configurazione dell'app possono comportare una limitazione o addebiti in eccedenza. Le applicazioni sfruttano i vantaggi della memorizzazione nella cache e dell'aggiornamento intelligente attualmente disponibile per ottimizzare il numero di richieste inviate. È possibile eseguire il mirroring di questo processo in applicazioni client a volume elevato evitando connessioni dirette all'archivio di configurazione. Al contrario, le applicazioni client si connettono a un servizio personalizzato e questo servizio comunica con l'archivio di configurazione. Questa soluzione proxy può garantire che le applicazioni client non affrontino il limite di limitazione nell'archivio di configurazione. Per ulteriori informazioni sulla limitazione, vedere [le domande frequenti](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

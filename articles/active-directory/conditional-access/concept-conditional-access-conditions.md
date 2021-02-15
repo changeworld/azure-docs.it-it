@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 02/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904036"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362421"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
 
@@ -34,7 +34,7 @@ Per i clienti che hanno accesso a [Identity Protection](../identity-protection/o
 
 ## <a name="user-risk"></a>Rischio utente 
 
-Per i clienti che hanno accesso a [Identity Protection](../identity-protection/overview-identity-protection.md), il rischio utente può essere valutato come parte di un criterio di accesso condizionale. Il rischio utente rappresenta la probabilità che venga compromessa una determinata identità o un determinato account. Altre informazioni sui rischi per gli utenti sono disponibili negli articoli, [che cosa sono i rischi](../identity-protection/concept-identity-protection-risks.md#user-risk) e [procedura: configurare e abilitare i criteri di rischio](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+Per i clienti che hanno accesso a [Identity Protection](../identity-protection/overview-identity-protection.md), il rischio utente può essere valutato come parte di un criterio di accesso condizionale. Il rischio utente rappresenta la probabilità che un'identità o un account specificato venga compromesso. Altre informazioni sui rischi per gli utenti sono disponibili negli articoli, [che cosa sono i rischi](../identity-protection/concept-identity-protection-risks.md#user-risk) e [procedura: configurare e abilitare i criteri di rischio](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="device-platforms"></a>Piattaforme per dispositivi
 
@@ -53,7 +53,7 @@ Se si blocca l'autenticazione legacy usando la condizione di **altri client** , 
 > [!IMPORTANT]
 > Microsoft consiglia di disporre di un criterio di accesso condizionale per le piattaforme per dispositivi non supportate. Se ad esempio si vuole bloccare l'accesso alle risorse aziendali da Linux o da altri client non supportati, è necessario configurare un criterio con una condizione per le piattaforme del dispositivo che includa qualsiasi dispositivo ed esclude le piattaforme del dispositivo supportate e concedere il set di controllo per bloccare l'accesso.
 
-## <a name="locations"></a>Percorsi
+## <a name="locations"></a>Posizioni
 
 Quando si configura il percorso come condizione, le organizzazioni possono scegliere di includere o escludere percorsi. Queste località denominate possono includere le informazioni sulla rete IPv4 pubbliche, il paese o l'area geografica o anche aree sconosciute che non sono mappate a specifici paesi o aree geografiche. Solo gli intervalli IP possono essere contrassegnati come un percorso attendibile.
 

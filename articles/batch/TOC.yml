@@ -172,6 +172,11 @@
         - name: Creare un pool senza indirizzi IP pubblici
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: Usare le estensioni con i pool
+          href: create-pool-extensions.md
+        - name: Configurare le identità gestite
+          displayName: user-assigned
+          href: managed-identity-pools.md
         - name: Montare un file system virtuale
           href: virtual-file-mount.md
         - name: Montare una condivisione file di Azure

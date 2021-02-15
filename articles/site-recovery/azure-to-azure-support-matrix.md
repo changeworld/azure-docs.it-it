@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 856d8961cbdf77fc848df41502678cb438773dbe
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78c27292a92152946ba33258d27940e3c1aea47d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550118"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391576"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -35,6 +35,7 @@ Questo articolo offre informazioni di riepilogo sul supporto e i prerequisiti pe
 **Replica di macchine virtuali di Azure da una sottoscrizione a un'altra per il ripristino di emergenza** | Supportate nello stesso tenant di Azure Active Directory.
 **Eseguire la migrazione di macchine virtuali tra aree all'interno dei cluster geografici supportati (all'interno e tra sottoscrizioni)** | Supportate nello stesso tenant di Azure Active Directory.
 **Migrazione di macchine virtuali all'interno della stessa area** | Non supportato.
+**Host dedicati di Azure** | Non supportato.
 
 ## <a name="region-support"></a>Supporto di area
 
@@ -75,7 +76,7 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemi operativi di computer replicati
 
-Site Recovery supporta la replica di macchine virtuali di Azure che eseguono i sistemi operativi elencati in questa sezione. Si noti che se un computer che esegue la replica viene successivamente aggiornato o sottoposto a downgrade a un kernel principale diverso, è necessario disabilitare la replica e riabilitarla dopo l'aggiornamento.
+Site Recovery supporta la replica di macchine virtuali di Azure che eseguono i sistemi operativi elencati in questa sezione. Si noti che se un computer che esegue la replica viene successivamente aggiornato o sottoposta a downgrade a un kernel principale diverso, è necessario disabilitare la replica e riabilitarla dopo l'aggiornamento.
 
 ### <a name="windows"></a>Windows
 
@@ -205,7 +206,7 @@ Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware 
 Criteri RBAC di Azure | Non supportato | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. L'estensione deve essere installata manualmente dopo il failover.
 Gruppi di posizionamento di prossimità | Supportato | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
-Tag  | Supportato | I tag generati dall'utente applicati alle macchine virtuali di origine vengono trasferiti alle macchine virtuali di destinazione dopo il failover o il failover di test.
+Tag  | Supportato | I tag generati dall'utente applicati alle macchine virtuali di origine vengono trasferiti alle macchine virtuali di destinazione dopo il failover o il failover di test. I tag nelle macchine virtuali vengono replicati ogni 24 ore per tutto il tempo in cui le macchine virtuali sono/sono presenti nell'area di destinazione.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Computer replicati - Azioni del disco
@@ -265,7 +266,7 @@ Dischi NVMe | Non supportate
 Dischi condivisi di Azure | Non supportato
 Opzione di trasferimento sicuro | Supportato
 Dischi abilitati per l'acceleratore di scrittura | Non supportato
-Tag  | I tag generati dall'utente vengono replicati ogni 24 ore.
+Tag  | Supportato | I tag generati dall'utente vengono replicati ogni 24 ore.
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di seguire gli obiettivi di scalabilità e prestazioni del disco della macchina virtuale per [Managed disks](../virtual-machines/disks-scalability-targets.md). Se si usano le impostazioni predefinite, Site Recovery crea i dischi e gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni personalizzate, rispettare gli obiettivi di scalabilità e prestazioni dei dischi per le macchine virtuali.

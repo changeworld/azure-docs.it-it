@@ -1,22 +1,18 @@
 ---
 title: Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 description: Informazioni su come usare un modello di soluzione per migrare i dati da Amazon S3 usando una tabella di controllo esterna per archiviare un elenco di partizioni in AWS S3 con Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fd4cb248abdc219c6ee5d098e10c329826c160
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398221"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361988"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrare i dati da Amazon S3 a Azure Data Lake Storage Gen2
 
@@ -119,7 +115,7 @@ Il modello contiene due parametri:
 
     ![Screenshot che mostra le due pipeline e tre set di impostazioni creati usando il modello.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
+6. Passare alla pipeline "BulkCopyFromS3" e selezionare **debug**, immettere i **parametri**. quindi fare clic su **Fine**.
 
     ![Screenshot che mostra dove selezionare debug e immettere i parametri prima di fare clic su fine.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
@@ -182,7 +178,7 @@ Il modello contiene due parametri:
 
     ![Esaminare la pipeline](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Selezionare **Debug**, immettere i valori in **Parametri**, quindi selezionare **Fine**.
+6.  Passare alla pipeline "DeltaCopyFromS3" e selezionare **debug**, quindi immettere i **parametri**. quindi fare clic su **Fine**.
 
     ![Fare clic su **Debug **](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 

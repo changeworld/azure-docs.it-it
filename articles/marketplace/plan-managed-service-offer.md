@@ -8,22 +8,22 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879276"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371941"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Come pianificare un'offerta di servizio gestito per Microsoft Commercial Marketplace
 
 In questo articolo vengono presentati i requisiti per la pubblicazione di un'offerta di servizio gestito in Microsoft Commercial Marketplace tramite il centro per i partner.
 
-I servizi gestiti sono offerte di Azure Marketplace che consentono la gestione Cross-tenant e multi-tenant con il faro di Azure. Per altre informazioni, vedere [che cos'è Azure Lighthouse?](../lighthouse/overview.md) Quando un cliente acquista un'offerta di servizio gestito, è in grado di delegare una o più sottoscrizioni o gruppi di risorse
+I servizi gestiti sono offerte di Azure Marketplace che consentono la gestione Cross-tenant e multi-tenant con il faro di Azure. Per altre informazioni, vedere [che cos'è Azure Lighthouse?](../lighthouse/overview.md) Quando un cliente acquista un'offerta di servizio gestito, è in grado di delegare una o più sottoscrizioni o gruppi di risorse. È quindi possibile lavorare su tali risorse usando le funzionalità di [gestione delle risorse delegate](../lighthouse/concepts/azure-delegated-resource-management.md) di Azure del Faro di Azure.
 
 ## <a name="eligibility-requirements"></a>Requisiti di idoneità
 
-Per pubblicare un servizio gestito, è necessario avere ottenuto una competenza Microsoft Gold o Silver nella piattaforma cloud. Questa competenza dimostra le proprie competenze ai clienti. Per altre informazioni, vedere [Microsoft Partner Network le competenze](https://partner.microsoft.com/membership/competencies).
+Per pubblicare un'offerta di servizio gestito, è necessario avere ottenuto una competenza Microsoft Gold o Silver nella piattaforma cloud. Questa competenza dimostra le proprie competenze ai clienti. Per altre informazioni, vedere [Microsoft Partner Network le competenze](https://partner.microsoft.com/membership/competencies).
 
 Le offerte devono soddisfare tutti i [criteri di certificazione del Marketplace commerciale](/legal/marketplace/certification-policies) applicabili da pubblicare in Azure Marketplace.
 

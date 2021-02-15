@@ -1,24 +1,18 @@
 ---
 title: Creare una data factory di Azure con l'API REST
 description: Creare una pipeline di data factory di Azure per copiare i dati da una posizione di archiviazione BLOB di Azure a un'altra posizione.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 06/10/2019
+ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 48928c5c4f3a2787e8f00e4084daacf6a64f1ea7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 527f8d63f2a2fd5c44e187c00c0651300eb4ad9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461571"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373726"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Guida introduttiva: Creare una data factory di Azure e una pipeline usando l'API REST
 
@@ -303,7 +297,7 @@ Di seguito è riportato l'output di esempio:
 ```
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-In questo esempio la pipeline contiene un'attività e accetta due parametri, il percorso del BLOB di input e il percorso del BLOB di output. I valori per questi parametri vengono impostati all'esecuzione/attivazione della pipeline. L'attività di copia fa riferimento allo stesso set di dati del BLOB creato nel passaggio precedente come input e output. Quando il set di dati viene usato come set di dati di input, viene specificato il percorso di input. Quando il set di dati viene usato come set di dati di output, viene specificato il percorso di output.
+In questo esempio, questa pipeline contiene un'attività di copia. L'attività di copia fa riferimento a "InputDataset" e "OutputDataset" creati nel passaggio precedente come input e output.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -383,10 +377,7 @@ Di seguito è riportato l'output di esempio:
 
 ## <a name="create-pipeline-run"></a>Creare l'esecuzione della pipeline
 
-In questo passaggio si impostano i valori dei parametri **inputPath** e **outputPath** specificati nella pipeline con gli effettivi valori dei percorsi dei BLOB di origine e sink e quindi si attiva un'esecuzione della pipeline. L'ID di esecuzione della pipeline restituito nel corpo della risposta viene usato nel monitoraggio successivo dell'API.
-
-Sostituire il valore di **inputPath** e **outputPath** con il percorso dei BLOB di origine e sink per copiare i dati nelle due direzioni prima di salvare il file.
-
+In questo passaggio viene attivata un'esecuzione della pipeline. L'ID di esecuzione della pipeline restituito nel corpo della risposta viene usato nel monitoraggio successivo dell'API.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"
@@ -413,7 +404,7 @@ Di seguito è riportato l'output di esempio:
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {

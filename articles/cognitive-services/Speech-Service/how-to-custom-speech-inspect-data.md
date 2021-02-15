@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ce0d3a06846cbc3aa37ab836564150e6f2c34ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499187"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362812"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati di Riconoscimento vocale personalizzato
 
 > [!NOTE]
 > Questa pagina presuppone che sia stata effettuata la lettura [dei dati di test per riconoscimento vocale personalizzato](./how-to-custom-speech-test-and-train.md) e che sia stato caricato un set di dati per l'ispezione.
 
-Riconoscimento vocale personalizzato offre strumenti che consentono di esaminare visivamente la qualità del riconoscimento di un modello confrontando i dati audio con il risultato del riconoscimento corrispondente. Dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech)è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito è corretto. Questo strumento consente di controllare la qualità del modello di sintesi vocale di Microsoft, controllare un modello personalizzato sottoposto a training o confrontare la trascrizione con due modelli.
+Riconoscimento vocale personalizzato offre strumenti che consentono di esaminare visivamente la qualità del riconoscimento di un modello confrontando i dati audio con il risultato del riconoscimento corrispondente. Da [speech studio](https://speech.microsoft.com/customspeech)è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito è corretto. Questo strumento consente di controllare la qualità del modello di sintesi vocale di Microsoft, controllare un modello personalizzato sottoposto a training o confrontare la trascrizione con due modelli.
 
 In questo documento si apprenderà come esaminare visivamente la qualità del modello di sintesi vocale di base di Microsoft e/o i modelli personalizzati di cui è stato eseguito il training. Si apprenderà anche come usare l'editor trascrizioni online per creare e perfezionare i set di impostazioni audio con etichetta.
 
@@ -30,7 +30,7 @@ In questo documento si apprenderà come esaminare visivamente la qualità del mo
 
 Per creare un test, seguire queste istruzioni:
 
-1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
+1. Accedere a [speech studio](https://speech.microsoft.com/customspeech).
 2. Passare a **riconoscimento vocale > Riconoscimento vocale personalizzato > [nome del progetto] > test**.
 3. Fare clic su **Aggiungi test**.
 4. Selezionare **Controlla qualità (dati solo audio)**. Assegnare al test un nome, una descrizione e selezionare il set di dati audio.

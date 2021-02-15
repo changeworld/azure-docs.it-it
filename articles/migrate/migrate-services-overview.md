@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b42aa3bfaeaa454b5d870dbae3bce539b682028f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
-ms.translationtype: HT
+ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389536"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -121,7 +121,7 @@ Se si vuole assistenza qualificata per iniziare, Microsoft propone diversi [prov
 Sono disponibili due versioni del servizio Azure Migrate.
 
 - **Versione corrente**: usare questa versione per creare progetti di Azure Migrate, individuare i computer locali e orchestrare valutazioni e migrazioni. [Vedere altre informazioni](whats-new.md) sulle novità di questa versione.
-- **Versione precedente**: la versione precedente di Azure Migrate supporta solo la valutazione di macchine virtuali VMware locali. Se è stata usata la versione precedente, è ora necessario usare la versione corrente. Non è più possibile creare progetti di Azure Migrate con la versione precedente. Si consiglia inoltre di non usarla per eseguire nuove individuazioni.
+- **Versione precedente**: la versione precedente di Azure migrate, nota anche come Azure migrate classica, supporta solo la valutazione di macchine virtuali VMware locali. Il Azure Migrate classico verrà ritirato a febbraio 2024. Dopo il 2024 febbraio, la versione classica di Azure Migrate non sarà più supportata e i metadati di inventario nei progetti classici verranno eliminati. Non è possibile aggiornare i progetti o i componenti della versione precedente alla nuova versione. È necessario [creare un nuovo progetto di Azure Migrate](create-manage-projects.md) e [aggiungervi strumenti di valutazione e migrazione](./create-manage-projects.md). Usare le esercitazioni per comprendere come usare gli strumenti di valutazione e migrazione disponibili. Se si dispone di un'area di lavoro Log Analytics collegata a un progetto classico, è possibile collegarla a un progetto di versione corrente dopo aver eliminato il progetto classico.
 
     Per accedere ai progetti esistenti, nel portale di Azure cercare e selezionare **Azure Migrate**. Nel dashboard di **Azure Migrate** sono disponibili una notifica e un collegamento per accedere ai progetti di Azure Migrate precedenti.
 

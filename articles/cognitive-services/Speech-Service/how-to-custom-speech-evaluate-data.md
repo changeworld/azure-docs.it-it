@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857359"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388941"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
 
@@ -115,10 +115,15 @@ Considerare i seguenti dettagli:
 * Quando la qualità delle trascrizioni varia, è possibile duplicare frasi eccezionalmente valide, come le trascrizioni eccezionali che includono frasi chiave, per aumentarne il peso.
 * Il servizio riconoscimento vocale userà automaticamente le trascrizioni per migliorare il riconoscimento di parole e frasi specifiche del dominio, come se fossero state aggiunte come testo correlato.
 * Il training con audio offrirà i maggiori vantaggi se l'audio è anche difficile da comprendere per gli utenti. Nella maggior parte dei casi, è consigliabile avviare il training semplicemente utilizzando il testo correlato.
-* Il completamento di un'operazione di training può richiedere diversi giorni. Per migliorare la velocità di training, assicurarsi di creare la sottoscrizione al servizio di riconoscimento vocale in un' [area con hardware dedicato](custom-speech-overview.md#set-up-your-azure-account) per il training.
+* Il completamento di un'operazione di training può richiedere diversi giorni. Per migliorare la velocità di training, assicurarsi di creare la sottoscrizione al servizio di riconoscimento vocale in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
 
 > [!NOTE]
-> Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio.
+> Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) .
+
+> [!NOTE]
+> Nei casi in cui si modifica il modello di base utilizzato per il training e si dispone di audio nel set di dati di training, verificare *sempre* se il nuovo modello di base selezionato [supporta il training con dati audio](language-support.md#speech-to-text). Se il modello di base usato in precedenza non supporta il training con dati audio e il set di dati di training contiene audio, i tempi di training con il nuovo modello di base aumenteranno **drasticamente** e potranno passare da diverse ore a diversi giorni. Ciò vale soprattutto se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
+>
+> Se si affronta il problema descritto nel paragrafo precedente, è possibile ridurre rapidamente il tempo di training riducendo la quantità di audio nel set di dati o rimuovendo completamente il testo e lasciando solo il testo. La seconda opzione è consigliata se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
 
 ### <a name="add-new-words-with-pronunciation"></a>Aggiungi nuove parole con la pronuncia
 

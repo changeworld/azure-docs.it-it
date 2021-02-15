@@ -1,22 +1,18 @@
 ---
 title: Copiare dati da Amazon Simple Storage Service (S3)
 description: Informazioni su come copiare dati da Amazon Simple Storage Service (S3) in archivi dati di sink supportati usando Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/14/2021
-ms.openlocfilehash: 82871a09916b2b64f74e25088f5e75ac60a40678
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2680c930bfa8451eec7dd518d3c535e0d04046cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202505"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387887"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copiare i dati dal servizio di archiviazione semplice di Amazon usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -182,14 +178,14 @@ Le proprietà seguenti sono supportate per Amazon S3 in `storeSettings` impostaz
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La proprietà **Type** in `storeSettings` deve essere impostata su **AmazonS3ReadSettings**. | Sì                                                         |
-| **_Individuare i file da copiare:_* _ |  |  |
-| OPZIONE 1: percorso statico<br> | Copia dal percorso del bucket o della cartella/file specificato nel set di dati. Se si desidera copiare tutti i file da un bucket o da una cartella, specificare `wildcardFileName` anche come `_` . |  |
+| ***Individuare i file da copiare:*** |  |  |
+| OPZIONE 1: percorso statico<br> | Copia dal percorso del bucket o della cartella/file specificato nel set di dati. Se si desidera copiare tutti i file da un bucket o da una cartella, specificare `wildcardFileName` anche come `*` . |  |
 | OPZIONE 2: prefisso S3<br>- prefix | Prefisso per il nome della chiave S3 nel bucket specificato configurato in un set di dati per filtrare i file S3 di origine. Sono selezionate le chiavi S3 i cui nomi iniziano con `bucket_in_dataset/this_prefix` . Usa il filtro lato servizio S3, che offre prestazioni migliori rispetto a un filtro con caratteri jolly.<br/><br/>Quando si usa prefix e si sceglie di copiare in un sink basato su file con la gerarchia di mantenimento, tenere presente che il percorso secondario dopo l'ultimo "/" nel prefisso verrà mantenuto. Ad esempio, si dispone di source  `bucket/folder/subfolder/file.txt` e si configura Prefix come `folder/sub` , quindi il percorso del file mantenuto è `subfolder/file.txt` . | No |
 | OPZIONE 3: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly nel bucket specificato configurati in un set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella contiene un carattere jolly o questo carattere di escape all'interno di. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | OPZIONE 3: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly sotto il bucket e il percorso della cartella specificati (oppure percorso di cartella con caratteri jolly) per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per eseguire l'escape se il nome del file contiene un carattere jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 4: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare un nome di file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
-| ***Impostazioni aggiuntive:** _ |  | |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando _ *ricorsive** è impostato su **true** e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
+| ***Impostazioni aggiuntive:*** |  | |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando l'opzione **ricorsiva** è impostata su **true** e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia di file binari. Valore predefinito: false. |No |
 | modifiedDatetimeStart    | I file vengono filtrati in base all'attributo: data Ultima modifica. <br>I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata a un fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere **null**, il che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è **null**, verranno selezionati i file il cui attributo Last modified è maggiore o uguale al valore DateTime.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è **null**, verranno selezionati i file il cui attributo Last modified è minore del valore DateTime.<br/>Questa proprietà non è applicabile quando si configura `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                                          |
@@ -286,7 +282,7 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di elim
 |:--- |:--- |:--- |
 | type | La proprietà **Type** del set di dati deve essere impostata su **AmazonS3Object**. |Sì |
 | bucketName | Il nome del bucket S3. Il filtro con caratteri jolly non è supportato. |Sì per l'attività di copia o ricerca, no per l'attività GetMetadata |
-| Key | Il nome o il filtro con caratteri jolly della chiave dell'oggetto S3 nel bucket specificato. Si applica solo quando la proprietà **Prefix** non è specificata. <br/><br/>Il filtro con caratteri jolly è supportato sia nella parte della cartella che nella parte del nome file. I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Esempio 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). Usare `^` per eseguire l'escape se la cartella o il nome file effettivo contiene un carattere jolly o questo carattere di escape all'interno di. |No |
+| key | Il nome o il filtro con caratteri jolly della chiave dell'oggetto S3 nel bucket specificato. Si applica solo quando la proprietà **Prefix** non è specificata. <br/><br/>Il filtro con caratteri jolly è supportato sia nella parte della cartella che nella parte del nome file. I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Esempio 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). Usare `^` per eseguire l'escape se la cartella o il nome file effettivo contiene un carattere jolly o questo carattere di escape all'interno di. |No |
 | prefix | Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando la proprietà **chiave** non è specificata. |No |
 | version | La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. Se non si specifica una versione, verrà recuperata la versione più recente. |No |
 | modifiedDatetimeStart | I file vengono filtrati in base all'attributo: data Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata in base al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Tenere presente che l'abilitazione di questa impostazione influirà sulle prestazioni complessive dello spostamento dei dati quando si desidera filtrare grandi quantità di file. <br/><br/> Le proprietà possono essere **null**, il che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è **null**, verranno selezionati i file il cui attributo Last modified è maggiore o uguale al valore DateTime.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, verranno selezionati i file il cui attributo Last modified è minore del valore DateTime.| No |

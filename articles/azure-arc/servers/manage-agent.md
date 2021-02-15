@@ -1,14 +1,14 @@
 ---
 title: Gestione dell'agente server abilitati per Azure Arc
 description: Questo articolo descrive le diverse attività di gestione che in genere vengono eseguite durante il ciclo di vita di Azure Arc Enabled Servers Connected computer Agent.
-ms.date: 01/21/2021
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 27712dcd30857ca8c677de4f99dc4ed7e2e7b292
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cc42830fc73612e744942bdd8b353832e0ccbf2a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662127"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368456"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente Azure Connected Machine
 
@@ -48,60 +48,17 @@ Per i server abilitati per Arc, prima di rinominare il computer, è necessario r
 > [!WARNING]
 > È consigliabile evitare di rinominare il nome computer del computer ed eseguire questa procedura solo se assolutamente necessario.
 
-Nei passaggi seguenti viene riepilogata la procedura di ridenominazione del computer.
-
 1. Controllare le estensioni VM installate nel computer e prendere nota della relativa configurazione usando l' [interfaccia](manage-vm-extensions-cli.md#list-extensions-installed) della riga di comando di Azure o [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
 
-2. Rimuovere le estensioni della macchina virtuale usando PowerShell, l'interfaccia della riga di comando di Azure o dalla portale di Azure.
+2. Rimuovere le estensioni VM installate dalla [portale di Azure](manage-vm-extensions-portal.md#uninstall-extension), usando l' [interfaccia](manage-vm-extensions-cli.md#remove-an-installed-extension)della riga di comando di Azure o [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
 
-    > [!NOTE]
-    > Se l'agente di Monitoraggio di Azure per le macchine virtuali (Insights) o l'agente di Log Analytics è stato distribuito usando criteri di configurazione Guest di criteri di Azure, gli agenti vengono ridistribuiti dopo il [ciclo di valutazione](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) successivo e dopo la registrazione del computer rinominato con i server abilitati per Arc.
+3. Usare lo strumento **azcmagent** con il parametro [Disconnect](manage-agent.md#disconnect) per disconnettere il computer da Azure Arc ed eliminare la risorsa Machine da Azure. La disconnessione del computer dai server abilitati per Arc non comporta la rimozione dell'agente del computer connesso e non è necessario rimuovere l'agente come parte di questo processo. È possibile eseguire questa operazione manualmente durante l'accesso interattivo oppure automatizzare l'uso della stessa entità servizio usata per l'onboarding di più agenti o con un [token di accesso](../../active-directory/develop/access-tokens.md)della piattaforma Microsoft Identity. Se non è stata usata un'entità servizio per registrare il computer con i server abilitati per Azure Arc, vedere l' [articolo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) seguente per creare un'entità servizio.
 
-3. Disconnettere il computer dai server abilitati per Arc usando PowerShell, l'interfaccia della riga di comando di Azure o dal portale.
+4. Rinominare il nome computer computer.
 
-4. Rinominare il computer.
+5. Registrare di nuovo l'agente del computer connesso con i server abilitati per Arc. Eseguire lo `azcmagent` strumento con il parametro [Connect](manage-agent.md#connect) per completare questo passaggio.
 
-5. Connettere il computer con i server abilitati per Arc usando lo `Azcmagent` strumento per registrare e creare una nuova risorsa in Azure.
-
-6. Distribuire le estensioni VM installate in precedenza nel computer di destinazione.
-
-Per completare questa attività, seguire questa procedura.
-
-1. Rimuovere le estensioni VM installate dalla [portale di Azure](manage-vm-extensions-portal.md#uninstall-extension), usando l' [interfaccia](manage-vm-extensions-cli.md#remove-an-installed-extension)della riga di comando di Azure o [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
-
-2. Usare uno dei metodi seguenti per disconnettere il computer da Azure Arc. La disconnessione del computer dai server abilitati per Arc non comporta la rimozione dell'agente del computer connesso e non è necessario rimuovere l'agente come parte di questo processo. Tutte le estensioni di macchina virtuale distribuite nel computer continuano a funzionare durante questo processo.
-
-    # <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
-
-    1. Nel browser passare al [portale di Azure](https://portal.azure.com).
-    1. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
-    1. Dal server abilitato per l'arco registrato selezionato selezionare **Elimina** nella barra superiore per eliminare la risorsa in Azure.
-
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-    
-    ```azurecli
-    az resource delete \
-      --resource-group ExampleResourceGroup \
-      --name ExampleArcMachine \
-      --resource-type "Microsoft.HybridCompute/machines"
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-    ```powershell
-    Remove-AzResource `
-     -ResourceGroupName ExampleResourceGroup `
-     -ResourceName ExampleArcMachine `
-     -ResourceType Microsoft.HybridCompute/machines
-    ```
-
-3. Rinominare il nome computer del computer.
-
-### <a name="after-renaming-operation"></a>Dopo la ridenominazione dell'operazione
-
-Dopo la ridenominazione di un computer, è necessario che l'agente computer connesso venga registrato nuovamente con i server abilitati per Arc. Eseguire lo `azcmagent` strumento con il parametro [Connect](#connect) per completare questo passaggio.
-
-Ridistribuire le estensioni VM originariamente distribuite nel computer da server abilitati per Arc. Se l'agente di Monitoraggio di Azure per le macchine virtuali (Insights) o l'agente di Log Analytics è stato distribuito usando criteri di configurazione Guest di criteri di Azure, gli agenti vengono ridistribuiti dopo il [ciclo di valutazione](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers)successivo.
+6. Ridistribuire le estensioni VM originariamente distribuite nel computer da server abilitati per Arc. Se l'agente di Monitoraggio di Azure per le macchine virtuali (Insights) o l'agente di Log Analytics è stato distribuito usando criteri di Azure, gli agenti vengono ridistribuiti dopo il [ciclo di valutazione](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers)successivo.
 
 ## <a name="upgrading-agent"></a>Aggiornamento dell'agente
 

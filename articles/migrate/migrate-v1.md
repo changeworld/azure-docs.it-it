@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 4fda6c51121838bfa1f3624759b1230d8554d573
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
-ms.translationtype: HT
+ms.openlocfilehash: 719fcca74d2cd048bf170940eff7da6a25425469
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753944"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373284"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -22,7 +22,7 @@ Questo articolo fornisce informazioni sull'utilizzo della versione precedente di
 Sono disponibili due versioni del servizio Azure Migrate:
 
 - **Versione corrente**: usare questa versione per creare progetti di Azure Migrate, individuare i computer locali e orchestrare valutazioni e migrazioni. [Vedere altre informazioni](whats-new.md) sulle novità di questa versione.
-- **Versione precedente**: se si usa la versione precedente di Azure Migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. I progetti della versione precedente sono definiti progetti classici in questo articolo. Se è ancora necessario usare progetti di Azure Migrate creati nella versione precedente, di seguito sono elencate le operazioni consentite e quelle non più consentite:
+- **Versione precedente**: se si usa la versione precedente di Azure Migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. I progetti della versione precedente sono definiti progetti classici in questo articolo. Il Azure Migrate classico verrà ritirato a febbraio 2024. Dopo il 2024 febbraio, la versione classica di Azure Migrate non sarà più supportata e i metadati di inventario nei progetti classici verranno eliminati. Se è ancora necessario usare i progetti di Azure Migrate classici, questo è ciò che è possibile eseguire:
     - Non è più possibile creare progetti di migrazione.
     - Si consiglia di non eseguire nuove individuazioni.
     - È ancora possibile accedere ai progetti esistenti.
