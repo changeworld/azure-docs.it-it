@@ -4,16 +4,19 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 999cb4c764e9960c509d19faa61016b2522259ac
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 38c066c20399b39d676fb0c25aa158993258b979
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819861"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370989"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
 Per eseguire il backup di condivisioni file di Azure è possibile usare il [servizio Backup di Azure](./backup-overview.md). Questo articolo riepiloga le impostazioni di supporto quando si esegue il backup di condivisioni file di Azure con Backup di Azure.
+
+> [!NOTE]
+> Backup di Azure attualmente non supporta le condivisioni NFS.
 
 ## <a name="supported-regions"></a>Aree supportate
 

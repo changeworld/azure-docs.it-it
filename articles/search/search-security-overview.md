@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 954d08fa163b481393df28ae22016859badea694
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537307"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097637"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Panoramica della sicurezza per Azure ricerca cognitiva
 
@@ -113,12 +113,6 @@ Per l'amministrazione del servizio di ricerca sono definiti [tre ruoli di base](
 
 > [!Note]
 > Usando i meccanismi a livello di Azure, è possibile bloccare una sottoscrizione o una risorsa per evitare l'eliminazione accidentale o non autorizzata del servizio di ricerca da parte degli utenti con diritti di amministratore. Per altre informazioni, vedere [bloccare le risorse per impedire l'eliminazione imprevista](../azure-resource-manager/management/lock-resources.md).
-
-## <a name="threat-protection"></a>Protezione dalle minacce
-
-L'accesso al contenuto in un servizio di ricerca è esclusivamente tramite query. Se il servizio di ricerca è la destinazione di un attacco di query, il sistema eliminerà le query quando il sistema si avvicina alla capacità massima. 
-
-La limitazione delle richieste si comporta in modo diverso per le diverse API. Le API di query (ricerca/suggerimenti/completamento automatico) e le API di indicizzazione vengono limitate in modo dinamico in base al carico del servizio. Le API di indice e le API per le operazioni del servizio hanno limiti di frequenza delle richieste statiche È possibile esaminare i limiti della richiesta di frequenza statica nei [limiti di limitazione](search-limits-quotas-capacity.md#throttling-limits)delle richieste. Per informazioni più dettagliate sul comportamento della limitazione, vedere [monitoraggio delle richieste di query](search-monitor-queries.md).
 
 <a name="encryption"></a>
 

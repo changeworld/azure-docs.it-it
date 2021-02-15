@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e1605f45dc8a7a1c03b5481ea17478064414df59
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442362"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382209"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -75,7 +75,7 @@ Per impostazione predefinita, IoT Edge avvia i moduli nella propria rete di cont
 
 **Opzione 1: impostare il server DNS nelle impostazioni del motore del contenitore**
 
-Specificare il server DNS per l'ambiente nelle impostazioni del motore di contenitori, che verranno applicate a tutti i moduli contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Esempio:
+Specificare il server DNS per l'ambiente nelle impostazioni del motore di contenitori, che verranno applicate a tutti i moduli contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Ad esempio:
 
 ```json
 {
@@ -103,7 +103,7 @@ Riavviare il motore di gestione dei contenitori per rendere effettivi gli aggior
 
 **Opzione 2: impostare il server DNS nella distribuzione IoT Edge per modulo**
 
-È possibile impostare il server DNS per *createOptions* di ogni modulo nella distribuzione di IOT Edge. Esempio:
+È possibile impostare il server DNS per *createOptions* di ogni modulo nella distribuzione di IOT Edge. Ad esempio:
 
 ```json
 "createOptions": {
@@ -130,7 +130,7 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n)
 ```
 
-Or
+Oppure
 
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
@@ -174,7 +174,7 @@ Nel file deployment.js:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
        },
        "type": "docker",
@@ -188,7 +188,7 @@ Nel file deployment.js:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0"
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1"
        },
        "type": "docker",
        "status": "running",
@@ -286,7 +286,7 @@ Nel manifesto della distribuzione:
 "edgeHub": {
   "type": "docker",
   "settings": {
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+    "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
     "createOptions": <snipped>
   },
   "env": {

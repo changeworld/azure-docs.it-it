@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 69a970b7b088795602dfb842b20ad6457d5f27c4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808226"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374491"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Cosa comporta la modifica della quota hardware del volume per il servizio Azure NetApp Files
 
 Dall'inizio del servizio, Azure NetApp Files ha utilizzato un meccanismo di provisioning e crescita automatico del pool di capacità. Il thin provisioning dei volumi Azure NetApp Files viene eseguito in un pool di capacità con provisioning del cliente di un livello e delle dimensioni selezionati. Le dimensioni del volume (quote) vengono usate per offrire prestazioni e capacità e le quote possono essere regolate in tempo reale in qualsiasi momento. Questo comportamento significa che, attualmente, la quota del volume è una leva di prestazioni utilizzata per controllare la larghezza di banda del volume. Attualmente, i pool di capacità di sottoposizione aumentano automaticamente quando la capacità si riempie.   
 
 > [!IMPORTANT] 
-> Il comportamento Azure NetApp Files del provisioning del pool di volumi e capacità cambierà in un meccanismo *manuale* e *controllabile* . **A partire dal 15 marzo 2021, le dimensioni del volume (quota) gestiranno le prestazioni della larghezza di banda, oltre alla capacità di cui è stato effettuato il provisioning, e i pool di capacità sottostanti non aumenteranno automaticamente.** 
+> Il comportamento Azure NetApp Files del provisioning del pool di volumi e capacità cambierà in un meccanismo *manuale* e *controllabile* . **A partire dal 1 ° aprile 2021, le dimensioni del volume (quota) gestiranno le prestazioni della larghezza di banda, oltre alla capacità di cui è stato effettuato il provisioning e i pool di capacità sottostanti non aumenteranno automaticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Motivi per la modifica della quota hardware del volume
 

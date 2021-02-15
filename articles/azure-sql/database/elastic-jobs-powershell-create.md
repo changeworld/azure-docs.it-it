@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131934"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368830"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Creare un agente processo elastico con PowerShell (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-I [processi elastici (anteprima)](job-automation-overview.md#elastic-database-jobs-preview) permettono l'esecuzione di uno o più script di Transact-SQL (T-SQL) in parallelo tra molti database.
+I [processi elastici (anteprima)](job-automation-overview.md) permettono l'esecuzione di uno o più script di Transact-SQL (T-SQL) in parallelo tra molti database.
 
 Questa esercitazione illustra la procedura necessaria per eseguire una query tra più database:
 
@@ -63,7 +63,7 @@ Oltre al modulo **Az.Sql**, questa esercitazione richiede anche il modulo *SqlSe
 
 ## <a name="create-required-resources"></a>Creare le risorse necessarie
 
-La creazione di un agente processo elastico richiede un database (S0 o versione successiva) da usare come [database di processo](job-automation-overview.md#job-database).
+La creazione di un agente processo elastico richiede un database (S0 o versione successiva) da usare come [database di processo](job-automation-overview.md#elastic-job-database).
 
 Lo script seguente crea un nuovo gruppo di risorse, un server e un database da usare come database di processo. Il secondo script crea un secondo server con due database vuoti per l'esecuzione dei processi.
 
@@ -271,7 +271,7 @@ La tabella seguente elenca i possibili stati di esecuzione dei processi:
 |:---|:---|
 |**Creato** | L'esecuzione del processo è stata appena creata e non è ancora in corso.|
 |**InProgress** | L'esecuzione del processo è attualmente in corso.|
-|**WaitingForRetry** | L'esecuzione del processo non è riuscita a completare l'azione ed è in attesa per riprovare.|
+|**WaitingForRetry** | L'esecuzione del processo non è riuscita a completare l'azione ed è in attesa di riprovare.|
 |**Completato** | L'esecuzione del processo è stata completata.|
 |**SucceededWithSkipped** | L'esecuzione del processo è stata completata, ma alcuni elementi figlio sono stati ignorati.|
 |**Non riuscito** | L'esecuzione del processo non è riuscita e ha esaurito i tentativi.|

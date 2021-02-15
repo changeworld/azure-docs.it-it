@@ -1,22 +1,17 @@
 ---
 title: Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 description: Informazioni su come creare un runtime di integrazione Azure-SSIS in Azure Data Factory in modo da rendere possibile distribuire ed eseguire pacchetti SSIS in Azure.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
-ms.openlocfilehash: 62b1575e2ab379e6b4e61926e00dfad85ffeb6c0
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 4e3137b08c558c8e9dfadda07f0b8bb66433ee83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556359"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389417"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione SSIS di Azure in Azure Data Factory
 
@@ -79,7 +74,7 @@ Per un elenco delle aree di Azure in cui sono disponibili Data Factory e un Azur
 
 La tabella seguente mette a confronto alcune funzionalità di un server di database SQL di Azure e di SQL Istanza gestita in relazione al runtime di integrazione Azure-SSIR:
 
-| Feature | Database SQL| Istanza gestita di SQL |
+| Funzionalità | Database SQL| Istanza gestita di SQL |
 |---------|--------------|------------------|
 | **Pianificazione** | Il SQL Server Agent non è disponibile.<br/><br/>Vedere [pianificare l'esecuzione di un pacchetto in una pipeline Data Factory](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity).| Agente Istanza gestita disponibile. |
 | **autenticazione** | È possibile creare un'istanza di SSISDB con un utente di database indipendente che rappresenta qualsiasi gruppo di Azure AD con l'identità gestita del data factory come membro del ruolo **db_owner** .<br/><br/>Vedere [abilitare l'autenticazione Azure ad per creare un SSISDB nel server di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | È possibile creare un'istanza di SSISDB con un utente di database indipendente che rappresenta l'identità gestita del data factory. <br/><br/>Vedere [abilitare l'autenticazione Azure ad per creare un database SSISDB in Azure SQL istanza gestita](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |

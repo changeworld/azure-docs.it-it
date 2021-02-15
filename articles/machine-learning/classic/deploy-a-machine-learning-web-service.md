@@ -3,22 +3,22 @@ title: 'ML Studio (classico): distribuire un servizio Web-Azure'
 description: Come convertire un esperimento di training in un esperimento predittivo, prepararlo per la distribuzione e quindi distribuirlo come servizio Web Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 018e292abc7050f5d71c6bf9065618fecf8b5668
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495203"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520443"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
 
-**si applica a:** ![ Si tratta di un segno di spunta, che indica che questo articolo si applica alla Machine Learning Studio (classica). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) si ![ tratta di una X, il che significa che questo articolo si applica al Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**SI APPLICA A:**  ![Questo è un segno di spunta, che significa che l'articolo si applica a Machine Learning Studio (versione classica).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Questa è una X, che significa che l'articolo si applica ad Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (classico) consente di compilare e testare una soluzione analitica predittiva. È quindi possibile distribuire la soluzione come servizio Web.

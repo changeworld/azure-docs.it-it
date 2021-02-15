@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366361"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364580"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
@@ -41,6 +41,9 @@ Quando si creano criteri di accesso condizionale, è possibile includere le opzi
       - Consente agli amministratori di selezionare ruoli di directory Azure AD specifici utilizzati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
    - Utenti e gruppi
       - Consente la destinazione di set di utenti specifici. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando si seleziona un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati. I criteri verranno applicati a utenti e gruppi annidati.
+
+> [!IMPORTANT]
+> Quando si selezionano gli utenti e i gruppi inclusi in un criterio di accesso condizionale, esiste un limite al numero di singoli utenti che è possibile aggiungere direttamente a un criterio di accesso condizionale. Se è presente una grande quantità di singoli utenti che devono essere aggiunti direttamente a un criterio di accesso condizionale, è consigliabile inserire gli utenti in un gruppo e assegnare il gruppo ai criteri di accesso condizionale.
 
 > [!WARNING]
 > Se gli utenti o i gruppi sono membri di oltre 2048 gruppi, l'accesso potrebbe essere bloccato. Questo limite si applica sia all'appartenenza a gruppi diretta che al gruppo annidato.

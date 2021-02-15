@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Key Vault
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Key Vault. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f100386b7051dca555a3e898cbdbafb557d16c51
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 073f38ce5da17c8e303073c3863505371976120e
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555502"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098045"
 ---
 # <a name="azure-policy-built-in-definitions-for-key-vault"></a>Definizioni predefinite di Criteri di Azure per Key Vault
 

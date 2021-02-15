@@ -1,22 +1,19 @@
 ---
 title: Eseguire la copia incrementale di più tabelle con PowerShell
 description: In questa esercitazione si crea un'istanza di Azure Data Factory con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server in Database SQL di Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: anandsub
 ms.reviewer: douglasl, maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 61a4119947b1412d3e874458e06748fd40a381b4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
-ms.translationtype: HT
+ms.openlocfilehash: bf6d4642b672f2b2d76d567b793349bc40f8550b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510261"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384844"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Caricare dati in modo incrementale da più tabelle in SQL Server al database SQL di Azure con PowerShell
 

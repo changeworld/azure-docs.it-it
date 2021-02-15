@@ -10,12 +10,12 @@ ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979105"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390182"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
@@ -28,11 +28,11 @@ Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare l
 - Eliminazione temporanea BLOB, per ripristinare un BLOB o una versione che è stata eliminata. Per informazioni su come abilitare l'eliminazione temporanea del BLOB, vedere [abilitare e gestire l'eliminazione temporanea per i BLOB](soft-delete-blob-enable.md).
 
 > [!WARNING]
-> L'eliminazione di un account di archiviazione non può essere annullata. L'eliminazione temporanea non protegge dall'eliminazione di un account di archiviazione, ma solo dall'eliminazione di oggetti dati in tale account. Per proteggere un account di archiviazione dall'eliminazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco di Azure Resource Manager risorse, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+> L'eliminazione di un account di archiviazione non può essere annullata. L'eliminazione temporanea del contenitore non protegge dall'eliminazione di un account di archiviazione, ma solo dall'eliminazione di contenitori in tale account. Per proteggere un account di archiviazione dall'eliminazione, configurare un blocco sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco di Azure Resource Manager risorse, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Funzionamento dell'eliminazione temporanea del contenitore
 
-Quando si Abilita l'eliminazione temporanea del contenitore, è possibile specificare un periodo di conservazione per i contenitori eliminati tra 1 e 365 giorni. Il periodo di memorizzazione predefinito è 7 giorni. Durante il periodo di memorizzazione, è possibile ripristinare un contenitore eliminato chiamando l'operazione di **annullamento dell'eliminazione del contenitore** .
+Quando si Abilita l'eliminazione temporanea del contenitore, è possibile specificare un periodo di conservazione per i contenitori eliminati tra 1 e 365 giorni. Il periodo di memorizzazione predefinito è 7 giorni. Durante il periodo di memorizzazione è possibile ripristinare un contenitore eliminato chiamando l'operazione di **ripristino del contenitore** .
 
 Quando si ripristina un contenitore, vengono ripristinati anche i BLOB del contenitore e tutte le versioni di BLOB. Tuttavia, è possibile usare l'eliminazione temporanea del contenitore solo per ripristinare i BLOB se il contenitore è stato eliminato. Per ripristinare un BLOB eliminato quando il contenitore padre non è stato eliminato, è necessario usare l'eliminazione temporanea o il controllo delle versioni dei BLOB.
 

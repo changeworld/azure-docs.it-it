@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475185"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389740"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -153,6 +153,7 @@ Gli intervalli di indirizzi IP in questi file sono in notazione CIDR.
 ### <a name="tips"></a>Suggerimenti 
 - È possibile rilevare gli aggiornamenti da una pubblicazione alla successiva annotando un aumento dei valori *changeNumber* nel file JSON. In ogni sottosezione (ad esempio **storage.Westus**) è presente il valore *changeNumber* che viene incrementato quando si verificano modifiche. Il primo livello del valore *changeNumber* del file viene incrementato quando una delle sottosezioni viene modificata.
 - Per esempi di come analizzare le informazioni sui tag del servizio (ad esempio per ottenere tutti gli intervalli di indirizzi per l'archiviazione in WestUS), vedere la documentazione dell'[API di individuazione del tag del servizio in PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Quando vengono aggiunti nuovi indirizzi IP ai tag di servizio, non verranno usati in Azure per almeno una settimana. Questa operazione consente di aggiornare tutti i sistemi che potrebbero dover tenere traccia degli indirizzi IP associati ai tag del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [creare un gruppo di sicurezza di rete](tutorial-filter-network-traffic.md).

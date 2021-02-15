@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99548865"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381733"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzare il set di standard nel dashboard conformità normativa
 
@@ -92,7 +92,7 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Dashboard Conformità con le normative" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-## <a name="removing-a-standard-from-your-dashboard"></a>Rimozione di uno standard dal dashboard
+## <a name="remove-a-standard-from-your-dashboard"></a>Rimuovere uno standard dal dashboard
 
 Se uno degli standard normativi forniti non è pertinente per l'organizzazione, si tratta di un processo semplice per rimuoverli dall'interfaccia utente. In questo modo è possibile personalizzare ulteriormente il dashboard di conformità alle normative e concentrarsi solo sugli standard applicabili.
 

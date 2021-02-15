@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per il servizio Azure Kubernetes
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per il servizio Azure Kubernetes. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9ae2339585616c1da993d47a1172d8ec8eddb372
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 749ceb1c6388607bb854548278522092c39881e5
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557541"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096023"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Definizioni predefinite di Criteri di Azure per il servizio Azure Kubernetes
 

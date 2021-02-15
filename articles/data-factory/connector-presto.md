@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Presto usando Azure Data Factory
 description: Informazioni su come copiare dati da Presto in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: af05983432c0f76a88ff82a3638d86a971ef77f5
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 33e521d418c219be8eb85b79a0e07d999edb1b08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680706"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374270"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory"></a>Copiare dati da Presto usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +29,7 @@ Questo connettore presto è supportato per le attività seguenti:
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

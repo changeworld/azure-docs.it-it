@@ -1,22 +1,18 @@
 ---
 title: Trasformare i dati usando l’attività Hadoop Pig
 description: Informazioni su come usare l'attività Pig in una data factory di Azure per eseguire query Pig in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 5bdb1c7f0158b0e45145b41d9960c7c55a0d8ead
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1d0f5ce9dfbf09023b57accb761b5dd85b0f3599
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631870"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375715"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Hadoop Pig in Azure Data Factory
 

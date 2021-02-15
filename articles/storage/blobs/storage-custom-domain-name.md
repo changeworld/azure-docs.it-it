@@ -5,22 +5,20 @@ description: Eseguire il mapping di un dominio personalizzato a un endpoint Web 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 52fc7b9c1229421fd46b8110857a0a7a8a4f916a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95996866"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520426"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure
 
 È possibile eseguire il mapping di un dominio personalizzato a un endpoint del servizio BLOB o a un endpoint del [sito Web statico](storage-blob-static-website.md) . 
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Questo mapping funziona solo per i sottodomini (ad esempio, `www.contoso.com` ). Se si vuole che l'endpoint Web sia disponibile nel dominio radice (ad esempio `contoso.com` ,), è necessario usare la rete CDN di Azure. Per istruzioni, vedere la sezione [eseguire il mapping di un dominio personalizzato con HTTPS abilitato in](#enable-https) questo articolo. Poiché si sta andando a questa sezione di questo articolo per abilitare il dominio radice del dominio personalizzato, il passaggio all'interno di questa sezione per l'abilitazione di HTTPS è facoltativo. 
@@ -61,8 +59,11 @@ Il nome host è l'URL dell'endpoint di archiviazione senza l'identificatore del 
 2. Nel riquadro dei menu, in **Impostazioni**, selezionare **Proprietà**.  
 
 3. Copiare il valore dell'endpoint del **servizio BLOB primario** o dell' **endpoint del sito Web statico primario** in un file di testo. 
+  
+   > [!NOTE]
+   > L'endpoint di archiviazione Data Lake non è supportato, ad esempio: `https://mystorageaccount.dfs.core.windows.net/` .
 
-4. Rimuovere l'identificatore del protocollo (*ad esempio*, HTTPS) e la barra finale da tale stringa. La tabella seguente contiene esempi.
+4. Rimuovere l'identificatore del protocollo (ad esempio, `HTTPS` ) e la barra finale da tale stringa. La tabella seguente contiene esempi.
 
    | Tipo di endpoint |  endpoint | nome host |
    |------------|-----------------|-------------------|
@@ -75,7 +76,7 @@ Il nome host è l'URL dell'endpoint di archiviazione senza l'identificatore del 
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Passaggio 2: creare un record di nome canonico (CNAME) con il provider di dominio
 
-Creare un record CNAME in modo che punti al nome host. Un record CNAME è un tipo di record DNS che esegue il mapping di un nome di dominio di origine a uno di destinazione.
+Creare un record CNAME in modo che punti al nome host. Un record CNAME è un tipo di record Domain Name System (DNS) che esegue il mapping di un nome di dominio di origine a un nome di dominio di destinazione.
 
 1. Accedere al sito Web del registrar di dominio, quindi passare alla pagina per la gestione delle impostazioni DNS.
 
@@ -95,9 +96,14 @@ Creare un record CNAME in modo che punti al nome host. Un record CNAME è un tip
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Passaggio 3: registrare il dominio personalizzato con Azure
 
+##### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
 
-2. Nel riquadro del menu in **Servizio BLOB** selezionare **Dominio personalizzato**.  
+2. Nel riquadro del menu in **Servizio BLOB** selezionare **Dominio personalizzato**.
+
+   > [!NOTE]
+   > Questa opzione non viene visualizzata negli account con la funzionalità di spazio dei nomi gerarchica abilitata. Per questi account, usare PowerShell o l'interfaccia della riga di comando di Azure per completare questo passaggio.
 
    ![opzione del dominio personalizzato](./media/storage-custom-domain-name/custom-domain-button.png "dominio personalizzato")
 
@@ -111,18 +117,60 @@ Creare un record CNAME in modo che punti al nome host. Un record CNAME è un tip
 
    Dopo la propagazione del record CNAME attraverso i server dei nomi di dominio (DNS) e se gli utenti dispongono delle autorizzazioni appropriate, possono visualizzare i dati BLOB usando il dominio personalizzato.
 
+##### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Eseguire il seguente comando di PowerShell
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $false
+```
+
+- Sostituire il `<resource-group-name>` segnaposto con il nome del gruppo di risorse.
+
+- Sostituire il `<storage-account-name>` segnaposto con il nome dell'account di archiviazione.
+
+- Sostituire il `<custom-domain-name>` segnaposto con il nome del dominio personalizzato, incluso il sottodominio.
+
+  Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com` . Se il sottodominio è *Photos*, immettere `photos.contoso.com` .
+
+Dopo la propagazione del record CNAME attraverso i server dei nomi di dominio (DNS) e se gli utenti dispongono delle autorizzazioni appropriate, possono visualizzare i dati BLOB usando il dominio personalizzato.
+
+##### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Eseguire il seguente comando di PowerShell
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain false
+  ```
+
+- Sostituire il `<resource-group-name>` segnaposto con il nome del gruppo di risorse.
+
+- Sostituire il `<storage-account-name>` segnaposto con il nome dell'account di archiviazione.
+
+- Sostituire il `<custom-domain-name>` segnaposto con il nome del dominio personalizzato, incluso il sottodominio.
+
+  Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com` . Se il sottodominio è *Photos*, immettere `photos.contoso.com` .
+
+Dopo la propagazione del record CNAME attraverso i server dei nomi di dominio (DNS) e se gli utenti dispongono delle autorizzazioni appropriate, possono visualizzare i dati BLOB usando il dominio personalizzato.
+
+---
+
 #### <a name="step-4-test-your-custom-domain"></a>Passaggio 4: testare il dominio personalizzato
 
 Per verificare che il mapping del dominio personalizzato all'endpoint del servizio BLOB sia stato eseguito, creare un BLOB in un contenitore pubblico all'interno dell'account di archiviazione. Quindi, in un Web browser, accedere al BLOB usando un URI nel formato seguente: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Per accedere a un modulo Web nel contenitore *myforms* nel sottodominio personalizzato *photos.contoso.com*, è possibile ad esempio usare l'URI seguente: `http://photos.contoso.com/myforms/applicationform.htm`
+Ad esempio, per accedere a un Web Form nel `myforms` contenitore nel sottodominio personalizzato *Photos.contoso.com* , è possibile usare l'URI seguente: `http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Eseguire il mapping di un dominio personalizzato senza tempi di inattività
 
 > [!NOTE]
-> Per evitare che il dominio sia temporaneamente non disponibile per gli utenti, è consigliabile seguire la procedura descritta nella sezione [eseguire il mapping di un dominio personalizzato](#map-a-domain) di questo articolo. Si tratta di un approccio più semplice con un minor numero di passaggi.  
+> Se non si desidera che il dominio sia temporaneamente non disponibile per gli utenti, provare a usare la procedura descritta nella sezione [eseguire il mapping di un dominio personalizzato](#map-a-domain) di questo articolo. Si tratta di un approccio più semplice con un minor numero di passaggi.  
 
 Se il dominio attualmente supporta un'applicazione con un contratto di servizio (SLA) che richiede un tempo di inattività pari a zero, attenersi alla procedura seguente per assicurarsi che gli utenti possano accedere al dominio durante l'operazione di mapping DNS. 
 
@@ -148,7 +196,10 @@ Il nome host è l'URL dell'endpoint di archiviazione senza l'identificatore del 
 
 3. Copiare il valore dell'endpoint del **servizio BLOB primario** o dell' **endpoint del sito Web statico primario** in un file di testo. 
 
-4. Rimuovere l'identificatore del protocollo (*ad esempio*, HTTPS) e la barra finale da tale stringa. La tabella seguente contiene esempi.
+   > [!NOTE]
+   > L'endpoint di archiviazione Data Lake non è supportato, ad esempio: `https://mystorageaccount.dfs.core.windows.net/` .
+
+4. Rimuovere l'identificatore del protocollo (ad esempio, `HTTPS` ) e la barra finale da tale stringa. La tabella seguente contiene esempi.
 
    | Tipo di endpoint |  endpoint | nome host |
    |------------|-----------------|-------------------|
@@ -157,7 +208,7 @@ Il nome host è l'URL dell'endpoint di archiviazione senza l'identificatore del 
   
    Impostare questo valore per un momento successivo.
 
-#### <a name="step-2-create-a-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Passaggio 2: creare un record di nome canonico intermediario (CNAME) con il provider di dominio
+#### <a name="step-2-create-an-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Passaggio 2: creare un record di nome canonico intermediario (CNAME) con il provider di dominio
 
 Creare un record CNAME temporaneo per puntare al nome host. Un record CNAME è un tipo di record DNS che esegue il mapping di un nome di dominio di origine a uno di destinazione.
 
@@ -179,17 +230,18 @@ Creare un record CNAME temporaneo per puntare al nome host. Un record CNAME è u
 
      Aggiungere il sottodominio `asverify` al nome host. Ad esempio: `asverify.mystorageaccount.blob.core.windows.net`.
 
-4. Per registrare il dominio personalizzato, scegliere il pulsante **Salva** .
-
-   Se la registrazione ha esito positivo, una notifica nel portale informa che l'account di archiviazione è stato aggiornato correttamente. Il dominio personalizzato è stato verificato da Azure, ma il traffico verso il dominio non è ancora instradato all'account di archiviazione.
-
 #### <a name="step-3-pre-register-your-custom-domain-with-azure"></a>Passaggio 3: pre-registrare il dominio personalizzato con Azure
 
 Quando si esegue la pre-registrazione del dominio personalizzato con Azure, si consente ad Azure di riconoscere il dominio personalizzato senza dover modificare il record DNS per il dominio. In questo modo, quando si modifica il record DNS per il dominio, verrà eseguito il mapping all'endpoint BLOB senza tempi di inattività.
 
+##### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
 
-2. Nel riquadro del menu in **Servizio BLOB** selezionare **Dominio personalizzato**.  
+2. Nel riquadro del menu in **Servizio BLOB** selezionare **Dominio personalizzato**.
+
+   > [!NOTE]
+   > Questa opzione non viene visualizzata negli account con la funzionalità di spazio dei nomi gerarchica abilitata. Per questi account, usare PowerShell o l'interfaccia della riga di comando di Azure per completare questo passaggio.
 
    ![opzione del dominio personalizzato](./media/storage-custom-domain-name/custom-domain-button.png "dominio personalizzato")
 
@@ -203,7 +255,49 @@ Quando si esegue la pre-registrazione del dominio personalizzato con Azure, si c
 
 5. Per registrare il dominio personalizzato, scegliere il pulsante **Salva** .
   
-   Dopo la propagazione del record CNAME attraverso i server dei nomi di dominio (DNS) e se gli utenti dispongono delle autorizzazioni appropriate, possono visualizzare i dati BLOB usando il dominio personalizzato.
+   Se la registrazione ha esito positivo, una notifica nel portale informa che l'account di archiviazione è stato aggiornato correttamente. Il dominio personalizzato è stato verificato da Azure, ma il traffico verso il dominio non viene ancora instradato all'account di archiviazione fino a quando non si crea un record CNAME con il provider di dominio. Questa operazione viene illustrata nella sezione seguente.
+
+##### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Eseguire il seguente comando di PowerShell
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $true
+```
+
+- Sostituire il `<resource-group-name>` segnaposto con il nome del gruppo di risorse.
+
+- Sostituire il `<storage-account-name>` segnaposto con il nome dell'account di archiviazione.
+
+- Sostituire il `<custom-domain-name>` segnaposto con il nome del dominio personalizzato, incluso il sottodominio.
+
+  Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com` . Se il sottodominio è *Photos*, immettere `photos.contoso.com` .
+
+Il traffico verso il dominio non viene ancora instradato all'account di archiviazione fino a quando non si crea un record CNAME con il provider di dominio. Questa operazione viene illustrata nella sezione seguente.
+
+##### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Eseguire il seguente comando di PowerShell
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain true
+  ```
+
+- Sostituire il `<resource-group-name>` segnaposto con il nome del gruppo di risorse.
+
+- Sostituire il `<storage-account-name>` segnaposto con il nome dell'account di archiviazione.
+
+- Sostituire il `<custom-domain-name>` segnaposto con il nome del dominio personalizzato, incluso il sottodominio.
+
+  Se ad esempio il dominio è *contoso.com* e l'alias del sottodominio è *www*, immettere `www.contoso.com` . Se il sottodominio è *Photos*, immettere `photos.contoso.com` .
+
+Il traffico verso il dominio non viene ancora instradato all'account di archiviazione fino a quando non si crea un record CNAME con il provider di dominio. Questa operazione viene illustrata nella sezione seguente.
+
+---
 
 #### <a name="step-4-create-a-cname-record-with-your-domain-provider"></a>Passaggio 4: creare un record CNAME con il provider di dominio
 
@@ -227,15 +321,13 @@ Creare un record CNAME temporaneo per puntare al nome host.
 
 Per verificare che il mapping del dominio personalizzato all'endpoint del servizio BLOB sia stato eseguito, creare un BLOB in un contenitore pubblico all'interno dell'account di archiviazione. Quindi, in un Web browser, accedere al BLOB usando un URI nel formato seguente: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Per accedere a un modulo Web nel contenitore *myforms* nel sottodominio personalizzato *photos.contoso.com*, è possibile ad esempio usare l'URI seguente: `http://photos.contoso.com/myforms/applicationform.htm`
+Ad esempio, per accedere a un Web Form nel `myforms` contenitore nel sottodominio personalizzato *Photos.contoso.com* , è possibile usare l'URI seguente: `http://photos.contoso.com/myforms/applicationform.htm`
 
 ### <a name="remove-a-custom-domain-mapping"></a>Rimuovere un mapping del dominio personalizzato
 
 Per rimuovere un mapping di dominio personalizzato, annullare la registrazione del dominio personalizzato. Utilizzare una delle seguenti procedure.
 
 #### <a name="portal"></a>[Portale](#tab/azure-portal)
-
-Per rimuovere l'impostazione di dominio personalizzato, eseguire le operazioni seguenti:
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
 
@@ -246,29 +338,7 @@ Per rimuovere l'impostazione di dominio personalizzato, eseguire le operazioni s
 
 4. Fare clic sul pulsante **Salva**.
 
-Dopo la rimozione del dominio personalizzato, viene visualizzata una notifica del portale che l'account di archiviazione è stato aggiornato correttamente
-
-#### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-Per rimuovere la registrazione di un dominio personalizzato, usare il comando [az storage account update](/cli/azure/storage/account) dell'interfaccia della riga di comando e quindi specificare una stringa vuota (`""`) per il valore dell'argomento `--custom-domain`.
-
-* Formato del comando:
-
-  ```azurecli
-  az storage account update \
-      --name <storage-account-name> \
-      --resource-group <resource-group-name> \
-      --custom-domain ""
-  ```
-
-* Esempio del comando:
-
-  ```azurecli
-  az storage account update \
-      --name mystorageaccount \
-      --resource-group myresourcegroup \
-      --custom-domain ""
-  ```
+Dopo aver rimosso correttamente il dominio personalizzato, verrà visualizzata una notifica nel portale che informa che l'account di archiviazione è stato aggiornato correttamente.
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -293,6 +363,28 @@ Per rimuovere la registrazione di un dominio personalizzato, usare il cmdlet di 
       -AccountName "mystorageaccount" `
       -CustomDomainName ""
   ```
+
+#### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per rimuovere la registrazione di un dominio personalizzato, usare il comando [az storage account update](/cli/azure/storage/account) dell'interfaccia della riga di comando e quindi specificare una stringa vuota (`""`) per il valore dell'argomento `--custom-domain`.
+
+* Formato del comando:
+
+  ```azurecli
+  az storage account update \
+      --name <storage-account-name> \
+      --resource-group <resource-group-name> \
+      --custom-domain ""
+  ```
+
+* Esempio del comando:
+
+  ```azurecli
+  az storage account update \
+      --name mystorageaccount \
+      --resource-group myresourcegroup \
+      --custom-domain ""
+  ```
 ---
 
 <a id="enable-https"></a>
@@ -302,8 +394,6 @@ Per rimuovere la registrazione di un dominio personalizzato, usare il cmdlet di 
 Questo approccio prevede più passaggi, ma consente l'accesso HTTPS. 
 
 Se non è necessario che gli utenti accedano al contenuto BLOB o Web usando HTTPS, vedere la sezione [eseguire il mapping di un dominio personalizzato con solo http abilitato](#enable-http) in questo articolo. 
-
-Per eseguire il mapping di un dominio personalizzato e abilitare l'accesso HTTPS, procedere come segue:
 
 1. Abilitare la rete [CDN di Azure](../../cdn/cdn-overview.md) nell'endpoint Web o BLOB. 
 

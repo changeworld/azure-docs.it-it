@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 12/11/2020
+ms.date: 02/12/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 60cd944ecb144a30e872259f6e959a11c3ea6319
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090638"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365430"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
@@ -27,7 +27,7 @@ Questo articolo illustra come risolvere i problemi comuni di Collaborazione B2B 
 
    > [!IMPORTANT]
    > - **A partire dal 4 gennaio 2021**, il [supporto dell'accesso WebView verrà deprecato](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) da Google. Se si usa la federazione Google o l'iscrizione self-service con Gmail, è consigliabile [testare la compatibilità delle applicazioni line-of-business native](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **A partire dal 31 marzo 2021** Microsoft non supporterà più il riscatto degli inviti tramite la creazione di account e tenant di Azure AD non gestiti per gli scenari di collaborazione B2B. Nel frattempo, i clienti sono invitati ad acconsentire esplicitamente all'[autenticazione con passcode monouso tramite posta elettronica](one-time-passcode.md). Saremo lieti di ricevere feedback su questa funzionalità di anteprima pubblica e di creare ancora altri modi per collaborare.
+   > - **A partire dall'ottobre 2021**, Microsoft non supporterà più il riscatto degli inviti creando account Azure ad non gestiti e tenant per gli scenari di collaborazione B2B. Nel frattempo, i clienti sono invitati ad acconsentire esplicitamente all'[autenticazione con passcode monouso tramite posta elettronica](one-time-passcode.md). Saremo lieti di ricevere feedback su questa funzionalità di anteprima pubblica e di creare ancora altri modi per collaborare.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>L'utente esterno aggiunto non viene visualizzato nella rubrica globale o nella selezione utenti
 
@@ -112,7 +112,7 @@ Nel cloud del governo degli Stati Uniti di Azure, la collaborazione B2B è attua
 
 Quando si usano le funzionalità di iscrizione self-service, ad esempio gli attributi utente personalizzati o i flussi utente, `aad-extensions-app. Do not modify. Used by AAD for storing user data.` viene creata automaticamente un'app denominata. Viene usato da Azure AD identità esterne per archiviare le informazioni sugli utenti che si iscrivono e gli attributi personalizzati raccolti.
 
-Se è stato eliminato accidentalmente `aad-extensions-app` , sono disponibili 30 giorni per il ripristino. È possibile ripristinare l'app usando il modulo Azure AD PowerShell.
+Se `aad-extensions-app` è stata eliminata accidentalmente, è possibile eseguirne il recupero entro 30 giorni. È possibile ripristinare l'app usando il modulo Azure AD PowerShell.
 
 1. Avviare il modulo Azure AD PowerShell ed eseguire `Connect-AzureAD` .
 1. Accedere come amministratore globale per il tenant di Azure AD per cui si vuole ripristinare l'app eliminata.

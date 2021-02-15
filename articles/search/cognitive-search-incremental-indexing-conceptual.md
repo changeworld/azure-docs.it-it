@@ -7,13 +7,13 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/09/2021
+ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971625"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390862"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Arricchimento e Caching incrementali in Azure ricerca cognitiva
 
@@ -23,7 +23,7 @@ ms.locfileid: "90971625"
 
 L' *arricchimento incrementale* è una funzionalità destinata a [skillsets](cognitive-search-working-with-skillsets.md). Si avvale di archiviazione di Azure per salvare l'output di elaborazione emesso da una pipeline di arricchimento per il riutilizzo in future esecuzioni di indicizzatore. Laddove possibile, l'indicizzatore riutilizza eventuali output memorizzati nella cache che sono ancora validi. 
 
-Non solo l'arricchimento incrementale mantiene l'investimento monetario nell'elaborazione (in particolare, l'OCR e l'elaborazione di immagini), ma rende anche un sistema più efficiente. Quando le strutture e il contenuto vengono memorizzati nella cache, un indicizzatore può determinare quali competenze sono state modificate ed eseguire solo quelle che sono state modificate, oltre a eventuali competenze dipendenti a valle. 
+Non solo l'arricchimento incrementale mantiene l'investimento monetario nell'elaborazione (in particolare, l'OCR e l'elaborazione di immagini), ma rende anche un sistema più efficiente. 
 
 Un flusso di lavoro che utilizza la memorizzazione nella cache incrementale include i passaggi seguenti:
 
@@ -95,7 +95,7 @@ L'impostazione di questo parametro garantisce che vengano sottoposte a commit so
 Nell'esempio seguente viene illustrata una richiesta Update Skills con il parametro:
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://[search service].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### <a name="bypass-data-source-validation-checks"></a>Ignorare i controlli di convalida dell'origine dati
@@ -103,7 +103,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 La maggior parte delle modifiche apportate a una definizione dell'origine dati invalida la cache. Tuttavia, per gli scenari in cui si sa che una modifica non deve invalidare la cache, ad esempio la modifica di una stringa di connessione o la rotazione della chiave nell'account di archiviazione, aggiungere il `ignoreResetRequirement` parametro nell'aggiornamento dell'origine dati. Se si imposta questo parametro su `true` , il commit verrà eseguito senza attivare una condizione di reimpostazione che comporterebbe la ricompilazione e il popolamento di tutti gli oggetti da zero.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### <a name="force-skillset-evaluation"></a>Valutazione Force Skills
@@ -111,6 +111,10 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 Lo scopo della cache è quello di evitare un'elaborazione non necessaria, ma si supponga di apportare una modifica a una competenza non rilevata dall'indicizzatore (ad esempio, modificando qualcosa nel codice esterno, ad esempio un'abilità personalizzata).
 
 In questo caso, è possibile usare le [competenze di reimpostazione](/rest/api/searchservice/preview-api/reset-skills) per forzare la rielaborazione di una determinata competenza, incluse le competenze downstream che hanno una dipendenza dall'output di tale capacità. Questa API accetta una richiesta POST con un elenco di competenze che devono essere invalidate e contrassegnate per la rielaborazione. Dopo aver reimpostato le competenze, eseguire l'indicizzatore per richiamare la pipeline.
+
+### <a name="reset-documents"></a>Reimposta documenti
+
+La [reimpostazione di un indicizzatore](/rest/api/searchservice/reset-indexer) comporterà la rielaborazione di tutti i documenti del corpo di ricerca. Negli scenari in cui è necessario rielaborare solo pochi documenti e non è possibile aggiornare l'origine dati, utilizzare [Reimposta documenti (anteprima)](/rest/api/searchservice/preview-api/reset-documents) per forzare la rielaborazione di documenti specifici. Quando un documento viene reimpostato, l'indicizzatore invalida la cache del documento e il documento viene rielaborato leggendolo dall'origine dati. Per altre informazioni, vedere [eseguire o reimpostare gli indicizzatori, le competenze e i documenti](search-howto-run-reset-indexers.md).
 
 ## <a name="change-detection"></a>Rilevamento delle modifiche
 

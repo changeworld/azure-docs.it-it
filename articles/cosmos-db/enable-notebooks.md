@@ -5,30 +5,31 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/22/2019
+ms.date: 02/09/2021
 ms.author: dech
-ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: references_regions
+ms.openlocfilehash: b8ce745a0a0db96e7f6b9e3a0140d46364246e4a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187817"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379608"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Abilitare i notebook per gli account Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili nelle aree di Azure seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale e Stati Uniti occidentali 2. Per usare i notebook, [creare un nuovo account con notebook](#enable-notebooks-in-a-new-cosmos-account) o [abilitare notebook in un account esistente](#enable-notebooks-in-an-existing-cosmos-account) in una di queste aree.
+> I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili in [29 aree](#supported-regions). Per usare i notebook, [creare un nuovo account Cosmos](#create-a-new-cosmos-account) o [abilitare i notebook in un account esistente](#enable-notebooks-in-an-existing-cosmos-account) in una di queste aree. 
 
 I notebook Jupyter predefiniti in Azure Cosmos DB consentono di analizzare e visualizzare i dati dal portale di Azure. Questo articolo descrive come abilitare questa funzionalità per l'account Azure Cosmos DB.
 
-## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Abilitare i notebook in un nuovo account Cosmos
-
+## <a name="create-a-new-cosmos-account"></a>Crea un nuovo account Cosmos
+A partire dal 10 febbraio 2021, per i nuovi account Azure Cosmos creati in una delle [aree supportate](#supported-regions) verranno automaticamente abilitati i notebook. Non è necessaria alcuna configurazione aggiuntiva per abilitare i notebook. Usare le istruzioni seguenti per creare un nuovo account:
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare **Crea una risorsa** > **Database** > **Azure Cosmos DB**.
-1. Nella pagina **Crea Account Azure Cosmos DB** selezionare **notebook**. 
+1. Immettere le impostazioni di base per l'account. 
  
-    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Selezionare l'opzione Notebooks nel pannello Azure Cosmos DB crea":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Pagina del nuovo account per Azure Cosmos DB":::
 
 1. Selezionare **Rivedi e crea**. È possibile ignorare l'opzione **rete** e **tag** . 
 1. Esaminare le impostazioni dell'account e quindi selezionare **Crea**. La creazione dell'account richiede alcuni minuti. Attendere che la pagina del portale visualizzi **La distribuzione è stata completata**. 
@@ -74,6 +75,45 @@ Per eseguire il notebook:
 
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Creare o caricare un nuovo notebook":::
 
+## <a name="supported-regions"></a>Aree supportate
+I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili in 29 aree di Azure. Ai nuovi account Azure Cosmos creati in queste aree verranno automaticamente abilitati i notebook. I notebook sono gratuiti con l'account. 
+
+- Australia centrale
+- Australia centrale 2
+- Australia orientale
+- Australia sud-orientale
+- Brasile meridionale
+- Canada centrale
+- Canada orientale
+- India centrale
+- Stati Uniti centrali
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Francia centrale
+- Francia meridionale
+- Germania settentrionale
+- Germania centro-occidentale
+- Giappone occidentale
+- Corea meridionale
+- Stati Uniti centro-settentrionali
+- Europa settentrionale
+- Stati Uniti centro-meridionali
+- Asia sud-orientale
+- Svizzera settentrionale
+- Emirati Arabi Uniti centrali
+- Regno Unito meridionale
+- Regno Unito occidentale
+- Stati Uniti centro-occidentali
+- Europa occidentale
+- India occidentale
+- Stati Uniti occidentali 2
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri i vantaggi di [Azure Cosmos DB notebook Jupyter](cosmosdb-jupyter-notebooks.md)
+* Scopri i vantaggi di [Azure Cosmos DB notebook Jupyter](cosmosdb-jupyter-notebooks.md)
+* [Esplora la raccolta di esempi di notebook](https://cosmos.azure.com/gallery.html)
+* [Usare funzionalità e comandi del notebook Python](use-python-notebook-features-and-commands.md)
+* [Usare funzionalità e comandi dei notebook C#](use-csharp-notebook-features-and-commands.md)
+* [Importare notebook da un repository GitHub](import-github-notebooks.md)
+
+

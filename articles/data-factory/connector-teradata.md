@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Teradata Vantage usando Azure Data Factory
 description: Il connettore Teradata del servizio Data Factory consente di copiare i dati da un Teradata Vantage agli archivi dati supportati da Data Factory come sink.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: c65b295dca16a3453b2ee5472b9a3ee5e8d62df7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695874"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381767"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage usando Azure Data Factory
 
@@ -50,7 +45,7 @@ In particolare, il connettore Teradata supporta:
 
 Se si usa Integration Runtime self-hosted, si noti che fornisce un driver Teradata predefinito a partire dalla versione 3,18. Non è necessario installare manualmente alcun driver. Il driver richiede "Visual C++ Redistributable 2012 Update 4" nel computer del runtime di integrazione self-hosted. Se non è ancora installato, scaricarlo da [qui](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -327,27 +322,27 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | Data |Datetime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |Non supportato. Applica cast esplicito nella query di origine. |
+| Graphic |Non supportata. Applica cast esplicito nella query di origine. |
 | Integer |Int32 |
-| Interval Day |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Day To Hour |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Day To Minute |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Day To Second |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Hour |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Hour To Minute |Non supportato. Applica cast esplicito nella query di origine. |
-| Intervallo - da ora a secondo |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Minute |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Minute To Second |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Month |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Second |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Year |Non supportato. Applica cast esplicito nella query di origine. |
-| Interval Year To Month |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Day |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Day To Hour |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Day To Minute |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Day To Second |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Hour |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Hour To Minute |Non supportata. Applica cast esplicito nella query di origine. |
+| Intervallo - da ora a secondo |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Minute |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Minute To Second |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Month |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Second |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Year |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Year To Month |Non supportata. Applica cast esplicito nella query di origine. |
 | Number |Double |
-| Periodo (Data) |Non supportato. Applica cast esplicito nella query di origine. |
-| Periodo (ora) |Non supportato. Applica cast esplicito nella query di origine. |
-| Periodo (ora con fuso orario) |Non supportato. Applica cast esplicito nella query di origine. |
-| Period (Timestamp) |Non supportato. Applica cast esplicito nella query di origine. |
-| Periodo (timestamp con fuso orario) |Non supportato. Applica cast esplicito nella query di origine. |
+| Periodo (Data) |Non supportata. Applica cast esplicito nella query di origine. |
+| Periodo (ora) |Non supportata. Applica cast esplicito nella query di origine. |
+| Periodo (ora con fuso orario) |Non supportata. Applica cast esplicito nella query di origine. |
+| Period (Timestamp) |Non supportata. Applica cast esplicito nella query di origine. |
+| Periodo (timestamp con fuso orario) |Non supportata. Applica cast esplicito nella query di origine. |
 | SmallInt |Int16 |
 | Tempo |TimeSpan |
 | Time With Time Zone |TimeSpan |
@@ -355,8 +350,8 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | Timestamp With Time Zone |Datetime |
 | VarByte |Byte[] |
 | VarChar |string |
-| VarGraphic |Non supportato. Applica cast esplicito nella query di origine. |
-| Xml |Non supportato. Applica cast esplicito nella query di origine. |
+| VarGraphic |Non supportata. Applica cast esplicito nella query di origine. |
+| Xml |Non supportata. Applica cast esplicito nella query di origine. |
 
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup

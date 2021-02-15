@@ -1,23 +1,18 @@
 ---
 title: Attività di stored procedure di SQL Server
 description: Informazioni su come usare l'attività SQL Server stored procedure per richiamare una stored procedure in un database SQL di Azure o in Azure sinapsi Analytics da una pipeline di Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: f702633f6311d4ae4a79452e9b1c9176125c56f9
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 05717352936bed888e108277d0163e43bc5a37af
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508402"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368762"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -308,13 +303,13 @@ La tabella seguente illustra queste proprietà JSON:
 | name | Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
 | type | Deve essere impostato su: **SqlServerStoredProcedure** | Sì |
-| input | facoltativo. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
+| input | facoltativo. Se si specifica un set di dati di input, è necessario che sia disponibile (in stato "pronto") per l'esecuzione dell'attività stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
 | outputs | È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che fa riferimento a un database SQL di Azure o a un'analisi di sinapsi di Azure o a un database SQL Server in cui si vuole eseguire l'stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio** che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
 | storedProcedureName |Specificare il nome del stored procedure nel database SQL di Azure, Azure sinapsi Analytics o SQL Server rappresentato dal servizio collegato usato dalla tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
 
 ## <a name="passing-a-static-value"></a>Passaggio di un valore statico
-A questo punto, si consideri l'aggiunta di un'altra colonna denominata 'Scenario' nella tabella contenente un valore statico denominato 'Document sample'.
+Si prenda ora in considerazione l'aggiunta di un'altra colonna denominata ' scenario ' nella tabella contenente un valore statico denominato ' Document Sample '.
 
 ![Dati di esempio 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 

@@ -4,12 +4,12 @@ description: Abilitare il ridimensionamento automatico in un pool cloud per adeg
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95737293"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381427"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula di scalabilità automatica per i nodi di calcolo in un pool Batch
 
@@ -128,6 +128,7 @@ Le tabelle seguenti illustrano le variabili di lettura/scrittura e di sola lettu
 | $PendingTasks |La somma di $ActiveTasks e $RunningTasks. |
 | $SucceededTasks |Numero di attività completate correttamente. |
 | $FailedTasks |Numero di attività non riuscite. |
+| $TaskSlotsPerNode |Il numero di slot attività che possono essere usati per eseguire attività simultanee in un singolo nodo di calcolo nel pool. |
 | $CurrentDedicatedNodes |Numero corrente di nodi di calcolo dedicati. |
 | $CurrentLowPriorityNodes |Numero corrente di nodi di calcolo con priorità bassa, inclusi eventuali nodi superati. |
 | $PreemptedNodeCount | Il numero di nodi nel pool che si trovano nello stato Annullato. |
@@ -229,7 +230,7 @@ Quando si definisce una formula, è possibile usare metriche di risorse e di att
 
 <table>
   <tr>
-    <th>Metric</th>
+    <th>Metrica</th>
     <th>Descrizione</th>
   </tr>
   <tr>

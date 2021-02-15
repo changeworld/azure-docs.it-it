@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 5e08af509487188245b0fad9ba2d0f490944868f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219910"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371788"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -371,10 +371,12 @@ In alcuni casi, un'applicazione potrebbe dipendere da risorse di Azure che non p
 
 I tipi di operazioni che un'istanza di risorsa può eseguire sui dati dell'account di archiviazione sono determinati dalle [assegnazioni di ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) dell'istanza di risorsa. Le istanze di risorse devono provenire dallo stesso tenant dell'account di archiviazione, ma possono appartenere a qualsiasi sottoscrizione nel tenant.
 
-L'elenco dei servizi di Azure supportati viene visualizzato nella sezione [accesso attendibile in base all'identità gestita assegnata dal sistema](#trusted-access-system-assigned-managed-identity) di questo articolo.
+> [!NOTE]
+> Questa funzionalità è disponibile in anteprima pubblica ed è disponibile in tutte le aree del cloud pubblico.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in anteprima pubblica ed è disponibile in tutte le aree del cloud pubblico. 
+> Le regole dell'istanza di risorsa sono attualmente supportate solo per le sinapsi di Azure. Il supporto per altri servizi di Azure elencati nella sezione relativa all' [identità gestita assegnata dal sistema](#trusted-access-system-assigned-managed-identity) di questo articolo sarà disponibile nelle prossime settimane.
+
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 

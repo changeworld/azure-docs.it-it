@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980285"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380815"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
@@ -28,7 +28,7 @@ Microsoft consiglia di usare il controllo delle versioni dei BLOB per mantenere 
 Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md).
 
 > [!IMPORTANT]
-> Il controllo delle versioni dei BLOB non consente di eseguire il ripristino dall'eliminazione accidentale di un contenitore o di un account di archiviazione. Per evitare l'eliminazione accidentale dell'account di archiviazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco delle risorse di Azure, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+> Il controllo delle versioni dei BLOB non consente di eseguire il ripristino dall'eliminazione accidentale di un contenitore o di un account di archiviazione. Per evitare l'eliminazione accidentale dell'account di archiviazione, configurare un blocco sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco delle risorse di Azure, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md). Per proteggere i contenitori da eliminazioni accidentali, configurare l'eliminazione temporanea del contenitore per l'account di archiviazione. Per altre informazioni, vedere [eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

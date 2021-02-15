@@ -9,22 +9,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 5104783aff5684471819ecf04e965670fff2798b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d17c6cb038bf5550f76a8aef7ac2d41244cfda1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798143"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096566"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visualizzare come vengono usati i dati relativi alla privacy nell'organizzazione
 
 È possibile visualizzare il modo in cui l'organizzazione usa i dati dalla pagina **impostazioni & privacy** del portale **account personale** .
 
+>[!Note]
+> Se viene visualizzato un errore durante l'accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+
 ## <a name="view-your-privacy-related-info"></a>Visualizzare le informazioni relative alla privacy
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myaccount.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myaccount.microsoft.com/. Se si esegue l'accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+
+   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 2. Selezionare **impostazioni & privacy** nel riquadro di spostamento a sinistra oppure selezionare il collegamento **Visualizza impostazioni e privacy** dal blocco **Impostazioni & privacy** .
 

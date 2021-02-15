@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati Gestione dati Gateway
 description: Configurare un gateway dati per spostare dati tra origini locali e il cloud. Usare Gateway di gestione dati in Azure Data Factory per spostare dati.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019685"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380288"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
@@ -61,7 +56,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
     ![Aggiungi a schermata iniziale](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato un errore simile a **Nome "ADFTutorialOnPremDF" per la data factory non disponibile**, cambiare il nome della data factory (ad esempio, nomeutenteADFTutorialOnPremDF) e provare di nuovo a crearla. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialOnPremDF.
+   > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore: il **nome della data factory "ADFTutorialOnPremDF" non è disponibile**, modificare il nome del data factory (ad esempio, nomeutenteadftutorialonpremdf) e riprovare a crearlo. Durante l'esecuzione dei passaggi rimanenti in questa esercitazione usare questo nome anziché ADFTutorialOnPremDF.
    >
    > Il nome del data factory può essere registrato come nome **DNS** in futuro e quindi diventa visibile pubblicamente.
    >
@@ -236,7 +231,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
             }
         }
     }     
-    ```     
+    ```       
    Tenere presente quanto segue:
 
    * L'oggetto **type** è impostato su **SqlServerTable**.
@@ -384,7 +379,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
     È possibile eseguire lo zoom avanti, lo zoom indietro e lo zoom al 100%, adattare alla finestra, posizionare automaticamente pipeline e set di dati e visualizzare le informazioni sulla derivazione, evidenziando gli elementi upstream e downstream degli elementi selezionati.  È possibile fare doppio clic su un oggetto (set di dati di input/output o pipeline) per visualizzare le relative proprietà.
 
 ## <a name="monitor-pipeline"></a>Monitorare la pipeline
-In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Azure Data Factory. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per altre informazioni sul monitoraggio, vedere [Monitorare e gestire le pipeline](data-factory-monitor-manage-pipelines.md).
+In questo passaggio si usa il portale di Azure per monitorare le attività in un data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per altre informazioni sul monitoraggio, vedere [Monitorare e gestire le pipeline](data-factory-monitor-manage-pipelines.md).
 
 1. Nel diagramma fare doppio clic su **EmpOnPremSQLTable**.  
 
@@ -408,7 +403,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 8. (Facoltativo) Fare clic su **Pipeline** e su **ADFTutorialOnPremDF**, quindi eseguire il drill-through delle tabelle di input (**utilizzate**) o dei set di dati di output (**generati**).
 9. Usare strumenti come [Microsoft Storage Explorer](https://storageexplorer.com/) per verificare che venga creato un BLOB/file ogni ora.
 
-   ![Esplora archivi Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per tutti i dettagli sul gateway di gestione dati.

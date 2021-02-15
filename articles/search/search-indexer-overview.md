@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a274e96defa8b6b74c046923d87f198029399dd4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430463"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098096"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Ricerca cognitiva di Azure
 
@@ -118,6 +118,7 @@ Un indicizzatore viene eseguito quando si [crea prima un indicizzatore](/rest/ap
 Ora che è stato introdotto, un passaggio successivo consiste nell'esaminare le proprietà e i parametri dell'indicizzatore, la pianificazione e il monitoraggio dell'indicizzatore. In alternativa, è possibile tornare all'elenco delle [origini dati supportate](#supported-data-sources) per ulteriori informazioni su un'origine specifica.
 
 + [Crea indicizzatori](search-howto-create-indexers.md)
++ [Reimpostare ed eseguire gli indicizzatori](search-howto-run-reset-indexers.md)
 + [Pianificare gli indicizzatori](search-howto-schedule-indexers.md)
 + [Definire i mapping dei campi](search-indexer-field-mappings.md)
 + [Monitorare lo stato dell'indicizzatore](search-howto-monitor-indexers.md)

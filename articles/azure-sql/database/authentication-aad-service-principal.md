@@ -8,19 +8,19 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2020
-ms.openlocfilehash: 6e397242bd699adcba4737014ebbce72aadc8ec2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 02/11/2021
+ms.openlocfilehash: 4012cd83cf2e6fe438792a503731729b57a1425c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669815"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380594"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entità servizio di Azure Active Directory con Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Il supporto per la creazione di utenti Azure Active Directory (Azure AD) nel database SQL di Azure (database SQL) e nell' [analisi delle sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) per conto di applicazioni Azure ad (entità servizio) è attualmente disponibile in **anteprima pubblica** .
+Il supporto per la creazione di utenti Azure Active Directory (Azure AD) nel database SQL di Azure (database SQL) e nell' [analisi delle sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) per conto di applicazioni Azure ad (entità servizio) è attualmente disponibile in **anteprima pubblica**.
 
 > [!NOTE]
 > Questa funzionalità è già supportata per SQL Istanza gestita.
@@ -52,7 +52,7 @@ Il supporto di questa funzionalità è utile in Azure AD processi di automazione
 
 Per abilitare la creazione di un oggetto Azure AD nel database SQL e nella sinapsi di Azure per conto di un'applicazione Azure AD, sono necessarie le impostazioni seguenti:
 
-1. Assegnare l'identità del server
+1. Assegnare l'identità del server. L'identità del server assegnata rappresenta l'identità del sistema gestito (MSI). Attualmente, l'identità del server per SQL di Azure non supporta l'identità gestita dall'utente (UMI).
     - Per un nuovo server logico SQL di Azure, eseguire il comando PowerShell seguente:
     
     ```powershell

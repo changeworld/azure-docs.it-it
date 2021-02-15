@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6735b3377650c900a7b7d18933180991a6a2c9fd
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1ee4e19a3e76a001a66f6498530fab4f4703fa85
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930889"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381605"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Trigger di archiviazione BLOB di Azure per funzioni di Azure
 
@@ -323,7 +323,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. Le eccezioni sono indicate nella sezione [usage](#usage). |
 |**nome** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione. |
 |**path** | **BlobPath** |[Contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) da monitorare.  Può essere un [modello di nome per il BLOB](#blob-name-patterns). |
-|**connection** | **Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** | **Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Se si usa [la versione 5. x o una versione successiva dell'estensione](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), anziché una stringa di connessione, è possibile fornire un riferimento a una sezione di configurazione che definisce la connessione. Vedere [connessioni](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -463,9 +463,16 @@ Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a u
 
 Il trigger del BLOB usa una un servizio di accodamento interno, quindi il numero massimo di chiamate di funzione simultanee è controllato dalla [configurazione delle code in host.json](functions-host-json.md#queues). Le impostazioni predefinite limitano la concorrenza a 24 chiamate. Questo limite si applica separatamente a ciascuna funzione che usa un trigger di BLOB.
 
+> [!NOTE]
+> Per le app che usano la [versione 5.0.0 o successiva dell'estensione di archiviazione](functions-bindings-storage-blob.md#storage-extension-5x-and-higher), la configurazione delle code in host.json si applica solo ai trigger della coda. La concorrenza dei trigger di BLOB è invece controllata dalla [configurazione dei BLOB in host.js](functions-host-json.md#blobs).
+
 [Il piano a consumo](event-driven-scaling.md) limita un'app per le funzioni in una macchina virtuale (VM) a 1,5 GB di memoria. La memoria viene usata da ogni istanza della funzione attualmente in esecuzione e dal runtime di funzioni stesso. Se una funzione di attivazione del BLOB carica l'intero BLOB nella memoria, la memoria massima usata da tale funzione solo per i BLOB è pari a 24 * le dimensioni massime del BLOB. Ad esempio, un'app per le funzioni con tre funzioni attivate dal BLOB e le impostazioni predefinite avrebbe una concorrenza per macchina virtuale massima pari a 3 * 24 = 72 chiamate di funzione.
 
 Le funzioni JavaScript e Java caricano l'intero BLOB in memoria e le funzioni C# eseguono questa operazione se si esegue l'associazione a `string` o `Byte[]` .
+
+## <a name="hostjson-properties"></a>Proprietà di host.json
+
+Il [host.jsnel](functions-host-json.md#blobs) file contiene le impostazioni che controllano il comportamento del trigger di BLOB. Per informazioni dettagliate sulle impostazioni disponibili, vedere la sezione [host.jsimpostazioni](functions-bindings-storage-blob.md#hostjson-settings) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

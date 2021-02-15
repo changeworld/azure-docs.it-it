@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: d9e348d456d517cd20e899648b9e92b3cd802ffb
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: dd4114f417fa266d8d638e28167d513fdf01aa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806300"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380845"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Esercitazione: Integrare Bynder con Azure Active Directory
 
@@ -30,7 +30,7 @@ Questa esercitazione descrive come integrare Bynder con Azure Active Directory (
 
 Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere una versione di valutazione gratuita per un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Bynder abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -40,7 +40,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * Bynder supporta l'accesso SSO avviato da **SP e IDP**
 * Bynder supporta il provisioning utenti **JIT**
 
-## <a name="adding-bynder-from-the-gallery"></a>Aggiunta di Bynder dalla raccolta
+## <a name="add-bynder-from-the-gallery"></a>Aggiungere Bynder dalla raccolta
 
 Per configurare l'integrazione di Bynder in Azure AD, è necessario aggiungere Bynder dalla raccolta all'elenco di app SaaS gestite.
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Bynder in Azure AD, è necessario aggiungere B
 
 Configurare e testare l'accesso SSO di Azure AD con Bynder usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bynder.
 
-Per configurare e testare l'accesso SSO di Azure AD con Bynder, completare le procedure di base seguenti:
+Per configurare e testare Azure AD SSO con Bynder, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
@@ -65,13 +65,13 @@ Per configurare e testare l'accesso SSO di Azure AD con Bynder, completare le pr
    1. **[Creare l'utente di test di Bynder](#create-bynder-test-user)** : per avere una controparte di Britta Simon in Bynder collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
 1. Nella pagina di integrazione dell'applicazione **Bynder** del portale di Azure individuare la sezione **Gestione** e selezionare **Single sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -163,4 +163,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Bynder, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato Bynder, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

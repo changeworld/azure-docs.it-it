@@ -216,7 +216,7 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configurare il ripristino di emergenza per le macchine virtuali di Azure dopo la migrazione ad Azure
               href: azure-to-azure-replicate-after-migration.md
-            - name: Abilitare il ripristino di emergenza da zona a zona
+            - name: Ripristino di emergenza da zona a zona
               href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Gestione
           items:

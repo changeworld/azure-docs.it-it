@@ -3,18 +3,18 @@ title: 'ML Studio (classico): prevedere le risposte con i modelli di regressione
 description: Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c6d78b10b98abe33744673459b3d31d8941aac89
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322812"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520409"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
 
@@ -71,7 +71,7 @@ Adesso, per registrare il prezzo verrà tracciato un asse verticale che sarà co
 
 ![Assi del peso e del prezzo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-Questi dati verranno adesso convertiti in un *grafico di dispersione* , un'ottima soluzione per visualizzare i set di dati numerici.
+Questi dati verranno adesso convertiti in un *grafico di dispersione*, un'ottima soluzione per visualizzare i set di dati numerici.
 
 Per il primo punto di dati verrà tracciata una linea verticale fino a 1,01 carati. Poi, una linea orizzontale fino a $ 7.366. Laddove si intersecano, verrà disegnato un punto. Questo rappresenta il primo diamante.
 
@@ -88,7 +88,7 @@ In questo modo si crea un *modello*. È come se si prendesse il modo reale e si 
 
 Il fatto che non tutti i punti si trovino esattamente sulla linea va bene. Gli esperti di gestione dati spiegano tutto questo affermando che esiste il modello, ovvero la linea, e che a ogni punto vengono associati alcuni *disturbi* o *varianze*. Vi è quindi la perfetta relazione sottostante e vi è il mondo reale dinamico che aggiunge disturbo e incertezza.
 
-Dal momento che si cerca di rispondere alla domanda *Quanto costa?* , è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
+Dal momento che si cerca di rispondere alla domanda *Quanto costa?*, è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usare il modello per trovare la risposta
 Una volta pronto il modello, è possibile porgli la domanda: Quando costerà un diamante da 1,35 carati?
@@ -98,7 +98,7 @@ Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una 
 ![Individuare la risposta a partire dal modello](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Creare un intervallo di confidenza
-È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza* : si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
+È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza*: si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
 
 ![Intervallo di confidenza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -109,7 +109,7 @@ Abbiamo svolto un lavoro scientifico semplicemente disegnando:
 
 * Abbiamo posto una domanda a cui è stato possibile rispondere con i dati
 * È stato creato un *modello* usando una *regressione lineare*
-* È stata realizzata una *previsione* , completa di *intervallo di confidenza*
+* È stata realizzata una *previsione*, completa di *intervallo di confidenza*
 
 Senza matematica, né computer.
 

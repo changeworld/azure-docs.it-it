@@ -1,22 +1,18 @@
 ---
 title: Monitorare e gestire le pipeline usando il portale di Azure e PowerShell
 description: Informazioni su come usare il portale di Azure e Azure PowerShell per monitorare e gestire le pipeline e le data factory di Azure create.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495855"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380407"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -90,7 +86,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
     <th align="left">State</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
 </tr>
 <tr>
-    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
+    <td rowspan="8">Attesa</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Le dipendenze upstream non sono pronte.</td>
@@ -135,10 +131,10 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 <td>Ready</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
 </tr>
 <tr>
-<td>Operazione ignorata</td><td>Nessuno</td><td>La sezione non viene elaborata.</td>
+<td>Operazione ignorata</td><td>nessuno</td><td>La sezione non viene elaborata.</td>
 </tr>
 <tr>
-<td>Nessuno</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>
+<td>nessuno</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>
 </tr>
 </table>
 

@@ -1,22 +1,17 @@
 ---
 title: Log sessione nell'attività di copia
 description: Informazioni su come abilitare il log di sessione nell'attività di copia in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593646"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385269"
 ---
 #  <a name="session-log-in-copy-activity"></a>Log sessione nell'attività di copia
 
@@ -102,6 +97,9 @@ Quando l'attività di copia viene eseguita completamente, è possibile visualizz
 
 ```
 
+> [!NOTE]
+> Quando la `enableCopyActivityLog` proprietà è impostata su `Enabled` , i nomi dei file di log vengono generati dal sistema.
+
 ### <a name="the-schema-of-the-log-file"></a>Schema del file di log
 
 Di seguito è riportato lo schema di un file di log.
@@ -112,7 +110,7 @@ Timestamp | Timestamp durante la lettura, la scrittura o l'omissione dell'oggett
 Level | Livello log dell'elemento. Può essere "Warning" o "info".
 OperationName | Comportamento operativo dell'attività di copia ADF su ogni oggetto. Può essere ' FileRead ',' filewrite ',' FileSkip ' o ' TabularRowSkip '.
 OperationItem | Nomi file o righe ignorate.
-Messaggio | Ulteriori informazioni per mostrare se il file è stato letto dall'archivio di origine o è stato scritto nell'archivio di destinazione. Può anche essere il motivo per cui il file o le righe sono state ignorate.
+Message | Ulteriori informazioni per mostrare se il file è stato letto dall'archivio di origine o è stato scritto nell'archivio di destinazione. Può anche essere il motivo per cui il file o le righe sono state ignorate.
 
 Di seguito è riportato un esempio di un file di log. 
 ```

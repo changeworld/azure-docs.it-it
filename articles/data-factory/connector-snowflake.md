@@ -1,22 +1,18 @@
 ---
 title: Copiare e trasformare i dati in fiocco di neve
 description: Informazioni su come copiare e trasformare i dati in fiocco di neve usando Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 49e4a6f7f8c268669a94796257d5740ec6f4e6ff
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 816c9ae25034382763e18ea61055a2a18ccc03d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902086"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388839"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiare e trasformare i dati in fiocco di neve usando Azure Data Factory
 
@@ -150,8 +146,8 @@ Per copiare dati da fiocco di neve, nella sezione **origine** dell'attività di 
 | type                         | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **SnowflakeSource**. | Sì      |
 | query          | Specifica la query SQL per leggere i dati da fiocco di neve. Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio.<br>L'esecuzione di stored procedure non è supportata. | No       |
 | exportSettings | Impostazioni avanzate utilizzate per recuperare dati da fiocco di neve. È possibile configurare quelli supportati dal comando COPY into che Data Factory passerà quando si richiama l'istruzione. | No       |
-| ***In `exportSettings` :** _ |  |  |
-| tipo | Il tipo di comando Export, impostato su _ * SnowflakeExportCopyCommand * *. | Sì |
+| ***In `exportSettings` :*** |  |  |
+| tipo | Tipo di comando Export impostato su **SnowflakeExportCopyCommand**. | Sì |
 | additionalCopyOptions | Opzioni di copia aggiuntive, fornite come dizionario di coppie chiave-valore. Esempi: MAX_FILE_SIZE, overwrite. Per altre informazioni, vedere [Opzioni di copia a fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opzioni del formato di file aggiuntive fornite al comando COPY come dizionario di coppie chiave-valore. Esempi: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Per altre informazioni, vedere [Opzioni del tipo di formato fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
@@ -280,8 +276,8 @@ Per copiare dati in fiocco di neve, sono supportate le proprietà seguenti nella
 | type              | Proprietà Type del sink dell'attività di copia, impostata su **SnowflakeSink**. | Sì                                           |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in fiocco di neve in ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | importSettings | Impostazioni avanzate utilizzate per scrivere dati in fiocco di neve. È possibile configurare quelli supportati dal comando COPY into che Data Factory passerà quando si richiama l'istruzione. | No |
-| **_In `importSettings` :_* _ |                                                              |  |
-| tipo | Tipo di comando Import impostato su _ * SnowflakeImportCopyCommand * *. | Sì |
+| ***In `importSettings` :*** |                                                              |  |
+| tipo | Tipo di comando Import impostato su **SnowflakeImportCopyCommand**. | Sì |
 | additionalCopyOptions | Opzioni di copia aggiuntive, fornite come dizionario di coppie chiave-valore. Esempi: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Per altre informazioni, vedere [Opzioni di copia a fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opzioni del formato di file aggiuntive fornite al comando COPY, fornite come dizionario di coppie chiave-valore. Esempi: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Per altre informazioni, vedere [Opzioni del tipo di formato fiocco di neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
@@ -408,9 +404,9 @@ Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere
 
 La tabella seguente elenca le proprietà supportate dall'origine fiocco di neve. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
 
-| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Table | Se si seleziona tabella come input, il flusso di dati recupererà tutti i dati dalla tabella specificata nel set di dati a fiocco di neve o nelle opzioni di origine quando si usa il set di dati inline. | No | string | *(solo per set di dati inline)*<br>tableName<br>schemaName |
+| Tabella | Se si seleziona tabella come input, il flusso di dati recupererà tutti i dati dalla tabella specificata nel set di dati a fiocco di neve o nelle opzioni di origine quando si usa il set di dati inline. | No | string | *(solo per set di dati inline)*<br>tableName<br>schemaName |
 | Query | Se si seleziona query come input, immettere una query per recuperare i dati da fiocco di neve. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati.<br>Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio. | No | string | query |
 
 #### <a name="snowflake-source-script-examples"></a>Esempi di script di origine fiocco di neve
@@ -438,7 +434,7 @@ source(allowSchemaDrift: true,
 
 La tabella seguente elenca le proprietà supportate dal sink di fiocco di neve. È possibile modificare queste proprietà nella scheda **Impostazioni** . Quando si usa il set di dati inline, verranno visualizzate impostazioni aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
 
-| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update (metodo) | Specificare le operazioni consentite nella destinazione di fiocco di neve.<br>Per aggiornare, Upsert o eliminare righe, è necessaria una [trasformazione alter Row](data-flow-alter-row.md) per contrassegnare le righe per tali azioni. | Sì | `true` o `false` | cancellabile <br/>inseribile <br/>aggiornabile <br/>upsertable |
 | Colonne chiave | Per le operazioni di aggiornamento, upsert ed eliminazione è necessario impostare una o più colonne chiave per determinare quale riga modificare. | No | Array | chiavi |

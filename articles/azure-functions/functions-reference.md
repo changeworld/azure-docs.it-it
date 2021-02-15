@@ -4,12 +4,12 @@ description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure nec
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936737"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386901"
 ---
 # <a name="azure-functions-developer-guide"></a>Guida per sviluppatori di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -40,11 +40,11 @@ Per altre informazioni, vedere [concetti relativi a trigger e associazioni di fu
 
 La proprietà `bindings` è quella che consente di configurare trigger e associazioni. Ogni associazione condivide alcune impostazioni comuni e altre specifiche per tipo. Ogni associazione richiede le impostazioni seguenti:
 
-| Proprietà | Valori/tipi | Commenti |
-| --- | --- | --- |
-| `type` |string |Tipo di associazione. Ad esempio: `queueTrigger`. |
-| `direction` |'in', 'out' |Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
-| `name` |string |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
+| Proprietà    | Valori | Tipo | Commenti|
+|---|---|---|---|
+| tipo  | Nome dell'associazione.<br><br>Ad esempio: `queueTrigger`. | string | |
+| direction | `in`, `out`  | string | Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
+| name | Identificatore della funzione.<br><br>Ad esempio: `myQueue`. | string | Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
 
 ## <a name="function-app"></a>App per le funzioni
 L'app per le funzioni offre un contesto di esecuzione per le funzioni. Di conseguenza, è l'unità di distribuzione e gestione per le funzioni. Un'app per le funzioni è costituita da una o più singole funzioni che vengono gestite, distribuite e ridimensionate insieme. Tutte le funzioni in un'app per le funzioni condividono lo stesso piano tariffario, il metodo di distribuzione e la versione del runtime. Un'app per le funzioni può essere considerata un modo per organizzare e gestire collettivamente le funzioni. Per altre informazioni, vedere [come gestire un'app](functions-how-to-use-azure-function-app-settings.md)per le funzioni. 
@@ -91,6 +91,83 @@ La tabella riportata di seguito elenca tutte le associazioni supportate.
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
 In caso di problemi con errori provenienti dalle associazioni, rivedere la documentazione [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) (Codici degli errori di associazione di Funzioni di Azure).
+
+
+## <a name="connections"></a>Connessioni
+
+Il progetto di funzione fa riferimento alle informazioni di connessione in base al nome del provider di configurazione. Non accetta direttamente i dettagli della connessione, consentendo la modifica tra gli ambienti. Ad esempio, una definizione di trigger potrebbe includere una `connection` Proprietà. Questo può fare riferimento a una stringa di connessione, ma non è possibile impostare la stringa di connessione direttamente in un oggetto `function.json` . Al contrario, si imposta sul `connection` nome di una variabile di ambiente che contiene la stringa di connessione.
+
+Il provider di configurazione predefinito usa le variabili di ambiente. Queste impostazioni possono essere impostate dalle [impostazioni dell'applicazione](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) durante l'esecuzione nel servizio funzioni di Azure o dal [file di impostazioni locale](functions-run-local.md#local-settings-file) quando si sviluppa in locale.
+
+### <a name="connection-values"></a>Valori di connessione
+
+Quando il nome della connessione viene risolto in un singolo valore esatto, il runtime identifica il valore come _stringa di connessione_, che in genere include un segreto. I dettagli di una stringa di connessione sono definiti dal servizio a cui si desidera connettersi.
+
+Tuttavia, un nome di connessione può anche fare riferimento a una raccolta di più elementi di configurazione. Le variabili di ambiente possono essere considerate come una raccolta usando un prefisso condiviso che termina con un doppio carattere di sottolineatura `__` . Al gruppo è quindi possibile fare riferimento impostando il nome della connessione su questo prefisso.
+
+Ad esempio, la `connection` proprietà per una definizione di trigger BLOB di Azure potrebbe essere `Storage1` . Se non esiste un singolo valore di stringa configurato con `Storage1` come nome, `Storage1__serviceUri` verrebbe utilizzato per la `serviceUri` proprietà della connessione. Le proprietà di connessione sono diverse per ogni servizio. Vedere la documentazione per l'estensione che usa la connessione.
+
+### <a name="configure-an-identity-based-connection"></a>Configurare una connessione basata sull'identità
+
+Alcune connessioni in funzioni di Azure sono configurate per l'uso di un'identità anziché di un segreto. Il supporto dipende dall'estensione che utilizza la connessione. In alcuni casi, una stringa di connessione potrebbe essere ancora necessaria nelle funzioni anche se il servizio a cui si è connessi supporta le connessioni basate sull'identità.
+
+> [!IMPORTANT]
+> Anche se un'estensione di binding supporta le connessioni basate su identità, la configurazione potrebbe non essere ancora supportata nel piano a consumo. Vedere la tabella di supporto riportata di seguito.
+
+Le connessioni basate su identità sono supportate dal trigger e dalle estensioni di binding seguenti:
+
+| Nome estensione | Versione dell'estensione                                                                                     | Supporta le connessioni basate sull'identità nel piano a consumo |
+|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
+| BLOB Azure     | [Versione 5.0.0-beta1 o successiva](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
+| Code di Azure    | [Versione 5.0.0-beta1 o successiva](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
+
+> [!NOTE]
+> Il supporto per le connessioni basate su identità non è ancora disponibile per le connessioni di archiviazione usate dal runtime di funzioni per i comportamenti di base. Ciò significa che l' `AzureWebJobsStorage` impostazione deve essere una stringa di connessione.
+
+#### <a name="connection-properties"></a>Proprietà di connessione
+
+Una connessione basata su identità per un servizio di Azure accetta le proprietà seguenti:
+
+| Proprietà    | Variabile di ambiente | Obbligatorio | Descrizione |
+|---|---|---|---|
+| URI del servizio | `<CONNECTION_NAME_PREFIX>__serviceUri` | Sì | URI del piano dati del servizio a cui si sta effettuando la connessione. |
+
+È possibile che siano supportate opzioni aggiuntive per un determinato tipo di connessione. Consultare la documentazione per il componente che effettua la connessione.
+
+Quando sono ospitate nel servizio funzioni di Azure, le connessioni basate su identità usano un' [identità gestita](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). Per impostazione predefinita, viene utilizzata l'identità assegnata dal sistema. Quando vengono eseguiti in altri contesti, ad esempio lo sviluppo locale, viene invece usata l'identità dello sviluppatore, sebbene sia possibile personalizzarla usando parametri di connessione alternativi.
+
+##### <a name="local-development"></a>Sviluppo locale
+
+Durante l'esecuzione in locale, la configurazione precedente indica al runtime di usare l'identità dello sviluppatore locale. La connessione tenterà di ottenere un token dalle posizioni seguenti, nell'ordine:
+
+- Una cache locale condivisa tra le applicazioni Microsoft
+- Contesto utente corrente in Visual Studio
+- Contesto utente corrente in Visual Studio Code
+- Il contesto utente corrente nell'interfaccia della riga di comando di Azure
+
+Se nessuna di queste opzioni ha esito positivo, si verificherà un errore.
+
+In alcuni casi, è possibile specificare l'uso di un'identità diversa. È possibile aggiungere proprietà di configurazione per la connessione che puntano all'identità alternativa.
+
+> [!NOTE]
+> Le opzioni di configurazione seguenti non sono supportate quando sono ospitate nel servizio funzioni di Azure.
+
+Per connettersi usando un'entità servizio Azure Active Directory con un ID client e un segreto, definire la connessione con le proprietà seguenti:
+
+| Proprietà    | Variabile di ambiente | Obbligatorio | Descrizione |
+|---|---|---|---|
+| URI del servizio | `<CONNECTION_NAME_PREFIX>__serviceUri` | Sì | URI del piano dati del servizio a cui si sta effettuando la connessione. |
+| ID tenant | `<CONNECTION_NAME_PREFIX>__tenantId` | Sì | ID del tenant di Azure Active Directory (directory). |
+| ID client | `<CONNECTION_NAME_PREFIX>__clientId` | Sì |  ID client (applicazione) di una registrazione dell'app nel tenant. |
+| Segreto client | `<CONNECTION_NAME_PREFIX>__clientSecret` | Sì | Chiave privata client generata per la registrazione dell'app. |
+
+#### <a name="grant-permission-to-the-identity"></a>Concedere l'autorizzazione all'identità
+
+Indipendentemente dall'identità utilizzata, è necessario disporre delle autorizzazioni per eseguire le azioni desiderate. Questa operazione viene in genere eseguita assegnando un ruolo in un controllo degli accessi in base al ruolo di Azure o specificando l'identità in un criterio di accesso, a seconda del servizio a cui ci si connette. Fare riferimento alla documentazione per ogni servizio sulle autorizzazioni necessarie e sul modo in cui possono essere impostate.
+
+> [!IMPORTANT]
+> Alcune autorizzazioni potrebbero essere esposte dal servizio che non sono necessarie per tutti i contesti. Laddove possibile, rispettare il **principio dei privilegi minimi**, concedendo all'identità solo i privilegi necessari. Ad esempio, se l'app deve semplicemente leggere da un BLOB, usare il ruolo [lettore dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) perché il [proprietario dei dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) include autorizzazioni eccessive per un'operazione di lettura.
+
 
 ## <a name="reporting-issues"></a>Segnalazione di problemi
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

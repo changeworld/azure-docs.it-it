@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: daf7a9fe3291850bea8c78680bcf375931383020
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805599"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093489"
 ---
 # <a name="full-backup-and-restore"></a>Backup e ripristino completo
 
@@ -44,9 +44,9 @@ Il backup è un'operazione a esecuzione prolungata ma restituirà immediatamente
 Durante l'esecuzione del backup, il modulo di protezione hardware potrebbe non funzionare alla velocità effettiva, perché alcune partizioni del modulo di protezione hardware sono occupate con l'esecuzione dell'operazione di backup.
 
 ```azurecli-interactive
-# time for 30 minutes later for SAS token expiry
+# time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
@@ -84,9 +84,9 @@ Per eseguire un ripristino completo, è necessario specificare le informazioni s
 Il ripristino è un'operazione a esecuzione prolungata ma restituirà immediatamente un ID processo, che potrà essere usato per controllare lo stato del processo di ripristino. Durante il processo di ripristino, il modulo di protezione hardware passa alla modalità di ripristino e tutti i comandi del piano dati (eccetto quello per il controllo dello stato del ripristino) sono disabilitati.
 
 ```azurecli-interactive
-#### time for 30 minutes later for SAS token expiry
+#### time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 

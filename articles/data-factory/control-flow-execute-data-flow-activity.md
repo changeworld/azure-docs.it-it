@@ -1,20 +1,17 @@
 ---
 title: Attività flusso di dati
 description: Come eseguire i flussi di dati dall'interno di una pipeline data factory.
-services: data-factory
-documentationcenter: ''
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 01/03/2021
-ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858782"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383382"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 

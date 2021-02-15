@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Cassandra usando Azure Data Factory
 description: Informazioni su come copiare dati da Cassandra in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3cd3c3ae28ae302e9469a71d00054152a9b5fb5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417479"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383705"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiare dati da Cassandra usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -50,7 +45,7 @@ In particolare, il connettore Cassandra supporta:
 
 Il runtime di integrazione offre un driver per Cassandra integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in Cassandra.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -65,7 +60,7 @@ Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 | type |La proprietà type deve essere impostata su: **Cassandra** |Sì |
 | host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (il valore predefinito è 9042) |
-| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono: **Basic**e **Anonymous**. |Sì |
+| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono: **Basic** e **Anonymous**. |Sì |
 | username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì, se authenticationType è impostato su Basic. |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
@@ -210,7 +205,7 @@ Quando si copiano dati da Cassandra, vengono usati i mapping seguenti tra i tipi
 
 Azure Data Factory usa un driver ODBC integrato per connettersi ai dati di un database Cassandra e copiarli. Per i tipi di raccolta, fra cui mappa, set ed elenco, il driver normalizza di nuovo i dati in tabelle virtuali corrispondenti. In particolare, se una tabella contiene colonne della raccolta, il driver genera le tabelle virtuali seguenti:
 
-* Una **tabella di base**che contiene gli stessi dati della tabella reale eccetto le colonne della raccolta. La tabella di base ha lo stesso nome della tabella reale che rappresenta.
+* Una **tabella di base** che contiene gli stessi dati della tabella reale eccetto le colonne della raccolta. La tabella di base ha lo stesso nome della tabella reale che rappresenta.
 * Una **tabella virtuale** per ogni colonna della raccolta che espande i dati nidificati. Alle tabelle virtuali che rappresentano le raccolte vengono assegnati nomi composti dal nome della tabella reale seguito dal separatore "*vt*" e dal nome della colonna.
 
 Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo al driver di accedere ai dati denormalizzati. Per i dettagli vedere la sezione Esempio. È possibile accedere al contenuto delle raccolte Cassandra eseguendo query e join sulle tabelle virtuali.
@@ -253,18 +248,18 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una |
+| 1 |S1 |A |
 | 1 |S2 |b |
-| 3 |S1 |t |
+| 3 |S1 |u |
 
 **Tabella "ExampleTable_vt_StringSet":**
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una |
+| 1 |A |
 | 1 |B |
 | 1 |C |
-| 3 |Una |
+| 3 |A |
 | 3 |E |
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup

@@ -1,19 +1,19 @@
 ---
 title: Usare macchine virtuali di Azure spot
 description: Informazioni su come usare le macchine virtuali di Azure spot per risparmiare sui costi.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202131"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375460"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usare macchine virtuali spot in Azure
 
@@ -58,7 +58,7 @@ Le macchine virtuali spot possono essere distribuite in qualsiasi area, tranne M
 Sono attualmente supportati i [tipi di offerta](https://azure.microsoft.com/support/legal/offer-details/) seguenti:
 
 -   Enterprise Agreement
--   Pagamento in base al consumo
+-   Codice dell'offerta con pagamento in base al consumo 003P
 -   Sponsorizzato
 - Per il provider di servizi cloud (CSP), contattare il proprio partner
 

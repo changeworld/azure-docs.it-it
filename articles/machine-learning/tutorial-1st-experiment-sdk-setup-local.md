@@ -9,14 +9,15 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+adobe-target: true
+ms.openlocfilehash: 5d61f330c823aff755a25e637bb58c132aa58100
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250690"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369129"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Esercitazione: Introduzione ad Azure Machine Learning nel proprio ambiente di sviluppo (parte 1 di 4)
 
@@ -68,7 +69,7 @@ pip install azureml-core
 > [!NOTE]
 > Per completare l'installazione di Azure Machine Learning SDK, sono necessari circa 2 minuti.
 >
-> Se si riceve un errore di timeout, provare `pip install --default-timeout=100 azureml-core` in alternativa.
+> Se viene ricevuto un errore di timeout, provare `pip install --default-timeout=100 azureml-core` .
 
 
 > [!div class="nextstepaction"]
@@ -78,20 +79,29 @@ pip install azureml-core
 
 Per questa esercitazione è consigliabile configurare la semplice struttura della directory corrente:
 
-```markdown
-tutorial
-└──.azureml
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-1.png" alt-text="struttura di directory: livello principale dell'esercitazione con sottodirectory. azureml":::
+
 
 - `tutorial`: directory di primo livello del progetto.
 - `.azureml`: sottodirectory nascosta per l'archiviazione dei file di configurazione di Azure Machine Learning.
 
+Ad esempio, per creare questo in una finestra bash:
+
+```bash
+mkdir tutorial
+cd tutorial
+mkdir .azureml
+```
+
 > [!TIP]
-> È possibile creare la sottodirectory nascosta .azureml in una finestra del terminale  oppure si può usare la procedura seguente:
+> Per creare o visualizzare la struttura in una finestra grafica, abilitare prima di tutto la possibilità di visualizzare e creare cartelle e file nascosti:
 >
-> * In una finestra del Finder in un Mac premere **CMD+MAIUSC+.** per attivare la possibilità di vedere e creare directory che iniziano con un punto.  
+> * In una finestra del Finder in un Mac premere **CMD+MAIUSC+.** per visualizzare/nascondere i file o le cartelle nascoste.  
 > * In Esplora file di Windows 10 vedere [come visualizzare cartelle e file nascosti](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * Nell'interfaccia grafica di Linux premere **CTRL+H** o selezionare il menu **Visualizza** e quindi la casella di controllo **Mostra file nascosti**.
+
+
+
 
 > [!div class="nextstepaction"]
 > [È stata creata una directory](?success=create-dir#workspace) [Si è verificato un problema](https://www.research.net/r/7C8Z3DN?issue=create-dir)
@@ -138,12 +148,7 @@ python ./01-create-workspace.py
 
 Dopo la corretta esecuzione di *01-create-workspace.py*, la struttura di cartelle sarà simile alla seguente:
 
-```markdown
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-2.png" alt-text="Il file config.jsviene visualizzato nella sottodirectory. azureml dopo l'esecuzione di 01-create-workspace.py":::
 
 Il file `.azureml/config.json` contiene i metadati necessari per connettersi all'area di lavoro di Azure Machine Learning. In particolare, contiene l'ID sottoscrizione, il gruppo di risorse e il nome dell'area di lavoro. 
 
@@ -196,13 +201,7 @@ python ./02-create-compute.py
 
 La struttura di cartelle ora sarà simile alla seguente:
 
-```bash
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-3.png" alt-text="Aggiungere 02-create-compute.py alla directory dell'esercitazione":::
 
 > [!div class="nextstepaction"]
 > [È stato creato un cluster di elaborazione](?success=create-compute-cluster#next-steps) [Si è verificato un problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
