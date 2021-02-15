@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 11/23/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: e38dcf1e12629405ae5f28a987ba20557037ee67
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683433"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367572"
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 
@@ -22,7 +22,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Criteri di restrizione di accesso
 
--   [check-header](#CheckHTTPHeader) : impone l'esistenza e/o il valore di un'intestazione HTTP.
+-   [Controlla intestazione HTTP](#CheckHTTPHeader) : impone l'esistenza e/o il valore di un'intestazione HTTP.
 -   [Limita frequenza delle chiamate per sottoscrizione](#LimitCallRate) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamate per ogni sottoscrizione.
 -   [Limita frequenza delle chiamate per chiave](#LimitCallRateByKey): impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.
 -   [ip-filter](#RestrictCallerIPs) : filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.
@@ -56,21 +56,21 @@ Usare il criterio `check-header` per applicare una richiesta che presenta un'int
 
 ### <a name="elements"></a>Elementi
 
-| Nome         | Descrizione                                                                                                                                   | Obbligatorio |
+| Nome         | Descrizione                                                                                                                                   | Obbligatoria |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | check-header | Elemento radice.                                                                                                                                 | Sì      |
 | Valore        | Valore dell'intestazione HTTP consentito. Quando vengono specificati più elementi per il valore, in caso di corrispondenza di uno dei valori il controllo ha esito positivo. | No       |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
-| Nome                       | Descrizione                                                                                                                                                            | Obbligatorio | Predefinito |
+| Nome                       | Descrizione                                                                                                                                                            | Obbligatoria | Predefinito |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | Messaggio di errore da restituire nel corpo della risposta HTTP se l'intestazione non esiste o presenta un valore non valido. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape. | Sì      | N/D     |
 | failed-check-httpcode      | Codice di stato HTTP da restituire se l'intestazione non esiste o presenta un valore non valido.                                                                                        | Sì      | N/D     |
 | header-name                | Il nome dell'intestazione HTTP da verificare.                                                                                                                                  | Sì      | N/D     |
 | ignore-case                | Può essere impostato su True o False. Se impostato su True, il maiuscolo viene ignorato quando il valore dell'intestazione viene confrontato con il set di valori accettabili.                                    | Sì      | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -80,7 +80,7 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 
 ## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limita frequenza delle chiamate per sottoscrizione
 
-Il criterio `rate-limit` impedisce picchi d'uso dell'API per ogni sottoscrizione impostando la frequenza delle chiamate su un numero specificato per un periodo di tempo specificato. All'attivazione di questo criterio, il chiamate riceve il codice di stato della risposta `429 Too Many Requests`.
+Il criterio `rate-limit` impedisce picchi d'uso dell'API per ogni sottoscrizione impostando la frequenza delle chiamate su un numero specificato per un periodo di tempo specificato. Quando viene superata la frequenza delle chiamate, il chiamante riceve un `429 Too Many Requests` codice di stato della risposta.
 
 > [!IMPORTANT]
 > Questo criterio può essere impiegato una sola volta per ogni documento dei criteri.
@@ -98,18 +98,25 @@ Il criterio `rate-limit` impedisce picchi d'uso dell'API per ogni sottoscrizione
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds" />
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
+        retry-after-header-name="header name" 
+        retry-after-variable-name="policy expression variable name"
+        remaining-calls-header-name="header name"  
+        remaining-calls-variable-name="policy expression variable name"
+        total-calls-header-name="header name"/>
     </api>
 </rate-limit>
 ```
 
 ### <a name="example"></a>Esempio
 
+Nell'esempio seguente il limite di velocità per sottoscrizione è 20 chiamate per 90 secondi. Dopo l'esecuzione di ogni criterio, le chiamate rimanenti consentite nel periodo di tempo vengono archiviate nella variabile `remainingCallsPerSubscription` .
+
 ```xml
 <policies>
     <inbound>
         <base />
-        <rate-limit calls="20" renewal-period="90" />
+        <rate-limit calls="20" renewal-period="90" remaining-calls-variable-name="remainingCallsPerSubscription"/>
     </inbound>
     <outbound>
         <base />
@@ -119,21 +126,26 @@ Il criterio `rate-limit` impedisce picchi d'uso dell'API per ogni sottoscrizione
 
 ### <a name="elements"></a>Elementi
 
-| Nome       | Descrizione                                                                                                                                                                                                                                                                                              | Obbligatorio |
+| Nome       | Descrizione                                                                                                                                                                                                                                                                                              | Obbligatoria |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Elemento radice.                                                                                                                                                                                                                                                                                            | Sì      |
 | api        | Aggiungere uno o più di questi elementi per imporre un limite di frequenza delle chiamate per le API all'interno del prodotto. I limiti alla frequenza delle chiamate API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.                    | No       |
 | operation  | Aggiungere uno o più di questi elementi per imporre un limite di frequenza delle chiamate per le operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No       |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
-| Nome           | Descrizione                                                                                           | Obbligatorio | Predefinito |
+| Nome           | Descrizione                                                                                           | Obbligatoria | Predefinito |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Il nome dell'API a cui si desidera applicare il limite di frequenza.                                                | Sì      | N/D     |
 | calls          | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`. | Sì      | N/D     |
-| renewal-period | Periodo, in secondi, dopo il quale la quota si reimposta.                                              | Sì      | N/D     |
+| renewal-period | Periodo di tempo in secondi dopo il quale viene reimpostato il tasso.                                              | Sì      | N/D     |
+| Retry-After-header-name    | Nome di un'intestazione di risposta il cui valore è l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
+| Retry-After-nome-variabile    | Nome di una variabile di espressione di criteri che archivia l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
+| Nome-intestazione-chiamate rimanenti    | Il nome di un'intestazione di risposta il cui valore dopo ogni esecuzione del criterio è il numero di chiamate rimanenti consentite per l'intervallo di tempo specificato in `renewal-period` . |  No | N/D  |
+| nome-variabile rimanente-calls    | Il nome di una variabile di espressione di criteri che dopo ogni esecuzione del criterio archivia il numero di chiamate rimanenti consentite per l'intervallo di tempo specificato in `renewal-period` . |  No | N/D  |
+| Total-calls-header-name    | Nome di un'intestazione di risposta il cui valore è il valore specificato in `calls` . |  No | N/D  |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -146,7 +158,7 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 > [!IMPORTANT]
 > Questa funzione non è disponibile al livello **A consumo** di Gestione API.
 
-Il criterio `rate-limit-by-key` impedisce picchi d'uso dell'API per ogni chiave impostando la frequenza delle chiamate su un numero specificato per un periodo di tempo specificato. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nel limite, è possibile aggiungere una condizione opzionale di incremento. All'attivazione di questo criterio, il chiamate riceve il codice di stato della risposta `429 Too Many Requests`.
+Il criterio `rate-limit-by-key` impedisce picchi d'uso dell'API per ogni chiave impostando la frequenza delle chiamate su un numero specificato per un periodo di tempo specificato. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nel limite, è possibile aggiungere una condizione opzionale di incremento. Quando viene superata la frequenza delle chiamate, il chiamante riceve un `429 Too Many Requests` codice di stato della risposta.
 
 Per altre informazioni ed esempi su questo criterio, vedere [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md) (Limitazione avanzata delle richieste con Gestione API di Azure).
 
@@ -162,13 +174,16 @@ Per altre informazioni ed esempi su questo criterio, vedere [Advanced request th
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
-                   counter-key="key value" />
+                   counter-key="key value" 
+                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   total-calls-header-name="header name"/> 
 
 ```
 
 ### <a name="example"></a>Esempio
 
-Nell'esempio seguente il limite alla frequenza viene associato a una chiave dall'indirizzo IP del chiamante.
+Nell'esempio seguente il limite di frequenza di 10 chiamate per 60 secondi viene codificato dall'indirizzo IP del chiamante. Dopo l'esecuzione di ogni criterio, le chiamate rimanenti consentite nel periodo di tempo vengono archiviate nella variabile `remainingCallsPerIP` .
 
 ```xml
 <policies>
@@ -177,7 +192,8 @@ Nell'esempio seguente il limite alla frequenza viene associato a una chiave dall
         <rate-limit-by-key  calls="10"
               renewal-period="60"
               increment-condition="@(context.Response.StatusCode == 200)"
-              counter-key="@(context.Request.IpAddress)"/>
+              counter-key="@(context.Request.IpAddress)"
+              remaining-calls-variable-name="remainingCallsPerIP"/>
     </inbound>
     <outbound>
         <base />
@@ -187,20 +203,25 @@ Nell'esempio seguente il limite alla frequenza viene associato a una chiave dall
 
 ### <a name="elements"></a>Elementi
 
-| Nome              | Descrizione   | Obbligatorio |
+| Nome              | Descrizione   | Obbligatoria |
 | ----------------- | ------------- | -------- |
 | rate-limit-by-Key | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
-| Nome                | Descrizione                                                                                           | Obbligatorio | Predefinito |
+| Nome                | Descrizione                                                                                           | Obbligatoria | Predefinito |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`. | Sì      | N/D     |
 | counter-key         | La chiave deve essere usata per i criteri relativi ai limiti di frequenza.                                                             | Sì      | N/D     |
-| increment-condition | Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).        | No       | N/D     |
-| renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta.                                              | Sì      | N/D     |
+| increment-condition | Espressione booleana che specifica se la richiesta deve essere conteggiata rispetto alla frequenza ( `true` ).        | No       | N/D     |
+| renewal-period      | Periodo di tempo in secondi dopo il quale viene reimpostato il tasso.                                              | Sì      | N/D     |
+| Retry-After-header-name    | Nome di un'intestazione di risposta il cui valore è l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
+| Retry-After-nome-variabile    | Nome di una variabile di espressione di criteri che archivia l'intervallo di tentativi consigliato in secondi dopo il superamento della frequenza di chiamate specificata. |  No | N/D  |
+| Nome-intestazione-chiamate rimanenti    | Il nome di un'intestazione di risposta il cui valore dopo ogni esecuzione del criterio è il numero di chiamate rimanenti consentite per l'intervallo di tempo specificato in `renewal-period` . |  No | N/D  |
+| nome-variabile rimanente-calls    | Il nome di una variabile di espressione di criteri che dopo ogni esecuzione del criterio archivia il numero di chiamate rimanenti consentite per l'intervallo di tempo specificato in `renewal-period` . |  No | N/D  |
+| Total-calls-header-name    | Nome di un'intestazione di risposta il cui valore è il valore specificato in `calls` . |  No | N/D  |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -234,20 +255,20 @@ Nell'esempio seguente il criterio consente solo le richieste provenienti da un s
 
 ### <a name="elements"></a>Elementi
 
-| Nome                                      | Descrizione                                         | Obbligatorio                                                       |
+| Nome                                      | Descrizione                                         | Obbligatoria                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Elemento radice.                                       | Sì                                                            |
 | address                                   | Specifica un singolo indirizzo IP su cui applicare il filtro.   | È obbligatorio almeno un elemento `address` o `address-range`. |
 | address-range from="address" to="address" | Specifica un intervallo di indirizzi IP su cui applicare il filtro. | È obbligatorio almeno un elemento `address` o `address-range`. |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
-| Nome                                      | Descrizione                                                                                 | Obbligatorio                                           | Predefinito |
+| Nome                                      | Descrizione                                                                                 | Obbligatoria                                           | Predefinito |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Intervallo di indirizzi IP per cui permettere o negare l'accesso.                                        | Obbligatorio quando viene usato l'elemento `address-range`. | N/D     |
 | ip-filter action="allow &#124; forbid"    | Specifica se le chiamate devono essere consentite o rifiutate per gli indirizzi e gli intervalli di indirizzi IP specificati. | Sì                                                | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -292,22 +313,22 @@ Il criterio `quota` consente di applicare una quota rinnovabile o permanente per
 
 ### <a name="elements"></a>Elementi
 
-| Nome      | Descrizione                                                                                                                                                                                                                                                                                  | Obbligatorio |
+| Nome      | Descrizione                                                                                                                                                                                                                                                                                  | Obbligatoria |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento radice.                                                                                                                                                                                                                                                                                | Sì      |
 | api       | Aggiungere uno o più di questi elementi per imporre una quota di chiamate per le API all'interno del prodotto. Le quote di chiamate API e del prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.                    | No       |
 | operation | Aggiungere uno o più di questi elementi per imporre una quota di chiamate alle operazioni all'interno di un'API. Le quote di chiamate per le operazioni, l'API e il prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato. | No       |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
-| Nome           | Descrizione                                                                                               | Obbligatorio                                                         | Predefinito |
+| Nome           | Descrizione                                                                                               | Obbligatoria                                                         | Predefinito |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | Nome dell'API o dell'operazione per cui è applicabile la quota.                                             | Sì                                                              | N/D     |
 | bandwidth      | Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`. | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
 | calls          | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.     | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
 | renewal-period | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Sì                                                              | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -319,7 +340,7 @@ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policie
 > [!IMPORTANT]
 > Questa funzione non è disponibile al livello **A consumo** di Gestione API.
 
-Il criterio `quota-by-key` consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nella quota, è possibile aggiungere una condizione opzionale di incremento. Se più criteri incrementano lo stesso valore della chiave, quest'ultimo viene incrementato solo una volta per richiesta. Al raggiungimento del limite di chiamate, il chiamante riceve il codice di stato della risposta `403 Forbidden`.
+Il criterio `quota-by-key` consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nella quota, è possibile aggiungere una condizione opzionale di incremento. Se più criteri incrementano lo stesso valore della chiave, quest'ultimo viene incrementato solo una volta per richiesta. Quando viene superata la frequenza delle chiamate, il chiamante riceve un `403 Forbidden` codice di stato della risposta.
 
 Per altre informazioni ed esempi su questo criterio, vedere [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md) (Limitazione avanzata delle richieste con Gestione API di Azure).
 
@@ -357,13 +378,13 @@ Nell'esempio seguente la quota viene associata a una chiave dall'indirizzo IP de
 
 ### <a name="elements"></a>Elementi
 
-| Nome  | Descrizione   | Obbligatorio |
+| Nome  | Descrizione   | Obbligatoria |
 | ----- | ------------- | -------- |
 | quota | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
-| Nome                | Descrizione                                                                                               | Obbligatorio                                                         | Predefinito |
+| Nome                | Descrizione                                                                                               | Obbligatoria                                                         | Predefinito |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandwidth           | Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`. | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
 | calls               | Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.     | Devono essere specificati `calls`, `bandwidth` o entrambi. | N/D     |
@@ -371,7 +392,7 @@ Nell'esempio seguente la quota viene associata a una chiave dall'indirizzo IP de
 | increment-condition | Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).             | No                                                               | N/D     |
 | renewal-period      | Periodo, in secondi, dopo il quale la quota si reimposta.                                                  | Sì                                                              | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -428,7 +449,7 @@ Il `validate-jwt` criterio impone l'esistenza e la validità di un token JSON We
 
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="simple-token-validation"></a>Convalida semplice del token
 
@@ -527,7 +548,7 @@ Questo esempio illustra come usare i criteri di [convalida JWT](api-management-a
 
 ### <a name="elements"></a>Elementi
 
-| Elemento             | Descrizione                                                                                                                                                                                                                                                                                                                                           | Obbligatorio |
+| Elemento             | Descrizione                                                                                                                                                                                                                                                                                                                                           | Obbligatoria |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Elemento radice.                                                                                                                                                                                                                                                                                                                                         | Sì      |
 | audiences           | Contiene un elenco di attestazioni "audience" accettabili che possono essere presenti nel token. Se sono presenti più valori "audience", viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo. È necessario specificare almeno un "audience".                                                                     | No       |
@@ -537,9 +558,9 @@ Questo esempio illustra come usare i criteri di [convalida JWT](api-management-a
 | openid-config       | Elemento usato per specificare un endpoint di configurazione Open ID conforme da cui è possibile ottenere le chiavi di firma e l'emittente.                                                                                                                                                                                                                        | No       |
 | required-claims     | Contiene un elenco di attestazioni da includere nel token affinché possa essere considerato valido. Perché la convalida abbia esito positivo, quando l'attributo `match` è impostato su `all` ogni valore dell'attestazione nel criterio deve essere presente nel token. Perché la convalida abbia esito positivo, quando l'attributo `match` è impostato su `any` almeno un'attestazione deve essere presente nel token. | No       |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
-| Nome                            | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatorio                                                                         | Predefinito                                                                           |
+| Nome                            | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatoria                                                                         | Predefinito                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | TimeSpan. Usare per specificare la differenza massima di tempo previsto tra gli orologi di sistema dell'autorità emittente di token e l'istanza di Gestione API.                                                                                                                                                                                                                                                                                                               | No                                                                               | 0 secondi                                                                         |
 | failed-validation-error-message | Messaggio di errore da restituire nel corpo della risposta HTTP se il token JWT non supera la convalida. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape.                                                                                                                                                                                                                                                                                                 | No                                                                               | Il messaggio di errore predefinito dipende dal problema della convalida, ad esempio "JWT not present" ("JWT non presente"). |
@@ -556,7 +577,7 @@ Questo esempio illustra come usare i criteri di [convalida JWT](api-management-a
 | url                             | URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. La risposta deve essere conforme alle specifiche, come definito nell'URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`. | Sì                                                                              | N/D                                                                               |
 | output-token-variabile-nome      | Stringa. Nome della variabile di contesto che riceverà il valore del token come oggetto di tipo [`Jwt`](api-management-policy-expressions.md) dopo la convalida del token riuscita                                                                                                                                                                                                                                                                                     | No                                                                               | N/D                                                                               |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 

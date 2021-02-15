@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007398"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390403"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
@@ -26,7 +26,7 @@ Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versi
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leggere l'anteprima pubblica dell'API v 3.2 con supporto OCR per le lingue 73
 L'anteprima pubblica dell'API v 3.2 di Visione artificiale, disponibile come servizio cloud e contenitore Docker, include gli aggiornamenti seguenti:
 * [OCR per le lingue 73](./language-support.md#optical-character-recognition-ocr) , incluse le lingue cinese semplificato e tradizionale, giapponese, coreano e latino.
-* Ordine di lettura naturale per l'output della riga di testo.
+* Ordine di lettura naturale per l'output della riga di testo (solo lingue latine)
 * Classificazione dello stile di grafia per le righe di testo insieme a un punteggio di confidenza (solo lingue latine).
 * Estrai il testo solo per le pagine selezionate per un documento a più pagine.
 * Disponibile come [contenitore](./computer-vision-how-to-install-containers.md?tabs=version-3-2) non distribuibile per la distribuzione locale.

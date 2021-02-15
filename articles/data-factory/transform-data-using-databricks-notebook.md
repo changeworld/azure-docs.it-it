@@ -1,22 +1,18 @@
 ---
 title: Eseguire un notebook di Databricks con l'attività
 description: Informazioni su come usare l'attività dei notebook di Databricks in una data factory di Azure per eseguire un notebook di Databricks nel cluster dei processi Databricks.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
-ms.openlocfilehash: 27425717f6d96953326edde621966530d240c015
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
-ms.translationtype: HT
+ms.openlocfilehash: 20253954035798187f28c18c8207c114d27bc9c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374083"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
 
@@ -72,7 +68,7 @@ Per un'introduzione di undici minuti e una dimostrazione di questa funzionalità
 
 1.  Per **Località** selezionare la località per la data factory.
 
-    Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory** : [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
+    Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
 1.  Selezionare **Create** (Crea).
 
 
@@ -100,9 +96,9 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
 1.  Nella finestra **New Linked Service** (Nuovo servizio collegato) completare questa procedura:
     
-    1.  In **Name** (Nome) immettere * *_AzureDatabricks\_LinkedService_* _
+    1.  Per **nome** immettere **_AzureDatabricks \_ LinkedService_**
     
-    1.  Selezionare l'_ *area di lavoro Databricks* * appropriata in cui verrà eseguito il notebook
+    1.  Selezionare l'**area di lavoro Databricks** appropriata in cui verrà eseguito il notebook.
 
     1.  In **Select cluster** (Seleziona cluster) selezionare **New job cluster** (Nuovo cluster di processo).
     
@@ -126,7 +122,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
     ![Pulsanti per la creazione di una nuova pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-1.  Creare un **parametro** da usare nella **pipeline**. Questo parametro verrà successivamente passato all'attività dei notebook di Databricks. Nella pipeline vuota fare clic sulla scheda **Parametri** , quindi su **Nuovo** e assegnare il nome ' **name** '.
+1.  Creare un **parametro** da usare nella **pipeline**. Questo parametro verrà successivamente passato all'attività dei notebook di Databricks. Nella pipeline vuota fare clic sulla scheda **Parametri**, quindi su **Nuovo** e assegnare il nome '**name**'.
 
     ![Creare un nuovo parametro](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
@@ -173,7 +169,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
        1. In questo caso, il **percorso del notebook** è **adftutorial/mynotebook**
 
-1.  Tornare allo **strumento di creazione dell'interfaccia utente di Data Factory**. Passare alla scheda **Settings** (Impostazioni) nell' **attività Notebook1**.
+1.  Tornare allo **strumento di creazione dell'interfaccia utente di Data Factory**. Passare alla scheda **Settings** (Impostazioni) nell'**attività Notebook1**.
 
     a.  **Aggiungere un parametro** all'attività notebook. Usare lo stesso parametro aggiunto in precedenza alla **pipeline**.
 
@@ -215,7 +211,7 @@ La finestra di dialogo **Pipeline Run** (Esecuzione di pipeline) chiede il param
 
 ## <a name="verify-the-output"></a>Verificare l'output
 
-È possibile accedere all' **area di lavoro di Azure Databricks** , passare ai **cluster** e visualizzare lo stato del **processo** ( *esecuzione in sospeso, in esecuzione o terminato* ).
+È possibile accedere all'**area di lavoro di Azure Databricks**, passare ai **cluster** e visualizzare lo stato del **processo** (*esecuzione in sospeso, in esecuzione o terminato*).
 
 ![Visualizzare il cluster dei processi e il processo](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
 

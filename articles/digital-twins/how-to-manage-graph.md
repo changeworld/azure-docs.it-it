@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601065"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388193"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -116,6 +116,21 @@ Usando i metodi precedenti per elencare le relazioni in uscita e in ingresso in 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
+## <a name="update-relationships"></a>Aggiorna relazioni
+
+Le relazioni vengono aggiornate usando il `UpdateRelationship` metodo. 
+
+>[!NOTE]
+>Questo metodo consente di aggiornare le **Proprietà** di una relazione. Se è necessario modificare il dispositivo gemello di origine o di destinazione della relazione, è necessario [eliminare la relazione](#delete-relationships) e [ricrearne una](#create-relationships) usando i nuovi dispositivi gemelli.
+
+I parametri obbligatori per la chiamata client sono l'ID del dispositivo gemello di origine (il gemello da cui ha origine la relazione), l'ID della relazione da aggiornare e un documento di [patch JSON](http://jsonpatch.com/) che contiene le proprietà e i nuovi valori che si vuole aggiornare.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+
+Di seguito è riportato un esempio di una chiamata a questo metodo, passando un documento di patch JSON con le informazioni per aggiornare una proprietà.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
+
 ## <a name="delete-relationships"></a>Eliminare relazioni
 
 Il primo parametro specifica il gemello di origine, ovvero il gemello da cui ha origine la relazione. L'altro parametro è l'ID della relazione. Sono necessari sia l'ID gemello che l'ID relazione, perché gli ID relazione sono univoci solo all'interno dell'ambito di un dispositivo gemello.
@@ -137,7 +152,7 @@ Il frammento di codice usa il [*Room.js*](https://github.com/Azure-Samples/digit
 Prima di eseguire l'esempio, eseguire le operazioni seguenti:
 1. Scaricare i file del modello, inserirli nel progetto e sostituire i `<path-to>` segnaposto nel codice riportato di seguito per indicare al programma dove trovarli.
 2. Sostituire il segnaposto `<your-instance-hostname>` con il nome host dell'istanza di Azure Digital gemelli.
-3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. Il primo è il pacchetto per l' [SDK di dispositivi digitali gemelli di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), il secondo fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
+3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. La prima è il pacchetto per [Azure Digital Twins SDK per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), la seconda fornisce gli strumenti che consentono di eseguire l'autenticazione in Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

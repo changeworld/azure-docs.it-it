@@ -1,19 +1,19 @@
 ---
-title: Come monitorare Cache Redis di Azure
+title: Monitorare cache di Azure per Redis
 description: Informazioni su come monitorare l'integrità e le prestazioni delle istanze di Cache Redis di Azure
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/13/2017
-ms.openlocfilehash: 3d19d8f1b6a44f32e92f82e861471ca9b5c8fa41
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/08/2021
+ms.openlocfilehash: ea99c34f03cd74185840767605c17ee6c65eb701
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327339"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389706"
 ---
-# <a name="how-to-monitor-azure-cache-for-redis"></a>Come monitorare Cache Redis di Azure
+# <a name="monitor-azure-cache-for-redis"></a>Monitorare cache di Azure per Redis
 
 La Cache Redis di Azure usa [Monitoraggio di Azure](../azure-monitor/index.yml) per offrire alcune opzioni per il monitoraggio delle istanze della cache. È possibile visualizzare le metriche, aggiungere i grafici delle metriche alla Schermata iniziale, personalizzare l'intervallo di data e ora per il monitoraggio dei grafici, aggiungere e rimuovere metriche dai grafici e impostare avvisi per le situazioni in cui vengono soddisfatte determinate condizioni. Questi strumenti consentono di monitorare l'integrità delle istanze di Cache Redis di Azure e aiutano a gestire le applicazioni di memorizzazione nella cache.
 
@@ -94,7 +94,7 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 > 
 > 
 
-| Metric | Descrizione |
+| Metrica | Descrizione |
 | --- | --- |
 | Riscontri cache |Il numero di ricerche chiave riuscite durante l'intervallo di report specificato. Questo numero esegue il mapping a `keyspace_hits` dal comando [info](https://redis.io/commands/info) di Redis. |
 | Latenza della cache (anteprima) | La latenza della cache calcolata in base alla latenza internodo della cache. Questa metrica viene misurata in microsecondi e presenta tre dimensioni: `Avg` , `Min` e `Max` , che rappresentano rispettivamente la latenza media, minima e massima della cache durante l'intervallo di Reporting specificato. |

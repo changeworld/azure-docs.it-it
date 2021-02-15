@@ -1,21 +1,17 @@
 ---
 title: Monitorare il runtime di integrazione in Azure Data Factory
 description: Informazioni su come monitorare diversi tipi di runtime di integrazione in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862446"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377500"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory
 
@@ -52,7 +48,7 @@ Nella tabella seguente vengono fornite descrizioni per le proprietà restituite 
 | Location | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
 | DataFactoryName | Nome della data factory a cui appartiene il runtime di integrazione di Azure. | 
 | ResourceGroupName | Nome del gruppo di risorse a cui appartiene la data factory.  |
-| Description | Descrizione del runtime di integrazione di Azure.  |
+| Descrizione | Descrizione del runtime di integrazione di Azure.  |
 
 ### <a name="status"></a>Stato
 
@@ -83,7 +79,7 @@ La tabella seguente fornisce le descrizioni delle proprietà di monitoraggio per
 | Uso della CPU | Utilizzo della CPU da parte di un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. |
 | Rete (in/out) | Utilizzo del network da parte di un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. | 
 | Processi simultanei (in esecuzione/limite) | **In esecuzione**. Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. <br/><br/>**Limite**. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per incrementare il numero di processi simultanei in esecuzione negli scenari avanzati, in cui si verifica il timeout delle attività anche in caso di sottoutilizzo di CPU, memoria o rete. Questa capacità è disponibile anche in un runtime di integrazione self-hosted a nodo singolo. |
-| Role | Esistono due tipi di ruoli in un runtime di integrazione self-hosted a più nodi: dispatcher e ruolo di lavoro. Tutti i nodi sono ruoli di lavoro e quindi possono essere tutti usati per eseguire i processi. Esiste un solo nodo dispatcher, che viene usato per eseguire il pull di attività/processi dai servizi cloud e inviarli a nodi ruolo di lavoro diversi. Il nodo dispatcher è anche un nodo di lavoro. |
+| Ruolo | Esistono due tipi di ruoli in un runtime di integrazione self-hosted a più nodi: dispatcher e ruolo di lavoro. Tutti i nodi sono ruoli di lavoro e quindi possono essere tutti usati per eseguire i processi. Esiste un solo nodo dispatcher, che viene usato per eseguire il pull di attività/processi dai servizi cloud e inviarli a nodi ruolo di lavoro diversi. Il nodo dispatcher è anche un nodo di lavoro. |
 
 Alcune impostazioni delle proprietà sono più appropriate quando sono presenti due o più nodi nel runtime di integrazione self-hosted, ovvero in uno scenario in cui viene incrementato il numero di istanze.
 
@@ -105,7 +101,7 @@ La tabella seguente indica i possibili stati di un nodo di runtime di integrazio
 | Offline | Il nodo è offline. |
 | Aggiornamento | È in corso l'aggiornamento automatico del nodo. |
 | Limitato | La causa è un problema di connettività, Il problema potrebbe essere dovuto alla porta HTTP 8060, al problema di connettività del bus di servizio o a un problema di sincronizzazione delle credenziali. |
-| Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi. |
+| Inattivo | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi. |
 
 Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi.
 
@@ -175,7 +171,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 Nella tabella seguente vengono fornite le descrizioni delle proprietà restituite dal cmdlet precedente per un Azure-SSIS IR.
 
-| Proprietà/stato              | Description                  |
+| Proprietà/stato              | Descrizione                  |
 | ---------------------------- | ---------------------------- |
 | CreateTime                   | Ora UTC in cui è stata creata la Azure-SSIS IR. |
 | Nodi                        | I nodi allocati/disponibili della Azure-SSIS IR con stati specifici del nodo (avvio/disponibile/riciclo/non disponibile) ed errori eseguibili. |
@@ -193,11 +189,11 @@ Nella tabella seguente vengono fornite le descrizioni delle proprietà restituit
 | VNetId                       | ID della risorsa di rete virtuale per la Azure-SSIS IR da unire. |
 | Subnet                       | Nome della subnet per il Azure-SSIS IR da unire. |
 | ID                           | ID risorsa della Azure-SSIS IR. |
-| Type                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
+| Tipo                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
 | ResourceGroupName            | Nome del gruppo di risorse di Azure in cui sono stati creati i file ADF e Azure-SSIS IR. |
 | DataFactoryName              | Nome del file ADF. |
 | Nome                         | Nome del Azure-SSIS IR. |
-| Description                  | Descrizione della Azure-SSIS IR. |
+| Descrizione                  | Descrizione della Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Stato (per nodo Azure-SSIS IR)
 
@@ -214,7 +210,7 @@ Nella tabella seguente vengono indicati gli stati possibili di un nodo Azure-SSI
 
 Nella tabella seguente sono riportati i possibili stati complessivi di un Azure-SSIS IR. Lo stato complessivo a sua volta dipende dagli stati combinati di tutti i nodi appartenenti al Azure-SSIS IR. 
 
-| Stato generale | Description | 
+| Stato generale | Descrizione | 
 | -------------- | ----------- | 
 | Initial        | I nodi del Azure-SSIS IR non sono stati allocati/preparati. | 
 | Avvio in corso       | È in corso l'allocazione/preparazione dei nodi del Azure-SSIS IR e la fatturazione è stata avviata. |

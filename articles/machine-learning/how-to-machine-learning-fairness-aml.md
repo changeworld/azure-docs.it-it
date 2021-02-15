@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222769"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366967"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usare Azure Machine Learning con il pacchetto open source Fairlearn per valutare l'equità dei modelli di Machine Learning (anteprima)
 
@@ -214,10 +214,15 @@ Nell'esempio seguente viene illustrato come utilizzare il pacchetto di correttez
     1. Selezionare **Experiments (esperimenti** ) nel riquadro a sinistra per visualizzare un elenco di esperimenti eseguiti in Azure Machine Learning.
     1. Selezionare un esperimento specifico per visualizzare tutte le esecuzioni dell'esperimento.
     1. Selezionare un'esecuzione e quindi la scheda **equità** per visualizzare il dashboard spiegazione.
+    1. Una volta eseguito l'atterraggio sulla scheda **equità** , fare clic su un **ID equità** nel menu a destra.
+    1. Configurare il dashboard selezionando l'attributo sensibile, le metriche delle prestazioni e la metrica di equità di interesse per la pagina della valutazione dell'equità.
+    1. Passare da un tipo di grafico a un altro per osservare sia i danni di **allocazione** che **la qualità del servizio** .
 
 
-    [![Dashboard di equità](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![Allocazione dashboard equità](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![Qualità del servizio dashboard di equità](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **Riquadro modelli**
     1. Se il modello originale è stato registrato seguendo i passaggi precedenti, è possibile selezionare **modelli** nel riquadro a sinistra per visualizzarlo.
     1. Selezionare un modello e quindi la scheda **equità** per visualizzare il dashboard di visualizzazione spiegazione.

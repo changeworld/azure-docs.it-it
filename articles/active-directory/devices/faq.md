@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165145"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365821"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -299,6 +299,11 @@ Le modifiche UPN sono supportate con l'aggiornamento di Windows 10 2004. Gli ute
 - Per i dispositivi registrati Azure ad Windows 10, passare a **Impostazioni**  >  **account**  >  **Accedi all'ufficio o all'Istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. La registrazione del dispositivo è per profilo utente in Windows 10.
 - Per iOS e Android, è possibile usare le **Impostazioni** dell'applicazione Microsoft Authenticator  >  **registrazione del dispositivo** e selezionare **Annulla registrazione del dispositivo**.
 - Per macOS, è possibile usare l'applicazione Portale aziendale Microsoft Intune per annullare la registrazione del dispositivo dalla gestione e rimuovere eventuali registrazioni. 
+
+Per i dispositivi Windows 10, questo processo può essere automatizzato con lo [strumento di rimozione workplace join (WPJ)](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+
+> [!NOTE]
+> Questo strumento rimuove tutti gli account SSO sul dispositivo. Dopo questa operazione, tutte le applicazioni perderanno lo stato SSO e la registrazione del dispositivo verrà annullata da strumenti di gestione (MDM) e annullata la registrazione dal cloud. Al successivo tentativo di accesso da parte di un'applicazione, agli utenti verrà richiesto di aggiungere di nuovo l'account.
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>D: come è possibile impedire agli utenti di aggiungere account di lavoro aggiuntivi (Azure AD registrati) sui dispositivi Windows 10 aziendali?

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580277"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515055"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -39,6 +39,16 @@ Se l'output viene restituito in un file, è possibile che anche un editor di tes
 
 #### <a name="linux-install"></a>[Installazione di Linux](#tab/linuxinstall)
 
+Le distribuzioni di Linux seguenti sono supportate per le architetture x64 che usano l'interfaccia della riga di comando vocale:
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> Le architetture aggiuntive sono supportate dall'SDK di riconoscimento vocale (non l'interfaccia della riga di comando vocale). Per ulteriori informazioni, vedere [informazioni sull'SDK di riconoscimento vocale](../speech-sdk.md).
+
 Per installare l’interfaccia della riga di comando di Voce su Linux su una CPU x64, seguire questa procedura:
 
 1. Installare [.NET Core 3,1](/dotnet/core/install/linux).
@@ -49,7 +59,7 @@ Per installare l’interfaccia della riga di comando di Voce su Linux su una CPU
 Digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando di Voce.
 
 > [!NOTE]
-> In alternativa a NuGet, è possibile scaricare i file binari nell' [archivio zip](https://aka.ms/speech/spx-zips.zip), estrarre `spx-netcore-30-linux-x64` in una nuova `~/spx` Directory, digitare `sudo chmod +r+x spx` sul file binario e aggiungere il `~/spx` percorso della variabile di sistema Path.
+> In alternativa a NuGet, è possibile scaricare i file binari nell' [archivio zip](https://aka.ms/speech/spx-zips.zip), estrarre `spx-netcore-30-linux-x64.zip` in una nuova `~/spx` Directory, digitare `sudo chmod +r+x spx` sul file binario e aggiungere il `~/spx` percorso della variabile di sistema Path.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Installazione in Docker (Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +117,7 @@ Per usare il comando `spx` installato in un contenitore, immettere sempre il com
 Ad esempio, in Windows questo comando configura la chiave:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 Per un'interazione più estesa con lo strumento da riga di comando, è possibile avviare un contenitore con una shell bash interattiva aggiungendo un parametro entrypoint.
@@ -160,8 +170,8 @@ Per iniziare a usare l'interfaccia della riga di comando di Voce, è necessario 
 Dopo aver ottenuto l’identificatore dell’area e della chiave di sottoscrizione (ad esempio, `eastus`, `westus`), eseguire i comandi seguenti.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 L'autenticazione della sottoscrizione è ora archiviata per richieste SPX future. Se è necessario rimuovere uno di questi valori archiviati, eseguire `spx config @region --clear` o `spx config @key --clear`.

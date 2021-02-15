@@ -2,13 +2,13 @@
 title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza in Hub eventi di Azure
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4470b55973f53c924caba8665199d261fe63a8fc
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/10/2021
+ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222883"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390675"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
@@ -75,24 +75,27 @@ La sezione seguente è una panoramica del processo di failover e illustra come c
 È prima di tutto necessario creare uno spazio dei nomi primario o usarne uno esistente e creare un nuovo spazio dei nomi secondario, quindi associare i due spazi dei nomi. L'associazione fornisce un alias che può essere usato per la connessione. Poiché si usa un alias, non è necessario modificare le stringhe di connessione. È possibile aggiungere solo nuovi spazi dei nomi all'associazione di failover. 
 
 1. Creare lo spazio dei nomi primario.
-1. Creare lo spazio dei nomi secondario nella sottoscrizione e il gruppo di risorse con lo spazio dei nomi primario. Questo passaggio è facoltativo. È possibile creare lo spazio dei nomi secondario durante la creazione dell'associazione nel passaggio successivo. 
+1. Creare lo spazio dei nomi secondario nella sottoscrizione e il gruppo di risorse con lo spazio dei nomi primario, ma in un'area diversa. Questo passaggio è facoltativo. È possibile creare lo spazio dei nomi secondario durante la creazione dell'associazione nel passaggio successivo. 
 1. Nella portale di Azure passare allo spazio dei nomi primario.
 1. Selezionare **ripristino geografico** nel menu a sinistra e selezionare **Avvia associazione** sulla barra degli strumenti. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Avviare l'associazione dallo spazio dei nomi primario":::    
-1. Nella pagina **avvio associazione** selezionare uno spazio dei nomi secondario esistente o crearne uno nella sottoscrizione e il gruppo di risorse con lo spazio dei nomi primario. Scegliere quindi **Create** (Crea). Nell'esempio seguente viene selezionato uno spazio dei nomi secondario esistente. 
+1. Nella pagina **avvio associazione** , attenersi alla seguente procedura:
+    1. Selezionare uno spazio dei nomi secondario esistente o crearne uno nella sottoscrizione e il gruppo di risorse con lo spazio dei nomi primario. In questo esempio viene selezionato uno spazio dei nomi esistente.  
+    1. In **alias** immettere un alias per l'associazione del ripristino di emergenza geografico. 
+    1. Scegliere quindi **Create** (Crea). 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selezionare lo spazio dei nomi secondario":::        
-1. A questo punto, quando si seleziona il **ripristino geografico** per lo spazio dei nomi primario, viene visualizzata la pagina alias ripristino di emergenza **geografico** simile all'immagine seguente:
+1. Verrà visualizzata la pagina **alias ripristino di emergenza geografico** . È anche possibile passare a questa pagina dallo spazio dei nomi primario selezionando **ripristino geografico** nel menu a sinistra.
 
     :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Pagina alias ripristino di emergenza geografico":::    
+1. Nella pagina **alias ripristino di emergenza geografico** selezionare **criteri di accesso condivisi** nel menu a sinistra per accedere alla stringa di connessione primaria per l'alias. Usare questa stringa di connessione invece di utilizzare direttamente la stringa di connessione allo spazio dei nomi primario/secondario. 
 1. In questa pagina di **Panoramica** è possibile eseguire le azioni seguenti: 
     1. Suddividere l'associazione tra gli spazi dei nomi primari e secondari. Selezionare **Interrompi associazione** sulla barra degli strumenti. 
     1. Eseguire manualmente il failover allo spazio dei nomi secondario. Selezionare **failover** sulla barra degli strumenti. 
     
         > [!WARNING]
         > Il failover attiverà lo spazio dei nomi secondario e rimuoverà lo spazio dei nomi primario dall'associazione di Geo-Disaster Recovery. Creare un altro spazio dei nomi per avere una nuova coppia di ripristino di emergenza geografico. 
-1. Nella pagina **alias ripristino di emergenza geografico** selezionare **criteri di accesso condivisi** per accedere alla stringa di connessione primaria per l'alias. Usare questa stringa di connessione invece di utilizzare direttamente la stringa di connessione allo spazio dei nomi primario/secondario. 
 
 Infine, è necessario aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover. Nella maggior parte dei casi, il servizio fa parte di un ecosistema di grandi dimensioni, quindi i failover automatici sono raramente possibili, in quanto spesso i failover devono essere eseguiti in modo sincronizzato con il sottosistema o l'infrastruttura rimanente.
 
@@ -133,9 +136,9 @@ Tenere presente le considerazioni seguenti:
 
 1. Da progettazione, il ripristino di emergenza geografico di Hub eventi non replica i dati e non è quindi possibile riutilizzare il valore di offset precedente dell'hub eventi primario per l'hub eventi secondario. È consigliabile riavviare il ricevitore di eventi con uno dei metodi seguenti:
 
-- *EventPosition.FromStart()* - Se si vogliono leggere tutti i dati nell'hub eventi secondario.
-- *EventPosition.FromEnd()* - Se si vogliono leggere tutti i nuovi dati dal momento della connessione all'hub eventi secondario.
-- *EventPosition.FromEnqueuedTime(dateTime)* - Se si vogliono leggere tutti i dati ricevuti nell'hub eventi secondario a partire da una data e da un'ora specificate.
+   - *EventPosition.FromStart()* - Se si vogliono leggere tutti i dati nell'hub eventi secondario.
+   - *EventPosition.FromEnd()* - Se si vogliono leggere tutti i nuovi dati dal momento della connessione all'hub eventi secondario.
+   - *EventPosition.FromEnqueuedTime(dateTime)* - Se si vogliono leggere tutti i dati ricevuti nell'hub eventi secondario a partire da una data e da un'ora specificate.
 
 2. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
  
@@ -153,6 +156,8 @@ Lo SKU Standard di Hub eventi supporta le [zone di disponibilità di Azure](../a
 > Il supporto per le zone di disponibilità per lo SKU standard di Hub eventi di Azure è disponibile solo nelle [aree di Azure](../availability-zones/az-region.md) in cui sono presenti le zone di disponibilità.
 
 Usando il portale di Azure, è possibile abilitare le zone di disponibilità solo negli spazi dei nomi. Hub eventi non supporta la migrazione di spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
+
+Quando si usano le zone di disponibilità, i metadati e i dati (eventi) vengono replicati nei data center della zona di disponibilità. 
 
 ![3][]
 

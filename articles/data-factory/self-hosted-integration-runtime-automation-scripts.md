@@ -1,31 +1,27 @@
 ---
 title: Automatizzare l'installazione del runtime di integrazione self-hosted con gli script PowerShell locali
 description: Informazioni su come automatizzare l'installazione del runtime di integrazione self-hosted in computer locali.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636970"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376208"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatizzare l'installazione del runtime di integrazione self-hosted con gli script PowerShell locali
 Per automatizzare l'installazione del runtime di integrazione self-hosted in computer locali (diversi dalle macchine virtuali di Azure in cui è possibile usare il modello di Resource Manager), è possibile usare script PowerShell locali. Questo articolo illustra due script che è possibile usare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Avviare PowerShell nel computer locale. Per eseguire gli script, è necessario scegliere **Esegui come amministratore** .
+* Avviare PowerShell nel computer locale. Per eseguire gli script, è necessario scegliere **Esegui come amministratore**.
 * [Scaricare](https://www.microsoft.com/download/details.aspx?id=39717) il software del runtime di integrazione self-hosted. Copiare il percorso in cui si trova il file scaricato. 
-* Per registrare il runtime di integrazione self-hosted, è necessaria anche una **chiave di autenticazione** .
+* Per registrare il runtime di integrazione self-hosted, è necessaria anche una **chiave di autenticazione**.
 * Per automatizzare gli aggiornamenti manuali, è necessario avere un runtime di integrazione self-hosted preconfigurato.
 
 ## <a name="scripts-introduction"></a>Introduzione agli script 
@@ -38,13 +34,13 @@ Per automatizzare l'installazione del runtime di integrazione self-hosted in com
 
 * Per automatizzare gli aggiornamenti manuali: Aggiornare il nodo del runtime di integrazione self-hosted con una versione specifica o alla versione più recente di **[script-update-gateway. ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** : questo aggiornamento è supportato anche nel caso in cui sia stato disattivato l'aggiornamento automatico o si voglia avere maggiore controllo sugli aggiornamenti. È possibile usare lo script per aggiornare il nodo del runtime di integrazione self-hosted alla versione più recente o a una versione successiva specificata (il downgrade non funziona). Accetta un argomento per specificare il numero di versione, ad esempio -version 3.13.6942.1. Se non viene specificata alcuna versione, il runtime di integrazione self-hosted viene sempre aggiornato alla versione più recente disponibile nei [download](https://www.microsoft.com/download/details.aspx?id=39717).
     > [!NOTE]
-    > È possibile specificare solo le ultime tre versioni. Normalmente si usa per aggiornare un nodo esistente alla versione più recente. **PRESUPPONE LA PRESENZA DI UN RUNTIME DI INTEGRAZIONE SELF-HOST REGISTRATO** . 
+    > È possibile specificare solo le ultime tre versioni. Normalmente si usa per aggiornare un nodo esistente alla versione più recente. **PRESUPPONE LA PRESENZA DI UN RUNTIME DI INTEGRAZIONE SELF-HOST REGISTRATO**. 
 
 ## <a name="usage-examples"></a>Esempi di utilizzo
 
 ### <a name="for-automating-setup"></a>Per automatizzare l'installazione
 1. Scaricare il runtime di integrazione self-hosted da [questa posizione](https://www.microsoft.com/download/details.aspx?id=39717). 
-1. Specificare il percorso in cui si trova il file MSI SHIR scaricato (file di installazione). Ad esempio, se il percorso è *C:\Users\nome_utente\Downloads\IntegrationRuntime_4.7.7368.1.msi* , è possibile usare la riga di comando di PowerShell di esempio seguente per questa attività:
+1. Specificare il percorso in cui si trova il file MSI SHIR scaricato (file di installazione). Ad esempio, se il percorso è *C:\Users\nome_utente\Downloads\IntegrationRuntime_4.7.7368.1.msi*, è possibile usare la riga di comando di PowerShell di esempio seguente per questa attività:
 
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\InstallGatewayOnLocalMachine.ps1 -path "C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi" -authKey "[key]"

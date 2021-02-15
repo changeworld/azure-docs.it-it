@@ -3,14 +3,16 @@ title: Risoluzione dei problemi relativi al ruolo di lavoro ibrido per runbook d
 description: Questo articolo spiega come risolvere i problemi che si verificano con i ruoli di lavoro ibrido per runbook di Automazione di Azure.
 services: automation
 ms.subservice: ''
-ms.date: 11/25/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055332"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388006"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -26,9 +28,7 @@ Il ruolo di lavoro ibrido per runbook si affida a un agente per comunicare con l
 
 L'esecuzione del runbook ha esito negativo e viene visualizzato il messaggio di errore seguente:
 
-```error
-"The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
-```
+`The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times.`
 
 Il runbook viene sospeso dopo il terzo tentativo di esecuzione. Alcune condizioni possono interrompere il runbook prima del completamento. Il relativo messaggio di errore potrebbe essere privo di informazioni aggiuntive.
 
@@ -56,13 +56,12 @@ Verificare se nel registro eventi **Microsoft-SMA** è presente un evento corris
 
 Il ruolo di lavoro ibrido per runbook riceve l'evento 15011 a indicare che il risultato di una query non è valido. L'errore seguente viene visualizzato quando il ruolo di lavoro tenta di aprire una connessione con il [server SignalR](/aspnet/core/signalr/introduction).
 
-```error
-[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+`[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
 [Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect
    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()
-```
+`
 
 #### <a name="cause"></a>Causa
 
@@ -96,14 +95,13 @@ Avviare il computer con ruolo di lavoro, quindi registrarlo nuovamente con Autom
 
 Un runbook in esecuzione nel ruolo di lavoro ibrido per runbook ha esito negativo con il messaggio di errore seguente:
 
-```error
-Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
-At line:3 char:1
-+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
-```
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
+`At line:3 char:1`  
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+
 #### <a name="cause"></a>Causa
 
 Questo errore si verifica quando si prova a usare un [account RunAs](../automation-security-overview.md#run-as-accounts) in un runbook eseguito nel ruolo di lavoro ibrido per runbook in cui non è presente il certificato dell'account RunAs. Per impostazione predefinita, i ruoli di lavoro ibridi per runbook non hanno l'asset del certificato in locale. L'account RunAs richiede il corretto funzionamento di questo asset.
@@ -118,9 +116,7 @@ Se il ruolo di lavoro ibrido per runbook in una macchina virtuale di Azure, è p
 
 La fase di registrazione iniziale del ruolo di lavoro ha esito negativo e si visualizza l'errore 403 seguente:
 
-```error
-"Forbidden: You don't have permission to access / on this server."
-```
+`Forbidden: You don't have permission to access / on this server.`
 
 #### <a name="cause"></a>Causa
 
@@ -139,6 +135,37 @@ Per verificare la presenza di errori di digitazione nell'ID o nella chiave dell'
 L'area di lavoro Log Analytics e l'account di Automazione devono trovarsi in un'area collegata. Per un elenco delle aree supportate, vedere [Mapping dell'area di lavoro Log Analytics e di Automazione di Azure](../how-to/region-mappings.md).
 
 Potrebbe inoltre essere necessario aggiornare la data o il fuso orario del computer. Se si seleziona un intervallo di tempo personalizzato, assicurarsi di usare il fuso orario UTC, che può essere diverso da quello locale.
+
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent ha esito negativo in un ruolo di lavoro ibrido per Runbook 
+
+#### <a name="issue"></a>Problema
+
+Runbook ha esito negativo quando tenta di eseguire `Set-AzStorageBlobContent` e viene visualizzato il messaggio di errore seguente:
+
+`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
+
+#### <a name="cause"></a>Causa
+
+ Questo errore è causato dal comportamento del nome di file lungo delle chiamate al `[System.IO.Path]::GetFullPath()` quale vengono aggiunti i percorsi UNC.
+
+#### <a name="resolution"></a>Soluzione
+
+Come soluzione alternativa, è possibile creare un file di configurazione denominato `OrchestratorSandbox.exe.config` con il contenuto seguente:
+
+```azurecli
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
+  </runtime>
+</configuration>
+```
+
+Inserire questo file nella stessa cartella del file eseguibile `OrchestratorSandbox.exe` . Ad esempio,
+
+`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+
+>[!Note]
+> Se si aggiorna l'agente, questo file di configurazione verrà eliminato e sarà necessario ricrearlo.
 
 ## <a name="linux"></a>Linux
 
@@ -192,7 +219,7 @@ Se l'agente non è in esecuzione, eseguire il comando seguente per avviare il se
 
 Se si visualizza il messaggio di errore `The specified class does not exist..` in **/var/opt/microsoft/omsconfig/omsconfig.log**, è necessario aggiornare l'agente di Log Analytics per Linux. Eseguire il comando seguente per reinstallare l'agente.
 
-```bash
+```Bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
@@ -267,8 +294,7 @@ Il computer del ruolo di lavoro ibrido per runbook è in esecuzione, ma non veng
 
 La query di esempio seguente mostra i computer di un'area di lavoro e l'ultimo heartbeat generato:
 
-```loganalytics
-// Last heartbeat of each computer
+```kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
@@ -295,9 +321,7 @@ Start-Service -Name HealthService
 
 Quando si prova ad aggiungere un ruolo di lavoro ibrido per runbook usando il cmdlet `Add-HybridRunbookWorker` viene visualizzato il messaggio seguente:
 
-```error
-Machine is already registered
-```
+`Machine is already registered`
 
 #### <a name="cause"></a>Causa
 
@@ -315,15 +339,11 @@ Per risolvere questo problema, rimuovere la chiave del Registro di sistema segue
 
 Quando si tenta di aggiungere un ruolo di lavoro ibrido per Runbook tramite lo script Python, viene visualizzato il messaggio seguente `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` :
 
-```error
-Unable to register, an existing worker was found. Please deregister any existing worker and try again.
-```
+`Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
 Inoltre, il tentativo di annullare la registrazione di un ruolo di lavoro ibrido per Runbook tramite lo `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script Python:
 
-```error
-Failed to deregister worker. [response_status=404]
-```
+`Failed to deregister worker. [response_status=404]`
 
 #### <a name="cause"></a>Causa
 

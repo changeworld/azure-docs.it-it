@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832131"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390471"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione Centro di micro-adempimenti
 
-In questa esercitazione si userà il modello di applicazione Centro di micro-adempimenti di Azure IoT Central per creare una soluzione per la vendita al dettaglio. Si apprenderà come distribuire il modello, che cosa contiene e quali operazioni è opportuno eseguire successivamente.
+In questa esercitazione si userà il modello di applicazione Centro di micro-adempimenti di Azure IoT Central per creare una soluzione per la vendita al dettaglio.
+
+In questa esercitazione si apprenderà:
+
+> [!div class="checklist"]
+> * Come distribuire il modello di applicazione
+> * Come usare il modello di applicazione
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa serie di esercitazioni, è necessaria una sottoscrizione di Azure. Facoltativamente, è possibile usare una versione di valutazione gratuita valida per 7 giorni. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).

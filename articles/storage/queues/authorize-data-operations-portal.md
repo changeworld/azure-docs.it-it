@@ -6,17 +6,17 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozguns
-ms.date: 09/08/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 504d2eb939758e6045a2af095c66093c8754cb94
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: fbb96fc1d2cb12e1aede07295357abfaa6d6b67f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590750"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385014"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Scegliere come autorizzare l'accesso ai dati della coda nel portale di Azure
 
@@ -28,16 +28,19 @@ A seconda di come si desidera autorizzare l'accesso ai dati della coda nel porta
 
 ### <a name="use-the-account-access-key"></a>Usare la chiave di accesso dell'account
 
-Per accedere ai dati della coda con la chiave di accesso dell'account, è necessario disporre di un ruolo di Azure assegnato che includa l'azione RBAC di Azure `Microsoft.Storage/storageAccounts/listkeys/action` . Questo ruolo di Azure può essere un ruolo predefinito o personalizzato. I ruoli predefiniti che supportano `Microsoft.Storage/storageAccounts/listkeys/action` includono:
+Per accedere ai dati della coda con la chiave di accesso dell'account, è necessario che sia assegnato un ruolo di Azure che includa l'azione RBAC di Azure **Microsoft. storage/storageAccounts/listkeys/Action**. Questo ruolo di Azure può essere un ruolo predefinito o personalizzato. I ruoli predefiniti che supportano **Microsoft. storage/storageAccounts/listkeys/Action** includono:
 
 - [Ruolo proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - [Ruolo collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
 - Il [ruolo Collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Quando si tenta di accedere ai dati della coda nel portale di Azure, il portale verifica prima di tutto se è stato assegnato un ruolo con `Microsoft.Storage/storageAccounts/listkeys/action` . Se è stato assegnato un ruolo con questa azione, il portale usa la chiave dell'account per accedere ai dati della coda. Se a questa azione non è stato assegnato un ruolo, il portale tenta di accedere ai dati tramite l'account Azure AD.
+Quando si tenta di accedere ai dati della coda nel portale di Azure, il portale verifica prima di tutto se è stato assegnato un ruolo con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale usa la chiave dell'account per accedere ai dati della coda. Se a questa azione non è stato assegnato un ruolo, il portale tenta di accedere ai dati tramite l'account Azure AD.
+
+> [!IMPORTANT]
+> Quando un account di archiviazione è bloccato con un blocco Azure Resource Manager **ReadOnly** , l'operazione [list keys](/rest/api/storagerp/storageaccounts/listkeys) non è consentita per l'account di archiviazione. L' **elenco delle chiavi** è un'operazione post e tutte le operazioni post vengono impedite quando si configura un blocco **ReadOnly** per l'account. Per questo motivo, quando l'account è bloccato con un blocco **ReadOnly** , gli utenti devono usare Azure ad credenziali per accedere ai dati della coda nel portale. Per informazioni sull'accesso ai dati della coda nel portale con Azure AD, vedere [usare l'account di Azure ad](#use-your-azure-ad-account).
 
 > [!NOTE]
-> L'amministratore e il **coamministratore** del **servizio** ruoli di amministratore della sottoscrizione classica includono l'equivalente del [`Owner`](../../role-based-access-control/built-in-roles.md#owner) ruolo Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, incluso `Microsoft.Storage/storageAccounts/listkeys/action` , in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati della coda con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> L'amministratore e il **coamministratore** del **servizio** ruoli di amministratore della sottoscrizione classica includono l'equivalente del [`Owner`](../../role-based-access-control/built-in-roles.md#owner) ruolo Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati della coda con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usare l'account Azure AD
 
@@ -58,7 +61,7 @@ I ruoli personalizzati possono supportare diverse combinazioni delle stesse auto
 L'elenco delle code con un ruolo di amministratore della sottoscrizione classico non è supportato. Per elencare le code, è necessario che un utente abbia assegnato loro il ruolo di **lettore** di Azure Resource Manager, il ruolo di **lettore dati della coda di archiviazione** o il ruolo di **collaboratore dati della coda di archiviazione** .
 
 > [!IMPORTANT]
-> La versione di anteprima di Storage Explorer nel portale di Azure non supporta l'utilizzo di Azure AD credenziali per visualizzare e modificare i dati della coda. Storage Explorer nella portale di Azure usa sempre le chiavi dell'account per accedere ai dati. Per utilizzare Storage Explorer nel portale di Azure, è necessario disporre di un ruolo che includa `Microsoft.Storage/storageAccounts/listkeys/action` .
+> La versione di anteprima di Storage Explorer nel portale di Azure non supporta l'utilizzo di Azure AD credenziali per visualizzare e modificare i dati della coda. Storage Explorer nella portale di Azure usa sempre le chiavi dell'account per accedere ai dati. Per usare Storage Explorer nel portale di Azure, è necessario disporre di un ruolo che includa **Microsoft. storage/storageAccounts/listkeys/Action**.
 
 ## <a name="navigate-to-queues-in-the-azure-portal"></a>Passa alle code nella portale di Azure
 
@@ -95,6 +98,6 @@ Se non si dispone dell'accesso alle chiavi dell'account, le code non sono elenca
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Autenticare l'accesso a BLOB e code di Azure usando Azure Active Directory](../common/storage-auth-aad.md)
-- [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac-portal.md)
+- [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di accodamento](../common/storage-auth-aad-rbac-portal.md)
 - [Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e della coda](../common/storage-auth-aad-rbac-cli.md)
 - [Usare il modulo Azure PowerShell per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](../common/storage-auth-aad-rbac-powershell.md)

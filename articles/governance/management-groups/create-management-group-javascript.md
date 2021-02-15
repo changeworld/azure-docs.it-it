@@ -4,12 +4,12 @@ description: In questo argomento di avvio rapido si usa JavaScript per creare un
 ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 25fd93e51c1b49519bb315aab28cdfc44a2a0c58
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593977"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099150"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Avvio rapido: Creare un gruppo di gestione con JavaScript
 
@@ -29,7 +29,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 ## <a name="application-setup"></a>Configurazione dell'applicazione
 
-Per consentire a JavaScript di eseguire query su Azure Resource Graph, è necessario configurare l'ambiente. Questa configurazione funziona ovunque sia possibile usare JavaScript, incluso [Bash in Windows 10](/windows/wsl/install-win10).
+Per consentire a JavaScript di gestire i gruppi di gestione, è necessario configurare l'ambiente. Questa configurazione funziona ovunque sia possibile usare JavaScript, incluso [Bash in Windows 10](/windows/wsl/install-win10).
 
 1. Configurare un nuovo progetto Node.js usando il comando seguente.
 
