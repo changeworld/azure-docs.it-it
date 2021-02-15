@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 902bd46fcf6efc20c81992e29fd463781fecc15e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731429"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526426"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>Esercitazione: configurare l'analisi per il provisioning utenti automatico
 
@@ -32,6 +32,7 @@ In questa esercitazione vengono descritti i passaggi da eseguire sia per l'anali
 > * Creare utenti in analizzabili
 > * Rimuovere gli utenti in modo che possano essere analizzati quando non richiedono più l'accesso
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e analizzabili
+> * Effettuare il provisioning di gruppi e appartenenze a gruppi in analizzabili
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -107,17 +108,25 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |userName|string|&check;|
    |displayName|string|
 
-10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi a analizzabili**.
 
-11. Per abilitare il servizio di provisioning Azure AD per l'analisi, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a analizzabili nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in analizzabili per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+
+      |Attributo|Type|Supportato per il filtro|
+      |---|---|---|
+      |displayName|string|&check;|
+      |Membri di|Informazioni di riferimento|
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Per abilitare il servizio di provisioning Azure AD per l'analisi, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning nell'analizzabile scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning nell'analizzabile scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-13. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
@@ -129,6 +138,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 1. Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
 2. Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 02/15/2021-provisioning del gruppo abilitato.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

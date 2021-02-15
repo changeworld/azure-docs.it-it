@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fdd3886dda794ff9a91e2c2be6a3d810086d0ed2
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019039"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526987"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connettore dei log di monitoraggio di Azure per app per la logica e automazione dell'alimentazione
 [App](../../logic-apps/index.yml) per la logica di Azure e [Power automatizzate](https://flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
@@ -25,6 +25,7 @@ Il connettore log di monitoraggio di Azure presenta questi limiti:
 * Dimensioni massime risposta query 100 MB
 * Numero massimo di record: 500.000
 * Timeout max query 110 secondo.
+* Le visualizzazioni dei grafici potrebbero essere disponibili nella pagina log e mancanti nel connettore, perché la pagina connettore e log non usano attualmente le stesse librerie di grafici.
 
 A seconda delle dimensioni dei dati e della query usata, il connettore potrebbe raggiungere i limiti e non riuscire. È possibile ovviare a questi casi quando si modifica la ricorrenza del trigger in modo che venga eseguita più di frequente ed eseguire query su un minor numero È possibile utilizzare query che aggregano i dati per restituire meno record e colonne.
 

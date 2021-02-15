@@ -96,10 +96,12 @@
               href: assign-access-policy-powershell.md
             - name: Portale
               href: assign-access-policy-portal.md
-        - name: 'Usare un controllo degli accessi in base al ruolo di Azure per gestire l''accesso a chiavi, segreti e certificati (anteprima)'
-          href: rbac-guide.md
-        - name: Guida alla migrazione dei criteri di accesso dell'insieme di credenziali a Controllo degli accessi in base al ruolo Azure
-          href: rbac-migration.md
+        - name: Modello di autorizzazione RBAC di Azure
+          items:
+            - name: 'Usare un controllo degli accessi in base al ruolo di Azure per gestire l''accesso a chiavi, segreti e certificati'
+              href: rbac-guide.md
+            - name: Guida alla migrazione dei criteri di accesso dell'insieme di credenziali a Controllo degli accessi in base al ruolo Azure
+              href: rbac-migration.md
         - name: Risolvere i problemi di accesso
           href: troubleshooting-access-issues.md
     - name: Sviluppo

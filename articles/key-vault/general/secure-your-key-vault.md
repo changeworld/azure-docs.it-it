@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: f82c7060f703aff6c19f0082454779b8fea1ba76
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796500"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526256"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -26,7 +26,7 @@ Per altre informazioni sul servizio Key Vault, vedere [Informazioni su Azure Key
 
 L'accesso a un insieme di credenziali delle chiavi è controllato tramite due interfacce: il **piano di gestione** e il **piano dati**. Il piano di gestione consente di gestire l'insieme di credenziali delle chiavi stesso. Le operazioni in questo piano includono la creazione e l'eliminazione di insiemi di credenziali delle chiavi, il recupero delle proprietà dell'insieme di credenziali delle chiavi e l'aggiornamento dei criteri di accesso. Il piano dati consente di lavorare con i dati archiviati in un insieme di credenziali delle chiavi. È possibile aggiungere, eliminare e modificare chiavi, segreti e certificati.
 
-Entrambi i piani utilizzano [Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) e il piano dati usa un [criterio di accesso key Vault](./assign-access-policy-portal.md) e il controllo degli accessi in base al ruolo [di azure per le operazioni di Key Vault](./rbac-guide.md)
+Entrambi i piani utilizzano [Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) e il piano dati usa un [criterio di accesso di Key Vault](./assign-access-policy-portal.md) e il controllo degli accessi Key Vault in base al ruolo [di Azure](./rbac-guide.md)
 
 Per accedere a un insieme di credenziali delle chiavi in uno dei piani, tutti i chiamanti (utenti o applicazioni) devono disporre di autenticazione e autorizzazione appropriate. L'autenticazione stabilisce l'identità del chiamante. L'autorizzazione determina le operazioni che il chiamante può eseguire. L'autenticazione con Key Vault funziona in combinazione con [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), che è responsabile dell'autenticazione dell'identità di una determinata **entità di sicurezza**.
 
@@ -111,7 +111,7 @@ Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azu
 
 I vantaggi principali dell'uso dell'autorizzazione RBAC di Azure sui criteri di accesso dell'insieme di credenziali sono la gestione centralizzata del controllo degli accessi e la relativa integrazione con [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) Privileged Identity Management fornisce l'attivazione del ruolo basata sul tempo e sull'approvazione per attenuare i rischi di autorizzazioni di accesso eccessive, inutili o usate in modo improprio per le risorse di importanza strategica.
 
-Per altre informazioni sul piano dati Key Vault con il controllo degli accessi in base al ruolo di Azure, vedere [Key Vault chiavi, certificati e segreti con il controllo degli accessi in base al ruolo di Azure (anteprima)](rbac-guide.md)
+Per altre informazioni sul piano dati Key Vault con il controllo degli accessi in base al ruolo di Azure, vedere [Key Vault chiavi, certificati e segreti con un controllo di accesso in base al ruolo di Azure](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewall e reti virtuali
 

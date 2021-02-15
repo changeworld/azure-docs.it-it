@@ -4,12 +4,12 @@ description: Informazioni sulla crittografia al resto del registro contenitori d
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: bc692dc8df133aa5fae352a7667062f81ceed350
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062729"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526443"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 
@@ -127,11 +127,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per Key Vault](../key-vault/general/rbac-guide.md) (anteprima) per assegnare autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi Ad esempio, assegnare il ruolo crittografia servizio Key Vault Crypto all'identità usando il comando [AZ Role Assignment create](/cli/azure/role/assignment#az-role-assignment-create) :
+In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per Key Vault](../key-vault/general/rbac-guide.md) assegnare autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi. Ad esempio, assegnare il ruolo crittografia servizio Key Vault Crypto all'identità usando il comando [AZ Role Assignment create](/cli/azure/role/assignment#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -267,12 +267,12 @@ Configurare un criterio per l'insieme di credenziali delle chiavi in modo che l'
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Creare un criterio di accesso dell'insieme di credenziali delle chiavi":::
 
-In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per Key Vault](../key-vault/general/rbac-guide.md) (anteprima) per assegnare autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi Ad esempio, assegnare il ruolo crittografia servizio Key Vault Crypto all'identità.
+In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per Key Vault](../key-vault/general/rbac-guide.md) assegnare autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi. Ad esempio, assegnare il ruolo crittografia servizio Key Vault Crypto all'identità.
 
 1. Passare all'insieme di credenziali delle chiavi.
 1. Selezionare **controllo di accesso (IAM)**  >  **+ Aggiungi**  >  **assegnazione ruolo**.
 1. Nella finestra **Aggiungi assegnazione ruolo** :
-    1. Selezionare **Key Vault ruolo crittografia servizio di crittografia (anteprima)** . 
+    1. Selezionare **Key Vault ruolo utente crittografia servizio crittografico** . 
     1. Assegnare l'accesso all' **identità gestita assegnata dall'utente**.
     1. Selezionare il nome della risorsa dell'identità gestita assegnata dall'utente e selezionare **Salva**.
 

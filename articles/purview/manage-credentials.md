@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 091f4d7a4acdcc5d1a2b89a5121ee0cff3ee1f55
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381189"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526698"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenziali per l'autenticazione dell'origine in Azure
 
@@ -67,7 +67,7 @@ Prima di poter creare una credenziale, associare prima di tutto una o più istan
 
 4. Nell'elenco a discesa autorizzazioni per i **segreti** selezionare **Get** ed **Elenca** autorizzazioni.
 
-5. Per **Seleziona entità** scegliere l'identità gestita di competenza.
+5. Per **Seleziona entità** scegliere l'identità gestita di competenza. È possibile cercare l'identità del servizio gestito di competenza usando il nome dell'istanza di competenza **o** l'ID dell'applicazione di identità gestita. Attualmente non sono supportate le identità composte (nome identità gestita + ID applicazione).
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Aggiungere un criterio di accesso":::
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: Zhchia
-ms.openlocfilehash: eb3df574029a7c13488830e01354e738930fcd7f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 55da26296f0545c8e2c0008185de14230cfee304
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523431"
+ms.locfileid: "100526613"
 ---
 # <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>Esercitazione: configurare Hoxhunt per il provisioning utenti automatico
 
@@ -42,16 +42,13 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
 * Tenant di Hoxhunt.
 * Chiave API SCIM e URL dell'endpoint SCIM per l'organizzazione (configurato dal supporto Hoxhunt).
-?
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Acquisire informazioni su [come funziona il servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Hoxhunt](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## <a name="step-2-configure-hoxhunt-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Hoxhunt per supportare il provisioning con Azure AD
-?
 Contattare il [supporto di Hoxhunt](mailto:support@hoxhunt.com) per ricevere la chiave API scim e l'URL dell'endpoint scim per configurare Hoxhunt per supportare il provisioning con Azure ad.
-?
 ## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Hoxhunt dalla raccolta di applicazioni Azure AD
 
 Aggiungere Hoxhunt dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Hoxhunt. Se in precedenza è stato configurato Hoxhunt per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 

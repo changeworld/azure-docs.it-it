@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501057"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526273"
 ---
-# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Crittografia per le aree di lavoro di Azure sinapsi Analytics
+# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Crittografia per le aree di lavoro di Azure Synapse Analytics
 
 In questo articolo verrà illustrato quanto segue:
 * Crittografia dei dati inattivi nelle aree di lavoro di sinapsi Analytics.
@@ -53,7 +53,7 @@ Le aree di lavoro possono essere configurate per abilitare la crittografia doppi
 
 ### <a name="key-access-and-workspace-activation"></a>Accesso alle chiavi e attivazione dell'area di lavoro
 
-Il modello di crittografia di Azure sinapsi con chiavi gestite dal cliente prevede che l'area di lavoro acceda alle chiavi in Azure Key Vault per la crittografia e la decrittografia in base alle esigenze. Le chiavi vengono rese accessibili all'area di lavoro tramite criteri di accesso o Azure Key Vault accesso RBAC ([Anteprima](../../key-vault/general/rbac-guide.md)). Quando si concedono le autorizzazioni tramite un criterio di accesso Azure Key Vault, scegliere l'opzione ["solo applicazione"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante la creazione dei criteri. Selezionare l'identità gestita dell'area di lavoro e non aggiungerla come applicazione autorizzata.
+Il modello di crittografia di Azure sinapsi con chiavi gestite dal cliente prevede che l'area di lavoro acceda alle chiavi in Azure Key Vault per la crittografia e la decrittografia in base alle esigenze. Le chiavi vengono rese accessibili all'area di lavoro tramite criteri di accesso o [Azure Key Vault accesso RBAC](../../key-vault/general/rbac-guide.md). Quando si concedono le autorizzazioni tramite un criterio di accesso Azure Key Vault, scegliere l'opzione ["solo applicazione"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante la creazione dei criteri. Selezionare l'identità gestita dell'area di lavoro e non aggiungerla come applicazione autorizzata.
 
  All'identità gestita dell'area di lavoro devono essere concesse le autorizzazioni necessarie nell'insieme di credenziali delle chiavi prima che l'area di lavoro possa essere attivata. Questo approccio graduale all'attivazione dell'area di lavoro garantisce che i dati nell'area di lavoro vengano crittografati con la chiave gestita dal cliente. Si noti che la crittografia può essere abilitata o disabilitata per i pool SQL dedicati. ogni pool non è abilitato per la crittografia per impostazione predefinita.
 

@@ -7,17 +7,20 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257947"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526664"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
 > [!IMPORTANT]
 > È necessario abilitare immediatamente l'eliminazione temporanea sugli insiemi di credenziali delle chiavi. La possibilità di rifiutare esplicitamente l'eliminazione temporanea sarà presto deprecata. Vedi i dettagli completi [qui](soft-delete-change.md)
+
+> [!IMPORTANT]
+> L'insieme di credenziali eliminato temporaneamente Elimina le impostazioni per l'integrazione con i servizi di Key Vault, ad esempio le assegnazioni di ruoli RBAC di Azure, le sottoscrizioni di griglia di eventi e le impostazioni di diagnostica Dopo il ripristino delle impostazioni di Key Vault eliminate temporaneamente per i servizi integrati, sarà necessario ricrearle manualmente. 
 
 La funzionalità di eliminazione temporanea di Key Vault consente di recuperare gli insiemi di credenziali eliminati ed eliminare gli oggetti dell'insieme di credenziali delle chiavi (ad esempio, chiavi, segreti e certificati), noti come soft-delete. In particolare, vengono affrontati gli scenari seguenti: questa garanzia offre le seguenti protezioni:
 
@@ -27,7 +30,7 @@ La funzionalità di eliminazione temporanea di Key Vault consente di recuperare 
 
 ## <a name="supporting-interfaces"></a>Supporto di interfacce
 
-La funzionalità di eliminazione temporanea è disponibile tramite l' [API REST](/rest/api/keyvault/), le interfacce dell'interfaccia della riga di comando di [Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , oltre ai [modelli ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+La funzionalità di eliminazione temporanea è disponibile tramite l' [API REST](/rest/api/keyvault/), le interfacce dell'interfaccia della riga di comando di [Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) , oltre ai [modelli ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scenari
 

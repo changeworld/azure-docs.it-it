@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523856"
+ms.locfileid: "100526511"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informazioni sulla configurazione della rete di Azure Defender per IoT
 
@@ -695,6 +695,6 @@ Contattare un amministratore Active Directory per creare un gruppo di utenti del
 | Fotocamera | |
 | Macchina a raggi X | |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 [Informazioni sull'installazione di Defender for Internet](how-to-install-software.md)

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f86b2a50040704aac2827c463a362a04f78ba34f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5c7ecfeace88f613d6f15606382bdbb3117a0cce
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881823"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526638"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
@@ -441,14 +441,15 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
             ]
           }
         }
-      }
+       }
+      ]
     }
     ```
  
-8. Distribuire il modello e creare la distribuzione del servizio cloud (supporto esteso). 
+8. Distribuire il modello e il file dei parametri (definendo i parametri nel file di modello) per creare la distribuzione del servizio cloud (supporto esteso). Fare riferimento a questi [modelli di esempio](https://github.com/Azure-Samples/cloud-services-extended-support) come richiesto.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg -TemplateFile "file path to your template file”  
+    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
     ```
  
 ## <a name="next-steps"></a>Passaggi successivi 

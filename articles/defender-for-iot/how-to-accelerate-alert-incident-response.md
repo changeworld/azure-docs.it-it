@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 64e81e246ec62c8995d0e31629b4f21a2c1096b0
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522547"
+ms.locfileid: "100526290"
 ---
 # <a name="accelerate-alert-workflows"></a>Accelerare i flussi di lavoro degli avvisi
 
@@ -140,7 +140,7 @@ La regola viene aggiunta all'elenco **delle regole di avviso personalizzate** , 
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Screenshot di una regola personalizzata aggiunta dall'utente.":::
 
-## <a name="next-steps"></a>Passaggi successivi
+### <a name="see-also"></a>Vedi anche
 
 [Visualizzare le informazioni fornite negli avvisi](how-to-view-information-provided-in-alerts.md)
 

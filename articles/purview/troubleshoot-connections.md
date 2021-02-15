@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: db3954b0368392d63680a8d92f13d6a0423e8ef5
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391593"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526873"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Risolvere i problemi relativi alle connessioni in Azure
 
@@ -53,7 +53,10 @@ Verificare che siano state configurate le autorizzazioni corrette per l'identit�
 Per verificarlo, attenersi alla procedura seguente:
 
 1. Passare all'insieme di credenziali delle chiavi e alla sezione **criteri di accesso**
-1. Verificare che l'identità gestita di competenza venga visualizzata nella sezione *criteri di accesso correnti* con le autorizzazioni **Get** e **List** per i segreti almeno
+
+1. Verificare che l'identità gestita di competenza venga visualizzata nella sezione *criteri di accesso correnti* con almeno le autorizzazioni **Get** e **List** per i segreti
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Immagine che mostra la selezione a discesa delle opzioni di autorizzazione Get ed List":::
 
 Se non viene visualizzata l'identità gestita di competenza, seguire la procedura descritta in [creare e gestire le credenziali per](manage-credentials.md) l'aggiunta. 
 

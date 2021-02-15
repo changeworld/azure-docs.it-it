@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936370"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526239"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -111,7 +111,7 @@ Esporre quindi l'API aggiungendo un ambito:
 Specificare quindi che l'applicazione deve essere considerata come un client pubblico:
 
 1. Nel menu a sinistra, in **Gestisci**, selezionare **Autenticazione**.
-1. In **Impostazioni avanzate** abilitare **Gestire l'applicazione come un client pubblico** (selezionare **Sì**). Verificare che nel manifesto dell'applicazione sia impostato **"allowPublicClient": true**. 
+1. In **Impostazioni avanzate**, nella sezione **Consenti flussi client pubblici** , impostare **Abilita i flussi per dispositivi mobili e desktop seguenti** su **Sì**. Verificare che nel manifesto dell'applicazione sia impostato **"allowPublicClient": true**. 
 1. Selezionare **Salva**.
 
 È ora necessario concedere le autorizzazioni all'ambito dell'API esposto in precedenza nella registrazione di *IdentityExperienceFramework*:

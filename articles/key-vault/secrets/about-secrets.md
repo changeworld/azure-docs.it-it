@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786040"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526639"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informazioni sui segreti di Azure Key Vault
 
@@ -74,7 +74,7 @@ Guide pratiche per il controllo dell'accesso in Key Vault:
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../general/assign-access-policy-cli.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite PowerShell](../general/assign-access-policy-powershell.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure](../general/assign-access-policy-portal.md)
-- [Fornire l'accesso a chiavi, certificati e segreti di Key Vault con un controllo degli accessi in base al ruolo di Azure (anteprima)](../general/rbac-guide.md)
+- [Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Tag dei segreti  
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
@@ -124,7 +124,7 @@ Guide pratiche per il controllo dell'accesso in Key Vault:
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../general/assign-access-policy-cli.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite PowerShell](../general/assign-access-policy-powershell.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure](../general/assign-access-policy-portal.md)
-- [Fornire l'accesso a chiavi, certificati e segreti di Key Vault con un controllo degli accessi in base al ruolo di Azure (anteprima)](../general/rbac-guide.md)
+- [Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

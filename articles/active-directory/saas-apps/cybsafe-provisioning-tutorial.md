@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673377"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527123"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Esercitazione: configurare CybSafe per il provisioning utenti automatico
 
@@ -43,7 +43,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account amministratore di [CybSafe](https://app.cybsafe.com/login) con una sottoscrizione Enterprise.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e CybSafe](../app-provisioning/customize-application-attributes.md). 
 
@@ -121,6 +121,10 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |locale|string|
    |timezone|string|
    |userType|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
+   
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to CybSafe**.
 
@@ -153,6 +157,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 1. Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
 2. Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 02/15/2021: sono stati aggiunti **reparto**, **divisione** e **organizzazione** dell'attributo Enterprise Extension.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

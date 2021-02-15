@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5a0fefd91e0aa60f6a3813513aa82a75b3557c7c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876394"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526970"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -43,12 +43,11 @@ Microsoft Defender for endpoint è una soluzione di sicurezza completa di endpoi
 | Stato della versione:                  | Disponibile a livello generale                                                                                                                                                                                                                                                                                      |
 | Prezzi:                        | Richiede [Azure Defender per server](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Piattaforme supportate:            | Macchine virtuali di Azure che eseguono Windows<br>Computer Azure Arc che eseguono Windows|
-| Versioni supportate di Windows:  |  • Il Centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC|
-| Sistemi operativi non supportati:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
+| Versioni supportate di Windows:  |  • Il Centro sicurezza supporta il rilevamento in Windows Server 2019, 2016, 2012 R2 e 2008 R2 SP1<br> • Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC<br> • [Windows 10 Enterprise Multisession](../virtual-desktop/windows-10-multisession-faq.md) (in precedenza Enterprise per i desktop virtuali (EVD)<br> •  [Desktop virtuale di Windows (Wvd)](../virtual-desktop/overview.md)|
+| Sistemi operativi non supportati:  |  • Windows 10 (diverso da EVD o WVD)<br> • Linux|
 | Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione** o **collaboratore della sottoscrizione**|
 | Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure globali                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
-
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Funzionalità di Microsoft Defender per endpoint nel centro sicurezza
 
@@ -62,7 +61,7 @@ Microsoft Defender per endpoint offre:
 
 Integrando Defender for endpoint con il Centro sicurezza, sarà possibile usufruire delle funzionalità aggiuntive seguenti:
 
-- **Onboarding automatico**. Il Centro sicurezza abilita automaticamente Microsoft Defender per l'endpoint Sensor per tutti i server Windows monitorati dal centro sicurezza. Ad eccezione di quelli che eseguono Windows Server 2019, che devono essere caricati tramite script locali, oggetto Criteri di gruppo (GPO) o [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (in precedenza SCCM).
+- **Onboarding automatico**. Il Centro sicurezza abilita automaticamente Microsoft Defender per l'endpoint Sensor per tutti i server Windows monitorati dal centro sicurezza.
 
 - **Riquadro singolo di vetro**. Nella console del Centro sicurezza viene visualizzato Microsoft Defender per gli avvisi degli endpoint. Per approfondire l'analisi, utilizzare Microsoft Defender per le pagine del portale dell'endpoint in cui verranno visualizzate informazioni aggiuntive, ad esempio l'albero del processo di avviso e il grafico dell'evento imprevisto. È anche possibile visualizzare una sequenza temporale dettagliata che mostra ogni comportamento per un determinato periodo, fino a un massimo di sei mesi.
 
