@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024960"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388584"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Migliorare la sintesi con lo strumento di creazione del contenuto audio
 
@@ -125,7 +125,7 @@ Dopo aver esaminato l'output audio e aver soddisfatto l'ottimizzazione e la rego
 
 ## <a name="how-to-addremove-audio-content-creation-users"></a>Come aggiungere o rimuovere gli utenti per la creazione di contenuti audio?
 
-Se più utenti vogliono usare la creazione di contenuto audio, è possibile condividere l'account e la password di Azure con l'utente oppure concedere all'utente l'accesso alla sottoscrizione di Azure e alla risorsa di riconoscimento vocale. Se si aggiunge un utente a una sottoscrizione di Azure, l'utente può accedere a tutte le risorse nella sottoscrizione di Azure. Tuttavia, se si aggiunge un utente solo a una risorsa vocale, l'utente potrà accedere solo alla risorsa vocale e non potrà accedere ad altre risorse in questa sottoscrizione di Azure. Un utente con accesso alla risorsa di sintesi vocale può usare la creazione di contenuto audio.
+Se più utenti vogliono usare la creazione di contenuto audio, è possibile concedere agli utenti l'accesso alla sottoscrizione di Azure e alla risorsa di riconoscimento vocale. Se si aggiunge un utente a una sottoscrizione di Azure, l'utente può accedere a tutte le risorse nella sottoscrizione di Azure. Tuttavia, se si aggiunge un utente solo a una risorsa vocale, l'utente potrà accedere solo alla risorsa vocale e non potrà accedere ad altre risorse in questa sottoscrizione di Azure. Un utente con accesso alla risorsa di sintesi vocale può usare la creazione di contenuto audio.
 
 ### <a name="add-users-to-a-speech-resource"></a>Aggiungere utenti a una risorsa vocale
 
@@ -146,7 +146,7 @@ Gli utenti che si trovano nella stessa risorsa di sintesi vocale vedranno il lav
 
 ### <a name="remove-users-from-a-speech-resource"></a>Rimuovere gli utenti da una risorsa vocale
 1. Cercare **Servizi cognitivi** nella portale di Azure selezionare la risorsa vocale da cui si vogliono rimuovere gli utenti.
-2. Fare clic su **Controllo di accesso (IAM)** . Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo per questa risorsa vocale.
+2. Fare clic su **Controllo di accesso (IAM)**. Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo per questa risorsa vocale.
 3. Selezionare gli utenti che si desidera rimuovere e fare clic su **Rimuovi**  >  **OK**.
     :::image source="media/audio-content-creation/remove-user.png" alt-text="Pulsante Rimuovi":::
 

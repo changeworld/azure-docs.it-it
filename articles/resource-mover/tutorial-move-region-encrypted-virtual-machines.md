@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0bc70e14e341d9681c75933455eae6b0278724ca
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982297"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361010"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Esercitazione: spostare macchine virtuali di Azure crittografate tra le aree
 
@@ -54,26 +54,49 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 **Addebiti per l'area di destinazione** | Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le macchine virtuali. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
 
 
-## <a name="verify-key-vault-permissions-azure-disk-encryption"></a>Verificare le autorizzazioni dell'insieme di credenziali delle chiavi (crittografia dischi di Azure)
+## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Verificare le autorizzazioni utente nell'insieme di credenziali delle chiavi per le macchine virtuali con crittografia dischi di Azure (ADE)
 
-Se si trasferiscono macchine virtuali con crittografia dischi di Azure abilitata, negli insiemi di credenziali delle chiavi nelle aree di origine e di destinazione, verificare/impostare le autorizzazioni per assicurarsi che lo stato delle macchine virtuali crittografate funzioni come previsto. 
+Se si stanno migrando macchine virtuali con crittografia dischi di Azure abilitata, è necessario eseguire uno script come indicato di [seguito](#copy-the-keys-to-the-destination-key-vault) per il quale l'utente che esegue lo script deve disporre delle autorizzazioni appropriate. Per conoscere le autorizzazioni necessarie, fare riferimento alla tabella seguente. Le opzioni per modificare le autorizzazioni sono disponibili passando all'insieme di credenziali delle chiavi nella portale di Azure, in **Impostazioni**, selezionare criteri di **accesso**.
 
-1. Nella portale di Azure aprire l'insieme di credenziali delle chiavi nell'area di origine.
-2. In **Impostazioni** selezionare **criteri di accesso**.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Pulsante per aprire i criteri di accesso dell'insieme di credenziali delle chiavi." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Pulsante per aprire i criteri di accesso dell'insieme di credenziali delle chiavi." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+Se non sono disponibili autorizzazioni utente, selezionare **Aggiungi criteri di accesso** e specificare le autorizzazioni. Se l'account utente dispone già di un criterio, in **utente** impostare le autorizzazioni in base alla tabella seguente.
 
-3. Se non sono disponibili autorizzazioni utente, selezionare **Aggiungi criteri di accesso** e specificare le autorizzazioni. Se l'account utente dispone già di un criterio, impostare le autorizzazioni in **utente**.
+Le macchine virtuali di Azure che usano ADE possono avere le seguenti varianti e le autorizzazioni devono essere impostate di conseguenza per i componenti pertinenti.
+- Opzione predefinita in cui il disco è crittografato usando solo segreti
+- Sicurezza aggiunta tramite [chiave di crittografia della chiave](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-    - Se le macchine virtuali che si desidera spostare sono abilitate con crittografia dischi di Azure (ADE), in operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Ottieni** ed **Elenca** se non sono selezionate.
-    - Se si usano chiavi gestite dal cliente (CMK) per crittografare le chiavi di crittografia del disco usate per la crittografia inattiva (crittografia lato server), in operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Get** ed **elenco**. Inoltre, in **operazioni di crittografia** selezionare **decrittografia** e **crittografia**
- 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Elenco a discesa per selezionare le autorizzazioni di Key Vault." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
+### <a name="source-region-keyvault"></a>Insieme di credenziali delle credenziali dell'area di origine
 
-4. In **autorizzazioni segrete**,  **operazioni di gestione segreta** selezionare **Get**, **List** e **set**. 
-5. Se si assegnano autorizzazioni a un nuovo account utente, in **Seleziona entità** selezionare l'utente a cui si stanno assegnando le autorizzazioni.
-6. In **criteri di accesso**, assicurarsi che **crittografia dischi di Azure per la crittografia del volume** sia abilitata.
-7. Ripetere la procedura per l'insieme di credenziali delle chiavi nell'area di destinazione.
+È necessario impostare le autorizzazioni seguenti per l'utente che esegue lo script 
+
+**Componente** | **Autorizzazione necessaria**
+--- | ---
+Segreti|  Ottenere l'autorizzazione <br> </br> In **Secret Permissions** >   **Secret Operation Management** selezionare **Get** 
+Chiavi <br> </br> Se si usa la chiave di crittografia della chiave (KEK), è necessaria questa autorizzazione oltre ai segreti| Autorizzazione Get e Decrypt <br> </br> Nelle operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Get**. In **operazioni crittografiche** selezionare **Decrypt**.
+
+### <a name="destination-region-keyvault"></a>Insieme di credenziali delle credenziali dell'area di destinazione
+
+In **criteri di accesso**, assicurarsi che **crittografia dischi di Azure per la crittografia del volume** sia abilitata. 
+
+È necessario impostare le autorizzazioni seguenti per l'utente che esegue lo script 
+
+**Componente** | **Autorizzazione necessaria**
+--- | ---
+Segreti|  Imposta autorizzazione <br> </br> In **Secret Permissions** >   **Secret Operation Management**, Select **set** 
+Chiavi <br> </br> Se si usa la chiave di crittografia della chiave (KEK), è necessaria questa autorizzazione oltre ai segreti| Ottenere, creare e crittografare l'autorizzazione <br> </br> Nelle operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Get** e **create** . In **operazioni di crittografia** selezionare **Crittografa**.
+
+Oltre alle autorizzazioni sopra riportate, nell'insieme di credenziali delle chiavi di destinazione è necessario aggiungere le autorizzazioni per l' [identità del sistema gestito](./common-questions.md#how-is-managed-identity-used-in-resource-mover) usato da Mover per accedere alle risorse di Azure per conto dell'utente. 
+
+1. In **Impostazioni** selezionare **Aggiungi criteri di accesso**. 
+2. In **Seleziona entità** cercare il file MSI. Il nome MSI è ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` . 
+3. Aggiungere le autorizzazioni seguenti per il file MSI
+
+**Componente** | **Autorizzazione necessaria**
+--- | ---
+Segreti|  Autorizzazione Get ed List <br> </br> In **Secret Permissions** >   **Secret Operation Management** selezionare **Get** ed **List** 
+Chiavi <br> </br> Se si usa la chiave di crittografia della chiave (KEK), è necessaria questa autorizzazione oltre ai segreti| Get, elenco delle autorizzazioni <br> </br> In operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Get** ed **elenco**
+
 
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>Copiare le chiavi nell'insieme di credenziali delle chiavi di destinazione

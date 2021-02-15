@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540201"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091670"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Modalità di funzionamento di Azure Machine Learning: Architettura e concetti
 
@@ -36,7 +36,7 @@ L'area di lavoro è la posizione centralizzata per:
   * [Pipeline](#ml-pipelines)
   * [Set di dati](#datasets-and-datastores)
   * [Modelli](#models)
-  * [Endpoints](#endpoints)
+  * [Endpoint](#endpoints)
 
 Un'area di lavoro include altre risorse di Azure usate dall'area di lavoro:
 
@@ -47,28 +47,15 @@ Un'area di lavoro include altre risorse di Azure usate dall'area di lavoro:
 
 È possibile condividere un'area di lavoro con altri utenti.
 
-### <a name="create-workspace"></a>Creare un'area di lavoro
-
-Il diagramma seguente mostra il flusso di lavoro di creazione dell'area di lavoro.
-
-* L'utente accede ad Azure AD da uno dei client di Azure Machine Learning supportati, quali l'interfaccia della riga di comando di Azure, Python SDK, il portale di Azure, e richiede il token di Azure Resource Manager adeguato.
-* Chiama Azure Resource Manager per creare l'area di lavoro. 
-* Azure Resource Manager contatta il provider di risorse di Azure Machine Learning per eseguire il provisioning dell'area di lavoro.
-* Se non si specificano risorse esistenti, nella sottoscrizione vengono create altre risorse obbligatorie.
-
-È anche possibile eseguire il provisioning di altre destinazioni di calcolo collegate a un'area di lavoro, ad esempio il servizio o le VM Kubernetes di Azure, in base alle esigenze.
-
-[![Flusso di lavoro di creazione di un'area di lavoro](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
-
 ## <a name="computes"></a>Calcola
 
 <a name="compute-targets"></a> Una [destinazione di calcolo](concept-compute-target.md) è un computer o un set di computer usati per eseguire lo script di training o ospitare la distribuzione del servizio. È possibile usare il computer locale o una risorsa di calcolo remota come destinazione di calcolo.  Con le destinazioni di calcolo è possibile avviare il training nel computer locale e quindi aumentare il livello di prestazioni nel cloud senza modificare lo script di training.
 
 Azure Machine Learning introduce due macchine virtuali (VM) basate sul cloud completamente gestite configurate per le attività di Machine Learning:
 
-* <a name="compute-instance"></a>**Istanza di calcolo** : un'istanza di calcolo è una macchina virtuale che include più strumenti e ambienti installati per Machine Learning. L'uso principale di un'istanza di calcolo è per la workstation di sviluppo.  È possibile avviare l'esecuzione dei notebook di esempio senza che sia necessaria alcuna installazione. Un'istanza di calcolo può essere usata anche come destinazione di calcolo per il training e l'inferenza dei processi.
+* <a name="compute-instance"></a>**Istanza di calcolo**: un'istanza di calcolo è una macchina virtuale che include più strumenti e ambienti installati per Machine Learning. L'uso principale di un'istanza di calcolo è per la workstation di sviluppo.  È possibile avviare l'esecuzione dei notebook di esempio senza che sia necessaria alcuna installazione. Un'istanza di calcolo può essere usata anche come destinazione di calcolo per il training e l'inferenza dei processi.
 
-* **Cluster di calcolo** : i cluster di calcolo sono un cluster di macchine virtuali con funzionalità di scalabilità a più nodi. I cluster di calcolo sono più adatti per le destinazioni di calcolo per processi e produzione di grandi dimensioni.  Il cluster viene ridimensionato automaticamente quando viene inviato un processo.  Usare come destinazione di calcolo per il training o per la distribuzione di sviluppo/test.
+* **Cluster di calcolo**: i cluster di calcolo sono un cluster di macchine virtuali con funzionalità di scalabilità a più nodi. I cluster di calcolo sono più adatti per le destinazioni di calcolo per processi e produzione di grandi dimensioni.  Il cluster viene ridimensionato automaticamente quando viene inviato un processo.  Usare come destinazione di calcolo per il training o per la distribuzione di sviluppo/test.
 
 Per ulteriori informazioni sulle destinazioni di calcolo di training, vedere [training di destinazioni di calcolo](concept-compute-target.md#train).  Per ulteriori informazioni sulle destinazioni di calcolo della distribuzione, vedere [destinazioni di distribuzione](concept-compute-target.md#deploy).
 
@@ -126,10 +113,6 @@ Per esempio eseguire le configurazioni, vedere [configurare un'esecuzione di tra
 [Area di lavoro](#workspace)  >  [Esperimenti](#experiments)  >  [Esegui](#runs)  >  **Snapshot**
 
 Quando si invia un'esecuzione, Azure Machine Learning consente di comprimere la directory che contiene lo script come file ZIP e lo invia alla destinazione di calcolo. Il file ZIP viene quindi estratto e lo script eseguito in questa posizione. Azure Machine Learning archivia inoltre il file ZIP come snapshot come parte del record di esecuzione. Chiunque abbia accesso all'area di lavoro può esplorare un record di esecuzione e scaricare lo snapshot.
-
-Il diagramma seguente mostra il flusso di lavoro dello snapshot del codice.
-
-[![Flusso di lavoro dello snapshot del codice](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Registrazione
 
@@ -277,8 +260,8 @@ Azure Machine Learning offre le funzionalità di monitoraggio e registrazione se
    * [Registrare le metriche per le esecuzioni di training](how-to-track-experiments.md)
    * [Tenere traccia di esperimenti con MLflow](how-to-use-mlflow.md)
    * [Visualizzare le esecuzioni con TensorBoard](how-to-monitor-tensorboard.md)
-* Per gli __amministratori__ , è possibile monitorare le informazioni sull'area di lavoro, le risorse di Azure correlate ed eventi quali la creazione e l'eliminazione di risorse con monitoraggio di Azure. Per ulteriori informazioni, vedere [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
-* Per __DevOps__ o __MLOps__ , è possibile monitorare le informazioni generate dai modelli distribuiti come servizi Web o IOT Edge moduli per identificare i problemi relativi alle distribuzioni e raccogliere i dati inviati al servizio. Per ulteriori informazioni, vedere [raccolta di dati del modello](how-to-enable-data-collection.md) e [monitoraggio con Application Insights](how-to-enable-app-insights.md).
+* Per gli __amministratori__, è possibile monitorare le informazioni sull'area di lavoro, le risorse di Azure correlate ed eventi quali la creazione e l'eliminazione di risorse con monitoraggio di Azure. Per ulteriori informazioni, vedere [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
+* Per __DevOps__ o __MLOps__, è possibile monitorare le informazioni generate dai modelli distribuiti come servizi Web o IOT Edge moduli per identificare i problemi relativi alle distribuzioni e raccogliere i dati inviati al servizio. Per ulteriori informazioni, vedere [raccolta di dati del modello](how-to-enable-data-collection.md) e [monitoraggio con Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Interazione con l'area di lavoro
 

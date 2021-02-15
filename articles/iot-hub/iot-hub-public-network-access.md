@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/12/2021
+ms.openlocfilehash: 27552b2c39f2d1e5d9cc1719a9cc2944e088773a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85937519"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517128"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gestione dell'accesso alla rete pubblica per l'hub Internet delle cose
 
@@ -28,7 +28,13 @@ Per limitare l'accesso solo all' [endpoint privato per l'hub Internet delle cose
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Immagine che Mostra portale di Azure dove disattivare l'accesso alla rete pubblica" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
-Per abilitare l'accesso alla rete pubblica, selezionare **abilitato**, quindi **Salva**.
+Per abilitare l'accesso alla rete pubblica, selezionare **tutte le reti**, quindi **Salva**.
+
+## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>Endpoint dell'hub Internet, indirizzo IP e porte dopo la disabilitazione dell'accesso alla rete pubblica
+
+L'hub tutto è una piattaforma distribuita come servizio (PaaS) multi-tenant, quindi i clienti diversi condividono lo stesso pool di risorse hardware di calcolo, di rete e di archiviazione. I nomi host dell'hub delle cose vengono mappati a un endpoint pubblico con un indirizzo IP instradabile pubblicamente tramite Internet. Diversi clienti possono condividere questo endpoint pubblico dell'hub IoT e consentire l'accesso a tutti i dispositivi IoT su reti WAN (Wide Area Network) e su reti locali. 
+
+La disabilitazione dell'accesso alla rete pubblica viene applicata a una risorsa dell'hub degli accessi specifici, garantendo l'isolamento. Per mantenere attivo il servizio per altre risorse dei clienti usando il percorso pubblico, l'endpoint pubblico rimane risolvibile, individuabile dagli indirizzi IP e le porte rimangono aperte. Questo non è un problema perché Microsoft integra più livelli di sicurezza per garantire un isolamento completo tra i tenant. Per altre informazioni, vedere [isolamento nel cloud pubblico di Azure](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
 ## <a name="ip-filter"></a>Filtro IP 
 

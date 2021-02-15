@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008555"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093999"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -110,7 +110,7 @@ Sì, durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'ap
 
 **Sto usando un contenitore personalizzato. Desidero che la piattaforma Monti una condivisione SMB nella `/home/` Directory.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o è impostata su *true*, la `/home/` directory **verrà condivisa** tra le istanze della scala e i file scritti **verranno mantenuti** tra i riavvii. Se si imposta in modo esplicito `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su *false* , il montaggio viene disabilitato.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o è impostata su *false*, la `/home/` Directory non verrà **condivisa** tra le istanze della scala e i file scritti **non verranno mantenuti** tra i riavvii. Se si imposta in modo esplicito `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su *true* , il montaggio viene attivato.
 
 **L'avvio del contenitore personalizzato richiede molto tempo e la piattaforma riavvia il contenitore prima del completamento di questa operazione. Come si risolve il problema?**
 

@@ -3,12 +3,12 @@ title: Distribuire e configurare la soluzione Azure VMware
 description: Informazioni su come usare le informazioni raccolte nella fase di pianificazione per distribuire il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 4c6929ca59bae022642082e8382203a10bd41309
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760877"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382056"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuire e configurare la soluzione Azure VMware
 
@@ -68,13 +68,13 @@ In questo esempio la rete 10.74.72.0/22 specificata come input durante la distri
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>Connettersi e accedere a vCenter e NSX-T
 
-Accedere alla jump box creata nel passaggio precedente. Dopo l'accesso, aprire un Web browser, quindi passare e accedere a vCenter e alla console di amministrazione di NSX-T.  
+Accedere alla jump box creata nel passaggio precedente. Una volta effettuato l'accesso, aprire un Web browser e passare a e accedere a vCenter e NSX-T Manager.  
 
-È possibile identificare gli indirizzi IP e le credenziali di vCenter e della console di amministrazione di NSX-T nel portale di Azure.  Selezionare il cloud privato e quindi nella visualizzazione **Overview** (Panoramica) selezionare **Identity > Default** (Identità > Impostazione predefinita). 
+È possibile identificare gli indirizzi IP e le credenziali della console vCenter e NSX-T Manager nel portale di Azure.  Selezionare il cloud privato e quindi nella visualizzazione **Overview** (Panoramica) selezionare **Identity > Default** (Identità > Impostazione predefinita). 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Creare un segmento di rete nella soluzione Azure VMware
 
-Usare NSX-T per creare nuovi segmenti di rete nell'ambiente della soluzione Azure VMware.  Sono state definite le reti che si desidera creare nella [sezione relativa alla pianificazione](production-ready-deployment-steps.md).  Se le reti non sono state definite, tornare alla [sezione di pianificazione](production-ready-deployment-steps.md) prima di continuare.
+Si usa NSX-T Manager per creare nuovi segmenti di rete nell'ambiente della soluzione VMware di Azure.  Sono state definite le reti che si desidera creare nella [sezione relativa alla pianificazione](production-ready-deployment-steps.md).  Se le reti non sono state definite, tornare alla [sezione di pianificazione](production-ready-deployment-steps.md) prima di continuare.
 
 >[!IMPORTANT]
 >Assicurarsi che il blocco di indirizzi di rete CIDR definito non si sovrapponga con altri elementi in Azure o negli ambienti locali.  

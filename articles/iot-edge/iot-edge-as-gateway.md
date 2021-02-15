@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536439"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371100"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Come usare un dispositivo Azure IoT Edge come gateway
 
@@ -36,16 +36,18 @@ I modelli del gateway trasparente e di conversione non si escludono a vicenda. U
 Tutti i modelli di gateway offrono i vantaggi seguenti:
 
 * **Analisi alla periferia** : usare i servizi di intelligenza artificiale localmente per elaborare i dati provenienti dai dispositivi downstream senza inviare i dati di telemetria con la massima fedeltà al cloud. Trovare e gestire le informazioni dettagliate in locale e inviare solo un subset di dati all'hub IoT.
-* **Isolamento dei dispositivi downstream** : il dispositivo gateway può proteggere tutti i dispositivi downstream dall'esposizione a Internet. Può risiedere tra una rete di tecnologia operativa (OT) che non dispone di connettività e una rete IT (Information Technology) che fornisce l'accesso al Web. In modo analogo, i dispositivi che non hanno la possibilità di connettersi all'hub delle cose possono connettersi a un dispositivo gateway.
-* **Multiplexing delle connessioni** : tutti i dispositivi connessi all'hub IoT tramite un gateway IoT Edge usano la stessa connessione sottostante.
-* **Smorzamento del traffico** : il dispositivo IoT Edge esegue automaticamente il backoff esponenziale se l'hub IoT limita il traffico, salvando al contempo i messaggi in locale. Questo vantaggio rende la soluzione resiliente ai picchi di traffico.
+* **Isolamento dei dispositivi downstream**: il dispositivo gateway può proteggere tutti i dispositivi downstream dall'esposizione a Internet. Può risiedere tra una rete di tecnologia operativa (OT) che non dispone di connettività e una rete IT (Information Technology) che fornisce l'accesso al Web. In modo analogo, i dispositivi che non hanno la possibilità di connettersi all'hub delle cose possono connettersi a un dispositivo gateway.
+* **Multiplexing della connessione** : tutti i dispositivi che si connettono all'hub Internet tramite un gateway IOT Edge possono usare la stessa connessione sottostante. Questa funzionalità di multiplexing richiede che il gateway IoT Edge usi AMQP come protocollo upstream.
+* **Smorzamento del traffico**: il dispositivo IoT Edge esegue automaticamente il backoff esponenziale se l'hub IoT limita il traffico, salvando al contempo i messaggi in locale. Questo vantaggio rende la soluzione resiliente ai picchi di traffico.
 * **Supporto offline** : il dispositivo gateway archivia i messaggi e gli aggiornamenti dei dispositivi gemelli che non possono essere recapitati all'hub Internet.
 
 ## <a name="transparent-gateways"></a>Gateway trasparenti
 
 Nel modello di gateway trasparente, i dispositivi che teoricamente potrebbero connettersi all'hub Internet possono connettersi a un dispositivo gateway. I dispositivi downstream hanno le proprie identità dell'hub e si connettono usando i protocolli MQTT o AMQP. Il gateway passa semplicemente le comunicazioni tra i dispositivi e l'hub IoT. Sia i dispositivi che gli utenti che interagiscono con loro tramite l'hub Internet non sanno che un gateway sta mediando le comunicazioni. Questa mancanza di consapevolezza significa che il gateway è considerato *trasparente*.
 
-<!-- 1.0.10 -->
+Per altre informazioni sul modo in cui l'hub IoT Edge gestisce la comunicazione tra i dispositivi downstream e il cloud, vedere [comprendere il runtime di Azure IOT Edge e la relativa architettura](iot-edge-runtime.md).
+
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 I dispositivi IoT Edge non possono essere a valle di un gateway di IoT Edge.
@@ -73,6 +75,11 @@ La relazione padre/figlio viene stabilita in tre punti della configurazione del 
 
 Tutti i dispositivi in uno scenario con gateway trasparente necessitano di identità cloud, in modo che possano eseguire l'autenticazione nell'hub Internet. Quando si crea o si aggiorna un'identità del dispositivo, è possibile impostare i dispositivi padre o figlio del dispositivo. Questa configurazione autorizza il dispositivo gateway padre a gestire l'autenticazione per i dispositivi figlio.
 
+>[!NOTE]
+>Impostazione del dispositivo padre nell'hub di tutto il tempo usato come passaggio facoltativo per i dispositivi downstream che usano l'autenticazione con chiave simmetrica. Tuttavia, a partire dalla versione 1.1.0 ogni dispositivo downstream deve essere assegnato a un dispositivo padre.
+>
+>È possibile configurare l'hub IoT Edge per tornare al comportamento precedente impostando la variabile di ambiente **authenticationMode** sul valore **CloudAndScope**.
+
 I dispositivi figlio possono avere un solo padre. Ogni elemento padre può avere fino a 100 elementi figlio.
 
 <!-- 1.2.0 -->
@@ -82,7 +89,7 @@ I dispositivi IoT Edge possono essere elementi padre e figlio nelle relazioni Tr
 
 #### <a name="gateway-discovery"></a>Individuazione gateway
 
-Un dispositivo figlio deve essere in grado di trovare il dispositivo padre nella rete locale. Configurare i dispositivi gateway con un nome **host** , ovvero un nome di dominio completo (FQDN) o un indirizzo IP, che i dispositivi figlio utilizzeranno per individuarlo.
+Un dispositivo figlio deve essere in grado di trovare il dispositivo padre nella rete locale. Configurare i dispositivi gateway con un nome **host**, ovvero un nome di dominio completo (FQDN) o un indirizzo IP, che i dispositivi figlio utilizzeranno per individuarlo.
 
 Nei dispositivi di tutto il downstream, usare il parametro **gatewayHostname** nella stringa di connessione per puntare al dispositivo padre.
 
@@ -106,7 +113,7 @@ Tutte le primitive dell'hub Internet che funzionano con la pipeline di messaggis
 
 Usare la tabella seguente per vedere il modo in cui sono supportate le funzionalità dell'hub per i dispositivi diversi rispetto ai dispositivi dietro i gateway.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Funzionalità | Dispositivo IoT | Tutto dietro un gateway |
@@ -134,7 +141,7 @@ Usare la tabella seguente per vedere il modo in cui sono supportate le funzional
 
 Le **Immagini del contenitore** possono essere scaricate, archiviate e recapitate dai dispositivi padre ai dispositivi figlio.
 
-I **BLOB** , inclusi i bundle di supporto e i log, possono essere caricati dai dispositivi figlio ai dispositivi padre.
+I **BLOB**, inclusi i bundle di supporto e i log, possono essere caricati dai dispositivi figlio ai dispositivi padre.
 
 ::: moniker-end
 

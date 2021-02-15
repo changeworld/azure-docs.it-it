@@ -1,22 +1,18 @@
 ---
 title: Runtime di integrazione
 description: Informazioni sul runtime di integrazione in Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 911674a80b531a50cfb429c5dc0ff41f1aaceb08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636647"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389944"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory 
 
@@ -24,10 +20,10 @@ ms.locfileid: "92636647"
 
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
 
-- **Flusso di dati** : eseguire un [flusso di dati](concepts-data-flow-overview.md) nell'ambiente di calcolo di Azure gestito.  
-- **Spostamento dei dati** : copiare i dati tra archivi dati nella rete pubblica e negli archivi dati in una rete privata (in locale o in una rete privata virtuale). Fornisce il supporto per i connettori predefiniti, la conversione dei formati, il mapping di colonne e il trasferimento di dati scalabile e ad alte prestazioni.
-- **Invio di attività** : inviare e monitorare le attività di trasformazione in esecuzione in diversi servizi di calcolo, ad esempio Azure Databricks, Azure HDInsight, Azure Machine Learning, database SQL di azure, SQL Server e altro ancora.
-- **Esecuzione di pacchetti SSIS** : eseguire in modo nativo i pacchetti SQL Server Integration Services (SSIS) in un ambiente di calcolo Azure gestito.
+- **Flusso di dati**: eseguire un [flusso di dati](concepts-data-flow-overview.md) nell'ambiente di calcolo di Azure gestito.  
+- **Spostamento dei dati**: copiare i dati tra archivi dati nella rete pubblica e negli archivi dati in una rete privata (in locale o in una rete privata virtuale). Fornisce il supporto per i connettori predefiniti, la conversione dei formati, il mapping di colonne e il trasferimento di dati scalabile e ad alte prestazioni.
+- **Invio di attività**: inviare e monitorare le attività di trasformazione in esecuzione in diversi servizi di calcolo, ad esempio Azure Databricks, Azure HDInsight, Azure Machine Learning, database SQL di azure, SQL Server e altro ancora.
+- **Esecuzione di pacchetti SSIS**: eseguire in modo nativo i pacchetti SQL Server Integration Services (SSIS) in un ambiente di calcolo Azure gestito.
 
 In Data Factory, un'attività definisce l'azione da eseguire. Un servizio collegato definisce un archivio dati o un servizio di calcolo di destinazione. Un runtime di integrazione funge da ponte tra l'attività e i servizi collegati.  A cui fa riferimento il servizio collegato o l'attività e fornisce l'ambiente di calcolo in cui l'attività viene eseguita o da cui viene inviata. In questo modo, l'attività può essere eseguita nell'area più vicina possibile all'archivio dati o al servizio di calcolo di destinazione nel modo più efficiente soddisfacendo al contempo le esigenze di sicurezza e conformità.
 
@@ -180,9 +176,9 @@ Il diagramma seguente mostra le impostazioni relative alla località di Data Fac
 
 Per l'attività di copia sono necessari i servizi collegati di origine e sink per definire la direzione del flusso di dati. Per determinare l'istanza del runtime di integrazione usata per eseguire la copia, viene usata la logica seguente: 
 
-- **Copia tra due origini dati cloud** : quando entrambi i servizi collegati di origine e sink usano Azure IR, ADF usa il Azure IR regionale se è stato specificato o determina automaticamente il percorso di Azure IR se si sceglie il runtime di integrazione automatica (impostazione predefinita), come descritto nella sezione relativa al [percorso di Integration Runtime](#integration-runtime-location) .
-- **Copia dei dati tra un'origine dati cloud e un'origine dati nella rete privata** : se il servizio collegato di origine o sink punta a un runtime di integrazione self-hosted, l'attività di copia viene eseguita su questo runtime di integrazione self-hosted.
-- **Copia tra due origini dati nella rete privata** : il servizio collegato di origine e sink deve puntare alla stessa istanza di Integration Runtime e tale runtime di integrazione viene usato per eseguire l'attività di copia.
+- **Copia tra due origini dati cloud**: quando entrambi i servizi collegati di origine e sink usano Azure IR, ADF usa il Azure IR regionale se è stato specificato o determina automaticamente il percorso di Azure IR se si sceglie il runtime di integrazione automatica (impostazione predefinita), come descritto nella sezione relativa al [percorso di Integration Runtime](#integration-runtime-location) .
+- **Copia dei dati tra un'origine dati cloud e un'origine dati nella rete privata**: se il servizio collegato di origine o sink punta a un runtime di integrazione self-hosted, l'attività di copia viene eseguita su questo runtime di integrazione self-hosted.
+- **Copia tra due origini dati nella rete privata**: il servizio collegato di origine e sink deve puntare alla stessa istanza di Integration Runtime e tale runtime di integrazione viene usato per eseguire l'attività di copia.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Attività Lookup e GetMetadata
 

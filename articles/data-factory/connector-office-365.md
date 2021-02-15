@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da Office 365 usando Azure Data Factory
 description: Informazioni su come copiare dati da Office 365 in archivi dati di sink supportati usando attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 365896fec555340c3932192aa82086d140d4db0c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632992"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393004"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiare dati da Office 365 in Azure usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -49,7 +44,7 @@ Prima di copiare dati da Office 365 in Azure, è necessario completare i passagg
 
 ## <a name="approving-new-data-access-requests"></a>Approvazione di nuove richieste di accesso ai dati
 
-Se questa è la prima volta che si richiedono dati per questo contesto (una combinazione di elementi come la tabella dati a cui occorre accedere, l'account di destinazione in cui devono essere caricati i dati e l'identità che sta richiedendo l'accesso ai dati), si noterà che lo stato dell'attività di copia è "In corso" e solo quando si seleziona il collegamento "Dettagli" nel riquadro [Azioni](copy-activity-overview.md#monitoring) si visualizzerà lo stato "RequestingConsent".  Un membro del gruppo dei responsabili dell'approvazione dell'accesso ai dati deve approvare la richiesta in Privileged Access Management prima che l'estrazione dei dati prosegua.
+Se è la prima volta che si richiedono i dati per questo contesto, ovvero una combinazione della tabella dati a cui viene eseguito l'accesso, l'account di destinazione in cui vengono caricati i dati e l'identità dell'utente che effettua la richiesta di accesso ai dati. lo stato dell'attività di copia verrà visualizzato come "in corso" e solo quando si fa clic sul [collegamento "dettagli" in azioni](copy-activity-overview.md#monitoring) verrà visualizzato lo stato "RequestingConsent".  Un membro del gruppo dei responsabili dell'approvazione dell'accesso ai dati deve approvare la richiesta in Privileged Access Management prima che l'estrazione dei dati prosegua.
 
 Per informazioni sul modo in cui il responsabile dell'approvazione può approvare la richiesta di accesso ai dati, vedere [questo articolo](/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal). Per una spiegazione sull'integrazione generale con Privileged Access Management, incluse informazioni su come configurare il gruppo di responsabili dell'approvazione all'accesso ai dati, vedere [questo articolo](/graph/data-connect-pam).
 
@@ -57,7 +52,7 @@ Per informazioni sul modo in cui il responsabile dell'approvazione può approvar
 
 Se Azure Data Factory viene creato come parte di un'app gestita e le assegnazioni dei criteri di Azure vengono eseguite sulle risorse all'interno del gruppo di risorse di gestione, quindi per ogni esecuzione dell'attività di copia, Azure Data Factory verificherà che vengano applicate le assegnazioni dei criteri. Per un elenco dei criteri supportati, vedere [questo articolo](/graph/data-connect-policies#policies).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 >[!TIP]
 >Per una procedura dettagliata sull'uso del connettore di Office 365, vedere l'articolo [Caricare dati da Office 365](load-office-365-data.md).
@@ -89,7 +84,7 @@ Per il servizio collegato di Office 365 sono supportate le proprietà seguenti:
 >[!NOTE]
 > Differenza tra **office365TenantId** e **servicePrincipalTenantId** e il valore corrispondente da specificare:
 >- Se l'utente è uno sviluppatore aziendale che sviluppa un'applicazione con i dati di Office 365 per l'utilizzo nell'organizzazione, è necessario specificare lo stesso ID tenant per entrambe le proprietà, ovvero l'ID tenant AAD dell'organizzazione.
->- Se l'utente è uno sviluppatore di ISV che sviluppa un'applicazione per i clienti, office365TenantId corrisponderà all'ID tenant AAD del cliente (programma di installazione dell'applicazione) e servicePrincipalTenantId corrisponderà all'ID tenant AAD della società.
+>- Se si è uno sviluppatore ISV che sviluppa un'applicazione per i clienti, office365TenantId sarà l'ID tenant di AAD del cliente (programma di installazione dell'applicazione) e servicePrincipalTenantId sarà l'ID tenant di AAD della società.
 
 **Esempio:**
 

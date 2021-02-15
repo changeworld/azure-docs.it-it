@@ -3,22 +3,22 @@ title: 'ML Studio (versione classica): Azure AI Gallery-Azure'
 description: Condividere e scoprire risorse di analisi e altro in Azure AI Gallery. Imparare da altri utenti e offrire il proprio contributo alla community.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: eacc7adae16785049022cd05f04904d97b0b3a6d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 935d0149a4a6b33c5272e57aab5f1cc9c3bb2924
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486127"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519848"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
 
-**si applica a:** ![ Si tratta di un segno di spunta, che indica che questo articolo si applica alla Machine Learning Studio (classica). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) si ![ tratta di una X, il che significa che questo articolo si applica al Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**SI APPLICA A:**  ![Questo è un segno di spunta, che significa che l'articolo si applica a Machine Learning Studio (versione classica).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Questa è una X, che significa che l'articolo si applica ad Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -28,7 +28,7 @@ Questo sito include diverse risorse che è possibile usare per sviluppare soluzi
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
 
-Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Queste includono:
+Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Tra queste sono incluse:
 
 * **Esperimenti** : la raccolta contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio (classico). da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 * **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
@@ -97,7 +97,7 @@ Gli utenti possono anche aggiungere commenti e condividere il contributo con alt
    * Screenshot del grafico dell'esperimento
    * Origini dati e spiegazione
    * Elaborazione dati
-   * Progettazione delle funzioni
+   * Progettazione delle caratteristiche
    * Descrizione modello
    * Risultati e valutazione delle prestazioni del modello
 
@@ -161,7 +161,7 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
    > [!TIP]
    > Per assicurarsi che la documentazione sia corretta prima di pubblicarla, è possibile usare l'opzione **Unlisted** (Non in elenco) prima di rendere pubblico l'esperimento. In un secondo momento sarà possibile modificare l'impostazione di visibilità su **Public** (Pubblico) nella pagina dei dettagli dell'esperimento. Si noti che, dopo aver impostato un esperimento su **Public** (Pubblico), successivamente non è possibile impostarlo su **Unlisted** (Non in elenco).
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 Il contributo si trova ora in Azure AI Gallery. I contributi vengono elencati nella pagina del proprio account, all'interno della scheda **Elementi**.
 

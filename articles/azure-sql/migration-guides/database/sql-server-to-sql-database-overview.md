@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357331"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368048"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Panoramica della migrazione: SQL Server al database SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ L'installazione manuale di SQL Server funzionalità di disponibilità elevata, a
 Oltre all'architettura a disponibilità elevata inclusa nel database SQL, è disponibile anche la funzionalità [gruppi di failover automatico](../../database/auto-failover-group-overview.md) che consente di gestire la replica e il failover dei database in un'istanza gestita in un'altra area. 
 
 #### <a name="sql-agent-jobs"></a>Processi di SQL Agent
-I processi di SQL Agent non sono direttamente supportati nel database SQL di Azure e dovranno essere distribuiti nei [processi di database elastici (anteprima)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+I processi di SQL Agent non sono direttamente supportati nel database SQL di Azure e dovranno essere distribuiti nei [processi di database elastici (anteprima)](../../database/job-automation-overview.md).
 
 #### <a name="logins-and-groups"></a>Account di accesso e gruppi
 Spostare gli account di accesso SQL dalla SQL Server di origine al database SQL di Azure usando il servizio migrazione del database in modalità offline.  Utilizzare il pannello **accessi selezionati** della **migrazione guidata** per eseguire la migrazione degli account di accesso al database SQL di destinazione. 

@@ -4,13 +4,13 @@ description: Informazioni su come replicare le macchine virtuali di Azure in ese
 author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
-ms.date: 05/25/2020
-ms.openlocfilehash: 7ac836992db33c6212fd009b914b30b7221249d8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/11/2021
+ms.openlocfilehash: 681b635099d450f061e0bcdb5b2c5d60d56c20a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745584"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380745"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicare le macchine virtuali di Azure in esecuzione nei gruppi di posizionamento di prossimità in un'altra area
 
@@ -25,21 +25,72 @@ In uno scenario tipico, è possibile che le macchine virtuali siano in esecuzion
 ## <a name="considerations"></a>Considerazioni
 
 - L'approccio migliore consiste nell'eseguire il failover/failback delle macchine virtuali in un gruppo di posizionamento di prossimità. Tuttavia, se la macchina virtuale non può essere inserita all'interno del posizionamento di prossimità durante il failover/failback, il failover/failback continuerà a verificarsi e le macchine virtuali verranno create all'esterno di un gruppo di posizionamento di prossimità.
--  Se un set di disponibilità viene aggiunto a un gruppo di posizionamento di prossimità e durante il failover/failback le macchine virtuali nel set di disponibilità hanno un vincolo di allocazione, le macchine virtuali verranno create al di fuori del set di disponibilità e del gruppo di posizionamento di prossimità.
--  Site Recovery per i gruppi di posizionamento di prossimità non è supportato per i dischi non gestiti.
+- Se un set di disponibilità viene aggiunto a un gruppo di posizionamento di prossimità e durante il failover/failback le macchine virtuali nel set di disponibilità hanno un vincolo di allocazione, le macchine virtuali verranno create al di fuori del set di disponibilità e del gruppo di posizionamento di prossimità.
+- Site Recovery per i gruppi di posizionamento di prossimità non è supportato per i dischi non gestiti.
 
 > [!NOTE]
 > Azure Site Recovery non supporta il failback da dischi gestiti per scenari da Hyper-V ad Azure. Di conseguenza, il failback dal gruppo di posizionamento di prossimità in Azure a Hyper-V non è supportato.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-portal"></a>Configurare il ripristino di emergenza per le macchine virtuali nei gruppi di posizionamento vicini tramite il portale
+
+### <a name="azure-to-azure-via-portal"></a>Da Azure ad Azure tramite il portale
+
+È possibile scegliere di abilitare la replica per una macchina virtuale tramite la pagina di ripristino di emergenza della VM oppure passando a un insieme di credenziali creato in precedenza e passando alla sezione Site Recovery e quindi abilitando la replica. Di seguito viene illustrato come configurare Site Recovery per le macchine virtuali all'interno di un PPG tramite entrambi gli approcci:
+
+- Come selezionare PPG nell'area di ripristino di emergenza abilitando la replica tramite il pannello di ripristino di emergenza della macchina virtuale IaaS:
+  1. Passare alla macchina virtuale. Nel pannello laterale sinistro, in "Operations", selezionare "ripristino di emergenza"
+  2. Nella scheda ' nozioni di base ' scegliere l'area di ripristino di emergenza in cui si vuole replicare la macchina virtuale. Vai a' impostazioni avanzate '
+  3. Qui è possibile visualizzare il gruppo di posizionamento vicino della macchina virtuale e l'opzione per selezionare un PPG nell'area di ripristino di emergenza. Site Recovery offre inoltre la possibilità di usare un nuovo gruppo di posizionamento di prossimità creato automaticamente se si sceglie di usare questa opzione predefinita. È possibile scegliere il gruppo di posizionamento vicino desiderato, quindi passare a "verifica + Avvia replica" e infine abilitare la replica.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="Abilitare la replica":::.
+
+- Come selezionare PPG nell'area di ripristino di emergenza durante l'abilitazione della replica tramite il pannello dell'insieme di credenziali:
+  1. Passare all'insieme di credenziali dei servizi di ripristino e passare alla scheda Site Recovery
+  2. Fare clic su "+ Abilita Site Recovery" e quindi selezionare "1: Abilita replica" in macchine virtuali di Azure (come si vuole replicare una VM di Azure)
+  3. Compilare i campi obbligatori nella scheda ' origine ' e fare clic su' avanti '
+  4. Selezionare l'elenco di macchine virtuali per cui si vuole abilitare la replica nella scheda ' macchine virtuali ' e fare clic su' avanti '
+  5. Qui è possibile visualizzare l'opzione per selezionare un PPG nell'area di ripristino di emergenza. Site Recovery offre inoltre la possibilità di usare un nuovo PPG creato automaticamente se si sceglie di usare questa opzione predefinita. È possibile scegliere il PPG desiderato e quindi procedere con l'abilitazione della replica.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="Abilitare la replica tramite l'insieme di credenziali.":::
+
+Si noti che è possibile aggiornare facilmente la selezione del PPG nell'area di ripristino di emergenza dopo che la replica è stata abilitata per la macchina virtuale.
+
+1. Passare alla macchina virtuale e nel pannello sul lato sinistro, in "Operations", selezionare "ripristino di emergenza".
+2. Passare al pannello "calcolo e rete" e fare clic su "modifica" nella parte superiore della pagina
+3. È possibile visualizzare le opzioni per modificare più impostazioni di destinazione, incluso il PPG di destinazione. Scegliere il PPG in cui si desidera eseguire il failover della macchina virtuale e fare clic su' Salva '.
+
+### <a name="vmware-to-azure-via-portal"></a>Da VMware ad Azure tramite il portale
+
+Dopo aver abilitato la replica per la macchina virtuale, è possibile configurare il gruppo di posizionamento vicino alla macchina virtuale di destinazione. Assicurarsi di creare separatamente il PPG nell'area di destinazione in base alle esigenze. Successivamente, è possibile aggiornare facilmente la selezione del PPG nell'area di ripristino di emergenza dopo che la replica è stata abilitata per la macchina virtuale.
+
+1. Selezionare la macchina virtuale dall'insieme di credenziali e nel pannello sul lato sinistro, in "Operations", selezionare "ripristino di emergenza".
+2. Passare al pannello "calcolo e rete" e fare clic su "modifica" nella parte superiore della pagina
+3. È possibile visualizzare le opzioni per modificare più impostazioni di destinazione, incluso il PPG di destinazione. Scegliere il PPG in cui si desidera eseguire il failover della macchina virtuale e fare clic su' Salva '.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Aggiornamento V2A PPG":::
+
+### <a name="hyper-v-to-azure-via-portal"></a>Da Hyper-V ad Azure tramite il portale
+
+Dopo aver abilitato la replica per la macchina virtuale, è possibile configurare il gruppo di posizionamento vicino alla macchina virtuale di destinazione. Assicurarsi di creare separatamente il PPG nell'area di destinazione in base alle esigenze. Successivamente, è possibile aggiornare facilmente la selezione del PPG nell'area di ripristino di emergenza dopo che la replica è stata abilitata per la macchina virtuale.
+
+1. Selezionare la macchina virtuale dall'insieme di credenziali e nel pannello sul lato sinistro, in "Operations", selezionare "ripristino di emergenza".
+2. Passare al pannello "calcolo e rete" e fare clic su "modifica" nella parte superiore della pagina
+3. È possibile visualizzare le opzioni per modificare più impostazioni di destinazione, incluso il PPG di destinazione. Scegliere il PPG in cui si desidera eseguire il failover della macchina virtuale e fare clic su' Salva '.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="Aggiornamento H2A PPG":::
+
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali nei gruppi di posizionamento vicini tramite PowerShell
+
+### <a name="prerequisites"></a>Prerequisiti 
 
 1. Verificare che sia installato il modulo Az di Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 2. Il valore minimo Azure PowerShell AZ Version dovrebbe essere 4.1.0. Per controllare la versione corrente, usare il comando seguente:
+
     ```
     Get-InstalledModule -Name Az
     ```
 
-## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurare Site Recovery per le macchine virtuali nel gruppo di posizionamento di prossimità
+### <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurare Site Recovery per le macchine virtuali nel gruppo di posizionamento di prossimità
 
 > [!NOTE]
 > Assicurarsi di avere a portata di mano l'ID univoco del gruppo di posizionamento di prossimità di destinazione. Se si sta creando un nuovo gruppo di posizionamento di prossimità, controllare il comando [qui](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) e, se si usa un gruppo di posizionamento di prossimità esistente, usare il comando [qui](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
@@ -165,7 +216,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 14. Per disabilitare la replica, seguire i passaggi indicati [qui](./azure-to-azure-powershell.md#disable-replication).
 
-### <a name="vmware-to-azure"></a>Da VMware ad Azure
+### <a name="vmware-to-azure-via-powershell"></a>Da VMware ad Azure tramite PowerShell
 
 1. Assicurarsi di [preparare i server VMware locali](./vmware-azure-tutorial-prepare-on-premises.md) per il ripristino di emergenza in Azure.
 2. Accedere al proprio account e impostare la sottoscrizione come specificato [qui](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
@@ -203,7 +254,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 10. [Eseguire](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover) un failover di test.
 11. Eseguire il failover in Azure usando [questi](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) passaggi.
 
-### <a name="hyper-v-to-azure"></a>Da Hyper-V ad Azure
+### <a name="hyper-v-to-azure-via-powershell"></a>Da Hyper-V ad Azure tramite PowerShell
 
 1. Assicurarsi di [preparare i server Hyper-V locali](./hyper-v-prepare-on-premises-tutorial.md) per il ripristino di emergenza in Azure.
 2. [Accedere](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account) ad Azure.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
-ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 2433e62fd1dbf35748483b40958fc3367532102a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247549"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099235"
 ---
 # <a name="introduction-to-listing-options"></a>Introduzione alle opzioni di elenco
 
@@ -38,7 +38,11 @@ Questa tabella mostra le opzioni di elenco disponibili per ogni tipo di offerta.
 
 &#42; l'opzione Get it now Listing include Get it Now (gratuito), Bring your own License (BYOL), sottoscrizione e prezzi basati sull'utilizzo. Per informazioni dettagliate, vedere [Get it now](#get-it-now).
 
-### <a name="free-trial"></a>Versione di valutazione gratuita
+## <a name="changing-offer-type"></a>Modifica del tipo di offerta
+
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
+
+## <a name="free-trial"></a>Versione di valutazione gratuita
 
 Usa il Marketplace commerciale per migliorare l'individuabilità e automatizzare il provisioning dell'esperienza di valutazione della tua soluzione. In questo modo i potenziali clienti possono usare l'esperienza di Software as a Service (SaaS), IaaS o Microsoft in-app senza costi aggiuntivi da 30 giorni a sei mesi, a seconda del tipo di offerta.
 
@@ -46,18 +50,18 @@ I clienti usano il pulsante _versione di valutazione gratuita_ nella pagina di p
 
 Per le offerte di macchine virtuali, ai clienti vengono addebitati i costi di infrastruttura di Azure per l'uso dell'offerta durante un periodo di valutazione. Alla scadenza del periodo di valutazione, ai clienti viene addebitato automaticamente l'ultimo piano effettuato in base alle tariffe standard, a meno che non vengano annullate prima della fine del periodo di valutazione.
 
-### <a name="test-drive"></a>Test drive
+## <a name="test-drive"></a>Test drive
 
 I clienti usano il pulsante _test drive_ nella pagina di presentazione dell'offerta per ottenere l'accesso a un ambiente preconfigurato per un numero fisso di ore. Per ulteriori informazioni sulle unità di test, vedere [che cos'è un test drive?](what-is-test-drive.md)
 
 > [!TIP]
 > Una test drive è diversa da una versione di valutazione gratuita. È possibile offrire un test drive, una versione di valutazione gratuita o entrambi. Entrambi forniscono ai clienti la soluzione per un periodo di tempo fisso. Tuttavia, un test drive include anche una presentazione pratica e autonoma delle funzionalità chiave del prodotto e dei vantaggi illustrati in uno scenario di implementazione reale.
 
-### <a name="contact-me"></a>Contattami
+## <a name="contact-me"></a>Contattami
 
 Elenco semplice dell'applicazione o del servizio. I clienti usano il pulsante _Contatta_ l'utente nella pagina di presentazione dell'offerta per richiedere la connessione all'offerta.
 
-### <a name="get-it-now"></a>Ottieni subito
+## <a name="get-it-now"></a>Ottieni subito
 
 Questa opzione di presentazione include offerte transazionali (sottoscrizioni e prezzi basati su utenti), Bring your own License offers e Get Now (gratuito). Le offerte transazionali vengono vendute attraverso il Marketplace commerciale. Microsoft è responsabile della fatturazione e delle riscossioni. I clienti usano il _pulsante Get it now_ per ottenere l'offerta.
 
@@ -65,12 +69,12 @@ L'opzione Get it now Listing può includere le opzioni di prezzo seguenti, a sec
 
 - Ottieni ora (gratuito)
 - Bring Your Own License (BYOL)
-- Sottoscrizione
+- Subscription
 - Prezzi basati sull'utilizzo
 
 Questa tabella mostra i tipi di offerta che supportano le opzioni di prezzo aggiuntive incluse nell'opzione Get it now Listing.
 
-| Tipo di offerta | Ottieni ora (gratuito) | BYOL | Sottoscrizione | Prezzi basati sull'utilizzo |
+| Tipo di offerta | Ottieni ora (gratuito) | BYOL | Subscription | Prezzi basati sull'utilizzo |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Applicazione Azure (app gestita) |   |   | &#10004; | &#10004; |
 | Applicazione Azure (modello di soluzione) | &#10004; |   |   |   |
@@ -92,28 +96,28 @@ Questa tabella mostra i tipi di offerta che supportano le opzioni di prezzo aggi
 
 <sup>2</sup> con prezzo all'ora e fatturato mensilmente.
 
-#### <a name="get-it-now-free"></a>Ottieni ora (gratuito)
+### <a name="get-it-now-free"></a>Ottieni ora (gratuito)
 
 Usare questa opzione di elenco per offrire gratuitamente l'applicazione. I clienti usano il pulsante _Get it now_ per ottenere l'offerta gratuita.
 
 > [!NOTE]
 > Ottenere le offerte ora (gratuite) non sono idonee per i vantaggi del Marketplace per le offerte transazionali. Dal momento che non è presente alcuna transazione tramite la vetrina, questi vengono categorizzati come "versione di valutazione". Vedere le [premiazioni del Marketplace](#marketplace-rewards) di seguito.
 
-#### <a name="bring-your-own-license-byol"></a>Bring Your Own License (BYOL)
+### <a name="bring-your-own-license-byol"></a>Bring Your Own License (BYOL)
 
 Usare questa opzione per consentire ai clienti di distribuire l'offerta usando una licenza acquistata al di fuori del Marketplace commerciale. Questa opzione è ideale per le migrazioni da locale a cloud. I clienti usano il pulsante _Get it now_ per acquistare l'offerta usando una licenza acquistata in precedenza.
 
 > [!NOTE]
 > Le offerte BYOL non sono idonee per i vantaggi dei premi di Marketplace per le offerte transazionali. Poiché questi richiedono che un cliente acquisisca la licenza dal partner e non vi sia alcuna transazione tramite la vetrina del Marketplace commerciale, questi vengono categorizzati come "list". Vedere le [premiazioni del Marketplace](#marketplace-rewards) di seguito.
 
-#### <a name="subscription"></a>Sottoscrizione
+### <a name="subscription"></a>Subscription
 
 È possibile addebitare un costo forfettario per questi tipi di offerta:
 
 - Applicazione Azure (app gestita) offre supporto per sottoscrizioni mensili.
 - Le offerte SaaS supportano le sottoscrizioni mensili e annuali.
 
-#### <a name="usage-based-pricing"></a>Prezzi basati sull'utilizzo
+### <a name="usage-based-pricing"></a>Prezzi basati sull'utilizzo
 
 I tipi di offerta seguenti supportano i prezzi basati sull'utilizzo:
 

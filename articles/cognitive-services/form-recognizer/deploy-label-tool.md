@@ -2,19 +2,19 @@
 title: Come distribuire lo strumento di assegnazione di etichette di esempio per il form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui diversi modi in cui è possibile distribuire lo strumento di assegnazione di etichette di esempio di form Recognizer per facilitare l'apprendimento supervisionato.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
-ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/11/2021
+ms.author: lajanuar
+ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790428"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370035"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -32,7 +32,7 @@ Il modo più rapido per avviare l'assegnazione di etichette ai dati consiste nel
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Distribuire con istanze di contenitore di Azure (ACI)
 
-Prima di iniziare, è importante tenere presente che esistono due modi per distribuire lo strumento di assegnazione di etichette di esempio in un'istanza di contenitore di Azure (ACI). Entrambe le opzioni vengono usate per eseguire lo strumento di assegnazione di etichette di esempio con ACI: 
+Prima di iniziare, è importante tenere presente che esistono due modi per distribuire lo strumento di assegnazione di etichette di esempio in un'istanza di contenitore di Azure (ACI). Entrambe le opzioni vengono usate per eseguire lo strumento di assegnazione di etichette di esempio con ACI:
 
 * [Uso del portale di Azure](#azure-portal)
 * [Con l'interfaccia della riga di comando di Azure](#azure-cli)
@@ -42,16 +42,16 @@ Prima di iniziare, è importante tenere presente che esistono due modi per distr
 Seguire questa procedura per creare una nuova risorsa usando il portale di Azure: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/signin/index/).
-2. Selezionare **Crea una risorsa**. 
-3. Quindi selezionare **app Web**. 
+2. Selezionare **Crea una risorsa**.
+3. Quindi selezionare **app Web**.
 
    > [!div class="mx-imgBorder"]
-   > ![Selezionare l'app Web](./media/quickstarts/formre-create-web-app.png)
-   
-4. Assicurarsi prima di tutto che sia selezionata la scheda **nozioni di base** . A questo punto, sarà necessario fornire alcune informazioni: 
+   > ![Selezionare l'app Web](./media/quickstarts/create-web-app.png)
+
+4. Assicurarsi prima di tutto che sia selezionata la scheda **nozioni di base** . A questo punto, sarà necessario fornire alcune informazioni:
 
    > [!div class="mx-imgBorder"]
-   > ![Seleziona nozioni di base](./media/quickstarts/formre-select-basics.png)
+   > ![Seleziona nozioni di base](./media/quickstarts/select-basics.png)
    * Sottoscrizione: selezionare una sottoscrizione di Azure esistente
    * Gruppo di risorse: è possibile riusare un gruppo di risorse esistente o crearne uno nuovo per questo progetto. È consigliabile creare un nuovo gruppo di risorse.
    * Nome: assegnare un nome all'app Web. 
@@ -61,44 +61,46 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
    * Piano Linux: selezionare un piano tariffario/piano per il servizio app. 
 
    > [!div class="mx-imgBorder"]
-   > ![Configurare l'app Web](./media/quickstarts/formre-select-docker-linux.png)
+   > ![Configurare l'app Web](./media/quickstarts/select-docker.png)
 
-5. Selezionare quindi la scheda **Docker** . 
+5. Selezionare quindi la scheda **Docker** .
 
    > [!div class="mx-imgBorder"]
-   > ![Selezionare Docker](./media/quickstarts/formre-select-docker.png)
+   > ![Selezionare Docker](./media/quickstarts/select-docker.png)
 
 6. A questo punto è possibile configurare il contenitore docker. Tutti i campi sono obbligatori se non diversamente specificato:
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)  
-   * Opzioni-selezionare un **singolo contenitore**
-   * Origine immagine-selezionare il **Registro di sistema privato** 
-   * URL server: impostare questa impostazione su `https://mcr.microsoft.com`
-   * Username (facoltativo): creare un nome utente. 
-   * Password (facoltativo): creare una password sicura da ricordare.
-   * Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
-   * Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
+    # <a name="v20"></a>[v2.0](#tab/v2-0)
+
+* Opzioni-selezionare un **singolo contenitore**
+* Origine immagine-selezionare il **Registro di sistema privato** 
+* URL server: impostare questa impostazione su `https://mcr.microsoft.com`
+* Username (facoltativo): creare un nome utente. 
+* Password (facoltativo): creare una password sicura da ricordare.
+* Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
+* Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
 
     # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1) 
-   * Opzioni-selezionare un **singolo contenitore**
-   * Origine immagine-selezionare il **Registro di sistema privato** 
-   * URL server: impostare questa impostazione su `https://mcr.microsoft.com`
-   * Username (facoltativo): creare un nome utente. 
-   * Password (facoltativo): creare una password sicura da ricordare.
-   * Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
-   * Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
-   * Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
-    
+
+* Opzioni-selezionare un **singolo contenitore**
+* Origine immagine-selezionare il **Registro di sistema privato** 
+* URL server: impostare questa impostazione su `https://mcr.microsoft.com`
+* Username (facoltativo): creare un nome utente. 
+* Password (facoltativo): creare una password sicura da ricordare.
+* Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
+* Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
+
     ---
 
    > [!div class="mx-imgBorder"]
-   > ![Configurare Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Configurare Docker](./media/quickstarts/configure-docker.png)
 
 7. È tutto. Selezionare quindi **Verifica + crea** e quindi **Crea** per distribuire l'app Web. Al termine, è possibile accedere all'app Web nell'URL fornito nella **Panoramica** della risorsa.
 
 > [!NOTE]
-> Quando si crea l'app Web, è anche possibile configurare l'autorizzazione/autenticazione. Questa operazione non è necessaria per iniziare. 
+> Quando si crea l'app Web, è anche possibile configurare l'autorizzazione/autenticazione. Questa operazione non è necessaria per iniziare.
 
 > [!IMPORTANT]
 > Potrebbe essere necessario abilitare TLS per l'app Web in modo da visualizzarlo al suo `https` indirizzo. Seguire le istruzioni in [abilitare un endpoint TLS](../../container-instances/container-instances-container-group-ssl.md) per configurare un contenitore sidecar che Abilita TLS/SSL per l'app Web.
@@ -114,10 +116,10 @@ In alternativa all'uso del portale di Azure, è possibile creare una risorsa usa
 * È necessario specificare la posizione in cui si vuole creare la risorsa. Sostituire `<region name>` con l'area desiderata per l'app Web. 
 * Questo comando accetta automaticamente il contratto di licenza.
 
-Dall'interfaccia della riga di comando di Azure eseguire questo comando per creare una risorsa dell'app Web per lo strumento di assegnazione di etichette di esempio: 
+Dall'interfaccia della riga di comando di Azure eseguire questo comando per creare una risorsa dell'app Web per lo strumento di assegnazione di etichette di esempio:
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -131,8 +133,10 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
-# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
+`
+
+# [v2.1 preview](#tab/v2-1) 
+   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

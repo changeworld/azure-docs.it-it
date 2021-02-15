@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 49929cfe0abc634dc4b704aba1c7b11a5d7dd777
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 427b471158e89b2b3ae4ea6477133f1e69247078
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383586"
+ms.locfileid: "100518845"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replica delle macchine virtuali di Azure in un'altra area di Azure
 
@@ -54,7 +54,7 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
    - Gli **account di archiviazione di destinazione (la macchina virtuale di origine non usa i dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione simulando la configurazione dell'archiviazione della VM di origine. Nel caso in cui l'account di archiviazione esista già, verrà riusato.
    - **Dischi gestiti dalla replica (la macchina virtuale di origine usa dischi gestiti)**: Site Recovery crea nuovi dischi gestiti dalla replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (standard o Premium) del disco gestito della VM di origine.
    - **Account di archiviazione della cache:** Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nel percorso di destinazione. Questo account di archiviazione deve essere standard.
-   - **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "Azure Site Recovery" nel nome, per le macchine virtuali che fanno parte di un set di disponibilità nell'area di origine. Se il set di disponibilità creato da Site Recovery esiste già, verrà riutilizzato.
+   - **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "ASR" nel nome, per le macchine virtuali che fanno parte di un set di disponibilità nell'area di origine. Se il set di disponibilità creato da Site Recovery esiste già, verrà riutilizzato.
      >[!NOTE]
      >Quando si configurano i set di disponibilità di destinazione, configurare diversi set di disponibilità per le macchine virtuali di dimensioni diverse. 
      >

@@ -1,14 +1,14 @@
 ---
 title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
-ms.date: 02/02/2021
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575907"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379234"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
@@ -65,7 +65,6 @@ alertsmanagementresources
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Provare la cartella [di lavoro log attività per dominio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) su GitHub.
 - Esplorare questa [cartella di lavoro di esempio creata da MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), che tiene traccia dei report di conformità delle patch eseguendo una [query sui log gestione aggiornamenti](../../automation/update-management/query-logs.md) in più aree di lavoro log Analytics. 
-- Informazioni su [Monitoraggio di Azure](../../azure-monitor/index.yml).
-- Informazioni sui [log di monitoraggio di Azure](../../azure-monitor/platform/data-platform-logs.md).
-- Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).
+- Informazioni sulle altre [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).

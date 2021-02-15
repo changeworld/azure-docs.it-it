@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a35bafd2c5dc78f0d9d1debbf21babb6279545
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a204db8453ec8126e1aa9033e10f739a6f8a0d43
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740092"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095138"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)
 
@@ -28,7 +28,7 @@ Si consideri questo esempio: Contoso ha assunto persone tra le aree geografiche 
 
 ## <a name="how-this-feature-works"></a>Funzionamento della funzionalità
 
-Creare una nuova Microsoft 365 o un gruppo di sicurezza con la proprietà' isAssignableToRole ' impostata su' true '. È anche possibile abilitare questa proprietà quando si crea un gruppo nella portale di Azure attivando **Azure ad i ruoli possono essere assegnati al gruppo**. In entrambi i casi, è possibile assegnare il gruppo a uno o più ruoli di Azure AD nello stesso modo in cui si assegnano i ruoli agli utenti. È possibile creare un massimo di 200 gruppi assegnabili al ruolo in un'unica organizzazione Azure AD (tenant).
+Creare una nuova Microsoft 365 o un gruppo di sicurezza con la proprietà' isAssignableToRole ' impostata su' true '. È anche possibile abilitare questa proprietà quando si crea un gruppo nella portale di Azure attivando **Azure ad i ruoli possono essere assegnati al gruppo**. In entrambi i casi, è possibile assegnare il gruppo a uno o più ruoli di Azure AD nello stesso modo in cui si assegnano i ruoli agli utenti. È possibile creare un massimo di 250 gruppi assegnabili al ruolo in un'unica organizzazione Azure AD (tenant).
 
 Se non si desidera che i membri del gruppo dispongano dell'accesso al ruolo, è possibile utilizzare Azure AD Privileged Identity Management. Assegnare un gruppo come membro idoneo di un ruolo Azure AD. Ogni membro del gruppo è quindi idoneo a fare in modo che l'assegnazione venga attivata per il ruolo a cui è assegnato il gruppo. Possono quindi attivare l'assegnazione di ruolo per un periodo di tempo fisso.
 

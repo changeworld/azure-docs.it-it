@@ -3,13 +3,13 @@ title: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con 
 description: In questa guida di avvio rapido viene scritto codice Java con il pacchetto azure-messaging-servicebus per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni di tale argomento.
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/09/2020
-ms.openlocfilehash: 46dc6bed7e51a5157d7eb42dac75c0240d440780
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 02/13/2021
+ms.openlocfilehash: c5b930fb2c87a09a1f4801365936c62a7cf79f1d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881619"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516176"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Inviare messaggi a un argomento del bus di servizio di Azure e ricevere messaggi dalle sottoscrizioni dell'argomento (Java)
 In questa guida di avvio rapido viene scritto codice Java con il pacchetto azure-messaging-servicebus per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni di tale argomento.
@@ -31,14 +31,41 @@ In questa sezione verrà creato un progetto di console Java, quindi verrà aggiu
 Creare un progetto Java usando Eclipse o un altro strumento a scelta. 
 
 ### <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Aggiungere un riferimento alla libreria del bus di servizio di Azure. La libreria client Java per il bus di servizio è disponibile nel [repository centrale di Maven](https://search.maven.org/search?q=a:azure-messaging-servicebus). Per fare riferimento a questa libreria è possibile usare questa dichiarazione di dipendenza all'interno del file di progetto di Maven:
+Aggiungere i riferimenti alle librerie di Azure core e del bus di servizio di Azure. 
+
+Se si usa Eclipse e si crea un'applicazione console Java, convertire il progetto Java in Maven: fare clic con il pulsante destro del mouse sul progetto nella finestra **Esplora pacchetti** e selezionare **Configura**  ->  **Converti in progetto Maven**. Aggiungere quindi le dipendenze a queste due librerie, come illustrato nell'esempio seguente.
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0</version>
-</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.myorg.sbusquickstarts</groupId>
+    <artifactId>sbustopicqs</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>15</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-servicebus</artifactId>
+            <version>7.0.2</version>
+        </dependency>
+    </dependencies>
+</project>
 ```
 
 ### <a name="add-code-to-send-messages-to-the-topic"></a>Aggiungere il codice per inviare messaggi all'argomento
@@ -46,9 +73,9 @@ Aggiungere un riferimento alla libreria del bus di servizio di Azure. La libreri
 
     ```java
     import com.azure.messaging.servicebus.*;
-    import com.azure.messaging.servicebus.models.*;
+    
+    import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
-    import java.util.function.Consumer;
     import java.util.Arrays;
     import java.util.List;
     ```    
@@ -64,7 +91,7 @@ Aggiungere un riferimento alla libreria del bus di servizio di Azure. La libreri
 3. Aggiungere un metodo denominato `sendMessage` nella classe per inviare un messaggio all'argomento. 
 
     ```java
-        static void sendMessage()
+    static void sendMessage()
     {
         // create a Service Bus Sender client for the queue 
         ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -94,7 +121,7 @@ Aggiungere un riferimento alla libreria del bus di servizio di Azure. La libreri
     ```
 1. Aggiungere un metodo denominato `sendMessageBatch` per inviare messaggi all'argomento creato. Questo metodo crea un oggetto `ServiceBusSenderClient` per l'argomento, richiama il metodo `createMessages` per ottenere l'elenco di messaggi, prepara uno o più batch e li invia all'argomento. 
 
-```java
+    ```java
     static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the topic 
@@ -139,31 +166,21 @@ Aggiungere un riferimento alla libreria del bus di servizio di Azure. La libreri
         //close the client
         senderClient.close();
     }
-```
+    ```
 
 ## <a name="receive-messages-from-a-subscription"></a>Ricevere messaggi da una sottoscrizione
 In questa sezione si aggiunge il codice per recuperare i messaggi dalla sottoscrizione dell'argomento. 
 
 1. Aggiungere un metodo denominato `receiveMessages` per ricevere messaggi dalla sottoscrizione. Questo metodo crea un oggetto `ServiceBusProcessorClient` per la sottoscrizione specificando un gestore per l'elaborazione di messaggi e un altro per la gestione degli errori. Quindi avvia il processore, aspetta alcuni secondi, stampa i messaggi ricevuti e infine arresta e chiude il processore.
 
+    > [!IMPORTANT]
+    > Sostituire `ServiceBusTopicTest` in `ServiceBusTopicTest::processMessage` nel codice con il nome della classe. 
+
     ```java
     // handles received messages
     static void receiveMessages() throws InterruptedException
     {
-        // Consumer that processes a single message received from Service Bus
-        Consumer<ServiceBusReceivedMessageContext> messageProcessor = context -> {
-            ServiceBusReceivedMessage message = context.getMessage();
-            System.out.println("Received message: " + message.getBody().toString() + " from the subscription: " + subName);
-        };
-
-        // Consumer that handles any errors that occur when receiving messages
-        Consumer<Throwable> errorHandler = throwable -> {
-            System.out.println("Error when receiving messages: " + throwable.getMessage());
-            if (throwable instanceof ServiceBusReceiverException) {
-                ServiceBusReceiverException serviceBusReceiverException = (ServiceBusReceiverException) throwable;
-                System.out.println("Error source: " + serviceBusReceiverException.getErrorSource());
-            }
-        };
+        CountDownLatch countdownLatch = new CountDownLatch(1);
 
         // Create an instance of the processor through the ServiceBusClientBuilder
         ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
@@ -171,8 +188,8 @@ In questa sezione si aggiunge il codice per recuperare i messaggi dalla sottoscr
             .processor()
             .topicName(topicName)
             .subscriptionName(subName)
-            .processMessage(messageProcessor)
-            .processError(errorHandler)
+            .processMessage(ServiceBusTopicTest::processMessage)
+            .processError(context -> processError(context, countdownLatch))
             .buildProcessorClient();
 
         System.out.println("Starting the processor");
@@ -181,9 +198,55 @@ In questa sezione si aggiunge il codice per recuperare i messaggi dalla sottoscr
         TimeUnit.SECONDS.sleep(10);
         System.out.println("Stopping and closing the processor");
         processorClient.close();        
-    }
+    }  
     ```
-2. Aggiornare il metodo `main` per richiamare i metodi `sendMessage`, `sendMessageBatch` e `receiveMessages` e per generare `InterruptedException`.     
+2. Aggiungere il `processMessage` metodo per elaborare un messaggio ricevuto dalla sottoscrizione del bus di servizio. 
+
+    ```java
+    private static void processMessage(ServiceBusReceivedMessageContext context) {
+        ServiceBusReceivedMessage message = context.getMessage();
+        System.out.printf("Processing message. Session: %s, Sequence #: %s. Contents: %s%n", message.getMessageId(),
+            message.getSequenceNumber(), message.getBody());
+    }    
+    ```
+3. Aggiungere il `processError` metodo per gestire i messaggi di errore.
+
+    ```java
+    private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
+        System.out.printf("Error when receiving messages from namespace: '%s'. Entity: '%s'%n",
+            context.getFullyQualifiedNamespace(), context.getEntityPath());
+
+        if (!(context.getException() instanceof ServiceBusException)) {
+            System.out.printf("Non-ServiceBusException occurred: %s%n", context.getException());
+            return;
+        }
+
+        ServiceBusException exception = (ServiceBusException) context.getException();
+        ServiceBusFailureReason reason = exception.getReason();
+
+        if (reason == ServiceBusFailureReason.MESSAGING_ENTITY_DISABLED
+            || reason == ServiceBusFailureReason.MESSAGING_ENTITY_NOT_FOUND
+            || reason == ServiceBusFailureReason.UNAUTHORIZED) {
+            System.out.printf("An unrecoverable error occurred. Stopping processing with reason %s: %s%n",
+                reason, exception.getMessage());
+
+            countdownLatch.countDown();
+        } else if (reason == ServiceBusFailureReason.MESSAGE_LOCK_LOST) {
+            System.out.printf("Message lock lost for message: %s%n", context.getException());
+        } else if (reason == ServiceBusFailureReason.SERVICE_BUSY) {
+            try {
+                // Choosing an arbitrary amount of time to wait until trying again.
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.err.println("Unable to sleep for period of time");
+            }
+        } else {
+            System.out.printf("Error source %s, reason %s, message: %s%n", context.getErrorSource(),
+                reason, context.getException());
+        }
+    }  
+    ```
+1. Aggiornare il metodo `main` per richiamare i metodi `sendMessage`, `sendMessageBatch` e `receiveMessages` e per generare `InterruptedException`.     
 
     ```java
     public static void main(String[] args) throws InterruptedException {        
@@ -197,12 +260,13 @@ In questa sezione si aggiunge il codice per recuperare i messaggi dalla sottoscr
 Eseguire il programma per visualizzare l'output simile all'output seguente:
 
 ```console
+Sent a single message to the topic: mytopic
 Sent a batch of messages to the topic: mytopic
 Starting the processor
-Received message: First message from the subscription: mysub
-Received message: Second message from the subscription: mysub
-Received message: Third message from the subscription: mysub
-Stopping and closing the processor
+Processing message. Session: e0102f5fbaf646988a2f4b65f7d32385, Sequence #: 1. Contents: Hello, World!
+Processing message. Session: 3e991e232ca248f2bc332caa8034bed9, Sequence #: 2. Contents: First message
+Processing message. Session: 56d3a9ea7df446f8a2944ee72cca4ea0, Sequence #: 3. Contents: Second message
+Processing message. Session: 7bd3bd3e966a40ebbc9b29b082da14bb, Sequence #: 4. Contents: Third message
 ```
 
 Nella pagina **Panoramica** dello spazio dei nomi del bus di servizio nel portale di Azure è possibile visualizzare il numero di messaggi **in ingresso** e **in uscita**. Può essere necessario aspettare circa un minuto e quindi aggiornare la pagina per vedere i valori più recenti. 

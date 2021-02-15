@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581755"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104213"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -75,7 +75,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 Si passerà direttamente alla creazione dell'identità. Se si verifica un problema, controllare le [autorizzazioni necessarie](#permissions-required-for-registering-an-app) per assicurarsi che l'account possa creare l'identità.
 
-1. Accedere al proprio account Azure tramite il <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al proprio account Azure tramite il <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. Selezionare **Azure Active Directory**.
 1. Selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
@@ -181,7 +181,7 @@ Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto 
 ## <a name="configure-access-policies-on-resources"></a>Configurare i criteri di accesso per le risorse
 Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. Ad esempio, è necessario aggiornare anche i [criteri di accesso](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) dell'insieme di credenziali delle chiavi per consentire all'applicazione di accedere a chiavi, segreti o certificati.
 
-1. Nella <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portale di Azure</a>passare all'insieme di credenziali delle chiavi e selezionare **criteri di accesso**.
+1. Nella <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>passare all'insieme di credenziali delle chiavi e selezionare **criteri di accesso**.
 1. Selezionare **Aggiungi criteri di accesso**, quindi selezionare la chiave, il segreto e le autorizzazioni per i certificati per cui si vuole concedere l'applicazione.  Selezionare l'entità servizio creata in precedenza.
 1. Selezionare **Aggiungi** per aggiungere i criteri di accesso, quindi **Salva** per eseguire il commit delle modifiche.
     ![Aggiungere un criterio di accesso](./media/howto-create-service-principal-portal/add-access-policy.png)

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1d434697802596a0200dc0cb5f1afe5bc67afef5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988015"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379710"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborare con altri autori ed editor
 
@@ -23,6 +23,9 @@ Tutte le autorizzazioni sono controllate dalle autorizzazioni posizionate nella 
 Questa funzionalità RBAC di Azure include:
 * Azure Active Directory (AAD) è compatibile con le versioni precedenti del 100% con l'autenticazione basata su chiavi per proprietari e collaboratori. Nelle richieste, i clienti possono usare l'autenticazione basata su chiavi o l'autenticazione basata su RBAC di Azure.
 * È possibile aggiungere rapidamente autori ed editor a tutte le Knowledge base nella risorsa perché il controllo si trova a livello di risorsa, non a livello di Knowledge base.
+
+> [!NOTE]
+> Quando si assicurano di aggiungere un sottodominio personalizzato per la risorsa. Per impostazione predefinita, il [sottodominio personalizzato](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) deve essere presente, ma in caso contrario, aggiungerlo
 
 ## <a name="access-is-provided-by-a-defined-role"></a>L'accesso viene fornito da un ruolo definito
 

@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735861"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369459"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -36,6 +36,7 @@ Questo articolo illustra quanto segue:
 - L'insieme di credenziali di servizi di ripristino può essere crittografato solo con chiavi archiviate in un Azure Key Vault, che si trova nella **stessa area**. Inoltre, le chiavi devono essere solo **chiavi RSA 2048** e devono essere in stato **abilitato** .
 
 - Lo stato di CMK dell'insieme di credenziali di servizi di ripristino crittografati tra gruppi di risorse e sottoscrizioni
+- Quando si sposta un insieme di credenziali di servizi di ripristino già crittografato con chiavi gestite dal cliente in un nuovo tenant, è necessario aggiornare l'insieme di credenziali di servizi di ripristino per ricreare e riconfigurare l'identità gestita dell'insieme di credenziali e CMK (che deve essere nel nuovo tenant). Se questa operazione non viene eseguita, le operazioni di backup e ripristino inizieranno a non riuscire. Inoltre, le autorizzazioni di controllo degli accessi in base al ruolo impostate nella sottoscrizione dovranno essere riconfigurate.
 
 - Questa funzionalità può essere configurata tramite il portale di Azure e PowerShell.
 
@@ -119,32 +120,6 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
 1. Selezionare **Save (Salva** ) per salvare le modifiche apportate ai criteri di accesso del Azure Key Vault.
 
-**Con PowerShell**:
-
-Usare il comando [set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) per abilitare la crittografia usando chiavi gestite dal cliente e per assegnare o aggiornare la chiave di crittografia da usare.
-
-Esempio:
-
-```azurepowershell
-$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
-$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
-Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
-
-
-$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
-$enc.encryptionProperties | fl
-```
-
-Output:
-
-```output
-EncryptionAtRestType          : CustomerManaged
-KeyUri                        : testkey
-SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-LastUpdateStatus              : Succeeded
-InfrastructureEncryptionState : Disabled
-```
-
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
 
 È necessario **abilitare l'eliminazione temporanea e ripulire la protezione** sul Azure Key Vault in cui è archiviata la chiave di crittografia. Questa operazione può essere eseguita dall'interfaccia utente di Azure Key Vault, come illustrato di seguito. In alternativa, è possibile impostare queste proprietà durante la creazione del Key Vault. Per altre informazioni su queste proprietà Key Vault, vedere [qui](../key-vault/general/soft-delete-overview.md).
@@ -197,7 +172,7 @@ InfrastructureEncryptionState : Disabled
 
 Una volta verificate le precedenti, continuare con la selezione della chiave di crittografia per l'insieme di credenziali.
 
-Per assegnare la chiave:
+#### <a name="to-assign-the-key-in-the-portal"></a>Per assegnare la chiave nel portale
 
 1. Passare all'insieme di credenziali dei servizi di ripristino- **proprietà** >
 
@@ -230,6 +205,32 @@ Per assegnare la chiave:
     Gli aggiornamenti delle chiavi di crittografia vengono registrati anche nel log attività dell'insieme di credenziali.
 
     ![Log attività](./media/encryption-at-rest-with-cmk/activity-log.png)
+
+#### <a name="to-assign-the-key-with-powershell"></a>Per assegnare la chiave con PowerShell
+
+Usare il comando [set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) per abilitare la crittografia usando chiavi gestite dal cliente e per assegnare o aggiornare la chiave di crittografia da usare.
+
+Esempio:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Output:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 >[!NOTE]
 > Questo processo rimane invariato quando si desidera aggiornare o modificare la chiave di crittografia. Se si desidera aggiornare e utilizzare una chiave da un'altra Key Vault (diversa da quella attualmente in uso), verificare che:

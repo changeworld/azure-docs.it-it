@@ -3,12 +3,12 @@ title: Creare una raccolta contenuto per distribuire macchine virtuali in una so
 description: Creare una raccolta contenuto per distribuire una macchina virtuale in un cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 9e27529ee355ece62f12cc2e6de491dddb5d3f28
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: a50b12ef8e139bf7de171398fd28f74fc3f310c9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550539"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382005"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Creare una raccolta contenuto per distribuire macchine virtuali in una soluzione VMware di Azure
 
@@ -18,7 +18,7 @@ Questo articolo illustra la procedura per la creazione di una raccolta contenuto
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, sono necessari un segmento di commutatore logico NSX-T e un servizio DHCP gestito.  Per altre informazioni, vedere l'articolo [How to Manage DHCP in Azure VMware Solution](manage-dhcp.md) .
+Per completare questa esercitazione, sono necessari un segmento NSX-T (Commuter logico) e un servizio DHCP gestito.  Per altre informazioni, vedere l'articolo [How to Manage DHCP in Azure VMware Solution](manage-dhcp.md) .
 
 ## <a name="create-a-content-library"></a>Creare una raccolta contenuto
 

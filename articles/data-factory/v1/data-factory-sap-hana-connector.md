@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da SAP HANA usando Azure Data Factory
 description: Informazioni su come spostare dati da SAP HANA usando Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c08aeca8e7aaa71e5a2a80cbdece762b989e28c2
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9c192a5f84f36fbdea0dd1d280928aa40186d4ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510142"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386986"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Spostare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -296,10 +291,10 @@ NVARCHAR | string
 CLOB | Byte[]
 ALPHANUM | string
 BLOB | Byte[]
-DATE | DateTime
+DATE | Datetime
 TIME | TimeSpan
-timestamp | DateTime
-SECONDDATE | DateTime
+timestamp | Datetime
+SECONDDATE | Datetime
 
 ## <a name="known-limitations"></a>Limitazioni note
 Quando si copiano dati da SAP HANA, è necessario tenere conto di alcune limitazioni:

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654830"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092129"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -34,6 +34,16 @@ Prima di usare la API Analisi del testo, sarà necessario creare una risorsa di 
 2.  Selezionare l'area che si vuole usare per l'endpoint.  Si noti `/analyze` che gli `/health` endpoint e sono disponibili solo nelle aree seguenti: Stati Uniti occidentali 2, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale ed Europa occidentale.
 
 3.  Creare la risorsa Analisi del testo e passare al pannello "chiavi ed endpoint" nella parte sinistra della pagina. Copiare la chiave da usare in un secondo momento quando si chiamano le API. Questa operazione verrà aggiunta in un secondo momento come valore per l' `Ocp-Apim-Subscription-Key` intestazione.
+
+## <a name="change-your-pricing-tier"></a>Modificare il piano tariffario 
+
+Se si dispone di una risorsa Analisi del testo esistente usando il piano tariffario S0-S4, è possibile aggiornarla in modo che usi il piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)standard (S):
+
+1. Passare alla risorsa Analisi del testo nel [portale di Azure](https://portal.azure.com/).
+2. Selezionare piano **tariffario** nel menu di spostamento a sinistra. Si troverà sotto la **gestione delle risorse**. 
+3. Scegliere il piano tariffario standard. Quindi fare clic su **Seleziona**.
+
+È anche possibile creare una nuova risorsa di Analisi del testo con il piano tariffario standard (S) ed eseguire la migrazione delle applicazioni per usare le credenziali per la nuova risorsa. 
 
 ## <a name="using-the-api-synchronously"></a>Uso dell'API in modo sincrono
 
@@ -76,10 +86,10 @@ Vedere la tabella seguente per vedere quali funzionalità possono essere usate i
 
 Il formato delle richieste API è lo stesso per tutte le operazioni sincrone. I documenti vengono inviati in un oggetto JSON come testo non strutturato non elaborato. XML non è supportato. Lo schema JSON è costituito dagli elementi descritti di seguito.
 
-| Elemento | Valori validi | Necessaria? | Uso |
+| Elemento | Valori validi | Necessaria? | Utilizzo |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatorio | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../language-support.md). |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Necessario | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Necessario | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../language-support.md). |
 |`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../language-support.md) | Varia | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Di seguito è riportato un esempio di una richiesta API per gli endpoint sincroni del Analisi del testo. 
@@ -111,17 +121,17 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
 * estrazione di frasi chiave 
 * Riconoscimento di entità denominate (incluse le informazioni personali e PHI)
 
-| Elemento | Valori validi | Necessaria? | Uso |
+| Elemento | Valori validi | Necessaria? | Utilizzo |
 |---------|--------------|-----------|-------|
 |`displayName` | string | Facoltativo | Utilizzato come nome visualizzato per l'identificatore univoco del processo.|
-|`analysisInput` | Include il `documents` campo seguente | Obbligatorio | Contiene le informazioni per i documenti che si desidera inviare. |
-|`documents` | Include i `id` `text` campi e seguenti | Obbligatorio | Contiene informazioni per ogni documento inviato e il testo non elaborato del documento. |
-|`id` | string | Obbligatorio | Gli ID forniti vengono usati per strutturare l'output. |
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 125.000 caratteri. | Obbligatorio | Deve essere nella lingua inglese, che è l'unica lingua attualmente supportata. |
-|`tasks` | Include le funzionalità di Analisi del testo seguenti `entityRecognitionTasks` : `keyPhraseExtractionTasks` o `entityRecognitionPiiTasks` . | Obbligatorio | Una o più delle funzionalità di Analisi del testo che si desidera utilizzare. Si noti che `entityRecognitionPiiTasks` dispone `domain` di un parametro facoltativo che può essere impostato su `pii` o `phi` . Se non è specificato, l'impostazione predefinita del sistema è `pii` . |
-|`parameters` | Include i `model-version` `stringIndexType` campi e seguenti | Obbligatorio | Questo campo è incluso nelle attività della funzionalità indicate in precedenza. Contengono informazioni sulla versione del modello che si desidera utilizzare e il tipo di indice. |
-|`model-version` | string | Obbligatorio | Consente di specificare la versione del modello chiamata che si desidera utilizzare.  |
-|`stringIndexType` | string | Obbligatorio | Specificare il decodificatore di testo corrispondente all'ambiente di programmazione.  I tipi supportati sono `textElement_v8` (impostazione predefinita), `unicodeCodePoint` , `utf16CodeUnit` . Per ulteriori informazioni, vedere l' [articolo offset del testo](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
+|`analysisInput` | Include il `documents` campo seguente | Necessario | Contiene le informazioni per i documenti che si desidera inviare. |
+|`documents` | Include i `id` `text` campi e seguenti | Necessario | Contiene informazioni per ogni documento inviato e il testo non elaborato del documento. |
+|`id` | string | Necessario | Gli ID forniti vengono usati per strutturare l'output. |
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 125.000 caratteri. | Necessario | Deve essere nella lingua inglese, che è l'unica lingua attualmente supportata. |
+|`tasks` | Include le funzionalità di Analisi del testo seguenti `entityRecognitionTasks` : `keyPhraseExtractionTasks` o `entityRecognitionPiiTasks` . | Necessario | Una o più delle funzionalità di Analisi del testo che si desidera utilizzare. Si noti che `entityRecognitionPiiTasks` dispone `domain` di un parametro facoltativo che può essere impostato su `pii` o `phi` . Se non è specificato, l'impostazione predefinita del sistema è `pii` . |
+|`parameters` | Include i `model-version` `stringIndexType` campi e seguenti | Necessario | Questo campo è incluso nelle attività della funzionalità indicate in precedenza. Contengono informazioni sulla versione del modello che si desidera utilizzare e il tipo di indice. |
+|`model-version` | string | Necessario | Consente di specificare la versione del modello chiamata che si desidera utilizzare.  |
+|`stringIndexType` | string | Necessario | Specificare il decodificatore di testo corrispondente all'ambiente di programmazione.  I tipi supportati sono `textElement_v8` (impostazione predefinita), `unicodeCodePoint` , `utf16CodeUnit` . Per ulteriori informazioni, vedere l' [articolo offset del testo](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
 |`domain` | string | Facoltativo | Si applica solo come parametro all' `entityRecognitionPiiTasks` attività e può essere impostato su `pii` o `phi` . Il valore predefinito è `pii` se non è specificato.  |
 
 ```json
@@ -167,11 +177,11 @@ L' `/analyze` endpoint consente di scegliere quale delle funzionalità di analis
 
 Il formato delle richieste API per la Analisi del testo per l'API ospitata sull'integrità è identico a quello del relativo contenitore. I documenti vengono inviati in un oggetto JSON come testo non strutturato non elaborato. XML non è supportato. Lo schema JSON è costituito dagli elementi descritti di seguito.  Compilare e inviare il modulo di [richiesta di servizi cognitivi](https://aka.ms/csgate) per richiedere l'accesso alla analisi del testo per l'anteprima pubblica dell'integrità. Non verranno addebitate Analisi del testo per l'utilizzo dell'integrità. 
 
-| Elemento | Valori validi | Necessaria? | Uso |
+| Elemento | Valori validi | Necessaria? | Utilizzo |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. |
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatorio | Si noti che attualmente è supportato solo il testo in lingua inglese. |
-|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../language-support.md) | Obbligatorio | `en`Attualmente è supportato solo. |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Necessario | Il sistema usa gli ID immessi per strutturare l'output. |
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Necessario | Si noti che attualmente è supportato solo il testo in lingua inglese. |
+|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../language-support.md) | Necessario | `en`Attualmente è supportato solo. |
 
 Di seguito è riportato un esempio di una richiesta API per la Analisi del testo per gli endpoint di integrità. 
 
@@ -293,7 +303,7 @@ Le risposte degli endpoint sincroni variano a seconda dell'endpoint utilizzato. 
 
 ### <a name="example-responses-for-asynchronous-operations"></a>Risposte di esempio per le operazioni asincrone
 
-In caso di esito positivo, la richiesta GET all' `/analyze` endpoint restituirà un oggetto contenente le attività assegnate. Ad esempio `keyPhraseExtractionTasks`. Queste attività contengono l'oggetto Response della funzionalità Analisi del testo appropriata. Vedi gli articoli seguenti per altre informazioni.
+In caso di esito positivo, la richiesta GET all' `/analyze` endpoint restituirà un oggetto contenente le attività assegnate. Ad esempio, `keyPhraseExtractionTasks`. Queste attività contengono l'oggetto Response della funzionalità Analisi del testo appropriata. Vedi gli articoli seguenti per altre informazioni.
 
 + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Riconoscimento delle entità](text-analytics-how-to-entity-linking.md#view-results)
