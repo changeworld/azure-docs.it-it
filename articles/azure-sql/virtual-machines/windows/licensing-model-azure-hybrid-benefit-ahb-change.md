@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879831"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361554"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambiare il modello di licenza per una macchina virtuale SQL in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -119,7 +119,6 @@ La modifica del modello di licenza è:
    - Supportata solo per le edizioni Standard ed Enterprise di SQL Server. Non è possibile cambiare licenza per le edizioni Express, Web e Developer. 
    - Supportata solo per le macchine virtuali distribuite tramite il modello di Azure Resource Manager. Le macchine virtuali distribuite tramite il modello classico non sono supportate. 
    - Disponibile solo per il cloud pubblico o per Cloud Azure per enti pubblici. 
-   - Supportata solo nelle macchine virtuali con una singola scheda di interfaccia di rete. 
 
 > [!Note]
 > Solo SQL Server le licenze basate su core con Software Assurance o licenze di sottoscrizione sono idonee per Vantaggio Azure Hybrid. Se si usano server e licenze CAL per SQL Server e si dispone di Software Assurance, è possibile usare la funzionalità Bring your own License per un'immagine di macchina virtuale di Azure SQL Server per sfruttare la mobilità delle licenze per questi server, ma non è possibile sfruttare le altre funzionalità di Vantaggio Azure Hybrid. 
@@ -136,10 +135,6 @@ Questo errore si verifica quando si tenta di modificare il modello di licenza in
 
 È necessario registrare la sottoscrizione con il provider di risorse e quindi [registrare la macchina virtuale SQL Server con l'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). 
 
-
-**Alla macchina virtuale ' \<vmname\> ' è associata più di una scheda di interfaccia di rete**
-
-Questo errore si verifica nelle macchine virtuali che includono più di una scheda di interfaccia di rete. Rimuovere una delle schede prima di cambiare il modello di licenza. Anche se è possibile aggiungere di nuovo la scheda di interfaccia di rete alla macchina virtuale dopo aver cambiato il modello di licenza, le operazioni nel portale di Azure, come il backup automatico e l'applicazione di patch, non saranno più supportate. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

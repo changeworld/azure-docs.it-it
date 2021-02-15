@@ -1,21 +1,18 @@
 ---
 title: Copiare i dati in blocco con PowerShell
 description: Questo script PowerShell mostra come usare Azure Data Factory per copiare dati in blocco da un archivio dati di origine a un archivio dati di destinazione.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 3b06cc68a4de50ae95d8946f32b241d38b4781ea
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 16cb08d49efcd46e2746c5031793af8b747a2b31
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460961"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373573"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Script PowerShell: copiare più tabelle in blocco con Azure Data Factory
 

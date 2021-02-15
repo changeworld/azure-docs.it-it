@@ -20,23 +20,29 @@
           href: getting-started.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
-        - name: Configurare il modulo di sicurezza per Azure RTO
-          href: quickstart-azure-rtos-security-module.md
         - name: Onboarding in Defender per la soluzione basata su agenti it
+          displayName: 'IoT Hub, existing, enable'
           href: quickstart-onboard-iot-hub.md
+        - name: Installare Defender per gli agenti Internet (anteprima)
+          displayName: 'package, authentication, methods, certificate, authenticate, version'
+          href: quickstart-standalone-agent-binary-installation.md
         - name: Creare un modulo gemello di Defender Internet Agent (anteprima)
           href: quickstart-create-micro-agent-module-twin.md
-        - name: Installare Defender per gli agenti Internet (anteprima)
-          href: quickstart-standalone-agent-binary-installation.md
         - name: Compilare il Defender per l'agente Internet per le cose dal codice sorgente (anteprima)
+          displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
+        - name: Configurare il modulo di sicurezza per Azure RTO
+          href: quickstart-azure-rtos-security-module.md
         - name: Aggiungere le risorse di Azure alla soluzione IoT
+          displayName: 'resources, monitored, resource'
           href: quickstart-configure-your-solution.md
         - name: Classic
           items:
             - name: Panoramica dell'agente di sicurezza
+              displayName: 'platforms, C, C#, agent,'
               href: security-agent-architecture.md
             - name: Creare un modulo gemello azureiotsecurity
+              displayName: 'module twin, security module'
               href: quickstart-create-security-twin.md
 - name: Concetti
   items:
@@ -47,16 +53,21 @@
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
         - name: Panoramica sul portfolio degli agenti e supporto del sistema operativo (anteprima)
+          displayName: 'standalone agent, micro agent, RTOS'
           href: concept-agent-portfolio-overview-os-support.md
         - name: Panoramica di micro Agent autonomo (anteprima)
+          displayName: 'endpoint, posture, distribution, flexible, model'
           href: concept-standalone-micro-agent-overview.md
         - name: Autenticazione dell'agente di sicurezza (anteprima)
+          displayName: 'connection string, certificate, authentication'
           href: concept-security-agent-authentication.md
         - name: Comportamento di sicurezza-benchmark CIS
           href: concept-security-posture.md
         - name: Aggregazione di eventi (anteprima)
+          displayName: 'process events, network connection'
           href: concept-event-aggregation.md
         - name: Avvisi di sicurezza
+          displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
           href: concept-security-alerts.md
         - name: Avvisi di sicurezza personalizzati
           href: concept-customizable-security-alerts.md
@@ -65,18 +76,23 @@
         - name: Classic
           items:
             - name: Modulo di sicurezza
+              displayName: 'device twins, security module twin'
               href: concept-security-module.md
             - name: Modulo di sicurezza per Edge
               href: security-edge-architecture.md
             - name: Agenti di sicurezza
               href: overview-security-agents.md
             - name: Autenticazione degli agenti di sicurezza
+              displayName: 'method, C, C#, module, device, installation, authentication'
               href: concept-security-agent-authentication-methods.md
             - name: Di base
+              displayName: 'custom, setting, properties'
               href: concept-baseline.md
             - name: Baseline della sicurezza di Azure per Azure Defender per l'it
+              displayName: 'identity management, active directory, privileged access, data protection, asset management, incident response, posture, vulnerability, governance'
               href: security-baseline.md
             - name: Aggregazione di eventi classici del modulo di sicurezza
+              displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
 - name: Guide pratiche
   items:
@@ -85,52 +101,52 @@
         - name: Preparare la rete
           items:
             - name: Identificare le appliance necessarie
-              href: how-to-identify-required-appliances.md
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
+              href: how-to-identify-required-appliances.md
             - name: Installazione del software
-              href: how-to-install-software.md
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              href: how-to-install-software.md
             - name: Configurare la rete
-              href: how-to-set-up-your-network.md
               displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
+              href: how-to-set-up-your-network.md
         - name: Preparare i sensori
           items:
             - name: Eseguire l'onboarding dei sensori
-              href: how-to-manage-sensors-on-the-cloud.md
               displayName: 'onboard, cloud, register, activate'
+              href: how-to-manage-sensors-on-the-cloud.md
             - name: Attivare e configurare il sensore
-              href: how-to-activate-and-set-up-your-sensor.md
               displayName: 'onboard, register, activation, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              href: how-to-activate-and-set-up-your-sensor.md
         - name: Preparare la console di gestione locale
           items:
             - name: Attivare e configurare la console di gestione locale
-              href: how-to-activate-and-set-up-your-on-premises-management-console.md
               displayName: 'activate, certificate, sign in, login, setup, initial, committed'
+              href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: Configurare la disponibilità elevata
-              href: how-to-set-up-high-availability.md
               displayName: 'primary, secondary, failover, failback fail, recovery'
+              href: how-to-set-up-high-availability.md
         - name: Gestire gli utenti e il relativo accesso
           items:
             - name: Creare e gestire gli utenti
-              href: how-to-create-and-manage-users.md
               displayName: 'Active Directory, roles, permissions'
+              href: how-to-create-and-manage-users.md
             - name: Definire il controllo di accesso utente globale
-              href: how-to-define-global-user-access-control.md
               displayName: 'business unit, site, region'
+              href: how-to-define-global-user-access-control.md
         - name: Controllare quale traffico viene monitorato
-          href: how-to-control-what-traffic-is-monitored.md
           displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
+          href: how-to-control-what-traffic-is-monitored.md
         - name: Gestire i sensori dalla console di gestione locale
-          href: how-to-manage-sensors-from-the-on-premises-management-console.md
           displayName: 'disconnect, connect, activation file, sensor backup'
+          href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Gestire singoli sensori
-          href: how-to-manage-individual-sensors.md
           displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
+          href: how-to-manage-individual-sensors.md
         - name: Gestire i sensori nel cloud
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Gestire la console di gestione locale
-          href: how-to-manage-the-on-premises-management-console.md
           displayName: 'activation, certificate, software update, backup, restore, proxy, password recovery'
+          href: how-to-manage-the-on-premises-management-console.md
         - name: Usare i pacchetti di intelligence sulle minacce
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Usare le informazioni di inventario dei dispositivi
@@ -174,17 +190,17 @@
         - name: Arricchire le informazioni sui dispositivi
           items:
             - name: Gestire le notifiche sui dispositivi
-              href: how-to-work-with-device-notifications.md
               displayName: 'notifications, operating systems, enrich, device information, classification'
+              href: how-to-work-with-device-notifications.md
             - name: Migliorare la risoluzione dei nomi di porte e VLAN
-              href: how-to-enhance-port-and-vlan-name-resolution.md
               displayName: 'port, VLAN'
+              href: how-to-enhance-port-and-vlan-name-resolution.md
             - name: Importare informazioni sui dispositivi
-              href: how-to-import-device-information.md
               displayName: 'import, enrich'
+              href: how-to-import-device-information.md
         - name: Rilevare l'attività dei sensori
+          displayName: 'timeline, time line, time-line, event'
           href: how-to-track-sensor-activity.md
-          displayName: 'timeline, time line, time-line, event, audit'
         - name: Risolvere i problemi relativi al sensore e alla console di gestione locale
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: Configurare il monitoraggio MIB SNMP
@@ -206,6 +222,20 @@
               href: integration-splunk.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
+        - name: Connettersi ad Azure Sentinel
+          displayName: 'log analytics, service notes'
+          href: how-to-configure-with-sentinel.md
+        - name: Configurare Azure Defender per la soluzione basata su agenti it
+          displayName: 'data, collection, geolocation, log analytics, raw events'
+          href: how-to-configure-agent-based-solution.md
+        - name: Esaminare la raccomandazione benchmark di CIS
+          displayName: 'investigation, queries, investigate'
+          href: how-to-configure-agent-based-solution.md
+        - name: Esaminare la raccomandazione benchmark di CIS
+          href: how-to-investigate-cis-benchmark.md
+        - name: Creare avvisi personalizzati
+          displayName: security group
+          href: quickstart-create-custom-alerts.md
         - name: Modulo di sicurezza per Azure RTOS
           href: iot-security-azure-rtos.md
           items:
@@ -215,18 +245,6 @@
               href: concept-rtos-security-module.md
             - name: Avvisi e raccomandazioni per il modulo di sicurezza per Azure RTOS
               href: concept-rtos-security-alerts-recommendations.md
-        - name: Connettersi ad Azure Sentinel
-          href: how-to-configure-with-sentinel.md
-        - name: Configurare Azure Defender per la soluzione basata su agenti it
-          href: how-to-configure-agent-based-solution.md
-        - name: Esaminare la raccomandazione benchmark di CIS
-          href: how-to-investigate-cis-benchmark.md
-        - name: Esaminare le raccomandazioni sulla sicurezza
-          href: quickstart-investigate-security-recommendations.md
-        - name: Esaminare gli avvisi di sicurezza
-          href: quickstart-investigate-security-alerts.md
-        - name: Creare avvisi personalizzati
-          href: quickstart-create-custom-alerts.md
         - name: Classic
           items:
             - name: Quale agente distribuire?
@@ -250,20 +268,25 @@
             - name: Distribuire il modulo di sicurezza per Edge
               href: how-to-deploy-edge.md
             - name: Configurare gli agenti di sicurezza
+              displayName: property
               href: how-to-agent-configuration.md
             - name: Inviare messaggi di sicurezza personalizzati
               href: how-to-send-security-messages.md
             - name: Accedere a dati non elaborati sulla sicurezza
+              displayName: 'log analytics, alerts,'
               href: how-to-security-data-access.md
             - name: Analizzare un dispositivo
+              displayName: 'access, data, kql, ports, logins, process'
               href: how-to-investigate-device.md
 - name: Risoluzione dei problemi
   items:
     - name: Risoluzione dei problemi relativi all'agente Micro-Internet Defender (anteprima)
+      displayName: 'service status, review logs'
       href: troubleshoot-defender-micro-agent.md
 - name: Supporto e ritiro delle funzionalità
   items:
     - name: Supporto e ritiro delle funzionalità
+      displayName: 'C, C#, deprecation, support'
       href: edge-security-module-deprecation.md
 - name: Riferimenti
   items:
@@ -279,18 +302,21 @@
           href: references-work-with-defender-for-iot-cli-commands.md
         - name: Gestire i protocolli proprietari (Horizon)
           href: resources-manage-proprietary-protocols.md
-        - name: Glossario di Defender per IoT
-          href: references-defender-for-iot-glossary.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
         - name: API del modulo di sicurezza per Azure RTOS
+          displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
         - name: Domande frequenti - servizio
+          displayName: 'regulation, internet, connection, hardware, appliances, ports, logs'
           href: resources-frequently-asked-questions.md
         - name: Domande frequenti - agente
+          displayName: 'embedded, dependencies, data, quota, internet,'
           href: resources-agent-frequently-asked-questions.md
         - name: Roadmap per Azure
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Glossario di Defender per IoT
+      href: references-defender-for-iot-glossary.md
 - name: Risorse
   items:
     - name: Soluzione basata su agente per integratori di dispositivi

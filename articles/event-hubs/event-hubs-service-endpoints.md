@@ -2,13 +2,13 @@
 title: Endpoint servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. EventHub a una rete virtuale.
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/12/2021
+ms.openlocfilehash: f725c4f4d94cbf7d0463ce49c1d2809444ef6f7a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015580"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516685"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da reti virtuali specifiche 
 
@@ -46,8 +46,8 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 1. Passare allo **spazio dei nomi di Hub eventi** nel [portale di Azure](https://portal.azure.com).
 4. Selezionare **rete** in **Impostazioni** nel menu a sinistra. Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **standard** o **dedicati** . 
 
-    > [!NOTE]
-    > Per impostazione predefinita, è selezionata l'opzione **reti selezionate** , come illustrato nella figura seguente. Se non si specifica una regola del firewall IP o si aggiunge una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite **Internet pubblico** (usando la chiave di accesso). 
+    > [!WARNING]
+    > Se si seleziona l'opzione **reti selezionate** e non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite **Internet pubblico** (usando la chiave di accesso). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Scheda reti-opzione reti selezionate" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -79,28 +79,12 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
+Il modello di Gestione risorse di esempio seguente aggiunge una regola della rete virtuale a uno spazio dei nomi di hub eventi esistente. Per la regola di rete, specifica l'ID di una subnet in una rete virtuale. 
 
-Il modello di Resource Manager seguente consente di aggiungere una regola di rete virtuale a uno spazio dei nomi esistente di Hub eventi.
+L'ID è un percorso di Gestione risorse completo per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
-Parametri del modello:
+Quando si aggiungono le regole della rete virtuale o dei firewall, impostare il valore di `defaultAction` su `Deny` .
 
-* `namespaceName`: Spazio dei nomi di hub eventi.
-* `vnetRuleName`: Nome della regola della rete virtuale da creare.
-* `virtualNetworkingSubnetId`: Percorso Gestione risorse completo della subnet della rete virtuale. ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
-
-> [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
-> Quando si apportano regole di rete virtuale o di firewall, è necessario modificare **_"DefaultAction"_**
-> 
-> da
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -202,6 +186,9 @@ Parametri del modello:
 ```
 
 Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Se non sono presenti regole IP e reti virtuali, tutto il traffico passa allo spazio dei nomi anche se si imposta `defaultAction` su `deny` .  È possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso). Specificare almeno una regola IP o una regola della rete virtuale per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

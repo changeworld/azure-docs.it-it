@@ -1,23 +1,18 @@
 ---
 title: Copiare dati da MongoDB Atlas
 description: Informazioni su come copiare dati da MongoDB Atlas in archivi dati di sink supportati usando un'attività di copia in una pipeline Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 09/28/2020
-ms.openlocfilehash: 34b0c053f4f0fea933a6e1f48d8f93e6352776b9
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b2f77e4bd8df66084937da3dd203ebb71d9a3511
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946796"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368796"
 ---
 # <a name="copy-data-from-mongodb-atlas-using-azure-data-factory"></a>Copiare dati da MongoDB Atlas usando Azure Data Factory
 
@@ -35,7 +30,7 @@ In particolare, questo connettore di MongoDB Atlas supporta **versioni fino a 4,
 
 Se si usa Azure Integration Runtime per la copia, assicurarsi di aggiungere gli [ip Azure Integration Runtime](azure-integration-runtime-ip-addresses.md) dell'area effettiva all'elenco di accesso IP dell'Atlante di MongoDB.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

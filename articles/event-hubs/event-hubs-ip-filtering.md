@@ -2,13 +2,13 @@
 title: Regole del firewall per Hub eventi di Azure | Microsoft Docs
 description: Usare le regole del firewall per consentire le connessioni da indirizzi IP specifici ad Hub eventi di Azure.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: e07f863bf8b7d5f64ec0ba04bf16fba12f4a785d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 02/12/2021
+ms.openlocfilehash: 18d043ebff7ff317207d0a33eaeba741fea8cc8a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427446"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517196"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da intervalli o indirizzi IP specifici
 Per impostazione predefinita, gli spazi dei nomi di Hub eventi sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -26,8 +26,9 @@ Questa sezione illustra come usare il portale di Azure per creare regole del fir
 
 1. Passare allo **spazio dei nomi di Hub eventi** nel [portale di Azure](https://portal.azure.com).
 4. Selezionare **rete** in **Impostazioni** nel menu a sinistra. Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **standard** o **dedicati** . 
-    > [!NOTE]
-    > Per impostazione predefinita, è selezionata l'opzione **reti selezionate** , come illustrato nella figura seguente. Se non si specifica una regola del firewall IP o si aggiunge una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite **Internet pubblico** (usando la chiave di accesso).  
+    
+    > [!WARNING]
+    > Se si seleziona l'opzione **reti selezionate** e non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite **Internet pubblico** (usando la chiave di accesso).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Scheda reti-opzione reti selezionate" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -55,23 +56,9 @@ Questa sezione illustra come usare il portale di Azure per creare regole del fir
 
 Il modello di Resource Manager seguente consente di aggiungere una regola di filtro IP a uno spazio dei nomi esistente di Hub eventi.
 
-Parametri del modello:
+**ipMask** nel modello è un singolo indirizzo IPv4 o un blocco di indirizzi IP nella notazione CIDR. Ad esempio, nella notazione CIDR, 70.37.104.0/24 rappresenta i 256 indirizzi IPv4, da 70.37.104.0 a 70.37.104.255, con 24 che indica il numero di bit di prefisso significativi per l'intervallo.
 
-- **ipMask** è un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. Ad esempio, nella notazione CIDR, 70.37.104.0/24 rappresenta i 256 indirizzi IPv4, da 70.37.104.0 a 70.37.104.255, con 24 che indica il numero di bit di prefisso significativi per l'intervallo.
-
-> [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
-> Quando si apportano regole di rete virtuale o di firewall, è necessario modificare **_"DefaultAction"_**
-> 
-> da
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+Quando si aggiungono le regole della rete virtuale o dei firewall, impostare il valore di `defaultAction` su `Deny` .
 
 ```json
 {
@@ -136,6 +123,9 @@ Parametri del modello:
 ```
 
 Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Se non sono presenti regole IP e reti virtuali, tutto il traffico passa allo spazio dei nomi anche se si imposta `defaultAction` su `deny` .  È possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso). Specificare almeno una regola IP o una regola della rete virtuale per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

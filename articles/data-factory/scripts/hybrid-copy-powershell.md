@@ -1,21 +1,18 @@
 ---
 title: Copiare dati da locale ad Azure tramite PowerShell
 description: Questo script di PowerShell copia i dati da un database di SQL Server a un altro archivio BLOB di Azure.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632233"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373386"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Usare PowerShell per creare una pipeline di data factory per copiare dati da SQL Server ad Azure
 
@@ -27,9 +24,9 @@ Questo script di PowerShell di esempio crea una pipeline in Azure Data Factory c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **SQL Server** . In questo esempio si usa un database SQL Server come archivio dati di **origine** .
-- **Account di archiviazione di Azure** . In questo esempio l'archivio BLOB di Azure viene usato come archivio dati di **destinazione/sink** . Se non si ha un account di archiviazione di Azure, vedere l'articolo [creare un account di archiviazione](../../storage/common/storage-account-create.md) per i passaggi per crearne uno.
-- **Runtime di integrazione self-hosted** . Scaricare il file con estensione msi dall'[area download](https://www.microsoft.com/download/details.aspx?id=39717) ed eseguirlo per installare un runtime di integrazione self-hosted nel computer.  
+- **SQL Server**. In questo esempio si usa un database SQL Server come archivio dati di **origine** .
+- **Account di archiviazione di Azure**. In questo esempio l'archivio BLOB di Azure viene usato come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [creare un account di archiviazione](../../storage/common/storage-account-create.md) per i passaggi per crearne uno.
+- **Runtime di integrazione self-hosted**. Scaricare il file con estensione msi dall'[area download](https://www.microsoft.com/download/details.aspx?id=39717) ed eseguirlo per installare un runtime di integrazione self-hosted nel computer.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Creare un database di esempio in SQL Server
 1. Nel database di SQL Server creare una tabella denominata **EMP** utilizzando lo script SQL seguente:

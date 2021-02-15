@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201723"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368966"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -73,6 +73,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
     - È necessario configurare i certificati TLS/SSL. Per ulteriori informazioni, vedere [gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per ad FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) e [gestione dei certificati SSL in ad FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - È necessario configurare la risoluzione dei nomi. 
 - Se l'autenticazione a più fattori è abilitata per gli amministratori globali, l'URL https://secure.aadcdn.microsoftonline-p.com *deve* trovarsi nell'elenco dei siti attendibili. Viene richiesto di aggiungere il sito all'elenco siti attendibili quando viene richiesta una richiesta di autenticazione a più fattori e non è stato aggiunto in precedenza. È possibile usare Internet Explorer per aggiungerlo ai siti attendibili.
+- Se si prevede di utilizzare Azure AD Connect Health per la sincronizzazione, verificare che vengano soddisfatti anche i prerequisiti per Azure AD Connect Health. Per ulteriori informazioni, vedere [installazione dell'agente Azure ad Connect Health](how-to-connect-health-agent-install.md).
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Protezione avanzata del server di Azure AD Connect 
 È consigliabile finalizzare il server Azure AD Connect per ridurre la superficie di attacco alla sicurezza per questo componente critico dell'ambiente IT. Seguendo questi consigli, è possibile ridurre i rischi di sicurezza per l'organizzazione.

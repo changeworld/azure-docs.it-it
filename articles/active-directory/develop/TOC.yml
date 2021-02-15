@@ -475,6 +475,10 @@
           href: reference-third-party-cookies-spas.md
         - name: Gestire le modifiche ai cookie SameSite in Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Supportare l'autenticazione con password
+      items:
+        - name: Supportare l'autenticazione FIDO2
+          href: support-fido2-authentication.md
     - name: Autenticare app e servizi
       items:
         - name: Creare un'entità servizio usando PowerShell

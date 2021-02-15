@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509385"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100360959"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Creazione di indicizzatori in Azure ricerca cognitiva
 
@@ -142,6 +142,20 @@ L'elaborazione pianificata in genere coincide con la necessità di indicizzazion
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 + [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## <a name="change-detection-and-indexer-state"></a>Rilevamento delle modifiche e stato dell'indicizzatore
+
+Gli indicizzatori possono rilevare le modifiche nei dati sottostanti e elaborare solo documenti nuovi o aggiornati su ogni indicizzatore eseguito. Se, ad esempio, lo stato dell'indicizzatore indica che un'esecuzione è stata completata con `0/0` documenti elaborati, significa che l'indicizzatore non ha trovato righe o BLOB nuovi o modificati nell'origine dati sottostante.
+
+Il modo in cui un indicizzatore supporta il rilevamento delle modifiche varia a seconda dell'origine dati:
+
++ Archiviazione BLOB di Azure, archiviazione tabelle di Azure e Azure Data Lake Storage Gen2 timbrare ogni aggiornamento di BLOB o righe con una data e un'ora. I vari indicizzatori utilizzano queste informazioni per determinare quali documenti aggiornare nell'indice. Il rilevamento delle modifiche incorporato significa che un indicizzatore è in grado di riconoscere i documenti nuovi e aggiornati, senza necessità di alcuna configurazione aggiuntiva da parte dell'utente.
+
++ Azure SQL e Cosmos DB offrono funzionalità di rilevamento delle modifiche nelle proprie piattaforme. È possibile specificare i criteri di rilevamento delle modifiche nella definizione dell'origine dati.
+
+Per i caricamenti di indicizzazione di grandi dimensioni, un indicizzatore tiene traccia anche dell'ultimo documento elaborato tramite un "limite massimo" interno. Il marcatore non viene mai esposto nell'API, ma internamente l'indicizzatore tiene traccia del punto in cui è stato interrotto. Quando l'indicizzazione riprende, tramite un'esecuzione pianificata o una chiamata su richiesta, l'indicizzatore fa riferimento al limite massimo, in modo che possa scegliere il punto in cui è stato interrotto.
+
+Se è necessario cancellare il limite massimo per la reindicizzazione completa, è possibile usare [Reimposta indicizzatore](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Per una reindicizzazione più selettiva, utilizzare [Reimposta competenze](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) o [Reimposta documenti](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Tramite le API reset è possibile cancellare lo stato interno e scaricare la cache anche se è stata abilitata l' [arricchimento incrementale](search-howto-incremental-index.md). Per ulteriori informazioni su background e confronto di ogni opzione di reimpostazione, vedere [eseguire o reimpostare indicizzatori, competenze e documenti](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Informazioni sui dati
 

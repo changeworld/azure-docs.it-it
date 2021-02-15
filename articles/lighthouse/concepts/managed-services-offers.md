@@ -1,14 +1,14 @@
 ---
 title: Offerte di servizi gestiti in Azure Marketplace
 description: Le offerte di servizi gestiti ti permettono di vendere offerte di gestione delle risorse ai clienti di Azure Marketplace.
-ms.date: 07/28/2020
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163323"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375545"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offerte di servizi gestiti in Azure Marketplace
 
@@ -18,7 +18,7 @@ Questo articolo descrive il tipo di offerta del **servizio gestito** in [Azure M
 
 Il servizio gestito offre una semplificazione del processo di onboarding dei clienti nel Faro di Azure. Quando un cliente acquista un'offerta in Azure Marketplace, può specificare le sottoscrizioni e/o i gruppi di risorse di cui deve essere eseguito l'onboarding.
 
-Successivamente, gli utenti dell'organizzazione potranno lavorare su tali risorse dall'interno del tenant di gestione tramite la [gestione delle risorse delegate di Azure](azure-delegated-resource-management.md), in base all'accesso definito durante la creazione dell'offerta. Questa operazione viene eseguita tramite un manifesto che specifica gli utenti, i gruppi e le entità servizio Azure Active Directory (Azure AD) che avranno accesso alle risorse dei clienti, insieme ai ruoli che definiscono il livello di accesso. Assegnando le autorizzazioni a un gruppo di Azure AD invece che a una serie di singoli account utente o applicazione, è possibile aggiungere o rimuovere singoli utenti quando cambiano i requisiti di accesso.
+Successivamente, gli utenti dell'organizzazione potranno lavorare su tali risorse dall'interno del tenant di gestione tramite la [gestione delle risorse delegate di Azure](azure-delegated-resource-management.md), in base all'accesso definito durante la creazione dell'offerta. Questa operazione viene eseguita tramite un manifesto che specifica gli utenti, i gruppi e le entità servizio Azure Active Directory (Azure AD) che avranno accesso alle risorse dei clienti, insieme ai [ruoli](tenants-users-roles.md) che definiscono il livello di accesso.
 
 ## <a name="public-and-private-offers"></a>Offerte pubbliche e private
 

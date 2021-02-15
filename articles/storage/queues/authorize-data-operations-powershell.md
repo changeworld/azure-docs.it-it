@@ -6,16 +6,16 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 09/14/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 61bcf7abca2860078bd89da070309a0057360f0c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590716"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370224"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati della coda
 
@@ -28,6 +28,9 @@ Archiviazione di Azure fornisce estensioni per PowerShell che consentono di acce
 Le estensioni di archiviazione di Azure sono supportate per le operazioni sui dati della coda. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'entità di sicurezza Azure AD con cui si accede a PowerShell. Le autorizzazioni per le code vengono assegnate tramite RBAC di Azure. Se ad esempio è stato assegnato il ruolo **lettore dati coda** , è possibile eseguire i comandi di scripting per leggere i dati da una coda. Se è stato assegnato il ruolo di **collaboratore dei dati della coda** , è possibile eseguire i comandi di scripting per la lettura, la scrittura o l'eliminazione di una coda o dei dati in essi contenuti.
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di archiviazione di Azure in una coda, vedere [chiamare le operazioni di archiviazione con token OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
+
+> [!IMPORTANT]
+> Quando un account di archiviazione è bloccato con un blocco Azure Resource Manager **ReadOnly** , l'operazione [list keys](/rest/api/storagerp/storageaccounts/listkeys) non è consentita per l'account di archiviazione. L' **elenco delle chiavi** è un'operazione post e tutte le operazioni post vengono impedite quando si configura un blocco **ReadOnly** per l'account. Per questo motivo, quando l'account è bloccato con un blocco **ReadOnly** , gli utenti che non dispongono già delle chiavi dell'account devono usare Azure ad credenziali per accedere ai dati della coda. In PowerShell includere il `-UseConnectedAccount` parametro per creare un oggetto **AzureStorageContext** con le credenziali Azure ad.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Chiamare i comandi di PowerShell usando credenziali Azure AD
 

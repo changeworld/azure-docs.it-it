@@ -7,18 +7,45 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653572"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391457"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="january-2021"></a>Gennaio 2021
+
+### <a name="new-capabilities-and-features"></a>Nuove funzionalità e funzionalità
+
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.3.0. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) . È possibile installare `azdata` da [Install Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+
+Altri aggiornamenti includono:
+- Portale localizzato disponibile per 17 nuove lingue
+- Modifiche minime ai file con estensione YAML di Kube-Native
+- Nuove versioni di Grafana e Kibana
+- Problemi con gli ambienti Python quando si usa azdata nei notebook in Azure Data Studio risolti
+- L'estensione pg_audit è ora disponibile per l'iperscalabilità PostgreSQL
+- Non è più necessario un ID di backup quando si esegue un ripristino completo di un database con iperscalabilità PostgreSQL
+- Lo stato (stato di integrità) viene segnalato per ogni istanza di PostgreSQL che costituisce un gruppo di server
+
+   Nelle versioni precedenti lo stato era aggregato a livello di gruppo di server e non è stato riportato a livello di nodo PostgreSQL.
+
+- Le distribuzioni di PostgreSQL ora rispettano i parametri di dimensione del volume indicati in crea comandi
+- I parametri della versione del motore vengono ora rispettati durante la modifica di un gruppo di server
+- La convenzione di denominazione dei pod per Azure Arc abilitata per l'iperscalabilità di PostgreSQL è cambiata
+
+    È ora nel formato: `ServergroupName{c, w}-n` . Ad esempio, un gruppo di server con tre nodi, un nodo coordinatore e due nodi di lavoro sono rappresentati come:
+   - `Postgres01c-0` (nodo coordinatore)
+   - `Postgres01w-0` (nodo del ruolo di lavoro)
+   - `Postgres01w-1` (nodo del ruolo di lavoro)
 
 ## <a name="december-2020"></a>Dicembre 2020
 
@@ -41,14 +68,14 @@ La convenzione di denominazione dei pod per Azure Arc abilitata per l'iperscalab
 
 #### <a name="new-resource-provider"></a>Nuovo provider di risorse
 
-Questa versione introduce un [provider di risorse](../../azure-resource-manager/management/azure-services-resource-providers.md) aggiornato denominato `Microsoft.AzureArcData` . Prima di poter usare questa funzionalità, è necessario registrare il provider di risorse. 
+Questa versione introduce un [provider di risorse](../../azure-resource-manager/management/azure-services-resource-providers.md) aggiornato chiamato `Microsoft.AzureArcData`. Prima di poter usare questa funzionalità, è necessario registrare il provider di risorse. 
 
 Per registrare il provider di risorse: 
 
 1. Nella portale di Azure selezionare **sottoscrizioni** 
 2. Scegliere la sottoscrizione
-3. In **Impostazioni** selezionare **provider di risorse** 
-4. Cercare `Microsoft.AzureArcData` e selezionare **Register (registra** ) 
+3. In **Impostazioni** selezionare **Provider di risorse** 
+4. Cercare `Microsoft.AzureArcData` e selezionare **Registra** 
 
 È possibile esaminare i passaggi dettagliati in [tipi e provider di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Questa modifica rimuove anche tutte le risorse di Azure esistenti caricate nel portale di Azure. Per usare il provider di risorse, è necessario aggiornare il controller dati e usare l'interfaccia della riga di comando più recente `azdata` .  
 

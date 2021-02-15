@@ -3,18 +3,18 @@ title: 'ML Studio (classico): NET # reti neurali personalizzate-Azure'
 description: Guida alla sintassi per il linguaggio di specifica Net# delle reti neurali. Informazioni su come creare modelli di rete neurale personalizzati in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302802"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519253"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Machine Learning Studio (versione classica)
 
@@ -90,17 +90,17 @@ Ad esempio, l'istruzione seguente definisce una costante `x`:
 
 `Const X = 28;`
 
-Per definire contemporaneamente due o più costanti, racchiudere i nomi e i valori degli identificatori tra parentesi graffe e separarle da punti e virgola. Esempio:
+Per definire contemporaneamente due o più costanti, racchiudere i nomi e i valori degli identificatori tra parentesi graffe e separarle da punti e virgola. Ad esempio:
 
 `Const { X = 28; Y = 4; }`
 
-La parte destra di ogni espressione di assegnazione può essere costituita da un valore Integer, un numero reale, un valore booleano (true/false) o un'espressione matematica. Esempio:
+La parte destra di ogni espressione di assegnazione può essere costituita da un valore Integer, un numero reale, un valore booleano (true/false) o un'espressione matematica. Ad esempio:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Dichiarazione dei livelli
 
-La dichiarazione di livello è obbligatoria. Definisce le dimensioni e l'origine del livello, inclusi il raggruppamento di connessione e gli attributi. L'istruzione della dichiarazione inizia con il nome del livello (di input, nascosto o di output), seguito dalle dimensioni del livello (una tupla di valori Integer positivi). Esempio:
+La dichiarazione di livello è obbligatoria. Definisce le dimensioni e l'origine del livello, inclusi il raggruppamento di connessione e gli attributi. L'istruzione della dichiarazione inizia con il nome del livello (di input, nascosto o di output), seguito dalle dimensioni del livello (una tupla di valori Integer positivi). Ad esempio:
 
 ```Net#
 input Data auto;
@@ -214,7 +214,7 @@ Sono disponibili due set di proprietà che controllano la spaziatura interna. Le
 
     Se il valore per una dimensione è False, i kernel verranno definiti in modo che il numero di nodi esclusi in ogni lato sia uguale (con una differenza massima di 1). Il valore predefinito di questo attributo è una tupla con tutti i componenti uguali a False.
 
-+ **UpperPad** e **LowerPad**: (facoltativi) consentono un maggiore controllo sulla quantità di riempimento da usare. **Importante:** Questi attributi possono essere definiti solo se la proprietà di **riempimento** precedente non è **_not_*_ definita. I valori devono essere tuple con valori integer con lunghezze che corrispondono al grado del bundle. Quando si specificano questi attributi, i nodi "fittizi" vengono aggiunti alle estremità inferiore e superiore di ogni dimensione del livello di input. Il numero di nodi aggiunti alle estremità inferiore e superiore di ogni dimensione è determinato rispettivamente da _* LowerPad**[i] e **UpperPad**[i].
++ **UpperPad** e **LowerPad**: (facoltativi) consentono un maggiore controllo sulla quantità di riempimento da usare. **Importante:** Questi attributi possono essere definiti solo se la proprietà di **riempimento** precedente non è ***_ definita. I valori devono essere tuple con valori integer con lunghezze che corrispondono al grado del bundle. Quando si specificano questi attributi, i nodi "fittizi" vengono aggiunti alle estremità inferiore e superiore di ogni dimensione del livello di input. Il numero di nodi aggiunti alle estremità inferiore e superiore di ogni dimensione è determinato rispettivamente da _* LowerPad**[i] e **UpperPad**[i].
 
     Per assicurare che i kernel corrispondano solo a nodi "effettivi" e non a nodi "fittizi", è necessario che siano soddisfatte le condizioni seguenti:
   - Ogni componente di **LowerPad** deve essere rigorosamente minore di `KernelShape[d]/2`.
@@ -266,9 +266,9 @@ La normalizzazione delle risposte viene usata per semplificare la generalizzazio
 
 Le aggregazioni di normalizzazione delle risposte supportano tutti gli attributi convoluzionali, ad eccezione di **Sharing**, **MapCount** e **Weights**.
 
-+ Se il kernel contiene neuroni nella stessa mappa di **_x_*_, lo schema di normalizzazione viene definito _* stessa normalizzazione della mappa**. Per definire la normalizzazione nello stesso mapping, la prima coordinata in **InputShape** deve avere valore 1.
++ Se il kernel contiene neuroni nella stessa mappa di ***x** _, lo schema di normalizzazione viene definito _ * stessa normalizzazione della mappa * *. Per definire la normalizzazione nello stesso mapping, la prima coordinata in **InputShape** deve avere valore 1.
 
-+ Se il kernel contiene neuroni nella stessa posizione spaziale di **_x_*_, ma i neuroni si trovano in altre mappe, lo schema di normalizzazione viene chiamato _* per la normalizzazione di Maps**. Questo tipo di normalizzazione delle risposte implementa una forma di inibizione laterale ispirata dal tipo trovato nei neuroni reali, creando una competizione per livelli di attivazione elevati tra gli output di neuroni calcolati nei diversi mapping. Per definire la normalizzazione tra mapping, è necessario che la prima coordinata sia superiore a uno e non sia superiore al numero di mapping e che il resto delle coordinate abbia valore 1.
++ Se il kernel contiene neuroni nella stessa posizione spaziale di ***x** _, ma i neuroni si trovano in altre mappe, lo schema di normalizzazione viene chiamato _ * tra la normalizzazione di Maps * *. Questo tipo di normalizzazione delle risposte implementa una forma di inibizione laterale ispirata dal tipo trovato nei neuroni reali, creando una competizione per livelli di attivazione elevati tra gli output di neuroni calcolati nei diversi mapping. Per definire la normalizzazione tra mapping, è necessario che la prima coordinata sia superiore a uno e non sia superiore al numero di mapping e che il resto delle coordinate abbia valore 1.
 
 Poiché le aggregazioni di normalizzazione delle risposte applicano una funzione predefinita ai valori del nodo di origine per determinare il valore del nodo di destinazione, non hanno stati sottoponibili a training (pesi o distorsioni).
 

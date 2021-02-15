@@ -1,22 +1,18 @@
 ---
 title: Caricare i dati da SAP Business Warehouse
 description: Usare Azure Data Factory per copiare dati da SAP Business Warehouse (BW)
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360804"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370700"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,7 +47,7 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
 1. Nella pagina attività **iniziali** selezionare **copia dati** per aprire lo strumento copia dati.
 
-2. Nella pagina **Proprietà** specificare un nome di **attività**e quindi fare clic su **Avanti**.
+2. Nella pagina **Proprietà** specificare un nome di **attività** e quindi fare clic su **Avanti**.
 
 3. Nella pagina **archivio dati di origine** selezionare **+ Crea nuova connessione**. Selezionare **SAP BW Hub aperto** dalla raccolta di connettori, quindi selezionare **continua**. Per filtrare i connettori, è possibile digitare **SAP** nella casella di ricerca.
 
@@ -61,11 +57,11 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
    1. Dall'elenco **Connetti tramite Integration Runtime** selezionare un runtime di integrazione self-hosted esistente. In alternativa, scegliere di crearne uno se non ne è già presente uno.
 
-      Per creare un nuovo runtime di integrazione self-hosted, selezionare **+ nuovo**, quindi selezionare **self-hosted**. Immettere un **nome**e quindi fare clic su **Avanti**. Selezionare **installazione rapida** da installare nel computer corrente o attenersi alla procedura di **configurazione manuale** fornita.
+      Per creare un nuovo runtime di integrazione self-hosted, selezionare **+ nuovo**, quindi selezionare **self-hosted**. Immettere un **nome** e quindi fare clic su **Avanti**. Selezionare **installazione rapida** da installare nel computer corrente o attenersi alla procedura di **configurazione manuale** fornita.
 
       Come indicato nei [prerequisiti](#prerequisites), assicurarsi che SAP Connector per Microsoft .NET 3,0 sia installato nello stesso computer in cui è in esecuzione il runtime di integrazione self-hosted.
 
-   2. Immettere il nome del **Server**SAP BW, il **numero di sistema**, l' **ID client,** la **lingua** (se diverso da **en**), il **nome utente**e la **password**.
+   2. Immettere il nome del **Server** SAP BW, il **numero di sistema**, l' **ID client,** la **lingua** (se diverso da **en**), il **nome utente** e la **password**.
 
    3. Selezionare **Test connessione** per convalidare le impostazioni e quindi fare clic su **fine**.
 
@@ -77,7 +73,7 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
 6. Se necessario, specificare un filtro. Se il OHD contiene solo i dati di una singola esecuzione del processo di trasferimento dei dati (DTP) con un solo ID richiesta o se si è certi che il DTP è terminato e si vogliono copiare i dati, deselezionare la casella di controllo **Escludi ultima richiesta** .
 
-   Altre informazioni su queste impostazioni sono disponibili nella sezione [SAP BW configurazioni di destinazione dell'hub aperto](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **convalida** per controllare i dati che verranno restituiti. Fare quindi clic su **Avanti**.
+   Altre informazioni su queste impostazioni sono disponibili nella sezione [SAP BW configurazioni di destinazione dell'hub aperto](#sap-bw-open-hub-destination-configurations) di questo articolo. Selezionare **convalida** per controllare i dati che verranno restituiti. Selezionare quindi **Avanti**.
 
    ![Configurare SAP BW filtro Hub aperto](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -88,9 +84,9 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
    ![Creare una pagina del servizio collegato ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Selezionare l'account che supporta Data Lake Storage Gen2 dall'elenco a discesa **nome** .
-   2. Selezionare **Fine** per creare la connessione. Fare quindi clic su **Avanti**.
+   2. Selezionare **Fine** per creare la connessione. Selezionare quindi **Avanti**.
 
-9. Nella pagina **scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Fare quindi clic su **Avanti**.
+9. Nella pagina **scegliere il file o la cartella** di output immettere **copyfromopenhub** come nome della cartella di output. Selezionare quindi **Avanti**.
 
    ![Pagina Scegli cartella di output](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -98,11 +94,11 @@ Nel portale di Azure accedere alla data factory. Selezionare **crea & monitoragg
 
     ![Pagina specifica formato sink](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per il **grado di parallelismo di copia** , ad esempio 5, da caricare SAP BW in parallelo. Fare quindi clic su **Avanti**.
+11. Nella pagina **Impostazioni** espandere **Impostazioni prestazioni**. Immettere un valore per il **grado di parallelismo di copia** , ad esempio 5, da caricare SAP BW in parallelo. Selezionare quindi **Avanti**.
 
     ![Configurare le impostazioni di copia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Nella pagina **Riepilogo** esaminare le impostazioni. Fare quindi clic su **Avanti**.
+12. Nella pagina **Riepilogo** esaminare le impostazioni. Selezionare quindi **Avanti**.
 
 13. Nella pagina **distribuzione** selezionare **monitoraggio** per monitorare la pipeline.
 
@@ -149,7 +145,7 @@ Nella pagina data factory attività **iniziali** selezionare **crea pipeline da 
 
    ![Copia incrementale dal modello di SAP BW](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
-3. Questo modello genera una pipeline con le tre attività seguenti e le rende concatenate su-Success: *Lookup*, *copia dati*e *Web*.
+3. Questo modello genera una pipeline con le tre attività seguenti e le rende concatenate su-Success: *Lookup*, *copia dati* e *Web*.
 
    Passare alla scheda **parametri** pipeline. Vengono visualizzate tutte le configurazioni che è necessario fornire.
 
@@ -175,7 +171,7 @@ Nella pagina data factory attività **iniziali** selezionare **crea pipeline da 
 
       ![Configurazione dell'app per la logica](media/load-sap-bw-data/logic-app-config.png)
 
-      1. Accedere al portale di Azure. Selezionare un nuovo servizio app per la **logica** . Selezionare **+ app per la logica vuota** per passare alla **finestra di progettazione di app**per la logica.
+      1. Accedere al portale di Azure. Selezionare un nuovo servizio app per la **logica** . Selezionare **+ app per la logica vuota** per passare alla **finestra di progettazione di app** per la logica.
 
       2. Crea un trigger di **quando viene ricevuta una richiesta http**. Specificare il corpo della richiesta HTTP come indicato di seguito:
 
@@ -190,7 +186,7 @@ Nella pagina data factory attività **iniziali** selezionare **crea pipeline da 
          }
          ```
 
-      3. Aggiungere un'azione **Crea BLOB** . Per **percorso cartella** e **nome BLOB**usare gli stessi valori configurati in precedenza in *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* e *HighWatermarkBlobName*.
+      3. Aggiungere un'azione **Crea BLOB** . Per **percorso cartella** e **nome BLOB** usare gli stessi valori configurati in precedenza in *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* e *HighWatermarkBlobName*.
 
       4. Selezionare **Salva**. Quindi, copiare il valore dell' **URL http post** da usare nella pipeline Data Factory.
 

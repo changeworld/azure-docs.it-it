@@ -1,24 +1,18 @@
 ---
 title: Data Factory copia guidata di Azure
 description: Informazioni su come usare Copia guidata di Azure Data Factory per copiare i dati da origini dati supportate nei sink.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0f95b0d62bc81a8dddc72239491a05ca78945490
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462214"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393378"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Copia guidata di Azure Data Factory
 
@@ -115,7 +109,7 @@ In questa sezione vengono illustrati i metodi di risoluzione dei problemi comuni
         8.  Chiudere il browser e riavviarlo.
     - Se si usa il browser Firefox, seguire le istruzioni riportate di seguito per aggiungere l'eccezione dei cookie.
         1. Dal menu Firefox passare a **strumenti**  >  **Opzioni**.
-        2. In **Privacy**  >  **cronologia** privacy, è possibile che l'impostazione corrente **usi impostazioni personalizzate per la cronologia**.
+        2. In   >  **cronologia** privacy, è possibile che l'impostazione corrente **usi impostazioni personalizzate per la cronologia**.
         3. In **accetta cookie di terze parti**, l'impostazione corrente potrebbe **non essere mai**, quindi è necessario fare clic su **eccezioni** a destra per aggiungere i siti seguenti.
             - https://login.microsoftonline.com
             - https://login.windows.net

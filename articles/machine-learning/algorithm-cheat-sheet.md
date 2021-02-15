@@ -9,18 +9,19 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b824604ce9d0171b5612ab559eace4b35fd01eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+adobe-target: true
+ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82890970"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367057"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Foglio informativo sugli algoritmi di Machine Learning per Azure Machine Learning Designer
 
 Il **foglio** informativo sugli algoritmi di Azure Machine Learning consente di scegliere l'algoritmo appropriato dalla finestra di progettazione per un modello di analisi predittiva.
 
-Azure Machine Learning dispone di una grande libreria di algoritmi di ***classificazione***, ***sistemi di raccomandazione***, ***clustering***, ***rilevamento di anomalie***, ***regressione***e famiglie di ***analisi del testo*** . Ognuno è progettato per risolvere un tipo diverso di problema di Machine Learning.
+Azure Machine Learning dispone di un'ampia libreria di algoritmi di * famiglie di **classificazione** _, _*_sistemi di raccomandazione_*_, _*_clustering_*_, _*_rilevamento di anomalie_*_, _*_regressione_*_ e _ *_Text Analytics_**. Ognuno è progettato per risolvere un tipo diverso di problema di Machine Learning.
 
 Per altre istruzioni, vedere [come selezionare gli algoritmi](how-to-select-algorithms.md)
 

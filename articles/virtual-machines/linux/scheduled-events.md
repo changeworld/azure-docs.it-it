@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3bda1e2076e29fc1365bfc236adc9071db2564a1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792804"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104740"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -71,7 +71,7 @@ Per le macchine virtuali abilitate per le reti virtuali, il servizio metadati è
 Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso predefinito per i servizi cloud e le macchine virtuali classiche, è necessaria logica aggiuntiva per individuare l'indirizzo IP da usare. Per informazioni su come [individuare l'endpoint dell'host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), vedere l'esempio seguente.
 
 ### <a name="version-and-region-availability"></a>Versione e disponibilità in base all'area geografica
-Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie; la versione corrente è `2019-01-01`.
+Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie; la versione corrente è `2019-08-01`.
 
 | Versione | Tipo di versione | Regioni | Note sulla versione | 
 | - | - | - | - | 

@@ -212,6 +212,8 @@
       items:
         - name: Creare un indicizzatore
           href: search-howto-create-indexers.md
+        - name: Eseguire o reimpostare gli indicizzatori
+          href: search-howto-run-reset-indexers.md
         - name: Pianificare un indicizzatore
           href: search-howto-schedule-indexers.md
         - name: Definire i mapping dei campi

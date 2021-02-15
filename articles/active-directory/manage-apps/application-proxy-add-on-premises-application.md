@@ -8,22 +8,26 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: f18126448f5a6dca29e798ad80cb53a8760689d8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.custom: contperf-fy21q3-portal
+ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576516"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095172"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
-Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD. Per **visualizzare le app e iniziare rapidamente a usare** la gestione delle app in Azure, vedere la [serie di avvio rapido](view-applications-portal.md).
+Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Per altre informazioni sul proxy di applicazione, vedere [che cos'è il proxy applicazione?](what-is-application-proxy.md). Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD. 
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagramma di panoramica del proxy di applicazione" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
+
+Prima di iniziare, assicurarsi di avere familiarità con i concetti relativi alla gestione delle app e **Single Sign-On (SSO)** . Consultare i collegamenti seguenti:
+- [Serie di guide introduttive sulla gestione delle app in Azure AD](view-applications-portal.md)
+- [Che cos'è single Sign-On (SSO)?](what-is-single-sign-on.md)
 
 I connettori sono una parte essenziale di Application Proxy. Per altre informazioni sui connettori, vedere [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md).
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c6932292b86924cfab6d17c315cbd6946bd63f61
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0be2e2f6ce22525cb4c3a7e0656ce9ce75fb7f77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621330"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Esercitazione: Integrazione di Azure Active Directory con Coupa
 
@@ -28,10 +28,10 @@ In questa esercitazione si apprenderà come integrare Coupa con Azure Active Dir
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Coupa, sono necessari gli elementi seguenti:
+Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
-* Sottoscrizione di coupa abilitata per la Single Sign-On.
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di coupa abilitata per la Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -63,7 +63,7 @@ Per configurare e testare Azure AD SSO con Coupa, seguire questa procedura:
     1. **[Creare un utente di test di coupa](#create-coupa-test-user)** : per avere una controparte di B. Simon incoupa collegata alla rappresentazione Azure ad dell'utente.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
@@ -128,17 +128,17 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="configure-coupa-sso"></a>Configurazione di Coupa SSO
+## <a name="configure-coupa-sso"></a>Configurazione di Coupa SSO
 
 1. Accedere al sito aziendale di Coupa come amministratore.
 
 2. Passare a **Setup (Configurazione) \> Security Control (Controllo di sicurezza)**.
 
-    ![Controlli di sicurezza](./media/coupa-tutorial/ic791900.png "Security Controls")
+    ![Controlli di sicurezza](./media/coupa-tutorial/setup.png "Security Controls")
 
 3. Nella sezione **Log in using Coupa credentials** eseguire la procedura seguente:
 
-    ![Metadati provider di servizi Coupa](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
+    ![Metadati provider di servizi Coupa](./media/coupa-tutorial/login.png "Coupa SP metadata")
 
     a. Selezionare **Log in using SAML**.
 
@@ -158,15 +158,15 @@ Per consentire agli utenti di Azure AD di accedere a Coupa, è necessario esegui
 
 2. Nel menu in alto fare clic su **Setup** e quindi su **Users**.
 
-    ![Utenti](./media/coupa-tutorial/ic791908.png "Utenti")
+    ![Utenti](./media/coupa-tutorial/user.png "Utenti")
 
 3. Fare clic su **Crea**.
 
-    ![Creare utenti](./media/coupa-tutorial/ic791909.png "Creare gli utenti")
+    ![Creare utenti](./media/coupa-tutorial/create.png "Creare gli utenti")
 
 4. Nella sezione **User Create** eseguire la procedura seguente:
 
-    ![Dettagli utente](./media/coupa-tutorial/ic791910.png "Dettagli utente")
+    ![Dettagli utente](./media/coupa-tutorial/details.png "Dettagli utente")
 
     a. Nelle apposite caselle di testo digitare l'**account di accesso**, il **nome**, il **cognome**, l'**ID Single Sign-On** e l'**indirizzo e-mail** di un account di Azure Active Directory valido di cui si vuole eseguire il provisioning.
 
@@ -179,7 +179,7 @@ Per consentire agli utenti di Azure AD di accedere a Coupa, è necessario esegui
 >[!NOTE]
 >È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Coupa per effettuare il provisioning degli account utente Azure AD.
 
-### <a name="test-sso"></a>Testare l'accesso SSO
+## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 

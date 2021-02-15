@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988031"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104519"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -147,7 +147,7 @@ QnA Maker permette agli utenti di collaborare a una knowledge base. Per accedere
 
 ## <a name="active-learning"></a>Apprendimento attivo
 
-[Apprendimento attivo](../How-to/use-active-learning.md) garantisce migliori prestazioni nel suggerimento di domande alternative se è disponibile un'ampia gamma, in termini di qualità e quantità, di query basate sull'utente. È importante consentire alle query degli utenti delle applicazioni client di entrare nel ciclo di feedback relativo all'apprendimento attivo senza alcuna limitazione. Quando le domande sono consigliate nel portale di QnA Maker, è possibile **[filtrare in base ai suggerimenti](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** , quindi esaminare e accettare o rifiutare tali suggerimenti.
+[Apprendimento attivo](../How-to/use-active-learning.md) garantisce migliori prestazioni nel suggerimento di domande alternative se è disponibile un'ampia gamma, in termini di qualità e quantità, di query basate sull'utente. È importante consentire alle query degli utenti delle applicazioni client di entrare nel ciclo di feedback relativo all'apprendimento attivo senza alcuna limitazione. Quando le domande sono consigliate nel portale di QnA Maker, è possibile **[filtrare in base ai suggerimenti](../How-To/improve-knowledge-base.md)** , quindi esaminare e accettare o rifiutare tali suggerimenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

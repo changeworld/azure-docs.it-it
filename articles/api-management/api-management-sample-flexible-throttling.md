@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b21196207f65975dae950f43ec0c7094991dad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537345"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362030"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitazione avanzata delle richieste con Gestione API di Azure
 La possibilità di limitare le richieste in ingresso è uno dei ruoli fondamentali di Gestione API di Azure. Tramite il controllo della frequenza delle richieste o del totale delle richieste o dei dati trasferiti, Gestione API consente ai provider di API di proteggere le API da abusi e di aggiungere valore a diversi livelli di prodotto API.
@@ -40,14 +40,14 @@ In gestione API di Azure, i limiti di velocità vengono in genere propagati più
 > A causa della natura distribuita dell'architettura di limitazione, la limitazione della frequenza non è mai completamente precisa. La differenza tra la configurazione e il numero reale di richieste consentite varia in base al volume e alla frequenza della richiesta, alla latenza del back-end e ad altri fattori.
 
 ## <a name="product-based-throttling"></a>Limitazione basata sul prodotto
-Finora le funzionalità di limitazione della frequenza avevano come ambito una sottoscrizione specifica a un prodotto, definita nel portale di Azure. Tali funzionalità sono utili per consentire al provider di API di applicare limiti agli sviluppatori che si sono registrati per l'uso dell'API, ma non consente di limitare ad esempio i singoli utenti finali dell'API. Il singolo utente dell'applicazione dello sviluppatore può usare l'intera quota e quindi impedire ad altri clienti dello sviluppatore di usare l'applicazione. Inoltre, alcuni clienti possono generare un numero elevato di richieste, limitando l'accesso agli utenti occasionali.
+Le funzionalità di limitazione delle richieste che hanno come ambito una sottoscrizione specifica sono utili per consentire al provider di API di applicare limiti agli sviluppatori che hanno effettuato l'iscrizione per usare l'API. Tuttavia, non è utile, ad esempio, per limitare i singoli utenti finali dell'API. È possibile che un singolo utente dell'applicazione dello sviluppatore utilizzi l'intera quota e quindi impedisca ad altri clienti dello sviluppatore di poter usare l'applicazione. Inoltre, alcuni clienti possono generare un numero elevato di richieste, limitando l'accesso agli utenti occasionali.
 
 ## <a name="custom-key-based-throttling"></a>Limitazione basata su chiavi personalizzate
 
 > [!NOTE]
 > I `rate-limit-by-key` `quota-by-key` criteri e non sono disponibili quando si usa il livello di consumo di gestione API di Azure. 
 
-I nuovi criteri [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) offrono una soluzione più flessibile per il controllo del traffico. Questi nuovi criteri consentono di definire le espressioni per l'identificazione delle chiavi che vengono usate per tenere traccia dell'utilizzo del traffico. Il modo più semplice per spiegarne il funzionamento è illustrare un esempio. 
+I criteri [rate-limit-by-Key](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [quota-by-Key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) offrono una soluzione più flessibile per il controllo del traffico. Questi criteri consentono di definire espressioni per identificare le chiavi usate per tenere traccia dell'utilizzo del traffico. Il modo più semplice per spiegarne il funzionamento è illustrare un esempio. 
 
 ## <a name="ip-address-throttling"></a>Limitazione indirizzi IP
 I seguenti criteri limitano l'indirizzo IP di un singolo client a 10 chiamate al minuto, con un totale di 1.000.000 chiamate e 10.000 KB di larghezza di banda al mese. 
@@ -77,7 +77,7 @@ Se un utente finale viene autenticato, può essere generata una chiave per la li
 Questo esempio illustra come estrarre l'intestazione dell'autorizzazione, convertirla in un oggetto `JWT`, identificare l'utente tramite l'oggetto del token e usarlo come chiave per la limitazione della frequenza. Se l'identità dell'utente è archiviata nell'oggetto `JWT` come una delle altre attestazioni, è possibile sostituirla con quel valore.
 
 ## <a name="combined-policies"></a>Criteri combinati
-Sebbene i nuovi criteri di limitazione garantiscano maggiore controllo rispetto ai criteri di limitazione esistenti, la combinazione delle due funzionalità presenta comunque dei vantaggi. La limitazione per chiave di sottoscrizione del prodotto ([Limit call rate by subscription](./api-management-access-restriction-policies.md#LimitCallRate) (Limitare la frequenza delle chiamate per sottoscrizione) e [Set usage quota by subscription](./api-management-access-restriction-policies.md#SetUsageQuota) (Impostare la quota di utilizzo per sottoscrizione)) è un ottimo metodo per monetizzare un'API effettuando gli addebiti in base ai livelli di utilizzo. Il controllo con granularità maggiore per impostare la limitazione per utente è complementare e impedisce che il comportamento di un utente comprometta l'esperienza di un altro utente. 
+Sebbene i criteri di limitazione basati sull'utente forniscano maggiore controllo rispetto ai criteri di limitazione basati sulle sottoscrizioni, esiste ancora un valore che combina entrambe le funzionalità. La limitazione per chiave di sottoscrizione del prodotto ([Limit call rate by subscription](./api-management-access-restriction-policies.md#LimitCallRate) (Limitare la frequenza delle chiamate per sottoscrizione) e [Set usage quota by subscription](./api-management-access-restriction-policies.md#SetUsageQuota) (Impostare la quota di utilizzo per sottoscrizione)) è un ottimo metodo per monetizzare un'API effettuando gli addebiti in base ai livelli di utilizzo. Il controllo con granularità maggiore per impostare la limitazione per utente è complementare e impedisce che il comportamento di un utente comprometta l'esperienza di un altro utente. 
 
 ## <a name="client-driven-throttling"></a>Limitazione basata su client
 Quando la chiave per la limitazione viene definita mediante un' [espressione di criteri](./api-management-policy-expressions.md), è il provider di API a scegliere l'ambito della limitazione. Uno sviluppatore può tuttavia voler controllare la modalità di limitazione della frequenza per i propri clienti. Il provider di API può abilitare questa opzione introducendo un'intestazione personalizzata per consentire all'applicazione client dello sviluppatore di comunicare la chiave all'API.

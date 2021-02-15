@@ -7,16 +7,19 @@ ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 8007f11cb37063cef46ac7f3ac51e23bdfaae11a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 13eb84e91e1809012a2ae1ad01397b20cb322f16
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226455"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104451"
 ---
 # <a name="defender-for-iot-glossary"></a>Glossario di Defender per IoT
 
 Questo glossario fornisce una breve descrizione dei termini e dei concetti importanti per Azure Defender per la piattaforma Internet delle cose. Selezionare i collegamenti **ulteriori informazioni** per passare a termini correlati nel glossario. Ciò consentirà di apprendere e usare più rapidamente gli strumenti per i prodotti.
+
+> [!Note]
+> Qualsiasi termine con un `(AL)` elenco denominato è un termine del generatore di dispositivi basato su agenti. 
 
 <a name="glossary-a"></a>
 
@@ -58,6 +61,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 | **Inventario dispositivi-sensore** | Nell'inventario del dispositivo viene visualizzata una vasta gamma di attributi del dispositivo rilevati da Defender per l'intero. Sono disponibili opzioni per:<br /><br />-Filtrare le informazioni visualizzate.<br /><br />-Esportare le informazioni in un file CSV.<br /><br />-Importa i dettagli del registro di sistema di Windows. | **[Group](#g)** <br /><br />**[Inventario dispositivi-console di gestione locale](#d)** |
 | **Inventario dispositivi-console di gestione locale** | Le informazioni sul dispositivo dei sensori connessi possono essere visualizzate dalla console di gestione locale nell'inventario dei dispositivi. In questo modo gli utenti della console di gestione locale forniscono una panoramica completa di tutte le informazioni sulla rete. | **[Inventario dispositivi-sensore](#d) <br /> <br /> [Inventario dispositivi-Data Integrator](#d)** |
 | **Inventario dispositivi-Data Integrator** | Le funzionalità di integrazione dei dati della console di gestione locale consentono di migliorare i dati nell'inventario dei dispositivi con le informazioni provenienti da altre risorse aziendali. Le risorse di esempio sono CMDBs, DNS, firewall e API Web. | **[Inventario dispositivi-console di gestione locale](#d)** |
+| **Dispositivi gemelli**`(AL)` | I dispositivi gemelli sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. | [Modulo gemello](#m) <br /> <br />[Gemello del modulo di sicurezza](#s) |
 
 ## <a name="e"></a>E
 
@@ -90,6 +94,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
+| **Hub IoT** `(AL)` | Servizio gestito, ospitato nel cloud, che funge da Hub messaggi centrale per la comunicazione bidirezionale tra l'applicazione Internet e i dispositivi gestiti.  |   |
 | **Integrazioni** | Espandere Defender per le funzionalità di Internet delle cose condividendo le informazioni sui dispositivi con i sistemi partner. Le organizzazioni possono colmare le soluzioni di sicurezza, NAC, gestione degli eventi imprevisti e gestione dei dispositivi in precedenza per accelerare le risposte a livello di sistema e attenuare più rapidamente i rischi. | **[Regola di invio](#f)** |
 | **Subnet interna** | Configurazioni di subnet definite da Defender per l'it. In alcuni casi, ad esempio gli ambienti che usano intervalli pubblici come intervalli interni, è possibile istruire Defender for Internet per la risoluzione di tutte le subnet come subnet interne. Le subnet vengono visualizzate nella mappa e in diversi Defender per i report relativi alle cose. | **[Subnet](#s)** |
 
@@ -105,6 +110,8 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
+| **Agente micro**`(AL)` | Offre funzionalità di sicurezza approfondite per i dispositivi Internet, inclusi il rilevamento delle minacce e le condizioni di sicurezza.  |    |
+| **Modulo gemello** `(AL)` | I moduli gemelli sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei moduli, ad esempio metadati, configurazioni e condizioni. | [Dispositivo gemello](#d) <br /> <br />[Gemello del modulo di sicurezza](#s) |
 | **Disattiva evento di avviso** | Indica a Defender per le cose di ignorare continuamente le attività con dispositivi identici e traffico analogo. | **[Avviso di](#glossary-a) <br /> <br /> [](#e) <br /> Regola <br /> di esclusione [Conferma evento](#glossary-a) <br /> <br /> di avviso [Informazioni sugli eventi di avviso](#l)** |
 
 ## <a name="n"></a>N
@@ -140,6 +147,7 @@ Questo glossario fornisce una breve descrizione dei termini e dei concetti impor
 | Termine | Descrizione | Altre informazioni |
 |--|--|--|
 | **Avviso di sicurezza** | Avvisi che riguardano problemi di sicurezza, ad esempio tentativi di accesso SMB eccessivi o rilevamenti di malware. | **[Avviso di](#glossary-a) <br /> <br /> [Avviso operativo](#o)** |
+| **Gemello del modulo di sicurezza**`(AL)` | Il gemello del modulo di sicurezza include tutte le informazioni rilevanti per la sicurezza dei dispositivi, per ogni dispositivo specifico nella soluzione. | [Dispositivo gemello](#d) <br /> <br />[Modulo gemello](#m)  |
 | **Sondaggio selettivo** | Defender per l'Internet delle cose esamina passivamente il traffico e il traffico e rileva le informazioni rilevanti sui dispositivi, i relativi attributi, il loro comportamento e altro ancora. In alcuni casi, alcune informazioni potrebbero non essere visibili nelle analisi della rete passiva.<br /><br />Quando si verifica questo problema, è possibile usare gli strumenti di probe sicuri e granulari in Defender, per individuare informazioni importanti sui dispositivi precedentemente non raggiungibili. | - |
 | **Sensor** | Macchina virtuale o fisica in cui è installata la piattaforma Defender for Internet. | **[Console di gestione locale](#o)** |
 | **Sito** | Posizione di una factory o di un'altra entità. Il sito deve contenere una zona o diverse zone in cui è installato un sensore. | **[Zona](#z)** |
