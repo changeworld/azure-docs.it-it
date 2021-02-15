@@ -1,22 +1,18 @@
 ---
 title: Copiare dati da AWS Marketplace
 description: Informazioni su come copiare dati da Amazon Marketplace Web Service in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: 4620ef5b6a72afbe86b0ace33328a769eab31e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c25bdac0b52af425557464f17350fb8a46244f2f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418270"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364359"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiare dati da Amazon Marketplace Web Service usando Azure Data Factory
 
@@ -35,7 +31,7 @@ Questo connettore di Amazon Marketplace Web Service è supportato per le attivit
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

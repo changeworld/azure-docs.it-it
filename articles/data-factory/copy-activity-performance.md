@@ -1,25 +1,20 @@
 ---
-title: Guida alla scalabilità e alle prestazioni dell'attività di copia
+title: Guida a prestazioni e scalabilità dell'attività di copia
 description: Informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati in Azure Data Factory quando si usa l'attività di copia.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: a6e89883ec0e1e493bad9572876af86f4a0d3853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324438"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387666"
 ---
-# <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
+# <a name="copy-activity-performance-and-scalability-guide"></a>Guida a prestazioni e scalabilità dell'attività di copia
 
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-activity-performance.md)
@@ -149,7 +144,7 @@ Azure Data Factory offre le seguenti funzionalità di ottimizzazione delle prest
 
 ### <a name="data-integration-units"></a>Unità di integrazione dati
 
-Una Data Integration Unit (DIU) è una misura che rappresenta la potenza di una singola unità in Azure Data Factory. Power è una combinazione di CPU, memoria e allocazione di risorse di rete. DIU si applica solo al [runtime di integrazione di Azure](concepts-integration-runtime.md#azure-integration-runtime). DIU non si applica al [runtime di integrazione self-hosted](concepts-integration-runtime.md#self-hosted-integration-runtime). [Altre informazioni](copy-activity-performance-features.md#data-integration-units)sono disponibili qui.
+Una Data Integration Unit (DIU) è una misura che rappresenta la potenza di una singola unità in Azure Data Factory. Power è una combinazione di CPU, memoria e allocazione di risorse di rete. DIU si applica solo al [runtime di integrazione di Azure](concepts-integration-runtime.md#azure-integration-runtime). DIU non si applica al [runtime di integrazione self-hosted](concepts-integration-runtime.md#self-hosted-integration-runtime). Fare clic [qui](copy-activity-performance-features.md#data-integration-units) per altre informazioni.
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>Scalabilità del runtime di integrazione self-hosted
 

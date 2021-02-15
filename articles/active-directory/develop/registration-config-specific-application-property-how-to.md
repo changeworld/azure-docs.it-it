@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6da6187e59bf028101eac2ea6f09fb1530821bfd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 82c3dd4ce7f5e7e9f3d5a226bfe65e27eca2d3d4
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937856"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103244"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campi di registrazione del portale di Azure per app personalizzate
 
@@ -25,7 +25,7 @@ Questo articolo include una breve descrizione di tutti i campi disponibili nel m
 
 ## <a name="register-a-new-application"></a>Registrare una nuova applicazione
 
--   Per registrare una nuova applicazione, passare al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+-   Per registrare una nuova applicazione, passare al <a href="https://portal.azure.com/" target="_blank">Portale di Azure</a>.
 
 -   Dal riquadro di spostamento a sinistra fare clic su **Azure Active Directory.**
 

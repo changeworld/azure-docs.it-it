@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati dal servizio di archiviazione semplice di Amazon usando Data Factory
 description: Informazioni su come spostare i dati da Amazon Simple Storage Service (S3) usando Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d254a535b1db53478772b481bd029a8c4db6f3c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711919"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361347"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Spostare i dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +39,7 @@ Per informazioni dettagliate sull'elenco completo delle autorizzazioni di Amazon
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Per una procedura dettagliata, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET** e **API REST**. Per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -94,7 +89,7 @@ Le sezioni come struttura, disponibilità e criteri sono simili per tutti i tipi
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | bucketName |Il nome del bucket S3. |string |Sì |
-| Key |La chiave dell'oggetto S3. |string |No |
+| key |La chiave dell'oggetto S3. |string |No |
 | prefix |Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando la chiave è vuota. |string |No |
 | version |La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. |string |No |
 | format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. | |No |
@@ -308,7 +303,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 ### <a name="copy-activity-in-a-pipeline-with-an-amazon-s3-source-and-a-blob-sink"></a>Attività di copia in una pipeline con un'origine Amazon S3 e un sink BLOB
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **FileSystemSource**e il tipo di **sink** è impostato su **BlobSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **FileSystemSource** e il tipo di **sink** è impostato su **BlobSink**.
 
 ```json
 {

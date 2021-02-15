@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1bf6add2a73c129c7ffff2e144bc27812072922a
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: bf1a8eb690dedb760aa6120490e5efb77b7713a8
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560393"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095538"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
@@ -20,7 +20,7 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Registrazione e rilevamento delle minacce |LT-4 |Abilitare la registrazione per le risorse di Azure |[È consigliabile abilitare i log di diagnostica nel bus di servizio](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
+|Registrazione e rilevamento delle minacce |LT-4 |Abilitare la registrazione per le risorse di Azure |[I log delle risorse nel bus di servizio devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="azure-security-benchmark-v1"></a>Azure Security Benchmark v1
 
@@ -31,7 +31,7 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Sicurezza di rete |1.1 |Proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale |[Il bus di servizio deve usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |
-|Registrazione e monitoraggio |2.3 |Abilitare la registrazione di controllo per le risorse di Azure |[È consigliabile abilitare i log di diagnostica nel bus di servizio](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
+|Registrazione e monitoraggio |2.3 |Abilitare la registrazione di controllo per le risorse di Azure |[I log delle risorse nel bus di servizio devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 
@@ -43,6 +43,6 @@ Per altre informazioni su questo standard di conformità, vedere [HIPAA HITRUST 
 |Separazione nelle reti |0805.01m1Organizational.12 - 01.m |I gateway di sicurezza dell'organizzazione, ad esempio i firewall, impongono i criteri di sicurezza e sono configurati per filtrare il traffico tra domini, bloccare l'accesso non autorizzato e vengono usati per mantenere la separazione tra segmenti di rete cablati interni, wireless interni ed esterni, ad esempio Internet, incluse le reti perimetrali, e impongono i criteri di controllo di accesso per ogni dominio. |[Il bus di servizio deve usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |
 |Separazione nelle reti |0806.01m2Organizational.12356 - 01.m |La rete dell'organizzazione è segmentata a livello logico e fisico con un perimetro di sicurezza definito e un set graduale di controlli, con le sottoreti per i componenti di sistema accessibili pubblicamente separate a livello logico dalla rete interna, in base ai requisiti aziendali; il traffico viene controllato in base alle funzionalità necessarie e alla classificazione dei dati/sistemi secondo la valutazione dei rischi e i rispettivi requisiti di sicurezza. |[Il bus di servizio deve usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |
 |Separazione nelle reti |0894.01m2Organizational.7 - 01.m |Le reti vengono separate dalle reti a livello di produzione quando si esegue la migrazione di server fisici, applicazioni o dati a server virtualizzati. |[Il bus di servizio deve usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |
-|Registrazione di controllo |1208.09aa3System.1 - 09.aa |Vengono mantenuti log di controllo per attività di gestione, operazioni di avvio/arresto o errori di sistemi e applicazioni, modifiche apportate ai file e modifiche apportate ai criteri di sicurezza. |[È consigliabile abilitare i log di diagnostica nel bus di servizio](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
+|Registrazione di controllo |1208.09aa3System.1 - 09.aa |Vengono mantenuti log di controllo per attività di gestione, operazioni di avvio/arresto o errori di sistemi e applicazioni, modifiche apportate ai file e modifiche apportate ai criteri di sicurezza. |[I log delle risorse nel bus di servizio devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 |Controlli di rete |0860.09m1Organizational.9 - 09.m |L'organizzazione gestisce formalmente le apparecchiature sulla rete, incluse le apparecchiature nelle aree degli utenti. |[Il bus di servizio deve usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |
 

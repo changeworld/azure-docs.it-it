@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5fc5b52cb8fb4d654bef136f44d8579036921364
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842890"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097195"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -40,11 +40,11 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
 
 * Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
-## <a name="create"></a>Creare
+## <a name="create"></a>Crea
 
 **Tempo stimato**: circa 5 minuti.
 
-La creazione di un'istanza di calcolo è un processo una volta per l'area di lavoro. È possibile riutilizzare questo calcolo come una workstation di sviluppo o come destinazione di calcolo per il training. È possibile avere più istanze di calcolo collegate all'area di lavoro.
+La creazione di un'istanza di calcolo è un processo una volta per l'area di lavoro. È possibile riutilizzare il calcolo come una workstation di sviluppo o come destinazione di calcolo per il training. È possibile avere più istanze di calcolo collegate all'area di lavoro.
 
 I core dedicati per area per la quota della famiglia di VM e la quota di area totale, applicabile alla creazione dell'istanza di calcolo, sono unificati e condivisi con Azure Machine Learning quota del cluster di calcolo di training. Se si arresta l'istanza di calcolo, la quota non viene rilasciata per garantire che sia possibile riavviare l'istanza di calcolo. Si noti che non è possibile modificare le dimensioni della macchina virtuale dell'istanza di calcolo dopo che è stata creata.
 
@@ -154,7 +154,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.start(wait_for_completion=True, show_output=True)
     ```
 
-* Riavvio
+* Riavvia
 
     ```python
     # restart() is used to restart the ComputeInstance
@@ -188,7 +188,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per altre informazioni, vedere [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
-* Riavvio 
+* Riavvia 
 
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n instance -v
@@ -226,7 +226,7 @@ Per ogni istanza di calcolo nell'area di lavoro creata (o creata automaticamente
 
 ---
 
-Il controllo degli accessi in base al ruolo di [Azure](../role-based-access-control/overview.md) consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stato creato per loro conto, può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che ha accesso alla radice e può eseguire il terminale in tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo avrà un accesso utente singolo e tutte le azioni useranno l'identità dell'utente per il controllo degli accessi in base al ruolo di Azure e l'attribuzione delle esecuzioni dell'esperimento L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
+Il controllo degli accessi in base al ruolo di [Azure](../role-based-access-control/overview.md) consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stato creato per loro conto, può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che ha accesso alla radice e può eseguire il terminale in tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo avrà accesso a utente singolo e tutte le azioni useranno l'identità dell'utente per il controllo degli accessi in base al ruolo di Azure e l'attribuzione delle esecuzioni dell'esperimento. L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
 
 Queste azioni possono essere controllate da RBAC di Azure:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -236,62 +236,8 @@ Queste azioni possono essere controllate da RBAC di Azure:
 * *Microsoft. MachineLearningServices/Workspaces/Computes/Stop/Action*
 * *Microsoft. MachineLearningServices/Workspaces/Computes/restart/Action*
 
-
-## <a name="access-the-terminal-window"></a>Accedere alla finestra del terminale
-
-Aprire la finestra del terminale dell'istanza di calcolo nei modi seguenti:
-
-* RStudio: selezionare la scheda **Terminal** (Terminale) in alto a sinistra.
-* Jupyter Lab:  selezionare il riquadro **Terminal** (Terminale) nell'intestazione **Other** (Altro) nella scheda Launcher (Utilità di avvio).
-* Jupyter:  selezionare **New>Terminal** (Nuovo>Terminale) in alto a destra nella scheda File.
-* Eseguire SSH nel computer, se è stato abilitato l'accesso SSH quando è stata creata l'istanza di calcolo.
-
-Usare la finestra del terminale per installare i pacchetti e creare kernel aggiuntivi.
-
-## <a name="install-packages"></a>Installare i pacchetti
-
-È possibile installare i pacchetti direttamente in Jupyter Notebook o RStudio:
-
-* RStudio: usare la scheda **Packages** (Pacchetti) in basso a sinistra o la scheda **Console** in alto a sinistra.  
-* Python: aggiungere il codice di installazione ed eseguire in una cella Jupyter Notebook.
-
-In alternativa, è possibile eseguire l'installazione da una finestra del terminale. Installare i pacchetti Python nell'ambiente **python 3,6-AzureML** .  Installare i pacchetti R nell'ambiente **R**.
-
-> [!NOTE]
-> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione**, anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
-
-## <a name="add-new-kernels"></a>Aggiungere nuovi kernel
-
-> [!WARNING]
->  Durante la personalizzazione dell'istanza di calcolo, assicurarsi di non eliminare l'ambiente **azureml_py36** conda o il kernel **Python 3,6-azureml** . Questa operazione è necessaria per la funzionalità Jupyter/JupyterLab
-
-Per aggiungere un nuovo kernel Jupyter all'istanza di calcolo:
-
-1. Creare un nuovo terminale da Jupyter, JupyterLab o dal riquadro notebook o SSH nell'istanza di calcolo
-2. Usare la finestra del terminale per creare un nuovo ambiente.  Il codice seguente, ad esempio, crea `newenv` :
-
-    ```shell
-    conda create --name newenv
-    ```
-
-3. Attivare l'ambiente.  Ad esempio, dopo aver creato `newenv`:
-
-    ```shell
-    conda activate newenv
-    ```
-
-4. Installare il pacchetto PIP e ipykernel nel nuovo ambiente e creare un kernel per la conda ENV
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
-
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Accedere al terminale dell'istanza di calcolo](how-to-access-terminal.md)
+* [Creare e gestire file](how-to-manage-files.md)
 * [Inviare un'esecuzione di training](how-to-set-up-training-targets.md)

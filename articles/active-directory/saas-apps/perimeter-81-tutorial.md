@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 02/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 4d095c3cc7e67938120260c35376b128be73ffa8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cd6ba1da92a19a1f73fc67c0165bfb19b3bb77aa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726981"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363850"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeter-81"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Perimeter 81
 
@@ -71,13 +71,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **Perimeter 81** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `urn:auth0:perimeter81:<SUBDOMAIN>`
+    a. Nella casella di testo **identificatore** Digitare un valore usando il modello seguente: `urn:auth0:perimeter81:<SUBDOMAIN>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://auth.perimeter81.com/login/callback?connection=<SUBDOMAIN>`
 
@@ -88,9 +88,14 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Perimeter 81](mailto:support@perimeter81.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
-    ![Collegamento di download del certificato](common/copy-metadataurl.png)
+    ![Collegamento di download del certificato](common/certificatebase64.png)
+
+1. Nella sezione **set up perimetrale 81** copiare gli URL appropriati in base ai requisiti.
+
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
@@ -117,7 +122,42 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-perimeter-81-sso"></a>Configurare l'accesso Single Sign-On di Perimeter 81
 
-Per configurare l'accesso Single Sign-On sul lato **Perimeter 81**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Perimeter 81](mailto:support@perimeter81.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per automatizzare la configurazione nel perimetro 81, è necessario installare l'estensione del browser per l' **accesso sicuro alle app** facendo clic su **installa l'estensione**.
+
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+2. Dopo l'aggiunta dell'estensione al browser, fare clic su **Configura perimetrale 81** per indirizzare l'utente all'applicazione perimetrale 81. Da qui, fornire le credenziali di amministratore per accedere al perimetro 81. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare il perimetro 81 manualmente, in un'altra finestra del Web browser accedere al sito della società perimetrale 81 come amministratore.
+
+4. Passare a **Impostazioni** e fare clic su **provider di identità**.
+
+    ![Impostazioni perimetrali 81](./media/perimeter-81-tutorial/settings.png)
+
+5. Fare clic sul pulsante **Aggiungi provider** .
+
+    ![Perimetro 81 Aggiungi provider](./media/perimeter-81-tutorial/add-provider.png)
+
+6. Selezionare **SAML 2,0 Identity Providers** e fare clic sul pulsante **continue (continua** ).
+
+    ![Perimetrale 81 Aggiungi provider di identità](./media/perimeter-81-tutorial/add-identity-provider.png)
+
+7. Nella sezione **SAML 2,0 Identity Providers** seguire questa procedura:
+
+    ![Perimetrale 81 configurazione di SAML](./media/perimeter-81-tutorial/setting-up-saml.png)
+
+    a. Nella casella di testo **URL** di accesso incollare il valore dell' **URL di accesso** copiato da portale di Azure.
+
+    b. Nella casella di testo **Domain ALIASS** immettere il valore dell'alias di dominio.
+
+    c. Aprire il **certificato (base64)** scaricato dal portale di Azure nel blocco note e incollare il contenuto nella casella di testo **certificato di firma X509** .
+
+    > [!NOTE]
+    > In alternativa, è possibile fare clic su **Carica file PEM/CERT** per caricare il **certificato (base64)** scaricato da portale di Azure.
+    
+    d. Fare clic su **Done**.
 
 ### <a name="create-perimeter-81-test-user"></a>Creare l'utente di test di Perimeter 81
 
@@ -135,7 +175,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 #### <a name="idp-initiated"></a>Avviato da IDP:
 
-* Dopo aver fatto clic su **Test this application** (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di Perimeter 81 per cui si è configurato l'accesso SSO 
+* Fare clic su **test questa applicazione** in portale di Azure e si dovrebbe accedere automaticamente al perimetro 81 per il quale si configura l'accesso SSO.
 
 È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di Perimeter 81 in App personali, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di Perimeter 81 per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 

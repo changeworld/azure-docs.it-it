@@ -1,28 +1,28 @@
 ---
-title: Miglioramento del classificatore - Servizio visione artificiale personalizzato
+title: Miglioramento del modello-Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
-description: In questo articolo si apprenderà come la quantità, la qualità e la varietà di dati possono migliorare la qualità del classificatore nel servizio Visione personalizzata.
+description: In questo articolo si apprenderà come la quantità, la qualità e la varietà di dati possono migliorare la qualità del modello nel servizio Visione personalizzata.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: a77d3d5c1225fdd85e27db20cdae23e0c77a5e28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271359"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096532"
 ---
-# <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
+# <a name="how-to-improve-your-custom-vision-model"></a>Come migliorare il modello di Visione personalizzata
 
-Questa guida illustra come migliorare la qualità del classificatore del servizio Visione personalizzata. La qualità del classificatore dipende dalla quantità, qualità e varietà dei dati con etichetta che vi sono forniti e dal bilanciamento del set di dati a livello generale. Un buon classificatore ha un set di dati di training bilanciato, rappresentativo di ciò che verrà inviato al classificatore. Il processo di creazione di un classificatore di questo tipo è iterativo; è comune effettuare alcuni cicli di training per raggiungere i risultati previsti.
+In questa guida si apprenderà come migliorare la qualità del modello di Servizio visione artificiale personalizzato. La qualità del [classificatore](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) o del [rilevatore di oggetti](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) dipende dalla quantità, dalla qualità e dalla varietà dei dati con etichetta forniti e dall'equilibrio del set di dati complessivo. Un modello valido dispone di un set di dati di training bilanciato che rappresenta gli elementi che verranno inviati. Il processo di compilazione di un modello di questo tipo è iterativo; per raggiungere i risultati previsti, è comune eseguire alcuni cicli di training.
 
-Il modello generale riportato di seguito è utile per la compilazione di un classificatore più accurato:
+Di seguito è riportato un modello generale che consente di eseguire il training di un modello più accurato:
 
 1. Primo ciclo di training
 1. Aggiungere altre immagini e bilanciare i dati; ripetere il training
@@ -32,15 +32,15 @@ Il modello generale riportato di seguito è utile per la compilazione di un clas
 
 ## <a name="prevent-overfitting"></a>Impedisci overfitting
 
-In alcuni casi, a un classificatore verrà illustrato come eseguire stime in base alle caratteristiche arbitrarie che le immagini hanno in comune. Ad esempio, se si sta creando un classificatore per mele e agrumi e si sono usate immagini di mele in mano e di agrumi su piatti bianchi, il classificatore potrebbe dare importanza non dovuta a mani e piatti bianchi anziché a mele e agrumi.
+In alcuni casi, un modello apprenderà a eseguire stime in base alle caratteristiche arbitrarie che le immagini hanno in comune. Ad esempio, se si sta creando un classificatore per mele e agrumi e si sono usate immagini di mele in mano e di agrumi su piatti bianchi, il classificatore potrebbe dare importanza non dovuta a mani e piatti bianchi anziché a mele e agrumi.
 
 ![Immagine di classificazione imprevista](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Per risolvere il problema, usare il materiale sussidiario seguente sul training con più immagini differenti: fornire immagini con diverse angolazioni, sfondi, dimensioni degli oggetti, gruppi e altre varianti.
+Per risolvere il problema, fornire immagini con diversi angoli, sfondi, dimensioni degli oggetti, gruppi e altre varianti. Le sezioni seguenti si espandono su questi concetti.
 
 ## <a name="data-quantity"></a>Quantità di dati
 
-Il numero di immagini di training è il fattore più importante. È consigliabile usare almeno 50 immagini per etichetta come punto di partenza. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
+Il numero di immagini di training rappresenta il fattore più importante per il set di dati. È consigliabile usare almeno 50 immagini per etichetta come punto di partenza. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
 
 ## <a name="data-balance"></a>Bilanciamento dei dati
 
@@ -48,11 +48,11 @@ Il numero di immagini di training è il fattore più importante. È consigliabil
 
 ## <a name="data-variety"></a>Ampia gamma di dati
 
-Assicurarsi di usare immagini rappresentative di ciò che verrà inviato al classificatore durante l'uso normale. In caso contrario, un classificatore potrebbe apprendere come eseguire stime in base alle caratteristiche arbitrarie che le immagini hanno in comune. Ad esempio, se si sta creando un classificatore per mele e agrumi e si sono usate immagini di mele in mano e di agrumi su piatti bianchi, il classificatore potrebbe dare importanza non dovuta a mani e piatti bianchi anziché a mele e agrumi.
+Assicurarsi di usare immagini rappresentative di ciò che verrà inviato al classificatore durante l'uso normale. In caso contrario, il modello potrebbe imparare a eseguire stime in base alle caratteristiche arbitrarie che le immagini hanno in comune. Ad esempio, se si sta creando un classificatore per mele e agrumi e si sono usate immagini di mele in mano e di agrumi su piatti bianchi, il classificatore potrebbe dare importanza non dovuta a mani e piatti bianchi anziché a mele e agrumi.
 
 ![Immagine di classificazione imprevista](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Per risolvere questo problema, includere un'ampia gamma di immagini per garantire che il classificatore possa generalizzare al meglio. Di seguito sono illustrati alcuni modi in cui è possibile diversificare il set di training:
+Per risolvere questo problema, includere un'ampia gamma di immagini per garantire che il modello possa generalizzare. Di seguito sono illustrati alcuni modi in cui è possibile diversificare il set di training:
 
 * __Sfondo:__ Fornire immagini dell'oggetto davanti a diversi sfondi. Le foto in contesti naturali sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
 
@@ -74,30 +74,39 @@ Per risolvere questo problema, includere un'ampia gamma di immagini per garantir
 
     ![Immagine di esempi di stile](./media/getting-started-improving-your-classifier/style.png)
 
-## <a name="negative-images"></a>Immagini negative
+## <a name="negative-images-classifiers-only"></a>Immagini negative (solo classificatori)
 
-A un certo punto del progetto, potrebbe essere necessario aggiungere _esempi negativi_ per rendere più preciso il classificatore. Gli esempi negativi sono quelli che non corrispondono a nessun altro tag. Quando si caricano queste immagini, applicarvi la speciale etichetta **Negative** (Negativa).
+Se si usa un classificatore di immagini, potrebbe essere necessario aggiungere _esempi negativi_ per rendere il classificatore più accurato. Gli esempi negativi sono immagini che non corrispondono ad alcun altro tag. Quando si caricano queste immagini, applicarvi la speciale etichetta **Negative** (Negativa).
+
+I rilevatori di oggetti gestiscono automaticamente campioni negativi, perché tutte le aree di immagine all'esterno dei riquadri delimitatori disegnati sono considerate negative.
 
 > [!NOTE]
 > Il servizio Visione personalizzata supporta alcune operazioni di gestione automatica delle immagine negative. Se, ad esempio, si sta creando un classificatore di uva e banane e per la stima si invia l'immagine di una scarpa, il classificatore deve segnare un punteggio per quell'immagine più vicino possibile allo 0%, sia per l'uva che per le banane.
 > 
 > D'altra parte, nei casi in cui le immagini negative sono soltanto una variazione delle immagini usate nel training, è probabile che il modello classificherà le immagini negative come una classe con etichetta a causa delle molte analogie. Se, ad esempio, si ha un classificatore di arance e di pompelmi e si invia un'immagine di una clementina, è possibile che la clementina sia classificata come un'arancia perché molte sue caratteristiche sono simili a quelle delle arance. Se le immagini negative sono di questo tipo, è consigliabile creare uno o più tag aggiuntivi, ad esempio **Altro**, e assegnare un'etichetta alle immagini negative con questo tag durante il training per consentire al modello di distinguere meglio queste classi.
 
+## <a name="consider-occlusion-and-truncation-object-detectors-only"></a>Considerare l'occlusione e il troncamento (solo per i rilevatori di oggetti)
+
+Se si desidera che il rilevatore di oggetti rilevi oggetti troncati (l'oggetto viene tagliato parzialmente dall'immagine) o oggetti bloccati (l'oggetto è parzialmente bloccato da un altro oggetto nell'immagine), è necessario includere le immagini di training che coprono tali case.
+
+> [!NOTE]
+> Il problema degli oggetti bloccati da altri oggetti non deve essere confuso con la **soglia di sovrapposizione**, un parametro per le prestazioni del modello di valutazione. Il dispositivo di scorrimento **soglia di sovrapposizione** nel [sito Web visione personalizzata](https://customvision.ai) gestisce la quantità di un rettangolo di delimitazione stimato che deve sovrapporsi al rettangolo di delimitazione per essere considerato corretto.
+
 ## <a name="use-prediction-images-for-further-training"></a>Usare immagini di stima per ulteriori training
 
-Quando si usa o si testa il classificatore di immagini tramite l'invio di immagini per l'endpoint di stima, il servizio Visione personalizzata archivia le immagini. È quindi possibile usarle per migliorare il modello.
+Quando si utilizza o si testa il modello inviando immagini all'endpoint di stima, il servizio Visione personalizzata archivia tali immagini. È quindi possibile usarle per migliorare il modello.
 
-1. Per visualizzare le immagini inviate al classificatore, aprire la [pagina web visione personalizzata](https://customvision.ai), passare al progetto e selezionare la scheda __stime__ . La visualizzazione predefinita mostra le immagini dell'iterazione corrente. È possibile usare il menu a discesa __Iteration__ (Iterazione) per visualizzare le immagini inviate durante le iterazioni precedenti.
+1. Per visualizzare le immagini inviate al modello, aprire la [pagina web visione personalizzata](https://customvision.ai), passare al progetto e selezionare la scheda __stime__ . La visualizzazione predefinita mostra le immagini dell'iterazione corrente. È possibile usare il menu a discesa __Iteration__ (Iterazione) per visualizzare le immagini inviate durante le iterazioni precedenti.
 
     ![Screenshot della scheda delle stime con immagini in vista](./media/getting-started-improving-your-classifier/predictions.png)
 
-2. Passare il mouse su un'immagine per visualizzare i tag previsti dal classificatore. Le immagini vengono ordinate in modo che vengano elencate in alto quelle che possono apportare il maggior numero di miglioramenti al classificatore. Per usare un metodo di ordinamento diverso, effettuare una selezione all'interno della sezione __Sort__ (Ordinamento). 
+2. Passare il mouse su un'immagine per visualizzare i tag stimati dal modello. Le immagini vengono ordinate in modo tale che i miglioramenti apportati al modello siano elencati nella parte superiore. Per usare un metodo di ordinamento diverso, effettuare una selezione all'interno della sezione __Sort__ (Ordinamento). 
 
     Per aggiungere un'immagine ai dati di training esistenti, scegliere l'immagine, impostare i tag corretti e quindi fare clic su __Salva e chiudi__. L'immagine verrà rimossa da __Predictions__ (Stime) e aggiunta alle immagini di training. È possibile visualizzarla selezionando la scheda __Training Images__ (Immagini di training).
 
     ![Immagine della pagina dei tag](./media/getting-started-improving-your-classifier/tag.png)
 
-3. Usare quindi il pulsante __Train__ (Eseguire il training) per ripetere il training del classificatore.
+3. Usare quindi il pulsante __Train__ per ripetere il training del modello.
 
 ## <a name="visually-inspect-predictions"></a>Controllare visivamente le stime
 
@@ -109,7 +118,7 @@ A volte un'ispezione visiva può identificare modelli che è possibile corregger
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida, si sono apprese varie tecniche per rendere più preciso il modello di classificazione di immagini personalizzate. Successivamente, altre informazioni su come eseguire il test delle immagini a livello di codice inviandole all'API delle stime.
+In questa guida sono state apprese diverse tecniche per rendere più accurato il modello di classificazione delle immagini o il modello di rilevatore di oggetti personalizzato. Successivamente, altre informazioni su come eseguire il test delle immagini a livello di codice inviandole all'API delle stime.
 
 > [!div class="nextstepaction"]
 > [Usare l'API Prediction](use-prediction-api.md)

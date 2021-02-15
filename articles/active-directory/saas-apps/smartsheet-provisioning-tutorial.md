@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: e9ee994564e175d3c41cfd5ce415ead8c67df353
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181442"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103550"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Esercitazione: Configurare Smartsheet per il provisioning utenti automatico
 
@@ -43,7 +43,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in un piano Smartsheet Enterprise o Enterprise Premier con autorizzazioni di amministratore di sistema.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Smartsheet](../app-provisioning/customize-application-attributes.md). 
 
@@ -137,22 +137,20 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a Smartsheet nella sezione **Mapping degli attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Smartsheet per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-   |Attributo|Type|
-   |---|---|
+   |Attributo|Type|Supportato per il filtro|
+   |---|---|---|
+   |userName|string|&check;|
    |active|Boolean|
    |title|string|
-   |userName|string|
    |name.givenName|string|
    |name.familyName|string|
    |phoneNumbers[type eq "work"].value|string|
    |phoneNumbers[type eq "mobile"].value|string|
    |phoneNumbers[type eq "fax"].value|string|
+   |emails[type eq "work"].value|string|
    |externalId|string|
-   |roles[primary eq "True"].display|string|
-   |roles[primary eq "True"].type|string|
-   |roles[primary eq "True"].value|string|
    |Ruoli|string|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|string|
@@ -188,6 +186,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 ## <a name="change-log"></a>Registro delle modifiche
 
 * 16/06/2020: è stato aggiunto il supporto per gli attributi "Cost Center", "Division", "Manager" e "Department" dell'estensione aziendale per gli utenti.
+* 02/10/2021-è stato aggiunto il supporto per gli attributi di base "messaggi di posta elettronica [digitare EQ" lavoro "]" per gli utenti.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f5231d96fb3548b0e3ffe11720dc458b91929e54
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 8b68aa5263a95a7efc15f76289a62a4cbec23ee3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99561955"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093906"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
@@ -20,7 +20,7 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Registrazione e rilevamento delle minacce |LT-4 |Abilitare la registrazione per le risorse di Azure |[È consigliabile abilitare i log di diagnostica in Azure Data Lake Store](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Registrazione e rilevamento delle minacce |LT-4 |Abilitare la registrazione per le risorse di Azure |[I log delle risorse in Azure Data Lake Store devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="azure-security-benchmark-v1"></a>Azure Security Benchmark v1
 
@@ -30,7 +30,7 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Registrazione e monitoraggio |2.3 |Abilitare la registrazione di controllo per le risorse di Azure |[È consigliabile abilitare i log di diagnostica in Azure Data Lake Store](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Registrazione e monitoraggio |2.3 |Abilitare la registrazione di controllo per le risorse di Azure |[I log delle risorse in Azure Data Lake Store devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="cmmc-level-3"></a>Livello CMMC 3
 
@@ -49,6 +49,6 @@ Per altre informazioni su questo standard di conformità, vedere [HIPAA HITRUST 
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Registrazione di controllo |1202.09aa1System.1 - 09.aa |Per tutte le attività svolte nel sistema (creazione, lettura, aggiornamento, eliminazione) riguardanti informazioni riservate viene creato un record di controllo sicuro. |[È consigliabile abilitare i log di diagnostica in Azure Data Lake Store](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
+|Registrazione di controllo |1202.09aa1System.1 - 09.aa |Per tutte le attività svolte nel sistema (creazione, lettura, aggiornamento, eliminazione) riguardanti informazioni riservate viene creato un record di controllo sicuro. |[I log delle risorse in Azure Data Lake Store devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
 |Gestione dei supporti rimovibili |0304.09o3Organizational.1 - 09.o |L'organizzazione limita l'uso di supporti rimovibili scrivibili e di supporti rimovibili di proprietà personale nei sistemi aziendali. |[Richiedi crittografia per gli account Data Lake Store](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7ff3161-0087-490a-9ad9-ad6217f4f43a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStoreEncryption_Deny.json) |
 

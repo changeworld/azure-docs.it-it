@@ -2,13 +2,13 @@
 title: 'Funzioni di modello: risorse'
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per recuperare i valori sulle risorse.
 ms.topic: conceptual
-ms.date: 01/04/2021
-ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.date: 02/10/2021
+ms.openlocfilehash: da85308e7d214f198b29b40bc380a4d33947c865
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861432"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364563"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -37,7 +37,7 @@ Restituisce l'ID della risorsa per una [risorsa di estensione](../management/ext
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceId |Sì |string |L'ID della risorsa a cui la risorsa di estensione è applicata. |
 | resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
@@ -179,7 +179,7 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
 | apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
@@ -204,6 +204,7 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft. ApiManagement/Service/non | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
 | Microsoft. ApiManagement/Service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft. ApiManagement/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
+| Microsoft. ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -246,7 +247,7 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-06-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -438,11 +439,11 @@ Determina se un tipo di risorsa supporta le zone per un'area.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | providerNamespace | Sì | string | Spazio dei nomi del provider di risorse per il tipo di risorsa per verificare il supporto delle zone. |
 | resourceType | Sì | string | Il tipo di risorsa per verificare il supporto della zona. |
-| location | Sì | string | Area in cui verificare il supporto della zona. |
+| posizione | Sì | string | Area in cui verificare il supporto della zona. |
 | numberOfZones | No | integer | Numero di zone logiche da restituire. Il valore predefinito è 1. Il numero deve essere un numero intero positivo compreso tra 1 e 3.  Usare 1 per le risorse in una singola area. Per le risorse in più zone, il valore deve essere minore o uguale al numero di zone supportate. |
 | offset | No | integer | Offset dalla zona logica iniziale. La funzione restituisce un errore se offset più numberOfZones supera il numero di zone supportate. |
 
@@ -547,7 +548,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sì |string |Spazio dei nomi del provider |
 | resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
@@ -635,7 +636,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza o quando il nome della stessa è ambiguo, fornire l'ID della risorsa. |
 | apiVersion |No |string |Versione dell'API della risorsa specificata. **Questo parametro è obbligatorio quando non viene eseguito il provisioning della risorsa nello stesso modello.** In genere il formato è **aaaa-mm-gg**. Per le versioni delle API valide per la risorsa, vedere la [documentazione di riferimento per il modello](/azure/templates/). |
@@ -1107,7 +1108,7 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. Fornire questo valore solo quando si distribuisce nell'ambito di un gruppo di risorse o di una sottoscrizione. |
 | resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. Fornire questo valore solo quando si distribuisce nell'ambito di un gruppo di risorse. |
@@ -1410,7 +1411,7 @@ Restituisce l'identificatore univoco per una risorsa distribuita a livello di so
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
 | resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
@@ -1542,7 +1543,7 @@ Restituisce l'identificatore univoco per una risorsa distribuita a livello di te
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
 | resourceName1 |Sì |string |Nome della risorsa. |

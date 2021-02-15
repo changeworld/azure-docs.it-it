@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d90d35e113b5f9757faf59681bb2532b66f2b09
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.openlocfilehash: 5e962592779494e1d60d03e9e8a167d53ac8bda2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673869"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Esercitazione: Integrazione di Azure Active Directory con Absorb LMS
 
-Questa esercitazione descrive come integrare Absorb LMS con Azure Active Directory (Azure AD).
-L'integrazione di Absorb LMS con Azure AD offre i vantaggi seguenti:
+In questa esercitazione si apprenderà come integrare assorbire LMS con Azure Active Directory (Azure AD). Quando si integra assorba LMS con Azure AD, è possibile:
 
-* In Azure AD è possibile controllare chi può accedere ad Absorb LMS.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) ad Absorb LMS con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi ha accesso per assorbire LMS.
+* Consentire agli utenti di accedere automaticamente per assorbire LMS con gli account Azure AD.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Absorb LMS, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di Absorb LMS abilitata per l'accesso Single Sign-On
+* Assorbe la sottoscrizione abilitata per Single Sign-On LMS.
 
 > [!NOTE]
 > È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
@@ -46,75 +42,56 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Absorb LMS supporta l'accesso SSO avviato da **IdP**
 
-## <a name="adding-absorb-lms-from-the-gallery"></a>Aggiunta di Absorb LMS dalla raccolta
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
+
+## <a name="add-absorb-lms-from-the-gallery"></a>Aggiungere Absorb LMS dalla raccolta
 
 Per configurare l'integrazione di Absorb LMS in Azure AD, è necessario aggiungere Absorb LMS dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Absorb LMS dalla raccolta, seguire questa procedura:**
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **assorbe LMS** nella casella di ricerca.
+1. Selezionare **assorbe LMS** dal pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+## <a name="configure-and-test-azure-ad-sso-for-absorb-lms"></a>Configurare e testare Azure AD SSO for assorba LMS
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+Configurare e testare Azure AD SSO con assorbire LMS usando un utente di test di nome **B. Simon**. Per il funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente Azure AD e l'utente correlato in assorbi LMS.
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+Per configurare e testare Azure AD SSO con assorba LMS, seguire questa procedura:
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare assorbire l'accesso SSO LMS](#configure-absorb-lms-sso)** per configurare le impostazioni di Single Sign-on sul lato applicazione.
+    1. **[Crea utente di test di ASSORBA LMS](#create-absorb-lms-test-user)** : per avere una controparte di B. Simon in assorbe LMS collegata alla rappresentazione Azure ad dell'utente.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-4. Nella casella di ricerca digitare **Absorb LMS**, selezionare **Absorb LMS** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella pagina di integrazione dell'applicazione **ASSORBA LMS** del portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
-    ![Absorb LMS nell'elenco risultati](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Absorb LMS usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Absorb LMS.
-
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Absorb LMS, è necessario completare i blocchi predefiniti seguenti:
-
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Absorb LMS](#configure-absorb-lms-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Absorb LMS](#create-absorb-lms-test-user)**: per avere una controparte di Britta Simon in Absorb LMS collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
-
-Per configurare l'accesso Single Sign-On di Azure AD con Absorb LMS, seguire questa procedura:
-
-1. Nella pagina di integrazione dell'applicazione **Absorb LMS** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
-
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
-
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
-
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
-
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
-
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Absorb LMS](common/idp-intiated.png)
-
     Se si usa **Absorb 5 - UI**, usare la configurazione seguente:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://company.myabsorb.com/account/saml`
+    a. Nella casella di testo **identificatore** Digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.myabsorb.com/account/saml`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://company.myabsorb.com/account/saml`
+    b. Nella casella di testo **URL di risposta** Digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.myabsorb.com/account/saml`
 
     Se si usa **Absorb 5 - New Learner Experience**, usare la configurazione seguente:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.myabsorb.com/api/rest/v2/authentication/saml`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    b. Nella casella di testo **URL di risposta** Digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.myabsorb.com/api/rest/v2/authentication/saml`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Absorb LMS](https://support.absorblms.com/hc/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -131,27 +108,45 @@ Per configurare l'accesso Single Sign-On di Azure AD con Absorb LMS, seguire que
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-    b. Identificatore Azure AD
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-    c. URL di disconnessione
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Selezionare **Nuovo utente** in alto nella schermata.
+1. In **Proprietà utente** seguire questa procedura:
+   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
-### <a name="configure-absorb-lms-single-sign-on"></a>Configurare l'accesso Single Sign-On di Absorb LMS
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+
+In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On concedendo l'accesso per assorbire LMS.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni, selezionare **Absorb LMS**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+## <a name="configure-absorb-lms-sso"></a>Configurare assorbire l'accesso SSO LMS
 
 1. In una nuova finestra del Web browser accedere al sito aziendale di Absorb LMS come amministratore.
 
 2. Selezionare il pulsante **Account** in alto a destra.
 
-    ![Pulsante Account](./media/absorblms-tutorial/1.png)
+    ![Pulsante Account](./media/absorblms-tutorial/account.png)
 
 3. Nel riquadro Account selezionare **Portal Settings** (Impostazioni del portale).
 
-    ![Collegamento Impostazioni del portale](./media/absorblms-tutorial/2.png)
+    ![Collegamento Impostazioni del portale](./media/absorblms-tutorial/portal.png)
 
 4. Selezionare la scheda **Manage SSO Settings** (Gestisci impostazioni SSO).
 
-    ![La scheda Utenti](./media/absorblms-tutorial/managesso.png)
+    ![La scheda Utenti](./media/absorblms-tutorial/sso.png)
 
 5. Nella pagina **Manage Single Sign-On Settings** (Gestisci impostazioni Single Sign-On) eseguire le operazioni seguenti:
 
@@ -179,57 +174,6 @@ Per configurare l'accesso Single Sign-On di Azure AD con Absorb LMS, seguire que
 
     ![Abilitare Only Allow SSO Login](./media/absorblms-tutorial/save.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
-
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
-
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
-
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
-
-2. Selezionare **Nuovo utente** in alto nella schermata.
-
-    ![Pulsante Nuovo utente](common/new-user.png)
-
-3. In Proprietà utente seguire questa procedura.
-
-    ![Finestra di dialogo Utente](common/user-properties.png)
-
-    a. Nel campo **Nome** immettere **BrittaSimon**.
-
-    b. Nel campo **Nome utente** digitare `brittasimon\@yourcompanydomain.extension`.  
-    Ad esempio, usare BrittaSimon@contoso.com
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
-
-    d. Fare clic su **Crea**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Absorb LMS.
-
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Absorb LMS**.
-
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
-
-2. Nell'elenco delle applicazioni digitare e selezionare **Absorb LMS**.
-
-    ![Collegamento di Absorb LMS nell'elenco delle applicazioni](common/all-applications.png)
-
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
-
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
-
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
-
 ### <a name="create-absorb-lms-test-user"></a>Creare un utente di test di Absorb LMS
 
 Affinché gli utenti di Azure AD possano accedere ad Absorb LMS devono essere configurati in Absorb LMS. In Absorb LMS il provisioning è un'attività manuale.
@@ -240,11 +184,11 @@ Affinché gli utenti di Azure AD possano accedere ad Absorb LMS devono essere co
 
 2. Nel riquadro **Users** (Utenti) selezionare **Users** (Utenti).
 
-    ![Collegamento Utenti](./media/absorblms-tutorial/absorblms_userssub.png)
+    ![Collegamento Utenti](./media/absorblms-tutorial/users.png)
 
 3. Selezionare la scheda **User** (Utente).
 
-    ![Elenco a discesa Aggiungi nuovo](./media/absorblms-tutorial/absorblms_createuser.png)
+    ![Elenco a discesa Aggiungi nuovo](./media/absorblms-tutorial/add.png)
 
 4. Nella pagina **Add User** (Aggiungi utente) eseguire la procedura seguente:
 
@@ -269,16 +213,14 @@ Affinché gli utenti di Azure AD possano accedere ad Absorb LMS devono essere co
     > [!NOTE]
     > Per impostazione predefinita, il provisioning utenti non è abilitato nel Single Sign-On. Gli utenti che vogliono abilitare questa funzionalità devono configurarla nel modo indicato in [questa](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) documentazione. Si noti anche che il provisioning utenti è disponibile solo in **Absorb 5 - New Learner Experience** con l'URL di Controllo di accesso `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+## <a name="test-sso"></a>Testare l'accesso SSO
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti.
 
-Quando si fa clic sul riquadro di Absorb LMS nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Absorb LMS per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente al LMS di assorbimento per il quale si configura l'accesso SSO.
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro assorba LMS in app personali, si dovrebbe accedere automaticamente al LMS di assorbimento per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+Dopo la configurazione di assorba LMS è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

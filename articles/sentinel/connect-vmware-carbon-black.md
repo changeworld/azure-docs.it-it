@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: e13b251c9bd95a5b52d63d8ea1bbf265c9c46fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c26931db617109c36c19b73bd3ec9263f4b40cc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023875"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096447"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Connettere lo standard di endpoint cloud nero di VMware Carbon ad Azure Sentinel con la funzione di Azure
 
@@ -47,7 +47,7 @@ Funzioni di Azure è in grado di integrare ed effettuare il pull di eventi e log
 Una volta stabilita la connessione, i dati vengono visualizzati in Log Analytics nelle tabelle **CarbonBlackAuditLogs_CL**, **CarbonBlackNotifications_CL** e * * * * CarbonBlackEvents_CL * * * *.
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
-Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log Analytics. 
+Potrebbero essere necessari fino a 20 minuti prima che i log inizino a essere visualizzati in Log Analytics. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

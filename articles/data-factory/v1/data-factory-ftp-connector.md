@@ -1,23 +1,18 @@
 ---
 title: Spostare dati da un server FTP usando Azure Data Factory
 description: Informazioni su come spostare dati da un server FTP usando Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8a8ca44fbdb7610f85bc53c23d502d2efb01c8b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001644"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363951"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -76,7 +71,7 @@ La tabella seguente descrive gli elementi JSON specifici di un servizio collegat
 | enableServerCertificateValidation |Specificare se abilitare la convalida del certificato TLS/SSL del server quando si usa FTP sul canale SSL/TLS. |No |true |
 
 >[!NOTE]
->Il connettore FTP supporta l'accesso al server FTP senza crittografia o con crittografia SSL/TLS esplicita; non supporta la crittografia SSL/TLS implicita.
+>Il connettore FTP supporta l'accesso al server FTP senza crittografia o crittografia SSL/TLS esplicita; non supporta la crittografia SSL/TLS implicita.
 
 ### <a name="use-anonymous-authentication"></a>Usare l'autenticazione anonima
 
@@ -154,7 +149,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce 
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio e fine delle sezioni. |Sì |
+| folderPath |Sottopercorso alla cartella. Usare il carattere di escape ' \' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio e fine delle sezioni. |Sì |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>`Data.<Guid>.txt` Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in **folderPath** anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con Hadoop Distributed File System (HDFS). |No |
 | partitionedBy |Usata per specificare una proprietà **folderPath** e **fileName** dinamica per i dati della serie temporale. È ad esempio possibile specificare un **folderPath** contenente i parametri per ogni ora di dati. |No |

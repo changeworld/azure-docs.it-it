@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 4c4158fe9c976ca214409ef4c0c9833c610ee34c
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584332"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102649"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Esercitazione: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -345,7 +345,7 @@ private async Task DisplayMessageAsync(string message)
 
 A questo punto, registrare l'applicazione:
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
@@ -356,8 +356,8 @@ A questo punto, registrare l'applicazione:
 
 Configurare l'autenticazione per l'applicazione:
 
-1. Tornare nel <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, quindi in **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma** e infine **Applicazioni per dispositivi mobili e desktop**.
-1. Nella sezione **URI di reindirizzamento** selezionare **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Tornare nel <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>, quindi in **Gestisci**, selezionare **Autenticazione** > **Aggiungi una piattaforma** e poi **Applicazioni per dispositivi mobili e desktop**.
+1. Nella sezione **URI di reindirizzamento** immettere `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 1. Selezionare **Configura**.
 
 Configurare le autorizzazioni API per l'applicazione:

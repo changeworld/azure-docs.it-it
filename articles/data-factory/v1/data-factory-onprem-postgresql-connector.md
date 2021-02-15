@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da PostgreSQL usando Azure Data Factory
 description: Informazioni su come spostare i dati dal database di PostgreSQL mediante Data factory di Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca8770944a12c6e0dd3e4f95d286758ebee5f9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082835"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387275"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +39,7 @@ Il gateway è necessario anche se il database PostgreSQL è ospitato in una macc
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Affinché il gateway di gestione dati si connetta al database PostgreSQL, installare il [provider di dati Ngpsql per PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) scegliendo una versione tra la 2.0.12 e la 3.1.9 nello stesso sistema del gateway di gestione dati. Sono supportate le versioni di PostgreSQL a partire dalla 7.4.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati PostgreSQL usando diversi strumenti/API.
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -160,7 +155,7 @@ Come primo passaggio, impostare il gateway di gestione dati. Le istruzioni sono 
 ```
 **Set di dati di input PostgreSQL:**
 
-L'esempio presuppone che sia stata creata una tabella "MyTable" in PostgreSQL e che contenga una colonna denominata "timestamp" per i dati di una serie temporale.
+Nell'esempio si presuppone che sia stata creata una tabella "MyTable" in PostgreSQL e che contenga una colonna denominata "timestamp" per i dati delle serie temporali.
 
 L'impostazione `"external": true` comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è generato da un'attività al suo interno.
 
@@ -332,7 +327,7 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
-| numerico [(p, s)] |decimale [(p, s)] |Decimale |
+| numerico [(p, s)] |decimale [(p, s)] |Decimal |
 | numrange | |string |
 | oid | |Int32 |
 | path | |Byte[], String |

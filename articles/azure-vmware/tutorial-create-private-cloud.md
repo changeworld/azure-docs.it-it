@@ -3,12 +3,12 @@ title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
 description: Informazioni su come distribuire un cluster vSphere con la soluzione Azure VMware
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966310"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093948"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
 
@@ -74,25 +74,6 @@ Specificare un nome per il gruppo di risorse e per il cloud privato, una localit
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
-
-## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Eliminare un cloud privato della soluzione Azure VMware
-
-Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Un cloud privato della soluzione Azure VMware include un dominio di rete isolato, uno o più cluster vSphere di cui è stato effettuato il provisioning negli host server dedicati e diverse macchine virtuali. Quando viene eliminato un cloud privato, vengono eliminate tutte le macchine virtuali, i relativi dati e i cluster. Gli host bare metal dedicati vengono cancellati e restituiti in modo sicuro al pool gratuito. Il dominio di rete di cui è stato effettuato il provisioning per il cliente viene eliminato.  
-
-> [!CAUTION]
-> L'eliminazione del cloud privato è un'operazione irreversibile. Una volta eliminato il cloud privato, non è possibile recuperare i dati perché questa operazione termina tutti i carichi di lavoro in esecuzione e i componenti ed elimina definitivamente tutti i dati e le impostazioni di configurazione del cloud privato, inclusi gli indirizzi IP pubblici.
-
-### <a name="prerequisites"></a>Prerequisiti
-
-Una volta eliminato un cloud privato, non è possibile recuperare le macchine virtuali e i relativi dati. Se i dati della macchina virtuale saranno necessari in un secondo momento, l'amministratore deve prima eseguire il backup di tutti i dati prima di eliminare il cloud privato.
-
-### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Passaggi per eliminare un cloud privato della soluzione Azure VMware
-
-1. Accedere alla pagina Soluzioni Azure VMware nel portale di Azure.
-
-2. Selezionare il cloud privato da eliminare.
- 
-3. Immettere il nome del cloud privato e selezionare **Sì**. Il processo di eliminazione viene completato in poche ore.  
 
 ## <a name="azure-vmware-commands"></a>Comandi di Azure VMware
 

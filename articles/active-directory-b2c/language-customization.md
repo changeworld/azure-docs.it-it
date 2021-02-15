@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1012dad1b7e0a314687a38e420ff9ad4780051da
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e2aab537c2235fe3e008fa619c96a3098cfa7a27
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111254"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361214"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -181,7 +181,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Aggiungere lingue personalizzate
 
-È anche possibile aggiungere per cui attualmente Microsoft non fornisce traduzioni. Sarà necessario fornire le traduzioni per tutte le stringhe contenute nel flusso utente. I codici della lingua e delle impostazioni internazionali sono limitati a quelli nello standard ISO 639-1.
+È anche possibile aggiungere per cui attualmente Microsoft non fornisce traduzioni. Sarà necessario fornire le traduzioni per tutte le stringhe contenute nel flusso utente. I codici della lingua e delle impostazioni internazionali sono limitati a quelli nello standard ISO 639-1. Il formato del codice delle impostazioni locali dovrebbe essere "ISO_639-1_code"-"CountryCode" per es: en-GB. Per ulteriori informazioni sui formati di ID delle impostazioni locali, consultare https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
 2. Fare clic sul flusso utente in cui si vuole aggiungere le lingue personalizzate e quindi fare clic su **Lingue**.
@@ -503,7 +503,7 @@ Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi ut
 | Malese                 | ms            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
 | Norvegese Bokmål      | nb            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![X che indica No.](./media/user-flow-language-customization/no.png) |
 | Olandese                 | nl            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
-| Norvegese             | No            | ![X che indica No.](./media/user-flow-language-customization/no.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
+| Norvegese             | no            | ![X che indica No.](./media/user-flow-language-customization/no.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
 | Punjabi               | pa            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![X che indica No.](./media/user-flow-language-customization/no.png) |
 | Polacco                | pl            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
 | Portoghese (Brasile)   | pt-br         | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
