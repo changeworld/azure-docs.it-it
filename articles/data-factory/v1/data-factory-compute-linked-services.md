@@ -1,22 +1,18 @@
 ---
 title: Ambienti di calcolo supportati da Azure Data Factory versione 1
 description: Informazioni sugli ambienti di calcolo che è possibile usare nelle pipeline di Azure Data Factory (ad esempio, Azure HDInsight) per trasformare o elaborare i dati.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9f970b66bd30ef2faf705d2fb41825bb81bbb8c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 07e13036a427ff7ff4f0cbbd2dfd6fbe272bf915
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496093"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377194"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambienti di calcolo supportati da Azure Data Factory versione 1
 > [!NOTE]
@@ -26,7 +22,7 @@ Questo articolo illustra gli ambienti di calcolo che è possibile usare per elab
 
 La tabella seguente presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti. 
 
-| Ambiente di calcolo                      | attività                               |
+| Ambiente di calcolo                      | Attività                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight di Azure on demand](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
@@ -330,7 +326,7 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà   | Descrizione                              | Obbligatorio |
+| Proprietà   | Descrizione                              | Obbligatoria |
 | ---------- | ---------------------------------------- | -------- |
 | Tipo       | Impostare la proprietà type su **AzureML**. | Sì      |
 | mlEndpoint | L’URL del batch punteggio.                   | Sì      |
@@ -388,7 +384,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 #### <a name="user-credential-authentication"></a>Autenticazione basata su credenziali utente
 Per l'autenticazione delle credenziali utente per Data Lake Analytics, specificare le proprietà seguenti:
 
-| Proprietà          | Descrizione                              | Obbligatorio |
+| Proprietà          | Descrizione                              | Obbligatoria |
 | :---------------- | :--------------------------------------- | :------- |
 | authorization | Nell'editor di Data Factory selezionare il pulsante **Autorizza**. Immettere le credenziali che assegnano l'URL dell'autorizzazione generato automaticamente a questa proprietà. | Sì      |
 | sessionID     | ID sessione OAuth dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì      |

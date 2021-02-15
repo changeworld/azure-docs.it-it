@@ -1,5 +1,5 @@
 ---
-title: Informazioni sugli avvisi in diretta
+title: Inoltrare le informazioni degli avvisi
 description: È possibile inviare informazioni sugli avvisi ai sistemi partner usando le regole di invio.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0b71f7ca3f812de1514612f8b0dd5915f3f81bc4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841144"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522734"
 ---
-# <a name="forward-alert-information"></a>Informazioni sugli avvisi in diretta
+# <a name="forward-alert-information"></a>Inoltrare le informazioni degli avvisi
 
 È possibile inviare informazioni sugli avvisi ai partner che si integrano con Azure Defender per l'it, ai server syslog, agli indirizzi di posta elettronica e altro ancora. L'uso delle regole di invio consente di fornire rapidamente informazioni sugli avvisi agli stakeholder di sicurezza.  
 
@@ -118,7 +118,7 @@ Immettere i parametri seguenti:
 | Priorità | Utente. Alert |
 | Nome host | Indirizzo IP del sensore |
 | Protocollo | TCP o UDP |
-| Messaggio | Sensore: il nome del sensore.<br /> Alert: titolo dell'avviso.<br /> Tipo: tipo di avviso. Può essere **violazione del protocollo**, **violazione dei criteri**, **malware**, **anomalie** o **operativo**.<br /> Gravità: gravità dell'avviso. Può essere **warning**, **minor**, **Major** o **Critical**.<br /> Source: il nome del dispositivo di origine.<br /> IP di origine: indirizzo IP del dispositivo di origine.<br /> Destinazione: il nome del dispositivo di destinazione.<br /> IP di destinazione: indirizzo IP del dispositivo di destinazione.<br /> Message: messaggio dell'avviso.<br /> Gruppo avvisi: il gruppo di avvisi associato all'avviso. |
+| Message | Sensore: il nome del sensore.<br /> Alert: titolo dell'avviso.<br /> Tipo: tipo di avviso. Può essere **violazione del protocollo**, **violazione dei criteri**, **malware**, **anomalie** o **operativo**.<br /> Gravità: gravità dell'avviso. Può essere **warning**, **minor**, **Major** o **Critical**.<br /> Source: il nome del dispositivo di origine.<br /> IP di origine: indirizzo IP del dispositivo di origine.<br /> Destinazione: il nome del dispositivo di destinazione.<br /> IP di destinazione: indirizzo IP del dispositivo di destinazione.<br /> Message: messaggio dell'avviso.<br /> Gruppo avvisi: il gruppo di avvisi associato all'avviso. |
 
 
 | Output dell'oggetto syslog | Descrizione |
@@ -126,7 +126,7 @@ Immettere i parametri seguenti:
 | Data e ora |   Data e ora in cui il computer del server syslog ha ricevuto le informazioni. |  
 | Priorità |    Utente. Alert | 
 | Nome host |    IP del sensore | 
-| Messaggio | Nome del sensore: il nome dell'appliance. <br /> Ora avviso: l'ora in cui è stato rilevato l'avviso: può variare dall'ora del computer server syslog e dipende dalla configurazione del fuso orario della regola di invio. <br /> Titolo dell'avviso: titolo dell'avviso. <br /> Messaggio di avviso: messaggio dell'avviso. <br /> Gravità dell'avviso: gravità dell'avviso: **avviso**, **secondario**, **principale** o **critico**. <br /> Tipo di avviso **: violazione del protocollo**, violazione dei **criteri**, **malware**, **anomalie** o **operativo**. <br /> Protocollo: il protocollo dell'avviso.  <br /> **Source_MAC**: indirizzo IP, nome, fornitore o sistema operativo del dispositivo di origine. <br /> Destination_MAC: indirizzo IP, nome, fornitore o sistema operativo della destinazione. Se i dati sono mancanti, il valore sarà **N/A**. <br /> alert_group: il gruppo di avvisi associato all'avviso. |
+| Message | Nome del sensore: il nome dell'appliance. <br /> Ora avviso: l'ora in cui è stato rilevato l'avviso: può variare dall'ora del computer server syslog e dipende dalla configurazione del fuso orario della regola di invio. <br /> Titolo dell'avviso: titolo dell'avviso. <br /> Messaggio di avviso: messaggio dell'avviso. <br /> Gravità dell'avviso: gravità dell'avviso: **avviso**, **secondario**, **principale** o **critico**. <br /> Tipo di avviso **: violazione del protocollo**, violazione dei **criteri**, **malware**, **anomalie** o **operativo**. <br /> Protocollo: il protocollo dell'avviso.  <br /> **Source_MAC**: indirizzo IP, nome, fornitore o sistema operativo del dispositivo di origine. <br /> Destination_MAC: indirizzo IP, nome, fornitore o sistema operativo della destinazione. Se i dati sono mancanti, il valore sarà **N/A**. <br /> alert_group: il gruppo di avvisi associato all'avviso. |
 
 
 | Formato di output CEF syslog | Descrizione |
@@ -134,14 +134,14 @@ Immettere i parametri seguenti:
 | Data e ora | Data e ora in cui il computer del server syslog ha ricevuto le informazioni. |
 | Priorità | Utente. Alert | 
 | Nome host | Indirizzo IP del sensore |
-| Messaggio | CEF: 0 <br />Azure Defender per IoT <br />Nome del sensore: il nome dell'appliance del sensore. <br />Versione del sensore <br />Titolo dell'avviso: titolo dell'avviso. <br />Msg: messaggio dell'avviso. <br />protocollo: il protocollo dell'avviso. <br />gravità: **avviso**, **secondario**, **principale** o **critico**. <br />Tipo: **violazione del protocollo**, **violazione dei criteri**, **malware**, **anomalie** o **operativo**. <br /> Start: ora in cui è stato rilevato l'avviso. <br />Potrebbe variare dall'ora del computer server syslog e dipende dalla configurazione del fuso orario della regola di invio. <br />src_ip: indirizzo IP del dispositivo di origine.  <br />dst_ip: indirizzo IP del dispositivo di destinazione.<br />Cat: gruppo di avvisi associato all'avviso.  |
+| Message | CEF: 0 <br />Azure Defender per IoT <br />Nome del sensore: il nome dell'appliance del sensore. <br />Versione del sensore <br />Titolo dell'avviso: titolo dell'avviso. <br />Msg: messaggio dell'avviso. <br />protocollo: il protocollo dell'avviso. <br />gravità: **avviso**, **secondario**, **principale** o **critico**. <br />Tipo: **violazione del protocollo**, **violazione dei criteri**, **malware**, **anomalie** o **operativo**. <br /> Start: ora in cui è stato rilevato l'avviso. <br />Potrebbe variare dall'ora del computer server syslog e dipende dalla configurazione del fuso orario della regola di invio. <br />src_ip: indirizzo IP del dispositivo di origine.  <br />dst_ip: indirizzo IP del dispositivo di destinazione.<br />Cat: gruppo di avvisi associato all'avviso.  |
 
 | Formato di output LEEF syslog | Descrizione |
 |--|--|
 | Data e ora |   Data e ora in cui il computer del server syslog ha ricevuto le informazioni. |  
 | Priorità |    Utente. Alert | 
 | Nome host |    IP del sensore |
-| Messaggio | Nome del sensore: il nome dell'appliance Azure Defender per le cose. <br />LEEF: 1.0 <br />Azure Defender per IoT <br />Sensore  <br />Versione del sensore <br />Avviso di Azure Defender per le cose <br />title: titolo dell'avviso. <br />Msg: messaggio dell'avviso. <br />protocollo: il protocollo dell'avviso.<br />gravità: **avviso**, **secondario**, **principale** o **critico**. <br />Tipo: tipo di avviso: violazione del **protocollo**, **violazione dei criteri**, **malware**, **anomalia** o **operativo**. <br />Start: ora dell'avviso.Si noti che potrebbe essere diverso dall'ora del computer del server syslog. (Dipende dalla configurazione del fuso orario). <br />src_ip: indirizzo IP del dispositivo di origine.<br />dst_ip: indirizzo IP del dispositivo di destinazione. <br />Cat: gruppo di avvisi associato all'avviso. |
+| Message | Nome del sensore: il nome dell'appliance Azure Defender per le cose. <br />LEEF: 1.0 <br />Azure Defender per IoT <br />Sensore  <br />Versione del sensore <br />Avviso di Azure Defender per le cose <br />title: titolo dell'avviso. <br />Msg: messaggio dell'avviso. <br />protocollo: il protocollo dell'avviso.<br />gravità: **avviso**, **secondario**, **principale** o **critico**. <br />Tipo: tipo di avviso: violazione del **protocollo**, **violazione dei criteri**, **malware**, **anomalia** o **operativo**. <br />Start: ora dell'avviso.Si noti che potrebbe essere diverso dall'ora del computer del server syslog. (Dipende dalla configurazione del fuso orario). <br />src_ip: indirizzo IP del dispositivo di origine.<br />dst_ip: indirizzo IP del dispositivo di destinazione. <br />Cat: gruppo di avvisi associato all'avviso. |
 
 Dopo aver immesso tutte le informazioni, selezionare **Invia**.
 
@@ -203,6 +203,6 @@ L'amministratore potrebbe avere definito regole di esclusione degli avvisi. Ques
 
 Ciò significa che le regole di invio definite potrebbero essere ignorate in base alle regole di esclusione create dall'amministratore. Le regole di esclusione sono definite nella console di gestione locale.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Accelerare i flussi di lavoro degli avvisi](how-to-accelerate-alert-incident-response.md)

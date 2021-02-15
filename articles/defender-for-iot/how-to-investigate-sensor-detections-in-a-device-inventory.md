@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508863"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523992"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Esaminare i rilevamenti dei sensori in un inventario dei dispositivi
 
@@ -223,7 +223,7 @@ Per esportare un file CSV:
 
 - Nel menu in alto a destra dell'inventario del dispositivo selezionare :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: . Il report CSV viene generato e scaricato.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Esaminare tutti i rilevamenti dei sensori aziendali un inventario di dispositivi](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

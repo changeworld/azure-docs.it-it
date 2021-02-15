@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 2222c6b020f712282a78ac5f82a87015d4cd86a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368201"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521680"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -356,7 +356,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - Livello di prestazioni: attualmente sono supportati solo gli account di archiviazione di livello standard.
 - Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i log di flusso NSG smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riabilitare i log dei flussi di NSG.
 
-**Costi** per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità relativa ai criteri di conservazione con la registrazione del flusso NSG significa sostenere costi di archiviazione separati per periodi di tempo prolungati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per ulteriori informazioni, vedere [Network Watcher prezzi](https://azure.microsoft.com/pricing/details/network-watcher/) e [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
+**Costi** per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità relativa ai criteri di conservazione con la registrazione del flusso NSG significa sostenere costi di archiviazione separati per periodi di tempo prolungati. Se si desidera mantenere i dati per sempre e non si desidera applicare alcun criterio di conservazione, impostare la conservazione (giorni) su 0. Per ulteriori informazioni, vedere [Network Watcher prezzi](https://azure.microsoft.com/pricing/details/network-watcher/) e [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
 **Problemi con le regole TCP in ingresso definite dall'utente**: i [gruppi di sicurezza di rete (gruppi)](../virtual-network/network-security-groups-overview.md) vengono implementati come [Firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia, a causa delle limitazioni correnti della piattaforma, le regole definite dall'utente che interessano i flussi TCP in ingresso vengono implementate in modo senza stato. A causa di questo problema, i flussi interessati dalle regole in ingresso definite dall'utente diventano non fatali. Inoltre, i conteggi di byte e pacchetti non vengono registrati per questi flussi. Di conseguenza, il numero di byte e i pacchetti riportati nei log di flusso NSG (e Analisi del traffico) potrebbero essere diversi dai numeri effettivi. Un flag di consenso esplicito che corregge questi problemi è pianificato per essere disponibile entro il 2021 più recente. Nel frattempo, i clienti che hanno riscontrato problemi gravi a causa di questo comportamento possono richiedere il consenso esplicito tramite supporto tecnico, generare una richiesta di supporto in Network Watcher > log di flusso NSG.  
 

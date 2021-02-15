@@ -1,30 +1,30 @@
 ---
 title: Visualizzare gli avvisi
-description: Consente di visualizzare gli avvisi in base a diverse categorie e di utilizzare le funzionalità di ricerca per individuare gli avvisi di interesse.
+description: Visualizzare gli avvisi in base alle diverse categorie e usa le funzionalità di ricerca per individuare gli avvisi di interesse.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509071"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523669"
 ---
 # <a name="view-alerts"></a>Visualizzare gli avvisi
 
 Questo articolo descrive come visualizzare gli avvisi generati dal sensore e gestirli con gli strumenti di avviso.
 
-È possibile visualizzare gli avvisi in base a diverse categorie, ad esempio gli avvisi archiviati o aggiunti. In alternativa, è possibile cercare gli avvisi di interesse, ad esempio gli avvisi in base a un indirizzo IP o MAC.  
+È possibile visualizzare gli avvisi in base a diverse categorie, ad esempio gli avvisi archiviati o aggiunti. È anche possibile cercare avvisi di interesse, ad esempio gli avvisi in base a un indirizzo IP o MAC.  
 
 È anche possibile visualizzare gli avvisi dal dashboard del sensore.
 
 Per visualizzare gli avvisi:
 
-- Selezionare **avvisi** dal menu laterale. La finestra **avvisi** Visualizza gli avvisi rilevati dal sensore.
+- Selezionare **avvisi** dal menu laterale. La finestra avvisi Visualizza gli avvisi rilevati dal sensore.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="Visualizzazione della schermata avvisi.":::
 
@@ -42,21 +42,21 @@ Per visualizzare gli avvisi:
 
 ## <a name="search-for-alerts-of-interest"></a>Cerca avvisi di interesse
 
-La visualizzazione principale degli **avvisi** fornisce varie funzionalità di ricerca che consentono di trovare gli avvisi di interesse.
+La visualizzazione principale degli avvisi fornisce varie funzionalità di ricerca che consentono di trovare gli avvisi di interesse.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Schermata di formazione degli avvisi.":::
 
-### <a name="text-search"></a>Ricerca di testo 
+### <a name="text-search"></a>Ricerca di testo
 
-Utilizzare l'opzione di **ricerca gratuita** per cercare gli avvisi in base a testo, numeri o caratteri.
+Utilizzare l'opzione di ricerca gratuita per cercare gli avvisi in base a testo, numeri o caratteri.
 
 Per eseguire la ricerca:
 
-- Digitare il testo richiesto nel campo **ricerca gratuita** e premere INVIO sulla tastiera.
+- Digitare il testo richiesto nel campo ricerca gratuita e premere INVIO sulla tastiera.
 
 Per cancellare la ricerca:
 
-- Eliminare il testo nel campo di **ricerca disponibile** e premere INVIO sulla tastiera.
+- Eliminare il testo nel campo di ricerca disponibile e premere INVIO sulla tastiera.
 
 ### <a name="device-group-or-device-ip-address-search"></a>Ricerca di indirizzi IP del dispositivo o del gruppo di dispositivi
 
@@ -100,7 +100,7 @@ I messaggi di avviso forniscono le seguenti azioni:
 
 - Selezionare :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: per apprendere e riconoscere tutti gli avvisi.
 
-- Selezionare :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: questa opzione per esportare l'elenco degli avvisi in un file CSV e selezionare l'opzione Esporta. Scegliere **Esporta avvisi** per l'opzione normale da esportare a CSV. In alternativa, scegliere **Esporta avvisi estesi** per poter aggiungere righe separate per ulteriori informazioni su un avviso nel file CSV.
+- Selezionare :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: per esportare le informazioni sugli avvisi in un file con estensione CSV. Usare l'opzione **Extended Alert Export** per esportare le informazioni sugli avvisi in righe separate per ogni avviso che copre più dispositivi.
 
 ## <a name="alert-pop-up-window-options"></a>Opzioni finestra popup avviso
 

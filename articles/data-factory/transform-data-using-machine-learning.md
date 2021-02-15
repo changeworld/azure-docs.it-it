@@ -3,19 +3,16 @@ title: Creare pipeline di dati predittivi
 description: Informazioni su come creare una pipeline predittiva usando Azure Machine Learning Studio (versione classica)-attività di esecuzione batch in Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637735"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375664"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Creare una pipeline predittiva usando Azure Machine Learning Studio (classico) e Azure Data Factory
 
@@ -27,9 +24,9 @@ ms.locfileid: "92637735"
 
 [Azure Machine Learning Studio (classico)](https://azure.microsoft.com/documentation/services/machine-learning/) consente di compilare, testare e distribuire soluzioni di analisi predittiva. Da un punto di vista generale, questo avviene in tre passaggi:
 
-1. **Creare un esperimento di training** . Per eseguire questa operazione, usare il Azure Machine Learning Studio (versione classica). Azure Machine Learning Studio (classico) è un ambiente di sviluppo visivo collaborativo che consente di eseguire il training e il test di un modello di analisi predittiva usando i dati di training.
-2. **Convertirlo in un esperimento predittivo** . Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
-3. **Distribuirlo come servizio Web** . È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
+1. **Creare un esperimento di training**. Per eseguire questa operazione, usare il Azure Machine Learning Studio (versione classica). Azure Machine Learning Studio (classico) è un ambiente di sviluppo visivo collaborativo che consente di eseguire il training e il test di un modello di analisi predittiva usando i dati di training.
+2. **Convertirlo in un esperimento predittivo**. Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
+3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory e Azure Machine Learning Studio (classico) insieme
 Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato [Azure Machine Learning Studio (classico)](https://azure.microsoft.com/documentation/services/machine-learning) per l'analisi predittiva. Utilizzando l' **attività di esecuzione batch** in una pipeline di Azure Data Factory, è possibile richiamare un servizio web di Azure Machine Learning Studio (classico) per eseguire stime sui dati in batch.
@@ -39,7 +36,7 @@ Nel corso del tempo, è necessario ripetere il training dei modelli predittivi n
 1. Pubblicare l'esperimento di training, non l'esperimento predittivo, come servizio Web. Questa operazione viene eseguita nel Azure Machine Learning Studio (classico), come è stato fatto per esporre l'esperimento predittivo come servizio Web nello scenario precedente.
 2. Usare l'attività di esecuzione batch Azure Machine Learning Studio (classica) per richiamare il servizio Web per l'esperimento di training. In pratica, è possibile usare l'attività di esecuzione batch Azure Machine Learning Studio (classica) per richiamare il servizio Web di training e il servizio Web di assegnazione dei punteggi.
 
-Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)** . Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
+Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)**. Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Servizio collegato Azure Machine Learning Studio (classico)
 
@@ -68,7 +65,7 @@ Si crea un servizio collegato **Azure Machine Learning Studio (classico)** per c
 
 Vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md) per le descrizioni sulle proprietà nella definizione JSON.
 
-Azure Machine Learning Studio (classico) supporta i servizi Web classici e i nuovi servizi Web per l'esperimento predittivo. È possibile scegliere quello corretto da usare da Data Factory. Per ottenere le informazioni necessarie per creare il servizio collegato Azure Machine Learning Studio (classico), vedere https://services.azureml.net , in cui sono elencati tutti i servizi Web (nuovi) e i servizi Web classici. Fare clic sul servizio Web cui si desidera accedere e fare clic sulla pagina **Consume (Uso)** . Copiare la **chiave primaria** per la proprietà **apiKey** e le **richieste batch** per la proprietà **mlEndpoint** .
+Azure Machine Learning Studio (classico) supporta i servizi Web classici e i nuovi servizi Web per l'esperimento predittivo. È possibile scegliere quello corretto da usare da Data Factory. Per ottenere le informazioni necessarie per creare il servizio collegato Azure Machine Learning Studio (classico), vedere https://services.azureml.net , in cui sono elencati tutti i servizi Web (nuovi) e i servizi Web classici. Fare clic sul servizio Web cui si desidera accedere e fare clic sulla pagina **Consume (Uso)**. Copiare la **chiave primaria** per la proprietà **apiKey** e le **richieste batch** per la proprietà **mlEndpoint**.
 
 ![Servizi Web di Azure Machine Learning Studio (classico)](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -130,7 +127,7 @@ Il frammento di codice JSON seguente definisce un'attività di esecuzione batch 
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nome dell'attività nella pipeline     | Sì      |
 | description       | Testo che descrive l'attività.  | No       |
-| type              | Per Data Lake Analytics attività U-SQL, il tipo di attività è **AzureMLBatchExecution** . | Sì      |
+| type              | Per Data Lake Analytics attività U-SQL, il tipo di attività è **AzureMLBatchExecution**. | Sì      |
 | linkedServiceName | Servizi collegati al servizio collegato Azure Machine Learning Studio (classico). Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
 | webServiceInputs  | Coppie chiave-valore, mapping dei nomi degli input del servizio Web Azure Machine Learning Studio (classico). La chiave deve corrispondere ai parametri di input definiti nel servizio Web Azure Machine Learning Studio pubblicato (classico). Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di input. | No       |
 | webServiceOutputs | Coppie chiave-valore, mapping dei nomi degli output del servizio Web Azure Machine Learning Studio (classico). La chiave deve corrispondere ai parametri di output definiti nel servizio Web Azure Machine Learning Studio pubblicato (classico). Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di output. | No       |
@@ -213,7 +210,7 @@ Viene preso in esame uno scenario relativo all'uso dei parametri del servizio We
 > [!NOTE]
 > I parametri del servizio Web applicano la distinzione tra maiuscole e minuscole. È quindi necessario assicurarsi che i nomi specificati nel file JSON dell'attività corrispondano ai nomi esposti dal servizio Web.
 
-Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)** . Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
+Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi (esperimento predittivo esposto come servizio Web) con il modello appena sottoposto a training usando l' **attività di aggiornamento della risorsa di Azure Machine Learning Studio (classica)**. Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati:

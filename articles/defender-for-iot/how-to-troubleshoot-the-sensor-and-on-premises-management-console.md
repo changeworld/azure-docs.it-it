@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955434"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523720"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Risolvere i problemi relativi al sensore e alla console di gestione locale
 
@@ -283,7 +283,7 @@ I log esportati vengono aggiunti all'elenco dei **log archiviati** . Inviare il 
 
 L'elenco dei log archiviati può contenere fino a cinque elementi. Se il numero di elementi nell'elenco supera tale numero, il primo elemento viene eliminato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Visualizzare gli avvisi](how-to-view-alerts.md)
 

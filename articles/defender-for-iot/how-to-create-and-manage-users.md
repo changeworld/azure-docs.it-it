@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977014"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522343"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Informazioni su Defender per gli utenti della console
 
@@ -265,7 +265,7 @@ Per reimpostare la password di un utente nella console di gestione locale:
 
 1. Selezionare **Aggiorna**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Attivare e configurare il sensore](how-to-activate-and-set-up-your-sensor.md) 
  [Attivare e configurare la console](how-to-activate-and-set-up-your-on-premises-management-console.md) 

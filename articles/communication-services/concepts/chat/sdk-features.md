@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625265"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364835"
 ---
 # <a name="chat-client-library-overview"></a>Panoramica della libreria client di chat
 
@@ -44,7 +44,7 @@ Nell'elenco seguente viene presentato il set di funzionalità attualmente dispon
 |                   | Inviare e ricevere notifiche di digitazione in corso quando un membro sta digitando attivamente un messaggio in un thread di chat <br/> *Non disponibile quando sono presenti più di 20 membri in un thread di chat*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Ottenere tutti i messaggi in un thread di chat <br/> *Emoji Unicode supportati*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Inviare emoji come parte del contenuto del messaggio                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Segnalazione in tempo reale (abilitata dal pacchetto di segnalazione proprietario)| Ricevere una notifica quando un utente riceve un nuovo messaggio in un thread di chat di cui è membro                                     | ✔️   | ❌    | ❌  | ❌  |
+|Segnalazione in tempo reale (abilitata dal pacchetto di segnalazione proprietario * *)| Ricevere una notifica quando un utente riceve un nuovo messaggio in un thread di chat di cui è membro                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Ricevere una notifica quando un messaggio è stato modificato da un altro membro in un thread di chat di cui si è membri                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Ricevere una notifica quando un messaggio è stato eliminato da un altro membro in un thread di chat di cui si è membri                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Ricevere una notifica quando un altro membro del thread di chat sta digitando                                                             | ✔️   | ❌    | ❌    | ❌  |
@@ -53,6 +53,8 @@ Nell'elenco seguente viene presentato il set di funzionalità attualmente dispon
 | Monitoraggio        | Monitorare l'utilizzo in termini di messaggi inviati                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorare la qualità e lo stato delle richieste API effettuate dall'app e configurare gli avvisi tramite il portale                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Funzionalità aggiuntive | Usare le [API Servizi cognitivi](../../../cognitive-services/index.yml) insieme alla libreria client di chat per abilitare le funzionalità intelligenti, *traduzione della lingua e analisi del sentiment del messaggio in arrivo in un client, conversione della voce in testo scritto per scrivere un messaggio mentre il membro parla e così via.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+* * Il pacchetto di segnalazione proprietario viene implementato usando i socket Web. Verrà eseguito il fallback al polling lungo se i socket Web non sono supportati.
 
 ## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Supporto della libreria client di chat JavaScript per sistema operativo e browser
 

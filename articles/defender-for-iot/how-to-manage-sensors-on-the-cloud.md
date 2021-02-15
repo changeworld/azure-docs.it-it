@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 459bac2ef01e69b9316af7e8374e7416ab51d915
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562710"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523907"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Caricare e gestire i sensori nel portale Defender per le cose
 
@@ -52,12 +52,10 @@ Per scaricare un file di attivazione:
 
 ## <a name="view-onboarded-sensors"></a>Visualizza sensori caricati
 
-Nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet è possibile visualizzare le informazioni di base sui sensori caricati. 
+Nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet è possibile visualizzare le informazioni di base sui sensori caricati.
 
 1. Selezionare **siti e sensori**.
-1. Nella pagina **siti e sensori** usare gli strumenti di filtro e ricerca per trovare le informazioni sui sensori necessarie.
-
-Le informazioni disponibili includono:
+1. Usare gli strumenti di filtro e ricerca per trovare informazioni sul sensore e sull'Intelligence per le minacce necessarie.
 
 - Quanti sensori sono stati caricati
 - Il numero di sensori che sono connessi al cloud e gestiti localmente
@@ -68,32 +66,40 @@ Le informazioni disponibili includono:
 
 Per le attività di gestione correlate ai sensori è possibile usare il [portale di Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) Internet.
 
-### <a name="export"></a>Esportazione
+I sensori caricati possono essere visualizzati nella pagina **siti e sensori** . È anche possibile modificare le informazioni sui sensori da questa pagina.
+
+### <a name="export-sensor-details"></a>Dettagli esportazione dei sensori
 
 Per esportare le informazioni sul sensore caricato, selezionare l'icona **Esporta** nella parte superiore della pagina **siti e sensori** .
 
-### <a name="edit"></a>Modifica
+### <a name="edit-sensor-zone-details"></a>Modificare i dettagli della zona dei sensori
 
-Usare gli strumenti di modifica di **siti e sensori** per aggiungere e modificare il nome del sito, la zona e i tag.
+Usare le opzioni di modifica dei **siti e dei sensori** per modificare il nome e la zona del sensore.
 
-### <a name="delete"></a>Delete
+Per modificare:
+
+1. Fare clic con il pulsante destro del mouse sui puntini di sospensione (**...**) per il sensore che si desidera modificare.
+1. Selezionare Modifica.
+1. Aggiornare la zona del sensore o creare una nuova zona.
+
+### <a name="delete-a-sensor"></a>Eliminare un sensore
 
 Se si elimina un sensore connesso al cloud, le informazioni non verranno inviate all'hub Internet delle cose. Eliminare i sensori connessi localmente quando non vengono più elaborati.
 
 Per eliminare un sensore:
 
-1. Selezionare i puntini di sospensione (**...**) per il sensore che si desidera eliminare. 
+1. Selezionare i puntini di sospensione (**...**) per il sensore che si desidera eliminare.
 1. Confermare l'eliminazione.
 
-### <a name="reactivate"></a>Riattiva
+### <a name="reactivate-a-sensor"></a>Riattivare un sensore 
 
-Potrebbe essere necessario aggiornare la modalità in cui il sensore è gestito. Esempio:
+Potrebbe essere necessario riattivare il sensore perché si desidera:
 
-- **Usare la modalità connessa al cloud invece della modalità gestita localmente**: per eseguire questa operazione, aggiornare il file di attivazione per il sensore connesso localmente con un file di attivazione per un sensore connesso al cloud. Dopo la riattivazione, i rilevamenti dei sensori vengono visualizzati sia nel sensore che nel [Defender per il portale](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Dopo che il file di riattivazione è stato caricato correttamente, le informazioni di avviso appena rilevate vengono inviate ad Azure.
+- **Lavorare in modalità connessa al cloud invece che in modalità gestita localmente**: dopo la riattivazione, i rilevamenti dei sensori vengono visualizzati nel sensore e le informazioni di avviso appena rilevate vengono recapitate tramite l'hub. Queste informazioni possono essere condivise con altri servizi di Azure, ad esempio Azure Sentinel.
 
-- **Lavorare in modalità connessa localmente anziché in modalità connessa al cloud**: per eseguire questa operazione, aggiornare il file di attivazione per un sensore connesso al cloud con un file di attivazione per un sensore gestito localmente. Dopo la riattivazione, le informazioni di rilevamento del sensore vengono visualizzate solo nel sensore.
+- **Lavorare in modalità gestita localmente anziché in modalità connessa al cloud**: dopo la riattivazione, le informazioni di rilevamento del sensore vengono visualizzate solo nel sensore.
 
-- **Associare il sensore a un nuovo hub** Internet: per eseguire questa operazione, ripetere la registrazione del sensore e caricare un nuovo file di attivazione.
+- **Associare il sensore a un nuovo hub** Internet: per eseguire questa operazione, registrare nuovamente il sensore con un nuovo hub e quindi scaricare un nuovo file di attivazione.
 
 Per riattivare un sensore:
 
@@ -103,20 +109,20 @@ Per riattivare un sensore:
 
 3. Eliminare il sensore.
 
-4. Caricare nuovamente il sensore dalla pagina **onboarding** nella nuova modalità o con un nuovo hub Internet.
+4. Eseguire di nuovo il caricamento del sensore in modalità nuova o con un nuovo hub Internet, selezionando carica **un sensore** dalla pagina Introduzione.
 
-5. Scaricare il file di attivazione dalla pagina **Scarica file di attivazione** .
+5. Scaricare il file di attivazione.
 
-6. Accedere al Defender per la console del sensore Internet.
+1. Accedere al Defender per la console del sensore Internet.
 
 7. Nella console del sensore selezionare **impostazioni di sistema** , quindi selezionare **riattivazione**.
 
    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Caricare il file di attivazione per riattivare il sensore.":::
 
-8. Selezionare **carica** e selezionare il file salvato.
+8. Selezionare **carica** e selezionare il file salvato dalla pagina del sensore di onboarding.
 
-9. Selezionare **Attiva**. 
+9. Selezionare **Attiva**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Attivare e configurare il sensore](how-to-activate-and-set-up-your-sensor.md)

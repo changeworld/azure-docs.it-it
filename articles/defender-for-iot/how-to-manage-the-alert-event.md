@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6a1a4d13ee9f9032c739773b678600d52dec82b8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508744"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523924"
 ---
 # <a name="manage-alert-events"></a>Gestione degli eventi di avviso
 
@@ -23,7 +23,8 @@ Per la gestione degli eventi di avviso sono disponibili le opzioni seguenti:
  | **Learn** | Autorizzare l'evento rilevato. Per ulteriori informazioni, vedere [informazioni sull'apprendimento e](#about-learning-and-unlearning-events)la disapprendimento degli eventi. |
  | **Riconoscere** | Nascondere l'avviso una volta per l'evento rilevato. L'avviso verrà nuovamente attivato se l'evento viene nuovamente rilevato. Per ulteriori informazioni, vedere [informazioni su come riconoscere e non riconoscere gli eventi](#about-acknowledging-and-unacknowledging-events). |
  | **Disattiva audio** | Ignorare continuamente l'attività con dispositivi identici e traffico analogo. Per ulteriori informazioni, vedere [informazioni sugli eventi di muting e di](#about-muting-and-unmuting-events)esclusione. |
-
+ 
+È anche possibile esportare le informazioni sugli avvisi.
 ## <a name="about-learning-and-unlearning-events"></a>Informazioni sugli eventi e sull'apprendimento
 
 Gli eventi che indicano deviazioni della rete acquisita possono riflettere modifiche di rete valide. Esempi possono includere un nuovo dispositivo autorizzato che è stato aggiunto alla rete o un aggiornamento del firmware autorizzato.
@@ -68,7 +69,7 @@ In queste situazioni, l'apprendimento non è disponibile. Quando non è possibil
 > [!NOTE] 
 > Non è possibile disattivare gli eventi in cui un dispositivo Internet è definito come origine o destinazione.
 
-### <a name="what-traffic-is-muted"></a>Quale traffico è disattivato?
+### <a name="what-alert-activity-is-muted"></a>Quale attività di avviso è stata silenziata?
 
 Uno scenario disattivato include i dispositivi di rete e il traffico rilevato per un evento. Il titolo dell'avviso descrive il traffico che viene disattivato.
 
@@ -106,6 +107,25 @@ Quando un evento viene disattivato, viene ignorato ogni volta che l'origine invi
 
 2. Passare il puntatore del mouse su un avviso per verificare se è disattivato.  
 
-## <a name="see-also"></a>Vedi anche
+## <a name="export-alert-information"></a>Esporta informazioni sugli avvisi
+
+Esportare le informazioni sugli avvisi in un file con estensione CSV. È possibile esportare le informazioni di tutti gli avvisi rilevati o esportare le informazioni in base alla visualizzazione filtrata. Vengono esportate le seguenti informazioni:
+
+- Indirizzo di origine
+- Indirizzo di destinazione
+- Titolo avviso
+- Gravità dell'avviso
+- Messaggio di avviso
+- Informazioni aggiuntive
+- Stato riconosciuto
+- Disponibilità PCAP
+
+Per esportare:
+
+1. Selezionare avvisi dal menu laterale.
+1. Selezionare Esporta.
+1. Selezionare Esporta avvisi estesi per esportare le informazioni sugli avvisi in righe separate per ogni avviso che copre più dispositivi. Quando si seleziona Esporta avvisi estesi, il file con estensione CSV creerà una riga duplicata dell'evento di avviso con gli elementi univoci in ogni riga. L'utilizzo di questa opzione consente di esaminare più facilmente gli eventi di avviso esportati.
+
+## <a name="next-steps"></a>Passaggi successivi
 
 [Controllare quale traffico viene monitorato](how-to-control-what-traffic-is-monitored.md)

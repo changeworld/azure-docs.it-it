@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 852375cc7948fc7f6bd106380b3194f2dc84b8ca
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 9e4fea52f56da9f2e84746daf0121df0b4355411
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778921"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375953"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Usare PowerShell per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento
 
@@ -60,8 +60,10 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 Per assegnare un ruolo di Azure a un'entità di sicurezza, usare il comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Il formato del comando può variare in base all'ambito dell'assegnazione. Per eseguire il comando, è necessario assegnare un ruolo proprietario o collaboratore all'ambito corrispondente. Gli esempi seguenti illustrano come assegnare un ruolo a un utente in vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a un'entità di sicurezza.
 
-> [!NOTE]
-> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+> [!IMPORTANT]
+> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito un ruolo di controllo degli accessi in base al ruolo di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+>
+> Se l'account di archiviazione è bloccato con un blocco di sola lettura Azure Resource Manager, il blocco impedisce l'assegnazione dei ruoli di controllo degli accessi in base al ruolo di Azure che hanno come ambito l'account di archiviazione o a un contenitore di dati (contenitore BLOB o coda).
 
 ### <a name="container-scope"></a>Ambito del contenitore
 
@@ -141,4 +143,4 @@ New-AzRoleAssignment -SignInName <email> `
 
 - [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite il modulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e della coda](storage-auth-aad-rbac-cli.md)
-- [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](storage-auth-aad-rbac-portal.md)
+- [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di accodamento](storage-auth-aad-rbac-portal.md)

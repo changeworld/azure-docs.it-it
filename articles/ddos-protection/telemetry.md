@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b34fcd66f0b64e2522da69bcfc7d119628b9d9d9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516703"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522666"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Visualizzare e configurare i dati di telemetria della protezione DDoS
 
@@ -70,7 +70,7 @@ Sono disponibili le [metriche](../azure-monitor/platform/metrics-supported.md#mi
 
 ## <a name="view-ddos-protection-telemetry"></a>Visualizzare i dati di telemetria di protezione DDoS
 
-I dati di telemetria per un attacco vengono forniti da Monitoraggio di Azure in tempo reale. La telemetria è disponibile solo per l'intervallo di tempo durante cui viene applicata la mitigazione per un indirizzo IP pubblico. Prima o dopo la mitigazione di un attacco, non vengono visualizzati dati di telemetria.
+I dati di telemetria per un attacco vengono forniti da Monitoraggio di Azure in tempo reale. La telemetria è disponibile solo quando un indirizzo IP pubblico è stato sottoposto a mitigazione. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e passare al piano di protezione DDoS.
 2. In **Monitoraggio** selezionare **Metrica**.

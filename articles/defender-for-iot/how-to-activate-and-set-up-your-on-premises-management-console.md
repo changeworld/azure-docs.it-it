@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623755"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522581"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Attivare e configurare la console di gestione locale 
 
@@ -155,7 +155,7 @@ Per supportare questo ambiente, è necessario creare una topologia aziendale glo
 
 I gruppi di accesso consentono un migliore controllo su dove gli utenti gestiscono e analizzano i dispositivi nella piattaforma Defender for Internet.
 
-### <a name="how-it-works"></a>Come funziona
+### <a name="how-it-works"></a>Funzionamento
 
 Per ogni sito è possibile definire una business unit e una regione. È quindi possibile aggiungere zone che sono entità logiche nella rete. 
 
@@ -316,6 +316,6 @@ Per annullare l'assegnazione ed eliminare un sensore:
 
 3. Per eliminare il sensore non assegnato dal sito, selezionare il sensore dall'elenco dei sensori non assegnati e selezionare :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Risolvere i problemi relativi al sensore e alla console di gestione locale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

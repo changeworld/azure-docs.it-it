@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 1d434697802596a0200dc0cb5f1afe5bc67afef5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c411250f7d850e56c9c54c27e888cba8f3acfece
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379710"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522207"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborare con altri autori ed editor
 
@@ -25,7 +25,7 @@ Questa funzionalità RBAC di Azure include:
 * È possibile aggiungere rapidamente autori ed editor a tutte le Knowledge base nella risorsa perché il controllo si trova a livello di risorsa, non a livello di Knowledge base.
 
 > [!NOTE]
-> Quando si assicurano di aggiungere un sottodominio personalizzato per la risorsa. Per impostazione predefinita, il [sottodominio personalizzato](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) deve essere presente, ma in caso contrario, aggiungerlo
+> Assicurarsi di aggiungere un sottodominio personalizzato per la risorsa. Per impostazione predefinita, il [sottodominio personalizzato](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) deve essere presente, ma in caso contrario, aggiungerlo
 
 ## <a name="access-is-provided-by-a-defined-role"></a>L'accesso viene fornito da un ruolo definito
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840573"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523550"
 ---
 # <a name="work-with-alerts-on-your-sensor"></a>Usare gli avvisi sul sensore
 
@@ -68,9 +68,9 @@ Ad esempio:
 
   - Gli eventi malware rilevati sui dispositivi di rete vengono segnalati nei report di valutazione dei rischi. Quando gli avvisi sugli eventi malware vengono *disabilitati*, i dispositivi interessati non verranno calcolati nel report di valutazione dei rischi.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Apprendimento e modalità di apprendimento IT intelligenti](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [Visualizza le informazioni fornite negli avvisi](how-to-view-information-provided-in-alerts.md)
-- [Gestire l'evento di avviso](how-to-manage-the-alert-event.md)
-- [Accelerare i flussi di lavoro degli avvisi](how-to-accelerate-alert-incident-response.md)
+[Apprendimento e modalità](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
+ di apprendimento it intelligenti [Visualizza le informazioni fornite negli avvisi](how-to-view-information-provided-in-alerts.md) 
+ [Gestire l'evento](how-to-manage-the-alert-event.md) 
+ di avviso [Accelerare i flussi di lavoro degli avvisi](how-to-accelerate-alert-incident-response.md)

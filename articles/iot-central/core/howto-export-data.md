@@ -8,12 +8,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7152012c7c4a342c7491e5f8b835eaede4269c4c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515904"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522615"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
@@ -168,14 +168,14 @@ Ora che si dispone di una destinazione in cui esportare i dati, configurare l'es
 
 ## <a name="monitor-your-export"></a>Monitorare l'esportazione
 
-Oltre a visualizzare lo stato delle esportazioni in IoT Central, è possibile monitorare la quantità di dati che passano attraverso le esportazioni e osservare gli errori di esportazione nella piattaforma dati di monitoraggio di Azure. È possibile accedere alle metriche sulle esportazioni e sull'integrità dei dispositivi nei grafici del portale di Azure, di un'API REST o di query in PowerShell o nell'interfaccia della riga di comando di Azure. Attualmente, è possibile monitorare le metriche di esportazione dei dati in monitoraggio di Azure:
+Oltre a visualizzare lo stato delle esportazioni in IoT Central, è possibile usare [monitoraggio di Azure](../../azure-monitor/overview.md) per visualizzare la quantità di dati che si sta esportando e gli eventuali errori di esportazione. È possibile accedere alle metriche di integrità dei dispositivi e delle esportazioni nei grafici nel portale di Azure, con un'API REST o con query in PowerShell o nell'interfaccia della riga di comando di Azure. Attualmente, è possibile monitorare le metriche di esportazione dei dati seguenti in monitoraggio di Azure:
 
-1. Numero di messaggi in ingresso da esportare prima che vengano applicati i filtri
-2. Numero di messaggi che passano attraverso i filtri
-3. Numero di messaggi esportati correttamente nelle destinazioni
-4. Numero di errori rilevati
- 
-[Altre informazioni su come accedere alle metriche IoT Central.](howto-monitor-application-health.md)
+- Numero di messaggi in ingresso da esportare prima che vengano applicati i filtri.
+- Numero di messaggi che passano attraverso i filtri.
+- Numero di messaggi esportati correttamente nelle destinazioni.
+- Numero di errori.
+
+Per altre informazioni, vedere [monitorare l'integrità complessiva di un'applicazione IoT Central](howto-monitor-application-health.md).
 
 ## <a name="destinations"></a>Destinazioni
 

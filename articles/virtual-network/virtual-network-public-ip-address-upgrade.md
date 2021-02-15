@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493720"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522887"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Aggiornare gli indirizzi IP pubblici
 
@@ -36,7 +36,7 @@ In questo articolo vengono esaminati gli scenari seguenti:
 Per eseguire l'aggiornamento di un indirizzo IP pubblico, non deve essere associato a nessuna risorsa (vedere [Questa pagina](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) per altre informazioni su come dissociare gli indirizzi IP pubblici).
 
 >[!IMPORTANT]
->Gli indirizzi IP pubblici aggiornati dallo SKU Basic a quello standard continuano a non avere [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Ciò significa che non possono essere associati a una risorsa di Azure con ridondanza della zona o collegata a una zona specificata nelle aree in cui è disponibile.
+>Gli indirizzi IP pubblici aggiornati dallo SKU Basic a quello standard continuano a non avere [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)garantite.  Assicurarsi che questo aspetto venga tenuto presente quando si scelgono le risorse a cui associare l'indirizzo IP.
 
 ---
 # <a name="basic-to-standard---powershell"></a>[**Da Basic a standard-PowerShell**](#tab/option-upgrade-powershell)

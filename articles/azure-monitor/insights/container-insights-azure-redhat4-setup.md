@@ -3,12 +3,12 @@ title: Configurare Azure Red Hat OpenShift V4. x con monitoraggio di Azure per i
 description: Questo articolo descrive come configurare il monitoraggio per un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift versione 4 o successiva.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e6668ac22c6c0f53c7511cfb76bf50c5474f3a76
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944522"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521629"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configurare Azure Red Hat OpenShift V4. x con monitoraggio di Azure per i contenitori
 
@@ -121,7 +121,7 @@ Se non si dispone di un'area di lavoro da specificare, è possibile passare alla
     export kubeContext="<kubeContext name of your ARO v4 cluster>"  
     ```
 
-    Esempio:
+    Ecco il comando che è necessario eseguire dopo avere popolato le 3 variabili con i comandi di esportazione:
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 

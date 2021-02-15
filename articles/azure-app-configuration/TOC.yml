@@ -7,7 +7,7 @@
     - name: Procedure consigliate
       href: howto-best-practices.md
     - name: Domande frequenti
-      href: faq.md
+      href: faq.yml
 - name: Avvi rapidi
   expanded: true
   items:

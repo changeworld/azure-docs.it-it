@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e9904e9157a560e2a4853a1a9cd37977defe73ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937387"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522954"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guida alla risoluzione dei problemi dell'agente di sicurezza (Linux)
 
@@ -108,10 +108,4 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggi la [Panoramica](overview.md) del servizio Defender for Internet
-- Scopri di più su Defender per l' [architettura dell'it](architecture.md)
-- Abilita il Defender per il [servizio](quickstart-onboard-iot-hub.md) Internet
-- Leggi le [domande frequenti](resources-frequently-asked-questions.md) sul servizio Defender for Internet
-- Informazioni su come accedere a [dati non elaborati sulla sicurezza](how-to-security-data-access.md)
-- Informazioni sulle [raccomandazioni](concept-recommendations.md)
-- Informazioni sugli [avvisi](concept-security-alerts.md) di sicurezza
+Leggere la [Panoramica](overview.md) del servizio Defender for Internet. altre informazioni sull' [architettura](architecture.md) di Defender per l'architettura dei dati it abilitano il [servizio](quickstart-onboard-iot-hub.md) Defender for Internet. leggere le [domande frequenti](resources-frequently-asked-questions.md) sul servizio Defender for le [](concept-security-alerts.md) informazioni su come accedere ai [dati di sicurezza RAW](how-to-security-data-access.md) informazioni sulle [raccomandazioni](concept-recommendations.md)

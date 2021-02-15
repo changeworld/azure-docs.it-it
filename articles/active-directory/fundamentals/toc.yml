@@ -25,6 +25,8 @@
   items:
     - name: Sicurezza
       items:
+        - name: Proteggere Microsoft 365 dagli attacchi locali
+          href: protect-m365-from-on-premises-attacks.md
         - name: Proteggere la collaborazione esterna
           items:
             - name: Panoramica della protezione dell'accesso esterno
@@ -47,8 +49,20 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9 Proteggere l''accesso a Teams, SharePoint e OneDrive'
               href: 9-secure-access-teams-sharepoint.md
-        - name: Proteggere Microsoft 365 dagli attacchi locali
-          href: protect-m365-from-on-premises-attacks.md
+        - name: Proteggere gli account di servizio
+          items:
+            - name: Introduzione agli account del servizio locali
+              href: service-accounts-on-premises.md
+            - name: Sicurezza del gruppo MSAs
+              href: service-accounts-group-managed.md
+            - name: Protezione di MSAs autonomi
+              href: service-accounts-standalone-managed.md
+            - name: Protezione degli account computer
+              href: service-accounts-computer.md
+            - name: Protezione degli account del servizio basati su utenti
+              href: service-accounts-user-on-premises.md
+            - name: Governare gli account di servizio locali
+              href: service-accounts-govern-on-premises.md
         - name: Abilitare MFA
           href: concept-fundamentals-mfa-get-started.md
         - name: Impostazioni predefinite di sicurezza

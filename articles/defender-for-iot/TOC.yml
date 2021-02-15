@@ -131,8 +131,8 @@
               displayName: 'Active Directory, roles, permissions'
               href: how-to-create-and-manage-users.md
             - name: Definire il controllo di accesso utente globale
-              displayName: 'business unit, site, region'
               href: how-to-define-global-user-access-control.md
+              displayName: 'business unit, site, region, user'
         - name: Controllare quale traffico viene monitorato
           displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
           href: how-to-control-what-traffic-is-monitored.md
@@ -140,8 +140,8 @@
           displayName: 'disconnect, connect, activation file, sensor backup'
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Gestire singoli sensori
-          displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
           href: how-to-manage-individual-sensors.md
+          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
         - name: Gestire i sensori nel cloud
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Gestire la console di gestione locale
@@ -153,10 +153,13 @@
           items:
             - name: Esaminare tutti i rilevamenti dei sensori aziendali un inventario di dispositivi
               href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+              displayName: classification
             - name: Esaminare i rilevamenti dei sensori in un inventario dei dispositivi
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, Windows registry'
         - name: Usare la mappa dei dispositivi rilevati dai sensori
           href: how-to-work-with-the-sensor-device-map.md
+          displayName: 'connections, Purdue, zoom'
         - name: Gestire gli avvisi rilevati da un sensore
           items:
             - name: Gestire gli avvisi sul sensore
@@ -165,8 +168,10 @@
               href: how-to-view-alerts.md
             - name: Visualizzare le informazioni fornite negli avvisi
               href: how-to-view-information-provided-in-alerts.md
+              displayName: PCAP
             - name: Gestire gli eventi degli avvisi
               href: how-to-manage-the-alert-event.md
+              displayName: 'PCAP, acknowledge, learn, mute, policy'
             - name: Accelerare la risposta agli eventi imprevisti degli avvisi
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
@@ -175,18 +180,21 @@
               displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
         - name: 'Acquisire informazioni su minacce locali, globali e a livello di area'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
+          displayName: 'site, business unit, region, map'
         - name: Gestire gli avvisi della console di gestione locale
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: Creare report
           items:
             - name: Creazione di report di valutazione dei rischi
               href: how-to-create-risk-assessment-reports.md
+              displayName: 'vulnerability, security score, score'
             - name: Creare report vettori di attacco
               href: how-to-create-attack-vector-reports.md
             - name: Creazione di report data mining
               href: how-to-create-data-mining-queries.md
             - name: Creare report sulle tendenze e sulle statistiche
-              href: how-to-create-data-mining-queries.md
+              href: how-to-create-trends-and-statistics-reports.md
+              displayName: 'widgets, charts'
         - name: Arricchire le informazioni sui dispositivi
           items:
             - name: Gestire le notifiche sui dispositivi

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: b33c456d47426a3721e8582f24ffd603db0429c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: feb84a1261e37600c68d8e372162033d4021f564
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340034"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522921"
 ---
 # <a name="security-module"></a>Modulo di sicurezza
 
@@ -40,7 +40,7 @@ Le proprietà di sicurezza del dispositivo vengono mantenute in un modulo di pro
 
 Per informazioni su come creare, personalizzare e configurare il dispositivo gemello, vedere [creare un modulo di sicurezza gemello](quickstart-create-security-twin.md) e [configurare gli agenti di sicurezza](how-to-agent-configuration.md) . Vedere [informazioni sui moduli gemelli](../iot-hub/iot-hub-devguide-module-twins.md) per altre informazioni sul concetto di moduli gemelli nell'hub Internet.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica di Defender for Internet](overview.md)
 - [Distribuire gli agenti di sicurezza](how-to-deploy-agent.md)

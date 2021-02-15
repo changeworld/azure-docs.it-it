@@ -4,12 +4,12 @@ description: Informazioni su come gestire gli indirizzi IP e la georilevazione c
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333308"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521918"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 
@@ -62,7 +62,7 @@ Per abilitare la raccolta e l'archiviazione IP, `DisableIpMasking` è necessario
 
 Se è necessario modificare solo il comportamento per una singola risorsa di Application Insights, usare il portale di Azure. 
 
-1. Passare alla risorsa Application Insights > **Automation**  >  **modello di esportazione** di automazione 
+1. Passare alla risorsa Application Insights >   >  **modello di esportazione** di automazione 
 
 2. Selezionare **Distribuisci**
 
@@ -77,7 +77,7 @@ Se è necessario modificare solo il comportamento per una singola risorsa di App
     ![Screenshot aggiunge una virgola dopo "IbizaAIExtension" e aggiunge una nuova riga sotto "DisableIpMasking": true](media/ip-collection/save.png)
 
     > [!WARNING]
-    > Se si verifica un errore che indica che ** _il gruppo di risorse si trova in una posizione non supportata da una o più risorse nel modello. Scegliere un gruppo di risorse diverso._** Selezionare temporaneamente un gruppo di risorse diverso nell'elenco a discesa e quindi selezionare di nuovo il gruppo di risorse originale per risolvere l'errore.
+    > Se si verifica un errore che indica che **_il gruppo di risorse si trova in una posizione non supportata da una o più risorse nel modello. Scegliere un gruppo di risorse diverso._** Selezionare temporaneamente un gruppo di risorse diverso nell'elenco a discesa e quindi selezionare di nuovo il gruppo di risorse originale per risolvere l'errore.
 
 5. Selezionare **Accetto**  >  **acquisto**. 
 
@@ -186,7 +186,7 @@ namespace MyWebApp
     services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
 }
 ```
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ### <a name="nodejs"></a>Node.js
 
@@ -241,7 +241,7 @@ requests
 
 Gli indirizzi IP appena raccolti verranno visualizzati nella `customDimensions_client-ip` colonna. Per la `client-ip` colonna predefinita saranno ancora presenti tutti i quattro ottetti azzerati. 
 
-Se si verifica da localhost e il valore di `customDimensions_client-ip` è `::1` , questo valore è il comportamento previsto. `::1` rappresenta l'indirizzo di loopback in IPv6. Equivale a `127.0.01` in IPv4.
+Se si verifica da localhost e il valore di `customDimensions_client-ip` è `::1` , questo valore è il comportamento previsto. `::1` rappresenta l'indirizzo di loopback in IPv6. Equivale a `127.0.0.1` in IPv4.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

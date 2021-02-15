@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da Amazon spostando con Azure Data Factory
 description: Informazioni su come spostare dati da Amazon Redshift usando l'attività di copia di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 025250f47bf0630be5ae988140a5feeecfd0eaf0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463089"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377551"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -38,7 +33,7 @@ Attualmente Data Factory supporta solo lo spostamento di dati da Amazon Redshift
 * Se si spostano i dati in un archivio dati locale, installare il [gateway di gestione dati](data-factory-data-management-gateway.md) su un computer locale. Concedere l'accesso per un gateway al cluster Amazon Redshift usando l'indirizzo IP del computer locale. Per istruzioni, vedere [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorizzare l'accesso al cluster).
 * Per spostare i dati in un archivio dati di Azure, vedere gli [intervalli di indirizzi IP di calcolo e gli intervalli SQL usati dai data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con un'attività di copia per spostare dati da un'origine Amazon Redshift usando diversi strumenti e API.
 
 Il modo più semplice per creare una pipeline è usare la Copia guidata di Azure Data Factory. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
@@ -74,7 +69,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sul percorso dei dati nell'archivio. La sezione **typeProperties** per un set di dati di tipo **RelationalTable**, che include il set di dati Amazon Redshift, ha le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **tableName** |Nome della tabella nel database Amazon Redshift a cui fa riferimento il servizio collegato. |No (se è specificata la proprietà **query** di un'attività di copia di tipo **RelationalSource**) |
 
@@ -84,7 +79,7 @@ Per un elenco delle sezioni e delle proprietà disponibili per la definizione de
 
 Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **query** | Usare la query personalizzata per leggere i dati. |No (se è specificata la proprietà **tableName** di un set di dati) |
 | **redshiftUnloadSettings** | Contiene il gruppo di proprietà quando si usa il comando **UNLOAD** di Redshift. | No |
@@ -93,7 +88,7 @@ Per l'attività di copia, quando l'origine è di tipo **AmazonRedshiftSource**, 
 
 In alternativa, è possibile usare il tipo **RelationalSource**, che include Amazon Redshift, con la proprietà seguente nella sezione **typeProperties**. Si noti che questo tipo di origine non supporta il comando **UNLOAD** di Redshift.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | **query** |Usare la query personalizzata per leggere i dati. | No (se è specificata la proprietà **tableName** di un set di dati) |
 

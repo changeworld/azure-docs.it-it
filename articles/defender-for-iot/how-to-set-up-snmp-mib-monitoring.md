@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839920"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523822"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Configurare il monitoraggio MIB SNMP
 
@@ -24,7 +24,7 @@ Prima di iniziare la configurazione del monitoraggio SNMP, è necessario aprire 
 
 ## <a name="oids"></a>OID
 
-| Console di gestione e sensore | OID | Format | Descrizione |
+| Console di gestione e sensore | OID | Formato | Descrizione |
 |--|--|--|--|
 | Nome Appliance | 1.3.6.1.2.1.1.5.0 | DISPLAYSTRING | Nome del dispositivo per la console di gestione locale |
 | Vendor | 1.3.6.1.2.1.1.4.0 | DISPLAYSTRING | Supporto tecnico Microsoft (support.microsoft.com) |
@@ -33,7 +33,7 @@ Prima di iniziare la configurazione del monitoraggio SNMP, è necessario aprire 
 | Versione del software | 1.3.6.1.4.1.9.9.53313.2 | DISPLAYSTRING | Stringa di versione completa di Xsense e stringa di versione completa di gestione |
 | Utilizzo della CPU | 1.3.6.1.4.1.9.9.53313.3.1 | GAUGE32 | Indicazione da zero a 100 |
 | Temperatura CPU | 1.3.6.1.4.1.9.9.53313.3.2 | DISPLAYSTRING | Indicazione Celsius da zero a 100 in base all'input Linux |
-| Utilizzo della memoria | 1.3.6.1.4.1.9.9.53313.3.3 | GAUGE32 | Indicazione da zero a 100 |
+| Utilizzo memoria | 1.3.6.1.4.1.9.9.53313.3.3 | GAUGE32 | Indicazione da zero a 100 |
 | Utilizzo disco | 1.3.6.1.4.1.9.9.53313.3.4 | GAUGE32 | Indicazione da zero a 100 |
 | Stato del servizio | 1.3.6.1.4.1.9.9.53313.5 | DISPLAYSTRING | Online o offline se uno dei quattro componenti cruciali è inattivo |
 | Larghezza di banda | Esterno all'ambito per 2,4 |  | Larghezza di banda ricevuta su ogni interfaccia di monitoraggio in Xsense |
@@ -84,6 +84,6 @@ Per definire il monitoraggio dello stato di SNMP v3:
 
 5. Selezionare **Salva**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Esportare i log di risoluzione dei problemi](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

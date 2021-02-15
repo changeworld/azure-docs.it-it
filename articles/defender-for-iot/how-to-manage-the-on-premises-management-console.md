@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539344"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523941"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gestire la console di gestione locale
 
@@ -399,7 +399,7 @@ Per reimpostare la password:
 
 Nella procedura seguente viene descritto come aggiornare la versione del software della console di gestione locale. Il processo di aggiornamento richiede circa 30 minuti.
 
-1. Passare al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Passa a Defender for Internet.
 
@@ -415,7 +415,7 @@ Nella procedura seguente viene descritto come aggiornare la versione del softwar
 
 1. Selezionare il file scaricato dalla pagina Defender for Internet **Updates** .
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Gestire i sensori dalla console di gestione](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

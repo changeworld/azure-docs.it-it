@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 14d7a0de1cd29b8c07f90c759a4d423d7186fdb9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 64e81e246ec62c8995d0e31629b4f21a2c1096b0
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839677"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522547"
 ---
 # <a name="accelerate-alert-workflows"></a>Accelerare i flussi di lavoro degli avvisi
 
@@ -70,11 +70,11 @@ Il gruppo di avvisi pertinente viene visualizzato nelle soluzioni di output part
 
 Il gruppo di avvisi verrà visualizzato nelle soluzioni partner supportate con i prefissi seguenti:
 
-  - **Cat** per QRadar, ArcSight, syslog CEF, syslog Leef
+- **Cat** per QRadar, ArcSight, syslog CEF, syslog Leef
 
-  - **Gruppo di avvisi** per i messaggi di testo syslog
+- **Gruppo di avvisi** per i messaggi di testo syslog
 
-  - **alert_group** per gli oggetti syslog
+- **alert_group** per gli oggetti syslog
 
 Questi campi devono essere configurati nella soluzione partner per visualizzare il nome del gruppo di avvisi. Se non è presente alcun avviso associato a un gruppo di avvisi, il campo nella soluzione partner visualizzerà **na**.
 
@@ -92,11 +92,29 @@ I gruppi di avvisi seguenti vengono definiti automaticamente:
 | Errori di comando | Problemi operativi |  |
 | Modifiche di configurazione | Programmazione |  |
 
-I gruppi di avvisi sono predefiniti. Per informazioni dettagliate sugli avvisi associati ai gruppi di avvisi e sulla creazione di gruppi di avvisi personalizzati, contattare [supporto tecnico Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+I gruppi di avvisi sono predefiniti. Per informazioni dettagliate sugli avvisi associati ai gruppi di avvisi e sulla creazione di gruppi di avvisi personalizzati, contattare [supporto tecnico Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## <a name="customize-alert-rules"></a>Personalizzare le regole di avviso
 
-È possibile aggiungere regole di avviso personalizzate in base alle informazioni rilevate dai singoli sensori. Ad esempio, definire una regola che indica a un sensore di attivare un avviso in base a un indirizzo IP di origine, indirizzo IP di destinazione o comando (all'interno di un protocollo). Quando il sensore rileva il traffico definito nella regola, viene generato un avviso o un evento.
+Usare regole di avviso personalizzate per individuare più specificamente le attività di interesse. 
+
+È possibile aggiungere regole di avviso personalizzate in base a:
+
+- Una categoria, ad esempio un protocollo, una porta o un file.
+- Indirizzi di origine e di destinazione
+- Condizione basata sulla categoria scelta, ad esempio una funzione associata a un protocollo, un nome file, una porta o un numero di trasporto.
+- Condizione basata sul riferimento di data e ora, ad esempio se un rilevamento è stato eseguito in un giorno specifico o in una determinata parte del giorno.
+
+Se il sensore rileva l'attività descritta nella regola, viene inviato l'avviso.
+informazioni rilevate dai singoli sensori. Ad esempio, definire una regola che indica a un sensore di attivare un avviso in base a un indirizzo IP di origine, indirizzo IP di destinazione o comando (all'interno di un protocollo). Quando il sensore rileva il traffico definito nella regola, viene generato un avviso o un evento.
+
+È anche possibile usare le azioni della regola di avviso per indicare a Defender il:
+
+- Consente agli utenti di accedere al file PCAP dall'avviso.
+- Assegnare una gravità di avviso.
+- Genera un evento anziché un avviso. Le informazioni rilevate verranno visualizzate nella sequenza temporale dell'evento.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Screenshot che mostra una regola definita dall'utente.":::
 
 Il messaggio di avviso indica che una regola definita dall'utente ha attivato l'avviso.
 
@@ -106,24 +124,24 @@ Per creare una regola di avviso personalizzata:
 
 1. Selezionare **avvisi personalizzati** dal menu laterale di un sensore.
 1. Selezionare il segno più ( **+** ) per creare una regola.
-
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Screenshot che mostra una regola definita dall'utente.":::
-
 1. Definire un nome di regola.
 1. Selezionare una categoria o un protocollo nel riquadro **categorie** .
 1. Definire un indirizzo IP o un indirizzo MAC di origine e di destinazione specifico oppure scegliere qualsiasi indirizzo.
-1. Aggiungere una condizione. Un elenco di condizioni e le relative proprietà è univoco per ogni categoria. È possibile selezionare più di una condizione per ogni avviso.
-1. Indica se la regola attiva un **allarme** o un **evento**.
-1. Assegnare un livello di gravità all'avviso.
-1. Indica se l'avviso includerà un file PCAP.
+1. Definire una o più condizioni della regola. È possibile creare due categorie di condizioni:
+    - Condizioni basate su valori univoci associati alla categoria selezionata. Selezionare Aggiungi e definire i valori.
+    - Condizioni basate su quando è stata rilevata l'attività. Nella sezione rilevamenti selezionare un periodo di tempo e un giorno in cui deve essere eseguito il rilevamento per poter inviare l'avviso. È possibile scegliere di inviare l'avviso se l'attività viene rilevata in qualsiasi momento, durante o dopo l'orario di lavoro. Usare l'opzione Definisci ore lavorative per indicare a Defender le ore lavorative per la propria organizzazione.
+1. Definire le azioni della regola: 
+    - Indica se la regola attiva un **allarme** o un **evento**.
+    - Assegnare un livello di gravità all'avviso.
+    - Indica se l'avviso includerà un file PCAP.
 1. Selezionare **Salva**.
 
 La regola viene aggiunta all'elenco **delle regole di avviso personalizzate** , in cui è possibile esaminare i parametri della regola di base, l'ultima volta in cui è stata attivata la regola e altro ancora. È anche possibile abilitare e disabilitare la regola dall'elenco.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Screenshot di una regola personalizzata aggiunta dall'utente.":::
 
-### <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-[Visualizza le informazioni fornite negli avvisi](how-to-view-information-provided-in-alerts.md)
+[Visualizzare le informazioni fornite negli avvisi](how-to-view-information-provided-in-alerts.md)
 
-[Gestire l'evento di avviso](how-to-manage-the-alert-event.md)
+[Gestire gli eventi degli avvisi](how-to-manage-the-alert-event.md)

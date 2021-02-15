@@ -2,18 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4991bb889d4b9a099662b8d46c6d5cd5a89c1c63
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: dcd08c0635eb4a104cc945fbf4025a6807987968
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99561672"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100100341"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Le aree di lavoro di sinapsi di Azure devono consentire il traffico dei dati in uscita solo alle destinazioni approvate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3484ce98-c0c5-4c83-994b-c5ac24785218) |Aumentare la sicurezza dell'area di lavoro sinapsi consentendo il traffico dei dati in uscita solo alle destinazioni approvate. Questo consente di prevenire i dati exfiltration convalidando la destinazione prima di inviare i dati. |Audit, Disabled, Deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_RestrictOutboundDataTraffic_Audit.json) |
 |[Le aree di lavoro Azure Synapse devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Usare le chiavi gestite dal cliente per controllare la crittografia dei dati inattivi archiviati nelle aree di lavoro di Azure Synapse. Le chiavi gestite dal cliente offrono la doppia crittografia con l'aggiunta di un secondo livello di crittografia su quella predefinita eseguito con le chiavi gestite dal servizio. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 |[Le regole del firewall IP nelle aree di lavoro Azure Synapse devono essere rimosse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56fd377d-098c-4f02-8406-81eb055902b8) |La rimozione di tutte le regole del firewall IP migliora la sicurezza, in quanto garantisce che all'area di lavoro di Azure Synapse sia possibile accedere solo da un endpoint privato. Questa configurazione controlla la creazione di regole del firewall che consentono l'accesso alla rete pubblica nell'area di lavoro. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceFirewallRules_Audit.json) |
 |[La rete virtuale dell'area di lavoro gestita deve essere abilitata nelle aree di lavoro Azure Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |L'abilitazione di una rete virtuale dell'area di lavoro gestita garantisce che l'area di lavoro sia isolata da altre aree di lavoro in rete. L'integrazione dei dati e le risorse di Spark distribuite in questa rete virtuale fornisce anche l'isolamento a livello di utente per le attività di Spark. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |

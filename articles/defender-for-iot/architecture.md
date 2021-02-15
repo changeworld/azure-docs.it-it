@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 1eb939a63edc4abc638dc128af0d9ebbd7241bef
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 28449c4e80e22548d2f727e5ad330ab487528847
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809304"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521901"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender per l'architettura dell'it
 
@@ -116,7 +116,7 @@ Il portale di Defender per Internet delle cose in Azure viene usato per semplifi
 
 - Aggiornare i pacchetti di intelligence per le minacce
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Domande frequenti su Defender](resources-frequently-asked-questions.md)
 

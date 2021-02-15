@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e1af60cccb48195db38e420dfe3df01f404669c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622796"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378001"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Esercitazione: Usare i propri dati (parte 4 di 4)
 
@@ -82,21 +82,8 @@ optimizer = optim.SGD(
 
 Lo script ora accetta _data path_ come argomento. Per iniziare, testarlo in locale. Aggiungere una cartella denominata `data` alla struttura di directory dell'esercitazione. La struttura di directory sarà simile alla seguente:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="La struttura di directory Mostra le sottodirectory. azureml, data e src":::
+
 
 Se non si è eseguito `train.py` in locale nell'esercitazione precedente, la directory `data/` non sarà presente. In questo caso, eseguire in locale il metodo `torchvision.datasets.CIFAR10` con `download=True` nello script `train.py`.
 

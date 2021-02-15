@@ -1,5 +1,5 @@
 ---
-title: Usare Defender per i comandi dell'interfaccia della riga di comando
+title: Usare i comandi dell'interfaccia della riga di comando di Defender per IoT
 description: Questo articolo descrive il Defender per i comandi dell'interfaccia della riga di comando per i sensori e le console di gestione locali.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845259"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523142"
 ---
-# <a name="work-with-defender-for-iot-cli-commands"></a>Usare Defender per i comandi dell'interfaccia della riga di comando
+# <a name="work-with-defender-for-iot-cli-commands"></a>Usare i comandi dell'interfaccia della riga di comando di Defender per IoT
 
 Questo articolo descrive i comandi dell'interfaccia della riga di comando per i sensori e le console di gestione locali. I comandi sono accessibili per gli amministratori, gli utenti CyberX e gli utenti di supporto.
 
@@ -103,7 +103,7 @@ L'attributo che è possibile definire all'interno del comando è l'indirizzo IP 
 
 La tabella seguente descrive i comandi disponibili per configurare le opzioni di rete per Azure Defender:
 
-|Name|Comando|Descrizione|
+|Nome|Comando|Descrizione|
 |-----------|-------|-----------|
 |Ping|`ping IP `| Effettua il ping degli indirizzi all'esterno del Defender per la piattaforma Internet.|
 |Blink|`network blink`|Consente di modificare i parametri di configurazione di rete.|
@@ -254,7 +254,7 @@ Con il comando è possibile usare gli attributi seguenti `directions` :
 ## <a name="system-actions"></a>Azioni di sistema
 La tabella seguente descrive i comandi disponibili per eseguire diverse azioni di sistema all'interno di Defender per l'it:
 
-|Name|Codice|Descrizione|
+|Nome|Codice|Descrizione|
 |----|----|-----------|
 |Riavviare l'host|`system reboot`|Riavvia il dispositivo host.|
 |Arrestare l'host|`system shutdown`|Arresta l'host.|
@@ -290,6 +290,6 @@ Quando si usa lo strumento:
 
 - Verificare che il dominio dell'appliance (come appare nel certificato) con il server DNS e l'indirizzo IP corrispondente. 
     
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Defender per le API del sensore API e della console di gestione](references-work-with-defender-for-iot-apis.md)
