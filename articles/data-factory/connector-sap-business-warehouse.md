@@ -1,23 +1,18 @@
 ---
 title: Copia i dati da SAP BW
 description: Informazioni su come copiare dati da SAP Business Warehouse in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5eb7c8d729fc0c3b95a61a4b8dbc8266d1eec3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534380"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386663"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -50,7 +45,7 @@ In particolare, il connettore SAP Business Warehouse supporta:
 Per usare il connettore SAP Business Warehouse, è necessario:
 
 - Configurare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo relativo alla [Integration Runtime self-hosted](create-self-hosted-integration-runtime.md) .
-- Installare la **libreria SAP NetWeaver** nel computer del runtime di integrazione. È possibile ottenere la libreria SAP Netweaver dal proprio amministratore SAP o direttamente dall'[area per il download di software SAP](https://support.sap.com/swdc). Per ottenere il percorso di download della versione più recente, cercare **SAP Note #1025361**. Assicurarsi di selezionare la Libreria SAP NetWeaver **a 64 bit** corrispondente all'installazione di Integration Runtime. Installare quindi tutti i file inclusi in SAP NetWeaver RFC SDK in base alla nota SAP. La libreria SAP NetWeaver è inclusa anche nell'installazione degli strumenti client SAP.
+- Installare la **libreria SAP NetWeaver** nel computer del runtime di integrazione. È possibile ottenere la Libreria SAP NetWeaver dall'amministratore di SAP o direttamente dall' [area download software SAP](https://support.sap.com/swdc). Per ottenere il percorso di download della versione più recente, cercare **SAP Note #1025361**. Assicurarsi di selezionare la Libreria SAP NetWeaver **a 64 bit** corrispondente all'installazione di Integration Runtime. Installare quindi tutti i file inclusi in SAP NetWeaver RFC SDK in base alla nota SAP. La libreria SAP NetWeaver è inclusa anche nell'installazione degli strumenti client SAP.
 
 >[!TIP]
 >Per risolvere un problema di connettività a SAP BW, assicurarsi che:
@@ -183,9 +178,9 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | ACCP | Int |
 | CHAR | string |
 | CLNT | string |
-| CURR | Decimale |
+| CURR | Decimal |
 | CUKY | string |
-| DEC | Decimale |
+| DEC | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
@@ -194,7 +189,7 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | LCHR | string |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Decimale |
+| QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | string |

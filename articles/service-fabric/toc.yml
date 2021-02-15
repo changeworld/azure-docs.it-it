@@ -816,7 +816,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/
     - name: PowerShell
-      href: /powershell/module/servicefabric/?view=azureservicefabricps
+      href: /powershell/module/ServiceFabric/New-ServiceFabricService?view=azureservicefabricps
     - name: Interfaccia della riga di comando di Azure (az sf)
       href: /cli/azure/sf
     - name: Interfaccia della riga di comando di Service Fabric (sfctl)

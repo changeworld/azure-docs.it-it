@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742931"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380305"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -109,7 +109,7 @@ Visualizzare le metriche del servizio di sincronizzazione e gli avvisi | Lettore
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Gestire domini | Amministratore globale | 
+Gestire domini | Amministratore del nome di dominio | 
 Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md))
 
 ## <a name="domain-services"></a>Servizi di dominio
@@ -189,7 +189,7 @@ Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sic
 Leggi tutti i rilevamenti di rischio | Ruolo con autorizzazioni di lettura per la sicurezza | 
 Leggere le vulnerabilità | Ruolo con autorizzazioni di lettura per la sicurezza | 
 
-## <a name="licenses"></a>Licenses
+## <a name="licenses"></a>Licenze
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
@@ -216,9 +216,9 @@ Leggere log di accesso | Lettore di report | Ruolo con autorizzazioni di lettura
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Eliminare tutte le password dell'app esistenti generate dagli utenti selezionati | Amministratore globale | 
-Disabilitare autenticazione a più fattori | Amministratore globale | 
-Abilitare MFA | Amministratore globale | 
-Gestire le impostazioni del servizio di autenticazione a più fattori | Amministratore globale | 
+Disabilitare autenticazione a più fattori | Amministratore autenticazione (tramite PowerShell) | Amministratore di autenticazione con privilegi (tramite PowerShell)
+Abilitare MFA | Amministratore autenticazione (tramite PowerShell) | Amministratore di autenticazione con privilegi (tramite PowerShell) 
+Gestire le impostazioni del servizio di autenticazione a più fattori | Amministratore dei criteri di autenticazione | 
 Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto | Amministratore dell'autenticazione | 
 Ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati  | Amministratore dell'autenticazione | 
 
@@ -226,15 +226,15 @@ Ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati 
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Blocca/Sblocca utenti | Amministratore globale | 
-Configurare blocco degli account | Amministratore globale | 
-Configurare regole di memorizzazione nella cache | Amministratore globale | 
-Configurare gli avvisi di illecito | Amministratore globale
-Configurare le notifiche | Amministratore globale | 
-Configurare un bypass monouso | Amministratore globale | 
-Configurare impostazioni telefonata | Amministratore globale | 
-Configurare provider | Amministratore globale | 
-Configurare le impostazioni del server | Amministratore globale | 
+Blocca/Sblocca utenti | Amministratore dei criteri di autenticazione | 
+Configurare blocco degli account | Amministratore dei criteri di autenticazione | 
+Configurare regole di memorizzazione nella cache | Amministratore dei criteri di autenticazione | 
+Configurare gli avvisi di illecito | Amministratore dei criteri di autenticazione
+Configurare le notifiche | Amministratore dei criteri di autenticazione | 
+Configurare un bypass monouso | Amministratore dei criteri di autenticazione | 
+Configurare impostazioni telefonata | Amministratore dei criteri di autenticazione | 
+Configurare provider | Amministratore dei criteri di autenticazione | 
+Configurare le impostazioni del server | Amministratore dei criteri di autenticazione | 
 Leggere il report attività | Ruolo con autorizzazioni di lettura globali | 
 Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
 Leggere lo stato del server | Ruolo con autorizzazioni di lettura globali |  

@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013635"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104179"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione
 
@@ -48,18 +48,12 @@ Se l'app è stata registrata prima del 21 maggio 2019, la richiesta di consenso 
 
 Per impostare il dominio del server di pubblicazione dell'applicazione, attenersi alla seguente procedura.
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a> usando un account aziendale o dell'Istituto di istruzione o un account Microsoft personale.
-
-1. Se l'account è presente in più di un tenant di Azure AD:
-   1. Selezionare il profilo dal menu nell'angolo superiore destro della pagina e quindi fare clic su **Cambia directory**.
-   1. Impostare la sessione sul tenant di Azure AD in cui si vuole creare l'applicazione.
-
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
+1. Se si ha accesso a più tenant, usare il filtro **directory + sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto per selezionare il tenant in cui è registrata l'app.
 1. Passare a [Azure Active Directory > registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) per trovare e selezionare l'app che si vuole configurare.
 
    Dopo aver selezionato l'app, verrà visualizzata la pagina **Panoramica** dell'app.
-
-1. Dalla pagina **Panoramica** dell'app selezionare la sezione **personalizzazione** .
-
+1. In **Gestisci** selezionare la **personalizzazione**.
 1. Individuare il campo **Publisher Domain** e selezionare una delle opzioni seguenti:
 
    - Selezionare **configura un dominio** se non è già stato configurato un dominio.

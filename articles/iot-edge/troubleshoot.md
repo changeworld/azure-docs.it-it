@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 035cf5be4471cad7ac11eb8ce9a8a0ecb13a68da
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c5f28e2c2d370329dbee0fb76284a4b76b2b945e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462377"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376511"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Risolvere i problemi del dispositivo IoT Edge
 
@@ -240,7 +240,7 @@ Per impostazione predefinita, l'elemento `agent` avrà un aspetto simile all'ese
      type: docker
      env: {}
      config:
-       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       image: mcr.microsoft.com/azureiotedge-agent:1.1
        auth: {}
    ```
 
@@ -252,7 +252,7 @@ Sostituire `env: {}` con:
    ```
 
    > [!WARNING]
-   > I file con estensione yalm non possono contenere tabulazioni per i rientri. In alternativa usare due spazi. Gli elementi di primo livello non possono contenere spazi vuoti iniziali.
+   > I file YAML non possono contenere tabulazioni come rientri. In alternativa usare due spazi. Gli elementi di primo livello non possono contenere spazi vuoti iniziali.
 
 Salvare il file e riavviare il gestore sicurezza IoT Edge.
 

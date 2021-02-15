@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: b48773272e050b47af73b197d6f1c8156318fd71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8b6247a735bceaf98029740bf9d4f7e233069d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87099345"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097569"
 ---
 # <a name="connect-your-sophos-xg-firewall-to-azure-sentinel"></a>Connettere il firewall di Sophos XG ad Azure Sentinel
 
@@ -48,7 +48,7 @@ Una volta stabilita la connessione, i dati vengono visualizzati in Log Analytics
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
 
-Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log Analytics.
+Potrebbero essere necessari fino a 20 minuti prima che i log inizino a essere visualizzati in Log Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

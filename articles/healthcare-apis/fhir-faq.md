@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d83bc653ae8c3ff5a9553de568bc6f2355f18760
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746714"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104621"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Domande frequenti sull'API di Azure per FHIR
 
@@ -115,6 +115,9 @@ Per altri dettagli, vedere questo [post della community](https://chat.fhir.org/#
 ### <a name="how-does-export-work"></a>In che modo $export funziona?
 
 $export fa parte della specifica FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Se il servizio FHIR è configurato con un'identità gestita e un account di archiviazione e se l'identità gestita ha accesso a tale account di archiviazione, è possibile chiamare semplicemente $export sull'API FHIR e tutte le risorse FHIR verranno esportate nell'account di archiviazione. Per altre informazioni, vedere l' [articolo $Export](./export-data.md).
+
+### <a name="is-de-identified-export-available-at-patient-and-group-level-as-well"></a>L'esportazione deselezionata è disponibile anche a livello di paziente e gruppo?
+L'esportazione resi anonimi è attualmente supportata solo in un'esportazione del sistema completa (/$export) e non per l'esportazione dei pazienti (/patient/$export). Stiamo lavorando per renderlo disponibile anche a livello di paziente.
 
 ## <a name="using-azure-api-for-fhir"></a>Uso dell'API di Azure per FHIR
 

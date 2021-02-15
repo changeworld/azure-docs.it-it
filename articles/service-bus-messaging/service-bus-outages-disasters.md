@@ -2,13 +2,13 @@
 title: Isolare le applicazioni del bus di servizio di Azure da interruzioni ed emergenze
 description: Questo articolo fornisce le tecniche per proteggere le applicazioni da una potenziale interruzione del bus di servizio di Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/10/2021
+ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065625"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374593"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
@@ -23,11 +23,13 @@ I concetti di disponibilità elevata e ripristino di emergenza sono integrati ne
 
 ### <a name="geo-disaster-recovery"></a>Ripristino di emergenza geografico
 
-Il bus di servizio Premium supporta il ripristino di emergenza geografico a livello di spazio dei nomi. Per altre informazioni, vedere [Ripristino di emergenza geografico per il bus di servizio di Azure](service-bus-geo-dr.md). La funzionalità di ripristino di emergenza, disponibile solo per lo [SKU Premium](service-bus-premium-messaging.md), implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari del ripristino di emergenza.
+Il bus di servizio Premium supporta il ripristino di emergenza geografico a livello di spazio dei nomi. Per altre informazioni, vedere [Ripristino di emergenza geografico per il bus di servizio di Azure](service-bus-geo-dr.md). La funzionalità di ripristino di emergenza, disponibile solo per lo [SKU Premium](service-bus-premium-messaging.md), implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari del ripristino di emergenza. Con Geo-Disaster Recovery, solo i metadati per le entità vengono replicati tra gli spazi dei nomi primari e secondari.  
 
 ### <a name="availability-zones"></a>Zone di disponibilità
 
 Lo SKU Premium del bus di servizio supporta le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno della stessa area di Azure. Il bus di servizio gestisce tre copie dell'archivio di messaggistica (1 primario e 2 secondario). Il bus di servizio mantiene sincronizzate tutte e tre le copie per le operazioni di gestione e i dati. Se la copia primaria ha esito negativo, una delle copie secondarie viene promossa al database primario senza tempi di inattività percepiti. Se le applicazioni visualizzano disconnessioni temporanee dal bus di servizio, la logica di ripetizione dei tentativi nell'SDK si riconnetterà automaticamente al bus di servizio. 
+
+Quando si usano le zone di disponibilità, i metadati e i dati (messaggi) vengono replicati nei data center della zona di disponibilità. 
 
 > [!NOTE]
 > Il supporto per le zone di disponibilità per il bus di servizio di Azure Premium è disponibile solo nelle [aree di Azure](../availability-zones/az-region.md) in cui sono presenti le zone di disponibilità.

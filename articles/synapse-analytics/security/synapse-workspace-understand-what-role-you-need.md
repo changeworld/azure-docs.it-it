@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba00e6f4fe97b0614483fd04ddee9fc768558db5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102105"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384453"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Comprendere i ruoli necessari per eseguire attività comuni in sinapsi
 
@@ -87,7 +87,7 @@ Visualizzare i log per l'esecuzione del notebook e del processo |Operatore di ca
 Annulla qualsiasi notebook o processo Spark in esecuzione in un pool di Apache Spark|Operatore di calcolo sinapsi nel pool di Apache Spark.|bigDataPools/useCompute
 Creare un notebook o una definizione di processo|Utente sinapsi o </br>Proprietario, collaboratore o lettore di Azure nell'area di lavoro</br> *Per eseguire, pubblicare o eseguire il commit delle modifiche sono necessarie autorizzazioni aggiuntive*|lettura</br></br></br></br></br> 
 Elencare e aprire un notebook o una definizione di processo pubblicati, inclusa la revisione degli output salvati|Utente artefatto sinapsi, server di pubblicazione artefatto sinapsi, collaboratore sinapsi nell'area di lavoro|elementi/lettura
-Eseguire un notebook ed esaminare l'output|Sinapsi Apache Spark Administrator, operatore di calcolo sinapsi nel pool di Apache Spark selezionato|bigDataPools/useCompute 
+Eseguire un notebook ed esaminare l'output o inviare un processo Spark|Sinapsi Apache Spark Administrator, operatore di calcolo sinapsi nel pool di Apache Spark selezionato|bigDataPools/useCompute 
 Pubblicare o eliminare un notebook o una definizione di processo (incluso l'output) nel servizio|Autore dell'artefatto nell'area di lavoro, sinapsi Apache Spark amministratore|Notebook/scrittura, eliminazione
 Eseguire il commit delle modifiche apportate a un notebook o alla definizione del processo nel repository git|Autorizzazioni Git|Nessuno
 PIPELINE, RUNTIME DI INTEGRAZIONE, FLUSSI DI CALCOLO, DATASET & TRIGGER|

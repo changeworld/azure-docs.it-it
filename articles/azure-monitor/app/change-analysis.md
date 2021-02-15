@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e59d4ecd238879eddb9d842245395d58aff28385
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576398"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519423"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -37,8 +37,8 @@ Il servizio di analisi delle modifiche dell'applicazione supporta le modifiche a
 - Servizio app
 - Servizio Azure Kubernetes
 - Funzione di Azure
-- Risorse di rete: ad esempio gruppo di sicurezza di rete, rete virtuale, gateway applicazione e così via.
-- Servizi dati: ad esempio, archiviazione, SQL, cache Redis, Cosmos DB e così via.
+- Risorse di rete: gruppo di sicurezza di rete, rete virtuale, gateway applicazione e così via.
+- Servizi dati: archiviazione, SQL, cache Redis, Cosmos DB e così via.
 
 ## <a name="data-sources"></a>Origini dati
 
@@ -60,106 +60,33 @@ L'analisi delle modifiche acquisisce lo stato di distribuzione e configurazione 
 
 ### <a name="dependency-changes"></a>Modifiche delle dipendenze
 
-Anche le modifiche alle dipendenze delle risorse possono causare problemi in una risorsa. Se, ad esempio, un'app Web chiama in una cache Redis, lo SKU della cache Redis potrebbe influire sulle prestazioni dell'app Web. Un altro esempio è se la porta 22 è stata chiusa nel gruppo di sicurezza di rete di una macchina virtuale, causerà errori di connettività. 
+Anche le modifiche alle dipendenze delle risorse possono causare problemi in una risorsa. Se, ad esempio, un'app Web chiama in una cache Redis, lo SKU della cache Redis potrebbe influire sulle prestazioni dell'app Web. Un altro esempio è se la porta 22 è stata chiusa nel gruppo di sicurezza di rete di una macchina virtuale, causerà errori di connettività.
 
 #### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Strumento di esplorazione della diagnostica e risoluzione dei problemi dell'app Web (anteprima)
+
 Per rilevare le modifiche nelle dipendenze, l'analisi delle modifiche controlla il record DNS dell'app Web. In questo modo, identifica le modifiche in tutti i componenti dell'app che possono causare problemi.
 Attualmente le dipendenze seguenti sono supportate in **diagnostica e risoluzione dei problemi delle app Web | Strumento di navigazione (anteprima)**:
+
 - App Web
 - Archiviazione di Azure
 - SQL di Azure
 
 #### <a name="related-resources"></a>Risorse correlate
-L'analisi delle modifiche dell'applicazione rileva le risorse correlate. Esempi comuni sono il gruppo di sicurezza di rete, la rete virtuale, il gateway applicazione e Load Balancer correlati a una macchina virtuale. Il provisioning delle risorse di rete viene in genere eseguito automaticamente nello stesso gruppo di risorse delle risorse che lo usano, quindi il filtraggio delle modifiche per gruppo di risorse mostrerà tutte le modifiche per la macchina virtuale e le risorse di rete correlate.
+
+L'analisi delle modifiche dell'applicazione rileva le risorse correlate. Esempi comuni sono il gruppo di sicurezza di rete, la rete virtuale, il gateway applicazione e Load Balancer correlati a una macchina virtuale.
+Il provisioning delle risorse di rete viene in genere eseguito automaticamente nello stesso gruppo di risorse delle risorse che lo usano, quindi il filtraggio delle modifiche per gruppo di risorse mostrerà tutte le modifiche per la macchina virtuale e le risorse di rete correlate.
 
 ![Screenshot delle modifiche di rete](./media/change-analysis/network-changes.png)
 
 ## <a name="application-change-analysis-service-enablement"></a>Abilitazione del servizio di analisi delle modifiche dell'applicazione
 
 Il servizio di analisi delle modifiche dell'applicazione calcola e aggrega i dati delle modifiche dalle origini dati indicate in precedenza. Fornisce un set di analisi per consentire agli utenti di spostarsi agevolmente in tutte le modifiche alle risorse e identificare le modifiche rilevanti nel contesto di risoluzione dei problemi o di monitoraggio.
-Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette lo strumento per la diagnosi e la risoluzione dei problemi dell'app Web o si apre la scheda autonoma Change Analysis, questo provider di risorse viene registrato automaticamente. Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per ulteriori informazioni, vedere l'articolo relativo all' [analisi delle modifiche nella sezione strumento di diagnostica e risoluzione dei problemi](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) più avanti in questo articolo.
+Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette lo strumento per la diagnosi e la risoluzione dei problemi dell'app Web o si apre la scheda autonoma Change Analysis, questo provider di risorse viene registrato automaticamente.
+Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per ulteriori informazioni, vedere l'articolo relativo all' [analisi delle modifiche nella sezione strumento di diagnostica e risoluzione dei problemi](change-analysis-visualizations.md#application-change-analysis-in-the-diagnose-and-solve-problems-tool) più avanti in questo articolo.
 
 ## <a name="cost"></a>Costo
+
 L'analisi delle modifiche dell'applicazione è un servizio gratuito che non comporta costi di fatturazione per le sottoscrizioni abilitate. Anche il servizio non ha alcun effetto sulle prestazioni per l'analisi delle modifiche delle proprietà delle risorse di Azure. Quando si Abilita l'analisi delle modifiche per le app Web nelle modifiche dei file Guest (o si Abilita lo strumento diagnostica e Risolvi i problemi), questo avrà un impatto trascurabile sulle prestazioni dell'app Web e nessun costo per la fatturazione.
-
-## <a name="visualizations-for-application-change-analysis"></a>Visualizzazioni per l'analisi delle modifiche dell'applicazione
-
-### <a name="standalone-ui"></a>Interfaccia utente autonoma
-
-In monitoraggio di Azure è disponibile un riquadro autonomo per l'analisi delle modifiche che consente di visualizzare tutte le modifiche con informazioni dettagliate sulle dipendenze dell'applicazione e sulle risorse.
-
-Cercare Change Analysis nella barra di ricerca portale di Azure per avviare l'esperienza.
-
-![Screenshot della ricerca dell'analisi delle modifiche in portale di Azure](./media/change-analysis/search-change-analysis.png)
-
-Tutte le risorse in una sottoscrizione selezionata vengono visualizzate con le modifiche apportate nelle ultime 24 ore. Per ottimizzare le prestazioni di caricamento della pagina, il servizio Visualizza 10 risorse alla volta. Fare clic su pagine successive per visualizzare altre risorse. Si sta lavorando per rimuovere questa limitazione.
-
-![Screenshot del pannello di analisi delle modifiche in portale di Azure](./media/change-analysis/change-analysis-standalone-blade.png)
-
-Fare clic su una risorsa per visualizzare tutte le modifiche apportate. Se necessario, eseguire il drill-down in una modifica per visualizzare i dettagli delle modifiche in formato JSON e le informazioni dettagliate.
-
-![Schermata dei dettagli delle modifiche](./media/change-analysis/change-details.png)
-
-Per commenti e suggerimenti, usare il pulsante Invia commenti e suggerimenti nel pannello o nel messaggio di posta elettronica changeanalysisteam@microsoft.com .
-
-![Screenshot del pulsante feedback nel pannello Change Analysis](./media/change-analysis/change-analysis-feedback.png)
-
-#### <a name="multiple-subscription-support"></a>Supporto per più sottoscrizioni
-L'interfaccia utente supporta la selezione di più sottoscrizioni per visualizzare le modifiche alle risorse. Usare il filtro della sottoscrizione:
-
-![Screenshot del filtro di sottoscrizione che supporta la selezione di più sottoscrizioni](./media/change-analysis/multiple-subscriptions-support.png)
-
-### <a name="web-app-diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi delle app Web
-
-In monitoraggio di Azure, l'analisi delle modifiche è incorporata anche nell'esperienza di **diagnostica e risoluzione dei problemi** in modalità self-service. Accedere a questa esperienza dalla pagina **Panoramica** dell'applicazione del servizio app.
-
-![Screenshot del pulsante "panoramica" e del pulsante "diagnostica e risoluzione dei problemi"](./media/change-analysis/change-analysis.png)
-
-### <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Analisi delle modifiche dell'applicazione nello strumento diagnostica e risoluzione dei problemi
-
-L'analisi delle modifiche dell'applicazione è un detector autonomo negli strumenti per la diagnosi e la risoluzione dei problemi dell'app Web. Viene anche aggregato in **arresti anomali dell'applicazione** e **rilevatori di app Web**. Quando si immette lo strumento diagnostica e Risolvi i problemi, il provider di risorse **Microsoft. ChangeAnalysis** verrà registrato automaticamente. Seguire queste istruzioni per abilitare il rilevamento delle modifiche in-Guest per l'app Web.
-
-1. Selezionare **disponibilità e prestazioni**.
-
-    ![Screenshot delle opzioni di risoluzione dei problemi di disponibilità e prestazioni](./media/change-analysis/availability-and-performance.png)
-
-2. Selezionare **le modifiche apportate all'applicazione**. La funzionalità è disponibile anche negli **arresti anomali dell'applicazione**.
-
-   ![Screenshot del pulsante "arresti anomali dell'applicazione"](./media/change-analysis/application-changes.png)
-
-3. Il collegamento consente di modificare l'applicazione dell'interfaccia utente di Aalysis nell'ambito dell'app Web. Se il rilevamento delle modifiche nell'app Web in-Guest non è abilitato, seguire il banner per ottenere le modifiche alle impostazioni di file e app.
-
-   ![Screenshot delle opzioni "arresti anomali dell'applicazione"](./media/change-analysis/enable-changeanalysis.png)
-
-4. Attivare l' **analisi delle modifiche** e selezionare **Salva**. Lo strumento Visualizza tutte le app Web in un piano di servizio app. È possibile usare l'opzione livello piano per attivare l'analisi delle modifiche per tutte le app Web in un piano.
-
-    ![Screenshot dell'interfaccia utente "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
-
-5. I dati delle modifiche sono disponibili anche in selezione **app Web** e rilevamenti **arresti anomali dell'applicazione** . Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche. Per impostazione predefinita, le modifiche apportate nelle ultime 24 ore vengono visualizzate per facilitare i problemi immediatamente.
-
-     ![Screenshot della visualizzazione delle differenze delle modifiche](./media/change-analysis/change-view.png)
-
-
-
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnostica e risoluzione dei problemi della macchina virtuale
-
-Passare allo strumento diagnostica e risoluzione dei problemi per una macchina virtuale.  Passare a **strumenti per la risoluzione dei problemi**, esplorare la pagina e selezionare **analizza modifiche recenti** per visualizzare le modifiche apportate alla macchina virtuale.
-
-![Screenshot della macchina virtuale diagnosticare e risolvere i problemi](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
-
-![Analizzatore modifiche in strumenti di risoluzione dei problemi](./media/change-analysis/analyze-recent-changes.png)
-
-### <a name="activity-log-change-history"></a>Cronologia modifiche log attività
-La funzionalità [Visualizza cronologia modifiche](../platform/activity-log.md#view-change-history) nel log attività chiama il back-end del servizio di analisi delle modifiche dell'applicazione per ottenere le modifiche associate a un'operazione. **Cronologia delle modifiche** usata per chiamare direttamente il [grafo delle risorse di Azure](../../governance/resource-graph/overview.md) , ma lo scambio del back-end per chiamare l'analisi delle modifiche dell'applicazione in modo che le modifiche restituite includano le modifiche a livello di risorsa da [Azure Resource Graph](../../governance/resource-graph/overview.md), le proprietà delle risorse da [Azure Resource Manager](../../azure-resource-manager/management/overview.md)e le modifiche in-Guest dai servizi di PaaS, ad esempio app Web Affinché il servizio di analisi delle modifiche dell'applicazione sia in grado di analizzare le modifiche apportate alle sottoscrizioni degli utenti, è necessario registrare un provider di risorse. La prima volta che si immette la scheda **cronologia modifiche** , lo strumento inizierà automaticamente a registrare il provider di risorse **Microsoft. ChangeAnalysis** . Dopo la registrazione, le modifiche da **Azure Resource Graph** saranno disponibili immediatamente e copriranno gli ultimi 14 giorni. Le modifiche apportate da altre origini saranno disponibili dopo circa 4 ore dopo l'onboarding della sottoscrizione.
-
-![Integrazione cronologia modifiche log attività](./media/change-analysis/activity-log-change-history.png)
-
-### <a name="vm-insights-integration"></a>Integrazione di VM Insights
-Gli utenti che hanno abilitato [VM Insights](../insights/vminsights-overview.md) possono visualizzare le modifiche apportate alle macchine virtuali che potrebbero causare picchi in un grafico delle metriche, ad esempio CPU o memoria e chiedersi cosa ha causato. I dati delle modifiche sono integrati nella barra di spostamento sul lato di VM Insights. L'utente può visualizzare se sono state apportate modifiche alla macchina virtuale e fare clic su verifica **modifiche** per visualizzare i dettagli delle modifiche nell'interfaccia utente autonoma di analisi modifiche applicazione.
-
-[![Integrazione di VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
-
-
 
 ## <a name="enable-change-analysis-at-scale"></a>Abilitare l'analisi delle modifiche su larga scala
 
@@ -195,57 +122,9 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>Risolvere problemi
-
-### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Problemi durante la registrazione di Microsoft. modificare il provider di risorse di analisi dalla scheda cronologia modifiche
-Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'integrazione con l'analisi delle modifiche dell'applicazione, si noterà che il provider di risorse **Microsoft. ChangeAnalysis** viene registrato automaticamente. In rari casi potrebbe non riuscire per i motivi seguenti:
-
-- **Non si dispone delle autorizzazioni sufficienti per registrare il provider di risorse Microsoft. ChangeAnalysis**. Questo messaggio di errore indica che il ruolo nella sottoscrizione corrente non ha l'ambito **Microsoft. support/register/Action** associato. Questo problema può verificarsi se non si è il proprietario di una sottoscrizione e si hanno le autorizzazioni di accesso condiviso tramite un collega. ovvero visualizzare l'accesso a un gruppo di risorse. Per risolvere il problema, è possibile contattare il proprietario della sottoscrizione per registrare il provider di risorse **Microsoft. ChangeAnalysis** . Questa operazione può essere eseguita in portale di Azure tramite **sottoscrizioni | Provider di risorse** e ricerca ```Microsoft.ChangeAnalysis``` e registrazione nell'interfaccia utente o tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
-
-    Registrare il provider di risorse tramite PowerShell: 
-    ```PowerShell
-    # Register resource provider
-    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-    ```
-
-- **Non è stato possibile registrare il provider di risorse Microsoft. ChangeAnalysis**. Questo messaggio indica che si è verificato un errore immediatamente perché l'interfaccia utente ha inviato una richiesta di registrazione del provider di risorse e non è correlata al problema di autorizzazione. Probabilmente potrebbe trattarsi di un problema temporaneo di connettività Internet. Provare ad aggiornare la pagina e a controllare la connessione a Internet. Se l'errore è permanente, contattare changeanalysishelp@microsoft.com
-
-- **Questa operazione richiede più tempo del previsto**. Questo messaggio indica che la registrazione richiede più di 2 minuti. Si tratta di un'operazione insolita, ma non implica necessariamente un errore. È possibile passare alle **sottoscrizioni | Provider di risorse** per verificare lo stato di registrazione del provider di risorse **Microsoft. ChangeAnalysis** . È possibile provare a usare l'interfaccia utente per annullare la registrazione, ripetere la registrazione o aggiornare per verificare se è utile. Se il problema persiste, contattare il changeanalysishelp@microsoft.com supporto tecnico.
-    ![Risoluzione dei problemi di registrazione RP troppo lungo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
-
-![Screenshot dello strumento diagnostica e Risolvi i problemi per una macchina virtuale con strumenti di risoluzione dei problemi selezionati.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
-
-![Screenshot del riquadro per lo strumento analizza la risoluzione dei problemi delle modifiche recenti per una macchina virtuale.](./media/change-analysis/analyze-recent-changes.png)
-
-### <a name="azure-lighthouse-subscription-is-not-supported"></a>La sottoscrizione di Azure Lighthouse non è supportata
-
-- Non è **stato possibile eseguire una query sul provider di risorse Microsoft. ChangeAnalysis** con messaggio *la sottoscrizione di Azure Lighthouse non è supportata. le modifiche sono disponibili solo nel tenant principale della sottoscrizione*. Attualmente esiste una limitazione per la registrazione del provider di risorse di analisi delle modifiche tramite la sottoscrizione di Azure Lighthouse per gli utenti che non si trova nel tenant Home. Questa limitazione verrà risolta nel prossimo futuro. Se si tratta di un problema di blocco, esiste una soluzione alternativa che prevede la creazione di un'entità servizio e l'assegnazione esplicita del ruolo per consentire l'accesso.  Per ulteriori informazioni, contattare il contatto changeanalysishelp@microsoft.com .
-
-### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Si è verificato un errore durante il recupero delle modifiche. Aggiornare questa pagina o tornare più tardi per visualizzare le modifiche
-
-Questo è il messaggio di errore generale presentato dal servizio di analisi delle modifiche dell'applicazione quando non è stato possibile caricare le modifiche. Di seguito sono riportate alcune cause note:
-- Errore di connettività Internet dal dispositivo client
-- Il servizio di analisi delle modifiche temporaneamente non disponibile aggiorna la pagina dopo alcuni minuti in genere corregge questo problema. Se l'errore è permanente, contattare changeanalysishelp@micorosoft.com
-
-### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Le autorizzazioni disponibili non sono sufficienti per visualizzare alcune modifiche. Contattare l'amministratore della sottoscrizione di Azure
-
-Questo è il messaggio di errore generale non autorizzato, che indica che l'utente corrente non dispone di autorizzazioni sufficienti per visualizzare la modifica. Per visualizzare le modifiche dell'infrastruttura restituite da Azure Resource Graph e Azure Resource Manager è necessario almeno l'accesso in lettura per la risorsa. Per le modifiche apportate all'app Web in-Guest e le modifiche alla configurazione, è necessario almeno il ruolo Collaboratore.
-
-### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Non è stato possibile registrare il provider di risorse Microsoft. ChangeAnalysis
-Questo messaggio indica che si è verificato un errore immediatamente perché l'interfaccia utente ha inviato una richiesta di registrazione del provider di risorse e non è correlata al problema di autorizzazione. Probabilmente potrebbe trattarsi di un problema temporaneo di connettività Internet. Provare ad aggiornare la pagina e a controllare la connessione a Internet. Se l'errore è permanente, contattare changeanalysishelp@microsoft.com
- 
-### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Non si dispone delle autorizzazioni sufficienti per registrare il provider di risorse Microsoft. ChangeAnalysis. Contattare l'amministratore della sottoscrizione di Azure.
-Questo messaggio di errore indica che il ruolo nella sottoscrizione corrente non ha l'ambito **Microsoft. support/register/Action** associato. Questo problema può verificarsi se non si è il proprietario di una sottoscrizione e si hanno le autorizzazioni di accesso condiviso tramite un collega. ovvero visualizzare l'accesso a un gruppo di risorse. Per risolvere il problema, è possibile contattare il proprietario della sottoscrizione per registrare il provider di risorse **Microsoft. ChangeAnalysis** . Questa operazione può essere eseguita in portale di Azure tramite **sottoscrizioni | Provider di risorse** e ricerca ```Microsoft.ChangeAnalysis``` e registrazione nell'interfaccia utente o tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
-
-Registrare il provider di risorse tramite PowerShell: 
-
-```PowerShell
-# Register resource provider
-Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-```
-
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Informazioni sulle [visualizzazioni nell'analisi delle modifiche](change-analysis-visualizations.md)
+- Informazioni su come [risolvere i problemi nell'analisi delle modifiche](change-analysis-troubleshoot.md)
 - Abilitare Application Insights per le [app di app Azure Services](azure-web-apps.md).
 - Abilitare Application Insights per [le macchine virtuali di Azure e i set di scalabilità di macchine virtuali di Azure con IIS](azure-vm-vmss-apps.md).
-- Scopri di più su [Azure Resource Graph](../../governance/resource-graph/overview.md), che consente di migliorare l'analisi del risparmio energia.

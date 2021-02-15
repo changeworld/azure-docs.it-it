@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636878"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376361"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -45,17 +45,17 @@ Tuttavia, se si desiderano tutte le funzionalità e gli aggiornamenti più recen
 Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> A partire dal 1° novembre 2020, verrà avviata l'implementazione di un processo di deprecazione, in base al quale le versioni di Azure AD Connect rilasciate più di 18 mesi prima saranno deprecate. Da quel momento inizieremo questo processo deprecando tutte le versioni di Azure AD Connect con la versione 1.3.20.0 (rilasciata il 24/4/2019) e versioni precedenti e procederemo alla valutazione della deprecazione delle versioni precedenti di Azure AD Connect ogni volta che viene rilasciata una nuova versione.
+> A partire dal 1 ° aprile 2024, le versioni di Azure AD Connect rilasciate prima del 1 ° maggio, 2018-Version 1.1.751.0 e versioni precedenti. 
 >
 > È necessario assicurarsi di eseguire una versione recente di Azure AD Connect per ricevere un'esperienza di supporto ottimale. 
 >
->Se si esegue una versione deprecata di Azure AD Connect è possibile che non siano disponibili gli aggiornamenti di sicurezza più recenti, i miglioramenti delle prestazioni, la risoluzione dei problemi e gli strumenti di diagnostica e i miglioramenti del servizio e, se è necessaria l'assistenza, potrebbe non essere possibile fornire il livello di servizio necessario per l'organizzazione.
+>Se si esegue una versione ritirata di Azure AD Connect è possibile che non siano disponibili le correzioni più recenti per la sicurezza, i miglioramenti delle prestazioni, la risoluzione dei problemi e gli strumenti di diagnostica e i miglioramenti del servizio e, se è necessario il supporto tecnico, potrebbe non essere in grado di fornire il livello di servizio necessario per l'organizzazione.
 >
->Se è stata abilitata la sincronizzazione di Azure AD Connect, si inizierà a ricevere automaticamente notifiche sull'integrità che segnalano eventuali deprecazioni imminenti quando si esegue una delle versioni precedenti.
+
 >
 >Per altre informazioni su come aggiornare Azure AD Connect alla versione più recente, vedere [questo articolo](./how-to-upgrade-previous-version.md).
 >
->Per informazioni sulla cronologia delle versioni nelle versioni deprecate, vedere [Azure ad Connect versione archivio cronologia](reference-connect-version-history-archive.md) delle versioni
+>Per informazioni sulla cronologia delle versioni per le versioni ritirate, vedere [Azure ad Connect versione archivio cronologia](reference-connect-version-history-archive.md) delle versioni
 
 ## <a name="15450"></a>1.5.45.0
 

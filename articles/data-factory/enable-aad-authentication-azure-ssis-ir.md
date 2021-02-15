@@ -1,22 +1,19 @@
 ---
 title: Abilitare AAD per Azure SSIS Integration Runtime
 description: Questo articolo descrive come abilitare l'autenticazione di Azure Active Directory con l'identità gestita per Azure Data Factory per creare Azure-SSIS Integration Runtime.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: powershell
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: 30f5b5990e189cb6942c15b65b6a417ce49f0c2b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cd3f590e1869b28f0ac08ce98da32a98160e4e86
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637803"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392732"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Abilitare l'autenticazione di Azure Active Directory per Azure-SSIS Integration Runtime
 
@@ -86,13 +83,13 @@ Il database SQL supporta la creazione di un database con un utente Azure AD. È 
 
 2.  Selezionare il server nel database SQL da configurare con l'autenticazione Azure AD.
 
-3.  Nella sezione **Impostazioni** del pannello selezionare **Amministratore di Active Directory** .
+3.  Nella sezione **Impostazioni** del pannello selezionare **Amministratore di Active Directory**.
 
-4.  Sulla barra dei comandi selezionare **Imposta amministratore** .
+4.  Sulla barra dei comandi selezionare **Imposta amministratore**.
 
 5.  Selezionare un account utente Azure AD come amministratore del server e quindi selezionare **Seleziona.**
 
-6.  Sulla barra dei comandi selezionare **Salva** .
+6.  Sulla barra dei comandi selezionare **Salva**.
 
 ### <a name="create-a-contained-user-in-sql-database-representing-the-azure-ad-group"></a>Creare un utente indipendente nel database SQL che rappresenta il gruppo di Azure AD
 
@@ -108,9 +105,9 @@ Per il passaggio successivo è necessario [Microsoft SQL Server Management Studi
 
 5. Selezionare **Connetti** e completare il processo di accesso.
 
-6. In **Esplora oggetti** espandere la cartella **Database** -> **Database di sistema** .
+6. In **Esplora oggetti** espandere la cartella **Database** -> **Database di sistema**.
 
-7. Fare clic con il pulsante destro del mouse su database **Master** e selezionare **nuova query** .
+7. Fare clic con il pulsante destro del mouse su database **Master** e selezionare **nuova query**.
 
 8. Nella finestra query immettere il comando T-SQL seguente e selezionare **Esegui** sulla barra degli strumenti.
 
@@ -128,7 +125,7 @@ Per il passaggio successivo è necessario [Microsoft SQL Server Management Studi
 
    Il comando dovrebbe completare l'operazione correttamente, concedendo all'utente indipendente la possibilità di creare un database (SSISDB).
 
-10. Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare l'autenticazione Azure AD per accedere al Azure-SSIS IR, assicurarsi prima di tutto che i passaggi per concedere l'autorizzazione al database **Master** siano stati completati correttamente. Fare quindi clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query** .
+10. Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare l'autenticazione Azure AD per accedere al Azure-SSIS IR, assicurarsi prima di tutto che i passaggi per concedere l'autorizzazione al database **Master** siano stati completati correttamente. Fare quindi clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query**.
 
 11. Nella finestra query immettere il comando T-SQL seguente e selezionare **Esegui** sulla barra degli strumenti.
 
@@ -160,11 +157,11 @@ Per il passaggio successivo è necessario [Microsoft SQL Server Management Studi
 
 1.  Avviare SSMS.
 
-2.  Connettersi a SQL Istanza gestita usando un account SQL Server che sia un **amministratore di ruolo** . Si tratta di una limitazione temporanea che verrà rimossa una volta Azure AD entità server (account di accesso) per Azure SQL Istanza gestita diventerà GA. Se si tenta di usare un account amministratore Azure AD per creare l'account di accesso, verrà visualizzato il seguente errore: messaggio 15247, livello 16, stato 1, riga 1 utente non dispone dell'autorizzazione per eseguire questa azione.
+2.  Connettersi a SQL Istanza gestita usando un account SQL Server che sia un **amministratore di ruolo**. Si tratta di una limitazione temporanea che verrà rimossa una volta Azure AD entità server (account di accesso) per Azure SQL Istanza gestita diventerà GA. Se si tenta di usare un account amministratore Azure AD per creare l'account di accesso, verrà visualizzato il seguente errore: messaggio 15247, livello 16, stato 1, riga 1 utente non dispone dell'autorizzazione per eseguire questa azione.
 
-3.  In **Esplora oggetti** espandere la cartella **Database** -> **Database di sistema** .
+3.  In **Esplora oggetti** espandere la cartella **Database** -> **Database di sistema**.
 
-4.  Fare clic con il pulsante destro del mouse su database **Master** e selezionare **nuova query** .
+4.  Fare clic con il pulsante destro del mouse su database **Master** e selezionare **nuova query**.
 
 5.  Nella finestra query eseguire lo script T-SQL seguente per aggiungere l'identità gestita per il file ADF come utente
 
@@ -176,7 +173,7 @@ Per il passaggio successivo è necessario [Microsoft SQL Server Management Studi
     
     Il comando dovrebbe completare l'operazione correttamente, concedendo all'identità gestita per ADF la possibilità di creare un database (SSISDB).
 
-6.  Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare l'autenticazione Azure AD per accedere al Azure-SSIS IR, assicurarsi prima di tutto che i passaggi per concedere l'autorizzazione al database **Master** siano stati completati correttamente. Fare quindi clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query** .
+6.  Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare l'autenticazione Azure AD per accedere al Azure-SSIS IR, assicurarsi prima di tutto che i passaggi per concedere l'autorizzazione al database **Master** siano stati completati correttamente. Fare quindi clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query**.
 
 7.  Nella finestra query immettere il comando T-SQL seguente e selezionare **Esegui** sulla barra degli strumenti.
 

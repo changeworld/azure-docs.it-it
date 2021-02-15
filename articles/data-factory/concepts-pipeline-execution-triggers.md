@@ -1,22 +1,18 @@
 ---
 title: Esecuzione e trigger di pipeline in Azure Data Factory
 description: Questo articolo contiene informazioni sulla modalità di esecuzione di una pipeline in Azure Data Factory su richiesta o mediante la creazione di un trigger.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: e46b08e31725765d700bf41649d997d7b20e5f95
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: bd36b589424a0d890fc5e1bbab3f234e9b3264c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065491"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374780"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 
@@ -235,13 +231,13 @@ Per fare in modo che il trigger di pianificazione attivi l'esecuzione di una pip
 ### <a name="schema-overview"></a>Panoramica dello schema
 La tabella seguente fornisce una panoramica generale degli elementi dello schema principali correlati alla ricorrenza e alla pianificazione di un trigger:
 
-| Proprietà JSON | Description |
+| Proprietà JSON | Descrizione |
 | --- | --- |
 | **startTime** | Valore data-ora. Per le pianificazioni di base, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. |
 | **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. <!-- This property is optional. --> |
 | **Fuso orario** | Fuso orario. Per un elenco dei fusi orari supportati, vedere [creare un trigger per l'esecuzione di una pipeline in base a una pianificazione](how-to-create-schedule-trigger.md#time-zone-option). |
 | **ricorrenza** | Oggetto recurrence che specifica le regole di ricorrenza per il trigger. L'oggetto recurrence supporta gli elementi **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando viene definito un oggetto recurrence, l'elemento **frequency** è obbligatorio. Gli altri elementi dell'oggetto recurrence sono facoltativi. |
-| **frequenza** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
+| **frequency** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
 | **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency**. Il valore **frequency** determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "week", il trigger si ripete ogni tre settimane. |
 | **pianificazione** | Pianificazione della ricorrenza per il trigger. Un trigger con un valore **frequency** specificato modifica la ricorrenza in base a una pianificazione di ricorrenza. La proprietà **schedule** contiene modifiche per la ricorrenza basate su minuti, ore, giorni della settimana, giorni del mese e numero della settimana. |
 
@@ -281,7 +277,7 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Tipo | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 | --- | --- | --- | --- | --- | --- |
 | **startTime** | string | Sì | nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **ricorrenza** | object | Sì | nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
@@ -314,7 +310,7 @@ Se vengono specificati più elementi **Schedule** , l'ordine di valutazione è c
 
 La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 
-| Elemento JSON | Description | Valori validi |
+| Elemento JSON | Descrizione | Valori validi |
 | --- | --- | --- |
 | **minuti** | Minuti dell'ora in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi |
 | **ore** | Ore del giorno in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi |
@@ -375,7 +371,7 @@ Il trigger di finestra a cascata e il trigger di pianificazione funzionano entra
 
 La tabella seguente contiene un confronto del trigger di finestra a cascata e del trigger di pianificazione:
 
-| Item | Trigger di finestra a cascata | Trigger di pianificazione |
+| Elemento | Trigger di finestra a cascata | Trigger di pianificazione |
 | --- | --- | --- |
 | **Scenari di recupero delle informazioni** | Supportata. Si possono pianificare esecuzioni della pipeline per finestre nel passato. | Non supportata. Le esecuzioni della pipeline possono essere eseguite solo in periodi di tempo compresi tra il momento corrente e il futuro. |
 | **Affidabilità** | 100% di affidabilità. Le esecuzioni della pipeline possono essere pianificate per tutte le finestre da una data di inizio specificata senza intervalli. | Meno affidabile. |

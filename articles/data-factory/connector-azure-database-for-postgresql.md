@@ -1,22 +1,18 @@
 ---
 title: Copiare e trasformare i dati in database di Azure per PostgreSQL
 description: Informazioni su come copiare e trasformare i dati in database di Azure per PostgreSQL usando Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/01/2021
-ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 32c65a3e1063b29ab6458151aec42e4415a73b62
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223093"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381325"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database di Azure per PostgreSQL usando Azure Data Factory
 
@@ -73,7 +69,7 @@ Una stringa di connessione tipica è `Server=<server>.postgres.database.azure.co
 
 **Esempio**:
 
-**_Archivia password in Azure Key Vault_* _
+***Archivia la password in Azure Key Vault***
 
 ```json
 {
@@ -99,7 +95,7 @@ Una stringa di connessione tipica è `Server=<server>.postgres.database.azure.co
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets in Azure Data Factory](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate da database di Azure per PostgreSQL nei set di dati.
 
-Per copiare dati da database di Azure per PostgreSQL, impostare la proprietà Type del set di dati su _ * AzurePostgreSqlTable * *. Sono supportate le proprietà seguenti:
+Per copiare dati dal Database di Azure per PostgreSQL, impostare la proprietà type del set di dati su **AzurePostgreSqlTable**. Sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |

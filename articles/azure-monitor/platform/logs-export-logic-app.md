@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 21b9d73da0df5ada626500a706a19d1025de1dcc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185998"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391967"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiviare dati da un'area di lavoro Log Analytics ad archiviazione di Azure tramite l'app per la logica
 Questo articolo descrive un metodo per usare [app](../../logic-apps/index.yml) per la logica di Azure per eseguire query sui dati da un'area di lavoro log Analytics in monitoraggio di Azure e inviarli ad archiviazione di Azure. Usare questo processo quando è necessario esportare i dati di log di monitoraggio di Azure per gli scenari di controllo e conformità o per consentire a un altro servizio di recuperare questi dati.  
@@ -69,7 +69,7 @@ Passare a **app** per la logica nella portale di Azure e fare clic su **Aggiungi
 Fare clic su **Verifica + crea** e quindi su **Crea**. Al termine della distribuzione, fare clic su **Vai alla risorsa** per aprire la **finestra di progettazione delle app** per la logica.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>Creare un trigger per l'app per la logica
-In **inizia con un trigger comune** selezionare **ricorrenza**. Verrà creata un'app per la logica che viene eseguita automaticamente a intervalli regolari. Nella casella **frequenza** dell'azione selezionare **ora** e nella casella **intervallo** immettere **1** per eseguire il flusso di lavoro una volta al giorno.
+In **inizia con un trigger comune** selezionare **ricorrenza**. Verrà creata un'app per la logica che viene eseguita automaticamente a intervalli regolari. Nella casella **frequenza** dell'azione selezionare **giorno** e nella casella **intervallo** immettere **1** per eseguire il flusso di lavoro una volta al giorno.
 
 ![Azione di ricorrenza](media/logs-export-logicapp/recurrence-action.png)
 

@@ -2,13 +2,13 @@
 title: Funzioni definite dall'utente nei modelli
 description: Viene descritto come definire e usare funzioni definite dall'utente in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 02/11/2021
+ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934680"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379625"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funzioni definite dall'utente nel modello ARM
 
@@ -44,7 +44,7 @@ Le funzioni richiedono che sia definito un valore dello spazio dei nomi per evit
 
 ## <a name="use-the-function"></a>Usare la funzione
 
-Nell'esempio seguente viene illustrato un modello che include una funzione definita dall'utente. USA tale funzione per ottenere un nome univoco per un account di archiviazione. Il modello include un parametro denominato `storageNamePrefix` che viene passato come parametro alla funzione.
+Nell'esempio seguente viene illustrato un modello che include una funzione definita dall'utente per ottenere un nome univoco per un account di archiviazione. Il modello dispone di un parametro denominato `storageNamePrefix` che viene passato come parametro alla funzione.
 
 ```json
 {
@@ -92,6 +92,12 @@ Nell'esempio seguente viene illustrato un modello che include una funzione defin
  ]
 }
 ```
+
+Durante la distribuzione, il `storageNamePrefix` parametro viene passato alla funzione:
+
+* Il modello definisce un parametro denominato `storageNamePrefix` .
+* La funzione utilizza `namePrefix` perché è possibile utilizzare solo i parametri definiti nella funzione. Per ulteriori informazioni, vedere [limitazioni](#limitations).
+* Nella sezione del modello `resources` , l' `name` elemento usa la funzione e passa il `storageNamePrefix` valore alla funzione `namePrefix` .
 
 ## <a name="limitations"></a>Limitazioni
 

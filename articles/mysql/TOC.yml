@@ -27,10 +27,10 @@
               href: concepts-pricing-tiers.md
             - name: Pagare in anticipo la capacità riservata
               href: concept-reserved-pricing.md
-    - name: Guide rapide introduttive
+    - name: Avvi rapidi
       expanded: true
       items:
-        - name: Creare un server
+        - name: Creare un server MySQL singolo
           items:
             - name: Portale di Azure
               href: quickstart-create-mysql-server-database-using-azure-portal.md
@@ -416,11 +416,10 @@
           href: flexible-server/concepts-supported-versions.md
         - name: Calcolo e archiviazione
           href: flexible-server/concepts-compute-storage.md
-    - name: Guide rapide introduttive
+    - name: Avvi rapidi
       expanded: true
       items:
-        - name: Creare un server
-          expanded: true
+        - name: Creazione di un server MySQL flessibile
           items:
             - name: Portale di Azure
               href: flexible-server/quickstart-create-server-portal.md

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633248"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380135"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
 
@@ -24,7 +24,7 @@ Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la
 >
 > * Per individuare i connettori di Power automatizzate che non dispongono di equivalenti di app per la logica, vedere [connettori di Power automatizzate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Per individuare i connettori delle app per la logica che non dispongono di energia automatica equivalenti, vedere [connettori per app](/connectors/connector-reference/connector-reference-powerautomate-connectors)per la logica.
+> * Per individuare i connettori delle app per la logica che non dispongono di energia automatica equivalenti, vedere [connettori per app](/connectors/connector-reference/connector-reference-logicapps-connectors)per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -72,7 +72,7 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
       |----------|-------------|
       | **Sottoscrizione** | Sottoscrizione di Azure da usare per la fatturazione |
       | **Gruppo di risorse** | Gruppo di risorse di Azure da usare per l'app per la logica. È possibile utilizzare un gruppo esistente o creare un nuovo gruppo. |
-      | **Località** | Area di Azure da usare se si crea un nuovo gruppo di risorse |
+      | **Posizione** | Area di Azure da usare se si crea un nuovo gruppo di risorse |
       | **Nome dell'app per la logica** | Nome da usare per la risorsa dell'app per la logica |
       | **Percorso dell'app per la logica** | Area di Azure in cui si vuole creare la risorsa dell'app per la logica, se diversa da quella del gruppo di risorse di Azure |
       | <*Nome connessione*> | Uno o più nomi per tutte le connessioni create in precedenza che possono essere riutilizzate dall'app per la logica <p><p>**Nota**: se questa app per la logica è la prima, tutte le connessioni vengono create come nuove, quindi è possibile accettare i nomi predefiniti. In caso contrario, è possibile specificare i nomi per le connessioni create in precedenza, che possono essere usate in più app per la logica. |

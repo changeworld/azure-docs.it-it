@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e1a9f5d08168841d7651a17e2de4995b7a7cf38b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f7c8a7eb06490a46e1c5b633944dcd596fa08515
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820722"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093625"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -35,25 +35,31 @@ L'estensione della macchina virtuale Key Vault è supportata anche in una macchi
 - PKCS #12
 - PEM
 
-## <a name="prerequisities"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
+
   - Key Vault istanza con certificato. Vedere [creare un Key Vault](../../key-vault/general/quick-create-portal.md)
   - Alla macchina virtuale deve essere assegnata l' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md)
   - I criteri di accesso Key Vault devono essere impostati con i segreti `get` e l' `list` autorizzazione per l'identità gestita VM/vmss per recuperare la parte del certificato di un segreto. Vedere [come eseguire l'autenticazione a Key Vault](../../key-vault/general/authentication.md) e [assegnare un criterio di accesso key Vault](../../key-vault/general/assign-access-policy-cli.md).
-  -  VMSS deve avere l'impostazione Identity seguente: ` 
+  -  I set di scalabilità di macchine virtuali devono avere l'impostazione Identity seguente:
+
+  ``` 
   "identity": {
-  "type": "UserAssigned",
-  "userAssignedIdentities": {
-  "[parameters('userAssignedIdentityResourceId')]": {}
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "[parameters('userAssignedIdentityResourceId')]": {}
+    }
   }
-  }
-  `
+  ```
   
-- L'estensione AKV deve avere questa impostazione: `
-                  "authenticationSettings": {
-                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
-                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
-                  }
-   `
+  - L'estensione AKV deve avere questa impostazione:
+
+  ```
+  "authenticationSettings": {
+    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+  }
+  ```
+
 ## <a name="extension-schema"></a>Schema dell'estensione
 
 Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale Key Vault. L'estensione non richiede impostazioni protette. tutte le impostazioni sono considerate informazioni pubbliche. L'estensione richiede un elenco dei certificati monitorati, la frequenza di polling e l'archivio certificati di destinazione. In particolare:  
@@ -164,7 +170,9 @@ Per attivare questa impostazione, impostare quanto segue:
     ...
 }
 ```
-> Si noti L'uso di questa funzionalità non è compatibile con un modello ARM che crea un'identità assegnata dal sistema e aggiorna un criterio di accesso Key Vault con tale identità. In questo modo si otterrà un deadlock perché i criteri di accesso dell'insieme di credenziali non possono essere aggiornati finché non sono state avviate tutte le estensioni. È invece consigliabile usare un' *identità MSI assegnata a un singolo utente* e pre-ACL degli insiemi di credenziali con tale identità prima della distribuzione.
+
+> [!Note] 
+> L'uso di questa funzionalità non è compatibile con un modello ARM che crea un'identità assegnata dal sistema e aggiorna un criterio di accesso Key Vault con tale identità. In questo modo si otterrà un deadlock perché i criteri di accesso dell'insieme di credenziali non possono essere aggiornati finché non sono state avviate tutte le estensioni. È invece consigliabile usare un' *identità MSI assegnata a un singolo utente* e pre-ACL degli insiemi di credenziali con tale identità prima della distribuzione.
 
 ## <a name="azure-powershell-deployment"></a>Distribuzione con Azure PowerShell
 > [!WARNING]
@@ -222,9 +230,9 @@ Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virt
     
     ```azurecli
        # Start the deployment
-         az vm extension set --name "KeyVaultForWindows" `
+         az vm extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         --resource-group "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
@@ -233,9 +241,9 @@ Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virt
 
    ```azurecli
         # Start the deployment
-        az vmss extension set --name "KeyVaultForWindows" `
+        az vmss extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         --resource-group "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```

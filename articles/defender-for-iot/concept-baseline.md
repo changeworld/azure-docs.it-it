@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548886"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102241"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure Defender per la linea di base e i controlli personalizzati
 
@@ -35,9 +35,13 @@ I controlli personalizzati di base stabiliscono un elenco personalizzato di cont
 ## <a name="setting-baseline-properties"></a>Impostazione delle proprietà della linea di base
 
 1. Nell'hub Internet delle cose individuare e selezionare il dispositivo che si vuole modificare.
+
 1. Fare clic sul dispositivo e quindi fare clic sul modulo **azureiotsecurity** .
+
 1. Fare clic su **Module Identity gemelle**.
+
 1. Caricare il file di **controllo personalizzato di base** nel dispositivo.
+
 1. Aggiungere le proprietà baseline al modulo Security e fare clic su **Save**.
 
 ### <a name="baseline-custom-check-file-example"></a>Esempio di file di controllo personalizzato Baseline

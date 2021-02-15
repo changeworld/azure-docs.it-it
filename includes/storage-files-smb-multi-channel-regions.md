@@ -5,21 +5,22 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 02/12/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba62bf6b926ded5f3d976f096cee44c7341b4e50
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 057fc654597360a4666342f7de10bf908224f1de
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052786"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100521355"
 ---
 SMB multicanale per le condivisioni file di Azure è attualmente disponibile solo nelle aree geografiche seguenti:
 
 | Area geografica | Area di Azure |
 |-------------|-------------------|
-| Australia | Australia orientale |
+| Asia Pacifico | Asia orientale, Asia sudorientale|
+| Australia | Australia orientale, Australia sud-orientale |
 | Brasile | Brasile meridionale |
 | Canada | Canada centrale, Canada orientale |
 | Francia | Francia centrale |
@@ -27,6 +28,7 @@ SMB multicanale per le condivisioni file di Azure è attualmente disponibile sol
 | India | India centrale, India occidentale |
 | Giappone | Giappone orientale, Giappone occidentale |
 | Corea del Sud | Corea centrale, Corea occidentale |
+| Svizzera | Svizzera settentrionale |
 | Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali |
 | Regno Unito | Regno Unito meridionale, Regno Unito occidentale |
-| Stati Uniti | Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti centro-occidentali |
+| Stati Uniti | Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali |

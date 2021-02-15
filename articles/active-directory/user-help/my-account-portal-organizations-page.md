@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 09/10/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ef2e79f8c8e7964d04db0dd1a3f9988599fcb130
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370339"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094118"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gestire le organizzazioni a cui si ha accesso nel portale account personale
 
@@ -30,21 +30,26 @@ La pagina **organizzazioni** del portale **account personale** consente di gesti
 - **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni dell'organizzazione accessibili da un account aziendale o dell'Istituto di istruzione. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](../enterprise-users/index.yml).
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni dell'organizzazione accessibili da un account aziendale o dell'Istituto di istruzione. Se viene visualizzato un errore durante l'accesso con un account Microsoft personale, è comunque possibile accedere usando il nome di dominio dell'organizzazione (ad esempio contoso.com) o l' **ID tenant** dell'organizzazione dall'amministratore in uno degli URL seguenti:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina **Account personale** (https://myaccount.microsoft.com/) ).
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina **Account personale** (https://myaccount.microsoft.com/) ). 
 
-2. Selezionare **Organizzazioni** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci le organizzazioni** nel blocco **Organizzazioni**.
+1. Selezionare **Organizzazioni** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci le organizzazioni** nel blocco **Organizzazioni**.
 
     ![Pagina Account personale con i collegamenti Organizzazioni evidenziati](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Verificare le informazioni in **Organizzazione principale**.
+1. Verificare le informazioni in **Organizzazione principale**.
 
     ![Pagina Organizzazioni](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Esaminare le altre organizzazioni, assicurandosi di riconoscere tutte le organizzazioni a cui si ha accesso.
+1. Esaminare le altre organizzazioni, assicurandosi di riconoscere tutte le organizzazioni a cui si ha accesso.
 
 ## <a name="leave-an-organization"></a>Uscire da un'organizzazione
 
