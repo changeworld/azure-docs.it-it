@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981341"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363067"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Istruzioni di sicurezza R per Pro Azure Stack Edge
 
@@ -134,6 +134,7 @@ Quando si configura e si esegue il dispositivo R Edge Pro Azure Stack Edge, è n
 
 * Per i sistemi senza interruzioni di alimentazione (UPS), scollegare tutti i cavi di alimentazione CA per rimuovere completamente l'alimentazione CA dalle apparecchiature.
 * Per i sistemi con UPS, scollegare tutti i cavi di alimentazione CA e usare l'interruttore di alimentazione UPS per disattivare il sistema. UPS contiene tensioni pericolose AC e DC.
+* Se un sistema include un UPS, l'UPS è stato fornito con un cavo di alimentazione di input schermato. È necessario usare il cavo di alimentazione di input schermato, non sostituire o modificare il cavo.
 
 ![Icona di avviso ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
  ![ icona di scossa elettrica ](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **Avviso:**
@@ -210,21 +211,22 @@ A device that has a UPS installed is designed to operate in the following enviro
 
 > ![Icona di avviso-2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **Avviso:** le &nbsp; modifiche o le modifiche apportate alle apparecchiature non espressamente approvate da Microsoft possono annullare l'autorità dell'utente per il funzionamento dell'apparecchiatura.
 
-CANADA e Stati Uniti:
+#### <a name="canada-and-usa"></a>CANADA e Stati Uniti:
 
-AVVISO: questa apparecchiatura è stata testata e risulta conforme ai limiti di una classe A un dispositivo digitale, in base alla parte 15 delle regole FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Il funzionamento di questa apparecchiatura in un'area residenziale può causare un'interferenza dannosa, nel qual caso l'utente dovrà correggere l'interferenza a proprie spese.
+> ![Icona di avviso-2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **Avviso:** &nbsp; Questa apparecchiatura è stata testata e risulta conforme ai limiti di una classe a un dispositivo digitale, in base alla parte 15 delle regole FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Il funzionamento di questa apparecchiatura in un'area residenziale può causare un'interferenza dannosa, nel qual caso l'utente dovrà correggere l'interferenza a proprie spese.
 
 Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'utilizzo è soggetto alle due condizioni seguenti: (1) il dispositivo non deve causare interferenze dannose e (2) il dispositivo deve accettare eventuali interferenze ricevute, comprese quelle che possono provocare un funzionamento indesiderato del dispositivo.
 
 ![Avviso di informazioni normative 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
 
-CAN CIEM-3 (A)/NMB-3 (A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, Stati Uniti.
-Stati Uniti: (800) 426-9400 Canada: (800) 933-4750
+CAN CIEM-3 (A)/NMB-3 (A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA Stati Uniti: (800) 426-9400 Canada: (800) 933-4750
 
-Unione europea: richiedere una copia della dichiarazione di conformità dell'Unione europea. 
+#### <a name="european-union"></a>UNIONE EUROPEA:
 
-![Icona di avviso](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+Richiedere una copia della dichiarazione di conformità dell'Unione europea. Inviare un messaggio di posta elettronica all'indirizzo [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
+
+![Avviso icona di avviso ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **.**
 
 Si tratta di un prodotto di Classe A. In un ambiente domestico, questo prodotto può causare interferenze radio nel qual caso l'utente può essere tenuto ad adottare misure adeguate.
 
@@ -237,7 +239,6 @@ Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica c
 Questo prodotto contiene batterie a bottone.
 
 Microsoft Ireland Sandyford ind est Dublin D18 KX32 IRL numero di telefono: + 353 1 295 3826 numero di fax: + 353 1 706 4110
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

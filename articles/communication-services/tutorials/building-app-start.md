@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 60b5a2bf5c0aed3d1a4621e179429a157c2a0962
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: db59a9e7693190582736b9460658f629f4f1e555
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99421577"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369629"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Esercitazione: preparare un'app Web per i servizi di comunicazione di Azure (Node.js)
 
@@ -106,11 +106,25 @@ Seguire la stessa procedura per [funzioni di Azure](https://marketplace.visualst
 
 ## <a name="set-up-a-local-webserver"></a>Configurare un server Web locale
 
+### <a name="create-a-new-npm-package"></a>Creare un nuovo pacchetto NPM
+
+Nel terminale, dal percorso della cartella dell'area di lavoro, digitare:
+
+``` console
+npm init -y
+```
+
+Questo comando Inizializza un nuovo pacchetto NPM e `package.json` lo aggiunge alla cartella radice del progetto.
+
+:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Pacchetto JSON":::
+
+Documentazione aggiuntiva sul comando NPM init è disponibile [qui](https://docs.npmjs.com/cli/v6/commands/npm-init)
+
 ### <a name="install-webpack"></a>Installare Webpack
 
 [Webpack](https://webpack.js.org/) consente di aggregare il codice in file statici che è possibile distribuire in Azure. Dispone inoltre di un server di sviluppo che verrà configurato per l'utilizzo con l'esempio chiamante.
 
-Digitare quanto segue nel terminale aperto per installare Webpack:
+Nel terminale digitare quanto segue per installare Webpack:
 
 ``` Console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
@@ -175,7 +189,7 @@ La modalità di sviluppo indica a Webpack di non minimizzare i file e non produc
 
 :::image type="content" source="./media/step-one-pic-11.png" alt-text="Configurazione di Webpack":::
 
-Per eseguire il server di sviluppo, passare a `package.json.js` e aggiungere il codice seguente in script:
+Per eseguire il server di sviluppo, passare a `package.json` e aggiungere il codice seguente in script:
 
 ```JavaScript
     "build:dev": "webpack-dev-server --config webpack.dev.js"
@@ -206,7 +220,7 @@ Il file dovrebbe essere simile al seguente:
 
 È stato aggiunto il comando che può essere usato da NPM. 
 
-:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modifica di package-json.js":::
+:::image type="content" source="./media/step-one-pic-12.png" alt-text="Modifica di package.js":::
 
 ### <a name="testing-the-development-server"></a>Test del server di sviluppo
 
@@ -261,7 +275,7 @@ Usare il comando terminale seguente per testare la configurazione di sviluppo:
 npm run build:dev
 ```
 
-Nella console verrà visualizzato il percorso in cui è in esecuzione il server. Per impostazione predefinita, è `http://localhost:8080` . Il comando Build: dev è il comando aggiunto in `package-json.js` precedenza.
+Nella console verrà visualizzato il percorso in cui è in esecuzione il server. Per impostazione predefinita, è `http://localhost:8080` . Il comando Build: dev è il comando aggiunto in `package.json` precedenza.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Avvio di un server di sviluppo":::
  
@@ -289,26 +303,11 @@ Questa azione aggiungerà i servizi di comunicazione di Azure comuni e chiamerà
 
 :::image type="content" source="./media/step-one-pic-nine.png" alt-text="Installazione dei pacchetti di servizi di comunicazione Azure":::
 
-Questi pacchetti sono forniti dal team di servizi di comunicazione di Azure e includono le librerie di autenticazione e chiamata. Il comando "--Save" segnala che l'applicazione dipende da questi pacchetti per l'uso in ambiente di produzione e verrà inclusa nella `dependencies` del `package-json.js` file. Quando si compila l'applicazione per la produzione, i pacchetti verranno inclusi nel codice di produzione.
+Questi pacchetti sono forniti dal team di servizi di comunicazione di Azure e includono le librerie di autenticazione e chiamata. Il comando "--Save" segnala che l'applicazione dipende da questi pacchetti per l'uso in ambiente di produzione e verrà inclusa nella `dependencies` del `package.json` file. Quando si compila l'applicazione per la produzione, i pacchetti verranno inclusi nel codice di produzione.
 
 
 ## <a name="publish-your-website-to-azure-static-websites"></a>Pubblicare il sito Web in siti web statici di Azure
 
-### <a name="create-a-new-npm-package"></a>Creare un nuovo pacchetto NPM
-
-Nel terminale, dal percorso della cartella dell'area di lavoro, digitare:
-
-``` console
-npm init -y
-```
-
-Questo comando Inizializza un nuovo pacchetto NPM e `package.json` lo aggiunge alla cartella radice del progetto.
-
-:::image type="content" source="./media/step-one-pic-eight.png" alt-text="Pacchetto JSON":::
-
-Documentazione aggiuntiva sul comando NPM init è disponibile [qui](https://docs.npmjs.com/cli/v6/commands/npm-init)
-
- 
 ### <a name="create-a-configuration-for-production-deployment"></a>Creare una configurazione per la distribuzione di produzione
 
 Aggiungere il codice seguente a `webpack.prod.js` :

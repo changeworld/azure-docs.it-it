@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805935"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388533"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -193,19 +193,20 @@ Per altre informazioni sulla definizione delle risorse dell'app per la logica, v
 
 ### <a name="integration-service-environment-ise"></a>Ambiente del servizio di integrazione
 
-Ecco i limiti di velocità effettiva per lo [SKU dell'ambiente del servizio di integrazione Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): fornisce fino a 500 esecuzioni al minuto, ma tenere presente le considerazioni seguenti:
 
-| Nome | Limite | Note |
-|------|-------|-------|
-| Limite di esecuzione per le unità di base | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Offre circa 4.000 esecuzioni di azioni al minuto, ovvero circa 160 milioni di esecuzioni di azioni al mese | |
-| Limite di esecuzione per le unità di scala | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Ogni unità di scala offre circa 2.000 esecuzioni di azioni aggiuntive al minuto, ovvero circa 80 milioni di esecuzioni di azioni aggiuntive al mese | |
-| Numero massimo di unità di scala che è possibile aggiungere | 10 | |
-||||
+  * Assicurarsi di usare questo SKU solo per esplorazione, esperimenti, sviluppo o test, non per la produzione o il test delle prestazioni. Questo SKU non prevede alcun contratto di servizio, funzionalità di scalabilità verticale o ridondanza durante il riciclo, il che significa che è possibile che si verifichino ritardi o tempi di inattività.
 
-Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
+  * Gli aggiornamenti back-end potrebbero interrompere il servizio in modo intermittente.
 
-> [!NOTE]
-> Per lo [SKU dell'ambiente del servizio di integrazione Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) non sono disponibili limiti pubblicati, funzionalità per l'aumento delle risorse e contratti di servizio. Usare questo SKU solo per la sperimentazione, lo sviluppo e il test, non per la produzione o il test delle prestazioni.
+* [SKU Premium ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): la tabella seguente descrive i limiti di velocità effettiva dello SKU, ma per superare questi limiti nell'elaborazione normale o per eseguire test di carico che potrebbero superare questi limiti, [contattare il team di app per la logica](mailto://logicappsemail@microsoft.com) per assistenza per le proprie esigenze.
+
+  | Nome | Limite | Note |
+  |------|-------|-------|
+  | Limite di esecuzione per le unità di base | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Offre circa 4.000 esecuzioni di azioni al minuto, ovvero circa 160 milioni di esecuzioni di azioni al mese | |
+  | Limite di esecuzione per le unità di scala | Limite impostato dal sistema quando la capacità dell'infrastruttura raggiunge l'80% | Ogni unità di scala offre circa 2.000 esecuzioni di azioni aggiuntive al minuto, ovvero circa 80 milioni di esecuzioni di azioni aggiuntive al mese | |
+  | Numero massimo di unità di scala che è possibile aggiungere | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 

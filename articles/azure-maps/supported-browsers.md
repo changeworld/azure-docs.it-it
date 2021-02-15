@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6321b96cb3db570102f138dcfd949d9c32daedbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601147"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384470"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browser supportati dall'SDK Web
 
@@ -72,6 +72,8 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>volantino sulle map
 </iframe>
 
 Esempi di codice aggiuntivi che usano mappe di Azure in un opuscolo sono disponibili [qui](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
+
+Di [seguito](open-source-projects.md#third-part-map-control-plugins) sono riportati alcuni dei controlli della mappa open source più diffusi per i quali il team di Azure Maps ha creato il plug-in.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -125,7 +125,7 @@
           href: troubleshoot-capacity-pools.md
         - name: Risolvere i problemi relativi alla replica tra più aree
           href: troubleshoot-cross-region-replication.md
-        - name: Risolvere i problemi relativi ai volumi con doppio protocollo
+        - name: Risolvere i problemi relativi ai volumi SMB o Dual Protocol
           href: troubleshoot-dual-protocol-volumes.md
         - name: Risolvere i problemi relativi ai volumi Kerberos NFSv4.1
           href: troubleshoot-nfsv41-kerberos-volumes.md

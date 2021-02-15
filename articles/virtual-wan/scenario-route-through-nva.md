@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626661"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519797"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: Indirizzare il traffico attraverso un'appliance virtuale di rete
 
@@ -30,9 +30,9 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 
 In questo scenario verrà usata la convenzione di denominazione:
 
-* "NVA reti virtuali" per le reti virtuali in cui gli utenti hanno distribuito un'appliance virtuale di rete e hanno connesso altre reti virtuali come spoke (VNet 2 e VNet 4 nella **matrice di connettività**, più avanti).
-* "NVA spokes" per le reti virtuali connesse a un appliance virtuale di rete VNet (VNet 5, VNet 6, VNet 7 e VNet 8 nella **matrice di connettività** riportata di seguito).
-* "Non-Appliance reti virtuali" per le reti virtuali connesse alla rete WAN virtuale che non dispongono di un appliance virtuale di rete o di altri reti virtuali con peering (VNet 1 e VNet 3 nella **matrice di connettività** riportata di seguito).
+* "NVA reti virtuali" per le reti virtuali in cui gli utenti hanno distribuito un'appliance virtuale di rete e hanno connesso altre reti virtuali come spoke (VNet 2 e VNet 4 nella **Figura 2** più avanti nell'articolo).
+* "NVA spokes" per le reti virtuali connesse a un appliance virtuale di rete VNet (VNet 5, VNet 6, VNet 7 e VNet 8 nella **Figura 2** più avanti nell'articolo).
+* "Non-Appliance reti virtuali" per le reti virtuali connesse alla rete WAN virtuale che non dispongono di un appliance virtuale di rete o di altri reti virtuali con peering (VNet 1 e VNet 3 nella **Figura 2** più avanti nell'articolo).
 * "Hub" per hub WAN virtuali gestiti da Microsoft, in cui i reti virtuali di rete virtuale virtuale sono connessi a. L'appliance virtuale di rete spoke reti virtuali non deve essere connessa a hub WAN virtuali, solo a appliance virtuale di rete virtuale reti virtuali.
 
 La seguente matrice di connettività, riepiloga i flussi supportati in questo scenario:
@@ -49,7 +49,7 @@ La seguente matrice di connettività, riepiloga i flussi supportati in questo sc
 Ognuna delle celle nella matrice di connettività descrive il modo in cui un VNet o un ramo (il lato "da" del flusso, le intestazioni di riga nella tabella) comunica con un VNet o un ramo di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella). "Direct" significa che la connettività viene fornita in modo nativo dalla rete WAN virtuale, ovvero "peering" significa che la connettività viene fornita da una route di User-Defined in VNet, "over appliance virtuale di rete virtuale" significa che la connettività attraversa l'appliance virtuale di rete distribuita nell'appliance virtuale di rete (NVA). Considerare quanto segue:
 
 * I spoke di appliance virtuale di rete non sono gestiti da WAN virtuale. Di conseguenza, i meccanismi con i quali comunicheranno con altri reti virtuali o rami verranno gestiti dall'utente. La connettività ai VNet dell'appliance virtuale di rete viene fornita da un peering VNet e una route predefinita a 0.0.0.0/0 che punta all'appliance virtuale di rete come hop successivo dovrebbe coprire la connettività a Internet, ad altri spoke e ai Branch
-* L'appliance virtuale di reti virtuali saprà conoscere i propri spoke di appliance virtuale di dispositivo, ma non i spoke di appliance virtuale di appliance connessi ad altri reti virtuali di appliance Nella tabella 1, ad esempio, VNet 2 conosce VNet 5 e VNet 6, ma non su altri spoke come VNet 7 e VNet 8. Per inserire i prefissi di altri spoke in appliance virtuale di reti virtuali, è necessaria una route statica
+* L'appliance virtuale di reti virtuali saprà conoscere i propri spoke di appliance virtuale di dispositivo, ma non i spoke di appliance virtuale di appliance connessi ad altri reti virtuali di appliance Ad esempio, nella figura 2, più avanti in questo articolo, VNet 2 sa di VNet 5 e VNet 6, ma non di altri spoke, ad esempio VNet 7 e VNet 8. Per inserire i prefissi di altri spoke in appliance virtuale di reti virtuali, è necessaria una route statica
 * Analogamente, i rami e i reti virtuali non di appliance virtuale di rete non sono in grado di rilevare i problemi dell'appliance virtuale di rete, perché i spoke di NVA non sono connessi agli hub Di conseguenza, le route statiche saranno necessarie anche qui.
 
 Tenendo presente che i spoke di appliance virtuale di rete non sono gestiti da WAN virtuale, tutte le altre righe mostrano lo stesso modello di connettività. Di conseguenza, una singola tabella di route, ovvero quella predefinita, eseguirà le operazioni seguenti:

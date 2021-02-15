@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f6c12b892e01aafd5beecdff14751481cf7fc96
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 406420fcd517ceda8ea6eedfc955f54b15541f74
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963398"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366603"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Informazioni su come distribuire moduli e definire route in IoT Edge
 
@@ -162,7 +162,7 @@ Ad esempio:
 }
 ```
 
-Ogni modulo dispone di una proprietà **Settings** che contiene l' **immagine**del modulo, un indirizzo per l'immagine del contenitore in un registro contenitori e qualsiasi **createOptions** per configurare l'immagine all'avvio. Per ulteriori informazioni, vedere [come configurare le opzioni di creazione di contenitori per IOT Edge moduli](how-to-use-create-options.md).
+Ogni modulo dispone di una proprietà **Settings** che contiene l' **immagine** del modulo, un indirizzo per l'immagine del contenitore in un registro contenitori e qualsiasi **createOptions** per configurare l'immagine all'avvio. Per ulteriori informazioni, vedere [come configurare le opzioni di creazione di contenitori per IOT Edge moduli](how-to-use-create-options.md).
 
 Il modulo edgeHub e i moduli personalizzati hanno anche tre proprietà che indicano all'agente IoT Edge come gestirli:
 
@@ -327,7 +327,7 @@ L'esempio seguente mostra come viene visualizzato un documento del manifesto di 
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
               "createOptions": ""
             }
           },
@@ -337,7 +337,7 @@ L'esempio seguente mostra come viene visualizzato un documento del manifesto di 
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }

@@ -176,7 +176,7 @@
           href: hyper-v-vmm-secondary-support-matrix.md
         - name: Architettura per la replica di VM Hyper-V in un sito secondario
           href: hyper-v-vmm-architecture.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -216,7 +216,9 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configurare il ripristino di emergenza per le macchine virtuali di Azure dopo la migrazione ad Azure
               href: azure-to-azure-replicate-after-migration.md
-            - name: Ripristino di emergenza da zona a zona
+        - name: Ripristino di emergenza da zona a zona
+          items:
+            - name: Abilitare la replica tra le zone all'interno di un'area
               href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Gestione
           items:

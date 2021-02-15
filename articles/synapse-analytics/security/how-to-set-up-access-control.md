@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6ec84d41d113a38e78ab13404ef19faf625530b
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102173"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369000"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Come configurare il controllo di accesso per l'area di lavoro sinapsi 
 
@@ -132,7 +132,7 @@ Per creare pool SQL, pool di Apache Spark e runtime di integrazione, gli utenti 
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>PASSAGGIO 6: assegnare il ruolo di amministratore di SQL Active Directory
 
-La workstation Creator viene configurata automaticamente come amministratore di SQL Active Directory per l'area di lavoro.  Questo ruolo può essere concesso solo a un singolo utente o gruppo. In questo passaggio si assegna l'amministratore di SQL Active Directory nell'area di lavoro al `workspace1_SQLAdmins` gruppo di sicurezza.  L'assegnazione di questo ruolo concede a questo gruppo l'accesso amministratore con privilegi elevati a tutti i pool SQL e i database nell'area di lavoro.   
+L'autore dell'area di lavoro viene impostato automaticamente come amministratore di SQL Active Directory per l'area di lavoro.  Questo ruolo può essere concesso solo a un singolo utente o gruppo. In questo passaggio si assegna l'amministratore di SQL Active Directory nell'area di lavoro al `workspace1_SQLAdmins` gruppo di sicurezza.  L'assegnazione di questo ruolo concede a questo gruppo l'accesso amministratore con privilegi elevati a tutti i pool SQL e i database nell'area di lavoro.   
 
 - Aprire il portale di Azure
 - Passare a `workspace1`.

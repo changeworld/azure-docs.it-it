@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 5be0bf21514dd92c2f980081bb57d873895bbb91
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: def9e4f1b3f1c4e8f88f77dfe6906a8c96a94744
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099932"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389468"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Avvio rapido: Usare un modello di Resource Manager per creare un server flessibile di Database di Azure per MySQL (anteprima)
 
@@ -204,22 +204,6 @@ read serverName &&
 echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
 read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
-```
-## <a name="exporting-arm-template-from-the-portal"></a>Esportazione del modello ARM dal portale
-È possibile [esportare un modello ARM](../../azure-resource-manager/templates/export-template-portal.md) dal portale di Azure. Per esportare un modello sono disponibili due modi:
-
-- [Esportare da un gruppo di risorse o una risorsa](../../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Questa opzione genera un nuovo modello da risorse esistenti. Il modello esportato è uno "snapshot" dello stato corrente del gruppo di risorse. È possibile esportare un intero gruppo di risorse o risorse specifiche all'interno di tale gruppo di risorse.
-- [Esporta prima della distribuzione o dalla cronologia](../../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Questa opzione consente di recuperare una copia esatta di un modello utilizzato per la distribuzione.
-
-Quando si esporta il modello, nella ```"parameters":{ }``` sezione del modello si noterà che ```administratorLogin``` e non verranno ```administratorLoginPassword``` inclusi per motivi di sicurezza. Prima di distribuire il modello, è **necessario** aggiungere questi parametri al modello. in questo modo, il modello ha esito negativo.
-
-```
-"administratorLogin": {
-      "type": "String"
-    },
-"administratorLoginPassword": {
-      "type": "SecureString"
-    },
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

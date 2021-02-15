@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 76a244810042adf3cec64b15fe847c5b684527c2
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 502776e85eaafa46fb2b5ce45ca3bd937e303566
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631185"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366267"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -33,12 +33,12 @@ Quando si inizia a pianificare la migrazione, identificare prima tutti i disposi
 
 ### <a name="migration-cost-summary"></a>Riepilogo dei costi della migrazione
 
-Le migrazioni a condivisioni file di Azure da volumi StorSimple tramite processi di Data Transformation Services in una risorsa StorSimple Data Manager sono gratuite. È possibile che vengano sostenuti altri costi durante e dopo una migrazione:
+Le migrazioni a condivisioni file di Azure da volumi StorSimple tramite processi di migrazione in una risorsa StorSimple Data Manager sono gratuite. È possibile che vengano sostenuti altri costi durante e dopo una migrazione:
 
 * **Rete in uscita:** I file StorSimple risiedono in un account di archiviazione all'interno di una specifica area di Azure. Se si effettua il provisioning delle condivisioni file di Azure di cui si esegue la migrazione in un account di archiviazione situato nella stessa area di Azure, non si verificherà alcun costo in uscita. È possibile spostare i file in un account di archiviazione in un'area diversa come parte della migrazione. In tal caso, verranno applicati i costi in uscita.
 * **Transazioni di condivisione file di Azure:** Quando i file vengono copiati in una condivisione file di Azure (come parte di una migrazione o all'esterno di uno), i costi delle transazioni si applicano come file e metadati scritti. Come procedura consigliata, avviare la condivisione file di Azure nel livello ottimizzato per le transazioni durante la migrazione. Al termine della migrazione, passare al livello desiderato. Le fasi seguenti chiameranno questo argomento nel punto appropriato.
 * **Modificare un livello di condivisione file di Azure:** La modifica del livello di una condivisione file di Azure costa le transazioni. Nella maggior parte dei casi, sarà più conveniente seguire il Consiglio del punto precedente.
-* **Costo di archiviazione:** Quando questa migrazione inizia a copiare i file in una condivisione file di Azure, File di Azure archiviazione viene utilizzata e fatturata.
+* **Costo di archiviazione:** Quando questa migrazione inizia a copiare i file in una condivisione file di Azure, File di Azure archiviazione viene utilizzata e fatturata. I backup migrati diventeranno [snapshot di condivisione file di Azure](storage-snapshots-files.md). Gli snapshot di condivisione file utilizzano la capacità di archiviazione solo per le differenze che contengono.
 * **StorSimple:** Fino a quando non si ha la possibilità di effettuare il deprovisioning dei dispositivi StorSimple e degli account di archiviazione, il costo di StorSimple per archiviazione, backup e appliance continuerà a verificarsi.
 
 ### <a name="direct-share-access-vs-azure-file-sync"></a>Direct-Share-Access rispetto a Sincronizzazione file di Azure
@@ -49,7 +49,7 @@ Le condivisioni file di Azure aprono un mondo completamente nuovo per la struttu
 
 Sincronizzazione file di Azure è un servizio cloud Microsoft basato su due componenti principali:
 
-* Sincronizzazione di file e suddivisione in livelli nel cloud.
+* Sincronizzazione dei file e suddivisione in livelli nel cloud per creare una cache di accesso alle prestazioni in qualsiasi server Windows.
 * Condivisioni file come archiviazione nativa in Azure a cui è possibile accedere tramite più protocolli, ad esempio SMB e REST di file.
 
 Le condivisioni file di Azure mantengono importanti aspetti di fedeltà dei file nei file archiviati, ad esempio attributi, autorizzazioni e timestamp. Con le condivisioni file di Azure non è più necessario che un'applicazione o un servizio interpreti i file e le cartelle archiviati nel cloud. È possibile accedervi in modo nativo su protocolli e client noti, ad esempio Esplora file di Windows. Le condivisioni file di Azure consentono di archiviare i dati file server di uso generico e i dati delle applicazioni nel cloud. Il backup di una condivisione file di Azure è una funzionalità incorporata che può essere ulteriormente migliorato da backup di Azure.
@@ -61,14 +61,14 @@ Questo articolo è incentrato sulla procedura di migrazione. Per ulteriori infor
 
 ### <a name="storsimple-service-data-encryption-key"></a>Chiave di crittografia dei dati del servizio StorSimple
 
-Quando si configura il dispositivo StorSimple per la prima volta, viene generata una chiave di crittografia dei dati del servizio e viene richiesto di archiviare in modo sicuro la chiave. Questa chiave viene usata per crittografare tutti i dati nell'account di archiviazione di Azure associato in cui l'appliance StorSimple archivia i file.
+Quando si configura il dispositivo StorSimple per la prima volta, viene generata una "chiave di crittografia dei dati del servizio" e viene richiesto di archiviare in modo sicuro la chiave. Questa chiave viene usata per crittografare tutti i dati nell'account di archiviazione di Azure associato in cui l'appliance StorSimple archivia i file.
 
-La chiave di crittografia dei dati del servizio è necessaria per una migrazione corretta. Ora è il momento giusto per recuperare questa chiave dai record, per ogni appliance nell'inventario.
+La chiave di crittografia dei dati del servizio è necessaria per una migrazione corretta. Ora è il momento giusto per recuperare questa chiave dai record, uno per ogni appliance nell'inventario.
 
 Se non è possibile trovare le chiavi nei record, è possibile recuperare la chiave dal dispositivo. Ogni appliance ha una chiave di crittografia univoca. Per recuperare la chiave:
 
-* Archiviare una richiesta di supporto con Microsoft Azure tramite il portale di Azure. Il contenuto della richiesta deve avere i numeri di serie del dispositivo StorSimple e la richiesta di recupero della chiave di crittografia dei dati del servizio.
-* Un tecnico del supporto StorSimple contatterà l'utente con una richiesta di riunione per la condivisione dello schermo.
+* Archiviare una richiesta di supporto con Microsoft Azure tramite il portale di Azure. La richiesta deve contenere i numeri di serie del dispositivo StorSimple e una richiesta di recupero della chiave di crittografia dei dati del servizio.
+* Un tecnico del supporto StorSimple ti contatterà per una richiesta di riunione virtuale.
 * Assicurarsi che prima della riunione venga avviata la connessione all'appliance StorSimple [tramite una console seriale](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) o tramite una [sessione remota di PowerShell](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
 
 > [!CAUTION]
@@ -81,15 +81,21 @@ Se non è possibile trovare le chiavi nei record, è possibile recuperare la chi
 ### <a name="storsimple-volume-backups"></a>Backup del volume StorSimple
 
 StorSimple offre backup differenziali a livello di volume. Le condivisioni file di Azure hanno anche questa possibilità, denominate snapshot di condivisione.
+I processi di migrazione possono spostare solo i backup, non i dati dal volume Live. Quindi, il backup più recente dovrebbe essere sempre nell'elenco dei backup spostati in una migrazione.
 
-Decidere se come parte della migrazione è anche necessario spostare i backup.
+Decidere se è necessario spostare i backup meno recenti durante la migrazione.
+La procedura consigliata consiste nel limitare il più possibile l'elenco, in modo che i processi di migrazione vengano completati più rapidamente.
+
+Per identificare i backup critici di cui è necessario eseguire la migrazione, creare un elenco di controllo dei criteri di backup. Ad esempio:
+* Backup più recente. Nota: il backup più recente deve sempre far parte di questo elenco.
+* Un backup mensile per 12 mesi.
+* Un backup per un anno per tre anni. 
+
+In un secondo momento, quando si creano i processi di migrazione, è possibile usare questo elenco per identificare i backup esatti del volume di StorSimple di cui è necessario eseguire la migrazione per soddisfare i requisiti dell'elenco.
 
 > [!CAUTION]
-> Se è necessario eseguire la migrazione dei backup da volumi StorSimple, fermarsi qui.
->
-> Attualmente è possibile eseguire solo la migrazione del backup del volume più recente. Il supporto per la migrazione del backup arriverà alla fine del 2020. Se si inizia subito, non è possibile "Bolt" nei backup in un secondo momento. Nella prossima versione, i backup devono essere "riprodotti" nelle condivisioni file di Azure dal meno recente al più recente, con gli snapshot di condivisione file di Azure presi tra loro.
-
-Se si desidera eseguire la migrazione solo dei dati in tempo reale e non sono previsti requisiti per i backup, è possibile continuare seguendo questa guida. Se si dispone di un requisito di conservazione dei backup a breve termine, ad affermare, un mese o due, è possibile decidere di continuare la migrazione e di effettuare il deprovisioning delle risorse di StorSimple dopo tale periodo. Questo approccio consente di creare tutta la cronologia di backup nel lato condivisione file di Azure, se necessario. Per il periodo in cui vengono eseguiti entrambi i sistemi, viene applicato un costo aggiuntivo che rende questo approccio non opportuno prendere in considerazione se è necessaria una conservazione dei backup a breve termine.
+> La selezione di più di **50** backup del volume StorSimple non è supportata.
+> I processi di migrazione possono spostare solo i backup, mai quelli del volume Live. Il backup più recente è quindi più vicino ai dati dinamici e pertanto deve essere sempre parte dell'elenco di backup da spostare in una migrazione.
 
 ### <a name="map-your-existing-storsimple-volumes-to-azure-file-shares"></a>Eseguire il mapping dei volumi StorSimple esistenti alle condivisioni file di Azure
 
@@ -99,31 +105,26 @@ Se si desidera eseguire la migrazione solo dei dati in tempo reale e non sono pr
 
 La migrazione probabilmente trarrà vantaggio da una distribuzione di più account di archiviazione che contengono un numero inferiore di condivisioni file di Azure.
 
-Se le condivisioni file sono estremamente attive (usate da molti utenti o applicazioni), due condivisioni file di Azure potrebbero raggiungere il limite delle prestazioni dell'account di archiviazione. Per questo motivo, la procedura consigliata consiste nel migrare a più account di archiviazione, ognuno con le proprie singole condivisioni file e in genere non più di due o tre condivisioni per ogni account di archiviazione.
+Se le condivisioni file sono estremamente attive (usate da molti utenti o applicazioni), due condivisioni file di Azure potrebbero raggiungere il limite delle prestazioni dell'account di archiviazione. Per questo motivo, è consigliabile eseguire la migrazione a più account di archiviazione, ognuno con le rispettive condivisioni file e in genere non più di due o tre condivisioni per ogni account di archiviazione.
 
 Una procedura consigliata consiste nel distribuire gli account di archiviazione con una condivisione file ciascuna. È possibile raggruppare più condivisioni file di Azure nello stesso account di archiviazione, se sono presenti condivisioni di archiviazione.
 
-Queste considerazioni si applicano a un [accesso diretto al cloud](#direct-share-access-vs-azure-file-sync) (tramite una macchina virtuale o un servizio di Azure) rispetto a sincronizzazione file di Azure. Se si prevede di usare Sincronizzazione file di Azure solo in queste condivisioni, è possibile raggruppare diverse in un unico account di archiviazione di Azure. Si prenda inoltre in considerazione la possibilità di spostare un'app nel cloud che può accedere direttamente a una condivisione file. In alternativa, è possibile iniziare a usare un servizio in Azure che può anche trarre vantaggio da un numero maggiore di IOPS e velocità effettiva disponibili.
+Queste considerazioni si applicano a un [accesso diretto al cloud](#direct-share-access-vs-azure-file-sync) (tramite una macchina virtuale o un servizio di Azure) rispetto a sincronizzazione file di Azure. Se si prevede di usare esclusivamente Sincronizzazione file di Azure in queste condivisioni, è possibile raggruppare più in un singolo account di archiviazione di Azure. In futuro, è possibile che si voglia spostare un'app nel cloud che possa accedere direttamente a una condivisione file. questo scenario potrebbe trarre vantaggio dalla maggiore quantità di IOPS e velocità effettiva. In alternativa, è possibile iniziare a usare un servizio in Azure che può trarre vantaggio anche dalla presenza di IOPS e velocità effettiva più elevate.
 
 Se è stato creato un elenco delle condivisioni, eseguire il mapping di ogni condivisione all'account di archiviazione in cui risiederà.
 
 > [!IMPORTANT]
 > Scegliere un'area di Azure e assicurarsi che ogni account di archiviazione e Sincronizzazione file di Azure risorsa corrisponda all'area selezionata.
+> Non configurare ora le impostazioni di rete e del firewall per gli account di archiviazione. A questo punto, l'esecuzione di queste configurazioni renderebbe impossibile una migrazione. Configurare queste impostazioni di archiviazione di Azure al termine della migrazione.
 
 ### <a name="phase-1-summary"></a>Riepilogo fase 1
 
 Alla fine della fase 1:
 
 * Si dispone di una panoramica corretta dei dispositivi e dei volumi di StorSimple.
-* Il servizio Data Transformation è pronto ad accedere ai volumi StorSimple nel cloud perché è stata recuperata la chiave di crittografia dei dati del servizio per ogni dispositivo StorSimple.
-* Si dispone di un piano per cui è necessario eseguire la migrazione dei volumi e anche come eseguire il mapping dei volumi al numero appropriato di condivisioni file di Azure e account di archiviazione.
-
-> [!CAUTION]
-> Se è necessario eseguire la migrazione dei backup da volumi StorSimple, **arrestare qui**.
->
-> Questo approccio alla migrazione si basa sulle nuove funzionalità del servizio di trasformazione dei dati che attualmente non possono eseguire la migrazione dei backup. Il supporto per la migrazione del backup arriverà alla fine del 2020. Attualmente è possibile eseguire solo la migrazione dei dati in tempo reale. Se si inizia subito, non è possibile "Bolt" nei backup in un secondo momento. I backup devono essere "riprodotti" nelle condivisioni file di Azure dai dati più vecchi a quelli più recenti, con gli snapshot di condivisione file di Azure.
-
-Se si desidera eseguire la migrazione solo dei dati in tempo reale e non sono previsti requisiti per i backup, è possibile continuare seguendo questa guida.
+* Il servizio Data Manager è pronto ad accedere ai volumi StorSimple nel cloud perché è stata recuperata la "chiave di crittografia dei dati del servizio" per ogni dispositivo StorSimple.
+* Si dispone di un piano per il quale è necessario eseguire la migrazione di volumi e backup (se superati i più recenti).
+* Si sa come eseguire il mapping dei volumi al numero appropriato di condivisioni file di Azure e di account di archiviazione.
 
 ## <a name="phase-2-deploy-azure-storage-and-migration-resources"></a>Fase 2: distribuire risorse di archiviazione e migrazione di Azure
 
@@ -133,9 +134,12 @@ Questa sezione illustra le considerazioni relative alla distribuzione dei divers
 
 Probabilmente sarà necessario distribuire diversi account di archiviazione di Azure. Ognuno di essi conterrà un numero inferiore di condivisioni file di Azure, in base al piano di distribuzione, completato nella sezione precedente di questo articolo. Passare alla portale di Azure per [distribuire gli account di archiviazione pianificati](../common/storage-account-create.md#create-a-storage-account). Considerare l'opportunità di rispettare le seguenti impostazioni di base per qualsiasi nuovo account di archiviazione.
 
+> [!IMPORTANT]
+> Non configurare ora le impostazioni di rete e del firewall per gli account di archiviazione. Questa configurazione renderebbe impossibile una migrazione. Configurare queste impostazioni di archiviazione di Azure al termine della migrazione.
+
 #### <a name="subscription"></a>Subscription
 
-È possibile usare la stessa sottoscrizione usata per la distribuzione di StorSimple o un altro. L'unica limitazione è che la sottoscrizione deve trovarsi nello stesso tenant Azure Active Directory della sottoscrizione StorSimple. Prima di avviare una migrazione, provare a trasferire la sottoscrizione StorSimple al tenant corretto. È possibile spostare solo l'intera sottoscrizione. Le singole risorse StorSimple non possono essere spostate in un tenant o in una sottoscrizione diversa.
+È possibile usare la stessa sottoscrizione usata per la distribuzione di StorSimple o un altro. L'unica limitazione è che la sottoscrizione deve trovarsi nello stesso tenant Azure Active Directory della sottoscrizione StorSimple. Prima di avviare una migrazione, provare a trasferire la sottoscrizione StorSimple al tenant appropriato. È possibile spostare solo l'intera sottoscrizione, le singole risorse StorSimple non possono essere spostate in un tenant o in una sottoscrizione diversa.
 
 #### <a name="resource-group"></a>Resource group
 
@@ -197,7 +201,7 @@ Optare per le condivisioni file di grandi dimensioni 100-TiB presenta diversi va
 
 * Le prestazioni sono notevolmente aumentate rispetto alle condivisioni file di capacità 5-TiB più piccole (ad esempio, 10 volte il IOPS).
 * Il completamento della migrazione sarà notevolmente più veloce.
-* Assicurarsi che una condivisione file disponga di una capacità sufficiente a contenere tutti i dati di cui si eseguirà la migrazione.
+* Si garantisce che una condivisione file disponga di una capacità sufficiente a contenere tutti i dati di cui si eseguirà la migrazione, inclusi i backup differenziali della capacità di archiviazione richiesti.
 * Viene analizzata la crescita futura.
 
 ### <a name="azure-file-shares"></a>Condivisioni file di Azure
@@ -232,24 +236,57 @@ Alla fine della fase 2, sono stati distribuiti gli account di archiviazione e tu
 
 ## <a name="phase-3-create-and-run-a-migration-job"></a>Fase 3: creare ed eseguire un processo di migrazione
 
-Questa sezione descrive come configurare un processo di migrazione e mappare attentamente le directory in un volume StorSimple che deve essere copiato nella condivisione file di Azure di destinazione selezionata. Per iniziare, passare alla StorSimple Data Manager, individuare le **definizioni dei processi** nel menu e selezionare **+ definizione processo**. Il tipo di archiviazione di destinazione è la **condivisione file di Azure** predefinita.
+Questa sezione descrive come configurare un processo di migrazione e mappare attentamente le directory in un volume StorSimple che deve essere copiato nella condivisione file di Azure di destinazione selezionata. Per iniziare, passare alla StorSimple Data Manager, individuare le **definizioni dei processi** nel menu e selezionare **+ definizione processo**. Il tipo di archiviazione di destinazione corretto è l'impostazione predefinita: **condivisione file di Azure**.
 
 ![Tipi di processo di migrazione serie 8000 di StorSimple.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job-type.png "Screenshot delle definizioni dei processi portale di Azure con una nuova finestra di dialogo definizioni processo aperta che richiede il tipo di processo: copia in una condivisione file o in un contenitore BLOB.")
 
-> [!IMPORTANT]
-> Prima di eseguire qualsiasi processo di migrazione, arrestare tutti i backup pianificati automaticamente dei volumi di StorSimple.
-
 :::row:::
     :::column:::
-        ![Processo di migrazione serie StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Screenshot del nuovo modulo per la creazione di processi per un processo del servizio di trasformazione dei dati.")
+        ![Processo di migrazione serie StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Screenshot del nuovo modulo per la creazione di processi per un processo di migrazione.")
     :::column-end:::
     :::column:::
-        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Source (Sorgente)</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Gestione dispositivi. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Gestione dispositivi il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione. </br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.
+        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Source (Sorgente)</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Gestione dispositivi. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Gestione dispositivi il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione.</br></br> **Backup del volume**</br>È possibile selezionare *Seleziona backup del volume* per scegliere backup specifici da spostare come parte di questo processo. Una [sezione dedicata imminente in questo articolo](#selecting-volume-backups-to-migrate) descrive in dettaglio il processo.</br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.</br></br><h3>Mapping della directory</h3>[Una sezione dedicata in questo articolo](#directory-mapping)descrive tutti i dettagli pertinenti.
     :::column-end:::
 :::row-end:::
 
-> [!IMPORTANT]
-> Per eseguire la migrazione verrà usato il backup del volume più recente. Verificare che sia presente almeno un backup del volume oppure il processo non riuscirà. Assicurarsi inoltre che il backup più recente sia abbastanza recente per mantenere il Delta alla condivisione Live il più piccolo possibile. Potrebbe valere la pena attivare e completare manualmente un altro backup del volume *prima* di eseguire il processo appena creato.
+### <a name="selecting-volume-backups-to-migrate"></a>Selezione dei backup del volume da migrare
+
+Per la scelta dei backup che devono essere migrati sono importanti aspetti importanti:
+
+- I processi di migrazione possono spostare solo i backup, non i dati da un volume Live. Il backup più recente è quindi più vicino ai dati in tempo reale e deve essere sempre nell'elenco dei backup spostati in una migrazione.
+- Verificare che il backup più recente sia recente per garantire la massima dimensione del Delta alla condivisione Live. Potrebbe valere la pena attivare e completare manualmente un altro backup del volume prima di creare un processo di migrazione. Un piccolo delta della condivisione Live consente di migliorare l'esperienza di migrazione. Se il Delta può essere zero = non sono state apportate altre modifiche al volume StorSimple dopo che è stato eseguito il backup più recente nell'elenco, fase 5: il cut-over utente sarà notevolmente semplificato e accelerato.
+- I backup devono essere riprodotti nella condivisione file di Azure **dal più vecchio al più recente**. Un backup precedente non può essere "ordinato" nell'elenco dei backup nella condivisione file di Azure dopo l'esecuzione di un processo di migrazione. Pertanto, è necessario assicurarsi che l'elenco dei backup sia completo *prima* di creare un processo. 
+- Questo elenco di backup in un processo non può essere modificato dopo la creazione del processo, anche se il processo non è mai stato eseguito. 
+
+:::row:::
+    :::column:::        
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups.png" alt-text="Screenshot del nuovo modulo per la creazione di processi che illustra in dettaglio la parte in cui sono selezionati i backup StorSimple per la migrazione." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-expanded.png":::
+    :::column-end:::
+    :::column:::
+        Per selezionare i backup del volume StorSimple per il processo di migrazione, selezionare i *backup del volume Select* nel modulo di creazione del processo.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-annotated.png" alt-text="Un'immagine che mostra che la metà superiore del pannello per la selezione dei backup elenca tutti i backup disponibili. Un backup selezionato verrà disattivato in questo elenco e aggiunto a un secondo elenco nella metà inferiore del pannello. È anche possibile eliminarlo." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-annotated.png":::
+    :::column-end:::
+    :::column:::
+        Quando si apre il pannello di selezione del backup, questo viene separato in due elenchi. Nel primo elenco vengono visualizzati tutti i backup disponibili. È possibile espandere e restringere il set di risultati filtrando per un intervallo di tempo specifico. (vedere la sezione successiva) </br></br>Un backup selezionato verrà visualizzato in grigio e verrà aggiunto a un secondo elenco nella metà inferiore del pannello. Nel secondo elenco vengono visualizzati tutti i backup selezionati per la migrazione. È anche possibile rimuovere di nuovo un backup selezionato in errore.
+        > [!CAUTION]
+        > È necessario selezionare **tutti i** backup di cui si vuole eseguire la migrazione. Non è possibile aggiungere backup precedenti in un secondo momento. Non è possibile modificare il processo per modificare la selezione dopo che il processo è stato creato.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time.png" alt-text="Screenshot che mostra la selezione di un intervallo di tempo del pannello di selezione del backup." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time-expanded.png":::
+    :::column-end:::
+    :::column:::
+        Per impostazione predefinita, l'elenco viene filtrato per mostrare i backup del volume StorSimple negli ultimi sette giorni per semplificare la selezione del backup più recente. Per i backup più in passato, usare il filtro intervallo di tempo nella parte superiore del pannello. È possibile scegliere da un filtro esistente o impostare un intervallo di tempo personalizzato per filtrare solo i backup eseguiti durante questo periodo.
+    :::column-end:::
+:::row-end:::
+
+> [!CAUTION]
+> La selezione di più di 50 backup del volume StorSimple non è supportata. I processi con un numero elevato di backup potrebbero non riuscire.
 
 ### <a name="directory-mapping"></a>Mapping della directory
 
@@ -273,7 +310,7 @@ Un mapping è espresso da sinistra a destra: [percorso \Source] \> [percorso \ta
 | **\>**                     | [Source] e l'operatore [target-mapping].     |
 |**\|** o RETURN (nuova riga) | Separatore di due istruzioni per il mapping di cartelle. </br>In alternativa, è possibile omettere questo carattere e premere **invio** per ottenere l'espressione di mapping successiva sulla propria riga.        |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 Sposta il contenuto dei *dati utente* della cartella nella radice della condivisione file di destinazione:
 ``` console
 \User data > \
@@ -310,11 +347,30 @@ Ordina più percorsi di origine in una nuova struttura di directory:
 * Analogamente a Windows, i nomi di cartella non fanno distinzione tra maiuscole e minuscole, ma il mantenimento
 
 > [!NOTE]
-> Il contenuto della cartella *\System Volume Information* e del *$recycle. bin* nel volume StorSimple non verrà copiato dal processo di trasformazione.
+> Il contenuto della cartella *\System Volume Information* e del *$recycle. bin* nel volume StorSimple non verrà copiato dal processo di migrazione.
+
+### <a name="run-a-migration-job"></a>Eseguire un processo di migrazione
+
+I processi di migrazione sono elencati in *definizioni processo* nella risorsa Data Manager distribuita in un gruppo di risorse.
+Dall'elenco delle definizioni dei processi selezionare il processo che si desidera eseguire.
+
+Nel pannello del processo che si apre, è possibile visualizzare l'esecuzione del processo nell'elenco inferiore. Inizialmente, l'elenco sarà vuoto. Nella parte superiore del pannello è presente un comando denominato *Esegui processo*. Questo comando non eseguirà immediatamente il processo. verrà aperto il pannello **esecuzione processo** :
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job.png" alt-text="Un'immagine che mostra il pannello esecuzione processo con un controllo elenco a discesa aperto, che Visualizza i backup selezionati da migrare. Il backup meno recente è evidenziato ed è necessario selezionarlo per primo." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job-expanded.png":::
+    :::column-end:::
+    :::column:::
+        In questa versione ogni processo deve essere eseguito più volte. </br></br>**È necessario iniziare con il backup meno recente dall'elenco di backup di cui si vuole eseguire la migrazione.** (evidenziato nell'immagine)</br></br>Il processo viene eseguito di nuovo, il numero di volte in cui sono stati selezionati backup, ogni volta con un backup progressivamente più recente.
+        </br></br>
+        > [!CAUTION]
+        > È fondamentale eseguire il processo di migrazione con il backup meno recente selezionato per primo e quindi di nuovo, ogni volta con un backup progressivamente più recente. È sempre necessario mantenere l'ordine dei backup manualmente, dal più vecchio al più recente.
+    :::column-end:::
+:::row-end:::
 
 ### <a name="phase-3-summary"></a>Riepilogo fase 3
 
-Alla fine della fase 3, i processi del servizio di trasformazione dei dati vengono eseguiti da volumi StorSimple in condivisioni file di Azure. È ora possibile concentrarsi sulla configurazione di Sincronizzazione file di Azure per la condivisione (dopo il completamento dei processi di migrazione per una condivisione) o indirizzare l'accesso alla condivisione per gli Information Worker e le app alla condivisione file di Azure.
+Alla fine della fase 3, si sarà eseguito almeno uno dei processi di migrazione da volumi StorSimple in condivisioni file di Azure. Lo stesso processo di migrazione verrà eseguito più volte, dai backup meno recenti a quelli più recenti che devono essere migrati. È ora possibile concentrarsi sulla configurazione di Sincronizzazione file di Azure per la condivisione (dopo che i processi di migrazione per una condivisione sono stati completati) o indirizzare l'accesso alla condivisione per gli Information Worker e le app alla condivisione file di Azure.
 
 ## <a name="phase-4-access-your-azure-file-shares"></a>Fase 4: accedere alle condivisioni file di Azure
 
@@ -371,7 +427,7 @@ Per questo processo, è necessario che l'istanza di Windows Server locale regist
 
 :::row:::
     :::column:::
-        [![Guida dettagliata e demo su come esporre in modo sicuro le condivisioni file di Azure direttamente agli Information Worker e alle app. fare clic per riprodurre.](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/KG0OX0RgytI)
+        [![Guida dettagliata e demo su come esporre in modo sicuro le condivisioni file di Azure direttamente agli Information Worker e alle app. fare clic per riprodurre.](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/a-Twfus0HWE)
     :::column-end:::
     :::column:::
         Questo video è una guida e una demo su come esporre in modo sicuro le condivisioni file di Azure direttamente agli Information Worker e alle app in cinque semplici passaggi.</br>
@@ -391,21 +447,21 @@ Per questo processo, è necessario che l'istanza di Windows Server locale regist
 
 ### <a name="phase-4-summary"></a>Riepilogo della fase 4
 
-In questa fase sono stati creati ed eseguiti più processi del servizio di trasformazione dati nel StorSimple Data Manager. Questi processi hanno eseguito la migrazione dei file e delle cartelle alle condivisioni file di Azure. Sono stati distribuiti anche Sincronizzazione file di Azure o sono stati preparati gli account di archiviazione e di rete per l'accesso diretto alla condivisione.
+In questa fase sono stati creati ed eseguiti più processi di migrazione nel StorSimple Data Manager. Questi processi hanno eseguito la migrazione dei file e delle cartelle alle condivisioni file di Azure. Sono stati distribuiti anche Sincronizzazione file di Azure o sono stati preparati gli account di archiviazione e di rete per l'accesso diretto alla condivisione.
 
 ## <a name="phase-5-user-cut-over"></a>Fase 5: riduzione dell'utente
 
 Questa fase riguarda tutto il wrapping della migrazione:
 
 * Pianificare il tempo di inattività.
-* Aggiorna le modifiche apportate dagli utenti e dalle app prodotte sul lato StorSimple mentre i processi di trasformazione dei dati sono stati eseguiti nella fase 3.
+* Aggiorna le modifiche apportate dagli utenti e dalle app prodotte sul lato StorSimple durante l'esecuzione dei processi di migrazione nella fase 3.
 * Eseguire il failover degli utenti sulla nuova istanza di Windows Server con Sincronizzazione file di Azure o le condivisioni file di Azure tramite Direct-Share-Access.
 
 ### <a name="plan-your-downtime"></a>Pianificare il tempo di inattività
 
 Questo approccio alla migrazione richiede tempi di inattività per gli utenti e le app. L'obiettivo è quello di ridurre al minimo i tempi di inattività. Le considerazioni seguenti possono essere utili:
 
-* Consente di rendere disponibili i volumi StorSimple durante l'esecuzione dei processi di trasformazione dei dati.
+* Consente di rendere disponibili i volumi StorSimple durante l'esecuzione dei processi di migrazione.
 * Al termine dell'esecuzione dei processi di migrazione dei dati per una condivisione, è possibile rimuovere l'accesso utente (almeno in scrittura) dai volumi o condivisioni di StorSimple. Un RoboCopy finale rileverà la condivisione file di Azure. Sarà quindi possibile ridurre gli utenti. La posizione in cui viene eseguito RoboCopy dipende dal fatto che si sia scelto di usare Sincronizzazione file di Azure o Direct-Share-Access. La prossima sezione di RoboCopy copre questo argomento.
 * Al termine dell'operazione di recupero di RoboCopy, si è pronti per esporre la nuova posizione agli utenti tramite la condivisione file di Azure direttamente o una condivisione SMB in un'istanza di Windows Server con Sincronizzazione file di Azure. Spesso una distribuzione di DFS-N consente di realizzare un taglio rapido ed efficiente. Manterrà gli indirizzi di condivisione esistenti coerenti e punterà a un nuovo percorso che contiene i file e le cartelle migrati.
 
@@ -438,7 +494,7 @@ A questo punto, esistono differenze tra l'istanza locale di Windows Server e l'a
 
 1. È necessario recuperare le modifiche apportate dagli utenti o dalle app prodotte sul lato StorSimple mentre era in corso la migrazione.
 1. Per i casi in cui si usa Sincronizzazione file di Azure: il dispositivo StorSimple dispone di una cache popolata rispetto all'istanza di Windows Server con solo uno spazio dei nomi senza contenuto di file archiviato localmente in questo momento. Con RoboCopy finale è possibile avviare la cache di Sincronizzazione file di Azure locale effettuando il pull del contenuto del file memorizzato nella cache locale per quanto disponibile e che può adattarsi al server Sincronizzazione file di Azure.
-1. È possibile che alcuni file siano stati lasciati dal processo di trasformazione dei dati a causa di caratteri non validi. In tal caso, copiarli nell'istanza di Windows Server abilitata per Sincronizzazione file di Azure. Successivamente, è possibile modificarle in modo che vengano sincronizzate. Se non si usa Sincronizzazione file di Azure per una condivisione particolare, è preferibile rinominare i file con caratteri non validi nel volume StorSimple. Eseguire quindi RoboCopy direttamente nella condivisione file di Azure.
+1. È possibile che alcuni file rimangano rimasti dal processo di migrazione a causa di caratteri non validi. In tal caso, copiarli nell'istanza di Windows Server abilitata per Sincronizzazione file di Azure. Successivamente, è possibile modificarle in modo che vengano sincronizzate. Se non si usa Sincronizzazione file di Azure per una condivisione particolare, è preferibile rinominare i file con caratteri non validi nel volume StorSimple. Eseguire quindi RoboCopy direttamente nella condivisione file di Azure.
 
 > [!WARNING]
 > Robocopy in Windows Server 2019 presenta attualmente un problema che causa la Ricopia dei file a livelli Sincronizzazione file di Azure nel server di destinazione dal codice sorgente e il nuovo caricamento in Azure quando si usa la funzione/MIR di Robocopy. È fondamentale usare Robocopy in un server Windows diverso da 2019. Una scelta preferita è Windows Server 2016. Questa nota verrà aggiornata se il problema viene risolto tramite Windows Update.

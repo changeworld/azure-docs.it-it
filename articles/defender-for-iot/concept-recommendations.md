@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: d11154e26e2ffe97a1ea102a11dddb746db9433a
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809270"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521867"
 ---
 # <a name="security-recommendations"></a>Suggerimenti per la sicurezza
 
@@ -60,7 +60,6 @@ Gli avvisi di raccomandazione forniscono informazioni e suggerimenti sulle azion
 | Medio | Il criterio di filtro IP predefinito deve essere Deny | Hub IoT | Per la configurazione del filtro IP è necessario definire regole per il traffico consentito e, per impostazione predefinita, negare tutto il resto del traffico per impostazione predefinita. |
 | Medio | La regola di filtro IP include un intervallo IP di grandi dimensioni | Hub IoT | Un intervallo di indirizzi IP di origine della regola di filtro IP è troppo grande. Le regole eccessivamente permissive possono esporre l'hub delle cose a attori malintenzionati. |
 | Basso | Abilitare i log di diagnostica nell'hub Internet | Hub IoT | Abilitare i log e conservarli per un periodo massimo di un anno. Il mantenimento dei log consente di ricreare percorsi attività a scopo di analisi quando si verifica un evento imprevisto di sicurezza o la rete viene compromessa. |
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

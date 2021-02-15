@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094910"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388516"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -185,6 +185,14 @@ La tabella seguente indica se viene garantita la durabilità e la disponibilità
 | L'accesso in lettura all'area secondaria è disponibile se l'area primaria non è più disponibile | No | No | Sì (con RA-GRS) | Sì (con RA-GZRS) |
 
 <sup>1</sup> Il failover dell'account è necessario per ripristinare la disponibilità di scrittura se l'area primaria non è più disponibile. Per altre informazioni, vedere [Ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
+
+### <a name="supported-azure-storage-services"></a>Servizi di archiviazione di Azure supportati
+
+La tabella seguente illustra le opzioni di ridondanza supportate da ogni servizio di archiviazione di Azure.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Archiviazione BLOB<br />Archiviazione code<br />Archiviazione tabelle<br />File di Azure<br />Azure Managed Disks | Archiviazione BLOB<br />Archiviazione code<br />Archiviazione tabelle<br />File di Azure | Archiviazione BLOB<br />Archiviazione code<br />Archiviazione tabelle<br />File di Azure<br /> | Archiviazione BLOB<br />Archiviazione code<br />Archiviazione tabelle<br />File di Azure<br /> |
 
 ### <a name="supported-storage-account-types"></a>Tipi di account di archiviazione supportati
 

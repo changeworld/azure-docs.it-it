@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: db3b62e7ce07c1e10bc5030c37cb8957d281ea05
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219724"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517298"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
@@ -66,7 +66,7 @@ Sono disponibili due tipi di ripristino:
 - Il **ripristino temporizzato** è disponibile con entrambe le opzioni di ridondanza dei backup e crea un nuovo server nella stessa area del server originale.
 - Il **ripristino geografico** è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa.
 
-Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
+Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di ripristino varia a seconda dell'ultimo backup dei dati e della quantità di ripristino che deve essere eseguita. È in genere inferiore a 12 ore.
 
 > [!NOTE] 
 > Se il server PostgreSQL di origine è crittografato con le chiavi gestite dal cliente, consultare la [documentazione](concepts-data-encryption-postgresql.md) per ulteriori considerazioni. 

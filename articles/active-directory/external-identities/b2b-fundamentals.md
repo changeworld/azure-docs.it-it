@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547764"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365634"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedure consigliate per Azure Active Directory B2B
 Questo articolo contiene indicazioni e procedure consigliate per la collaborazione business-to-business (B2B) in Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partire dal 2021 marzo**, Microsoft non supporterà più il riscatto degli inviti mediante la creazione di account Azure ad e tenant non gestiti, per gli scenari di collaborazione B2B. In quel momento, la funzionalità di accesso monouso per il codice di posta elettronica verrà attivata per tutti i tenant esistenti e abilitata per impostazione predefinita per i nuovi tenant. È in corso l'abilitazione della funzionalità di accesso monouso per la posta elettronica perché fornisce un metodo di autenticazione di fallback semplice per gli utenti guest. Tuttavia, è possibile disabilitare questa funzionalità se si sceglie di non usarla. Per informazioni dettagliate, vedere la pagina relativa all' [autenticazione del codice di posta elettronica una volta](one-time-passcode.md)
+   > **A partire dall'ottobre 2021**, Microsoft non supporterà più il riscatto degli inviti mediante la creazione di account Azure ad e tenant non gestiti (JIT) per gli scenari di collaborazione B2B. In quel momento, la funzionalità di accesso monouso per il codice di posta elettronica verrà attivata per tutti i tenant esistenti e abilitata per impostazione predefinita per i nuovi tenant. È in corso l'abilitazione della funzionalità di accesso monouso per la posta elettronica perché fornisce un metodo di autenticazione di fallback semplice per gli utenti guest. Tuttavia, è possibile disabilitare questa funzionalità se si sceglie di non usarla. Per informazioni dettagliate, vedere la pagina relativa all' [autenticazione del codice di posta elettronica una volta](one-time-passcode.md)
 
 
 ## <a name="b2b-recommendations"></a>Raccomandazioni B2B
