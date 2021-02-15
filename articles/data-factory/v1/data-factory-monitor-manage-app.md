@@ -1,23 +1,18 @@
 ---
 title: Monitorare e gestire le pipeline di dati-Azure
 description: Informazioni sull'uso dell'app di monitoraggio e gestione per monitorare e gestire le data factory e le pipeline di Azure.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be11f742eb99d25cb0e41a3dd0888d62417837dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495702"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380373"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -162,7 +157,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
     <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
 </tr>
 <tr>
-    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
+    <td rowspan="8">Attesa</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Le dipendenze upstream non sono pronte.</td>
@@ -210,7 +205,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>Operazione ignorata</td><td>-</td><td>La finestra attività non è stata elaborata.</td>
 </tr>
 <tr>
-<td>Nessuno</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
+<td>nessuno</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
 </tr>
 </table>
 

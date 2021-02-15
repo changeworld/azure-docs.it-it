@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218366"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384521"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Connettersi alle risorse dell'area di lavoro da una rete con restrizioni
 
@@ -74,7 +74,7 @@ Dopo aver creato l'endpoint del collegamento privato, è possibile accedere alla
 
 Per accedere alle risorse all'interno della risorsa dell'area di lavoro di Azure sinapsi Analytics studio, è necessario creare quanto segue:
 
-- Almeno un endpoint di collegamento privato con un tipo di **sviluppatore** di una **risorsa secondaria di destinazione**.
+- Almeno un endpoint di collegamento privato con un tipo di **risorsa secondaria di destinazione** di **dev**.
 - Altri due endpoint di collegamento privato facoltativi con tipi di **SQL** o **sqlondemand**, a seconda delle risorse nell'area di lavoro a cui si vuole accedere.
 
 La creazione di questi parametri è simile alla creazione dell'endpoint nel passaggio precedente.  
@@ -146,7 +146,8 @@ Una volta aggiunto il collegamento alla rete virtuale, è necessario aggiungere 
 
 * Per **nome** immettere le stringhe del nome dedicate per un endpoint privato diverso: 
   * il **sito Web** è relativo all'endpoint privato di accesso ad Azure sinapsi Analytics Studio.
-  * "***NomeAreadilavoro * * _" è per l'endpoint privato dell'esecuzione di query SQL nel pool SQL e anche per l'endpoint privato di accesso a tutto il resto nelle aree di lavoro di Azure sinapsi Analytics Studio. _ "*** NomeAreadilavoro *-OnDemand * *" è per l'endpoint privato dell'esecuzione di query SQL nel pool incorporato.
+  * "***NomeAreadilavoro***" è per l'endpoint privato dell'esecuzione di query SQL nel pool SQL e anche per l'endpoint privato di accesso a tutto il resto nelle aree di lavoro di Azure sinapsi Analytics Studio.
+  * "***NomeAreadilavoro *-OnDemand**" è per l'endpoint privato dell'esecuzione di query SQL nel pool incorporato.
 * Per **tipo** selezionare solo il tipo di record DNS **a** . 
 * Per **indirizzo IP** immettere l'indirizzo IP corrispondente di ogni endpoint privato. È possibile ottenere l'indirizzo IP nell' **interfaccia di rete** dalla panoramica dell'endpoint privato.
 

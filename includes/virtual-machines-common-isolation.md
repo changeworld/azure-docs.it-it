@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-machines
 author: styli365
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96477288"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515108"
 ---
 Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente. Le dimensioni isolate si trovano in un ambiente di generazione hardware specifico e verranno deprecate quando la generazione dell'hardware viene ritirata.
 
@@ -23,14 +23,14 @@ Le dimensioni delle macchine virtuali isolate sono ideali per i carichi di lavor
 Inoltre, poiché le macchine virtuali di dimensioni isolate sono di grandi dimensioni, i clienti possono scegliere di suddividere le risorse di queste macchine virtuali usando il [supporto di Azure per le macchine virtuali nidificate](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 Le offerte di macchine virtuali con piano Isolato correnti includono:
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_F72s_v2
+* Standard_E64is_v3
+* Standard_E64i_v3
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_F72s_v2
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Le offerte di macchine virtuali con piano Isolato correnti includono:
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Deprecazione delle dimensioni delle VM isolate
 
-Poiché le dimensioni delle VM isolate sono dimensioni associate a hardware, Azure fornirà ai promemoria 12 mesi prima della deprecazione ufficiale delle dimensioni.  Azure offrirà anche una dimensione isolata aggiornata nella prossima versione hardware che il cliente può prendere in considerazione per lo spostamento del carico di lavoro.
+Le dimensioni delle VM isolate hanno una durata limitata dell'hardware. Azure emetterà promemoria 12 mesi prima della data di deprecazione ufficiale delle dimensioni e fornirà un'offerta isolata aggiornata per la valutazione.
 
 | Dimensione | Data di ritiro isolamento | 
 | --- | --- |
@@ -49,7 +49,7 @@ Poiché le dimensioni delle VM isolate sono dimensioni associate a hardware, Azu
 
 
 ## <a name="faq"></a>Domande frequenti
-### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>D: la dimensione verrà ritirata o solo la funzionalità "isolamento" è?
+### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>D: le dimensioni verranno ritirate o solo la relativa funzionalità di "isolamento"?
 **R**: se le dimensioni della macchina virtuale non hanno l'indice "i", verrà ritirata solo la funzionalità di "isolamento". Se l'isolamento non è necessario, non viene eseguita alcuna azione e la macchina virtuale continuerà a funzionare come previsto. Alcuni esempi sono Standard_DS15_v2, Standard_D15_v2, Standard_M128ms e così via. Se le dimensioni della macchina virtuale includono pedice "i", le dimensioni verranno ritirate.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>D: si verifica un tempo di inattività quando la macchina virtuale si trova in un hardware non isolato?

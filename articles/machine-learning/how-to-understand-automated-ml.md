@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: d5556ffb18a7a67e9415310f221e470761bf8cb8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388210"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Valuta i risultati dell'esperimento di Machine Learning automatizzato
 
@@ -234,10 +234,7 @@ In questo esempio, si noti che il modello migliore dispone di una linea stimata 
 
 Sebbene le metriche e i grafici di valutazione del modello siano utili per misurare la qualità generale di un modello, controllare quale set di dati include un modello usato per eseguire le stime è essenziale quando si pratica l'intelligenza artificiale responsabile. Per questo motivo, Machine Learning Machine Learning fornisce un dashboard di interpretazione dei modelli per misurare e segnalare i contributi relativi delle funzionalità del set di dati.
 
-![Importanza delle funzionalità](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 Per visualizzare il dashboard di interpretazione in studio:
-
 1. [Accedere a Studio](https://ml.azure.com/) e passare all'area di lavoro
 2. Nel menu a sinistra selezionare **esperimenti** .
 3. Selezionare l'esperimento dall'elenco degli esperimenti
@@ -246,10 +243,11 @@ Per visualizzare il dashboard di interpretazione in studio:
 6. Nella scheda **spiegazioni** è possibile che sia già stata creata una spiegazione se il modello è stato il migliore
 7. Per creare una nuova spiegazione, selezionare **spiega modello** e selezionare il calcolo remoto con cui calcolare le spiegazioni
 
+[Altre informazioni sulle spiegazioni del modello in Machine Learning automatiche](how-to-machine-learning-interpretability-automl.md).
+
 > [!NOTE]
 > Il modello ForecastTCN non è attualmente supportato da spiegazioni automatiche di machine learning e altri modelli di previsione possono avere accesso limitato agli strumenti di interpretazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Provare i [notebook di esempio per la spiegazione automatica del modello di Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
-* Scopri di più sulle [offerte di intelligenza artificiale in automatico](how-to-machine-learning-interpretability-automl.md).
 * Per domande specifiche su Machine Learning, rivolgersi a askautomatedml@microsoft.com .

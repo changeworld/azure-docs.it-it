@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e0fb337defc69354aa625fe63bef9768dbc4cf1f
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538848"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381869"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Configurare e gestire il backup continuo e il ripristino temporizzato (anteprima)-uso di portale di Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -74,7 +74,7 @@ Se, ad esempio, si desidera eseguire il ripristino fino al momento in cui un det
 È possibile utilizzare portale di Azure per ripristinare completamente un account eliminato entro 30 giorni dall'eliminazione. Per ripristinare un account eliminato, attenersi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
-1. Cercare le risorse "Azure Cosmos DB" nella barra di ricerca globale. Elenca tutti gli account esistenti.
+1. Cercare *Azure Cosmos DB* risorse nella barra di ricerca globale. Elenca tutti gli account esistenti.
 1. Selezionare quindi il pulsante **Ripristina** . Il riquadro ripristino Visualizza un elenco di account eliminati che è possibile ripristinare entro il periodo di memorizzazione, ovvero 30 giorni dall'ora di eliminazione.
 1. Scegliere l'account che si desidera ripristinare.
 
@@ -95,7 +95,7 @@ Se, ad esempio, si desidera eseguire il ripristino fino al momento in cui un det
 
 ## <a name="track-the-status-of-restore-operation"></a><a id="track-restore-status"></a>Tenere traccia dello stato dell'operazione di ripristino
 
-Dopo l'avvio di un'operazione di ripristino, selezionare l'icona della campana di **notifica** nell'angolo superiore destro del portale. Fornisce un collegamento che visualizza lo stato dell'account da ripristinare. Durante l'esecuzione del ripristino, lo stato dell'account sarà "creazione", al termine dell'operazione di ripristino, lo stato dell'account verrà modificato in "online".
+Dopo l'avvio di un'operazione di ripristino, selezionare l'icona della campana di **notifica** nell'angolo superiore destro del portale. Fornisce un collegamento che visualizza lo stato dell'account da ripristinare. Durante l'esecuzione del ripristino, lo stato dell'account verrà *creato*, al termine dell'operazione di ripristino, lo stato dell'account verrà modificato in in *linea*.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="Lo stato dell'account ripristinato passa da creazione a online al termine dell'operazione." border="true":::
 

@@ -4,16 +4,16 @@ description: Come usare la nuova esportazione dei dati per esportare i dati di I
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/05/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 350cd7c14a4f1ee5058a60ccf60c1205ce97916a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226063"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515904"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
@@ -166,6 +166,17 @@ Ora che si dispone di una destinazione in cui esportare i dati, configurare l'es
 
 1. Al termine della configurazione dell'esportazione, selezionare **Salva**. Dopo alcuni minuti, i dati verranno visualizzati nelle destinazioni.
 
+## <a name="monitor-your-export"></a>Monitorare l'esportazione
+
+Oltre a visualizzare lo stato delle esportazioni in IoT Central, è possibile monitorare la quantità di dati che passano attraverso le esportazioni e osservare gli errori di esportazione nella piattaforma dati di monitoraggio di Azure. È possibile accedere alle metriche sulle esportazioni e sull'integrità dei dispositivi nei grafici del portale di Azure, di un'API REST o di query in PowerShell o nell'interfaccia della riga di comando di Azure. Attualmente, è possibile monitorare le metriche di esportazione dei dati in monitoraggio di Azure:
+
+1. Numero di messaggi in ingresso da esportare prima che vengano applicati i filtri
+2. Numero di messaggi che passano attraverso i filtri
+3. Numero di messaggi esportati correttamente nelle destinazioni
+4. Numero di errori rilevati
+ 
+[Altre informazioni su come accedere alle metriche IoT Central.](howto-monitor-application-health.md)
+
 ## <a name="destinations"></a>Destinazioni
 
 ### <a name="azure-blob-storage-destination"></a>Destinazione di archiviazione BLOB di Azure
@@ -233,7 +244,6 @@ L'esempio seguente mostra un messaggio di telemetria esportato:
     }
 }
 ```
-
 ### <a name="message-properties"></a>Proprietà del messaggio
 
 I messaggi di telemetria hanno proprietà per i metadati oltre al payload di telemetria. Il frammento di codice precedente mostra esempi di messaggi di sistema, ad esempio `deviceId` e `enqueuedTime` . Per altre informazioni sulle proprietà dei messaggi di sistema, vedere [proprietà di sistema dei messaggi dell'hub D2C](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).

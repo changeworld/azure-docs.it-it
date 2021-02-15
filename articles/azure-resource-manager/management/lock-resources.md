@@ -4,12 +4,12 @@ description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure 
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428318"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369476"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -32,7 +32,7 @@ I blocchi di Resource Manager si applicano solo alle operazioni che si verifican
 
 L'applicazione di blocchi può causare risultati imprevisti perché alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. I blocchi impediscono qualsiasi operazione che richiede una richiesta POST all'API Azure Resource Manager. Alcuni esempi comuni delle operazioni bloccate dai blocchi sono:
 
-* Un blocco di sola lettura applicato a un **account di archiviazione** impedisce a tutti gli utenti di visualizzare l'elenco delle chiavi. L'operazione di elenco delle chiavi viene gestita tramite una richiesta POST, perché le chiavi restituite sono disponibili per operazioni di scrittura.
+* Un blocco di sola lettura in un **account di archiviazione** impedisce agli utenti di elencare le chiavi dell'account. L'operazione di [elenco delle chiavi](/rest/api/storagerp/storageaccounts/listkeys) di archiviazione di Azure viene gestita tramite una richiesta post per proteggere l'accesso alle chiavi dell'account, che forniscono l'accesso completo ai dati nell'account di archiviazione. Quando si configura un blocco di sola lettura per un account di archiviazione, gli utenti che non dispongono delle chiavi dell'account devono usare Azure AD credenziali per accedere ai dati di BLOB o di Accodamento. Un blocco di sola lettura impedisce anche l'assegnazione di ruoli di controllo degli accessi in base al ruolo di Azure con ambito dell'account di archiviazione o di un contenitore di dati (contenitore BLOB o coda).
 
 * Un blocco di sola lettura applicato a una risorsa **Servizio app** impedisce a Visual Studio Server Explorer di visualizzare i file della risorsa perché questa interazione richiede l'accesso in scrittura.
 

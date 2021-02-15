@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554423"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391593"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Risolvere i problemi relativi alle connessioni in Azure
 
@@ -53,11 +53,11 @@ Verificare che siano state configurate le autorizzazioni corrette per l'identit�
 Per verificarlo, attenersi alla procedura seguente:
 
 1. Passare all'insieme di credenziali delle chiavi e alla sezione **criteri di accesso**
-1. Verificare che l'identità gestita di competenza venga visualizzata nella sezione *criteri di accesso correnti* con le autorizzazioni **Get** per i segreti almeno
+1. Verificare che l'identità gestita di competenza venga visualizzata nella sezione *criteri di accesso correnti* con le autorizzazioni **Get** e **List** per i segreti almeno
 
 Se non viene visualizzata l'identità gestita di competenza, seguire la procedura descritta in [creare e gestire le credenziali per](manage-credentials.md) l'aggiunta. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esplorare il Catalogo dati di Azure per le competenze](how-to-browse-catalog.md)
-- [Cerca nel Data Catalog di competenza di Azure](how-to-search-catalog.md)
+- [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)

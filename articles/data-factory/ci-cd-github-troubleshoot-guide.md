@@ -5,15 +5,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556308"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393752"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Risolvere i problemi relativi a CI-CD, Azure DevOps e GitHub in ADF 
 
@@ -78,14 +77,14 @@ La pipeline di rilascio CI/CD ha esito negativo con l'errore seguente:
 
 #### <a name="cause"></a>Causa
 
-Ciò è dovuto a un Integration Runtime con lo stesso nome nella Factory di destinazione ma con un tipo diverso. Integration Runtime deve essere dello stesso tipo durante la distribuzione.
+Questo è dovuto a un runtime di integrazione con lo stesso nome nella Factory di destinazione ma con un tipo diverso. Integration Runtime deve essere dello stesso tipo durante la distribuzione.
 
 #### <a name="recommendation"></a>Recommendation
 
 - Vedere le procedure consigliate per CI/CD di seguito:
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi dell'integrazione continua/recapito continuo, quindi Data Factory si prevede di avere lo stesso nome e tipo di runtime di integrazione in tutte le fasi di CI/CD. Se il nome e i tipi & proprietà sono diversi, verificare che corrispondano alla configurazione IR di origine e di destinazione e quindi distribuire la pipeline di rilascio.
+- I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi dell'integrazione continua/recapito continuo, quindi Data Factory si prevede di avere lo stesso nome e tipo di runtime di integrazione in tutte le fasi di CI/CD. Se il nome e i tipi & proprietà sono diversi, verificare che corrispondano alla configurazione del runtime di integrazione di origine e di destinazione e quindi distribuire la pipeline di rilascio.
 - Se si desidera condividere runtime di integrazione in tutte le fasi, è consigliabile usare una factory ternaria per contenere solo i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegato.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>Impossibile creare o aggiornare il documento a causa di un riferimento non valido
@@ -133,7 +132,7 @@ Non è possibile spostare Data Factory da un gruppo di risorse a un altro, senza
 
 #### <a name="resolution"></a>Soluzione
 
-Per consentire l'operazione di spostamento, è necessario eliminare i componenti SSIS-IR e l'IRs condiviso. Se non si vuole eliminare l'IRs, il modo migliore consiste nel seguire il documento di copia e clonazione per eseguire la copia e, al termine dell'operazione, eliminare la data factory precedente.
+Per consentire l'operazione di spostamento, è necessario eliminare i componenti SSIS-IR e l'IRs condiviso. Se non si desidera eliminare i runtime di integrazione, il modo migliore consiste nel seguire il documento di copia e clonazione per eseguire la copia e, al termine, eliminare la vecchia Data Factory.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>Non è possibile esportare e importare il modello ARM
 
@@ -150,6 +149,34 @@ Non è possibile esportare e importare il modello ARM. Tuttavia, nella traccia d
 #### <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, è necessario aggiungere l'autorizzazione seguente al ruolo: *Microsoft. DataFactory/factorys/queryFeaturesValue/Action*. Per impostazione predefinita, questa autorizzazione deve essere inclusa nel ruolo "collaboratore Data Factory".
+
+###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Pubblicazione automatica per CI/CD senza fare clic sul pulsante pubblica  
+
+#### <a name="issue"></a>Problema
+
+La pubblicazione manuale con il pulsante clic nel portale di ADF non Abilita l'operazione di integrazione continua/recapito continuo automatica.
+
+#### <a name="cause"></a>Causa
+
+Fino a poco tempo fa, solo un modo per pubblicare la pipeline di ADF per le distribuzioni stava usando il pulsante del portale di ADF. A questo punto, è possibile rendere automatico il processo. 
+
+#### <a name="resolution"></a>Soluzione
+
+Il processo CI/CD è stato migliorato. La funzionalità di **pubblicazione automatica** accetta, convalida ed Esporta tutte le funzionalità del modello di Azure Resource Manager (ARM) dall'UX di ADF. Rende la logica utilizzabile tramite un pacchetto NPM disponibile pubblicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . In questo modo è possibile attivare le azioni a livello di codice anziché passare all'interfaccia utente di ADF e fare clic su un pulsante. Ciò offre alle pipeline di integrazione continua/recapito continuo una **vera** e propria esperienza di integrazione continua. Per informazioni dettagliate, seguire i [miglioramenti alla pubblicazione ci/CD di ADF](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) . 
+
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Impossibile pubblicare a causa del limite del modello ARM da 4 MB  
+
+#### <a name="issue"></a>Problema
+
+Non è possibile eseguire la distribuzione perché si raggiunge Azure Resource Manager limite di 4 MB di dimensioni totali del modello. È necessaria una soluzione da distribuire dopo aver oltrepassato il limite. 
+
+#### <a name="cause"></a>Causa
+
+Azure Resource Manager limita le dimensioni del modello a 4 MB. Limitare le dimensioni del modello a 4 MB e ogni file di parametri a 64 KB. Il limite di 4 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni di risorse iterative e i valori per variabili e parametri. Il limite è stato superato. 
+
+#### <a name="resolution"></a>Soluzione
+
+Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione. Seguire le procedure consigliate per l' [uso di modelli collegati e annidati](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

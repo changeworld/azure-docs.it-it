@@ -1,20 +1,20 @@
 ---
 title: Creare un set di scalabilità che usa VM di Azure spot
 description: Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano macchine virtuali spot per risparmiare sui costi.
-author: cynthn
-ms.author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03bf5e0ef7e6268e68139b6d73685f67d88f6231
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729016"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385932"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -29,6 +29,24 @@ I prezzi per le istanze di spot sono variabili in base all'area e allo SKU. Per 
 
 
 Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando al massimo 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il prezzo massimo `-1` , l'istanza non verrà rimossa in base al prezzo. Il prezzo per l'istanza sarà il prezzo corrente per spot o il prezzo di un'istanza standard, che sempre è inferiore, purché siano disponibili capacità e quota.
+
+
+## <a name="limitations"></a>Limitazioni
+
+Le dimensioni seguenti non sono supportate per Azure spot:
+ - Serie B
+ - Versioni promo di qualsiasi dimensione (ad esempio, dimensioni promo Dv2, NV, NC, H)
+
+Azure spot può essere distribuito in qualsiasi area, ad eccezione Microsoft Azure Cina 21Vianet.
+
+<a name="channel"></a>
+
+Sono attualmente supportati i [tipi di offerta](https://azure.microsoft.com/support/legal/offer-details/) seguenti:
+
+-   Enterprise Agreement
+-   Codice dell'offerta con pagamento in base al consumo 003P
+-   Sponsorizzato
+- Per il provider di servizi cloud (CSP), contattare il proprio partner
 
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
@@ -163,22 +181,7 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 
 **D:**  La scalabilità automatica funziona con entrambi i criteri di rimozione (deallocazione ed eliminazione)?
 
-**R:** Sì, tuttavia è consigliabile impostare i criteri di rimozione per l'eliminazione quando si usa la scalabilità automatica. Questo avviene perché le istanze appena deallocate sono incluse nel calcolo delle capacità nel set di scalabilità. Quando si usa la scalabilità automatica, probabilmente verrà raggiunto rapidamente il numero di istanze di destinazione a causa delle istanze deallocate e rimosse. Inoltre, le operazioni di ridimensionamento possono essere influenzate da eliminazioni di spot. Ad esempio, le istanze di VMSS possono scendere al di sotto del numero di set min a causa di più eliminazioni spot durante le operazioni di ridimensionamento. 
-
-**D:** Quali canali supportano le macchine virtuali spot?
-
-**R:** Vedere la tabella seguente per la disponibilità di macchine virtuali spot.
-
-<a name="channel"></a>
-
-| Canali di Azure               | Disponibilità di macchine virtuali spot di Azure       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Sì                               |
-| Pagamento in base al consumo                | Sì                               |
-| Provider di servizi cloud | [Contattare il partner](/partner-center/azure-plan-get-started) |
-| Vantaggi                     | Non disponibile                     |
-| Sponsorizzato                    | Sì                               |
-| Versione di valutazione gratuita                   | Non disponibile                     |
+**R:** Sì, tuttavia è consigliabile impostare i criteri di rimozione per l'eliminazione quando si usa la scalabilità automatica. Questo avviene perché le istanze appena deallocate sono incluse nel calcolo delle capacità nel set di scalabilità. Quando si usa la scalabilità automatica, probabilmente verrà raggiunto rapidamente il numero di istanze di destinazione a causa delle istanze deallocate e rimosse. Inoltre, le operazioni di ridimensionamento possono essere influenzate da eliminazioni di spot. Ad esempio, le istanze del set di scalabilità di macchine virtuali possono scendere al di sotto del conteggio dei set min a causa di più eliminazioni spot durante le operazioni di ridimensionamento 
 
 
 **D:** Dove è possibile pubblicare le domande?

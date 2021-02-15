@@ -7,20 +7,22 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
-ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/09/2021
+ms.openlocfilehash: 8ae9a89ddba2010603ae5a5f6b812e3aa1e1e3a6
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063214"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097977"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Come pianificare gli indicizzatori in Azure ricerca cognitiva
 
 Un indicizzatore viene in genere eseguito una volta, subito dopo la creazione. Successivamente, è possibile eseguirlo di nuovo su richiesta usando portale di Azure, [Esegui indicizzatore (REST)](/rest/api/searchservice/run-indexer)o Azure SDK. In alternativa, è anche possibile configurare un indicizzatore per l'esecuzione in base a una pianificazione. Di seguito sono riportate alcune situazioni in cui la pianificazione dell'indicizzatore è utile:
 
-* I dati di origine cambieranno nel tempo e si vuole che l'indicizzatore di ricerca elabori automaticamente il Delta.
-* I dati di origine sono molto grandi e si vuole distribuire l'elaborazione dell'indicizzatore nel tempo. Per altre informazioni sull'indicizzazione di grandi volumi di dati, vedere [come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure](search-howto-large-index.md).
+* I dati di origine cambieranno nel tempo e si vuole che l'indicizzatore di ricerca elabori automaticamente la differenza.
+
+* I dati di origine sono molto grandi e si vuole distribuire l'elaborazione dell'indicizzatore nel tempo. I processi dell'indicizzatore sono soggetti a un tempo di esecuzione massimo di 24 ore per le origini dati normali e 2 ore per gli indicizzatori con skillsets. Se non è possibile completare l'indicizzazione entro l'intervallo massimo, è possibile configurare una pianificazione che viene eseguita ogni 2 ore. Gli indicizzatori possono riprendersi automaticamente dal punto in cui sono stati lasciati, come evidenziato da un limite massimo interno che contrassegna la fine dell'ultima indicizzazione. L'esecuzione di un indicizzatore in una pianificazione ricorrente di 2 ore consente all'IT di elaborare un set di dati di grandi dimensioni (molti milioni di documenti) oltre l'intervallo consentito per un singolo processo. Per altre informazioni sull'indicizzazione di volumi di dati di grandi dimensioni, vedere [come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure](search-howto-large-index.md).
+
 * Un indice di ricerca verrà popolato da più origini dati e si desidera che gli indicizzatori vengano eseguiti in momenti diversi per ridurre i conflitti.
 
 Visivamente, una pianificazione potrebbe essere simile alla seguente: a partire dal 1 ° gennaio ed eseguito ogni 50 minuti.

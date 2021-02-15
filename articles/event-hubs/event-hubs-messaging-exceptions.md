@@ -2,13 +2,13 @@
 title: Hub eventi di Azure-eccezioni (legacy)
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica di Hub eventi di Azure e le relative azioni consigliate.
 ms.topic: article
-ms.date: 11/02/2020
-ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 02/10/2021
+ms.openlocfilehash: a76c98ec7d6d1f3370ed8787bf10d1d16a7baaa5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340968"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390896"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Eccezioni di messaggistica di hub eventi-.NET (legacy)
 Questa sezione elenca le eccezioni .NET generate dalle API .NET Framework. 
@@ -125,14 +125,14 @@ Questo errore può verificarsi per uno dei due motivi:
 
     Se i valori sono superiori al numero di limiti di TUs * (1 MB al secondo per il traffico in ingresso o 1000 richieste per il traffico in ingresso al secondo, 2 MB al secondo per l'uscita), aumentare il numero di TUs usando la pagina **scala** (nel menu a sinistra) di uno spazio dei nomi di hub eventi per scalare manualmente più a lungo o usare la funzionalità di aumento [automatico](event-hubs-auto-inflate.md) degli Si noti che il gonfiaggio automatico può aumentare fino a 20 TUS. Per elevarlo esattamente 40 TUs, inviare una [richiesta di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-### <a name="error-code-50001"></a>Codice errore 50001
+### <a name="error-code-50008"></a>Codice di errore 50008
 
 Questo errore si verifica raramente. Si verifica quando il contenitore che esegue il codice per lo spazio dei nomi è insufficiente per la CPU, occorrono pochi secondi prima che il bilanciamento del carico dell'Hub eventi inizi.
 
-**Soluzione**: limitare le chiamate al Metodo GetRuntimeInformation. Hub eventi di Azure supporta fino a 50 chiamate al secondo al GetRuntimeInfo al secondo. Una volta raggiunto il limite, è possibile che venga generata un'eccezione simile alla seguente:
+**Soluzione**: limitare le chiamate al Metodo GetRuntimeInformation. Hub eventi di Azure supporta fino a 50 chiamate al secondo per ogni gruppo di consumer fino al GetRuntimeInfo al secondo. Una volta raggiunto il limite, è possibile che venga generata un'eccezione simile alla seguente:
 
 ```
-ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50008. Please wait 10 seconds and try again.
 ```
 
 

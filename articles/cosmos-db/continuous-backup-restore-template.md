@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 642c61414d882b9cfe83f585fda8ff5404e8834a
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 4abfdd0209bd9f13fb7bd902b27a53f65156da2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538477"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381818"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-resource-manager-templates"></a>Configurare e gestire il backup continuo e il ripristino temporizzato (anteprima)-uso dei modelli di Azure Resource Manager
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -28,7 +28,7 @@ Questo articolo descrive come eseguire il provisioning di un account con backup 
 
 ## <a name="provision-an-account-with-continuous-backup"></a><a id="provision"></a>Effettuare il provisioning di un account con backup continuo
 
-È possibile usare i modelli di Azure Resource Manager per distribuire un account Azure Cosmos DB con la modalità continua. Quando si definisce il modello per il provisioning di un account, includere il parametro "backupPolicy", come illustrato nell'esempio seguente:
+È possibile usare i modelli di Azure Resource Manager per distribuire un account Azure Cosmos DB con la modalità continua. Quando si definisce il modello per il provisioning di un account, includere il `backupPolicy` parametro, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -66,9 +66,9 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 È anche possibile ripristinare un account usando Gestione risorse modello. Quando si definisce il modello, includere i parametri seguenti:
 
-* Impostare il parametro "createMode" su "Restore"
-* Definire "restoreParameters". si noti che il valore "restoreSource" viene estratto dall'output del `az cosmosdb restorable-database-account list` comando per l'account di origine. L'attributo ID istanza per il nome dell'account viene usato per eseguire il ripristino.
-* Impostare il parametro "restoreMode" su "PointInTime" e configurare il valore "restoreTimestampInUtc".
+* Impostare il `createMode` parametro per il *ripristino*
+* Definire l'oggetto `restoreParameters` . si noti che il `restoreSource` valore viene estratto dall'output del `az cosmosdb restorable-database-account list` comando per l'account di origine. L'attributo ID istanza per il nome dell'account viene usato per eseguire il ripristino.
+* Impostare il `restoreMode` parametro su *PointInTime* e configurare il `restoreTimestampInUtc` valore.
 
 ```json
 {

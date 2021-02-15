@@ -1,14 +1,14 @@
 ---
 title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
-ms.date: 01/14/2021
+ms.date: 02/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c0a886b692b99156cbd53e5f0f5953047560c5b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232676"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372145"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -311,12 +311,13 @@ Se è necessario apportare modifiche dopo l'onboarding del cliente, è possibile
 Se non si è in grado di caricare correttamente il cliente o se gli utenti hanno difficoltà ad accedere alle risorse Delegate, verificare i suggerimenti e i requisiti seguenti e riprovare.
 
 - Il `managedbyTenantId` valore non deve corrispondere all'ID tenant per la sottoscrizione da caricare.
-- Non è possibile avere più assegnazioni nello stesso ambito con lo stesso ambito `mspOfferName` . 
+- Non è possibile avere più assegnazioni nello stesso ambito con lo stesso ambito `mspOfferName` .
 - Il provider di risorse **Microsoft. ManagedServices** deve essere registrato per la sottoscrizione delegata. Questa operazione dovrebbe essere eseguita automaticamente durante la distribuzione, ma in caso contrario è possibile [registrarla manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Le autorizzazioni non devono includere utenti con il ruolo predefinito [proprietario](../../role-based-access-control/built-in-roles.md#owner) o i ruoli predefiniti con le [azioni dataactions](../../role-based-access-control/role-definitions.md#dataactions).
 - I gruppi devono essere creati con il [**tipo di gruppo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) impostato su **sicurezza** e non **Microsoft 365**.
 - Potrebbe verificarsi un ulteriore ritardo prima che l'accesso sia abilitato per i [gruppi annidati](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Gli utenti che hanno la necessità di visualizzare le risorse nel portale di Azure necessario avere il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura).
+- I [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) inclusi nelle autorizzazioni non devono includere ruoli deprecati. Se un ruolo predefinito di Azure diventa deprecato, tutti gli utenti che sono stati caricati con tale ruolo perderanno l'accesso e non sarà possibile caricare altre deleghe. Per risolvere questo problema, aggiornare il modello in modo da usare solo i ruoli predefiniti supportati, quindi eseguire una nuova distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

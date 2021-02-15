@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968467"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373369"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
 
@@ -40,7 +40,19 @@ Il primo passaggio per eseguire il training di un modello consiste nel caricare 
 3. Selezionare **Train Model**.
 4. Assegnare un **nome** e una **Descrizione** al training.
 5. Nell'elenco **scenario e modello di base** selezionare lo scenario più adatto al dominio. Se non si è certi dello scenario da scegliere, selezionare **generale**. Il modello di base è il punto di partenza per il training. Il modello più recente è in genere la scelta migliore.
-6. Nella pagina **selezione dati di training** scegliere uno o più set di dati di testo correlati oppure i set di dati di trascrizione audio e con etichetta umana che si desidera utilizzare per il training. Quando si esegue il training di un nuovo modello, iniziare con il testo correlato; il training con audio e la trascrizione con etichetta umana potrebbe richiedere molto più tempo (fino a [diversi giorni](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
+6. Nella pagina **selezione dati di training** scegliere uno o più set di dati di testo correlati oppure i set di dati di trascrizione audio e con etichetta umana che si desidera utilizzare per il training.
+
+> [!NOTE]
+> Quando si esegue il training di un nuovo modello, iniziare con il testo correlato; il training con audio e la trascrizione con etichetta umana potrebbe richiedere molto più tempo **(fino a [diversi giorni](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)**).
+
+> [!NOTE]
+> Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) .
+
+> [!NOTE]
+> Nei casi in cui si modifica il modello di base utilizzato per il training e si dispone di audio nel set di dati di training, verificare *sempre* se il nuovo modello di base selezionato [supporta il training con dati audio](language-support.md#speech-to-text). Se il modello di base usato in precedenza non supporta il training con dati audio e il set di dati di training contiene audio, i tempi di training con il nuovo modello di base aumenteranno **drasticamente** e potranno passare da diverse ore a diversi giorni. Ciò vale soprattutto se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
+>
+> Se si affronta il problema descritto nel paragrafo precedente, è possibile ridurre rapidamente il tempo di training riducendo la quantità di audio nel set di dati o rimuovendo completamente il testo e lasciando solo il testo. La seconda opzione è consigliata se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
+
 7. Al termine del training, è possibile eseguire test di accuratezza sul modello appena sottoposto a training. Questo passaggio è facoltativo.
 8. Selezionare **Crea** per compilare il modello personalizzato.
 

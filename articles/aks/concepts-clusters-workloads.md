@@ -3,13 +3,13 @@ title: Concetti - Nozioni di base di Kubernetes per il servizio Azure Kubernetes
 description: Informazioni sui componenti di base del cluster e del carico di lavoro di Kubernetes e sulle loro relazioni con le funzionalità del servizio Azure Kubernetes
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 12/07/2020
+ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674927"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373233"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -31,8 +31,8 @@ Il servizio Azure Kubernetes è un servizio Kubernetes gestito che riduce la com
 
 Un cluster Kubernetes è suddiviso in due componenti:
 
-- I nodi del *piano di controllo* forniscono i servizi Kubernetes principali e l'orchestrazione dei carichi di lavoro dell'applicazione.
-- I *nodi* eseguono i carichi di lavoro applicativi.
+- Il *piano di controllo* fornisce i servizi Kubernetes principali e l'orchestrazione dei carichi di lavoro dell'applicazione.
+- *Nodi* che eseguono i carichi di lavoro dell'applicazione.
 
 ![Componenti del piano e del nodo di controllo Kubernetes](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
