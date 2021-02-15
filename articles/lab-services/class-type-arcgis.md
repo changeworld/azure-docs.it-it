@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: dbe4191b64773b71bc1ae04842d824fbfead8e55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628153"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373709"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Configurare un Lab per ArcMap\ArcGIS desktop
 
@@ -55,7 +55,7 @@ I passaggi descritti in questa sezione illustrano come configurare la macchina v
 1.  Avviare la VM del modello e connettersi al computer tramite RDP.
 
 2.  Scaricare e installare i componenti di ArcGIS Desktop usando le istruzioni da ESRI.  Questi passaggi includono l'assegnazione del gestore licenze per le licenze d'uso simultanee: 
-    - [Introduzione all'installazione e alla configurazione di ArcGIS Desktop](https://desktop.arcgis.com/arcmap/latest/get-started/installation-guide/introduction.htm)
+    - [Introduzione all'installazione e alla configurazione di ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm)
 
 3.  Configurare l'archiviazione di backup esterno per gli studenti.  Gli studenti possono salvare i file direttamente nella macchina virtuale assegnata, perché tutte le modifiche apportate vengono salvate tra le sessioni.  Tuttavia, è consigliabile che gli studenti riportino il proprio lavoro in un archivio esterno rispetto alla macchina virtuale per alcuni motivi:
     - Per consentire agli studenti di accedere al proprio lavoro al termine della classe e del Lab.  

@@ -1,23 +1,18 @@
 ---
 title: Spostare dati con l'attività di copia
 description: "Informazioni sullo spostamento di dati in pipeline di Data Factory: migrazione di dati tra archivi cloud e tra archivi locali e cloud. Usare l'attività di copia."
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3fe99896ff244d2e35737919e6797141095acb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195973"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364019"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -101,7 +96,7 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | &nbsp; | Stati Uniti centro-meridionali | Stati Uniti centro-meridionali |
 | &nbsp; | Stati Uniti centro-occidentali | Stati Uniti centro-occidentali |
 | &nbsp; | Stati Uniti occidentali | Stati Uniti occidentali |
-| &nbsp; | Stati Uniti occidentali 2 | West US 2 |
+| &nbsp; | Stati Uniti occidentali 2 | Stati Uniti occidentali 2 |
 | Canada | Canada orientale | Canada centrale |
 | &nbsp; | Canada centrale | Canada centrale |
 | Brasile | Brasile meridionale | Brasile meridionale |
@@ -115,7 +110,7 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | &nbsp; | Australia sud-orientale | Australia sud-orientale |
 | India | India centrale | India centrale |
 | &nbsp; | India occidentale | India centrale |
-| &nbsp; | India meridionale | Central India |
+| &nbsp; | India meridionale | India centrale |
 | Giappone | Giappone orientale | Giappone orientale |
 | &nbsp; | Giappone occidentale | Giappone orientale |
 | Corea del Sud | Corea centrale | Corea centrale |

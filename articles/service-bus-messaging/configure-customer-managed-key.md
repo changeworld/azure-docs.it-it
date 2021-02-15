@@ -2,13 +2,13 @@
 title: Configurare la propria chiave per la crittografia dei dati del bus di servizio di Azure inattivi
 description: Questo articolo fornisce informazioni su come configurare una chiave personalizzata per la crittografia di REST di dati del bus di servizio di Azure.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/10/2021
+ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928093"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378316"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure
 Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (SSE di Azure). Il bus di servizio Premium USA archiviazione di Azure per archiviare i dati. Tutti i dati archiviati con archiviazione di Azure vengono crittografati usando chiavi gestite da Microsoft. Se si usa una chiave personalizzata (detta anche Bring Your Own Key (BYOK) o una chiave gestita dal cliente), i dati vengono comunque crittografati con la chiave gestita da Microsoft, ma in aggiunta la chiave gestita da Microsoft verrà crittografata con la chiave gestita dal cliente. Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia delle chiavi gestite da Microsoft. L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
@@ -94,6 +94,17 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
 La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati dal bus di servizio. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi del bus di servizio. Per revocare la chiave di crittografia, è possibile usare i criteri di accesso oppure eliminare la chiave. Altre informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi dall' [accesso sicuro a un insieme di](../key-vault/general/secure-your-key-vault.md)credenziali delle chiavi.
 
 Una volta revocata la chiave di crittografia, il servizio del bus di servizio sullo spazio dei nomi crittografato diventerà inutilizzabile. Se l'accesso alla chiave è abilitato o la chiave eliminata viene ripristinata, il servizio del bus di servizio sceglierà la chiave in modo che sia possibile accedere ai dati dallo spazio dei nomi del bus di servizio crittografato.
+
+## <a name="caching-of-keys"></a>Memorizzazione nella cache delle chiavi
+L'istanza del bus di servizio esegue il polling delle chiavi di crittografia elencate ogni 5 minuti. Memorizza nella cache e li usa fino al polling successivo, che è successivo a 5 minuti. Fino a quando è disponibile almeno una chiave, le code e gli argomenti sono accessibili. Se tutte le chiavi elencate sono inaccessibili durante il polling, tutte le code e gli argomenti diventeranno non disponibili. 
+
+Di seguito sono riportate informazioni dettagliate: 
+
+- Ogni 5 minuti, il servizio del bus di servizio esegue il polling di tutte le chiavi gestite dal cliente elencate nel record dello spazio dei nomi:
+    - Se un tasto è stato ruotato, il record viene aggiornato con la nuova chiave.
+    - Se un tasto è stato revocato, la chiave viene rimossa dal record.
+    - Se tutte le chiavi sono state revocate, lo stato di crittografia dello spazio dei nomi viene impostato su **revocato**. Non è possibile accedere ai dati dallo spazio dei nomi del bus di servizio. 
+    
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>Usare Gestione risorse modello per abilitare la crittografia
 In questa sezione viene illustrato come eseguire le attività seguenti utilizzando i **modelli di Azure Resource Manager**. 

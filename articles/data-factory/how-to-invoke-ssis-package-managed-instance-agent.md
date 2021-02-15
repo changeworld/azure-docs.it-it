@@ -1,20 +1,17 @@
 ---
 title: Eseguire pacchetti SSIS con l'agente di Istanza gestita SQL di Azure
 description: Informazioni su come eseguire pacchetti SSIS con SQL Istanza gestita Agent di Azure.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: 5f8b18375c517ab5b620b2d6d897f5133b14705d
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 916d799ba08f46cb86ee2e22c4af7fc1b92b385f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556461"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386153"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Eseguire pacchetti SSIS con SQL Istanza gestita Agent di Azure
 

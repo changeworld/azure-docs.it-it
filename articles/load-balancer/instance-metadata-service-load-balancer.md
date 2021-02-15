@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: dcc9f71404e5a7c6509e4a8e821d66831ba02382
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0d7d08eb5e77e744fb6ce0abefc550bc79de4c8c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417823"
+ms.locfileid: "100519083"
 ---
 # <a name="retrieve-load-balancer-information-by-using-the-azure-instance-metadata-service"></a>Recuperare le informazioni del servizio di bilanciamento del carico usando il servizio metadati dell'istanza di Azure
 
@@ -29,7 +29,7 @@ I metadati includono le informazioni seguenti per le macchine virtuali o i set d
 
 ## <a name="access-the-load-balancer-metadata-using-the-imds"></a>Accedere ai metadati del servizio di bilanciamento del carico usando IMDS
 
-Per altre informazioni su come accedere ai metadati del servizio di bilanciamento del carico, vedere [usare il servizio metadati dell'istanza di Azure per accedere alle informazioni del servizio di bilanciamento del carico.](howto-load-balancer-imds.md) per accedere alle informazioni del servizio di bilanciamento del carico.
+Per altre informazioni su come accedere ai metadati del servizio di bilanciamento del carico, vedere [usare il servizio metadati dell'istanza di Azure per accedere alle informazioni del servizio di bilanciamento del carico](howto-load-balancer-imds.md).
 
 ## <a name="troubleshoot-common-error-codes"></a>Risolvere i problemi relativi ai codici di errore comuni
 
@@ -40,7 +40,7 @@ Per altre informazioni sui codici di errore comuni e sui relativi metodi di miti
 Se non si è in grado di recuperare una risposta ai metadati dopo più tentativi, creare un problema di supporto nel portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sul [servizio metadati dell'istanza di Azure](/virtual-machines/windows/instance-metadata-service)
+Altre informazioni sul [servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md)
 
 [Distribuire un servizio di bilanciamento del carico standard](quickstart-load-balancer-standard-public-portal.md)
 

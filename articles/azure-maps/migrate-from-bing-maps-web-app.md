@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684826"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389111"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Esercitazione: Eseguire la migrazione di un'app Web da Bing Maps
 
@@ -33,9 +33,9 @@ Le app Web che usano Bing Maps spesso usano Bing Maps V8 JavaScript SDK. Azure M
 
 Se si esegue la migrazione di un'applicazione Web esistente, verificare se usa una libreria di controllo mappa open source, ad esempio Cesium, Leaflet e OpenLayers. In caso affermativo e se si preferisce continuare a usare la libreria, è possibile connetterla ai servizi tessera di Mappe di Azure ([tessere stradali](/rest/api/maps/render/getmaptile) \| [tessere satellitari](/rest/api/maps/render/getmapimagerytile)). I collegamenti seguenti puntano a informazioni dettagliate su come usare Mappe di Azure in alcune librerie di controlli mappa open source di uso comune.
 
-* Cesium: controllo mappa 3D per il Web. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentazione](https://cesiumjs.org/)
-* Leaflet: controllo mappa 2D leggero per il Web. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentazione](https://leafletjs.com/)
-* OpenLayers: controllo mappa 2D per il Web che supporta le proiezioni. [Esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentazione](https://openlayers.org/)
+* [Cesio](https://cesiumjs.org/) : controllo mappa 3D per il Web. [Esempi](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| di codice [Repository plug]() -in
+* [Volantino](https://leafletjs.com/) : controllo mappa 2D leggero per il Web. [Esempi](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| di codice [Repository plug]() -in
+* [OpenLayers](https://openlayers.org/) : controllo mappa 2D per il Web che supporta le proiezioni. [Esempi](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| di codice [Repository plug]() -in
 
 Se si sviluppa con un framework JavaScript, può risultare utile uno dei progetti open source seguenti:
 
@@ -64,7 +64,7 @@ La tabella seguente elenca le principali funzionalità dell'API di Bing Maps V8 
 | Livelli tessera              | ✓                                                                                      |
 | Livello KLM                | ✓                                                                                      |
 | Livello contorno            | [Esempi](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| Livello contenitori per dati       | [Esempi](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| Livello contenitori per dati       | Incluso nel [modulo di origine dati](https://github.com/Azure-Samples/azure-maps-gridded-data-source) open source di Azure Maps griglia       |
 | Livello tessera animata      | Incluso nel [modulo di animazione](https://github.com/Azure-Samples/azure-maps-animations) open source di Mappe di Azure |
 | Strumenti di disegno            | ✓                                                                                      |
 | Servizio di geocodifica         | ✓                                                                                      |
@@ -72,10 +72,10 @@ La tabella seguente elenca le principali funzionalità dell'API di Bing Maps V8 
 | Servizio Matrice di distanze  | ✓                                                                                      |
 | Servizio di dati spaziali     | N/D                                                                                    |
 | Immagini satellitari/aeree | ✓                                                                                      |
-| Immagini di viste aeree         | Pianificata                                                                                |
-| Immagini di viste a livello strada       | Pianificata                                                                                |
+| Immagini di viste aeree         | N/D                                                                                |
+| Immagini di viste a livello strada       | N/D                                                                                |
 | Supporto di GeoJSON          | ✓                                                                                      |
-| Supporto di GeoXML           | ✓                                                                                      |
+| Supporto di GeoXML           | ✓ [Modulo io spaziale](how-to-use-spatial-io-module.md)                                                                                     |
 | Supporto di Well-Known Text  | ✓                                                                                      |
 | Stili di mappa personalizzati        | Partial                                                                                |
 

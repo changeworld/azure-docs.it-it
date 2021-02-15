@@ -143,8 +143,10 @@
       items:
         - name: Richiedere aumenti di quota
           href: database/quota-increase-request.md
-        - name: Automazione dei processi
+        - name: Automazione dei processi con processi elastici
           href: database/job-automation-overview.md
+        - name: Automazione dei processi con SQL Agent
+          href: database/job-automation-managed-instances.md
         - name: Continuità aziendale
           items:
             - name: Configurare il gruppo di failover

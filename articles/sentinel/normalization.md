@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805091"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390811"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizzazione in Sentinel di Azure
 
@@ -70,6 +70,9 @@ Il riferimento allo schema include anche il valore e la standardizzazione del fo
 
 ## <a name="parsers"></a>Parser
 
+- [Che cos'è l'analisi](#what-is-parsing)
+- [Utilizzo di parser per la fase di query](#using-query-time-parsers)
+
 ### <a name="what-is-parsing"></a>Che cos'è l'analisi
 
 Con un set di base di tabelle normalizzate definite disponibili, è necessario trasformare i dati (analizzarli/eseguirne il mapping) in tali tabelle. Ovvero si estraggono dati specifici dal formato non elaborato in colonne note dello schema normalizzato. L'analisi in Sentinel di Azure viene eseguita in fase di **query** . i parser sono compilati come log Analytics funzioni utente (usando kusto Query Language-KQL) che trasformano i dati nelle tabelle esistenti, ad esempio CommonSecurityLog, le tabelle di log personalizzate, syslog, nello schema delle tabelle normalizzate.
@@ -77,6 +80,10 @@ Con un set di base di tabelle normalizzate definite disponibili, è necessario t
 L'altro tipo di analisi, non ancora supportato in Sentinel di Azure, **è in fase di inserimento** , consentendo a di raccogliere i dati direttamente nelle tabelle normalizzate quando vengono inserite dalle origini dati. L'analisi del tempo di inserimento garantisce prestazioni migliori quando viene eseguita una query sul modello di dati direttamente senza la necessità di usare funzioni.
 
 ### <a name="using-query-time-parsers"></a>Utilizzo di parser per la fase di query
+
+- [Installazione di un parser](#installing-a-parser)
+- [Uso dei parser](#using-the-parsers)
+- [Personalizzazione dei parser](#customizing-parsers)
 
 #### <a name="installing-a-parser"></a>Installazione di un parser
 
@@ -119,6 +126,12 @@ Nel riquadro a destra, espandere la sezione "query salvate" e trovare la cartell
 
 È possibile fare clic su ogni singolo parser e visualizzare la funzione sottostante utilizzata ed eseguirla (o accedervi direttamente tramite il relativo alias, come descritto in precedenza). Si noti che alcuni parser possono mantenere i campi originali affiancati ai campi normalizzati per praticità. Questa operazione può essere facilmente modificata nella query del parser.
 
+> [!TIP]
+> È possibile usare le funzioni salvate anziché le tabelle di Sentinel di Azure in qualsiasi query, incluse le query di ricerca e rilevamento. Per altre informazioni, vedere:
+>
+> - [Normalizzazione dei dati in Sentinel di Azure](normalization.md#parsers)
+> - [Analizzare il testo nei log di monitoraggio di Azure](/azure/azure-monitor/log-query/parse-text)
+>
 #### <a name="customizing-parsers"></a>Personalizzazione dei parser
 
 È possibile ripetere i passaggi precedenti (ricerca del parser in Esplora query), fare clic sul parser pertinente e visualizzarne l'implementazione della funzione.
@@ -131,6 +144,8 @@ Una volta modificata la funzione, fare di nuovo clic su "Salva" e utilizzare lo 
 :::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Sei sicuro":::
 
 #### <a name="additional-information"></a>Informazioni aggiuntive
+
+JSON, XML e CSV sono particolarmente utili per l'analisi in fase di query. Azure Sentinel include funzioni di analisi predefinite per JSON, XML e CSV, oltre a uno strumento di analisi JSON.  Per altre informazioni, vedere [uso dei campi JSON in Sentinel di Azure](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (Blog). 
 
 Altre informazioni sulle [query salvate](../azure-monitor/log-query/example-queries.md) , ovvero l'implementazione dei parser in fase di query, sono disponibili in log Analytics.
 

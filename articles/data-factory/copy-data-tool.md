@@ -1,22 +1,17 @@
 ---
 title: Strumento Copia dati Azure Data Factory
 description: Contiene informazioni sullo strumento Copia dati nell'interfaccia utente di Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: b0ba14a05ac42e9fccc1a146ad5943716652104d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434198"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372995"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +64,7 @@ In molti casi lo schema dell'origine dati può non essere uguale a quello della 
 Lo strumento Copia dati è in grado di monitorare e apprendere il comportamento dell'utente quando esegue il mapping delle colonne tra gli archivi di origine e destinazione. Dopo che l'utente ha selezionato una o più colonne dall'archivio dati di origine e ne ha eseguito il mapping con lo schema di destinazione, lo strumento Copia dei dati inizia ad analizzare il criterio adottato per la selezione delle coppie di colonne in entrambi gli archivi e quindi applica lo stesso criterio alle colonne rimanenti. Si noterà così che tutte le colonne vengono mappate alla destinazione nel modo desiderato solo dopo poche semplici operazioni.  Se non si è soddisfatti del mapping delle colonne eseguito dallo strumento Copia dati, è possibile ignorarlo e continuare l'operazione manualmente. Nel frattempo, lo strumento Copia dati acquisisce altre informazioni e aggiorna costantemente il modello in modo da identificare il criterio corretto che l'utente vuole adottare per il mapping delle colonne. 
 
 > [!NOTE]
-> Quando si copiano dati da SQL Server o da un database SQL di Azure in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), se la tabella non esiste nell'archivio di destinazione, Copia dati strumento supporta la creazione automatica della tabella tramite lo schema di origine. 
+> Quando si copiano dati da SQL Server o da un database SQL di Azure in Azure sinapsi Analytics, se la tabella non esiste nell'archivio di destinazione, Copia dati strumento supporta la creazione automatica della tabella tramite lo schema di origine. 
 
 ## <a name="filter-data"></a>Filtrare i dati
 È possibile filtrare i dati di origine per selezionare soltanto quelli da copiare nell'archivio dati sink. L'uso del filtro consente di ridurre il volume di dati da copiare nell'archivio dati sink, aumentando l'efficacia dell'operazione di copia. Lo strumento Copia dati offre un modo flessibile per filtrare i dati in un database relazionale con il linguaggio di query SQL o per filtrare i file in una cartella BLOB di Azure. 

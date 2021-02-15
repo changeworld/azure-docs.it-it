@@ -1,20 +1,20 @@
 ---
 title: Estendere IoT Central di Azure con regole e notifiche personalizzate | Microsoft Docs
 description: Per gli sviluppatori di soluzioni, configurare un'applicazione IoT Central per inviare notifiche tramite posta elettronica quando un dispositivo smette di inviare dati di telemetria. Questa soluzione USA analisi di flusso di Azure, funzioni di Azure e SendGrid.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7e3292a9070e6676faad15e73d357e7f6875b5f4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220266"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371676"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendere Azure IoT Central con regole personalizzate usando Analisi di flusso, Funzioni di Azure e SendGrid
 
@@ -52,7 +52,7 @@ Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Sceg
 
 Questo modello di applicazione include due dispositivi termotermostati simulati che inviano dati di telemetria.
 
-### <a name="resource-group"></a>Gruppo di risorse
+### <a name="resource-group"></a>Resource group
 
 Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure.com/#create/Microsoft.ResourceGroup) denominato **DetectStoppedDevices** per contenere le altre risorse create. Creare le risorse di Azure nello stesso percorso dell'applicazione IoT Central.
 
@@ -97,22 +97,18 @@ Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azu
 | Stack di runtime | .NET |
 | Archiviazione | Creare un nuovo gruppo di risorse |
 
-### <a name="sendgrid-account"></a>Account SendGrid
+### <a name="sendgrid-account-and-api-keys"></a>Chiavi API e account SendGrid
 
-Usare il [portale di Azure per creare un account SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) con le impostazioni seguenti:
+Se non si ha un account SendGrid, creare un [account gratuito](https://app.sendgrid.com/) prima di iniziare.
 
-| Impostazione | Valore |
-| ------- | ----- |
-| Nome    | Scegliere il nome dell'account SendGrid |
-| Password | Creare una password |
-| Subscription | Sottoscrizione in uso |
-| Resource group | DetectStoppedDevices |
-| Piano tariffario | F1 Gratuito |
-| Informazioni contatto | Compilare le informazioni necessarie |
+1. Dalle impostazioni del dashboard di SendGrid nel menu a sinistra selezionare **chiavi API**.
+1. Fare clic su **Crea chiave API.**
+1. Denominare la nuova chiave API **AzureFunctionAccess.**
+1. Fare clic su **crea & visualizzazione**.
 
-Quando sono state create tutte le risorse necessarie, il gruppo di risorse **DetectStoppedDevices** è simile allo screenshot seguente:
+    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Screenshot della chiave API Create SendGrid.":::
 
-![Rileva il gruppo di risorse dei dispositivi arrestati](media/howto-create-custom-rules/resource-group.png)
+Successivamente, verrà fornita una chiave API. Salvare questa stringa per un uso successivo.
 
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
 
@@ -121,21 +117,9 @@ Quando sono state create tutte le risorse necessarie, il gruppo di risorse **Det
 1. Nella portale di Azure passare allo spazio dei nomi di hub eventi e selezionare **+ Hub eventi**.
 1. Denominare il **centralexport** dell'hub eventi e selezionare **Crea**.
 
-Lo spazio dei nomi di hub eventi è simile allo screenshot seguente:
+Lo spazio dei nomi di hub eventi è simile allo screenshot seguente: 
 
-![Spazio dei nomi di Hub eventi](media/howto-create-custom-rules/event-hubs-namespace.png)
-
-## <a name="get-sendgrid-api-key"></a>Ottenere la chiave API SendGrid
-
-Per l'app per le funzioni è necessaria una chiave API SendGrid per l'invio di messaggi di posta elettronica. Per creare una chiave API SendGrid:
-
-1. Nella portale di Azure passare all'account SendGrid. Quindi scegliere **Gestisci** per accedere all'account SendGrid.
-1. Nell'account SendGrid scegliere **Impostazioni**, quindi **chiavi API**. Scegliere **Crea chiave API**:
-
-    ![Crea chiave API SendGrid](media/howto-create-custom-rules/sendgrid-api-keys.png)
-
-1. Nella pagina **Crea chiave API** creare una chiave denominata **AzureFunctionAccess** con autorizzazioni di **accesso completo** .
-1. Prendere nota della chiave API, necessaria quando si configura l'app per le funzioni.
+    :::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
 ## <a name="define-the-function"></a>Definire la funzione
 
@@ -143,37 +127,22 @@ Questa soluzione usa un'app funzioni di Azure per inviare una notifica di posta 
 
 1. Nella portale di Azure passare all'istanza del **servizio app** nel gruppo di risorse **DetectStoppedDevices** .
 1. Selezionare **+** per creare una nuova funzione.
-1. Nella pagina **scegliere un ambiente di sviluppo** scegliere **in-Portal** , quindi selezionare **continua**.
-1. Nella pagina **Crea una funzione** scegliere **webhook e API** e quindi fare clic su **Crea**.
+1. Selezionare **trigger http**.
+1. Selezionare **Aggiungi**.
+
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Immagine della funzione trigger HTTP predefinita"::: 
+
+## <a name="edit-code-for-http-trigger"></a>Modificare il codice per il trigger HTTP
 
 Il portale crea una funzione predefinita denominata **HttpTrigger1**:
 
-![Funzione trigger HTTP predefinita](media/howto-create-custom-rules/default-function.png)
+    :::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
-### <a name="configure-function-bindings"></a>Configura associazioni di funzioni
-
-Per inviare messaggi di posta elettronica con SendGrid, è necessario configurare i binding per la funzione nel modo seguente:
-
-1. Selezionare **integrazione**, scegliere il http di output **($Return)**, quindi selezionare **Elimina**.
-1. Scegliere **+ nuovo output**, quindi scegliere **SendGrid**, quindi scegliere **Seleziona**. Scegliere **Installa** per installare l'estensione SendGrid.
-1. Al termine dell'installazione, selezionare **Usa valore restituito della funzione**. Aggiungere un **indirizzo valido per** ricevere le notifiche tramite posta elettronica.  Aggiungere un **Indirizzo from valido da** usare come mittente del messaggio di posta elettronica.
-1. Selezionare **nuovo** accanto a **impostazione app chiave API SendGrid**. Immettere **SendGridAPIKey** come chiave e la chiave API SendGrid annotata in precedenza come valore. Quindi selezionare **Crea**
-1. Scegliere **Salva** per salvare le associazioni SendGrid per la funzione.
-
-Le impostazioni di integrazione hanno un aspetto simile allo screenshot seguente:
-
-![Integrazioni di app per le funzioni](media/howto-create-custom-rules/function-integrate.png)
-
-### <a name="add-the-function-code"></a>Aggiungere il codice della funzione
-
-Per implementare la funzione, aggiungere il codice C# per analizzare la richiesta HTTP in ingresso e inviare i messaggi di posta elettronica come indicato di seguito:
-
-1. Scegliere la funzione **HttpTrigger1** nell'app per le funzioni e sostituire il codice C# con il codice seguente:
+1. Sostituire il codice C# con il codice seguente:
 
     ```csharp
     #r "Newtonsoft.Json"
-    #r "..\bin\SendGrid.dll"
-
+    #r "SendGrid"
     using System;
     using SendGrid.Helpers.Mail;
     using Microsoft.Azure.WebJobs.Host;
@@ -196,7 +165,7 @@ Per implementare la funzione, aggiungere il codice C# per analizzare la richiest
             content += $"<tr><td>{notification.deviceid}</td><td>{notification.time}</td></tr>";
         }
         content += "</table>";
-        message.AddContent("text/html", content);
+        message.AddContent("text/html", content);  
 
         return message;
     }
@@ -209,8 +178,45 @@ Per implementare la funzione, aggiungere il codice C# per analizzare la richiest
     ```
 
     È possibile che venga visualizzato un messaggio di errore fino a quando non si salva il nuovo codice.
-
 1. Selezionare **Save (Salva** ) per salvare la funzione.
+
+## <a name="add-sendgrid-key"></a>Aggiungi chiave di SendGrid
+
+Per aggiungere la chiave API SendGrid, è necessario aggiungerla ai **tasti funzione** come indicato di seguito:
+
+1. Selezionare i **tasti funzione**.
+1. Scegliere **+ nuovo tasto funzione**.
+1. Immettere il *nome* e il *valore* della chiave API creata in precedenza.
+1. Scegliere **OK.**
+
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot della chiave add Sangrid.":::
+
+
+## <a name="configure-httptrigger-function-to-use-sendgrid"></a>Configurare la funzione HttpTrigger per l'uso di SendGrid
+
+Per inviare messaggi di posta elettronica con SendGrid, è necessario configurare i binding per la funzione nel modo seguente:
+
+1. Selezionare **Integrazione**.
+1. Scegliere **Aggiungi output** in **http ($Return)**.
+1. Selezionare **Elimina.**
+1. Scegliere **+ nuovo output**.
+1. Per tipo di binding, scegliere **SendGrid**.
+1. Per tipo di impostazione della chiave API SendGrid, fare clic su nuovo.
+1. Immettere il *nome* e il *valore* della chiave API SendGrid.
+1. Aggiungere le informazioni seguenti:
+
+| Impostazione | Valore |
+| ------- | ----- |
+| Nome del parametro del messaggio | Scegliere il nome |
+| Indirizzo | Scegliere il nome dell'indirizzo |
+| Indirizzo del mittente. | Scegliere il nome dell'indirizzo da |
+| Oggetto del messaggio | Immettere l'intestazione dell'oggetto |
+| Testo del messaggio | Immettere il messaggio dall'integrazione |
+
+1. Selezionare **OK**.
+
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot dell'aggiunta dell'output SandGrid.":::
+
 
 ### <a name="test-the-function-works"></a>Testare la funzione funziona
 
@@ -222,7 +228,7 @@ Per testare la funzione nel portale, scegliere innanzitutto **log** nella parte 
 
 I messaggi del log delle funzioni vengono visualizzati nel pannello **logs** :
 
-![Output del log delle funzioni](media/howto-create-custom-rules/function-app-logs.png)
+    :::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
 Dopo alcuni minuti, l'indirizzo **di** posta elettronica a riceve un messaggio di posta elettronica con il contenuto seguente:
 
@@ -303,26 +309,26 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 1. Selezionare **Salva**.
 1. Per avviare il processo di analisi di flusso, scegliere **Panoramica**, **Avvia**, quindi **ora**, quindi **Avvia**:
 
-    ![Analisi di flusso](media/howto-create-custom-rules/stream-analytics.png)
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot di analisi di flusso.":::
 
 ## <a name="configure-export-in-iot-central"></a>Configurare l'esportazione in IoT Central
 
 Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) passare all'applicazione IoT Central creata dal modello contoso. In questa sezione l'applicazione viene configurata in modo da trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
 
 1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
-1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
+1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**: 
 
     | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Enabled | On |
+    | Abilitato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
     | Misurazioni | On |
     | Dispositivi | Off |
     | Modelli di dispositivo | Off |
 
-![Configurazione dell'esportazione continua dei dati](media/howto-create-custom-rules/cde-configuration.png)
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot della configurazione di esportazione dei dati continua.":::
 
 Prima di continuare, attendere che lo stato di esportazione sia **in esecuzione** .
 

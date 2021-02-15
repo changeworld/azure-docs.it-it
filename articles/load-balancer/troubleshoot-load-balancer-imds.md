@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: e648d71ed3c501c07a2491054b273a13d74cedaf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e932e211996a05b2740613381735a7de3492e5bf
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417627"
+ms.locfileid: "100519185"
 ---
 # <a name="error-codes-common-error-codes-when-using-imds-to-retrieve-load-balancer-information"></a>Codici di errore: codici di errore comuni quando si usa IMDS per recuperare informazioni sul servizio di bilanciamento del carico
 
@@ -28,8 +28,8 @@ Questo articolo descrive gli errori di distribuzione comuni e illustra come riso
 | 400 | Richiesta imprevista. Verificare i parametri della query e riprovare. | Il codice di errore indica che il formato della richiesta non è configurato correttamente. </br> Per altre informazioni, vedere [come recuperare i metadati del servizio di bilanciamento del carico usando il servizio metadati dell'istanza di Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response) per correggere il corpo della richiesta ed emettere un nuovo tentativo. |
 | 404 | Non sono stati trovati metadati del servizio di bilanciamento del carico. Verificare se la macchina virtuale usa un servizio di bilanciamento del carico SKU non Basic e riprovare più tardi. | Il codice di errore indica che la macchina virtuale non è associata a un servizio di bilanciamento del carico o che il servizio di bilanciamento del carico è uno SKU Basic anziché standard. </br> Per altre informazioni, vedere [Guida introduttiva: creare un servizio di bilanciamento del carico pubblico per bilanciare il carico delle macchine virtuali usando il portale di Azure](quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard) per distribuire un servizio di bilanciamento del carico standard.|
 | 404 | API non trovata: percorso = " \<UrlPath> ", metodo = " \<Method> " | Il codice di errore indica un errore di configurazione del percorso. </br> Per altre informazioni, vedere [come recuperare i metadati del servizio di bilanciamento del carico usando il servizio metadati dell'istanza di Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response) per correggere il corpo della richiesta ed emettere un nuovo tentativo.|
-| 405 | Il metodo HTTP non è consentito: path = " \<UrlPath> ", Method = " \<Method> " | Il codice di errore indica un verbo HTTP non supportato. </br> Per altre informazioni, vedere [servizio metadati dell'istanza di Azure (IMDS)](/virtual-machines/windows/instance-metadata-service?tabs=windows.md#http-verbs) per i verbi supportati. |
-| 429 | Numero eccessivo di richieste | Il codice di errore indica un limite di velocità. </br> Per ulteriori informazioni sulla limitazione della frequenza, vedere [servizio metadati dell'istanza di Azure (IMDS)](/virtual-machines/windows/instance-metadata-service?tabs=windows#rate-limiting).|
+| 405 | Il metodo HTTP non è consentito: path = " \<UrlPath> ", Method = " \<Method> " | Il codice di errore indica un verbo HTTP non supportato. </br> Per altre informazioni, vedere [servizio metadati dell'istanza di Azure (IMDS)](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#http-verbs) per i verbi supportati. |
+| 429 | Numero eccessivo di richieste | Il codice di errore indica un limite di velocità. </br> Per ulteriori informazioni sulla limitazione della frequenza, vedere [servizio metadati dell'istanza di Azure (IMDS)](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#rate-limiting).|
 | 400 | Il corpo della richiesta è maggiore di MaxBodyLength:... | Il codice di errore indica una richiesta di dimensioni maggiori di MaxBodyLength. </br> Per altre informazioni sulla lunghezza del corpo, vedere [come recuperare i metadati del servizio di bilanciamento del carico usando il servizio metadati dell'istanza di Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response).|
 | 400 | La lunghezza della chiave del parametro è maggiore di MaxParameterKeyLength:... | Il codice di errore indica una lunghezza della chiave del parametro maggiore di MaxParameterKeyLength. </br> Per altre informazioni sulla lunghezza del corpo, vedere [come recuperare i metadati del servizio di bilanciamento del carico usando il servizio metadati dell'istanza di Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response). |
 | 400 | La lunghezza del valore del parametro è maggiore di MaxParameterValueLength:... | Il codice di errore indica una lunghezza della chiave del parametro maggiore di MaxParameterValueLength. </br> Per altre informazioni sulla lunghezza del valore, vedere [come recuperare i metadati del servizio di bilanciamento del carico usando il servizio metadati dell'istanza di Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response).|
@@ -41,5 +41,5 @@ Questo articolo descrive gli errori di distribuzione comuni e illustra come riso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sul [servizio metadati dell'istanza di Azure](/virtual-machines/windows/instance-metadata-service.md)
+Altre informazioni sul [servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md)
 

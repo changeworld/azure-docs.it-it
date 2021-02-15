@@ -2,16 +2,15 @@
 title: Risolvere i problemi relativi ai runbook di Automazione di Azure
 description: Questo articolo descrive come risolvere i problemi relativi ai runbook di Automazione di Azure.
 services: automation
-ms.subservice: ''
-ms.date: 11/03/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053670"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388023"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -224,37 +223,46 @@ Durante l'esecuzione dei runbook, il runbook non riesce a gestire le risorse di 
 
 ### <a name="cause"></a>Causa
 
-Il runbook non usa il contesto corretto durante l'esecuzione.
+Il runbook non usa il contesto corretto durante l'esecuzione. Questo potrebbe essere dovuto al fatto che Runbook tenta accidentalmente di accedere alla sottoscrizione non corretta.
+
+Potrebbe essere visualizzato un errore simile al seguente:
+
+```error
+Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+   ErrorCode: AuthorizationFailed
+   StatusCode: 403
+   ReasonPhrase: Forbidden Operation
+   ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
+```
 
 ### <a name="resolution"></a>Risoluzione
 
-Quando un runbook richiama più runbook, è possibile che il contesto della sottoscrizione venga perso. Affinché il contesto della sottoscrizione venga passato ai runbook, è necessario che il runbook client passi il contesto al cmdlet `Start-AzureRmAutomationRunbook` nel parametro `AzureRmContext`. Usare il cmdlet `Disable-AzureRmContextAutosave` con il parametro `Scope` impostato su `Process` per assicurarsi che le credenziali specificate vengano usate solo per il runbook corrente. Per altre informazioni, vedere [Sottoscrizioni](../automation-runbook-execution.md#subscriptions).
+Quando un runbook richiama più runbook, è possibile che il contesto della sottoscrizione venga perso. Per evitare il tentativo accidentale di accedere alla sottoscrizione non corretta, attenersi alle istruzioni riportate di seguito.
 
-```azurepowershell-interactive
-# Ensures that any credentials apply only to the execution of this runbook
-Disable-AzContextAutosave –Scope Process
+* Per evitare di fare riferimento alla sottoscrizione errata, disabilitare il salvataggio del contesto nei manuali operativi di automazione usando il codice seguente all'inizio di ogni Runbook.
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+   ```azurepowershell-interactive
+   Disable-AzContextAutosave –Scope Process
+   ```
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+* I cmdlet di Azure PowerShell supportano il `-DefaultProfile` parametro. Questa operazione è stata aggiunta a tutti i cmdlet AZ e AzureRm per supportare l'esecuzione di più script PowerShell nello stesso processo, consentendo di specificare il contesto e la sottoscrizione da usare per ogni cmdlet. Con il manuali operativi, è necessario salvare l'oggetto di contesto nel runbook quando viene creato il Runbook (ovvero quando un account esegue l'accesso) e ogni volta che viene modificato e fare riferimento al contesto quando si specifica un cmdlet AZ.
 
-$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   > [!NOTE]
+   > È necessario passare un oggetto contesto anche quando si modifica il contesto usando direttamente i cmdlet, ad esempio [set-AzContext](/powershell/module/az.accounts/Set-AzContext) o [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
 
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -AzContext $AzContext `
-    –Parameters $params –wait
-```
-
+   ```azurepowershell-interactive
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
+   $context = Add-AzAccount `
+             -ServicePrincipal `
+             -TenantId $servicePrincipalConnection.TenantId `
+             -ApplicationId $servicePrincipalConnection.ApplicationId `
+             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+   $context = Set-AzContext -SubscriptionName $subscription `
+       -DefaultProfile $context
+   Get-AzVm -DefaultProfile $context
+   ```
+  
 ## <a name="scenario-authentication-to-azure-fails-because-multifactor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>Scenario: l'autenticazione in Azure ha esito negativo perché è abilitata l'autenticazione a più fattori
 
 ### <a name="issue"></a>Problema

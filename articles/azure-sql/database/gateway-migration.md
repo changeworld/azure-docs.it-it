@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575161"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517825"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,22 @@ Le informazioni più aggiornate verranno mantenute nella tabella degli [indirizz
 ## <a name="status-updates"></a>Aggiornamenti dello stato
 
 # <a name="in-progress"></a>[In corso](#tab/in-progress-ip)
+## <a name="march-2021"></a>Marzo 2021
+I seguenti gateway SQL in più aree sono in fase di disattivazione:
+
+- Brasile meridionale: 104.41.11.5
+- Asia orientale: 191.234.2.139
+- Stati Uniti orientali: 191.238.6.43
+- Giappone orientale: 191.237.240.43
+- Giappone occidentale: 191.238.68.11
+- Europa settentrionale: 191.235.193.75
+- Stati Uniti centro-meridionali: 23.98.162.75
+- Asia sudorientale: 23.100.117.95
+- Europa occidentale: 191.237.232.75
+- Stati Uniti occidentali: 23.99.34.75
+
+Non è previsto alcun effetto sul cliente poiché questi gateway (in esecuzione su hardware meno recenti) non instradano il traffico dei clienti. Gli indirizzi IP per questi gateway verranno disattivati il 15 marzo 2021.
+
 ## <a name="february-2021"></a>2021 febbraio
 Nuovi gateway SQL vengono aggiunti alle aree seguenti:
 
@@ -95,7 +111,7 @@ Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL inizie
 - Europa occidentale: 52.236.184.163 
 - Stati Uniti centro-meridionali: 20.45.121.1, 20.49.88.1 
 
-I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il **1 ° settembre 2020** :
+I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il **1 ° settembre 2020**:
 - Giappone orientale: 40.79.184.8, 40.79.192.5
 
 

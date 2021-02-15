@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538503"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369969"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modello di risorsa per la funzionalità di ripristino temporizzato di Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,14 +30,14 @@ Il modello di risorse dell'account del database viene aggiornato con alcune prop
 
 ### <a name="backuppolicy"></a>BackupPolicy
 
-Una nuova proprietà nel criterio di backup a livello di account denominato "tipo" nel parametro "backuppolicy" Abilita le funzionalità di backup continuo e ripristino temporizzato. Questa modalità è denominata **backup continuo**. Nell'anteprima pubblica è possibile impostare questa modalità solo quando si crea l'account. Dopo l'abilitazione, tutti i contenitori e i database creati in questo account disporranno di funzionalità di backup continuo e ripristino temporizzato abilitate per impostazione predefinita.
+Una nuova proprietà nel criterio di backup a livello di account denominato `Type` sotto `backuppolicy` parametro Abilita il backup continuo e le funzionalità di ripristino temporizzato. Questa modalità è denominata **backup continuo**. Nell'anteprima pubblica è possibile impostare questa modalità solo quando si crea l'account. Dopo l'abilitazione, tutti i contenitori e i database creati in questo account disporranno di funzionalità di backup continuo e ripristino temporizzato abilitate per impostazione predefinita.
 
 > [!NOTE]
 > Attualmente la funzionalità di ripristino temporizzato è disponibile in anteprima pubblica ed è disponibile per Azure Cosmos DB API per MongoDB e per gli account SQL. Dopo aver creato un account con la modalità continua, non è possibile passare a una modalità periodica.
 
 ### <a name="createmode"></a>CreateMode
 
-Questa proprietà indica il modo in cui è stato creato l'account. I valori possibili sono "default" e "Restore". Per eseguire un ripristino, impostare questo valore su "Ripristina" e specificare i valori appropriati nella `RestoreParameters` Proprietà.
+Questa proprietà indica il modo in cui è stato creato l'account. I valori possibili sono *default* e *Restore*. Per eseguire un ripristino, impostare questo valore su *Ripristina* e specificare i valori appropriati nella `RestoreParameters` Proprietà.
 
 ### <a name="restoreparameters"></a>RestoreParameters
 
@@ -45,7 +45,7 @@ La `RestoreParameters` risorsa contiene i dettagli dell'operazione di ripristino
 
 |Nome proprietà |Descrizione  |
 |---------|---------|
-|restoreMode  | La modalità di ripristino deve essere "PointInTime" |
+|restoreMode  | La modalità di ripristino dovrebbe essere *PointInTime* |
 |restoreSource   |  ID istanza dell'account di origine da cui verrà avviato il ripristino.       |
 |restoreTimestampInUtc  | Data e ora in formato UTC in cui deve essere ripristinato l'account. |
 |databasesToRestore   | Elenco di `DatabaseRestoreSource` oggetti per specificare i database e i contenitori da ripristinare. Se questo valore è vuoto, viene ripristinato l'intero account.   |

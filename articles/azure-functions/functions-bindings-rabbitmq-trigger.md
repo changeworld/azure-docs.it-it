@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760402"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388992"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Panoramica del trigger RabbitMQ per funzioni di Azure
 
@@ -27,7 +27,7 @@ Per informazioni sui dettagli di impostazione e configurazione, vedere la [panor
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Nell'esempio seguente viene illustrata una [funzione C#](functions-dotnet-class-library.md) che legge e registra il messaggio RabbitMQ come [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
+Nell'esempio seguente viene illustrata una [funzione C#](functions-dotnet-class-library.md) che legge e registra il messaggio RabbitMQ come [evento RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -229,7 +229,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Il tipo di messaggio predefinito è l' [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e la `Body` proprietà dell'evento RabbitMQ può essere letta come i tipi elencati di seguito:
+Il tipo di messaggio predefinito è l' [evento RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e la `Body` proprietà dell'evento RabbitMQ può essere letta come i tipi elencati di seguito:
 
 * `An object serializable as JSON` -Il messaggio viene recapitato come stringa JSON valida.
 * `string`
@@ -238,7 +238,7 @@ Il tipo di messaggio predefinito è l' [evento RabbitMQ](https://www.rabbitmq.co
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Il tipo di messaggio predefinito è l' [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e la `Body` proprietà dell'evento RabbitMQ può essere letta come i tipi elencati di seguito:
+Il tipo di messaggio predefinito è l' [evento RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e la `Body` proprietà dell'evento RabbitMQ può essere letta come i tipi elencati di seguito:
 
 * `An object serializable as JSON` -Il messaggio viene recapitato come stringa JSON valida.
 * `string`

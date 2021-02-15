@@ -8,17 +8,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 5aaf31d8c629e0770b913485de175c38f708390c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0a83dd143ae626108fdf8d2645b8cc368a3f3e05
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359626"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516567"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Accedere ai dati dell'API Cassandra di Azure Cosmos DB da Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-Questo articolo illustra come usare l'API Cassandra di Azure Cosmos DB da Spark in [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
+Questo articolo illustra come usare Azure Cosmos DB API Cassandra da Spark in [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,7 +62,7 @@ I programmi Spark da eseguire come processi automatici in Azure Databricks vengo
 
 I collegamenti seguenti consentono di iniziare a compilare programmi Spark in Scala per l'interazione con l'API Cassandra di Azure Cosmos DB.
 * [Come connettersi all'API Cassandra di Azure Cosmos DB da un programma Spark in Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
-* [Come eseguire un programma Spark in Scala come processo automatico in Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Come eseguire un programma Spark in Scala come processo automatico in Azure Databricks](/azure/databricks/jobs)
 * [Elenco completo di esempi di codice per l'uso dell'API Cassandra](cassandra-spark-generic.md#next-steps)
 
 ## <a name="next-steps"></a>Passaggi successivi

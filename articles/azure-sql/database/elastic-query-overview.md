@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: c8f0bb6e0e58d672faa0929d6266e5e2c5a4f1f1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.openlocfilehash: cac17bbac96d44d8d9bfce2e168de4ea6d4c5c08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781057"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364954"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Una query elastica semplifica l'accesso a un'intera raccolta di database tramite
 Gli scenari relativi ai clienti per la query elastica sono caratterizzati dalle topologie seguenti:
 
 * **Partizionamento verticale - Query tra database** (Topologia 1): i dati vengono partizionati verticalmente tra alcuni database in un livello di dati. In genere, diversi set di tabelle si trovano in diversi database. Lo schema risulta quindi diverso nei diversi database. Ad esempio, tutte le tabelle per l'inventario si trovano in un database, mentre le tabelle correlate alla contabilità si trovano in un altro database. I casi di utilizzo comuni con questa topologia richiedono l'esecuzione di query o la compilazione di report tra tabelle in diversi database.
-* **Partizionamento orizzontale - partizionamento** (topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati ridimensionato. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio viene definito anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni. Le partizioni sono in genere database all'interno di un pool elastico. Una query elastica è un modo efficiente per eseguire query su tutti i database di un pool elastico in una sola volta, purché i database condividano lo schema comune.
+* **Partizionamento orizzontale - partizionamento** (topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati ridimensionato. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio è detto anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni. Le partizioni sono in genere database all'interno di un pool elastico. Una query elastica è un modo efficiente per eseguire query su tutti i database di un pool elastico in una sola volta, purché i database condividano lo schema comune.
 
 > [!NOTE]
 > La query elastica è adatta a scenari di creazione di report dove è possibile eseguire la maggior parte dell'elaborazione (filtri e aggregazione) sul lato del database di origine esterno. Non è adatto per le operazioni ETL, dove i grandi quantità di dati vengono trasferite da database remoti. Per carichi di lavoro di creazione intensiva di report o per scenari di data warehouse con query più complesse è possibile usare anche [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
@@ -73,13 +73,13 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 > L'utente deve disporre dell'autorizzazione ALTER ANY EXTERNAL DATA SOURCE. Questa autorizzazione è inclusa nell'autorizzazione ALTER DATABASE. Per il riferimento all'origine dati sottostante sono necessarie autorizzazioni ALTER ANY EXTERNAL DATA SOURCE.
 >
 
-**Dati di riferimento** : la topologia viene usata per la gestione dei dati di riferimento. Nella figura seguente due tabelle (T1 e T2) con dati di riferimento vengono mantenute in un database dedicato. Usando una query elastica è ora possibile accedere alle tabelle T1 e T2 in modalità remota da altri database, come illustrato nella figura. Usare la topologia 1 se le tabelle di riferimento hanno dimensioni ridotte o se le query nella tabella di riferimento hanno predicati selettivi.
+**Dati di riferimento**: la topologia viene usata per la gestione dei dati di riferimento. Nella figura seguente due tabelle (T1 e T2) con dati di riferimento vengono mantenute in un database dedicato. Usando una query elastica è ora possibile accedere alle tabelle T1 e T2 in modalità remota da altri database, come illustrato nella figura. Usare la topologia 1 se le tabelle di riferimento hanno dimensioni ridotte o se le query nella tabella di riferimento hanno predicati selettivi.
 
 **Figura 2** Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento
 
 ![ Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
 
-**Query tra database** : le query elastiche consentono casi d'uso che richiedono l'esecuzione di query su diversi database di Database SQL. La Figura 3 mostra quattro database diversi, ovvero CRM, Inventario, Risorse umane e Prodotti. Le query eseguite in uno dei database devono accedere anche a uno o a tutti gli altri database. Usando una query elastica, è possibile configurare il database per questa situazione eseguendo alcune semplici istruzioni DDL in ogni database. Dopo avere eseguito una volta questa configurazione, l'accesso a una tabella remota sarà semplice quando fare riferimento a una tabella locale dalle query T-SQL o dagli strumenti di Business Intelligence. Questo approccio è consigliato se le query remote non restituiscono risultati di grandi dimensioni.
+**Query tra database**: le query elastiche consentono casi d'uso che richiedono l'esecuzione di query su diversi database di Database SQL. La Figura 3 mostra quattro database diversi, ovvero CRM, Inventario, Risorse umane e Prodotti. Le query eseguite in uno dei database devono accedere anche a uno o a tutti gli altri database. Usando una query elastica, è possibile configurare il database per questa situazione eseguendo alcune semplici istruzioni DDL in ogni database. Dopo avere eseguito una volta questa configurazione, l'accesso a una tabella remota sarà semplice quando fare riferimento a una tabella locale dalle query T-SQL o dagli strumenti di Business Intelligence. Questo approccio è consigliato se le query remote non restituiscono risultati di grandi dimensioni.
 
 **Figura 3** Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database
 
@@ -92,7 +92,7 @@ I passaggi seguenti configurano le query su database elastiche per scenari di pa
 * [CREATE/DROP EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource of type **RDBMS**
 * [CREATE/DROP EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
-Dopo l'esecuzione delle istruzioni DDL, sarà possibile accedere alla tabella remota "mytable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente una connessione al database remoto, elabora la richiesta nel database remoto e restituisce i risultati.
+Dopo aver eseguito le istruzioni DDL, è possibile accedere alla tabella remota "MyTable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente una connessione al database remoto, elabora la richiesta nel database remoto e restituisce i risultati.
 
 ## <a name="horizontal-partitioning---sharding"></a>Partizionamento orizzontale - Partizionamento orizzontale
 
@@ -114,13 +114,13 @@ I passaggi seguenti configurano le query su database elastiche per scenari di pa
 * [CREATE/DROP EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource di tipo **SHARD_MAP_MANAGER**
 * [CREATE/DROP EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
-Dopo avere eseguito questi passaggi, sarà possibile accedere alla tabella con partizionamento orizzontale "mytable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente più connessioni parallele ai database remoti in cui vengono archiviate fisicamente le tabelle, elabora le richieste nei database remoti e restituisce i risultati.
+Dopo aver eseguito questi passaggi, è possibile accedere alla tabella con partizionamento orizzontale "MyTable" come se fosse una tabella locale. Il database SQL di Azure apre automaticamente più connessioni parallele ai database remoti in cui vengono archiviate fisicamente le tabelle, elabora le richieste nei database remoti e restituisce i risultati.
 Per altre informazioni sui passaggi necessari per gli scenari di partizionamento orizzontale, vedere [Query elastiche per il partizionamento orizzontale](elastic-query-horizontal-partitioning.md).
 
 Per iniziare a scrivere codice, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](elastic-query-getting-started.md).
 
 > [!IMPORTANT]
-> La corretta esecuzione di una query elastica su un set di database di grandi dimensioni dipende in gran parte dalla disponibilità di ogni database durante l'esecuzione della query. Se uno dei database non è disponibile, l'intera query non riesce. Se si prevede di eseguire query su centinaia o migliaia di database contemporaneamente, assicurarsi che nell'applicazione client sia incorporata una logica di ripetizione dei tentativi oppure usare la funzionalità [Processi di database elastico](./job-automation-overview.md#elastic-database-jobs-preview) (anteprima) ed eseguire query su subset di database più piccoli, consolidando i risultati di ogni query in un'unica destinazione.
+> La corretta esecuzione di una query elastica su un set di database di grandi dimensioni dipende in gran parte dalla disponibilità di ogni database durante l'esecuzione della query. Se uno dei database non è disponibile, l'intera query non riesce. Se si prevede di eseguire query su centinaia o migliaia di database contemporaneamente, assicurarsi che nell'applicazione client sia incorporata una logica di ripetizione dei tentativi oppure usare la funzionalità [Processi di database elastico](./job-automation-overview.md) (anteprima) ed eseguire query su subset di database più piccoli, consolidando i risultati di ogni query in un'unica destinazione.
 
 ## <a name="t-sql-querying"></a>Query T-SQL
 

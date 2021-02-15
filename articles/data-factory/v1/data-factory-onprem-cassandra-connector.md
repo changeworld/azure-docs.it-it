@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da Cassandra usando Data Factory
 description: Informazioni su come spostare dati da un database Cassandra locale mediante Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019634"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387411"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Spostare dati da un database Cassandra locale mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +39,7 @@ Quando si installa il gateway, viene installato automaticamente un driver Micros
 > [!NOTE]
 > Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -272,10 +267,10 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprie
 | INT |Int32 |
 | TEXT |string |
 | timestamp |Datetime |
-| TIMEUUID |GUID |
-| UUID |GUID |
+| TIMEUUID |Guid |
+| UUID |Guid |
 | VARCHAR |string |
-| VARINT |Decimale |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Per i tipi di raccolta (mappa, set, elenco e così via), vedere la sezione [Uso delle raccolte con una tabella virtuale](#work-with-collections-using-virtual-table) .
@@ -290,7 +285,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprie
 Azure Data Factory usa un driver ODBC integrato per connettersi ai dati di un database Cassandra e copiarli. Per i tipi di raccolta, fra cui mappa, set ed elenco, il driver normalizza di nuovo i dati in tabelle virtuali corrispondenti. In particolare, se una tabella contiene colonne della raccolta, il driver genera le tabelle virtuali seguenti:
 
 * Una **tabella di base** che contiene gli stessi dati della tabella reale eccetto le colonne della raccolta. La tabella di base ha lo stesso nome della tabella reale che rappresenta.
-* Una **tabella virtuale** per ogni colonna della raccolta che espande i dati nidificati. Le tabelle virtuali che rappresentano le raccolte vengono denominate usando il nome della tabella reale, un separatore "*VT*" e il nome della colonna.
+* Una **tabella virtuale** per ogni colonna della raccolta che espande i dati nidificati. Alle tabelle virtuali che rappresentano le raccolte vengono assegnati nomi composti dal nome della tabella reale seguito dal separatore "*vt*" e dal nome della colonna.
 
 Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo al driver di accedere ai dati denormalizzati. Per i dettagli vedere la sezione Esempio. È possibile accedere al contenuto delle raccolte Cassandra eseguendo query e join sulle tabelle virtuali.
 
@@ -306,16 +301,16 @@ Ad esempio, "ExampleTable" è una tabella di un database Cassandra contenente un
 
 Il driver genera più tabelle virtuali per rappresentare questa singola tabella. Le colonne chiave esterna nelle tabelle virtuali fanno riferimento alle colonne chiave primaria nella tabella reale e indicano a quale riga della tabella reale corrisponde la riga della tabella virtuale.
 
-La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata nella tabella di seguito. La tabella di base contiene gli stessi dati della tabella di database originale, tranne le raccolte, che vengono omesse da questa tabella ed espanse in altre tabelle virtuali.
+La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata nella tabella seguente. La tabella di base contiene gli stessi dati della tabella di database originale, tranne le raccolte, che vengono omesse da questa tabella ed espanse in altre tabelle virtuali.
 
 | pk_int | Valore |
 | --- | --- |
 | 1 |"valore di esempio 1" |
 | 3 |"valore di esempio 3" |
 
-Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i dati dalle colonne elenco, mappa e StringSet. Le colonne con nomi che terminano con “_index” o “_key” indicano la posizione dei dati all'interno dell'elenco o della mappa originale. Le colonne con nomi che terminano con “_value” contengono i dati espansi dalla raccolta.
+Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i dati dalle colonne elenco, mappa e StringSet. Le colonne con nomi che terminano con "_index" o "_key" indicano la posizione dei dati all'interno dell'elenco o della mappa originale. Le colonne con nomi che terminano con "_value" contengono i dati espansi dalla raccolta.
 
-#### <a name="table-exampletable_vt_list"></a>Tabella “ExampleTable_vt_List”:
+#### <a name="table-exampletable_vt_list"></a>Tabella "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -326,14 +321,14 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletable_vt_map"></a>Tabella “ExampleTable_vt_Map”:
+#### <a name="table-exampletable_vt_map"></a>Tabella "ExampleTable_vt_Map":
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |u |
 
-#### <a name="table-exampletable_vt_stringset"></a>Tabella “ExampleTable_vt_StringSet”:
+#### <a name="table-exampletable_vt_stringset"></a>Tabella "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

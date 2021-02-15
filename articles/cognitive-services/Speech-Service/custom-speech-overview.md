@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.custom: contperf-fy21q2; references_regions
+ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854894"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388652"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è il servizio Riconoscimento vocale personalizzato?
 
@@ -26,25 +26,26 @@ ms.locfileid: "97854894"
 
 Prima di poter eseguire qualsiasi operazione con Riconoscimento vocale personalizzato, saranno necessari un account Azure e una sottoscrizione al servizio vocale. Una volta che si dispone di un account, è possibile preparare i dati, eseguire il training e testare i modelli, controllare la qualità del riconoscimento, valutare l'accuratezza e infine distribuire e usare il modello di riconoscimento vocale personalizzato.
 
-In questo diagramma vengono evidenziati i componenti che costituiscono il [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech). Usare i collegamenti seguenti per ulteriori informazioni su ogni passaggio.
+In questo diagramma vengono evidenziati i componenti che costituiscono l' [area riconoscimento vocale personalizzato di speech studio](https://aka.ms/customspeech). Usare i collegamenti seguenti per ulteriori informazioni su ogni passaggio.
 
-![Diagramma che evidenzia i componenti che costituiscono il portale di Riconoscimento vocale personalizzato.](./media/custom-speech/custom-speech-overview.png)
+![Diagramma che evidenzia i componenti che costituiscono l'area Riconoscimento vocale personalizzato di speech studio.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Sottoscrivere e creare un progetto](#set-up-your-azure-account). Creare un account Azure e sottoscrivere il servizio di riconoscimento vocale. Questa sottoscrizione unificata consente di accedere a sintesi vocale, sintesi vocale, traduzione vocale e il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Usare quindi la sottoscrizione al servizio vocale per creare il primo progetto Riconoscimento vocale personalizzato.
+1. [Sottoscrivere e creare un progetto](#set-up-your-azure-account). Creare un account Azure e sottoscrivere il servizio di riconoscimento vocale. Questa sottoscrizione unificata consente di accedere a sintesi vocale, sintesi vocale, traduzione vocale e [speech studio](https://speech.microsoft.com/customspeech). Usare quindi la sottoscrizione al servizio vocale per creare il primo progetto Riconoscimento vocale personalizzato.
 
 1. [Caricare i dati di test](./how-to-custom-speech-test-and-train.md). Caricare i dati di test (file audio) per valutare l'offerta di riconoscimento vocale Microsoft per le applicazioni, gli strumenti e i prodotti.
 
-1. [Controllare la qualità del riconoscimento](how-to-custom-speech-inspect-data.md). Usare il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per riprodurre l'audio caricato e controllare la qualità del riconoscimento vocale dei dati di test. Per le misurazioni quantitative, vedere [esaminare i dati](how-to-custom-speech-inspect-data.md).
+1. [Controllare la qualità del riconoscimento](how-to-custom-speech-inspect-data.md). Usare [speech studio](https://speech.microsoft.com/customspeech) per riprodurre l'audio caricato e controllare la qualità del riconoscimento vocale dei dati di test. Per le misurazioni quantitative, vedere [esaminare i dati](how-to-custom-speech-inspect-data.md).
 
-1. [Valutazione e miglioramento dell'accuratezza](how-to-custom-speech-evaluate-data.md). Valutare e migliorare l'accuratezza del modello di riconoscimento vocale. Il [portale riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) fornirà una *frequenza di errori di parola*, che è possibile usare per determinare se è necessario un training aggiuntivo. Se si è soddisfatti dell'accuratezza, è possibile usare direttamente le API del servizio di riconoscimento vocale. Per migliorare l'accuratezza in base a una media relativa del 5% al 20%, usare la scheda **Training** nel portale per caricare dati di training aggiuntivi, come le trascrizioni con etichetta umana e il testo correlato.
+1. [Valutazione e miglioramento dell'accuratezza](how-to-custom-speech-evaluate-data.md). Valutare e migliorare l'accuratezza del modello di riconoscimento vocale. [Speech studio](https://speech.microsoft.com/customspeech) fornirà una *percentuale di errori di parola*, che è possibile usare per determinare se è necessario un training aggiuntivo. Se si è soddisfatti dell'accuratezza, è possibile usare direttamente le API del servizio di riconoscimento vocale. Per migliorare l'accuratezza in base a una media relativa del 5% al 20%, usare la scheda **Training** nel portale per caricare dati di training aggiuntivi, come le trascrizioni con etichetta umana e il testo correlato.
 
 1. Eseguire [il training e distribuire un modello](how-to-custom-speech-train-model.md). Per migliorare l'accuratezza del modello di riconoscimento vocale, è possibile fornire trascrizioni scritte (da 10 a 1.000 ore) e testo correlato (<200 MB) insieme ai dati di test audio. Questi dati consentono di eseguire il training del modello di riconoscimento vocale. Dopo il training, riprovare. Se si è soddisfatti del risultato, è possibile distribuire il modello in un endpoint personalizzato.
 
 ## <a name="set-up-your-azure-account"></a>Configurare l'account Azure
 
-Per poter usare il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per creare un modello personalizzato, è necessario disporre di una sottoscrizione di Azure e del servizio di riconoscimento vocale. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](overview.md#try-the-speech-service-for-free).
+Prima di poter usare [speech studio](https://speech.microsoft.com/customspeech) per creare un modello personalizzato, è necessario avere un account Azure e una sottoscrizione al servizio di riconoscimento vocale. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](overview.md#try-the-speech-service-for-free).
 
-Se si prevede di eseguire il training di un modello personalizzato con dati audio, scegliere una delle aree seguenti per cui è disponibile hardware dedicato per il training. In questo modo si riduce il tempo necessario per il training di un modello.
+> [!NOTE]
+> Se si prevede di eseguire il training di un modello personalizzato con **dati audio**, scegliere una delle aree seguenti per cui è disponibile hardware dedicato per il training. In questo modo si riduce il tempo necessario per il training di un modello.
 
 * Australia orientale
 * Canada centrale
@@ -64,20 +65,20 @@ Se si prevede di eseguire il training di un modello personalizzato con dati audi
 > [!NOTE]
 > Assicurarsi di creare una sottoscrizione standard (S0). Le sottoscrizioni gratuite (F0) non sono supportate.
 
-Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, è necessario accedere al [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) e connettere la sottoscrizione.
+Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, è necessario accedere a [speech studio](https://speech.microsoft.com/customspeech) e connettere la sottoscrizione.
 
-1. Accedere al portale di [riconoscimento vocale personalizzato](https://aka.ms/custom-speech).
+1. Accedere a [speech studio](https://aka.ms/custom-speech).
 1. Selezionare la sottoscrizione che è necessario usare e creare un progetto di riconoscimento vocale.
 1. Se si vuole modificare la sottoscrizione, selezionare il pulsante ingranaggio nel menu in alto.
 
 ## <a name="how-to-create-a-project"></a>Come creare un progetto
 
-Contenuti come dati, modelli, test ed endpoint sono organizzati in *progetti* nel [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Ogni progetto è specifico per un dominio e un paese/lingua. Ad esempio, è possibile creare un progetto per i Call Center che usano la lingua inglese nella Stati Uniti.
+Contenuto come dati, modelli, test ed endpoint sono organizzati in *progetti* in [speech studio](https://speech.microsoft.com/customspeech). Ogni progetto è specifico per un dominio e un paese/lingua. Ad esempio, è possibile creare un progetto per i Call Center che usano la lingua inglese nella Stati Uniti.
 
 Per creare il primo progetto, selezionare riconoscimento **vocale/vocale personalizzato**, quindi selezionare **nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, verranno visualizzate quattro schede: **dati**, **testing**, **Training** e **distribuzione**. Usare i collegamenti forniti nei [passaggi successivi](#next-steps) per informazioni su come usare ogni scheda.
 
 > [!IMPORTANT]
-> Il [portale riconoscimento vocale personalizzato](https://aka.ms/custom-speech) è stato aggiornato di recente. Se sono stati creati dati, modelli, test e endpoint pubblicati in precedenza nel portale di CRIS.ai o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità obsolete.
+> Il [riconoscimento vocale](https://aka.ms/custom-speech) precedentemente noto come "portale riconoscimento vocale personalizzato" è stato aggiornato di recente. Se sono stati creati dati, modelli, test e endpoint pubblicati in precedenza nel portale di CRIS.ai o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità obsolete.
 
 ## <a name="model-lifecycle"></a>Ciclo di vita del modello
 
@@ -106,7 +107,7 @@ Poiché nuovi modelli e nuove funzionalità diventano disponibili e meno recenti
 * Decodifica: disponibile per due anni dopo la creazione del modello. È quindi possibile usare il modello personalizzato per due anni (batch/tempo reale/test) dopo che è stato creato. Dopo due anni, *è necessario* ripetere il training del modello perché il modello di base sarà in genere deprecato per l'adattamento.  
 * Endpoint: disponibile nella stessa sequenza temporale della decodifica.
 
-Quando un modello di base o un modello personalizzato scade, viene sempre eseguito il fallback alla *versione più recente del modello di base*. Quindi, l'implementazione non verrà mai interrotta, ma potrebbe diventare meno accurata per *i dati specifici* se i modelli personalizzati raggiungono la scadenza. È possibile visualizzare la scadenza per un modello nelle posizioni seguenti nel portale di Riconoscimento vocale personalizzato:
+Quando un modello di base o un modello personalizzato scade, viene sempre eseguito il fallback alla *versione più recente del modello di base*. Quindi, l'implementazione non verrà mai interrotta, ma potrebbe diventare meno accurata per *i dati specifici* se i modelli personalizzati raggiungono la scadenza. È possibile visualizzare la scadenza per un modello nelle posizioni seguenti nell'area Riconoscimento vocale personalizzato di speech studio:
 
 * Riepilogo del training del modello
 * Dettagli di training del modello
@@ -115,7 +116,7 @@ Quando un modello di base o un modello personalizzato scade, viene sempre esegui
 
 È anche possibile controllare le date di scadenza tramite [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) le [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) API di riconoscimento vocale e personalizzate sotto la `deprecationDates` proprietà nella risposta JSON.
 
-Si noti che è possibile aggiornare il modello in un endpoint di riconoscimento vocale personalizzato senza tempi di inattività cambiando il modello usato dall'endpoint nella sezione relativa alla distribuzione del portale vocale personalizzato oppure tramite l'API riconoscimento vocale personalizzato.
+Si noti che è possibile aggiornare il modello in un endpoint di riconoscimento vocale personalizzato senza tempi di inattività cambiando il modello usato dall'endpoint nella sezione distribuzione di speech studio o tramite l'API riconoscimento vocale personalizzato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

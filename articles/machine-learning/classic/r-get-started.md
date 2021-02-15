@@ -3,22 +3,22 @@ title: Usare R con Machine Learning Studio (classico)-Azure
 description: Usare questa esercitazione sulla programmazione R per iniziare a usare Azure Machine Learning Studio (classico) in R per creare una soluzione di previsione.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c619b51f9323477bda4f1ec99aeeb1bfa01028fc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95507201"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517740"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introduzione a Azure Machine Learning Studio (classico) in R
 
-**si applica a:** ![ Si tratta di un segno di spunta, che indica che questo articolo si applica alla Machine Learning Studio (classica). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) si ![ tratta di una X, il che significa che questo articolo si applica al Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**SI APPLICA A:**  ![Questo è un segno di spunta, che significa che l'articolo si applica a Machine Learning Studio (versione classica).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Questa è una X, che significa che l'articolo si applica ad Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 <!-- Stephen F Elston, Ph.D. -->
 Questa esercitazione illustra come usare Azure Machine Learning Studio (classico) per creare, testare ed eseguire codice R. Alla fine, sarà presente una soluzione di previsione completa.
@@ -154,7 +154,7 @@ Ora che sono presenti alcuni dati in Machine Learning Studio (classico), è nece
 
 1. Selezionare **+ nuovo** nella parte inferiore sinistra della schermata e selezionare **esperimento**  >  **vuoto** esperimento.
 1. Assegnare un nome all'esperimento selezionando e modificando l' **esperimento creato sul** titolo nella parte superiore della pagina. Ad esempio, modificarlo in **CA Dairy Analysis**.
-1. A sinistra della pagina dell'esperimento selezionare **DataSets set** di DataSet salvati  >  **My Datasets**. Verrà visualizzato il file **cadairydata.csv** caricato in precedenza.
+1. A sinistra della pagina dell'esperimento selezionare **DataSets set** di DataSet salvati  >  . Verrà visualizzato il file **cadairydata.csv** caricato in precedenza.
 1. Trascinare **csdairydata.csv set di dati** nell'esperimento.
 1. Nella casella **Cerca elementi dell'esperimento** nella parte superiore del riquadro sinistro, immettere [Esegui script R][execute-r-script]. Il modulo verrà visualizzato nell'elenco di ricerca.
 1. Trascinare il modulo [Execute R script][execute-r-script] sul pallet.
@@ -1028,10 +1028,10 @@ Questa funzione genera l'output seguente.
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1061,10 +1061,10 @@ Questa funzione genera l'output seguente.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
 ## ---
-## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1112,21 +1112,21 @@ Questa funzione genera l'output seguente.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
 ## ---
-## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1

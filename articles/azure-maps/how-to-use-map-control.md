@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413378"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378707"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
 
 La controllo mappa libreria JavaScript lato client consente di eseguire il rendering delle mappe e della funzionalità embedded di Azure Maps nell'applicazione Web o per dispositivi mobili.
+
+Questa documentazione USA Azure Maps Web SDK, tuttavia i servizi di mappe di Azure possono essere usati con qualsiasi controllo mappa. Di [seguito](open-source-projects.md#third-part-map-control-plugins) sono riportati alcuni dei controlli della mappa open source più diffusi per i quali il team di Azure Maps ha creato il plug-in.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -200,7 +202,7 @@ Per utilizzare il controllo mappa in una pagina Web, è necessario disporre di u
 
 ## <a name="localizing-the-map"></a>Localizzare la mappa
 
-Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione regionale per la mappa di cui è stato eseguito il rendering. La prima opzione consiste nell'aggiungere queste informazioni allo `atlas` spazio dei nomi globale, che comporterà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua in francese ("fr-FR") e la vista regionale su "auto":
+Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione regionale per la mappa di cui è stato eseguito il rendering. La prima opzione consiste nell'aggiungere queste informazioni allo `atlas` spazio dei nomi globale, che comporterà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua su Francese ("fr-FR") e la visualizzazione a livello di area su "Automatica":
 
 ```javascript
 atlas.setLanguage('fr-FR');

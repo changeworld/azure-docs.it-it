@@ -1,24 +1,18 @@
 ---
 title: 'Esercitazione: Creare una pipeline per lo spostamento di dati con Azure PowerShell '
 description: In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando Azure PowerShell.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa97fd2ac12ca73d1a317fb09e03e49d0056ceb1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
-ms.translationtype: HT
+ms.openlocfilehash: 54c296ed8013b9962de9487cfec3e2568c03e738
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608630"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377041"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Esercitazione: Creare una pipeline di Data Factory per lo spostamento di dati con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -114,7 +108,7 @@ Tenere presente quanto segue:
 * È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore seguente, modificare il nome. Ad esempio, NomeUtenteADFTutorialDataFactoryPSH. Durante l'esecuzione di passaggi in questa esercitazione usare questo nome anziché ADFTutorialFactoryPSH. Per informazioni sugli elementi di Data Factory, vedere [Data Factory - Regole di denominazione](data-factory-naming-rules.md).
 
     ```
-    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    Data factory name "ADFTutorialDataFactoryPSH" is not available
     ```
 * Per creare istanze di Data Factory è necessario essere un collaboratore o amministratore della sottoscrizione di Azure.
 * Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.
@@ -452,7 +446,7 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
 **Congratulazioni** È stata creata una data factory di Azure con una pipeline per copiare dati da una risorsa di Archiviazione BLOB di Azure al database SQL di Azure. 
 
 ## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
-In questo passaggio viene usato Azure PowerShell per monitorare le attività in un'istanza di Azure Data Factory.
+In questo passaggio si usa Azure PowerShell per monitorare le attività in un data factory di Azure.
 
 1. Sostituire &lt;DataFactoryName&gt; con il nome della data factory ed eseguire **Get-AzDataFactory**, quindi assegnare l'output a una variabile $df.
 
