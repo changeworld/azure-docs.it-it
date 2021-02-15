@@ -3,22 +3,22 @@ title: 'ML Studio (classico): creare più modelli & endpoint-Azure'
 description: Usare PowerShell per creare più modelli di Machine Learning ed endpoint di servizio Web con lo stesso algoritmo ma con set di dati di training diversi.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ef9ea055f437b53313dc9ee11b0b91f095664f5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 35b5fe4556f1d557d3fc0420e9069f2fb510eec4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322860"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520511"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Creare più endpoint di servizio Web da un esperimento con ML Studio (classico) e PowerShell
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Uno scenario di apprendimento automatico comune è il seguente: si vuole creare più modelli che usano lo stesso flusso di lavoro di training e lo stesso algoritmo, ma si desidera che abbiano set di dati di training diversi come input. Questo articolo illustra come eseguire questa operazione su larga scala in Azure Machine Learning Studio (classico) usando un solo esperimento.
 
@@ -99,7 +99,7 @@ I 10 endpoint appena creati contengono tutti lo stesso modello di cui è stato e
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Aggiornare gli endpoint per l'uso di set di dati di training separati tramite PowerShell
 Il passaggio successivo consiste nell'aggiornare gli endpoint con i modelli di cui è stato eseguito il training univoco sui dati dei singoli clienti. Prima, però, è necessario produrre tali modelli dal servizio Web **Bike Rental Training** . Tornare al servizio Web **Bike Rental Training** . È necessario chiamare 10 volte il relativo endpoint BES con 10 set di dati di training diversi per produrre 10 modelli differenti. A tale scopo, usare il cmdlet **InovkeAmlWebServiceBESEndpoint** di PowerShell.
 
-È inoltre necessario fornire le credenziali per l'account di archiviazione BLOB in `$configContent`. In particolare i campi `AccountName`, `AccountKey` e `RelativeLocation`. `AccountName` può essere uno dei nomi di account, come illustrato nel **portale di Azure** (scheda *Archiviazione* ). Dopo avere fatto clic su un account di archiviazione,è possibile trovare il relativo `AccountKey` scegliendo il pulsante **Gestisci chiavi di accesso** nella parte inferiore e copiando il valore di *Chiave di accesso primaria*. `RelativeLocation` è il percorso relativo della risorsa di archiviazione in cui verrà archiviato un nuovo modello. Ad esempio, il percorso `hai/retrain/bike_rental/` nello script seguente punta a un contenitore denominato `hai` e `/retrain/bike_rental/` sono le sottocartelle. Attualmente, non è possibile creare sottocartelle tramite l'interfaccia utente del portale, ma esistono diversi [Strumenti di esplorazione degli archivi di Azure](../../storage/common/storage-explorers.md) che consentono di eseguire questa operazione. È consigliabile creare un nuovo contenitore nella risorsa di archiviazione per archiviare i nuovi modelli sottoposti a training (file con estensione .ilearner) come segue: dalla pagina Archiviazione fare clic sul pulsante **Aggiungi** nella parte inferiore e denominarlo `retrain`. In breve, le modifiche necessarie allo script seguente si riferiscono a `AccountName`, `AccountKey` e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+È inoltre necessario fornire le credenziali per l'account di archiviazione BLOB in `$configContent`. In particolare i campi `AccountName`, `AccountKey` e `RelativeLocation`. `AccountName` può essere uno dei nomi di account, come illustrato nel **portale di Azure** (scheda *Archiviazione*). Dopo avere fatto clic su un account di archiviazione,è possibile trovare il relativo `AccountKey` scegliendo il pulsante **Gestisci chiavi di accesso** nella parte inferiore e copiando il valore di *Chiave di accesso primaria*. `RelativeLocation` è il percorso relativo della risorsa di archiviazione in cui verrà archiviato un nuovo modello. Ad esempio, il percorso `hai/retrain/bike_rental/` nello script seguente punta a un contenitore denominato `hai` e `/retrain/bike_rental/` sono le sottocartelle. Attualmente, non è possibile creare sottocartelle tramite l'interfaccia utente del portale, ma esistono diversi [Strumenti di esplorazione degli archivi di Azure](../../storage/common/storage-explorers.md) che consentono di eseguire questa operazione. È consigliabile creare un nuovo contenitore nella risorsa di archiviazione per archiviare i nuovi modelli sottoposti a training (file con estensione .ilearner) come segue: dalla pagina Archiviazione fare clic sul pulsante **Aggiungi** nella parte inferiore e denominarlo `retrain`. In breve, le modifiche necessarie allo script seguente si riferiscono a `AccountName`, `AccountKey` e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
 ```powershell
 # Invoke the retraining API 10 times

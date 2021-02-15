@@ -1,23 +1,18 @@
 ---
 title: Spostare dati da origini OData
 description: Informazioni su come spostare i dati da origini OData usando Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fae78459a752d78fe47f189bca67667e917ba561
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019651"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380067"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Spostare i dati da un'origine OData usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -40,7 +35,7 @@ Sono supportati i tipi di autenticazione seguenti:
 * Per accedere al feed OData **cloud**, è possibile usare l'autenticazione anonima, di base (nome utente e password) o l'autenticazione OAuth basata su Azure Active Directory.
 * Per accedere al feed OData **locale**, è possibile usare l'autenticazione anonima, di base (nome utente e password) o l'autenticazione di Windows.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine OData usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -233,7 +228,7 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 
 **Set di dati di input OData:**
 
-Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
+Impostando "external": "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 ```json
 {

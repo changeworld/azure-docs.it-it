@@ -1,22 +1,17 @@
 ---
 title: Caricare dati da Office 365 tramite Azure Data Factory
 description: Usare Azure Data Factory per copiare dati da Office 365
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b98344dcb2321d5d91c9974dc833a735164d428
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459710"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370657"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Caricare dati da Office 365 tramite Azure Data Factory
 
@@ -79,7 +74,7 @@ Questo articolo illustra come usare Data Factory per _caricare dati da Office 36
 
     ![Configurazione della tabella del set di dati di Office 365](./media/load-office-365-data/edit-dataset.png)
 
-8. Tornare ora alla **pipeline**  >  **scheda origine** pipeline per continuare a configurare le proprietà aggiuntive per l'estrazione dei dati di Office 365.  Ambito utente e filtro ambito utente sono predicati facoltativi che è possibile definire per limitare i dati che si desidera estrarre da Office 365. Vedere la sezione relativa alle [proprietà dei set di dati di Office 365](./connector-office-365.md#dataset-properties) per informazioni su come configurare queste impostazioni.
+8. Tornare ora alla   >  **scheda origine** pipeline per continuare a configurare le proprietà aggiuntive per l'estrazione dei dati di Office 365.  Ambito utente e filtro ambito utente sono predicati facoltativi che è possibile definire per limitare i dati che si desidera estrarre da Office 365. Vedere la sezione relativa alle [proprietà dei set di dati di Office 365](./connector-office-365.md#dataset-properties) per informazioni su come configurare queste impostazioni.
 
 9. È necessario scegliere uno dei filtri di data e specificare i valori di ora di inizio e ora di fine.
 
@@ -150,4 +145,4 @@ Passare ora all'archivio BLOB di Azure di destinazione e verificare che i dati d
 Leggere gli articoli seguenti per altre informazioni sul supporto di Azure Synapse Analytics: 
 
 > [!div class="nextstepaction"]
->[Connettore di Office 365](connector-office-365.md)
+>[Connettore Office 365](connector-office-365.md)

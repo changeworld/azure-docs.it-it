@@ -1,24 +1,19 @@
 ---
 title: Trasformare i dati con lo script U-SQL-Azure
 description: Informazioni su come elaborare o trasformare i dati eseguendo gli script U-SQL in Azure Data Lake Analytics servizio di calcolo-versione 1.
-services: data-factory
-documentationcenter: ''
-ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: a5e53cab30f1adca05652a3b3b7541e12ebebbdb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5931cb28721e8658a771ceea1cd94624a0c09f7c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631462"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392919"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -28,7 +23,7 @@ ms.locfileid: "92631462"
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sulle [attività U-SQL nella versione 2](../transform-data-using-data-lake-analytics.md).
 
-Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. Questo articolo descrive l' **attività U-SQL di Data Lake Analytics** che esegue uno script **U-SQL** in un servizio di calcolo collegato di **Azure Data Lake Analytics** . 
+Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. Questo articolo descrive l'**attività U-SQL di Data Lake Analytics** che esegue uno script **U-SQL** in un servizio di calcolo collegato di **Azure Data Lake Analytics**. 
 
 Creare un account di Azure Data Lake Analytics prima di creare una pipeline con un'attività U-SQL di Data Lake Analytics. Per altre informazioni su Azure Data Lake Analytics, vedere [Introduzione ad Azure Data Lake con l'SDK .NET](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -48,7 +43,7 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| **type** |La proprietà type deve essere impostata su: **AzureDataLakeAnalytics** . |Sì |
+| **type** |La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. |Sì |
 | **accountName** |Nome dell'account di Azure Data Lake Analytics. |Sì |
 | **dataLakeAnalyticsUri** |URI di Azure Data Lake Analytics. |No |
 | **subscriptionId** |ID sottoscrizione di Azure |No (se non specificata, viene usata la sottoscrizione della Data factory). |
@@ -114,7 +109,7 @@ In alternativa, è possibile usare l'autenticazione delle credenziali dell'utent
 ```
 
 #### <a name="token-expiration"></a>Scadenza del token
-Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Quando il token di autenticazione **scade** , è possibile che venga visualizzato il messaggio di errore seguente: errore operazione credenziali: INVALID_GRANT-AADSTS70002: errore durante la convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Quando il token di autenticazione **scade**, è possibile che venga visualizzato il messaggio di errore seguente: errore operazione credenziali: INVALID_GRANT-AADSTS70002: errore durante la convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
 
 | Tipo di utente | Scade dopo |
 |:--- |:--- |
@@ -208,7 +203,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 | Proprietà            | Descrizione                              | Obbligatoria                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| type                | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL** . | Sì                                      |
+| type                | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. | Sì                                      |
 | linkedServiceName   | Riferimento all'istanza di Azure Data Lake Analytics registrata come servizio collegato in Data Factory | Sì                                      |
 | scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | No (se si usa uno script)                   |
 | scriptLinkedService | Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory | No (se si usa uno script)                   |
@@ -317,7 +312,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-I valori per i parametri **\@ in** e **\@ out** nello script U-SQL vengono passati in modo dinamico da ADF usando la sezione "Parameters". Vedere la sezione "parameters" nella definizione della pipeline.
+I valori per i parametri **\@ in** e **\@ out** nello script U-SQL vengono passati in modo dinamico da ADF usando la sezione "Parameters". Vedere la sezione "Parameters" nella definizione della pipeline.
 
 È possibile specificare anche altre proprietà come degreeOfParallelism e priorità nella definizione della pipeline per i processi in esecuzione sul servizio Azure Data Lake Analytics.
 

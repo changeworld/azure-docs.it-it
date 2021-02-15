@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626275"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378622"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -284,6 +284,7 @@ Per altre informazioni, vedere [ALTER DATABASE](/sql/t-sql/statements/alter-data
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - L'abilitazione e la disabilitazione di SQL Server Agent non sono attualmente supportate nell'istanza gestita di SQL. SQL Agent è sempre in esecuzione.
+- Il trigger di pianificazione del processo basato su una CPU inattiva non è supportato.
 - SQL Server Agent impostazioni sono di sola lettura. La procedura `sp_set_agent_properties` non è supportata in SQL istanza gestita. 
 - Processi
   - I passaggi dei processi T-SQL sono supportati.
@@ -305,14 +306,8 @@ Per altre informazioni, vedere [ALTER DATABASE](/sql/t-sql/statements/alter-data
   - Gli avvisi non sono ancora supportati.
   - I proxy non sono supportati.
 - EventLog non è supportato.
-- Per creare, modificare o eseguire processi di SQL Agent, è necessario che l'utente sia mappato direttamente a Azure AD entità server (account di accesso). Gli utenti che non sono mappati direttamente, ad esempio gli utenti che appartengono a un gruppo di Azure AD che dispone dei diritti per creare, modificare o eseguire processi di SQL Agent, non saranno in grado di eseguire tali azioni. Ciò è dovuto a Istanza gestita rappresentazione ed [esecuzione come limitazioni](#logins-and-users).
-
-Attualmente non sono supportate le funzionalità di SQL Agent seguenti:
-
-- Proxy
-- Pianificazione di processi in una CPU inattiva
-- Abilitazione o disabilitazione di un agente
-- Avvisi
+- Per creare, modificare o eseguire processi di SQL Agent, è necessario che l'utente sia mappato direttamente a Azure AD entità server (account di accesso). Gli utenti che non sono mappati direttamente, ad esempio gli utenti che appartengono a un gruppo di Azure AD che dispone dei diritti per creare, modificare o eseguire i processi di SQL Agent, non saranno in grado di eseguire tali azioni. Ciò è dovuto a Istanza gestita rappresentazione ed [esecuzione come limitazioni](#logins-and-users).
+- La funzionalità di amministrazione multiserver per i processi master/di destinazione (MSX/TSX) non è supportata.
 
 Per informazioni su SQL Server Agent, vedere [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 

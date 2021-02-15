@@ -1,23 +1,19 @@
 ---
 title: Creare la prima data factory (Visual Studio)
 description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando Visual Studio.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: b0532e75ac581bad3b5dd8669a591186dc320a86
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: 2ae8e24b10a6661f5a18f3d04e243232436b2911
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496569"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377449"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]

@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 32ec711309190d4bb7c6c98a05b6a75cf88a8f5c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b5d53ec6c6a8002c72a53d6928d56e55d520ef38
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920504"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390828"
 ---
 # <a name="data-source-schema-reference"></a>Riferimento allo schema dell'origine dati
 
@@ -37,6 +37,9 @@ Questo articolo elenca gli schemi di origine dati supportati di Azure e di terze
 | **Network**                          | Log di flusso NSG          | AzureNetworkAnalytics  | [Schema e aggregazione dei dati in Analisi del traffico](/azure/network-watcher/traffic-analytics-schema) |
 | | | | |
 
+> [!NOTE]
+> Per ulteriori informazioni, vedere l'intero [riferimento ai dati di monitoraggio di Azure](/azure/azure-monitor/reference/).
+>
 ## <a name="3rd-party-vendor-data-sources"></a>origini dati fornitore di terze parti
 
 Nella tabella seguente sono elencati i fornitori di terze parti supportati e la relativa documentazione relativa al mapping di syslog o Common Event Format (CEF) per diversi tipi di log supportati, che contengono i mapping dei campi CEF e i log di esempio per ogni tipo di categoria.

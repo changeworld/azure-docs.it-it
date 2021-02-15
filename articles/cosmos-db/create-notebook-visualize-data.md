@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
-ms.translationtype: HT
+ms.openlocfilehash: beb58922172a045242f4f9bcaf647b3cfc8b5551
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339496"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380798"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Esercitazione: Creare un notebook in Azure Cosmos DB per analizzare e visualizzare i dati
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Questo articolo descrive come usare i notebook Jupyter predefiniti per importare
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Abilitare il supporto dei notebook durante la creazione dell'account Azure Cosmos](enable-notebooks.md)
+* [Abilitare notebook in un account Azure Cosmos](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Creare le risorse e importare i dati
  

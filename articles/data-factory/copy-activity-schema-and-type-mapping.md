@@ -1,22 +1,17 @@
 ---
 title: Schema e mapping dei tipi di dati nell'attività di copia
 description: Informazioni sul modo in cui l'attività di copia in Azure Data Factory esegue il mapping di schemi e tipi di dati dai dati di origine ai dati sink.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: afcc7ad34807b74fa0b1ddaaa29223d8a6e25584
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702220"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392783"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapping dei tipi di dati nell'attività di copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

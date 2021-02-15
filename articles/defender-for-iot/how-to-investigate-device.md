@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820603"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516839"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 
@@ -39,12 +39,12 @@ Per individuare l'area di lavoro Log Analytics per l'archiviazione dei dati:
 1. Aprire l'hub IoT.
 1. In **sicurezza** selezionare **Impostazioni**, quindi selezionare **raccolta dati**.
 1. Modificare i dettagli di configurazione dell'area di lavoro Log Analytics.
-1. Fare clic su **Salva**.
+1. Selezionare **Salva**.
 
 In seguito alla configurazione, eseguire le operazioni seguenti per accedere ai dati archiviati nell'area di lavoro Log Analytics:
 
-1. Selezionare e fare clic su un Defender per gli avvisi di tutto nell'hub.
-1. Fare clic su **Further investigation** (Ulteriori indagini).
+1. Selezionare e selezionare un avviso per Defender for all nell'hub.
+1. Selezionare **ulteriori indagini**.
 1. Selezionare **To see which devices have this alert click here and view the DeviceId column** (Per vedere quali dispositivi hanno questo avviso fare clic qui e visualizzare la colonna DeviceId).
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Procedure di indagine per dispositivi IoT sospetti
@@ -55,7 +55,7 @@ Vedere le query KQL di esempio seguenti per iniziare a esaminare gli avvisi e le
 
 ### <a name="related-alerts"></a>Avvisi correlati
 
-Per sapere se gli altri avvisi sono stati attivati intorno alla stessa ora, usare la query kql seguente:
+È possibile scoprire se altri avvisi sono stati generati intorno alla stessa ora tramite la query KQL seguente:
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -143,9 +143,9 @@ Per trovare gli utenti che hanno eseguito l'accesso al dispositivo, usare la que
 
 Usare i risultati della query per scoprire:
 
-- Quali utenti hanno eseguito l'accesso al dispositivo
-- Gli utenti che hanno eseguito l'accesso dovrebbero accedere?
-- Se gli utenti che hanno eseguito l'accesso si connettono da indirizzi IP previsti o imprevisti
+- Quali utenti hanno eseguito l'accesso al dispositivo?
+- Gli utenti che hanno eseguito l'accesso devono eseguire l'accesso?
+- Gli utenti che hanno eseguito l'accesso si connettono da indirizzi IP previsti o imprevisti?
 
 ### <a name="process-list"></a>Elenco processi
 
@@ -182,7 +182,7 @@ Usare i risultati della query per scoprire:
 
 - Se sono stati eseguiti processi sospetti sul dispositivo
 - Se i processi sono stati eseguiti dagli utenti appropriati
-- Se le esecuzioni della riga di comando contenevano gli argomenti corretti e previsti
+- Tutte le esecuzioni della riga di comando contengono gli argomenti corretti e previsti?
 
 ## <a name="next-steps"></a>Passaggi successivi
 

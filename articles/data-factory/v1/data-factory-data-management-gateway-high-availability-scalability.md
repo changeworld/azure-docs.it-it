@@ -1,23 +1,18 @@
 ---
 title: Disponibilità elevata con gateway di gestione dati in Azure Data Factory
 description: Questo articolo illustra come è possibile aumentare il numero di istanze di un gateway di gestione dati aggiungendo altri nodi e aumentare le prestazioni accrescendo il numero di processi simultanei che possono essere eseguiti in un nodo.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003617"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391729"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
 > [!NOTE]
@@ -98,7 +93,7 @@ Questa sezione presuppone che siano stati letti i due articoli seguenti o che si
         > Per un elenco dei requisiti per l'uso di un certificato TLS/SSL, vedere la sezione [Requisiti dei certificati TLS/SSL](#tlsssl-certificate-requirements). 
     5. Al termine dell'installazione del gateway, fare clic su Avvia Configuration Manager:
     
-        ![Installazione manuale: avviare Gestione configurazione](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
+        ![Installazione manuale: avviare Gestione configurazione](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
     6. Nel nodo viene visualizzato Gestione configurazione di Gateway di gestione dati (computer Windows locale), che indica lo stato della connettività, il **nome del gateway** e il **nome del nodo**.  
 
         ![Gateway di gestione dati: installazione completata](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
@@ -200,13 +195,13 @@ Ruolo | Esistono due tipi di ruoli: dispatcher e ruolo di lavoro. Tutti i nodi s
 
 La tabella seguente indica i possibili stati di un **nodo del gateway**: 
 
-Stato  | Commenti/Scenari
+Stato    | Commenti/Scenari
 :------- | :------------------
 Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
 Aggiornamento | È in corso l'aggiornamento automatico del nodo.
 Limitato | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. 
-Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
+Inattivo | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
 
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway. 
@@ -246,11 +241,11 @@ Quando la memoria disponibile e la CPU non vengono utilizzate correttamente, ma 
 - Non è possibile registrare un nodo del gateway in un gateway logico quando la versione del nodo è precedente alla versione del gateway logico. Eliminare tutti i nodi del gateway logico dal portale per poter registrare un nodo con una versione precedente (effettuarne il downgrade). Se si eliminano tutti i nodi di un gateway logico, installare manualmente e registrare i nuovi nodi per tale gateway logico. In questo caso l'installazione rapida non è supportata.
 - Non è possibile usare l'installazione rapida per installare i nodi in un gateway logico esistente che usa ancora le credenziali cloud. È possibile controllare se le credenziali vengono archiviate da Gestione configurazione di Gateway di gestione dati nella scheda Impostazioni.
 - Non è possibile usare l'installazione rapida per installare i nodi in un gateway logico esistente che ha la crittografia da nodo a nodo abilitata. Poiché l'impostazione della modalità di crittografia comporta l'aggiunta manuale dei certificati, l'installazione rapida non è più possibile. 
-- Per copiare i file dall'ambiente locale, non è più consigliabile usare \\localhost o C:\files perché localhost o l'unità locale potrebbe non essere accessibile tramite tutti i nodi. Usare invece \\ServerName\files per specificare il percorso dei file.
+- Per copiare i file dall'ambiente locale, non è più consigliabile usare \\localhost o C:\files perché localhost o l'unità locale potrebbe non essere accessibile tramite tutti i nodi. Usare invece \\ ServerName\files per specificare il percorso dei file.
 
 
 ## <a name="rolling-back-from-the-preview"></a>Eseguire il rollback dall'anteprima 
-Per eseguire il rollback dall'anteprima, eliminare tutti i nodi tranne uno. Non importa quali nodi si eliminano, ma assicurarsi di avere almeno un nodo nel gateway logico. È possibile eliminare un nodo disinstallando il gateway nel computer o usando il portale di Azure. Nella pagina **Data factory** del portale di Azure fare clic su Servizi collegati per avviare la pagina **Servizi collegati**. Selezionare il gateway per avviare la pagina **Gateway**. Nella pagina Gateway è possibile visualizzare i nodi associati al gateway. La pagina consente di eliminare un nodo dal gateway.
+Per eseguire il rollback dall'anteprima, eliminare tutti i nodi tranne uno. Non importa quali nodi vengono eliminati, ma assicurarsi di avere almeno un nodo nel gateway logico. È possibile eliminare un nodo disinstallando il gateway nel computer o usando il portale di Azure. Nella pagina **Data factory** del portale di Azure fare clic su Servizi collegati per avviare la pagina **Servizi collegati**. Selezionare il gateway per avviare la pagina **Gateway**. Nella pagina Gateway è possibile visualizzare i nodi associati al gateway. La pagina consente di eliminare un nodo dal gateway.
  
 Dopo l'eliminazione fare clic su **Funzionalità in anteprima** nella stessa pagina del portale di Azure e disabilitare la funzionalità di anteprima. Il gateway è stato reimpostato come gateway a un nodo con disponibilità generale.
 

@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678824"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391984"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -68,6 +68,11 @@ Quando si crea la nuova identità del dispositivo, fornire le informazioni segue
 * Selezionare **imposta un dispositivo padre** e selezionare il dispositivo gateway IOT Edge a cui si connetterà il dispositivo downstream. È sempre possibile modificare l'elemento padre in un secondo momento.
 
    ![Creare l'ID dispositivo con l'autenticazione tramite chiave simmetrica nel portale](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >Impostazione del dispositivo padre usato come passaggio facoltativo per i dispositivi downstream che usano l'autenticazione con chiave simmetrica. Tuttavia, a partire da IoT Edge versione 1.1.0 ogni dispositivo downstream deve essere assegnato a un dispositivo padre.
+   >
+   >È possibile configurare l'hub IoT Edge per tornare al comportamento precedente impostando la variabile di ambiente **authenticationMode** sul valore **CloudAndScope**.
 
 È anche possibile usare l' [estensione Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension) della riga di comando di Azure per completare la stessa operazione. L'esempio seguente usa il comando [AZ all Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) per creare un nuovo dispositivo Internet con autenticazione con chiave simmetrica e assegnare un dispositivo padre:
 

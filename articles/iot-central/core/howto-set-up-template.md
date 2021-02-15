@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202964"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363203"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -31,9 +31,9 @@ Ad esempio, uno sviluppatore può creare un modello di dispositivo per una vento
 - Invia lo stato operativo della ventola
 - Fornisce una proprietà della velocità della ventola scrivibile
 - Fornisce un comando per riavviare il dispositivo
-- Offre una visualizzazione complessiva del dispositivo tramite un dashboard
+- Offre una visualizzazione complessiva del dispositivo con una visualizzazione
 
-Da questo modello di dispositivo, un operatore può creare e connettere dispositivi a ventola reali. Tutte queste ventole dispongono di misurazioni, proprietà e comandi usati dagli operatori per monitorarle e gestirle. Gli operatori usano i dashboard e i moduli del [dispositivo](#add-dashboards) per interagire con i dispositivi della ventola. Uno sviluppatore di dispositivi usa il modello per comprendere il modo in cui il dispositivo interagisce con l'applicazione. Per altre informazioni, vedere payload di dati di [telemetria, proprietà e comandi](concepts-telemetry-properties-commands.md).
+Da questo modello di dispositivo, un operatore può creare e connettere dispositivi a ventola reali. Tutte queste ventole dispongono di misurazioni, proprietà e comandi usati dagli operatori per monitorarle e gestirle. Gli operatori usano le visualizzazioni e i moduli del [dispositivo](#add-views) per interagire con i dispositivi della ventola. Uno sviluppatore di dispositivi usa il modello per comprendere il modo in cui il dispositivo interagisce con l'applicazione. Per altre informazioni, vedere payload di dati di [telemetria, proprietà e comandi](concepts-telemetry-properties-commands.md).
 
 > [!NOTE]
 > Solo i generatori e gli amministratori possono creare, modificare ed eliminare i modelli di dispositivo. Qualsiasi utente può creare dispositivi nella pagina **Dispositivi** dai modelli di dispositivi esistenti.
@@ -46,8 +46,8 @@ In un'applicazione IoT Central, un modello di dispositivo usa un modello di disp
 > IoT Central richiede il modello completo con tutte le interfacce a cui si fa riferimento nello stesso file, quando si importa un modello dal repository del modello, usare la parola chiave "Expanded" per ottenere la versione completa.
 Ad esempio, https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
 
-- Creare un modello di dispositivo con il [linguaggio DTDL (Digital Gemini Definition Language)-versione 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code ha un'estensione che supporta la creazione di modelli di DTDL. Per altre informazioni, vedere [Installare e usare gli strumenti di creazione di DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Pubblicare quindi il modello nel repository del modello pubblico. Per altre informazioni, vedere [repository del modello di dispositivo](../../iot-pnp/concepts-model-repository.md). Implementare il codice del dispositivo dal modello e connettere il dispositivo reale all'applicazione IoT Central. IoT Central trova e importa il modello di dispositivo dal repository pubblico e genera un modello di dispositivo. È quindi possibile aggiungere al modello di dispositivo le proprietà cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
-- Creare un modello di dispositivo usando DTDL. Implementare il codice del dispositivo dal modello. Importare manualmente il modello di dispositivo nell'applicazione IoT Central e quindi aggiungere le proprietà del cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
+- Creare un modello di dispositivo con il [linguaggio DTDL (Digital Gemini Definition Language)-versione 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code ha un'estensione che supporta la creazione di modelli di DTDL. Per altre informazioni, vedere [Installare e usare gli strumenti di creazione di DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Pubblicare quindi il modello nel repository del modello pubblico. Per altre informazioni, vedere [repository del modello di dispositivo](../../iot-pnp/concepts-model-repository.md). Implementare il codice del dispositivo dal modello e connettere il dispositivo reale all'applicazione IoT Central. IoT Central trova e importa il modello di dispositivo dal repository pubblico e genera un modello di dispositivo. È quindi possibile aggiungere le proprietà del cloud, le personalizzazioni e le visualizzazioni richieste dall'applicazione IoT Central al modello di dispositivo.
+- Creare un modello di dispositivo usando DTDL. Implementare il codice del dispositivo dal modello. Importare manualmente il modello di dispositivo nell'applicazione IoT Central e quindi aggiungere le proprietà del cloud, le personalizzazioni e le visualizzazioni necessarie per IoT Central applicazione.
 
 > [!TIP]
 > IoT Central richiede il modello completo con tutte le interfacce a cui si fa riferimento nello stesso file. Quando si importa un modello dal repository del modello, usare la parola chiave *Expanded* per ottenere la versione completa.
@@ -72,8 +72,8 @@ Un modello di dispositivo contiene:
 
 - _Modello di dispositivo_ che specifica i dati di telemetria, le proprietà e i comandi implementati dal dispositivo. Queste funzionalità sono organizzate in uno o più componenti.
 - _Proprietà cloud_ che definiscono le informazioni che l'applicazione IoT Central archivia sui dispositivi. Una proprietà cloud, ad esempio, potrebbe registrare i dati relativi all'ultimo intervento effettuato sul dispositivo. Queste informazioni non vengono mai condivise con il dispositivo.
-- Le _personalizzazioni_ consentono al generatore di eseguire l'override di alcune definizioni nel modello di dispositivo. Lo sviluppatore può, ad esempio, eseguire l'override del nome di una proprietà del dispositivo. I nomi delle proprietà vengono visualizzati nei dashboard e nei moduli di IoT Central.
-- _Dashboard e moduli_ consentono allo sviluppatore di creare un'interfaccia utente che gli operatori possono usare per monitorare e gestire i dispositivi connessi all'applicazione.
+- Le _personalizzazioni_ consentono al generatore di eseguire l'override di alcune definizioni nel modello di dispositivo. Lo sviluppatore può, ad esempio, eseguire l'override del nome di una proprietà del dispositivo. I nomi delle proprietà vengono visualizzati in IoT Central visualizzazioni e form.
+- Le _visualizzazioni e i form_ consentono al generatore di creare un'interfaccia utente che consente agli operatori di monitorare e gestire i dispositivi connessi all'applicazione.
 
 Per creare un modello di dispositivo in IoT Central:
 
@@ -129,7 +129,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 
 | Campo | Descrizione |
 | ----- | ----------- |
-| Nome visualizzato | Nome visualizzato per il valore di telemetria usato nei dashboard e nei moduli. |
+| Nome visualizzato | Nome visualizzato per il valore di telemetria utilizzato nelle visualizzazioni e nei form. |
 | Nome | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Telemetria. |
 | Tipo semantico | Tipo semantico dei dati di telemetria, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
@@ -137,7 +137,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Gravità | Disponibile solo per il tipo semantico evento. I livelli di gravità sono **Errore**, **Informazioni** o **Avviso**. |
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
 | Unità | Unità per il valore di telemetria, ad esempio **mph**, **%** o **&deg; C**. |
-| Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
+| Unità di visualizzazione | Unità di visualizzazione da utilizzare per le visualizzazioni e i form. |
 | Commento | Eventuali commenti sulla funzionalità di telemetria. |
 | Descrizione | Descrizione della funzionalità di telemetria. |
 
@@ -149,7 +149,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 
 | Campo | Descrizione |
 | ----- | ----------- |
-| Nome visualizzato | Nome visualizzato per il valore della proprietà usato nei dashboard e nei moduli. |
+| Nome visualizzato | Nome visualizzato per il valore della proprietà utilizzato nelle visualizzazioni e nei form. |
 | Nome | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Proprietà. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
@@ -158,7 +158,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Gravità | Disponibile solo per il tipo semantico evento. I livelli di gravità sono **Errore**, **Informazioni** o **Avviso**. |
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
 | Unità | Unità per il valore della proprietà, ad esempio **mph**, **%** o **&deg; C**. |
-| Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
+| Unità di visualizzazione | Unità di visualizzazione da utilizzare per le visualizzazioni e i form. |
 | Commento | Eventuali commenti sulla funzionalità della proprietà. |
 | Descrizione | Descrizione della funzionalità della proprietà. |
 
@@ -170,7 +170,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 
 | Campo | Descrizione |
 | ----- | ----------- |
-| Nome visualizzato | Nome visualizzato per il comando usato nei dashboard e nei moduli. |
+| Nome visualizzato | Nome visualizzato per il comando utilizzato nelle visualizzazioni e nei form. |
 | Nome | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Comando. |
 | Commento | Eventuali commenti sulla funzionalità del comando. |
@@ -209,7 +209,7 @@ La tabella seguente illustra le impostazioni di configurazione per una propriet�
 
 | Campo | Descrizione |
 | ----- | ----------- |
-| Nome visualizzato | Nome visualizzato per il valore della proprietà cloud usato nei dashboard e nei moduli. |
+| Nome visualizzato | Nome visualizzato per il valore della proprietà cloud utilizzato nelle visualizzazioni e nei form. |
 | Nome | Nome della proprietà cloud. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati della proprietà cloud, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. |
@@ -234,24 +234,24 @@ La generazione di visualizzazioni predefinite è un modo rapido per visualizzare
 
 Dopo aver selezionato **Genera visualizzazioni predefinite**, si noterà che sono state aggiunte automaticamente nella sezione **viste** del modello di dispositivo.
 
-## <a name="add-dashboards"></a>Aggiungere dashboard
+## <a name="add-views"></a>Aggiungere visualizzazioni
 
-Aggiungere dashboard a un modello di dispositivo per consentire agli operatori di visualizzare un dispositivo usando grafici e metriche. Possono essere presenti più dashboard per un modello di dispositivo.
+Aggiungere visualizzazioni a un modello di dispositivo per consentire agli operatori di visualizzare un dispositivo usando grafici e metriche. È possibile avere più visualizzazioni per un modello di dispositivo.
 
-Per aggiungere un dashboard a un modello di dispositivo:
+Per aggiungere una vista a un modello di dispositivo:
 
 1. Passare al modello di dispositivo e selezionare **visualizzazioni**.
 1. Scegliere quindi **Visualizzazione del dispositivo**.
-1. Immettere un nome per il dashboard in **Nome del dashboard**.
-1. Aggiungere al dashboard i riquadri selezionati dall'elenco di riquadri statici, proprietà, proprietà cloud, telemetria e comandi. Trascinare e rilasciare i riquadri da aggiungere al dashboard.
+1. Immettere un nome per la visualizzazione in **nome visualizzazione**.
+1. Aggiungere riquadri alla visualizzazione dall'elenco di riquadri statici, proprietà, proprietà cloud, telemetria e comandi. Trascinare e rilasciare i riquadri che si desidera aggiungere alla visualizzazione.
 1. Per tracciare più valori di telemetria in un singolo riquadro del grafico, selezionare i valori di telemetria e quindi fare clic su **combina**.
 1. Configurare ogni riquadro aggiunto per personalizzare la modalità di visualizzazione dei dati. Per accedere a questa opzione, selezionare l'icona dell'ingranaggio oppure selezionare **modifica configurazione** nel riquadro del grafico.
-1. Disporre e ridimensionare i riquadri nel dashboard.
+1. Disporre e ridimensionare i riquadri nella visualizzazione.
 1. Salvare le modifiche.
 
-### <a name="configure-preview-device-to-view-dashboard"></a>Configurare l'anteprima del dispositivo per visualizzare il dashboard
+### <a name="configure-preview-device-to-view"></a>Configurare l'anteprima del dispositivo per la visualizzazione
 
-Per visualizzare e testare il dashboard, selezionare **Configura anteprima dispositivo**. Questa funzionalità consente di visualizzare il dashboard mentre l'operatore lo vede dopo la pubblicazione. Usare questa funzionalità per verificare che le visualizzazioni mostrino i dati corretti. È possibile scegliere tra le opzioni seguenti:
+Per visualizzare e testare la visualizzazione, selezionare **Configura anteprima dispositivo**. Questa funzionalità consente di visualizzare la visualizzazione mentre l'operatore lo vede dopo la pubblicazione. Usare questa funzionalità per verificare che le visualizzazioni mostrino i dati corretti. È possibile scegliere tra le opzioni seguenti:
 
 - Nessuna anteprima del dispositivo.
 - Il dispositivo di test reale configurato per il modello di dispositivo.

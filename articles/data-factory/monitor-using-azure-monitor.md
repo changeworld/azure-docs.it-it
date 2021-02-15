@@ -1,22 +1,18 @@
 ---
 title: Monitorare le data factory con Monitoraggio di Azure
 description: Informazioni su come usare monitoraggio di Azure per monitorare le pipeline di/Azure Data Factory abilitando i log di diagnostica con le informazioni provenienti da Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 389c0b1fd5a2fde33c2bf19ac2807cca45691523
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555713"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373148"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorare e inviare avvisi Data Factory tramite monitoraggio di Azure
 
@@ -269,7 +265,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | --- | --- | --- |
 | **storageAccountId** |string | ID risorsa dell'account di archiviazione a cui si vogliono inviare i log di diagnostica. |
 | **serviceBusRuleId** |string | ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui si vuole creare hub eventi per la trasmissione dei log di diagnostica. Il formato dell'ID regola è `{service bus resource ID}/authorizationrules/{key name}` .|
@@ -829,14 +825,14 @@ Log Analytics eredita lo schema da monitoraggio con le eccezioni seguenti:
 * Non esiste alcuna colonna "Level".
 * La colonna dinamica "Properties" viene mantenuta come il seguente tipo di BLOB JSON dinamici.
 
-    | Colonna monitoraggio di Azure | Log Analytics colonna | Type |
+    | Colonna monitoraggio di Azure | Log Analytics colonna | Tipo |
     | --- | --- | --- |
     | $. Properties. UserProperties | UserProperties | Dynamic |
     | $. Properties. Annotazioni | annotazioni | Dynamic |
     | $. Properties. Input | Input | Dynamic |
     | $. Properties. Output | Output | Dynamic |
-    | $. Properties. Errore. errorCode | ErrorCode | int |
-    | $. Properties. Errore. messaggio | ErrorMessage | stringa |
+    | $. Properties. Errore. errorCode | ErrorCode | INT |
+    | $. Properties. Errore. messaggio | ErrorMessage | string |
     | $. Properties. Errore | Errore | Dynamic |
     | $. Properties. Predecessori | Predecessori | Dynamic |
     | $. Properties. Parametri | Parametri | Dynamic |

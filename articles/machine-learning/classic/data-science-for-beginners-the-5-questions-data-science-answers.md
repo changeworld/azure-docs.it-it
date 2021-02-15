@@ -3,18 +3,18 @@ title: 'ML Studio (classico): Data Science per principianti-Azure'
 description: La serie di Data Science per principianti illustra i concetti di base in 5 brevi video, partendo con "The 5 Questions Data Science Answers" (Le 5 domande a cui Data Science può rispondere). Da Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e9bbadc95be3479da82d91e9a4a4f712fbc32c57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307487"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520392"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 
@@ -45,7 +45,7 @@ Il primo video tratta delle 5 domande a cui risponde l'analisi scientifica dei d
 
 L'analisi scientifica dei dati usa numeri e nomi, anche noti come categorie o etichette, per prevedere le risposte alle domande.
 
-Potrebbe essere sorprendente, ma *esistono solo cinque domande a cui l'analisi scientifica dei dati risponde* :
+Potrebbe essere sorprendente, ma *esistono solo cinque domande a cui l'analisi scientifica dei dati risponde*:
 
 * È A o B?
 * È strano?

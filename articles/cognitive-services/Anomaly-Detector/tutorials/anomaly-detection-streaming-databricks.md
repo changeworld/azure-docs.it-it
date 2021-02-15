@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: f42d294dec4dd2c92fe08498a7bce3c1eabae4b3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368713"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519134"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks
 
@@ -184,8 +184,8 @@ In questa esercitazione si useranno le [API Rilevamento anomalie di Servizi cogn
 
 In questa sezione vengono creati due notebook nell'area di lavoro di Databricks con i nomi seguenti:
 
-- **SendTweetsToEventHub** : notebook producer usato per ottenere tweet da Twitter e trasmetterli a Hub eventi.
-- **AnalyzeTweetsFromEventHub** : notebook consumer usato per leggere tweet da Hub eventi ed eseguire il rilevamento anomalie.
+- **SendTweetsToEventHub**: notebook producer usato per ottenere tweet da Twitter e trasmetterli a Hub eventi.
+- **AnalyzeTweetsFromEventHub**: notebook consumer usato per leggere tweet da Hub eventi ed eseguire il rilevamento anomalie.
 
 1. Nell'area di lavoro di Azure Databricks selezionare **Area di lavoro** nel riquadro sinistro. Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create** (Crea) e quindi **Notebook**.
 
@@ -586,7 +586,7 @@ groupTime                       average
 
 Ottenere quindi il risultato dell'output aggregato in Delta. Poiché il rilevamento anomalie richiede una finestra della cronologia più lunga, viene usato Delta per mantenere i dati della cronologia per il punto che si vuole rilevare.
 Sostituire "[Placeholder: table name]" con un nome di tabella Delta completo da creare (ad esempio, "tweets"). Sostituire "[Placeholder: folder name for checkpoints]" con un valore stringa che è univoco ogni volta che si esegue questo codice (ad esempio, "etl-from-eventhub-20190605").
-Per altre informazioni su Delta Lake in Azure Databricks, vedere la [Guida di Delta Lake](https://docs.azuredatabricks.net/delta/index.html)
+Per altre informazioni su Delta Lake in Azure Databricks, vedere la [Guida di Delta Lake](/databricks/delta/)
 
 
 ```scala

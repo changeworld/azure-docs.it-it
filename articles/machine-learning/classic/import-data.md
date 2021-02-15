@@ -3,18 +3,18 @@ title: 'ML Studio (classico): importare dati di training-Azure'
 description: Come importare i dati in Azure Machine Learning Studio (classico) da varie origini dati. Informazioni sui tipi di dati e i formati di dati supportati.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: db5f3cc4b9530c4aeac40786756b36cc0ac98728
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302785"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520375"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importare i dati di training in Azure Machine Learning Studio (classico) da varie origini dati
 
@@ -73,12 +73,12 @@ I tipi di dati seguenti sono riconosciuti da studio (classico):
 * DateTime
 * TimeSpan
 
-Studio usa un tipo di dati interno denominato ***tabella dati** _ per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato tabella dati tramite il modulo [Convert to Dataset][convert-to-dataset].
+Studio usa un tipo di dati interno denominato ***tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato tabella dati tramite il modulo [Convert to Dataset][convert-to-dataset].
 
 I moduli che accettano formati diversi da tabella dati convertiranno i dati in tabella dati in modo automatico, prima di passare al modulo successivo.
 
 Se necessario, è possibile convertire il formato tabella dati in CSV, TSV, ARFF o SVMLight usando altri moduli di conversione.
-Esaminare la sezione _ *conversioni formato dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
+Esaminare la sezione **Conversioni di formati di dati** della tavolozza dei moduli per i moduli che eseguono queste funzioni.
 
 ## <a name="data-capacities"></a>Capacità di dati
 

@@ -1,24 +1,28 @@
 ---
-title: Come configurare la replica geografica per cache di Azure per Redis | Microsoft Docs
-description: Informazioni su come replicare le istanze di Cache Redis di Azure tra aree geografiche.
+title: Configurare la replica geografica per la cache di Azure Premium per le istanze di redis
+description: Informazioni su come replicare la cache di Azure per le istanze di redis Premium tra le aree di Azure
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 27ccc81ddf0a771de9fb15f60820dfd3efa6146e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536879"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386874"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Come configurare la replica geografica per cache di Azure per Redis
+# <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurare la replica geografica per la cache di Azure Premium per le istanze di redis
 
-La replica geografica fornisce un meccanismo per il collegamento di due istanze Cache Redis di Azure di livello Premium. Una cache viene scelta come cache collegata primaria e l'altra come cache collegata secondaria. La cache secondaria collegata diventa di sola lettura e i dati scritti nella cache primaria vengono replicati nella cache collegata secondaria. Il trasferimento dei dati tra le istanze della cache primaria e secondaria è protetto da TLS. La replica geografica può essere usata per configurare una cache che si estende su due aree di Azure. Questo articolo fornisce una guida alla configurazione della replica geografica per la cache di Azure di livello Premium per le istanze di Redis.
+Questo articolo illustra come configurare una cache di Azure con replica geografica usando il portale di Azure.
+
+La replica geografica unisce due cache Premium di Azure per le istanze di redis e crea una relazione di replica dei dati. Queste istanze della cache si trovano in genere in aree di Azure diverse, anche se non sono necessarie. Un'istanza funge da replica primaria e l'altra come secondaria. Il database primario gestisce le richieste di lettura e scrittura e propaga le modifiche al database secondario. Questo processo continua fino a quando non viene rimosso il collegamento tra le due istanze.
 
 > [!NOTE]
-> La replica geografica è progettata come soluzione di ripristino di emergenza. Per impostazione predefinita, l'applicazione viene scritta e letta dall'area primaria. Facoltativamente, può essere configurato per la lettura dall'area secondaria. La replica geografica non fornisce il failover automatico a causa di problemi rispetto alla latenza di rete aggiuntiva tra le aree se il resto dell'applicazione rimane nell'area primaria. È necessario gestire e avviare il failover scollegando la cache secondaria. In questo modo verrà innalzato di livello la nuova istanza primaria.
+> La replica geografica è progettata come soluzione di ripristino di emergenza.
+>
+>
 
 ## <a name="geo-replication-prerequisites"></a>Prerequisiti per la replica geografica
 
@@ -67,7 +71,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 
     ![Collega cache](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. È possibile visualizzare lo stato di avanzamento del processo di replica nel pannello **Replica geografica** .
+4. È possibile visualizzare lo stato di avanzamento del processo di replica nel pannello **Replica geografica**.
 
     ![Stato del collegamento](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -75,7 +79,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 
     ![Screenshot che illustra come visualizzare lo stato del collegamento per le cache primarie e secondarie.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Dopo aver completato il processo di replica, **Link status** (Stato collegamento) visualizza **Riuscito** .
+    Dopo aver completato il processo di replica, **Link status** (Stato collegamento) visualizza **Riuscito**.
 
     ![Stato della cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 

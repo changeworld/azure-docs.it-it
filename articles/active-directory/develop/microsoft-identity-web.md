@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8bc9773fa7e1b3db2e249e803f4d2a3cf39edb48
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173516"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102547"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Identity Web Authentication Library
 
@@ -70,15 +70,15 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 #### <a name="github"></a>GitHub
 
-Microsoft Identity Web è un progetto open source ospitato in GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/Microsoft-Identity-Web <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Microsoft Identity Web è un progetto open source ospitato in GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/Microsoft-Identity-Web</a>
 
 Il [wiki del repository](https://github.com/AzureAD/microsoft-identity-web/wiki) contiene documentazione aggiuntiva e, se è necessaria assistenza o individuare un bug, è possibile segnalare un [problema](https://github.com/AzureAD/microsoft-identity-web/issues).
 
-## <a name="features"></a>Caratteristiche
+## <a name="features"></a>Funzionalità
 
 Microsoft Identity Web include diverse funzionalità non disponibili se si usano i modelli di progetto ASP.NET 3,1 predefiniti.
 
-| Feature                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
+| Funzionalità                                                                                  | ASP.NET Core 3,1                                                     | Microsoft Identity Web                                                                                  |
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Utenti di accesso](scenario-web-app-sign-user-app-configuration.md) in app Web             | <li>Account aziendali o dell'istituto di istruzione<li>Identità social (con Azure AD B2C) | <li>Account aziendali o dell'istituto di istruzione<li>Account Microsoft personali<li>Identità social (con Azure AD B2C)     |
 | [Proteggi le API Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Account aziendali o dell'istituto di istruzione<li>Identità social (con Azure AD B2C) | <li>Account aziendali o dell'istituto di istruzione<li>Account Microsoft personali<li>Identità social (con Azure AD B2C)     |
@@ -99,12 +99,14 @@ Per visualizzare Microsoft Identity Web in azione, provare l'esercitazione sul s
 
 Il wiki di Microsoft Identity Web in GitHub contiene la documentazione di riferimento completa per diversi aspetti della libreria. Ad esempio, l'utilizzo del certificato, il consenso incrementale e il riferimento all'accesso condizionale sono disponibili qui:
 
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Uso dei certificati con Microsoft. Identity. <span class="docon docon-navigate-external x-hidden-focus"></span> Web</a> GitHub
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Consenso incrementale e <span class="docon docon-navigate-external x-hidden-focus"></span> accesso condizionale</a> GitHub
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Uso dei certificati con Microsoft. Identity. Web</a> (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Consenso incrementale e accesso condizionale</a> (GitHub)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
 <!--  [miw-certs-decrypt]: microsoft-identity-web-certificates.md#decryption-certificates  -->
 <!--  [miw-inc-consent-ca-header]: microsoft-identity-web-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis  -->
 <!--  [miw-inc-consent-ca]: microsoft-identity-web-consent-conditional-access.md  -->
-[scenario-API-call-API]: scenario-Web-API-call-API-call-API. MD # Option-1-Call-Microsoft-Graph-con-The-SDK [scenario-API-call-graph]: scenario-Web-API-call-API-call-API. MD # Option-1-Call-Microsoft-Graph-con-The-SDK [scenario-API-Validation]: scenario-protected-web-api-verification-scope-app-roles.md
+[scenario-API-call-API]: scenario-Web-API-call-API-call-API. MD # Option-1-Call-Microsoft-Graph-with-the-SDK  
+[scenario-API-call-graph]: scenario-Web-API-call-API-call-API. MD # Option-1-Call-Microsoft-Graph-with-the-SDK  
+[scenario-API-Validation]: scenario-protected-web-api-verification-scope-app-roles.md  

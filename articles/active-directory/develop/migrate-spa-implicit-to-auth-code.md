@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: fc5d9cbd02490748c17a9f40a1440c5ad0c46278
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104111"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365941"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Eseguire la migrazione di un'app a pagina singola JavaScript da una concessione implicita al flusso del codice di autorizzazione
 
@@ -95,5 +95,5 @@ Per altre informazioni sul flusso del codice di autorizzazione, incluse le diffe
 Se si vuole approfondire lo sviluppo di applicazioni a pagina singola JavaScript con Microsoft Identity Platform, la serie di articoli in più parti [Scenario: applicazione a pagina singola](scenario-spa-overview.md) può essere utile per iniziare.
 
 <!-- LINKS - external -->
-[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html
+[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html

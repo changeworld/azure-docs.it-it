@@ -1,19 +1,19 @@
 ---
-title: Come usare Redis-CLI con cache di Azure per Redis
-description: Informazioni su come usare *redis-cli.exe* come strumento da riga di comando per l'interazione con una cache di Azure per Redis come client.
+title: Usare Redis-CLI con cache di Azure per Redis
+description: Informazioni su come usare *redis-cli.exe* come strumento da riga di comando per l'interazione con una cache di Azure per Redis come client
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 3a1e1cdb7706cb284da57e10e35afe3420deaf75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538018"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375307"
 ---
-# <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Come usare lo strumento da riga di comando Redis con Cache Redis di Azure
+# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Usare lo strumento da riga di comando Redis con cache di Azure per Redis
 
 *redis-cli.exe* è uno strumento da riga di comando comune per l'interazione con un'istanza di Cache Redis di Azure come client. Questo strumento è disponibile anche per l'uso con Cache Redis di Azure.
 
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Screenshot che indica che la connessione alla cache è riuscita.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Se si usa una cache di test con la porta non **protetta** non TLS, eseguire `redis-cli.exe` e passare il *nome host* , la *porta* e la *chiave di accesso* (primaria o secondaria) per connettersi alla cache di test.
+Se si usa una cache di test con la porta non **protetta** non TLS, eseguire `redis-cli.exe` e passare il *nome host*, la *porta* e la *chiave di accesso* (primaria o secondaria) per connettersi alla cache di test.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

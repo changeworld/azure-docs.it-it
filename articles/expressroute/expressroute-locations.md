@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/22/2021
+ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: ea3a36fdc9ff9458677f43ef43bd7f45ea4652bd
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c686902ed23e0f1a94bc9548d0a876ecbbce8f31
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576634"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377874"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partner di connettività e località di peering per ExpressRoute
 
@@ -122,13 +122,14 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Supportato |Supportato |Città del Capo, Johannesburg, Londra |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supportato |Supportato |Amsterdam, Amsterdam2, Copenaghen, Dublino, Francoforte, Londra, Marsiglia, Parigi, Zurigo |
 | **[IRIDEOS](https://irideos.it/)** |Supportato |Supportato |Milan |
+| **Ferro di montagna** | Supportato |Supportato |Washington DC |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Supportato |Supportato | Amsterdam, London2, Silicon Valley, Toronto, Washington DC |
 | **Jaguar Network** |Supportato |Supportato |Marsiglia, Parigi |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Supportato |Supportato |Londra, Newport (Galles) |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Supportato |Supportato |Seul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Supportato |Supportato |Auckland, Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Supportato | Supportato | Amsterdam |
-| **[KT](https://cloud.kt.com/portal/ktcloudportal.epc.productintro.partnershipcloud_ConnectHub.html)** | Supportato | Supportato | Seul |
+| **[KT](https://cloud.kt.com/)** | Supportato | Supportato | Seul |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Londra, Newport (Galles), San Paolo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supportato |Supportato |Busan, Seoul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Supportato |Supportato |Città del Capo, Johannesburg |
@@ -157,7 +158,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Sohonet](https://www.sohonet.com/fastlane/)** |Supportato |Supportato |London2 |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Supportato |Supportato |Auckland, Sydney |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Supportato |Supportato |Chicago, Silicon Valley, Washington DC |
-| **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Supportato | Supportato | Zurigo |
+| **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Supportato | Supportato | Ginevra, Zurigo |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Supportato |Supportato |Amsterdam, Chennai, RAS di Hong Kong, Londra, Mumbai, San Paolo, Silicon Valley, Singapore, Washington DC |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Supportato |Supportato |Amsterdam, San Paolo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supportato |Supportato |Londra, London2, Singapore2 |
@@ -166,7 +167,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Telin](https://www.telin.net/)** | Supportato | Supportato |Giacarta |
 | **Telmex Uninet**| Supportato | Supportato | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Supportato |Supportato |Melbourne, Singapore, Sydney |
-| **[Telus](https://www.telus.com)** |Supportato |Supportato |Montreal, Seattle, Toronto, Vancouver |
+| **[Telus](https://www.telus.com)** |Supportato |Supportato |Montreal, Seattle, Quebec City, Toronto, Vancouver |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Supportato |Supportato |Città del Capo, Johannesburg |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Supportato | Supportato | Kuala Lumpur |
 | **[Comunicazioni Tokai](https://www.tokai-com.co.jp/en/)** | Supportato | Supportato | Osaka, Tokyo2 |

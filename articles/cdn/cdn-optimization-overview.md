@@ -4,22 +4,16 @@ description: Informazioni su come la rete per la distribuzione di contenuti di A
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d207ee09a76509a65a2645515b182f8d92753b0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004501"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387921"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Ottimizzare la rete CDN di Azure per il tipo di distribuzione di contenuti
 
@@ -64,7 +58,11 @@ Per selezionare il provider ottimale per la propria distribuzione, Microsoft con
 
 ## <a name="select-and-configure-optimization-types"></a>Selezionare e configurare i tipi di ottimizzazione
 
-Quando si crea un nuovo endpoint, selezionare un tipo di ottimizzazione che meglio corrisponde allo scenario e al tipo di contenuto che si vuole distribuire tramite l'endpoint. La selezione predefinita è **Distribuzione Web generale**. Per gli endpoint **rete CDN Standard di Azure con tecnologia Akamai** esistenti, è possibile aggiornare l'opzione di ottimizzazione in qualsiasi momento. Questa modifica non interrompe la distribuzione dalla rete CDN di Azure. 
+Quando si crea un nuovo endpoint, selezionare un tipo di ottimizzazione che meglio corrisponde allo scenario e al tipo di contenuto che si vuole distribuire tramite l'endpoint. 
+
+La selezione predefinita è **Distribuzione Web generale**. È possibile aggiornare solo la rete **CDN standard di Azure dall'ottimizzazione degli endpoint Akamai** in qualsiasi momento. 
+
+Per la rete **CDN standard di Azure di Microsoft**, la rete **CDN standard di Azure di Verizon** e la rete **CDN Premium di Azure di Verizon**, non è possibile.
 
 1. In un profilo di **rete CDN Standard di Azure con tecnologia Akamai** selezionare un endpoint.
 

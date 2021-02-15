@@ -9,13 +9,13 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 05/28/2020
-ms.openlocfilehash: aa236ecaaa9c38c68e66d1813280cd98b85b9463
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/09/2021
+ms.openlocfilehash: 332a2273a377268a425619a0cdaa5f4780b46e73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790390"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361656"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Eseguire la migrazione del database SQL di Azure dal modello basato su DTU al modello basato su vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,24 +52,33 @@ Eseguire la query nel contesto del database di cui eseguire la migrazione, anzic
 ```SQL
 WITH dtu_vcore_map AS
 (
-SELECT TOP (1) rg.slo_name,
-               CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
-                    WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
-               END AS dtu_hardware_gen,
-               s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
-               CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
+SELECT rg.slo_name,
+       DATABASEPROPERTYEX(DB_NAME(), 'Edition') AS dtu_service_tier,
+       CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG7%' THEN 'Gen5'
+       END AS dtu_hardware_gen,
+       s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
+       CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
 WHERE dtu_limit > 0
       AND
       DB_NAME() <> 'master'
+      AND
+      rg.database_id = DB_ID()
 )
 SELECT dtu_logical_cpus,
        dtu_hardware_gen,
        dtu_memory_per_core_gb,
+       dtu_service_tier,
+       CASE WHEN dtu_service_tier = 'Basic' THEN 'General Purpose'
+            WHEN dtu_service_tier = 'Standard' THEN 'General Purpose or Hyperscale'
+            WHEN dtu_service_tier = 'Premium' THEN 'Business Critical or Hyperscale'
+       END AS vcore_service_tier,
        CASE WHEN dtu_hardware_gen = 'Gen4' THEN dtu_logical_cpus
             WHEN dtu_hardware_gen = 'Gen5' THEN dtu_logical_cpus * 0.7
        END AS Gen4_vcores,
@@ -97,7 +106,7 @@ Oltre al numero di Vcore (CPU logiche) e alla generazione dell'hardware, molti a
 - Per la stessa generazione hardware e lo stesso numero di Vcore, IOPS e i limiti delle risorse di velocità effettiva del log delle transazioni per i database vCore sono spesso più elevati rispetto ai database DTU. Per i carichi di lavoro associati a IO, potrebbe essere possibile ridurre il numero di Vcore nel modello vCore per ottenere lo stesso livello di prestazioni. I limiti delle risorse per i database DTU e vCore in valori assoluti vengono esposti nella visualizzazione [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Il confronto di questi valori tra il database DTU da migrare e un database vCore usando un obiettivo di servizio approssimativamente corrispondente consentirà di selezionare più precisamente l'obiettivo di servizio vCore.
 - La query di mapping restituisce anche la quantità di memoria per core per il database DTU o il pool elastico da migrare e per ogni generazione di hardware nel modello vCore. Garantire una memoria totale simile o superiore dopo la migrazione a vCore è importante per i carichi di lavoro che richiedono una cache di dati di memoria di grandi dimensioni per ottenere prestazioni sufficienti o carichi di lavoro che richiedono concessioni di memoria per l'elaborazione di query. Per questi carichi di lavoro, a seconda delle prestazioni effettive, potrebbe essere necessario aumentare il numero di Vcore per ottenere memoria totale sufficiente.
 - Quando si sceglie l'obiettivo di servizio vCore, è necessario prendere in considerazione l' [utilizzo delle risorse cronologiche](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) del database DTU. I database DTU con risorse CPU con utilizzo coerente potrebbero richiedere un numero inferiore di Vcore rispetto al numero restituito dalla query di mapping. Viceversa, i database DTU in cui l'utilizzo della CPU costantemente elevato causa prestazioni inadeguate del carico di lavoro possono richiedere più Vcore rispetto a quelli restituiti dalla query.
-- Se si esegue la migrazione di database con modelli di utilizzo intermittenti o imprevedibili, prendere in considerazione l'uso del livello di calcolo senza [Server](serverless-tier-overview.md) .  Si noti che il numero massimo di ruoli di lavoro simultanei (richieste) in senza server è pari al 75% del limite nel calcolo di cui è stato effettuato il provisioning per lo stesso numero di Vcore massimo configurato.  Inoltre, la memoria massima disponibile in senza server è 3 GB volte il numero massimo di Vcore configurati; ad esempio, Max Memory è 120 GB quando vengono configurati 40 Vcore max.   
+- Se si esegue la migrazione di database con modelli di utilizzo intermittenti o imprevedibili, prendere in considerazione l'uso del livello di calcolo senza [Server](serverless-tier-overview.md) . Si noti che il numero massimo di ruoli di lavoro simultanei (richieste) in senza server è pari al 75% del limite nel calcolo di cui è stato effettuato il provisioning per lo stesso numero di Vcore massimo configurato. Inoltre, la memoria massima disponibile in senza server è 3 GB volte il numero massimo di Vcore configurati; ad esempio, Max Memory è 120 GB quando vengono configurati 40 Vcore max.   
 - Nel modello vCore, le dimensioni massime supportate del database possono variare a seconda della generazione dell'hardware. Per i database di grandi dimensioni, controllare le dimensioni massime supportate nel modello vCore per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).
 - Per i pool elastici, i modelli [DTU](resource-limits-dtu-elastic-pools.md) e [vCore](resource-limits-vcore-elastic-pools.md) presentano differenze nel numero massimo di database supportato per ogni pool. Questa operazione deve essere presa in considerazione quando si esegue la migrazione di pool elastici con molti database.
 - Alcune generazioni hardware potrebbero non essere disponibili in ogni area. Controllare la disponibilità in [generazioni hardware](service-tiers-vcore.md#hardware-generations).
@@ -120,7 +129,7 @@ La query di mapping restituisce il risultato seguente (alcune colonne non vengon
 
 |dtu_logical_cpus|dtu_hardware_gen|dtu_memory_per_core_gb|Gen4_vcores|Gen4_memory_per_core_gb|Gen5_vcores|Gen5_memory_per_core_gb|
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
-|24,00|Quinta generazione|5.40|16,800|7|24,000|5,05|
+|24,00|Quinta generazione|5,40|16,800|7|24,000|5,05|
 
 Si noterà che il database DTU ha 24 CPU logiche (VCore) con 5,4 GB di memoria per vCore e usa l'hardware quinta generazione. La corrispondenza diretta a è un database per utilizzo generico 24 vCore su hardware quinta generazione, ovvero l'obiettivo di servizio **GP_Gen5_24** vCore.
 
@@ -130,9 +139,9 @@ La query di mapping restituisce il risultato seguente (alcune colonne non vengon
 
 |dtu_logical_cpus|dtu_hardware_gen|dtu_memory_per_core_gb|Gen4_vcores|Gen4_memory_per_core_gb|Gen5_vcores|Gen5_memory_per_core_gb|
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
-|0,25|Quarta generazione|0,42|0,250|7|0,425|5,05|
+|0,25|Quarta generazione|0,42|0.250|7|0.425|5,05|
 
-Si noterà che il database DTU ha l'equivalente di 0,25 CPU logiche (VCore), con 0,42 GB di memoria per vCore e usa l'hardware Gen4. Gli obiettivi del servizio vCore più piccoli nelle generazioni hardware Gen4 e quinta generazione, **GP_Gen4_1** e **GP_Gen5_2** , forniscono più risorse di calcolo rispetto al database S0 standard, pertanto non è possibile trovare una corrispondenza diretta. Poiché è in corso la [rimozione delle autorizzazioni](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)per l'hardware Gen4, è preferibile l'opzione **GP_Gen5_2** . Inoltre, se il carico di lavoro è particolarmente adatto per il livello di calcolo senza [Server](serverless-tier-overview.md) , **GP_S_Gen5_1** sarebbe una corrispondenza più vicina.
+Si noterà che il database DTU ha l'equivalente di 0,25 CPU logiche (VCore), con 0,42 GB di memoria per vCore e usa l'hardware Gen4. Gli obiettivi del servizio vCore più piccoli nelle generazioni hardware Gen4 e quinta generazione, **GP_Gen4_1** e **GP_Gen5_2**, forniscono più risorse di calcolo rispetto al database S0 standard, pertanto non è possibile trovare una corrispondenza diretta. Poiché è in corso la [rimozione delle autorizzazioni](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)per l'hardware Gen4, è preferibile l'opzione **GP_Gen5_2** . Inoltre, se il carico di lavoro è particolarmente adatto per il livello di calcolo senza [Server](serverless-tier-overview.md) , **GP_S_Gen5_1** sarebbe una corrispondenza più vicina.
 
 **Migrazione di un database P15 Premium**
 
@@ -150,9 +159,9 @@ La query di mapping restituisce il risultato seguente (alcune colonne non vengon
 
 |dtu_logical_cpus|dtu_hardware_gen|dtu_memory_per_core_gb|Gen4_vcores|Gen4_memory_per_core_gb|Gen5_vcores|Gen5_memory_per_core_gb|
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
-|4,00|Quinta generazione|5.40|2,800|7|4,000|5,05|
+|4,00|Quinta generazione|5,40|2,800|7|4,000|5,05|
 
-Si noterà che il pool elastico DTU ha 4 CPU logiche (VCore) con 5,4 GB di memoria per vCore e usa l'hardware quinta generazione. La corrispondenza diretta nel modello vCore è un pool elastico **GP_Gen5_4** . Tuttavia, questo obiettivo di servizio supporta un massimo di 200 database per pool, mentre il pool elastico Basic 200 eDTU supporta fino a 500 database. Se il pool elastico da migrare dispone di più di 200 database, l'obiettivo di servizio vCore corrispondente dovrebbe essere **GP_Gen5_6** , che supporta fino a 500 database.
+Si noterà che il pool elastico DTU ha 4 CPU logiche (VCore) con 5,4 GB di memoria per vCore e usa l'hardware quinta generazione. La corrispondenza diretta nel modello vCore è un pool elastico **GP_Gen5_4** . Tuttavia, questo obiettivo di servizio supporta un massimo di 200 database per pool, mentre il pool elastico Basic 200 eDTU supporta fino a 500 database. Se il pool elastico da migrare dispone di più di 200 database, l'obiettivo di servizio vCore corrispondente dovrebbe essere **GP_Gen5_6**, che supporta fino a 500 database.
 
 ## <a name="migrate-geo-replicated-databases"></a>Eseguire la migrazione di database con replica geografica
 

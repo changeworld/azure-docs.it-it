@@ -105,6 +105,8 @@
       items:
         - name: Trasformare i dati con i flussi di dati di mapping
           items:
+            - name: Trasforma i dati nel lago con Delta Lake
+              href: tutorial-data-flow-delta-lake.md
             - name: Trasformare i dati con i flussi di dati di mapping
               href: tutorial-data-flow.md
             - name: Esercitazioni video sul flusso di dati di mapping
@@ -556,6 +558,8 @@
           href: data-flow-lookup.md
         - name: Nuovo ramo
           href: data-flow-new-branch.md
+        - name: Analizza
+          href: data-flow-parse.md
         - name: Pivot
           href: data-flow-pivot.md
         - name: Classifica
@@ -806,6 +810,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Criteri di Azure predefiniti
+      href: policy-reference.md
 - name: Risorse
   items:
     - name: White paper

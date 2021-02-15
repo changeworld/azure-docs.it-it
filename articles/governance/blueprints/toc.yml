@@ -42,6 +42,14 @@
     - name: Benchmark di sicurezza di Azure
       displayName: 'standards, azure, benchmark'
       href: ./samples/azure-security-benchmark.md
+    - name: Azure Security benchmark Foundation
+      items:
+        - name: Panoramica
+          displayName: 'standards, azure, benchmark, foundation'
+          href: ./samples/azure-security-benchmark-foundation/index.md
+        - name: Procedura per la distribuzione
+          displayName: 'standards, azure, benchmark, foundation, deploy'
+          href: ./samples/azure-security-benchmark-foundation/deploy.md
     - name: Australian Government ISM PROTECTED
       items:
         - name: Panoramica

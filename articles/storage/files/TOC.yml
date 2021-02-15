@@ -93,8 +93,6 @@
           href: storage-how-to-create-file-share.md
         - name: Distribuire Sincronizzazione file di Azure
           href: storage-sync-files-deployment-guide.md
-        - name: Creare una condivisione file premium
-          href: storage-how-to-create-premium-fileshare.md
         - name: Creare una condivisione NFS
           href: storage-files-how-to-create-nfs-shares.md
         - name: Istanza del cluster di failover di SQL Server con condivisioni file Premium

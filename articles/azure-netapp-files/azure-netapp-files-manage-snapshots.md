@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629664"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379115"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -187,7 +187,9 @@ Se non si vuole [ripristinare l'intero snapshot in un volume](#restore-a-snapsho
 
 Il volume montato contiene una directory snapshot denominata  `.snapshot` (nei client NFS) o `~snapshot` (nei client SMB) accessibile al client. La directory snapshot contiene sottodirectory corrispondenti agli snapshot del volume. Ogni sottodirectory contiene i file dello snapshot. Se si elimina o sovrascrive accidentalmente un file, è possibile ripristinare il file nella directory padre di lettura/scrittura copiando il file da una sottodirectory snapshot alla directory di lettura/scrittura. 
 
-Se la directory snapshot non è visibile, è possibile che sia nascosta perché l'opzione Nascondi percorso snapshot è attualmente abilitata. È possibile [modificare l'opzione Nascondi percorso snapshot](#edit-the-hide-snapshot-path-option) per disabilitarla.  
+È possibile controllare l'accesso alle directory snapshot utilizzando l' [opzione Nascondi percorso snapshot](#edit-the-hide-snapshot-path-option). Questa opzione consente di controllare se la directory deve essere nascosta ai client. Quindi controlla anche l'accesso a file e cartelle negli snapshot.  
+
+NFSv 4.1 non Visualizza la `.snapshot` Directory ( `ls -la` ). Tuttavia, quando l'opzione Nascondi percorso snapshot non è impostata, è comunque possibile accedere alla `.snapshot` Directory tramite NFSv 4.1 usando il `cd <snapshot-path>` comando dalla riga di comando del client. 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Ripristinare un file usando un client NFS Linux 
 
@@ -269,4 +271,4 @@ La funzionalità di ripristino dello snapshot consente di ripristinare rapidamen
 * [Risolvere i problemi relativi ai criteri dello snapshot](troubleshoot-snapshot-policies.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Video snapshot di Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
-* [Che cos'è applicazione Azure strumento di snapshot coerente](azacsnap-introduction.md)
+* [Che cos'è Azure Application Consistent Snapshot Tool?](azacsnap-introduction.md)

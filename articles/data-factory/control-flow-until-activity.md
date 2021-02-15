@@ -1,22 +1,18 @@
 ---
 title: Attività Until in Azure Data Factory
 description: L'attività Until esegue un set di attività in un ciclo finché la condizione associata con l'attività restituisce true o raggiunge il timeout.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab3644b11273017ea6e4e5a395a7d3cc3a201217
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6431321d788e7311e076d302173ffffb96e07876
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486002"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385371"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Attività Until in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,7 +55,7 @@ name | Nome dell'attività `Until`. | string | Sì
 type | Deve essere impostata su **Until**. | string | Sì
 expression | Espressione che deve restituire true o false | Espressione.  | Sì
 timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. Il valore massimo è 90 giorni. | No
-attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Sì
+Attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Sì
 
 ## <a name="example-1"></a>Esempio 1
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a3f6c14b7ed2686a262f28510efb37068cfb9cb3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b34fcd66f0b64e2522da69bcfc7d119628b9d9d9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787299"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516703"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Visualizzare e configurare i dati di telemetria della protezione DDoS
 
@@ -39,7 +39,6 @@ Sono disponibili le [metriche](../azure-monitor/platform/metrics-supported.md#mi
 
 | Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
 | --- | --- | --- | --- | --- |
-| ByteCount | Numero di byte | Conteggio | Totale | Numero totale di byte trasmessi nel periodo di tempo |
 | BytesDroppedDDoS | DDoS byte in ingresso eliminati | Byte al secondo | Massimo | DDoS byte in ingresso eliminati| 
 | BytesForwardedDDoS | DDoS byte in ingresso inoltrati | Byte al secondo | Massimo | DDoS byte in ingresso inoltrati |
 | BytesInDDoS | DDoS byte in ingresso | Byte al secondo | Massimo | DDoS byte in ingresso |
@@ -47,11 +46,9 @@ Sono disponibili le [metriche](../azure-monitor/platform/metrics-supported.md#mi
 | DDoSTriggerTCPPackets | Pacchetti TCP in ingresso per attivare la mitigazione DDoS | Conteggio al secondo | Massimo | Pacchetti TCP in ingresso per attivare la mitigazione DDoS |
 | DDoSTriggerUDPPackets | Pacchetti UDP in ingresso per attivare la mitigazione DDoS | Conteggio al secondo | Massimo | Pacchetti UDP in ingresso per attivare la mitigazione DDoS |
 | IfUnderDDoSAttack | Sotto attacco DDoS o no | Conteggio | Massimo | Sotto attacco DDoS o no |
-| PacketCount | Numero di pacchetti | Conteggio | Totale | Numero totale di pacchetti trasmessi nel periodo di tempo |
 | PacketsDroppedDDoS | DDoS pacchetti in ingresso eliminati | Conteggio al secondo | Massimo | DDoS pacchetti in ingresso eliminati |
 | PacketsForwardedDDoS | DDoS pacchetti in ingresso inoltrati | Conteggio al secondo | Massimo | DDoS pacchetti in ingresso inoltrati |
 | PacketsInDDoS | DDoS pacchetti in ingresso | Conteggio al secondo | Massimo | DDoS pacchetti in ingresso |
-| SynCount | Numero di SYN | Conteggio | Totale | Numero totale di pacchetti SYN trasmessi nel periodo di tempo |
 | TCPBytesDroppedDDoS | DDoS byte TCP in ingresso eliminati | Byte al secondo | Massimo | DDoS byte TCP in ingresso eliminati |
 | TCPBytesForwardedDDoS | DDoS byte TCP in ingresso inoltrati | Byte al secondo | Massimo | DDoS byte TCP in ingresso inoltrati |
 | TCPBytesInDDoS | DDoS byte TCP in ingresso | Byte al secondo | Massimo | DDoS byte TCP in ingresso |
@@ -64,7 +61,6 @@ Sono disponibili le [metriche](../azure-monitor/platform/metrics-supported.md#mi
 | UDPPacketsDroppedDDoS | DDoS pacchetti UDP in ingresso eliminati | Conteggio al secondo | Massimo | DDoS pacchetti UDP in ingresso eliminati |
 | UDPPacketsForwardedDDoS | DDoS pacchetti UDP in ingresso inoltrati | Conteggio al secondo | Massimo | DDoS pacchetti UDP in ingresso inoltrati |
 | UDPPacketsInDDoS | DDoS pacchetti UDP in ingresso | Conteggio al secondo | Massimo | DDoS pacchetti UDP in ingresso |
-| VipAvailability | Disponibilità del percorso dati | Conteggio | Media | Disponibilità media dell'indirizzo IP per periodo di tempo |
 
 ## <a name="prerequisites"></a>Prerequisiti
 

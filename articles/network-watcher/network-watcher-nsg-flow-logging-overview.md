@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 4deda838d229081ccd23c123f75d0c0ada2383bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2222c6b020f712282a78ac5f82a87015d4cd86a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878664"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368201"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -358,7 +358,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Costi** per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità relativa ai criteri di conservazione con la registrazione del flusso NSG significa sostenere costi di archiviazione separati per periodi di tempo prolungati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per ulteriori informazioni, vedere [Network Watcher prezzi](https://azure.microsoft.com/pricing/details/network-watcher/) e [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
-**Problemi con le regole TCP in ingresso definite dall'utente**: i [gruppi di sicurezza di rete (gruppi)](../virtual-network/network-security-groups-overview.md) vengono implementati come [Firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia, a causa delle limitazioni correnti della piattaforma, le regole definite dall'utente che interessano i flussi TCP in ingresso vengono implementate in modo senza stato. A causa di questo problema, i flussi interessati dalle regole in ingresso definite dall'utente diventano non fatali. Inoltre, i conteggi di byte e pacchetti non vengono registrati per questi flussi. Di conseguenza, il numero di byte e i pacchetti riportati nei log di flusso NSG (e Analisi del traffico) potrebbero essere diversi dai numeri effettivi. Un flag di consenso esplicito che corregge questi problemi è pianificato per essere disponibile entro il 2020 dicembre più recente. Nel frattempo, i clienti che hanno riscontrato problemi gravi a causa di questo comportamento possono richiedere il consenso esplicito tramite supporto tecnico, generare una richiesta di supporto in Network Watcher > log di flusso NSG.  
+**Problemi con le regole TCP in ingresso definite dall'utente**: i [gruppi di sicurezza di rete (gruppi)](../virtual-network/network-security-groups-overview.md) vengono implementati come [Firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia, a causa delle limitazioni correnti della piattaforma, le regole definite dall'utente che interessano i flussi TCP in ingresso vengono implementate in modo senza stato. A causa di questo problema, i flussi interessati dalle regole in ingresso definite dall'utente diventano non fatali. Inoltre, i conteggi di byte e pacchetti non vengono registrati per questi flussi. Di conseguenza, il numero di byte e i pacchetti riportati nei log di flusso NSG (e Analisi del traffico) potrebbero essere diversi dai numeri effettivi. Un flag di consenso esplicito che corregge questi problemi è pianificato per essere disponibile entro il 2021 più recente. Nel frattempo, i clienti che hanno riscontrato problemi gravi a causa di questo comportamento possono richiedere il consenso esplicito tramite supporto tecnico, generare una richiesta di supporto in Network Watcher > log di flusso NSG.  
 
 **Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: le macchine virtuali che non hanno un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md) e hanno un indirizzo IP assegnato da Azure per semplificare la connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
 

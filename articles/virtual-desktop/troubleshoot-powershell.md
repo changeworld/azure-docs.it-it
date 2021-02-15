@@ -6,21 +6,21 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd02ee8ab794858566aeafa96fa78919be3b85a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002266"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367623"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell con Desktop virtuale Windows
 
 >[!IMPORTANT]
 >Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 
-Usare questo articolo per risolvere errori e problemi quando si usa PowerShell con desktop virtuale di Windows. Per ulteriori informazioni su Servizi Desktop remoto PowerShell, vedere la pagina relativa al [desktop virtuale di Windows PowerShell](/powershell/module/windowsvirtualdesktop/).
+Usare questo articolo per risolvere errori e problemi quando si usa PowerShell con desktop virtuale di Windows. Per ulteriori informazioni su Servizi Desktop remoto PowerShell, vedere la pagina relativa al [desktop virtuale di Windows PowerShell](/powershell/windows-virtual-desktop/overview).
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire il feedback
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 

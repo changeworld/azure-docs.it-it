@@ -1,22 +1,17 @@
 ---
 title: Copiare dati da PayPal tramite Azure Data Factory (anteprima)
 description: Informazioni su come copiare dati da PayPal in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c93425fe2e5210a3a8cc577b6e74e281c88121c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6753159acbc4a2da20695d61c6e7c31f4ac0a7c3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416797"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381291"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiare dati da PayPal tramite Azure Data Factory (anteprima)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +32,7 @@ Questo connettore PayPal è supportato per le attività seguenti:
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -50,7 +45,7 @@ Per il servizio collegato di PayPal sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **PayPal** | Sì |
-| host | URL dell'istanza di PayPal. ad esempio api.sandbox.paypal.com  | Sì |
+| host | URL dell'istanza di PayPal, ad esempio api.sandbox.paypal.com  | Sì |
 | clientId | ID client associato all'applicazione PayPal.  | Sì |
 | clientSecret | Segreto client associato all'applicazione PayPal. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |

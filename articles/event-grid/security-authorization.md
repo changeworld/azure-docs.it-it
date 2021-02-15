@@ -2,13 +2,13 @@
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
 description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 24954ce0a0dc54a04720c0d0b495d14e950a2f71
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.date: 02/12/2021
+ms.openlocfilehash: 326fa00645302eb4b9c9bc59f17c1ca153bdb0b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109590"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371721"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizzazione dell'accesso alle risorse di griglia di eventi
 Griglia di eventi di Azure consente di controllare il livello di accesso assegnato a utenti diversi per eseguire varie **operazioni di gestione** , ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
@@ -51,6 +51,8 @@ Griglia di eventi offre due ruoli predefiniti per la gestione delle sottoscrizio
         "Actions": [
           "Microsoft.Authorization/*/read",
           "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
+          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
           "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
@@ -188,7 +190,7 @@ Se si usa un gestore eventi che non è un WebHook, ad esempio, un hub eventi o u
 È necessaria l'autorizzazione **Microsoft.EventGrid/EventSubscriptions/Write** per la risorsa che è l'origine dell'evento. Questa autorizzazione è necessaria perché si sta scrivendo una nuova sottoscrizione nell'ambito della risorsa. La risorsa necessaria è diversa a seconda del fatto che si sottoscriva un argomento di sistema o un argomento personalizzato. Entrambi i tipi sono descritti in questa sezione.
 
 ### <a name="system-topics-azure-service-publishers"></a>Argomenti di sistema (entità di pubblicazione dei servizi di Azure)
-Per gli argomenti di sistema, è necessaria l'autorizzazione per scrivere una nuova sottoscrizione di evento nell'ambito della risorsa che pubblica l'evento. Il formato della risorsa è: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Per gli argomenti di sistema, se non si è il proprietario o il collaboratore della risorsa di origine, è necessario disporre dell'autorizzazione per scrivere una nuova sottoscrizione di evento nell'ambito della risorsa che pubblica l'evento. Il formato della risorsa è: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 Per sottoscrivere, ad esempio, un evento in un account di archiviazione denominato **myacct**, è necessaria l'autorizzazione Microsoft.EventGrid/EventSubscriptions/Write per: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 

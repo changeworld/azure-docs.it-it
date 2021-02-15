@@ -3,19 +3,16 @@ title: Trasformare i dati usando l'attività Hadoop
 description: Informazioni su come usare l'attività di streaming di Hadoop in Azure Data Factory per trasformare i dati eseguendo i programmi di streaming di Hadoop in un cluster Hadoop.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 85dd75b2af5d14d835db8aacc415069a2d67298e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e2a9bc9d664ba15da3cdefa5cf28519ab703d6ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631836"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361435"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Trasformare i dati usando l'attività di streaming di Hadoop in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]

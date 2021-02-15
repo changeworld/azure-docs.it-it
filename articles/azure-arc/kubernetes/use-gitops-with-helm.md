@@ -2,18 +2,18 @@
 title: Distribuire i grafici Helm con GitOps nel cluster Kubernetes abilitato per Arc (anteprima)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Usare GitOps con Helm per la configurazione di cluster abilitata per Azure Arc (anteprima)
+description: Usare GitOps con Helm per la configurazione di un cluster abilitato per Azure Arc (anteprima)
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, servizio Azure Container, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: eea81d458ac6631c4a023134b3198e4cdb04526e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 883eb9c152bdc8a7c0e60e999cf9decf47fb80ec
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541612"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377925"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuire i grafici Helm con GitOps nel cluster Kubernetes abilitato per Arc (anteprima)
 
@@ -23,28 +23,28 @@ Questo articolo illustra come configurare e usare Helm con Kubernetes con abilit
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che sia già disponibile un cluster connesso Kubernetes con abilitazione di Azure Arc. Se è necessario un cluster connesso, vedere l'[avvio rapido di connessione di un cluster](./connect-cluster.md).
+Verificare di disporre di un cluster con connessione Kubernetes abilitato per Azure ARC esistente. Se è necessario un cluster connesso, vedere la [Guida introduttiva alla connessione di un cluster Kubernetes abilitato per Azure Arc](./connect-cluster.md).
 
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Panoramica dell'uso di GitOps e Helm con Azure Arc Enabled Kubernetes
 
- L'operatore Helm fornisce un'estensione a Flux che consente di automatizzare le versioni dei grafici Helm. Una versione del grafico viene descritta tramite una risorsa personalizzata di Kubernetes denominata HelmRelease. Flux sincronizza queste risorse da Git al cluster e l'operatore Helm garantisce che i grafici Helm vengano rilasciati come specificato nelle risorse.
+ L'operatore Helm fornisce un'estensione a Flux che consente di automatizzare le versioni dei grafici Helm. Una versione del grafico Helm è descritta tramite una risorsa personalizzata di Kubernetes denominata HelmRelease. Flux sincronizza queste risorse da git al cluster, mentre l'operatore Helm garantisce che i grafici Helm vengano rilasciati come specificato nelle risorse.
 
- Il [repository di esempio](https://github.com/Azure/arc-helm-demo) usato in questo documento è strutturato nel modo seguente:
+ Il [repository di esempio](https://github.com/Azure/arc-helm-demo) usato in questo articolo è strutturato nel modo seguente:
 
 ```console
 ├── charts
-│   └── azure-arc-sample
-│       ├── Chart.yaml
-│       ├── templates
-│       │   ├── NOTES.txt
-│       │   ├── deployment.yaml
-│       │   └── service.yaml
-│       └── values.yaml
+│   └── azure-arc-sample
+│       ├── Chart.yaml
+│       ├── templates
+│       │   ├── NOTES.txt
+│       │   ├── deployment.yaml
+│       │   └── service.yaml
+│       └── values.yaml
 └── releases
     └── app.yaml
 ```
 
-Nel repository git sono disponibili due directory, una contenente un grafico Helm e una contenente la configurazione releases. Nella `releases` directory `app.yaml` contiene la configurazione HelmRelease illustrata di seguito:
+Nel repository git sono presenti due directory: una contenente un grafico Helm e una che contiene la configurazione releases. Nella `releases` directory `app.yaml` contiene la configurazione HelmRelease, mostrata di seguito:
 
 ```yaml
 apiVersion: helm.fluxcd.io/v1
@@ -64,19 +64,21 @@ spec:
 
 La configurazione delle versioni Helm contiene i campi seguenti:
 
-- `metadata.name` è obbligatorio ed è necessario seguire le convenzioni di denominazione Kubernetes
-- `metadata.namespace` è facoltativo e determina la posizione in cui viene creata la versione
-- `spec.releaseName` è facoltativo e, se non viene specificato, il nome della versione sarà $namespace-$name
-- `spec.chart.path` è la directory che contiene il grafico, relativa alla radice del repository
-- `spec.values` sono personalizzazioni utente dei valori di parametro predefiniti del grafico
+| Campo | Descrizione |
+| ------------- | ------------- | 
+| `metadata.name` | Campo obbligatorio. Deve seguire le convenzioni di denominazione Kubernetes. |
+| `metadata.namespace` | Campo facoltativo. Determina la posizione in cui viene creata la versione. |
+| `spec.releaseName` | Campo facoltativo. Se non viene specificato, il nome della versione sarà `$namespace-$name` . |
+| `spec.chart.path` | La directory che contiene il grafico, data relativa alla radice del repository. |
+| `spec.values` | Personalizzazioni utente dei valori di parametro predefiniti dal grafico stesso. |
 
-Le opzioni specificate nell'elemento spec.values di HelmRelease sostituiranno le opzioni specificate in values.yaml dall'origine del grafico.
+Le opzioni specificate in HelmRelease `spec.values` sostituiranno le opzioni specificate in `values.yaml` dall'origine del grafico.
 
-Per altre informazioni su HelmRelease, vedere la [documentazione ufficiale dell'operatore Helm](https://docs.fluxcd.io/projects/helm-operator/en/stable/)
+Per altre informazioni su HelmRelease, vedere la [documentazione relativa all'operatore Helm](https://docs.fluxcd.io/projects/helm-operator/en/stable/)ufficiale.
 
 ## <a name="create-a-configuration"></a>Creare una configurazione
 
-Usando l'estensione dell'interfaccia della riga di comando di Azure per `k8sconfiguration`, collegare il cluster connesso al repository Git di esempio. A questa configurazione si assegnerà un nome `azure-arc-sample` e si distribuirà l'operatore Flux nello spazio dei nomi `arc-k8s-demo`.
+Usando l'estensione dell'interfaccia della riga di comando di Azure per `k8sconfiguration` , collegare il cluster connesso al repository git di esempio. Assegnare a questa configurazione il nome `azure-arc-sample` e distribuire l'operatore Flux nello `arc-k8s-demo` spazio dei nomi.
 
 ```console
 az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
@@ -84,7 +86,7 @@ az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 
 
 ### <a name="configuration-parameters"></a>Parametri di configurazione
 
-Per personalizzare la creazione della configurazione, [vedere i parametri aggiuntivi che è possibile usare](./use-gitops-connected-cluster.md#additional-parameters).
+Per personalizzare la creazione della configurazione, vedere informazioni [sui parametri aggiuntivi che è possibile usare](./use-gitops-connected-cluster.md#additional-parameters).
 
 ## <a name="validate-the-configuration"></a>Convalidare la configurazione
 

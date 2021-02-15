@@ -1,23 +1,18 @@
 ---
 title: Spostare i dati da Teradata utilizzando Data factory di Azure
 description: Informazioni su come il connettore Teradata per il servizio Data factory consente di spostare dati dal database Teradata
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef992ed907bc070643f290e7fd536de05ebf9242
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019600"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387207"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Spostare i dati da Teradata utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -42,7 +37,7 @@ Il gateway è necessario anche se il database Teradata è ospitato in una macchi
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Perché Gateway di gestione dati si connetta al database Teradata, è necessario installare il [provider di dati .NET per Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) versione 14 o successiva nello stesso sistema di Gateway di gestione dati. Sono supportate le versioni di Teradata a partire dalla 12.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -135,9 +130,9 @@ Come primo passaggio, impostare il Gateway di gestione dati. Le istruzioni sono 
 
 **Set di dati di input Teradata:**
 
-L'esempio presuppone che sia stata creata una tabella "MyTable" in Teradata e che contenga una colonna denominata "timestamp" per i dati di una serie temporale.
+Nell'esempio si presuppone che sia stata creata una tabella "MyTable" in Teradata e che contenga una colonna denominata "timestamp" per i dati delle serie temporali.
 
-Impostando "external" su "true" si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+Impostando "External": true si informa il servizio Data Factory che la tabella è esterna al data factory e non è prodotta da un'attività nel data factory.
 
 ```json
 {
@@ -297,10 +292,10 @@ Quando si spostano i dati in Teradata vengono usati i mapping seguenti dal tipo 
 | Decimal |Decimal |
 | Double |Double |
 | Integer |Int32 |
-| Numero |Double |
+| Number |Double |
 | SmallInt |Int16 |
 | Data |Datetime |
-| Ora |TimeSpan |
+| Tempo |TimeSpan |
 | Time With Time Zone |string |
 | Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |

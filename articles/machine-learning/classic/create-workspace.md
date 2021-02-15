@@ -3,22 +3,22 @@ title: "ML Studio (classico): creare un'area di lavoro-Azure"
 description: Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 0e2a67141970d1f5091457066db9b18a00ffecf8
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 9caac94c90aa18f8661ab46a0ae72d49500f39cb
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486161"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520545"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Machine Learning Studio (classica)
 
-**si applica a:** ![ Si tratta di un segno di spunta, che indica che questo articolo si applica alla Machine Learning Studio (classica). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) si ![ tratta di una X, il che significa che questo articolo si applica al Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**SI APPLICA A:**  ![Questo è un segno di spunta, che significa che l'articolo si applica a Machine Learning Studio (versione classica).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Questa è una X, che significa che l'articolo si applica ad Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 

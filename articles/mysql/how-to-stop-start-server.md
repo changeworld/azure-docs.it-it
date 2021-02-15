@@ -6,17 +6,17 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 047a24133dfdf68e2176b20cf31a871d11f0d4f9
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: d297d215d4b0edfdd67b603ba4707bf02057ad78
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241158"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516873"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Arrestare/avviare un database di Azure per MySQL
 
 > [!IMPORTANT]
-> La funzionalità di arresto/avvio per database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
+>  Quando si **Arresta** il server, rimane in tale stato per i 7 giorni successivi in un'estensione. Se non viene **avviata** manualmente durante questo periodo di tempo, il server verrà avviato automaticamente alla fine dei 7 giorni. Se non si utilizza il server, è possibile scegliere di **arrestarlo** di nuovo.
 
 In questo articolo viene fornita una procedura dettagliata per eseguire l'arresto e l'avvio del singolo server.
 

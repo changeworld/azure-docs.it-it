@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: f2b9f6dfe60aa50eb4ec6da76fe8781ecd8a1f13
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951328"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385031"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Usare la modalità apprendista per eseguire il training di personalizzazione senza influire sull'applicazione esistente
 
@@ -63,7 +63,7 @@ L'apprendimento in modalità apprendista differisce dalla modalità online nei m
 |--|--|--|
 |Impatto sull'esperienza utente|È possibile utilizzare il comportamento utente esistente per eseguire il training di personalizzatore, consentendo di osservare (non influire) quale sarà l' **azione predefinita** e il premio ottenuto. Ciò significa che l'esperienza degli utenti e i risultati aziendali non saranno interessati.|Visualizza l'azione principale restituita dalla chiamata di rango per influenzare il comportamento dell'utente.|
 |Velocità di apprendimento|Il Personalizzatore apprenderà più lentamente in modalità apprendista che durante l'apprendimento in modalità online. La modalità apprendista può apprendere solo osservando i premi ottenuti dall' **azione predefinita**, che limita la velocità di apprendimento, in quanto non è possibile eseguire l'esplorazione.|Impara più velocemente perché può sfruttare il modello corrente ed esplorare le nuove tendenze.|
-|"CEILING" per l'efficacia dell'apprendimento|Il Personalizzatore può approssimarsi, molto raramente e non superare mai le prestazioni della logica di business di base (il totale della ricompensa ottenuto dall' **azione predefinita** di ogni chiamata di rango).|Il Personalizzatore deve superare la linea di base delle applicazioni e nel tempo in cui si blocca è necessario eseguire la valutazione offline e la valutazione delle funzionalità per continuare a ottenere miglioramenti al modello. |
+|"CEILING" per l'efficacia dell'apprendimento|Il Personalizzatore può approssimarsi, molto raramente e non superare mai le prestazioni della logica di business di base (il totale della ricompensa ottenuto dall' **azione predefinita** di ogni chiamata di rango). Questo limite di approssimazione viene ridotto dall'esplorazione. Ad esempio, con l'esplorazione del 20% è molto improbabile che le prestazioni della modalità Apprentice superino il 80% e il 60% è un obiettivo ragionevole per la laurea in modalità online.|Il Personalizzatore deve superare la linea di base delle applicazioni e nel tempo in cui si blocca è necessario eseguire la valutazione offline e la valutazione delle funzionalità per continuare a ottenere miglioramenti al modello. |
 |Valore dell'API Rank per rewardActionId|L'esperienza degli utenti non ha alcun effetto, perché _rewardActionId_ è sempre la prima azione da inviare nella richiesta di rango. In altre parole, l'API Rank non è visibile per l'applicazione durante la modalità Apprentice. Le API Reward nell'applicazione non devono modificare il modo in cui viene usata l'API Reward tra una modalità e un'altra.|L'esperienza degli utenti verrà modificata da _rewardActionId_ che il Personalizzatore sceglie per l'applicazione. |
 |Giudizi|Il Personalizzatore mantiene un confronto tra i totali di ricompensa che la logica di business predefinita sta ottenendo e la personalizzazione dei totali del premio viene ottenuta in modalità online. Un confronto è disponibile nel portale di Azure per tale risorsa|Valutare l'efficacia del personalizzatore eseguendo [valutazioni offline](concepts-offline-evaluation.md), che consentono di confrontare il totale dei vantaggi del personalizzatore rispetto ai potenziali vantaggi della linea di base dell'applicazione.|
 

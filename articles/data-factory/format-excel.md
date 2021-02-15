@@ -2,19 +2,16 @@
 title: Formato Excel in Azure Data Factory
 description: In questo argomento viene descritto come gestire il formato Excel in Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: bef29bc958253be0498442f842dda67105ce799b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902035"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386527"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -74,7 +71,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="excel-as-source"></a>Excel come origine 
 
-Nella sezione attività di copia **_ \_ source \**** sono supportate le proprietà seguenti.
+Nella sezione ***\* origine \**** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -109,15 +106,15 @@ In mapping dei flussi di dati è possibile leggere il formato Excel negli archiv
 
 La tabella seguente elenca le proprietà supportate da un'origine Excel. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Nome                      | Description                                                  | Obbligatoria | Valori consentiti                                            | Proprietà script flusso di dati         |
+| Nome                      | Descrizione                                                  | Obbligatoria | Valori consentiti                                            | Proprietà script flusso di dati         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
-| Percorsi Wild Card           | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No       | String[]                                                  | wildcardPaths                     |
-| Partition Root Path (Percorso radice partizione)       | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No       | string                                                    | partitionRootPath                 |
-| Elenco di file             | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | No       | `true` o `false`                                         | fileList                          |
-| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine       | No       | string                                                    | rowUrlColumn                      |
-| Al termine          | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | No       | Elimina: `true` o `false` <br> Spostare `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
-| Filtra per Ultima modifica   | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
-| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | No | `true` o `false` | ignoreNoFilesFound |
+| Percorsi Wild Card           | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no       | String[]                                                  | wildcardPaths                     |
+| Partition Root Path (Percorso radice partizione)       | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no       | string                                                    | partitionRootPath                 |
+| Elenco di file             | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | no       | `true` o `false`                                         | fileList                          |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine       | no       | string                                                    | rowUrlColumn                      |
+| Al termine          | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | no       | Elimina: `true` o `false` <br> Spostare `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Filtra per Ultima modifica   | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Esempio di origine
 

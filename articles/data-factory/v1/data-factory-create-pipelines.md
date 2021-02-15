@@ -1,22 +1,18 @@
 ---
 title: Crea/Pianifica pipeline, attività concatenate in Data Factory
 description: Informazioni su come creare una pipeline di dati in Azure Data Factory per spostare e trasformare i dati. Creare un flusso di lavoro basato sui dati per produrre informazioni pronte per l'uso.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 83b4d14d46677c731b7fb9faae2217492368d4b2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9cc81a8e157c244828a15ac82913ce9a88c3d34f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496059"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376871"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]

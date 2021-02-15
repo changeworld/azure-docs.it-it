@@ -3,18 +3,17 @@ title: Esplorare Linux
 titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni su come completare diverse attività comuni di data science tramite Data Science Virtual Machine per Linux.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315800"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517672"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Data Science con Ubuntu Data Science Virtual Machine in Azure
 
@@ -62,7 +61,7 @@ mv headers spambaseHeaders.data
 
 Il set di dati include diversi tipi di statistiche per ogni messaggio di posta elettronica:
 
-* Le colonne come **word\_freq\__WORD_** indicano la percentuale di parole nel messaggio di posta elettronica che corrispondono a *WORD*. Se ad esempio **word\_freq\_make** è **1** , l'1% di tutte le parole nel messaggio di posta elettronica è costituito dalla parola *make*.
+* Le colonne come **word\_freq\__WORD_** indicano la percentuale di parole nel messaggio di posta elettronica che corrispondono a *WORD*. Se ad esempio **word\_freq\_make** è **1**, l'1% di tutte le parole nel messaggio di posta elettronica è costituito dalla parola *make*.
 * Le colonne come **char\_freq\__CHAR_** indicano la percentuale di caratteri *CHAR* nel messaggio di posta elettronica.
 * **capital\_run\_length\_longest** è la lunghezza massima di una sequenza di lettere maiuscole.
 * **capital\_run\_length\_average** è la lunghezza media di tutte le sequenze di lettere maiuscole.
@@ -315,7 +314,7 @@ Nella DSVM sono già installati diversi notebook di esempio:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalytical *T* ool *T* o *L* earn *E* asily) è uno strumento grafico di R per il data mining. È dotato di un'interfaccia intuitiva che consente di caricare, esplorare e trasformare i dati e di creare e valutare i modelli. Per una procedura dettagliata che ne illustra le funzionalità, vedere l'articolo [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: un'interfaccia utente grafica di data mining per R).
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A* nalytical *T* ool *T* o *L* earn *E* asily) è uno strumento grafico di R per il data mining. È dotato di un'interfaccia intuitiva che consente di caricare, esplorare e trasformare i dati e di creare e valutare i modelli. Per una procedura dettagliata che ne illustra le funzionalità, vedere l'articolo [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: un'interfaccia utente grafica di data mining per R).
 
 Installare e avviare Rattle eseguendo questi comandi:
 
@@ -345,17 +344,17 @@ Per esplorare i dati:
 
 È anche possibile usare la scheda **Explore** (Esplora) per generare tracciati dettagliati. Per tracciare un istogramma dei dati:
 
-1. Scegliere **Distributions** (Distribuzioni).
-1. Per **word_freq_remove** e **word_freq_you** , selezionare **Histogram** (Istogramma).
-1. Scegliere **Execute** (Esegui). Entrambi i tracciati di densità verranno visualizzati in un'unica area grafica, in cui appare chiaro che nei messaggi di posta elettronica la parola _you_ è molto più frequente della parola _remove_.
+1. Scegliere **Distributions**(Distribuzioni).
+1. Per **word_freq_remove** e **word_freq_you**, selezionare **Histogram** (Istogramma).
+1. Scegliere **Execute**(Esegui). Entrambi i tracciati di densità verranno visualizzati in un'unica area grafica, in cui appare chiaro che nei messaggi di posta elettronica la parola _you_ è molto più frequente della parola _remove_.
 
 Anche i tracciati di **correlazione** sono interessanti. Per creare un tracciato:
 
 1. Per **Type** (Tipo), selezionare **Correlation** (Correlazione).
-1. Scegliere **Execute** (Esegui).
+1. Scegliere **Execute**(Esegui).
 1. Rattle avvisa l'utente che è consigliabile usare un massimo di 40 variabili. Scegliere **Yes** (Sì) per visualizzare il tracciato.
 
-Vengono evidenziate alcune correlazioni interessanti. Ad esempio, la parola _technology_ è strettamente correlata a _HP_ e _labs_. È strettamente correlata anche a _650_ , perché l'indicativo di località dei donatori di set di dati è 650.
+Vengono evidenziate alcune correlazioni interessanti. Ad esempio, la parola _technology_ è strettamente correlata a _HP_ e _labs_. È strettamente correlata anche a _650_, perché l'indicativo di località dei donatori di set di dati è 650.
 
 I valori numerici per le correlazioni tra le parole sono disponibili nella finestra **Explore** (Esplora). È interessante notare, ad esempio, che la parola _technology_ è correlata negativamente a _your_ e _money_.
 
@@ -374,7 +373,7 @@ Rattle può anche eseguire l'analisi dei cluster. Escludere ora alcune funzional
 * word_freq_business
 * spam
 
-Tornare alla scheda **Cluster**. Selezionare **KMeans** , quindi impostare **Number of clusters** (Numero di cluster) su **4**. Scegliere **Execute** (Esegui). I risultati verranno visualizzati nella finestra di output. Un cluster ha una frequenza elevata di _george_ e _hp_ ed è probabilmente un messaggio di lavoro legittimo.
+Tornare alla scheda **Cluster**. Selezionare **KMeans**, quindi impostare **Number of clusters** (Numero di cluster) su **4**. Scegliere **Execute**(Esegui). I risultati verranno visualizzati nella finestra di output. Un cluster ha una frequenza elevata di _george_ e _hp_ ed è probabilmente un messaggio di lavoro legittimo.
 
 Per creare un modello di Machine Learning con albero delle decisioni:
 
@@ -386,8 +385,8 @@ Per creare un modello di Machine Learning con albero delle decisioni:
 Una funzionalità interessante di Rattle è la possibilità di eseguire diversi metodi di Machine Learning e valutarli rapidamente. Di seguito sono riportati i passaggi necessari:
 
 1. Per **Type** (Tipo), selezionare **All** (Tutti).
-1. Scegliere **Execute** (Esegui).
-1. Al termine dell'esecuzione di Rattle, è possibile selezionare qualsiasi valore per **Type** (Tipo), ad esempio **SVM** , e visualizzare i risultati.
+1. Scegliere **Execute**(Esegui).
+1. Al termine dell'esecuzione di Rattle, è possibile selezionare qualsiasi valore per **Type** (Tipo), ad esempio **SVM**, e visualizzare i risultati.
 1. È anche possibile confrontare le prestazioni dei modelli nel set di convalida usando la scheda **Evaluate** (Valuta). Ad esempio, la selezione **Error Matrix** (Matrice degli errori) mostra la matrice di confusione, l'errore generale e l'errore medio di classe per ogni modello nel set di convalida. È anche possibile tracciare le curve ROC, eseguire analisi di sensibilità e altri tipi di valutazioni del modello.
 
 Al termine della compilazione dei modelli, selezionare la scheda **Log** per visualizzare il codice R eseguito da Rattle durante la sessione. Per salvarlo, è possibile usare il pulsante **Export** (Esporta).
@@ -416,7 +415,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Modificare la riga **IPv4 local connections** per l'uso di **md5** anziché **ident** , in modo da poter eseguire l'accesso con un nome utente e una password:
+Modificare la riga **IPv4 local connections** per l'uso di **md5** anziché **ident**, in modo da poter eseguire l'accesso con un nome utente e una password:
 
 ```
 # IPv4 local connections:
@@ -429,7 +428,7 @@ Riavviare quindi il servizio PostgreSQL:
 sudo systemctl restart postgresql
 ```
 
-Per avviare come utente postgres predefinito *psql* , un terminale interattivo per PostgreSQL, eseguire questo comando:
+Per avviare come utente postgres predefinito *psql*, un terminale interattivo per PostgreSQL, eseguire questo comando:
 
 ```Bash
 sudo -u postgres psql
@@ -468,14 +467,14 @@ Per iniziare, aprire SQuirrel SQL dal menu **Applications** (Applicazioni). Per 
 1. Fare clic con il pulsante destro del mouse su **PostgreSQL** e scegliere **Modify Driver** (Modifica driver).
 1. Selezionare **Extra Class Path** (Percorso classe extra) > **Add** (Aggiungi).
 1. Per **File Name** (Nome file), immettere **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
-1. Scegliere **Open** (Apri).
+1. Scegliere **Open**(Apri).
 1. Selezionare **List Drivers** (Elenca driver). Per **Class Name** (Nome classe), selezionare **org.postgresql.Driver** e quindi scegliere **OK**.
 
 Per configurare la connessione al server locale:
 
 1. Selezionare **Windows** > **View Aliases** (Visualizza alias).
 1. Scegliere il pulsante **+** per creare un nuovo alias. Per il nuovo nome alias, immettere **Spam database**. 
-1. Per **Driver** , selezionare **PostgreSQL**.
+1. Per **Driver**, selezionare **PostgreSQL**.
 1. Impostare l'URL su **jdbc:postgresql://localhost/spam**.
 1. Immettere nome utente e password.
 1. Selezionare **OK**.
@@ -494,7 +493,7 @@ Per eseguire alcune query:
 SELECT avg(word_freq_make), spam from data group by spam;
 ```
 
-Oppure, quali sono le caratteristiche dei messaggi di posta elettronica che contengono spesso *3d* ?
+Oppure, quali sono le caratteristiche dei messaggi di posta elettronica che contengono spesso *3d*?
 
 ```SQL
 SELECT * from data order by word_freq_3d desc;
