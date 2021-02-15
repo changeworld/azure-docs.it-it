@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b4d824386a7c14165697f4b93f2e93cf0182a855
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625465"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524026"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Esaminare tutti i rilevamenti dei sensori aziendali nell'inventario del dispositivo
 
@@ -225,6 +225,6 @@ Sono disponibili le seguenti informazioni aggiuntive sulla zona:
 
 - Stato **aggiornamento**: se il sensore connesso viene aggiornato, verranno visualizzati gli Stati di aggiornamento. Durante l'aggiornamento, la console di gestione locale non riceve le informazioni sul dispositivo dal sensore.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Esaminare i rilevamenti dei sensori in un inventario dei dispositivi](how-to-investigate-sensor-detections-in-a-device-inventory.md)

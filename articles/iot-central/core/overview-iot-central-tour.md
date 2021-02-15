@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c702cb16267d5495feedd8d361092b23b6d4deac
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 569a1365e73acbc2fdaf351f2e2cff21181241e1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372466"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523472"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Presentazione dell'interfaccia utente di Azure IoT Central
 
@@ -97,8 +97,8 @@ Il menu superiore viene visualizzato in ogni pagina:
 
 * Per cercare modelli di dispositivo e dispositivi, immettere un valore in **Search** (Cerca).
 * Per cambiare la lingua o il tema dell'interfaccia utente, scegliere l'icona **Settings** (Impostazioni). Altre informazioni sulla [gestione delle preferenze dell'applicazione](howto-manage-preferences.md)
-* Per disconnettersi dall'applicazione, scegliere l'icona **Account**.
 * Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse. È possibile [ottenere informazioni sull'applicazione](./howto-get-app-info.md) dal collegamento **Informazioni sull'app**. Nelle applicazioni del piano tariffario gratuito le risorse di supporto includono l'accesso alla [live chat](howto-show-hide-chat.md).
+* Per disconnettersi dall'applicazione, scegliere l'icona **Account**.
 
 È possibile scegliere tra un tema scuro o un tema chiaro per l'interfaccia utente:
 

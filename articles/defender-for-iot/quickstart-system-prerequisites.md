@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8ee3afcae69ca6c082452e590eb8370bcc122af4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
-ms.translationtype: HT
+ms.openlocfilehash: 7b609fec2a47dc0685b30dac12f43263127f70ef
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844460"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523210"
 ---
 # <a name="system-prerequisites"></a>Prerequisiti di sistema
 Questo articolo elenca i prerequisiti di sistema per l'esecuzione di Azure Defender per IoT.
@@ -31,7 +31,7 @@ Defender per IoT indirizza tutto il traffico da tutte le aree europee al data ce
 
 Per altre informazioni, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Identificare le appliance necessarie](how-to-identify-required-appliances.md)
-- [Informazioni sulla configurazione della rete di Azure Defender per IoT](how-to-set-up-your-network.md)
+[Identificare le appliance obbligatorie](how-to-identify-required-appliances.md) 
+ [Informazioni su Azure Defender per la configurazione della rete Internet](how-to-set-up-your-network.md)

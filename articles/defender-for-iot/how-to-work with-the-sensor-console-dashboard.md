@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: eb37434213dd756ba5d7137b93a1cd37da5bb9ae
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509078"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523635"
 ---
 # <a name="the-dashboard"></a>Dashboard
 
@@ -100,6 +100,6 @@ Selezionare la freccia rivolta verso il basso nella parte inferiore di una casel
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="È stata rilevata una connettività Internet non autorizzata":::
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Usare gli avvisi sul sensore](how-to-work-with-alerts-on-your-sensor.md)

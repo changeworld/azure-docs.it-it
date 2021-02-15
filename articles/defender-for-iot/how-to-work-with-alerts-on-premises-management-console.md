@@ -1,5 +1,5 @@
 ---
-title: Usare gli avvisi nella console di gestione locale
+title: Gestire gli avvisi della console di gestione locale
 description: Usare la console di gestione locale per ottenere una visualizzazione aziendale delle minacce recenti nella rete e comprendere meglio il modo in cui gli utenti dei sensori li gestiscono.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: f52e308199ddb8bc21809009ad71918d077ac5b2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ebd5a0c14b6f9e3a57e3a7df888b5f9d24f9a2df
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840576"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523618"
 ---
-# <a name="work-with-alerts-on-the-on-premises-management-console"></a>Usare gli avvisi nella console di gestione locale 
+# <a name="work-with-alerts-on-the-on-premises-management-console"></a>Gestire gli avvisi della console di gestione locale 
 
 Nella finestra **avvisi** della console di gestione è possibile eseguire le operazioni seguenti:
 
@@ -119,13 +119,34 @@ Per visualizzare i dispositivi in una mappa di zona:
 
 ## <a name="manage-alert-events"></a>Gestione degli eventi di avviso
 
-È possibile gestire gli eventi di avviso rilevati dai sensori aziendali nel modo seguente:
+Sono disponibili diverse opzioni per la gestione degli eventi di avviso dalla console di gestione locale.
 
 - Informazioni o riconoscimento degli eventi di avviso. Selezionare **learn & confermare** per apprendere tutti gli eventi di avviso che possono essere autorizzati e per confermare tutti gli eventi di avviso attualmente non riconosciuti.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="Selezionare Learn & confermare per apprendere tutti.":::
 
 - Disattiva e disattiva gli eventi di avviso.
+
+Per altre informazioni sull'apprendimento, il riconoscimento e la disattivazione degli eventi di avviso, vedere l'articolo [gestire gli eventi di avviso](how-to-manage-the-alert-event.md) per il sensore.
+
+## <a name="export-alert-information"></a>Esporta informazioni sugli avvisi
+
+Esportare le informazioni sugli avvisi in un file con estensione CSV. È possibile esportare le informazioni di tutti gli avvisi rilevati o esportare le informazioni in base alla visualizzazione filtrata. Vengono esportate le seguenti informazioni:
+
+- Indirizzo di origine
+- Indirizzo di destinazione
+- Titolo avviso
+- Gravità dell'avviso
+- Messaggio di avviso
+- Informazioni aggiuntive
+- Stato riconosciuto
+- Disponibilità PCAP
+
+Per esportare:
+
+1. Selezionare avvisi dal menu laterale.
+1. Selezionare Esporta.
+1. Selezionare Esporta avvisi estesi per esportare le informazioni sugli avvisi in righe separate per ogni avviso che copre più dispositivi. Quando si seleziona Esporta avvisi estesi, il file con estensione CSV creerà una riga duplicata dell'avviso con gli elementi univoci in ogni riga. L'utilizzo di questa opzione consente di esaminare più facilmente gli eventi di avviso esportati.  
 
 ## <a name="create-alert-exclusion-rules"></a>Creare regole di esclusione degli avvisi
 
@@ -225,6 +246,6 @@ Le regole create tramite l'API vengono visualizzate nella finestra **regola di e
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot della visualizzazione Modifica regola di esclusione.":::
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Usare gli avvisi sul sensore](how-to-work-with-alerts-on-your-sensor.md)

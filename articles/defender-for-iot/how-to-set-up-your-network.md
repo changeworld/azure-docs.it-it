@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621313"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523856"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informazioni sulla configurazione della rete di Azure Defender per IoT
 
@@ -534,24 +534,23 @@ Esaminare questo elenco prima della distribuzione del sito:
 
 | **#** | **Attività o attività** | **Status** | **Commenti** |
 |--|--|--|--|
-| 1 | Fornire Global. | ☐ |  |
-| 3 | Ordinare le appliance. | ☐ |  |
-| 4 | Preparare un elenco di subnet nella rete. | ☐ |  |
-| 5 | Fornire un elenco di VLAN delle reti di produzione. | ☐ |  |
-| 6 | Consente di specificare un elenco di modelli di switch nella rete. | ☐ |  |
-| 7 | Fornire un elenco di fornitori e protocolli delle apparecchiature industriali. | ☐ |  |
-| 8 | Fornire i dettagli di rete per i sensori (indirizzo IP, subnet, D-GW, DNS). | ☐ |  |
-| 9 | Creare le regole del firewall necessarie e l'elenco di accesso. | ☐ |  |
-| 10 | Creare porte estese sulle opzioni per il monitoraggio delle porte o configurare i rubinetti di rete in modo appropriato. | ☐ |  |
-| 11 | Preparare lo spazio rack per le appliance del sensore. | ☐ |  |
-| 12 | Preparare una workstation per il personale. | ☐ |  |
-| 13 | Fornire una tastiera, un monitor e un mouse per il Defender per i dispositivi rack. | ☐ |  |
-| 14 | Rack e cablaggio delle appliance. | ☐ |  |
-| 15 | Allocare le risorse del sito per supportare la distribuzione. | ☐ |  |
-| 16 | Creare gruppi di Active Directory o utenti locali. | ☐ |  |
-| 17 | Training di configurazione (self-learning). | ☐ |  |
-| 18 | Go o no-go. | ☐ |  |
-| 19 | Pianificare la data di distribuzione. | ☐ |  |
+| 1 | Ordinare le appliance. | ☐ |  |
+| 2 | Preparare un elenco di subnet nella rete. | ☐ |  |
+| 3 | Fornire un elenco di VLAN delle reti di produzione. | ☐ |  |
+| 4 | Consente di specificare un elenco di modelli di switch nella rete. | ☐ |  |
+| 5 | Fornire un elenco di fornitori e protocolli delle apparecchiature industriali. | ☐ |  |
+| 6 | Fornire i dettagli di rete per i sensori (indirizzo IP, subnet, D-GW, DNS). | ☐ |  |
+| 7 | Creare le regole del firewall necessarie e l'elenco di accesso. | ☐ |  |
+| 8 | Creare porte estese sulle opzioni per il monitoraggio delle porte o configurare i rubinetti di rete in modo appropriato. | ☐ |  |
+| 9 | Preparare lo spazio rack per le appliance del sensore. | ☐ |  |
+| 10 | Preparare una workstation per il personale. | ☐ |  |
+| 11 | Fornire una tastiera, un monitor e un mouse per il Defender per i dispositivi rack. | ☐ |  |
+| 12 | Rack e cablaggio delle appliance. | ☐ |  |
+| 13 | Allocare le risorse del sito per supportare la distribuzione. | ☐ |  |
+| 14 | Creare gruppi di Active Directory o utenti locali. | ☐ |  |
+| 15 | Training di configurazione (self-learning). | ☐ |  |
+| 16 | Go o no-go. | ☐ |  |
+| 17 | Pianificare la data di distribuzione. | ☐ |  |
 
 
 | **Data** | **Nota** | **Data distribuzione** | **Nota** |
@@ -696,6 +695,6 @@ Contattare un amministratore Active Directory per creare un gruppo di utenti del
 | Fotocamera | |
 | Macchina a raggi X | |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Informazioni sull'installazione di Defender for Internet](how-to-install-software.md)

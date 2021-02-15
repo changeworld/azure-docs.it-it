@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di servizi di ripristino di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: fd941db933d243b83c1c19c7ae0fdfc2d7869b8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293068"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520460"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -43,11 +43,11 @@ Per eliminare correttamente un insieme di credenziali, è necessario seguire i p
 - **Passaggio 3**: è necessario controllare tutte le tre posizioni seguenti per verificare se sono presenti elementi protetti:
 
   - **Elementi protetti dal cloud**: andare al menu del dashboard dell'insieme di credenziali > **gli elementi di backup**. Tutti gli elementi elencati di seguito devono essere rimossi con **Interrompi backup** o **Elimina dati di backup** insieme ai relativi dati di backup.  Per rimuovere tali elementi, [attenersi alla seguente procedura](#delete-protected-items-in-the-cloud) .
-  - **SQL Server istanza**: andare al menu del dashboard dell'insieme **Backup Infrastructure**di credenziali >  >  **server protetti**dell'infrastruttura di backup. In Server protetti selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
-  - **Server protetti Mars**: accedere al menu del dashboard dell'insieme **Backup Infrastructure**di credenziali >  >  **server protetti**dell'infrastruttura di backup. Se sono presenti server protetti da MARS, tutti gli elementi elencati di seguito devono essere eliminati insieme ai relativi dati di backup. Per eliminare server protetti da MARS, [seguire questa procedura](#delete-protected-items-on-premises) .
+  - **SQL Server istanza**: andare al menu del dashboard dell'insieme di credenziali >  >  **server protetti** dell'infrastruttura di backup. In Server protetti selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
+  - **Server protetti Mars**: accedere al menu del dashboard dell'insieme di credenziali >  >  **server protetti** dell'infrastruttura di backup. Se sono presenti server protetti da MARS, tutti gli elementi elencati di seguito devono essere eliminati insieme ai relativi dati di backup. Per eliminare server protetti da MARS, [seguire questa procedura](#delete-protected-items-on-premises) .
   - **Server di gestione MAB o DPM**: andare al menu del dashboard dell'insieme di credenziali > **backup infrastruttura**  >  **backup server di gestione**. Se si dispone di DPM o server di Backup di Azure (MAB), è necessario eliminare o annullare la registrazione di tutti gli elementi elencati di seguito insieme ai relativi dati di backup. Per eliminare i server di gestione, [attenersi alla seguente procedura](#delete-protected-items-on-premises) .
 
-- **Passaggio 4**: è necessario assicurarsi che tutti gli account di archiviazione registrati vengano eliminati. Passare al menu del dashboard dell'insieme di credenziali > account di archiviazione dell'infrastruttura di **backup**  >  **Storage Accounts**. Se gli account di archiviazione sono elencati qui, è necessario annullare la registrazione di tutti gli account. Per informazioni su come annullare la registrazione dell'account, vedere [annullare la registrazione di un account di archiviazione](manage-afs-backup.md#unregister-a-storage-account).
+- **Passaggio 4**: è necessario assicurarsi che tutti gli account di archiviazione registrati vengano eliminati. Passare al menu del dashboard dell'insieme di credenziali > account di archiviazione dell'infrastruttura di **backup**  >  . Se gli account di archiviazione sono elencati qui, è necessario annullare la registrazione di tutti gli account. Per informazioni su come annullare la registrazione dell'account, vedere [annullare la registrazione di un account di archiviazione](manage-afs-backup.md#unregister-a-storage-account).
 
 Una volta completati questi passaggi, è possibile continuare a [eliminare l'](#delete-the-recovery-services-vault)insieme di credenziali.
 
@@ -59,11 +59,11 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 
 Per arrestare la protezione ed eliminare i dati di backup, seguire questa procedura:
 
-1. Dal portale passare a insieme di credenziali di **servizi di ripristino**, quindi passare a **elementi di backup**. Scegliere quindi gli elementi protetti nel cloud (ad esempio, macchine virtuali di Azure, archiviazione di Azure [il servizio File di Azure] o SQL Server in macchine virtuali di Azure).
+1. Dal portale passare a insieme di credenziali di **servizi di ripristino**, quindi passare a **elementi di backup**. Quindi, nell'elenco **tipo di gestione di backup** selezionare gli elementi protetti nel cloud (ad esempio, macchine virtuali di Azure, archiviazione di Azure [il servizio file di Azure] o SQL Server in macchine virtuali di Azure).
 
     ![Selezionare il tipo di backup.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Fare clic con il pulsante destro del mouse per selezionare l'elemento di backup. A seconda del fatto che l'elemento di backup sia protetto o meno, il menu Visualizza il riquadro **Interrompi backup** o **Elimina dati di backup** .
+2. Verrà visualizzato un elenco di tutti gli elementi per la categoria. Fare clic con il pulsante destro del mouse per selezionare l'elemento di backup. A seconda del fatto che l'elemento di backup sia protetto o meno, il menu Visualizza il riquadro **Interrompi backup** o **Elimina dati di backup** .
 
     - Se viene visualizzato il riquadro **Interrompi backup** , scegliere **Elimina dati di backup** dal menu a discesa. Immettere il nome dell'elemento di backup (questo campo fa distinzione tra maiuscole e minuscole) e quindi selezionare un motivo dal menu a discesa. Immettere i commenti, se disponibili. Selezionare quindi **Interrompi backup**.
 
@@ -73,7 +73,7 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
          ![Riquadro Elimina dati di backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-3. Selezionare l' **icona di notifica,** ovvero ![ l'icona di notifica.](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *interruzione del backup ed eliminazione dei dati di backup per "elemento di*backup *"*. *L'operazione è stata completata*.
+3. Selezionare l' **icona di notifica,** ovvero ![ l'icona di notifica.](./media/backup-azure-delete-vault/messages.png) Al termine del processo, il servizio Visualizza il messaggio seguente: *interruzione del backup ed eliminazione dei dati di backup per "elemento di* backup *"*. *L'operazione è stata completata*.
 4. Selezionare **Aggiorna** dal menu **elementi di backup** per assicurarsi che l'elemento di backup sia stato eliminato.
 
       ![Pagina Elimina elementi di backup.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -131,8 +131,8 @@ Al termine di questo processo, è possibile eliminare gli elementi di backup dal
 
     ![Arrestare un backup pianificato.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Viene richiesto di immettere un PIN di sicurezza (Personal Identification Number), che è necessario generare manualmente. A tale scopo, accedere prima al portale di Azure.
-5. Passare a impostazioni dell'insieme di credenziali di **servizi di ripristino**  >  **Settings**  >  **Proprietà**.
-6. In **pin di sicurezza**selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
+5. Passare a impostazioni dell'insieme di credenziali di **servizi di ripristino**  >    >  **Proprietà**.
+6. In **pin di sicurezza** selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
 7. Nella console di gestione incollare il PIN e quindi fare clic su **OK**.
 
     ![Generare un PIN di sicurezza.](./media/backup-azure-delete-vault/security-pin.png)
@@ -172,7 +172,7 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
 #### <a name="method-2"></a>Metodo 2
 
-Aprire la console di gestione di **MAB** o **DPM** . In **Seleziona metodo protezione dati**deselezionare la casella di controllo voglio la  **protezione online** .
+Aprire la console di gestione di **MAB** o **DPM** . In **Seleziona metodo protezione dati** deselezionare la casella di controllo voglio la  **protezione online** .
 
   ![Selezionare il metodo di protezione dati.](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -335,11 +335,11 @@ Per eliminare l'insieme di credenziali di servizi di ripristino esistente, segui
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Eliminare l'insieme di credenziali di servizi di ripristino usando Azure Resource Manager
 
-Questa opzione per eliminare l'insieme di credenziali di servizi di ripristino è consigliata solo se tutte le dipendenze vengono rimosse e si sta ancora ricevendo l' *errore di eliminazione*dell'insieme di credenziali. Provare uno o tutti i suggerimenti seguenti:
+Questa opzione per eliminare l'insieme di credenziali di servizi di ripristino è consigliata solo se tutte le dipendenze vengono rimosse e si sta ancora ricevendo l' *errore di eliminazione* dell'insieme di credenziali. Provare uno o tutti i suggerimenti seguenti:
 
 - Dal riquadro **Essentials** nel menu dell'insieme di credenziali verificare che non siano presenti elementi di backup, server di gestione di backup o elementi replicati. Se sono presenti elementi di backup, vedere la sezione [prima di iniziare](#before-you-start) .
 - Provare [di nuovo a eliminare l'insieme di credenziali dal portale](#delete-the-recovery-services-vault) .
-- Se tutte le dipendenze vengono rimosse e si sta ancora ricevendo l' *errore di eliminazione*dell'insieme di credenziali, usare lo strumento ARMClient per eseguire i passaggi seguenti (dopo la nota).
+- Se tutte le dipendenze vengono rimosse e si sta ancora ricevendo l' *errore di eliminazione* dell'insieme di credenziali, usare lo strumento ARMClient per eseguire i passaggi seguenti (dopo la nota).
 
 1. Passare a [chocolatey.org](https://chocolatey.org/) per scaricare e installare cioccolato. Quindi, installare ARMClient eseguendo il comando seguente:
 
