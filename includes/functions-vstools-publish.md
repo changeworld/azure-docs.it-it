@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e4231f5c4e947f29a72e581cf461ff737c1a0c82
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956504"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529661"
 ---
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e selezionare **pubblica** e in **destinazione**, selezionare **Azure** e quindi **Avanti**.
 
-1. In **Destinazione** selezionare **Azure** :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Selezionare Azure come destinazione":::
+1. Per la **destinazione specifica**, scegliere **app per le funzioni di Azure (Windows)**, che consente di creare un'app per le funzioni che viene eseguita in Windows.
 
-1. In **Destinazione specifica** selezionare **App per le funzioni di Azure (Windows)**
+1. In **istanza della funzione** scegliere **Crea una nuova funzione di Azure...** 
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Selezionare App per le funzioni":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-new-resource.png" alt-text="Creare una nuova istanza dell'app per le funzioni":::
 
-1. In **Istanza di Funzioni** selezionare **Crea una nuova applicazione Funzioni di Azure** e quindi usare i valori specificati nella tabella seguente:
+1. Creare una nuova istanza di utilizzando i valori specificati nella tabella seguente:
 
     | Impostazione      | Valore  | Descrizione                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,8 +36,9 @@ ms.locfileid: "97956504"
 
     ![Finestra di dialogo Crea servizio app](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-1. Selezionare **Crea** per creare un'app per le funzioni e le relative risorse in Azure. 
-1. In **Istanza di Funzioni** assicurarsi che sia selezionata l'opzione **Esegui da file di pacchetto**. L'app per le funzioni viene distribuita usando la [distribuzione ZIP](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) con la modalità [esecuzione da pacchetto](../articles/azure-functions/run-functions-from-deployment-package.md) abilitata. Questo è il metodo di distribuzione consigliato per il progetto di funzioni, perché offre prestazioni più elevate. 
+1. Selezionare **Crea** per creare un'app per le funzioni e le relative risorse in Azure. Lo stato della creazione delle risorse viene visualizzato nella parte inferiore sinistra della finestra. 
+
+1. Tornare all' **istanza di funzioni**, assicurarsi che l'opzione **Esegui dal file del pacchetto** sia selezionata. L'app per le funzioni viene distribuita usando la [distribuzione ZIP](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) con la modalità [esecuzione da pacchetto](../articles/azure-functions/run-functions-from-deployment-package.md) abilitata. Questo è il metodo di distribuzione consigliato per il progetto di funzioni, perché offre prestazioni più elevate. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Completare la creazione del profilo":::
 
