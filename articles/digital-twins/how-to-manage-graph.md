@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e5009e59477e6862c4441090a6480075c9e22385
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526784"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530451"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -49,11 +49,11 @@ Per creare una relazione, è necessario specificare:
 L'ID relazione deve essere univoco all'interno del gemello di origine specificato. Non è necessario che sia globalmente univoco.
 Per il *foo* gemello, ad esempio, ogni ID relazione specifico deve essere univoco. Tuttavia, un'altra *barra* gemella può avere una relazione in uscita che corrisponde allo stesso ID di una relazione *foo* .
 
-L'esempio di codice seguente illustra come creare una relazione nell'istanza di Azure Digital gemelli.
+L'esempio di codice seguente illustra come creare una relazione nell'istanza di Azure Digital gemelli. Usa la chiamata SDK (evidenziata) all'interno di un metodo personalizzato che può essere visualizzato nel contesto di un programma più grande.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod" highlight="13":::
 
-Nel metodo Main è ora possibile chiamare la funzione Custom per creare una relazione _Contains_ come la seguente: 
+Questa funzione personalizzata può ora essere chiamata per creare una relazione _Contains_ come la seguente: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
@@ -82,9 +82,9 @@ Per accedere all'elenco delle relazioni in **uscita** per un determinato gemello
 
 `Azure.Pageable<T>`Viene restituito o `Azure.AsyncPageable<T>` , a seconda che si usi la versione sincrona o asincrona della chiamata.
 
-Di seguito è riportato un esempio in cui viene recuperato un elenco di relazioni:
+Di seguito è riportato un esempio in cui viene recuperato un elenco di relazioni. Usa la chiamata SDK (evidenziata) all'interno di un metodo personalizzato che può essere visualizzato nel contesto di un programma più grande.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod" highlight="8":::
 
 È ora possibile chiamare questo metodo personalizzato per vedere le relazioni in uscita dei dispositivi gemelli come segue:
 
@@ -96,11 +96,12 @@ Di seguito è riportato un esempio in cui viene recuperato un elenco di relazion
 
 I dispositivi gemelli digitali di Azure hanno anche un'API che consente di trovare tutte le relazioni in **ingresso** per un dispositivo gemello specifico. Questa operazione è spesso utile per la navigazione inversa o quando si elimina un dispositivo gemello.
 
-L'esempio di codice precedente è stato incentrato sulla ricerca di relazioni in uscita da un gemello. L'esempio seguente è strutturato in modo analogo, ma trova invece le relazioni in *ingresso* al dispositivo gemello.
+>[!NOTE]
+> `IncomingRelationship` le chiamate non restituiscono il corpo completo della relazione. Per ulteriori informazioni sulla `IncomingRelationship` classe, vedere la relativa [documentazione di riferimento](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
 
-Si noti che le `IncomingRelationship` chiamate non restituiscono il corpo completo della relazione.
+L'esempio di codice nella sezione precedente si è concentrato sull'individuazione delle relazioni in uscita da un dispositivo gemello. L'esempio seguente è strutturato in modo analogo, ma trova invece le relazioni in *ingresso* al dispositivo gemello. Questo esempio usa anche la chiamata SDK (evidenziata) all'interno di un metodo personalizzato che può essere visualizzato nel contesto di un programma più grande.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod" highlight="8":::
 
 È ora possibile chiamare questo metodo personalizzato per vedere le relazioni in ingresso dei dispositivi gemelli come segue:
 
@@ -108,11 +109,11 @@ Si noti che le `IncomingRelationship` chiamate non restituiscono il corpo comple
 
 ### <a name="list-all-twin-properties-and-relationships"></a>Elencare tutte le proprietà e le relazioni dei dispositivi gemelli
 
-Usando i metodi precedenti per elencare le relazioni in uscita e in ingresso in un dispositivo gemello, è possibile creare un metodo che stampa le informazioni complete sui dispositivi gemelli, incluse le proprietà del gemello e entrambi i tipi di relazione. Di seguito è riportato un esempio di metodo personalizzato che illustra come eseguire questa operazione.
+Usando i metodi precedenti per elencare le relazioni in uscita e in ingresso in un dispositivo gemello, è possibile creare un metodo che stampa le informazioni complete sui dispositivi gemelli, incluse le proprietà del gemello e entrambi i tipi di relazione. Di seguito è riportato un esempio di metodo personalizzato che Mostra come combinare i metodi personalizzati sopra indicati a questo scopo.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
-È ora possibile chiamare questa funzione personalizzata nel metodo Main, come indicato di seguito: 
+È ora possibile chiamare questa funzione personalizzata come la seguente: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
@@ -125,7 +126,9 @@ Le relazioni vengono aggiornate usando il `UpdateRelationship` metodo.
 
 I parametri obbligatori per la chiamata client sono l'ID del dispositivo gemello di origine (il gemello da cui ha origine la relazione), l'ID della relazione da aggiornare e un documento di [patch JSON](http://jsonpatch.com/) che contiene le proprietà e i nuovi valori che si vuole aggiornare.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+Ecco il codice di esempio che illustra come usare questo metodo. Questo esempio usa la chiamata SDK (evidenziata) all'interno di un metodo personalizzato che può essere visualizzato nel contesto di un programma più grande.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod" highlight="6":::
 
 Di seguito è riportato un esempio di una chiamata a questo metodo personalizzato, passando un documento di patch JSON con le informazioni per aggiornare una proprietà.
 
@@ -135,7 +138,9 @@ Di seguito è riportato un esempio di una chiamata a questo metodo personalizzat
 
 Il primo parametro specifica il gemello di origine, ovvero il gemello da cui ha origine la relazione. L'altro parametro è l'ID della relazione. Sono necessari sia l'ID gemello che l'ID relazione, perché gli ID relazione sono univoci solo all'interno dell'ambito di un dispositivo gemello.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
+Ecco il codice di esempio che illustra come usare questo metodo. Questo esempio usa la chiamata SDK (evidenziata) all'interno di un metodo personalizzato che può essere visualizzato nel contesto di un programma più grande.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod" highlight="5":::
 
 È ora possibile chiamare questo metodo personalizzato per eliminare una relazione come la seguente:
 

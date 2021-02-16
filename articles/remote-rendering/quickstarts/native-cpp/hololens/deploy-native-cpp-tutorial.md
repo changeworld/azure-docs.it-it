@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594028"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530587"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Avvio rapido: Distribuire un esempio di C++ nativo in HoloLens
 
@@ -81,7 +81,7 @@ Poiché le credenziali dell'account sono hardcoded nel codice sorgente dell'eser
 Nello specifico, modificare i valori seguenti:
 * `init.AccountId`, `init.AccountKey` e `init.AccountDomain` per usare i dati dell'account. Vedere il paragrafo relativo a come [recuperare le informazioni sull'account](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * Specificare la posizione in cui creare la sessione di rendering remoto modificando la parte relativa all’area della stringa `init.RemoteRenderingDomain` con altre aree diverse da `westus2`, ad esempio `"westeurope.mixedreality.azure.com"`.
-* Inoltre, è possibile sostituire `m_sessionOverride` con un ID di sessione esistente. Le sessioni possono essere create all'esterno di questo esempio, ad esempio usando lo [script di PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o usando direttamente l'[API REST della sessione](../../../how-tos/session-rest-api.md#create-a-session).
+* Inoltre, è possibile sostituire `m_sessionOverride` con un ID di sessione esistente. Le sessioni possono essere create all'esterno di questo esempio, ad esempio usando lo [script di PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o usando direttamente l'[API REST della sessione](../../../how-tos/session-rest-api.md).
 È consigliabile creare una sessione all'esterno dell'esempio quando l'esempio deve essere eseguito più volte. Se non viene passata alcuna sessione, l'esempio creerà una nuova sessione a ogni avvio, operazione che può richiedere diversi minuti.
 
 A questo punto è possibile compilare l'applicazione.

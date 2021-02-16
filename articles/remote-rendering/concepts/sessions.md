@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 321d73c78d0192dcb7a303f4aa70a4ff0f18ecea
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79f3f93338d15562dcc37857d63bc8b2d7e96b05
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593706"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530553"
 ---
 # <a name="remote-rendering-sessions"></a>Sessioni di Rendering remoto
 
@@ -39,9 +39,9 @@ Ogni sessione prevede più fasi.
 
 ### <a name="session-startup"></a>Avvio della sessione
 
-Quando si chiede ad ARR di [creare una nuova sessione](../how-tos/session-rest-api.md#create-a-session), la prima cosa che fa è restituire un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) di sessione. L'UUID consente di eseguire query sulle informazioni relative alla sessione. L'UUID e alcune informazioni di base sulla sessione vengono resi permanenti per 30 giorni, pertanto è possibile eseguire query su tali informazioni anche dopo l'arresto della sessione. A questo punto, lo **stato della sessione** verrà segnalato come **Avvio in corso**.
+Quando si chiede ad ARR di [creare una nuova sessione](../how-tos/session-rest-api.md), la prima cosa che fa è restituire un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) di sessione. L'UUID consente di eseguire query sulle informazioni relative alla sessione. L'UUID e alcune informazioni di base sulla sessione vengono resi permanenti per 30 giorni, pertanto è possibile eseguire query su tali informazioni anche dopo l'arresto della sessione. A questo punto, lo **stato della sessione** verrà segnalato come **Avvio in corso**.
 
-Successivamente, il rendering remoto di Azure tenterà di trovare un server in grado di ospitare la sessione. Per questa ricerca sono disponibili due parametri. In primo luogo, vengono riservati solo i server nell'[area di pertinenza](../reference/regions.md). Ciò è dovuto al fatto che la latenza di rete tra aree può essere troppo elevata per garantire un'esperienza soddisfacente. Il secondo fattore è rappresentato dalle *dimensioni* desiderate specificate. In ogni area è disponibile un numero limitato di server che possono soddisfare la richiesta di dimensioni [*standard*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md) . Di conseguenza, se tutti i server delle dimensioni richieste sono attualmente in uso nell'area, la creazione della sessione avrà esito negativo. Il motivo dell'errore [può essere sottoposto a query](../how-tos/session-rest-api.md#get-sessions-properties).
+Successivamente, il rendering remoto di Azure tenterà di trovare un server in grado di ospitare la sessione. Per questa ricerca sono disponibili due parametri. In primo luogo, vengono riservati solo i server nell'[area di pertinenza](../reference/regions.md). Ciò è dovuto al fatto che la latenza di rete tra aree può essere troppo elevata per garantire un'esperienza soddisfacente. Il secondo fattore è rappresentato dalle *dimensioni* desiderate specificate. In ogni area è disponibile un numero limitato di server che possono soddisfare la richiesta di dimensioni [*standard*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md) . Di conseguenza, se tutti i server delle dimensioni richieste sono attualmente in uso nell'area, la creazione della sessione avrà esito negativo. Il motivo dell'errore [può essere sottoposto a query](../how-tos/session-rest-api.md).
 
 > [!IMPORTANT]
 > Se si richiede una dimensione del server *standard* e la richiesta ha esito negativo a causa di una richiesta elevata, questo non implica che la richiesta di un server *Premium* avrà esito negativo. Quindi, se si tratta di un'opzione, è possibile provare a eseguire il fallback a una dimensione del server *Premium* .
@@ -77,7 +77,7 @@ In tutti i casi, dopo l'arresto di una sessione non verrà applicato alcun addeb
 
 #### <a name="extend-a-sessions-lease-time"></a>Estendere la durata del lease di una sessione
 
-È possibile [estendere la durata del lease](../how-tos/session-rest-api.md#modify-and-query-session-properties) di una sessione attiva nel caso in cui sia necessario più tempo.
+È possibile [estendere la durata del lease](../how-tos/session-rest-api.md) di una sessione attiva nel caso in cui sia necessario più tempo.
 
 ## <a name="example-code"></a>Codice di esempio
 

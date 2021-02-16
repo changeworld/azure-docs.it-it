@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98783802"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530230"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Informazioni su Video Indexer di Servizi multimediali di Azure
 
@@ -84,7 +84,7 @@ L'elenco seguente contiene le informazioni dettagliate che è possibile recupera
 * **Enumerazione dei relatori**: identifica e riconosce quale relatore ha pronunciato determinate parole e quando. È possibile rilevare sedici oratori in un unico file audio.
 * **Statistiche dei relatori**: fornisce statistiche sulla percentuale di parlato dei parlanti.
 * **Moderazione del contenuto testuale**: rileva testo esplicito nella trascrizione audio.
-* **Effetti audio**: identifica effetti audio, come applausi, parlato e silenzio.
+* **Effetti audio** (anteprima pubblica): rileva gli effetti audio seguenti nei segmenti non vocali del contenuto: armato, vetro frantumato, allarme, sirena, esplosione, corteccia di cani, Screaming, risate, reazioni di folla (tifo, applausi e fischi) e silenzio. Nota: il set completo di eventi è disponibile solo quando si sceglie ' Advanced Audio Analysis ' nel set di impostazioni di caricamento; in caso contrario, saranno disponibili solo ' Silence ' è crowd reaction '.
 * **Rilevamento delle emozioni**: identifica le emozioni in base al parlato (cosa viene detto) e alla tonalità vocale (come viene detto). L'emozione potrebbe essere gioia, tristezza, rabbia o paura.
 * **Traduzione**: crea traduzioni della trascrizione audio in 54 lingue diverse.
 

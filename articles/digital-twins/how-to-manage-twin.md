@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8ba291f32456bf2b8432620d1f9ea313629c9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600511"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530434"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -86,7 +86,7 @@ La classe helper di `BasicDigitalTwin` consente di archiviare direttamente i cam
 
 Questa chiamata restituisce i dati gemelli come un tipo di oggetto fortemente tipizzato, ad esempio `BasicDigitalTwin` . `BasicDigitalTwin` è una classe helper di serializzazione inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Ecco un esempio di come usare questa procedura per visualizzare i dettagli dei dispositivi gemelli:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 Quando si recupera un gemello con il metodo, vengono restituite solo le proprietà impostate almeno una volta `GetDigitalTwin()` .
 
@@ -130,7 +130,7 @@ Il risultato della chiamata `object result = await client.GetDigitalTwinAsync("m
 Le proprietà definite del gemello digitale vengono restituite come proprietà di primo livello nel dispositivo gemello digitale. I metadati o le informazioni di sistema che non fanno parte della definizione DTDL vengono restituiti con un `$` prefisso. Le proprietà dei metadati includono:
 * ID del gemello digitale in questa istanza di Azure Digital gemelli, come `$dtId` .
 * `$etag`, un campo HTTP standard assegnato dal server Web.
-* Altre proprietà in una `$metadata` sezione. Queste includono:
+* Altre proprietà in una `$metadata` sezione. Tra queste sono incluse:
     - DTMI del modello del gemello digitale.
     - Stato di sincronizzazione per ogni proprietà scrivibile. Questa operazione è particolarmente utile per i dispositivi, in cui è possibile che il servizio e il dispositivo abbiano stati divergenti, ad esempio quando un dispositivo è offline. Attualmente questa proprietà si applica solo ai dispositivi fisici connessi all'hub Internet. Con i dati nella sezione dei metadati, è possibile comprendere lo stato completo di una proprietà, oltre ai timestamp dell'Ultima modifica. Per altre informazioni sullo stato di sincronizzazione, vedere [questa esercitazione sull'hub di questo](../iot-hub/tutorial-device-twins.md) strumento sulla sincronizzazione dello stato del dispositivo.
     - Metadati specifici del servizio, ad esempio dall'hub o dai dispositivi gemelli digitali di Azure. 
@@ -208,9 +208,9 @@ Le due chiamate che modificano *Twin1* vengono eseguite una dopo l'altra e i mes
 
 È possibile eliminare i dispositivi gemelli usando il `DeleteDigitalTwin()` metodo. Tuttavia, è possibile eliminare un gemello solo quando non sono presenti altre relazioni. Quindi, eliminare prima le relazioni in ingresso e in uscita del dispositivo gemello.
 
-Di seguito è riportato un esempio del codice per eliminare i gemelli e le relative relazioni:
+Di seguito è riportato un esempio del codice per eliminare i gemelli e le relative relazioni. La `DeleteDigitalTwin` chiamata SDK è evidenziata per chiarire il punto in cui rientra nel contesto di esempio più ampio.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### <a name="delete-all-digital-twins"></a>Elimina tutti i dispositivi gemelli digitali
 
@@ -227,7 +227,7 @@ Il frammento di codice usa il [Room.jsnella](https://github.com/Azure-Samples/di
 Prima di eseguire l'esempio, eseguire le operazioni seguenti:
 1. Scaricare il file del modello, inserirlo nel progetto e sostituire il `<path-to>` segnaposto nel codice seguente per indicare al programma dove trovarlo.
 2. Sostituire il segnaposto `<your-instance-hostname>` con il nome host dell'istanza di Azure Digital gemelli.
-3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. Il primo è il pacchetto per l' [SDK di dispositivi digitali gemelli di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), il secondo fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
+3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. La prima è il pacchetto per [Azure Digital Twins SDK per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), la seconda fornisce gli strumenti che consentono di eseguire l'autenticazione in Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

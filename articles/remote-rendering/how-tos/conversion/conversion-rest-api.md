@@ -5,146 +5,22 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4f8ac72e2b598a6c7631d691cc1bfb82cdba7599
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445609"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530264"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Usare l'API REST per la conversione di modelli
 
-Il servizio di [conversione del modello](model-conversion.md) viene controllato tramite un' [API REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Questo articolo descrive i dettagli dell'API del servizio di conversione.
+Il servizio di [conversione del modello](model-conversion.md) viene controllato tramite un' [API REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Questa API può essere usata per creare conversioni, ottenere le proprietà di conversione ed elencare le conversioni esistenti.
 
-## <a name="regions"></a>Regioni
+## <a name="rest-api-reference"></a>Informazioni di riferimento sulle API REST
 
-Vedere l' [elenco delle aree disponibili](../../reference/regions.md) per gli URL di base a cui inviare le richieste.
+La documentazione di riferimento dell'API REST per il rendering remoto è disponibile [qui](https://docs.microsoft.com/rest/api/mixedreality/2021-01-01preview/remoterendering)e le definizioni di spavalderia [qui](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
 
-## <a name="common-headers"></a>Intestazioni comuni
-
-### <a name="common-request-headers"></a>Intestazioni di richiesta comuni
-
-È necessario specificare queste intestazioni per tutte le richieste:
-
-- L'intestazione dell' **autorizzazione** deve avere il valore "Bearer [ *token* ]", dove [ *token* ] è un [token di accesso al servizio](../tokens.md).
-
-### <a name="common-response-headers"></a>Intestazioni di risposta comuni
-
-Tutte le risposte contengono le intestazioni seguenti:
-
-- L'intestazione **MS-CV** contiene una stringa univoca che può essere usata per tracciare la chiamata all'interno del servizio.
-
-## <a name="endpoints"></a>Endpoint
-
-Il servizio di conversione fornisce tre endpoint API REST per:
-
-- avviare la conversione del modello usando un account di archiviazione collegato all'account di rendering remoto di Azure. 
-- avviare la conversione del modello usando le *firme di accesso condiviso (SAS)* fornite.
-- eseguire query sullo stato di conversione
-
-### <a name="start-conversion-using-a-linked-storage-account"></a>Avviare la conversione usando un account di archiviazione collegato
-L'account di rendering remoto di Azure deve avere accesso all'account di archiviazione specificato seguendo i passaggi per collegare gli [account di archiviazione](../create-an-account.md#link-storage-accounts).
-
-| Endpoint | Metodo |
-|-----------|:-----------|
-| /V1/Accounts/ **AccountID** /Conversions/create | POST |
-
-Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è "conversionId".
-
-#### <a name="request-body"></a>Corpo della richiesta
-
-> [!NOTE]
-> Tutte le attività in `input.folderPath` vengono recuperate per eseguire la conversione in Azure. Se `input.folderPath` viene omesso, viene recuperato l'intero contenuto del contenitore. Tutti i BLOB e le cartelle che vengono recuperati devono avere [nomi file Windows validi](/windows/win32/fileio/naming-a-file#naming-conventions).
-
-```json
-{
-    "input":
-    {
-        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-        "blobContainerName": "<the name of the blob container containing your input asset data>",
-        "folderPath": "<optional: can be omitted or empty - a subpath in the input blob container>",
-        "inputAssetPath" : "<path to the model in the input blob container relative to the folderPath (or container root if no folderPath is specified)>"
-    },
-    "output":
-    {
-        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-        "blobContainerName": "<the name of the blob container where the converted asset will be copied to>",
-        "folderPath": "<optional: can be omitted or empty - a subpath in the output blob container. Will contain the asset and log files>",
-        "outputAssetFileName": "<optional: can be omitted or empty. The filename of the converted asset. If provided the filename needs to end in .arrAsset>"
-    }
-}
-```
-### <a name="start-conversion-using-provided-shared-access-signatures"></a>Avviare la conversione usando le firme di accesso condiviso fornite
-Se l'account ARR non è collegato all'account di archiviazione, questa interfaccia REST consente di fornire l'accesso tramite *firme di accesso condiviso (SAS)*.
-
-| Endpoint | Metodo |
-|-----------|:-----------|
-| /V1/Accounts/ **AccountID** /Conversions/createWithSharedAccessSignature | POST |
-
-Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è `conversionId` .
-
-#### <a name="request-body"></a>Corpo della richiesta
-
-Il corpo della richiesta è identico a quello della precedente chiamata REST, ma l'input e l'output contengono *token di firma di accesso condiviso (SAS)*. Questi token forniscono l'accesso all'account di archiviazione per la lettura dell'input e la scrittura del risultato della conversione.
-
-> [!NOTE]
-> Questi token URI SAS sono le stringhe di query e non l'URI completo. 
-
-> [!NOTE]
-> Tutte le attività in `input.folderPath` vengono recuperate per eseguire la conversione in Azure. Se `input.folderPath` viene omesso, viene recuperato l'intero contenuto del contenitore. Tutti i BLOB e le cartelle che vengono recuperati devono avere [nomi file Windows validi](/windows/win32/fileio/naming-a-file#naming-conventions).
-
-```json
-{
-    "input":
-    {
-        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-        "blobContainerName": "<the name of the blob container containing your input asset data>",
-        "folderPath": "<optional: can be omitted or empty - a subpath in the input blob container>",
-        "inputAssetPath" : "<path to the model in the input blob container relative to the folderPath (or container root if no folderPath is specified)>",
-        "containerReadListSas" : "<a container SAS token which gives read and list access to the given input blob container>"
-    },
-    "output":
-    {
-        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-        "blobContainerName": "<the name of the blob container where the converted asset will be copied to>",
-        "folderPath": "<optional: can be omitted or empty - a subpath in the output blob container. Will contain the asset and log files>",
-        "outputAssetFileName": "<optional: can be omitted or empty. The filename of the converted asset. If provided the filename needs to end in .arrAsset>",
-        "containerWriteSas" : "<a container SAS token which gives write access to the given output blob container>"
-    }
-}
-```
-
-### <a name="poll-conversion-status"></a>Stato di conversione del polling
-Lo stato di una conversione in corso avviata con una delle chiamate REST sopra riportate può essere sottoposto a query usando l'interfaccia seguente:
-
-
-| Endpoint | Metodo |
-|-----------|:-----------|
-| /V1/Accounts/ **AccountID** /Conversions/ **conversionId** | GET |
-
-Restituisce un documento JSON con un campo "status" che può avere i valori seguenti:
-
-- Creato
-- Esecuzione
-- "Esito positivo"
-- Errore
-
-Se lo stato è "errore", sarà presente un ulteriore campo "Error" con un sottocampo "message" contenente le informazioni sull'errore. I log aggiuntivi verranno caricati nel contenitore di output.
-
-## <a name="list-conversions"></a>Conversioni di elenchi
-
-Per ottenere un elenco di tutte le conversioni per un account, usare l'interfaccia:
-
-| Endpoint | Metodo |
-|-----------|:-----------|
-| /V1/Accounts/ **AccountID** /Conversions? skiptoken = **skiptoken** | GET |
-
-| Parametro | Obbligatoria |
-|-----------|:-----------|
-| accountID | Sì |
-| skiptoken | No |
-
-Restituisce un documento JSON che contiene una matrice di conversioni e i relativi dettagli. Questa query restituisce un massimo di 50 conversioni alla volta. Nel caso in cui siano presenti più conversioni da recuperare, la risposta conterrà una proprietà **nextLink** contenente il skipToken su cui è possibile eseguire query per recuperare il set di risultati successivo.
+Viene fornito uno script di PowerShell nel [repository di esempi arr](https://github.com/Azure/azure-remote-rendering) nella cartella *Scripts* , denominato *Conversion.ps1*, che illustra l'uso del servizio. Lo script e la relativa configurazione sono descritti di seguito: [script di PowerShell di esempio](../../samples/powershell-example-scripts.md). Sono inoltre disponibili SDK per [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/mixedreality/Azure.MixedReality.RemoteRendering), Java e Python.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

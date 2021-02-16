@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743616"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530349"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
 
@@ -82,7 +82,7 @@ I prerequisiti per Windows Hello dipendono fortemente dal fatto che la distribuz
 
 Gli utenti registrano il proprio metodo con password come parte della Azure AD Multi-Factor Authentication flusso di registrazione. L'autenticazione a più fattori con un nome utente e una password insieme a un altro metodo registrato può essere usata come fallback nel caso in cui non possano usare il telefono o la chiave di sicurezza in alcuni scenari.
 
-### <a name="licensing"></a>Licenza 
+### <a name="licensing"></a>Gestione delle licenze 
 Non sono previsti costi aggiuntivi per l'autenticazione senza password, sebbene alcuni prerequisiti possano richiedere una sottoscrizione Premium. Per informazioni dettagliate sulle funzionalità e sulle licenze nella [pagina Azure Active Directory Licensing](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Sviluppare un piano
@@ -101,7 +101,7 @@ Nella tabella seguente vengono illustrati i casi d'uso da implementare durante i
 | **Sicurezza** | L'accesso al metodo di autenticazione appropriato viene controllato tramite le assegnazioni di utenti e gruppi. <br> Solo gli utenti autorizzati possono usare l'accesso senza password. |
 | **Prestazioni** | Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate <br> Il tempo di accesso viene misurato per facilitarne l'uso. |
 | **Esperienza utente** | Gli utenti sono consapevoli della compatibilità con i dispositivi mobili. <br> Gli utenti possono configurare l'accesso senza password dell'app Authenticator. |
-| **Supporto tecnico** | Gli utenti sono consapevoli di come trovare il supporto per i problemi di accesso senza password. |
+| **Supporto** | Gli utenti sono consapevoli di come trovare il supporto per i problemi di accesso senza password. |
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
@@ -150,7 +150,7 @@ Sono disponibili tre tipi di distribuzioni di accesso senza password con chiavi 
 -    Azure Active Directory app Web in un browser supportato
 -    Dispositivi Azure Active Directory aggiunti a Windows 10
 -    Dispositivi Windows 10 aggiunti a Azure Active Directory ibrido (anteprima)
-     -    Fornisce l'accesso alle risorse basate su cloud e locali. Per altre informazioni sull'accesso alle risorse locali, vedere [SSO to locale resources using FIDOP2 Keys](./howto-authentication-passwordless-security-key-on-premises.md) .
+     -    Fornisce l'accesso alle risorse basate su cloud e locali. Per altre informazioni sull'accesso alle risorse locali, vedere [SSO to locale resources using FIDO2 Keys](./howto-authentication-passwordless-security-key-on-premises.md) .
 
 È necessario abilitare le **chiavi di sicurezza FIDO2 compatibili**. Microsoft ha annunciato una [partnership chiave con i fornitori di chiavi di FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -296,7 +296,7 @@ Seguire i passaggi allineati al metodo scelto di seguito.
 | --- | --- |
 | Amministratore globale|Ruolo con privilegi minimi in grado di implementare un'esperienza di registrazione combinata. |
 | Amministratore dell'autenticazione | Ruolo con privilegi minimi in grado di implementare e gestire i metodi di autenticazione. |
-| Utente | Ruolo con privilegi minimi per la configurazione dell'app Authenticator nel dispositivo o per la registrazione del dispositivo chiave di sicurezza per l'accesso Web o Windows 10. |
+| User | Ruolo con privilegi minimi per la configurazione dell'app Authenticator nel dispositivo o per la registrazione del dispositivo chiave di sicurezza per l'accesso Web o Windows 10. |
 
 ### <a name="deploy-phone-sign-in-with-the-microsoft-authenticator-app"></a>Distribuire l'accesso tramite telefono con l'app Microsoft Authenticator
 

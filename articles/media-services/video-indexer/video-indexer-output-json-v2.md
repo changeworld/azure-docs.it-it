@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831567"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530740"
 ---
 # <a name="examine-the-video-indexer-output"></a>Esaminare l'output del Video Indexer
 
@@ -104,7 +104,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |visi/animatedCharacters|Può contenere zero o più volti. Per informazioni più dettagliate, vedere [visi/animatedCharacters](#facesanimatedcharacters).|
 |keywords|Può contenere zero o più parole chiave. Per informazioni più dettagliate, vedere [keywords](#keywords).|
 |sentiments|Può contenere zero o più valutazioni. Per informazioni più dettagliate, vedere [sentiments](#sentiments).|
-|audioEffects| Può contenere zero o più audioEffects. Per informazioni più dettagliate, vedere [audioEffects](#audioeffects).|
+|audioEffects| Può contenere zero o più audioEffects. Per informazioni più dettagliate, vedere [audioEffects](#audioeffects-public-preview).|
 |Etichette| Può contenere zero o più etichette. Per informazioni più dettagliate, vedere [labels](#labels).|
 |brands| Può contenere zero o più marchi. Per informazioni più dettagliate, vedere [brands](#brands).|
 |statistiche | Per informazioni più dettagliate, vedere [statistics](#statistics).|
@@ -181,7 +181,7 @@ Una faccia potrebbe avere un ID, un nome, un'anteprima, altri metadati e un elen
 |Etichette|Informazioni dettagliate sulle [etichette](#labels) .|
 |shots|Informazioni [dettagliate](#shots) .|
 |brands|Informazioni dettagliate sui [marchi](#brands) .|
-|audioEffects|Informazioni dettagliate su [audioEffects](#audioeffects) .|
+|audioEffects|Informazioni dettagliate su [audioEffects](#audioeffects-public-preview) .|
 |sentiments|Informazioni dettagliate sui [sentimenti](#sentiments) .|
 |visualContentModeration|Informazioni dettagliate su [visualContentModeration](#visualcontentmoderation) .|
 |textualContentModeration|Informazioni dettagliate su [textualContentModeration](#textualcontentmoderation) .|
@@ -222,7 +222,7 @@ instances|Elenco degli intervalli di tempo di questo blocco.|
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
-|testo|Testo della trascrizione.|
+|text|Testo della trascrizione.|
 |confidence|Attendibilità della trascrizione.|
 |speakerId|ID del relatore.|
 |Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
@@ -269,7 +269,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
+|text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
@@ -304,7 +304,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|testo|Testo della parola chiave.|
+|text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
 |Linguaggio|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
@@ -590,26 +590,28 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |SpeakerLongestMonolog|Monologo più lungo della voce. Se la voce comprende periodi di silenzio all'interno del monologo, questi vengono inclusi. I periodi di silenzio all'inizio e alla fine del monologo vengono rimossi.| 
 |SpeakerTalkToListenRatio|Il calcolo è basato sul tempo impiegato per il monologo della voce (senza i periodi di silenzio intermedi) diviso per il tempo totale del video. Il tempo viene arrotondato alla terza posizione decimale.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="audioeffects-public-preview"></a>audioEffects (anteprima pubblica)
 
-|Nome|Descrizione|
+|Nome|Descrizione
 |---|---|
-|id|L'ID dell'effetto audio.|
-|tipo|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
-|instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
+|id|ID effetto audio|
+|tipo|Tipo di effetto audio|
+|instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio. Ogni istanza ha un campo che indica il grado di attendibilità.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]

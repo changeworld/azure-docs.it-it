@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 3f3e945a00ec7bba75deebb56118d45aa7ff571d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784729"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530723"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Abilitare l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure 
 
 > [!IMPORTANT]
 >
-> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** in **_tutte_* le aree geografiche e aree di Azure Sentinel.
+> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** in **_tutte_** le aree geografiche e le aree di Sentinel di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,13 +33,16 @@ Per abilitare o disabilitare questa funzionalità (questi prerequisiti non sono 
 
 - L'utente deve essere un membro dell'Azure Active Directory dell'organizzazione e non un utente Guest.
 
-- È necessario che all'utente siano assegnati i ruoli _ *amministratore globale** o **amministratore sicurezza** in Azure ad.
+- All'utente deve essere assegnato il ruolo di amministratore **globale** o **amministratore della sicurezza** in Azure ad.
 
 - È necessario che all'utente sia assegnato almeno uno dei seguenti **ruoli di Azure** ([altre informazioni su RBAC di Azure](roles.md)):
     - **Collaboratore sentinella di Azure** a livello di area di lavoro o di gruppo di risorse.
     - **Log Analytics collaboratore** a livello di gruppo di risorse o di sottoscrizione.
 
 - All'area di lavoro non deve essere applicato alcun blocco di risorse di Azure. [Altre informazioni sul blocco delle risorse di Azure](../azure-resource-manager/management/lock-resources.md).
+
+> [!NOTE]
+> Non è necessaria alcuna licenza speciale per aggiungere la funzionalità offrono dati a Sentinel di Azure, ma potrebbero essere applicati **addebiti aggiuntivi** .
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Come abilitare l'analisi del comportamento dell'utente e dell'entità
 

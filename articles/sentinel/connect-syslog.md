@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 35c8c2aa31887feb294b04b8a88bbe5478659e5e
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: f249a95551916311fab51ebef72b55d9a4343c0b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807904"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530519"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Raccogliere dati da origini basate su Linux usando syslog
 
@@ -67,17 +67,17 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 
 ### <a name="configure-the-log-analytics-agent"></a>Configurare l'agente di Log Analytics
 
-1. Nella parte inferiore del pannello del connettore syslog fare clic sul collegamento **aprire la configurazione impostazioni avanzate dell'area di lavoro >** .
+1. Nella parte inferiore del pannello del connettore syslog fare clic sul collegamento **Apri la configurazione degli agenti dell'area di lavoro >** .
 
-1. Nel pannello **Impostazioni avanzate** selezionare syslog per **i dati**  >  . Aggiungere quindi le funzionalità per il connettore da raccogliere.
+1. Nel pannello **configurazione agenti** selezionare la scheda **syslog** . Aggiungere quindi le funzionalità per il connettore da raccogliere. Selezionare **Aggiungi struttura** e scegliere dall'elenco a discesa delle funzionalità.
     
     - Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. 
     
     - Se si vuole usare il rilevamento anomalo degli accessi SSH con i dati raccolti, aggiungere **AUTH** e **authpriv**. Per ulteriori informazioni, vedere la [sezione seguente](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
-1. Quando sono state aggiunte tutte le funzionalità che si desidera monitorare e sono state modificate le opzioni di gravità per ciascuna di esse, selezionare la casella **di controllo applica la configurazione seguente alle macchine virtuali**.
+1. Dopo aver aggiunto tutte le funzionalità che si desidera monitorare, verificare che le caselle di controllo per tutti i livelli di gravità desiderati siano contrassegnate.
 
-1. Selezionare **Salva**. 
+1. Selezionare **Applica**. 
 
 1. Nella macchina virtuale o nel dispositivo verificare che siano state inviate le funzionalità specificate.
 
@@ -88,7 +88,6 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 > [!NOTE]
 > **Uso dello stesso computer per l'invio di messaggi syslog *e* CEF normali**
 >
->
 > È possibile utilizzare il [computer del server d'avanzamento del log CEF](connect-cef-agent.md) esistente per raccogliere e trasmettere log da origini syslog semplici. Tuttavia, è necessario eseguire la procedura seguente per evitare di inviare eventi in entrambi i formati ad Azure Sentinel, in quanto ciò comporta la duplicazione degli eventi.
 >
 >    La configurazione della [raccolta dati dalle origini CEF](connect-common-event-format.md)è già stata configurata e l'agente di log Analytics è stato configurato come descritto in precedenza:
@@ -97,7 +96,6 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 >
 > 1. È necessario eseguire il comando seguente in questi computer per disabilitare la sincronizzazione dell'agente con la configurazione di syslog in Sentinel di Azure. In questo modo si garantisce che la modifica della configurazione apportata nel passaggio precedente non venga sovrascritta.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
-
 
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>Configurare il connettore syslog per il rilevamento anomalo degli accessi SSH
 
@@ -113,10 +111,7 @@ Azure Sentinel può applicare Machine Learning (ML) ai dati syslog per identific
  
 Questo rilevamento richiede una configurazione specifica del connettore dati syslog: 
 
-1. Per il passaggio 5 della procedura precedente, assicurarsi che sia **AUTH** che **authpriv** siano selezionati come funzionalità da monitorare. Mantieni le impostazioni predefinite per le opzioni di gravità, in modo che siano tutte selezionate. Ad esempio:
-    
-    > [!div class="mx-imgBorder"]
-    > ![Funzionalità necessarie per il rilevamento anomalo degli accessi SSH](./media/connect-syslog/facilities-ssh-detection.png)
+1. Per il passaggio 2 in [configurare l'agente log Analytics](#configure-the-log-analytics-agent) precedente, assicurarsi che sia **AUTH** che **authpriv** siano selezionati come funzionalità da monitorare e che tutti i livelli di gravità siano selezionati. 
 
 2. Consente di ottenere tempo sufficiente per la raccolta delle informazioni syslog. Passare quindi ad **Azure Sentinel-logs** e copiare e incollare la query seguente:
     

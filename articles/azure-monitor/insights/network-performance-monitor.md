@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 2856366fc8383f7aaec9d96c29acb7621ea801ae
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832913"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530606"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -124,7 +124,7 @@ Lo script crea le chiavi del Registro di sistema richieste dalla soluzione. Crea
 
 ### <a name="configure-the-solution"></a>Configurare la soluzione 
 
-1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](./solutions.md). 
+1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). È anche possibile usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](./solutions.md). 
 2. Aprire l'area di lavoro Log Analytics e selezionare il riquadro **Panoramica**. 
 3. Selezionare il riquadro **monitoraggio prestazioni rete** con la *soluzione Message richiede una configurazione aggiuntiva*.
 
