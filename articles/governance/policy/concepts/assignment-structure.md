@@ -3,12 +3,12 @@ title: Dettagli della struttura di assegnazione dei criteri
 description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219567"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558444"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
@@ -98,7 +98,7 @@ Per impostare un messaggio personalizzato che descrive il motivo per cui una ris
 ]
 ```
 
-Se l'assegnazione è per un'iniziativa, è possibile configurare messaggi diversi per ogni definizione di criterio nell'iniziativa. I messaggi usano il `policyDefinitionReferenceId` valore configurato nella definizione Initiative. Per informazioni dettagliate, vedere Proprietà delle [definizioni di proprietà](./initiative-definition-structure.md#policy-definition-properties).
+Se l'assegnazione è per un'iniziativa, è possibile configurare messaggi diversi per ogni definizione di criterio nell'iniziativa. I messaggi usano il `policyDefinitionReferenceId` valore configurato nella definizione Initiative. Per informazioni dettagliate, vedere [proprietà delle definizioni dei criteri](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [

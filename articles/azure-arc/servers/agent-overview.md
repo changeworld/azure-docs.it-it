@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626309"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558497"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -32,6 +32,30 @@ Il pacchetto agente computer connesso di Azure contiene diversi componenti logic
     * Le assegnazioni vengono eliminate dopo 14 giorni e non vengono riassegnate al computer dopo il periodo di 14 giorni.
 
 * L'agente di estensione gestisce le estensioni della macchina virtuale, tra cui installazione, disinstallazione e aggiornamento. Le estensioni vengono scaricate da Azure e copiate nella `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` cartella in Windows e per Linux in `/opt/GC_Ext/downloads` . In Windows, l'estensione viene installata nel percorso seguente `%SystemDrive%\Packages\Plugins\<extension>` e in Linux l'estensione viene installata in `/var/lib/waagent/<extension>` .
+
+## <a name="instance-metadata"></a>Metadati dell'istanza
+
+Le informazioni sui metadati relativi al computer connesso vengono raccolte dopo la registrazione dell'agente computer connesso con i server abilitati per Arc. In particolare:
+
+* Nome, tipo e versione del sistema operativo
+* Nome computer
+* Nome di dominio completo (FQDN) del computer
+* Versione dell'agente Connected Machine
+* Nome di dominio completo (FQDN) di Active Directory e DNS
+* UUID (ID BIOS)
+* Heartbeat agente computer connesso
+* Versione dell'agente Connected Machine
+* Chiave pubblica per identità gestita
+* Stato di conformità dei criteri e dettagli (se si usano i criteri di configurazione Guest di criteri di Azure)
+
+Le seguenti informazioni sui metadati sono richieste dall'agente da Azure:
+
+* Posizione della risorsa (regione)
+* ID macchina virtuale
+* Tag
+* Certificato di identità gestito Azure Active Directory
+* Assegnazioni dei criteri di configurazione Guest
+* Richieste di estensione: installare, aggiornare ed eliminare.
 
 ## <a name="download-agents"></a>Scaricare agenti
 

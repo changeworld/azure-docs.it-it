@@ -2,28 +2,26 @@
 title: Configurare le credenziali di distribuzione
 description: Informazioni sui tipi di credenziali di distribuzione presenti nel servizio app di Azure e su come configurarle e usarle.
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007994"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560417"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
-Il [Servizio app di Azure](./overview.md) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
+Per proteggere la distribuzione di app da un computer locale, [app Azure servizio](./overview.md) supporta due tipi di credenziali per la distribuzione [git locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
-## <a name="configure-user-level-credentials"></a><a name="userscope"></a>Configurare le credenziali a livello di utente
+## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Configurare le credenziali dell'ambito utente
 
-È possibile configurare le credenziali a livello di utente nella [pagina delle risorse](../azure-resource-manager/management/manage-resources-portal.md#manage-resources) di ogni app. Indipendentemente dall'app, le credenziali configurate si applicano a tutte le app e a tutte le sottoscrizioni nell'account di Azure dell'utente. 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/cli)
 
-### <a name="in-the-cloud-shell"></a>In Cloud Shell
-
-Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azure.com), eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set). Sostituire \<username> e \<password> con il nome utente e la password di un utente della distribuzione. 
+Eseguire il comando [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) . Sostituire \<username> e \<password> con il nome utente e la password di un utente della distribuzione. 
 
 - Il nome utente deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "\@". 
 - La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 
@@ -32,21 +30,23 @@ Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azur
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-L'output JSON mostra la password come `null`. Se viene visualizzato un errore `'Conflict'. Details: 409`, modificare il nome utente. Se viene visualizzato un errore `'Bad Request'. Details: 400`, usare una password più complessa. 
+L'output JSON mostra la password come `null`.
 
-### <a name="in-the-portal"></a>Nel portale
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-È necessario disporre di almeno un'app nel portale di Azure per poter accedere alla pagina delle credenziali per la distribuzione. Per configurare le credenziali a livello di utente:
+Non è possibile configurare le credenziali dell'ambito utente con Azure PowerShell. Usare un metodo diverso oppure provare a [usare le credenziali dell'ambito dell'applicazione](#appscope). 
 
-1. Nel [portale di Azure](https://portal.azure.com), dal menu a sinistra, selezionare **app Services**  >  **\<any_app>**  >  **Deployment Center**  >  **FTP**  >  **Dashboard**.
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+È possibile configurare le credenziali dell'ambito utente nella [pagina delle risorse](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)dell'app. Indipendentemente dall'App configurata, le credenziali vengono applicate a tutte le app per tutte le sottoscrizioni dell'account Azure. 
+
+Nel [portale di Azure](https://portal.azure.com)è necessario disporre di almeno un'app prima di poter accedere alla pagina delle credenziali di distribuzione. Per configurare le credenziali dell'ambito utente:
+
+1. Dal menu a sinistra dell'app selezionare > le credenziali FTPS del **centro distribuzione**  >   o le **credenziali git/FTPS locali**.
 
     ![Mostra come è possibile selezionare il dashboard FTP dal centro distribuzione in app Azure Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
-    In alternativa, se è già stata configurata la distribuzione Git, selezionare **Servizi app** >  **&lt;any_app >**  > **Centro distribuzione** > **FTP/Credenziali**.
-
-    ![Mostra come è possibile selezionare il dashboard FTP da Deployment Center in app Azure Services per la distribuzione git configurata.](./media/app-service-deployment-credentials/access-with-git.png)
-
-2. Selezionare **Credenziali utente**, configurare il nome utente e la password e quindi selezionare **Salva credenziali**.
+2. Scorrere verso il basso fino a **ambito utente**, configurare il **nome utente** e la **password** e quindi selezionare **Salva**.
 
 Dopo aver impostato le credenziali per la distribuzione, è possibile trovare il nome utente per la distribuzione di *GIT* nella pagina **Panoramica** dell'app,
 
@@ -55,24 +55,79 @@ Dopo aver impostato le credenziali per la distribuzione, è possibile trovare il
 Se è configurata la distribuzione Git, nella pagina viene visualizzato un **nome utente Git/distribuzione**; in caso contrario, un **nome utente FTP/distribuzione**.
 
 > [!NOTE]
-> Azure non mostra la password di distribuzione a livello di utente. Se si dimentica la password, è possibile reimpostare le credenziali seguendo i passaggi descritti in questa sezione.
+> Azure non Mostra la password di distribuzione dell'ambito utente. Se si dimentica la password, è possibile reimpostare le credenziali seguendo i passaggi descritti in questa sezione.
 >
 > 
 
-## <a name="use-user-level-credentials-with-ftpftps"></a>Usare le credenziali a livello di utente con FTP/FTPS
+-----
 
-L'autenticazione a un endpoint FTP/FTPS con le credenziali a livello di utente richiede un nome utente nel formato seguente: `<app-name>\<user-name>`
+## <a name="use-user-scope-credentials-with-ftpftps"></a>Usare le credenziali dell'ambito utente con FTP/FTPS
 
-Poiché le credenziali a livello di utente sono collegate all'utente e non a una risorsa specifica, il nome utente deve essere in questo formato per indirizzare l'azione di accesso all'endpoint corretto dell'app.
+Per l'autenticazione a un endpoint FTP/FTPS usando le credenziali dell'ambito utente è necessario un nome utente nel formato seguente: `<app-name>\<user-name>`
 
-## <a name="get-and-reset-app-level-credentials"></a><a name="appscope"></a>Ottenere e reimpostare le credenziali a livello di utente
-Per ottenere le credenziali a livello di app:
+Poiché le credenziali dell'ambito utente sono collegate all'utente e non a una risorsa specifica, il nome utente deve essere in questo formato per indirizzare l'azione di accesso all'endpoint dell'app corretto.
 
-1. Nel [portale di Azure](https://portal.azure.com), nel menu a sinistra, selezionare **Servizi app** >  **&lt;any_app >**  > **Centro distribuzione** > **FTP/Credenziali**.
+## <a name="get-application-scope-credentials"></a><a name="appscope"></a>Ottenere le credenziali dell'ambito dell'applicazione
 
-2. Fare clic su **Credenziali dell'app** e selezionare il collegamento **Copia** per copiare nome utente o password.
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/cli)
 
-Per reimpostare le credenziali a livello di app, selezionare **Reimposta credenziali** nella stessa finestra di dialogo.
+Ottenere le credenziali dell'ambito dell'applicazione usando il comando [AZ webapp Deployment list-Publishing-Profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) . Ad esempio:
+
+```azurecli-interactive
+az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
+```
+
+Per la [distribuzione git locale](deploy-local-git.md)è anche possibile usare il comando [AZ webapp Deployment list-Publishing-Credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) per ottenere un URI remoto Git per l'app, con le credenziali dell'ambito dell'applicazione già incorporate. Ad esempio:
+
+```azurecli-interactive
+az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Ottenere le credenziali dell'ambito dell'applicazione usando il comando [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) . Ad esempio:
+
+```azurepowershell-interactive
+Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
+```
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+1. Dal menu a sinistra dell'app selezionare le credenziali FTPS del **centro distribuzione**  >   o le **credenziali git/FTPS locali**.
+
+    ![Mostra come è possibile selezionare il dashboard FTP dal centro distribuzione in app Azure Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. Nella sezione **ambito applicazione** selezionare il collegamento **copia** per copiare il nome utente o la password.
+
+-----
+
+## <a name="reset-application-scope-credentials"></a>Reimposta le credenziali dell'ambito dell'applicazione
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/cli)
+
+Reimpostare le credenziali dell'ambito dell'applicazione usando il comando [AZ Resource Invoke-Action](/cli/azure/resource#az_resource_invoke_action) :
+
+```azurecli-interactive
+az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Reimpostare le credenziali dell'ambito dell'applicazione usando il comando [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) :
+
+```azurepowershell-interactive
+Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
+```
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+1. Dal menu a sinistra dell'app selezionare le credenziali FTPS del **centro distribuzione**  >   o le **credenziali git/FTPS locali**.
+
+    ![Mostra come è possibile selezionare il dashboard FTP dal centro distribuzione in app Azure Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. Nella sezione **ambito applicazione** selezionare **Reimposta**.
+
+-----
 
 ## <a name="disable-basic-authentication"></a>Disabilitare l'autenticazione di base
 
@@ -82,7 +137,7 @@ Alcune organizzazioni devono soddisfare i requisiti di sicurezza e piuttosto dis
 
 Per disabilitare l'accesso FTP al sito, eseguire il comando dell'interfaccia della riga di comando seguente. Sostituire i segnaposto con il gruppo di risorse e il nome del sito. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
@@ -92,7 +147,7 @@ Per verificare che l'accesso FTP sia bloccato, è possibile provare a eseguire l
 
 Per disabilitare l'accesso con autenticazione di base alla porta WebDeploy e al sito SCM, eseguire il comando dell'interfaccia della riga di comando seguente. Sostituire i segnaposto con il gruppo di risorse e il nome del sito. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 

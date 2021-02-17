@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 537a301ef2c3ba1bb5ed34d92c8784655c79d97f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9d2c245cdc8b1aba644171089ed95bad2ab730a4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097473"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558608"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 e Esv3
 
@@ -32,7 +32,7 @@ La funzionalità della VM serie EV3 Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
-[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata (*richiede almeno 4 vCPU*)<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
 <br>
 
@@ -64,7 +64,7 @@ La funzionalità della VM serie Esv3 Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
-[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata (*richiede almeno 4 vCPU*)<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 <br>
 

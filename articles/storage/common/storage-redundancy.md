@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388516"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556439"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -200,7 +200,7 @@ La tabella seguente illustra le opzioni di ridondanza supportate per ogni tipo d
 
 | Archiviazione con ridondanza locale | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Utilizzo generico v2<br /> Utilizzo generico v1<br /> Archiviazione BLOB in blocchi<br /> Archiviazione BLOB<br /> Archiviazione file | Utilizzo generico v2<br /> Archiviazione BLOB in blocchi<br /> Archiviazione file | Utilizzo generico v2<br /> Utilizzo generico v1<br /> Archiviazione BLOB | Utilizzo generico v2 |
+| Utilizzo generico v2<br /> Utilizzo generico v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Utilizzo generico v2<br /> BlockBlobStorage<br /> FileStorage | Utilizzo generico v2<br /> Utilizzo generico v1<br /> BlobStorage | Utilizzo generico v2 |
 
 Tutti i dati per gli account di archiviazione vengono copiati in base all'opzione di ridondanza per l'account di archiviazione. Vengono copiati gli oggetti tra cui BLOB in blocchi, BLOB di aggiunta, BLOB di pagine, code, tabelle e file. Vengono copiati i dati in tutti i livelli, tra cui il livello di archiviazione. Per altre informazioni sui livelli di BLOB, vedere [Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 

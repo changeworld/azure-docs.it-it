@@ -4,13 +4,13 @@ description: Questo articolo viene aggiornato regolarmente e include le novità 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/21/2021
-ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/16/2021
+ms.openlocfilehash: f4ac384a9b1bce944397369cb93392f179643f96
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693596"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558752"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
@@ -20,7 +20,7 @@ Ecco cosa c'è di nuovo nel servizio. Le novità riguardano note sulla versione,
 
 ### <a name="january-2021"></a>Gennaio 2021
 
-* L'API di stima V3 supporta ora l' [API controllo ortografico Bing](luis-how-to-publish-app.md#spelling-correction).
+* L'API di stima V3 supporta ora l' [API controllo ortografico Bing](luis-tutorial-bing-spellcheck.md).
 * I portali regionali (au.luis.ai e eu.luis.ai) sono stati consolidati in un unico portale e URL. Se si stava usando uno di questi portali, si verrà automaticamente reindirizzati a luis.ai.
 
 ### <a name="december-2020"></a>Dicembre 2020

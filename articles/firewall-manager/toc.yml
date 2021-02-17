@@ -10,6 +10,9 @@
     - name: Hub virtuale protetto - Modello di Resource Manager
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
+    - name: Distribuire un firewall con un modello ARM
+      displayName: Resource Manager
+      href: quick-firewall-policy.md
 - name: Esercitazioni
   items:
     - name: Proteggere l'hub virtuale - Portale

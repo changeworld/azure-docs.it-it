@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 69890e2d846a63a70c1b7459b1df13ce5e891289
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 637ef56ca79dd333a587d38ed6a685664c7566ca
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659472"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547044"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
 
@@ -28,7 +28,7 @@ Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rend
 
 * **Log delle regole di applicazione**
 
-   Il log delle regole dell'applicazione viene salvato in un account di archiviazione, trasmesso a hub eventi e/o inviato ai log di monitoraggio di Azure solo se è stato abilitato per ogni firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di applicazione configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
+   Il log delle regole dell'applicazione viene salvato in un account di archiviazione, trasmesso a hub eventi e/o inviato ai log di monitoraggio di Azure solo se è stato abilitato per ogni firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di applicazione configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato negli esempi seguenti:
 
    ```
    Category: application rule logs.
@@ -46,6 +46,18 @@ Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rend
     "properties": {
         "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
     }
+   }
+   ```
+
+   ```json
+   {
+     "category": "AzureFirewallApplicationRule",
+     "time": "2018-04-16T23:45:04.8295030Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallApplicationRuleLog",
+     "properties": {
+         "msg": "HTTPS request from 10.11.2.4:53344 to www.bing.com:443. Action: Allow. Rule Collection: ExampleRuleCollection. Rule: ExampleRule. Web Category: SearchEnginesAndPortals"
+     }
    }
    ```
 

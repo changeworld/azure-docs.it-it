@@ -4,11 +4,11 @@ description: Questo articolo descrive come configurare il monitoraggio dei clust
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905588"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100561640"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurare il monitoraggio GPU con monitoraggio di Azure per i contenitori
 
@@ -27,7 +27,7 @@ Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio de
 >[!NOTE]
 >Dopo il provisioning di un cluster con nodi GPU, verificare che il [driver GPU](../../aks/gpu-cluster.md) sia installato come richiesto da AKS per eseguire carichi di lavoro GPU. Il monitoraggio di Azure per i contenitori raccoglie le metriche GPU tramite Pod driver GPU in esecuzione nel nodo. 
 
-|Nome metrica |Dimensione metrica (tag) |Description |
+|Nome metrica |Dimensione metrica (tag) |Descrizione |
 |------------|------------------------|------------|
 |containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName, gpuId, gpuModel, gpuVendor|Percentuale di tempo nel periodo di campionamento precedente (60 secondi) durante il quale la GPU era occupata/elaborata attivamente per un contenitore. Il ciclo Duty è un numero compreso tra 1 e 100. |
 |containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName |Ogni contenitore può specificare limiti come una o più GPU. Non è possibile richiedere o limitare una frazione di una GPU. |

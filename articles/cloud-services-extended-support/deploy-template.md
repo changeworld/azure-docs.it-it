@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 5c7ecfeace88f613d6f15606382bdbb3117a0cce
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526638"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548778"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
@@ -134,7 +134,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     ```
  
 
-4. Aggiungere il riferimento all'insieme di credenziali delle chiavi nella  `OsProfile`   sezione del modello ARM. Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio (con estensione cscfg). È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. Per ulteriori informazioni, vedere [utilizzo di certificati con servizi cloud (supporto esteso)](certificates-and-key-vault.md).
+4. Aggiungere il riferimento all'insieme di credenziali delle chiavi nella  `OsProfile`   sezione del modello ARM. Key Vault viene utilizzato per archiviare i certificati associati ai servizi cloud (supporto esteso). Aggiungere i certificati a Key Vault, quindi fare riferimento alle identificazioni personali del certificato nel file di configurazione del servizio (con estensione cscfg). È anche necessario abilitare Key Vault per le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato archiviato come segreto da Key Vault. Il Key Vault deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud e avere un nome univoco. Per ulteriori informazioni, vedere [utilizzo di certificati con servizi cloud (supporto esteso)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 

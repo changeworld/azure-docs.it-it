@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 9a347d57de540ed31c862f618be7c8a98b685348
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805210"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546925"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo GPU Azure Stack Edge Pro tramite modelli
 
@@ -149,7 +149,7 @@ In un ambiente tipico, il DNS è configurato in modo che tutti gli account di ar
 
 ### <a name="optional-install-certificates"></a>Opzionale Installare i certificati
 
-Ignorare questo passaggio se si effettuerà la connessione tramite Storage Explorer tramite *http*. Se si usa *https*, è necessario installare i certificati appropriati in Storage Explorer. In questo caso, installare il certificato dell'endpoint BLOB. Per ulteriori informazioni, vedere How to create and upload Certificates in [Manage Certificates](azure-stack-edge-j-series-manage-certificates.md). 
+Ignorare questo passaggio se si effettuerà la connessione tramite Storage Explorer tramite *http*. Se si usa *https*, è necessario installare i certificati appropriati in Storage Explorer. In questo caso, installare il certificato dell'endpoint BLOB. Per ulteriori informazioni, vedere How to create and upload Certificates in [Manage Certificates](azure-stack-edge-gpu-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Creare e caricare un disco rigido virtuale
 

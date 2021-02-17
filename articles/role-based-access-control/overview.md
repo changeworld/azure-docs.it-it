@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033919"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559333"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Che cos'è il controllo degli accessi in base al ruolo di Azure?
 
@@ -38,7 +38,7 @@ Di seguito sono riportati alcuni esempi di ciò che è possibile fare con il con
 
 ## <a name="how-azure-rbac-works"></a>Funzionamento del controllo degli accessi in base al ruolo di Azure
 
-Per controllare l'accesso alle risorse tramite il controllo degli accessi in base al ruolo di Azure è necessario creare assegnazioni di ruolo. Questo è un concetto chiave da comprendere: si tratta di come vengono applicate le autorizzazioni. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito.
+Per controllare l'accesso alle risorse tramite il controllo degli accessi in base al ruolo di Azure, è necessario assegnare i ruoli Questo è un concetto chiave da comprendere: si tratta di come vengono applicate le autorizzazioni. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito.
 
 ### <a name="security-principal"></a>Entità di sicurezza
 
@@ -80,9 +80,9 @@ Lo schema seguente mostra un esempio di assegnazione di ruolo. In questo esempio
 
 ![Assegnazione di ruolo per controllare l'accesso](./media/overview/rbac-overview.png)
 
-È possibile creare assegnazioni di ruolo nel portale di Azure, nell'interfaccia della riga di comando di Azure, in Azure PowerShell, tramite gli SDK Azure o le API REST.
+È possibile assegnare i ruoli usando il portale di Azure, l'interfaccia della riga di comando di Azure, Azure PowerShell, Azure SDK o le API REST.
 
-Per altre informazioni, vedere [Procedura per aggiungere un'assegnazione di ruolo](role-assignments-steps.md).
+Per altre informazioni, vedere [la procedura per assegnare un ruolo di Azure](role-assignments-steps.md).
 
 ## <a name="multiple-role-assignments"></a>Più assegnazioni di ruolo
 
@@ -122,6 +122,6 @@ Di seguito è indicata la procedura generale usata dal controllo degli accessi i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
 - [Informazioni sui diversi ruoli](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: gestione dell'accesso alle risorse in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

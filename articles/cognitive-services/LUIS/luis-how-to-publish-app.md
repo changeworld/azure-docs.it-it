@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180031"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558936"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
@@ -57,7 +57,6 @@ Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea 
 Dopo aver selezionato lo slot, configurare le impostazioni di pubblicazione per:
 
 * Analisi del sentiment
-* [Correzione ortografica](luis-tutorial-bing-spellcheck.md)
 * Priming del riconoscimento vocale
 
 Dopo la pubblicazione, queste impostazioni sono disponibili per la revisione nella pagina impostazioni di **pubblicazione** della sezione **Gestisci** . È possibile modificare le impostazioni con ogni pubblicazione. Se si annulla una pubblicazione, verranno annullate anche tutte le modifiche apportate durante la pubblicazione.
@@ -79,37 +78,6 @@ Non è necessario specificare una chiave di analisi del testo e non è previsto 
 I dati sentiment sono un punteggio compreso tra 1 e 0 che indica il sentiment positivo (più vicino a 1) o negativo (più vicino a 0) dei dati. L'etichetta sentiment `positive`, `neutral`, e `negative` è specifica per ogni lingua supportata. Attualmente solo la lingua inglese supporta le etichette sentiment.
 
 Per altre informazioni sulla risposta dell'endpoint JSON con l'analisi del sentiment, vedere [Analisi del sentiment](luis-reference-prebuilt-sentiment.md)
-
-## <a name="spelling-correction"></a>Correzione di errori di ortografia
-
-L'API di stima V3 supporta ora l'API controllo ortografico Bing. È possibile aggiungere il controllo ortografico all'applicazione includendo la chiave per la risorsa di ricerca Bing nell'intestazione delle richieste. È possibile usare una risorsa Bing esistente se ne è già proprietaria o [crearne una nuova](https://portal.azure.com/#create/Microsoft.BingSearch) per usare questa funzionalità. 
-
-|Chiave di intestazione|Valore intestazione|
-|--|--|
-|`mkt-bing-spell-check-key`|Chiavi trovate nel pannello **chiavi ed endpoint** della risorsa|
-
-Esempio di output di stima per una query con errori di ortografia:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-Le correzioni all'ortografia vengono effettuate prima della stima dell'espressione utente LUIS. Nella risposta è possibile visualizzare tutte le modifiche apportate all'espressione originale, inclusa l'ortografia.
 
 ## <a name="speech-priming"></a>Priming del riconoscimento vocale
 

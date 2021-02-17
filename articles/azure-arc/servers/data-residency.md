@@ -2,14 +2,14 @@
 title: Residenza dei dati
 description: Residenza dei dati e informazioni sui server abilitati per Azure Arc.
 ms.topic: reference
-ms.date: 10/08/2020
+ms.date: 02/16/2021
 ms.custom: references_regions
-ms.openlocfilehash: c5ece96acc3ee07ba2896279888363c7d52d737e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4764772473bbf2e5aafe2607a9462c9a6a15203
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856450"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559499"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Server abilitati per Azure Arc: residenza dei dati
 
@@ -23,10 +23,16 @@ I server abilitati per Azure Arc archiviano le impostazioni di configurazione de
 
 Vengono raccolte anche le informazioni sui metadati sul computer connesso. In particolare:
 
-* Nome e versione del sistema operativo
+* Nome, tipo e versione del sistema operativo
 * Nome computer
 * Nome di dominio completo (FQDN) del computer
-* Versione Agente computer connesso
+* Versione dell'agente Connected Machine
+* Nome di dominio completo (FQDN) di Active Directory e DNS
+* UUID (ID BIOS)
+* Heartbeat agente computer connesso
+* Versione dell'agente Connected Machine
+* Chiave pubblica per identità gestita
+* Stato di conformità dei criteri e dettagli (se si usano i criteri di configurazione Guest di criteri di Azure)
 
 I server abilitati per Arc consentono di specificare l'area in cui verranno archiviati i dati. Microsoft può eseguire la replica in altre aree per la resilienza dei dati, ma Microsoft non replica né sposta i dati all'esterno dell'area geografica. Questi dati vengono archiviati nell'area geografica in cui è configurata la risorsa del computer Azure Arc. Ad esempio, se il computer è registrato con Arc nell'area Stati Uniti orientali, questi dati vengono archiviati nell'area Stati Uniti.
 

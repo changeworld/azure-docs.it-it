@@ -8,10 +8,12 @@
       href: whats-new.md
 - name: Avvi rapidi
   items:
-    - name: Creazione ed esecuzione di query sulla Knowledge base nel portale di QnA Maker
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: Creare ed eseguire query sulla Knowledge base usando le librerie client o l'API REST
-      href: Quickstarts/quickstart-sdk.md
+    - name: Creare ed eseguire query su Knowledgebase
+      items:
+        - name: Portale di QnA Maker
+          href: Quickstarts/create-publish-knowledge-base.md
+        - name: Librerie client o API REST
+          href: Quickstarts/quickstart-sdk.md
     - name: Eseguire query su una Knowledge base con le API REST
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
 - name: Esercitazioni

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805788"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546806"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Connettersi a Azure Resource Manager nel dispositivo Azure Stack Edge Pro
 
@@ -93,9 +93,9 @@ Per connettersi a Azure Resource Manager, è necessario creare o ottenere i cert
 
 Solo per l'uso di test e sviluppo, è possibile usare Windows PowerShell per creare certificati nel sistema locale. Durante la creazione dei certificati per il client, attenersi alle seguenti linee guida:
 
-1. Per prima cosa è necessario creare un certificato radice per la catena di firma. Per ulteriori informazioni, vedere la pagina relativa alla procedura per [creare certificati della catena di firma](azure-stack-edge-j-series-manage-certificates.md#create-signing-chain-certificate).
+1. Per prima cosa è necessario creare un certificato radice per la catena di firma. Per ulteriori informazioni, vedere la pagina relativa alla procedura per [creare certificati della catena di firma](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate).
 
-2. È quindi possibile creare i certificati dell'endpoint per il BLOB e Azure Resource Manager. È possibile ottenere questi endpoint dalla pagina del **dispositivo** nell'interfaccia utente Web locale. Vedere i passaggi per [creare i certificati dell'endpoint](azure-stack-edge-j-series-manage-certificates.md#create-signed-endpoint-certificates).
+2. È quindi possibile creare i certificati dell'endpoint per il BLOB e Azure Resource Manager. È possibile ottenere questi endpoint dalla pagina del **dispositivo** nell'interfaccia utente Web locale. Vedere i passaggi per [creare i certificati dell'endpoint](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
 
 3. Per tutti questi certificati, verificare che il nome del soggetto e il nome alternativo del soggetto siano conformi alle linee guida seguenti:
 
@@ -105,26 +105,26 @@ Solo per l'uso di test e sviluppo, è possibile usare Windows PowerShell per cre
     |Archiviazione BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificato singolo a più SAN per entrambi gli endpoint|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
-Per ulteriori informazioni sui certificati, vedere How to [Manage Certificates](azure-stack-edge-j-series-manage-certificates.md).
+Per ulteriori informazioni sui certificati, vedere How to [Manage Certificates](azure-stack-edge-gpu-manage-certificates.md).
 
 ### <a name="upload-certificates-on-the-device"></a>Caricare i certificati sul dispositivo
 
 I certificati creati nel passaggio precedente si troveranno nell'archivio personale del client. Questi certificati devono essere esportati nel client in file di formato appropriati che possono quindi essere caricati nel dispositivo.
 
-1. Il certificato radice deve essere esportato come file di formato DER con estensione *. cer* . Per i passaggi dettagliati, vedere [esportare i certificati come file di formato CER](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format).
+1. Il certificato radice deve essere esportato come file di formato DER con estensione *. cer* . Per i passaggi dettagliati, vedere [esportare i certificati come file di formato CER](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-der-format).
 
-2. I certificati dell'endpoint devono essere esportati come file con *estensione pfx* con chiavi private. Per i passaggi dettagliati, vedere [esportare i certificati come file con estensione pfx con chiavi private](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+2. I certificati dell'endpoint devono essere esportati come file con *estensione pfx* con chiavi private. Per i passaggi dettagliati, vedere [esportare i certificati come file con estensione pfx con chiavi private](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
-3. I certificati radice e dell'endpoint vengono quindi caricati sul dispositivo usando l'opzione **+ Aggiungi certificato** nella pagina **certificati** dell'interfaccia utente Web locale. Per caricare i certificati, attenersi alla procedura descritta in [caricare i certificati](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
+3. I certificati radice e dell'endpoint vengono quindi caricati sul dispositivo usando l'opzione **+ Aggiungi certificato** nella pagina **certificati** dell'interfaccia utente Web locale. Per caricare i certificati, attenersi alla procedura descritta in [caricare i certificati](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
 
 
 ### <a name="import-certificates-on-the-client-running-azure-powershell"></a>Importa i certificati sul client che esegue Azure PowerShell
 
 Il client Windows in cui si richiameranno le API Azure Resource Manager deve stabilire una relazione di trust con il dispositivo. A tal fine, i certificati creati nel passaggio precedente devono essere importati nel client Windows nell'archivio certificati appropriato.
 
-1. Il certificato radice esportato come formato DER con estensione *CER* dovrebbe ora essere importato nelle autorità di certificazione radice attendibili nel sistema client. Per i passaggi dettagliati, vedere [importare certificati nell'archivio Autorità di certificazione radice attendibili.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
+1. Il certificato radice esportato come formato DER con estensione *CER* dovrebbe ora essere importato nelle autorità di certificazione radice attendibili nel sistema client. Per i passaggi dettagliati, vedere [importare certificati nell'archivio Autorità di certificazione radice attendibili.](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format)
 
-2. I certificati di endpoint esportati come file con *estensione pfx* devono essere esportati come file con *estensione cer*. Questa *. cer* viene quindi importata nell'archivio certificati **personali** del sistema. Per i passaggi dettagliati, vedere [importare i certificati nell'archivio personale](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format).
+2. I certificati di endpoint esportati come file con *estensione pfx* devono essere esportati come file con *estensione cer*. Questa *. cer* viene quindi importata nell'archivio certificati **personali** del sistema. Per i passaggi dettagliati, vedere [importare i certificati nell'archivio personale](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format).
 
 ## <a name="step-3-install-powershell-on-the-client"></a>Passaggio 3: installare PowerShell nel client 
 

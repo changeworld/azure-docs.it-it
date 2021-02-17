@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184264"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555893"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemi con le assegnazioni di ruolo di Azure
 
-- Se non è possibile aggiungere un'assegnazione di ruolo nel **controllo di accesso (IAM)** di portale di Azure perché l'opzione **Aggiungi**  >  **assegnazione ruolo** è disabilitata o perché si riceve l'errore di autorizzazione "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione", verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) , nell'ambito che si sta provando ad assegnare il ruolo.
+- Se non è possibile assegnare un ruolo nel **controllo di accesso (IAM)** di portale di Azure perché l'opzione **Aggiungi**  >  **assegnazione ruolo** è disabilitata o perché si riceve l'errore di autorizzazione "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione", verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) , nell'ambito che si sta provando ad assegnare il ruolo.
 - Se si utilizza un'entità servizio per assegnare i ruoli, è possibile che venga ricevuto l'errore "privilegi insufficienti per completare l'operazione". Si immagini, ad esempio, di disporre di un'entità servizio a cui è stato assegnato il ruolo di proprietario e si tenta di creare l'assegnazione di ruolo seguente come entità servizio usando l'interfaccia della riga di comando di Azure:
 
     ```azurecli
@@ -63,7 +63,7 @@ $ras.Count
 
     Esistono due modi per risolvere l'errore. Il primo consiste nell'assegnare il ruolo [Readers di directory](../active-directory/roles/permissions-reference.md#directory-readers) all'entità servizio in modo che possa leggere i dati nella directory.
 
-    Il secondo modo per risolvere l'errore consiste nel creare l'assegnazione di ruolo utilizzando il `--assignee-object-id` parametro anziché `--assignee` . Con, l'interfaccia della riga di comando di Azure ignorerà `--assignee-object-id` la ricerca Azure ad. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)della riga di comando di Azure.
+    Il secondo modo per risolvere l'errore consiste nel creare l'assegnazione di ruolo utilizzando il `--assignee-object-id` parametro anziché `--assignee` . Con, l'interfaccia della riga di comando di Azure ignorerà `--assignee-object-id` la ricerca Azure ad. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Per altre informazioni, vedere [assegnare ruoli di Azure tramite l'interfaccia](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope)della riga di comando di Azure.
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -151,7 +151,7 @@ Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia del
 }
 ```
 
-Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se lo si desidera, è possibile rimuovere queste assegnazioni di ruolo utilizzando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [portale di Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)o l'interfaccia della riga di comando di [Azure](role-assignments-cli.md#remove-a-role-assignment)
+Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se lo si desidera, è possibile rimuovere queste assegnazioni di ruolo utilizzando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [rimuovere assegnazioni di ruolo di Azure](role-assignments-remove.md).
 
 In PowerShell, se si tenta di rimuovere le assegnazioni di ruolo utilizzando l'ID oggetto e il nome della definizione di ruolo e più di un'assegnazione di ruolo corrisponde ai parametri, verrà visualizzato il messaggio di errore: "le informazioni fornite non sono mappate a un'assegnazione di ruolo". L'output seguente mostra un esempio del messaggio di errore:
 
@@ -174,7 +174,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 ## <a name="role-assignment-changes-are-not-being-detected"></a>Non sono state rilevate modifiche alle assegnazioni di ruolo
 
-In alcuni casi, Azure Resource Manager memorizza nella cache le configurazioni e i dati per migliorare le prestazioni. Quando si aggiungono o rimuovono le assegnazioni di ruolo, possono essere necessari fino a 30 minuti per rendere effettive le modifiche. Se si usa il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile forzare l'aggiornamento delle modifiche alle assegnazioni di ruolo effettuando la disconnessione e quindi di nuovo l'accesso. Se si apportano modifiche alle assegnazioni di ruolo con chiamate all'API REST, è possibile forzare l'aggiornamento semplicemente aggiornando il token di accesso.
+In alcuni casi, Azure Resource Manager memorizza nella cache le configurazioni e i dati per migliorare le prestazioni. Quando si assegnano ruoli o si rimuovono le assegnazioni di ruolo, possono essere necessari fino a 30 minuti per rendere effettive le modifiche. Se si usa il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile forzare l'aggiornamento delle modifiche alle assegnazioni di ruolo effettuando la disconnessione e quindi di nuovo l'accesso. Se si apportano modifiche alle assegnazioni di ruolo con chiamate all'API REST, è possibile forzare l'aggiornamento semplicemente aggiornando il token di accesso.
 
 Se si aggiunge o rimuove un'assegnazione di ruolo nell'ambito del gruppo di gestione e il ruolo ha `DataActions` , l'accesso al piano dati potrebbe non essere aggiornato per diverse ore. Si applica solo all'ambito del gruppo di gestione e al piano dati.
 
@@ -249,5 +249,5 @@ Un lettore può fare clic sulla scheda **Funzionalità della piattaforma** e qui
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Risoluzione dei problemi per gli utenti Guest](role-assignments-external-users.md#troubleshoot)
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
 - [Visualizzare i log attività per le modifiche RBAC di Azure](change-history-report.md)

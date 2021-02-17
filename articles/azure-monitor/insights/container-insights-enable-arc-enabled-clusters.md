@@ -4,13 +4,13 @@ description: Questo articolo descrive come configurare il monitoraggio con monit
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994463"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100561695"
 ---
-# <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Abilita il monitoraggio del cluster Kubernetes abilitato per Azure Arc
+# <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Abilitare il monitoraggio del cluster Kubernetes con abilitazione di Azure Arc
 
 Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avanzata per i cluster di Azure Kubernetes Service (AKS) e del motore AKS. Questo articolo descrive come abilitare il monitoraggio dei cluster Kubernetes ospitati all'esterno di Azure abilitati con Azure Arc, per ottenere un'esperienza di monitoraggio simile.
 
@@ -97,7 +97,7 @@ Per abilitare il monitoraggio del cluster usando lo script di PowerShell o bash 
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID**campo.
+    Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID** campo.
 
 ## <a name="enable-monitoring-using-powershell"></a>Abilitare il monitoraggio tramite PowerShell
 
@@ -262,7 +262,7 @@ Il valore di configurazione proxy ha la sintassi seguente: `[protocol://][user:p
 |proxyhost | Indirizzo o FQDN del server proxy |
 |port | Numero di porta facoltativo per il server proxy |
 
-Ad esempio: `http://user01:password@proxy01.contoso.com:3128`
+ad esempio `http://user01:password@proxy01.contoso.com:3128`
 
 Se si specifica il protocollo come **http**, le richieste HTTP vengono create usando la connessione protetta SSL/TLS. Il server proxy deve supportare i protocolli SSL/TLS.
 
