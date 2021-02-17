@@ -3,12 +3,12 @@ title: Regole del firewall per Hub eventi di Azure | Microsoft Docs
 description: Usare le regole del firewall per consentire le connessioni da indirizzi IP specifici ad Hub eventi di Azure.
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 18d043ebff7ff317207d0a33eaeba741fea8cc8a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: ca5995c3e1b9923d925ddc4deae299c28261d18a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517196"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560854"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da intervalli o indirizzi IP specifici
 Per impostazione predefinita, gli spazi dei nomi di Hub eventi sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -17,6 +17,10 @@ Questa funzionalità è utile negli scenari in cui Hub eventi di Azure deve esse
 
 >[!WARNING]
 > L'attivazione delle regole firewall per lo spazio dei nomi di hub eventi blocca le richieste in ingresso per impostazione predefinita, a meno che le richieste provengano da un servizio che opera da indirizzi IP pubblici consentiti. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando è abilitato il filtro IP. Per un elenco di servizi attendibili, vedere [Servizi Microsoft attendibili](#trusted-microsoft-services).
+
+> [!IMPORTANT]
+> Specificare almeno una regola IP o una regola della rete virtuale per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale. Se non sono presenti regole IP e reti virtuali, è possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso).  
+
 
 ## <a name="ip-firewall-rules"></a>Regole del firewall IP
 Le regole del firewall IP vengono applicate a livello dello spazio dei nomi di Hub eventi. Quindi, le regole si applicano a tutte le connessioni dei client che usano qualsiasi protocollo supportato. Qualsiasi tentativo di connessione da un indirizzo IP che non corrisponde a una regola IP consentita nello spazio dei nomi di hub eventi viene rifiutato come non autorizzato. La risposta non menziona la regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
@@ -38,7 +42,10 @@ Questa sezione illustra come usare il portale di Azure per creare regole del fir
 1. Per limitare l'accesso a indirizzi IP specifici, verificare che sia selezionata l'opzione **reti selezionate** . Nella sezione **Firewall** seguire questa procedura:
     1. Selezionare l'opzione **Aggiungere l'indirizzo IP client** per concedere all'IP del client corrente l'accesso allo spazio dei nomi. 
     2. Per **Intervallo di indirizzi** immettere un indirizzo IPv4 specifico o un intervallo di indirizzi IPv4 in notazione CIDR. 
-3. Specificare se si vuole **consentire ai servizi Microsoft attendibili di ignorare il firewall**. Per informazioni dettagliate, vedere [Servizi Microsoft attendibili](#trusted-microsoft-services) . 
+
+    >[!WARNING]
+    > Se si seleziona l'opzione **reti selezionate** e non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
+1. Specificare se si vuole **consentire ai servizi Microsoft attendibili di ignorare il firewall**. Per informazioni dettagliate, vedere [Servizi Microsoft attendibili](#trusted-microsoft-services) . 
 
       ![Opzione Firewall - Tutte le reti selezionata](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni. Attendere qualche minuto la visualizzazione della conferma tra le notifiche del portale.

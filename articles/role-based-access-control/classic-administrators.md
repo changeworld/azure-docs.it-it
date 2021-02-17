@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b61636d6048f63ae962d4f755a29c02e6785d5e1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344003"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557531"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -38,7 +38,7 @@ Questo articolo descrive come aggiungere o modificare i ruoli di coamministrator
 
     I coamministratori possono essere assegnati solo nell'ambito della sottoscrizione.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Amministratori (versione classica)**.
 
@@ -71,7 +71,7 @@ Gli utenti guest a cui è stato assegnato il ruolo di coamministratore potrebber
 
 Ci si aspetta che l'utente B possa gestire tutto. Il motivo di questa differenza è che l'account Microsoft viene aggiunto alla sottoscrizione come utente guest invece di utente membro. Gli utenti guest hanno diverse autorizzazioni predefinite in Azure AD rispetto agli utenti membri. Ad esempio, gli utenti membri possono leggere gli altri utenti di Azure AD mentre gli utenti guest non possono farlo. Gli utenti membri possono registrare nuove entità servizio in Azure AD mentre gli utenti guest non possono farlo.
 
-Se un utente guest deve essere in grado di eseguire queste attività, una possibile soluzione consiste nell'assegnare i ruoli di Azure AD specifici necessari all'utente Guest. Ad esempio, nello scenario precedente è possibile assegnare i [ruoli con autorizzazioni di lettura nella directory](../active-directory/roles/permissions-reference.md#directory-readers) per leggere altri utenti e assegnare il ruolo [sviluppatore di applicazioni](../active-directory/roles/permissions-reference.md#application-developer) per poter creare le entità servizio. Per altre informazioni sugli utenti membri e guest e le relative autorizzazioni, vedere [Autorizzazioni utente predefinite in Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md). Per altre informazioni sulla concessione dell'accesso per gli utenti guest, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure](role-assignments-external-users.md).
+Se un utente guest deve essere in grado di eseguire queste attività, una possibile soluzione consiste nell'assegnare i ruoli di Azure AD specifici necessari all'utente Guest. Ad esempio, nello scenario precedente è possibile assegnare i [ruoli con autorizzazioni di lettura nella directory](../active-directory/roles/permissions-reference.md#directory-readers) per leggere altri utenti e assegnare il ruolo [sviluppatore di applicazioni](../active-directory/roles/permissions-reference.md#application-developer) per poter creare le entità servizio. Per altre informazioni sugli utenti membri e guest e le relative autorizzazioni, vedere [Autorizzazioni utente predefinite in Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md). Per altre informazioni sulla concessione dell'accesso per gli utenti guest, vedere [assegnare i ruoli di Azure agli utenti Guest esterni usando il portale di Azure](role-assignments-external-users.md).
 
 Si noti che i [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md) sono diversi da quelli del [Azure ad](../active-directory/roles/permissions-reference.md). I ruoli predefiniti non concedono l'accesso ad Azure AD. Per altre informazioni, vedere [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -83,13 +83,13 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Amministratori (versione classica)**.
 
 1. Aggiungere un segno di spunta accanto al coamministratore che si desidera rimuovere.
 
-1. Scegliere **Rimuovi**.
+1. Fare clic su **Rimuovi**.
 
 1. Nella finestra di messaggio visualizzata fare clic su **Sì**.
 
@@ -151,5 +151,5 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
+* [Assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
 * [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

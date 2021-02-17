@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585093"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546024"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modello per il riconoscimento delle schede business predefinite 
 
@@ -76,7 +76,11 @@ Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON in
 
 ### <a name="sample-json-output"></a>Output JSON di esempio
 
-Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" contiene tutto il testo riconosciuto. Il testo è organizzato in base alla pagina, quindi alla riga, infine in base a singole parole. Il nodo "documentResults" contiene i valori specifici della scheda business individuati dal modello. Qui è possibile trovare informazioni utili sul contatto, ad esempio il nome, il cognome, il nome della società e altro ancora.
+La risposta all'operazione Get Analyze result business card sarà la rappresentazione strutturata del biglietto da lavoro con tutte le informazioni estratte.  Vedere qui per un [esempio di file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) di una scheda di business e il relativo output di [esempio](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)strutturato di output.
+
+Vedere l'esempio seguente di una risposta JSON riuscita:
+* Il nodo `"readResults"` contiene tutto il testo riconosciuto. Il testo è organizzato in base alla pagina, quindi alla riga, infine in base a singole parole. 
+* Il nodo `"documentResults"` contiene i valori specifici del biglietto da visita individuati dal modello. Qui è possibile trovare informazioni utili sul contatto, ad esempio il nome, il cognome, il nome della società e altro ancora.
 
 ```json
 {

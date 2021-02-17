@@ -3,17 +3,17 @@ title: Configurare un firewall IP per il servizio ricerca cognitiva di Azure
 titleSuffix: Azure Cognitive Search
 description: Configurare i criteri di controllo IP per limitare l'accesso al servizio ricerca cognitiva di Azure.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: 98a516e76d5e4f5c225873b934949759d7fcba8d
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: de34c2921c7829cb6d7e7354a1ebcff44271efd3
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535332"
+ms.locfileid: "100545548"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configurare il firewall IP per Azure ricerca cognitiva
 

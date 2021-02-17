@@ -3,22 +3,19 @@ title: Creare una pipeline CI/CD per un'app Web progressiva con GatsbyJS e Azure
 description: Informazioni su come creare un'app Web progressiva NodeJS usando GatsbyJS e l'esperienza di creazione semplificata di Azure DevOps Starter.
 ms.prod: devops
 ms.technology: devops-cicd
-services: vsts
 documentationcenter: vs-devops-build
-author: arob98
-manager: angrobe
+author: mijacobs
+ms.author: mijacobs
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: angrobe
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: d6d8a10dffa3801fe343b3b479265fac5612b021
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856212"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556573"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Starter
 
@@ -73,7 +70,7 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
     ![Dashboard di Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. Dal progetto Azure DevOps è possibile invitare i membri del team a collaborare e stabilire una lavagna Kanban per iniziare a monitorare le attività. Per altre informazioni, vedere [qui](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+1. Dal progetto Azure DevOps è possibile invitare i membri del team a collaborare e stabilire una lavagna Kanban per iniziare a monitorare le attività. Per altre informazioni, vedere [qui](/azure/devops/user-guide/what-is-azure-devops).
 
 ![Panoramica di Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -195,4 +192,4 @@ Quando non servono più, è possibile eliminare il Servizio app di Azure e altre
 Quando si configura il processo di CI/CD, le pipeline di compilazione e versione vengono create automaticamente. È possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. Per altre informazioni sulla pipeline CI/CD, vedere:
 
 > [!div class="nextstepaction"]
-> [Personalizzare il processo di distribuzione continua](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizzare il processo di distribuzione continua](/azure/devops/pipelines/release/define-multistage-release-process)

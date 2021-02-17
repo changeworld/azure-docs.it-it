@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
-ms.translationtype: HT
+ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930714"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547259"
 ---
 # <a name="tutorial-mock-api-responses"></a>Esercitazione: Simulare le risposte di un'API
 
@@ -53,17 +53,19 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 1. Assicurarsi che sia selezionata l'opzione **Gestiti** in **Gateway**.
 1. Selezionare **Crea**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Risposta API fittizia":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Creare un'API vuota":::
 
 ## <a name="add-an-operation-to-the-test-api"></a>Aggiungere un'operazione all'API di test
 
 Un'API espone una o più operazioni. In questa sezione aggiungere un'operazione all'API vuota creata. La chiamata all'operazione al termine dei passaggi descritti in questa sezione genera un errore. Non verranno visualizzati errori dopo avere completato i passaggi descritti più avanti nella sezione [Abilitare la simulazione della risposta](#enable-response-mocking).
 
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 1. Selezionare l'API creata nel passaggio precedente.
 1. Selezionare **+ Aggiungi operazione**.
 1. Nella finestra **Front-end** immettere i valori seguenti.
 
-     | Impostazione             | valore                             | Descrizione                                                                                                                                                                                   |
+     | Impostazione             | Valore                             | Descrizione                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Nome visualizzato**    | *Test call*                       | Nome visualizzato nel [portale per sviluppatori](api-management-howto-developer-portal.md).                                                                                                                                       |
     | **URL** (verbo HTTP) | GET                               | Selezionare uno dei verbi HTTP predefiniti.                                                                                                                                         |
@@ -77,7 +79,7 @@ Un'API espone una o più operazioni. In questa sezione aggiungere un'operazione 
 1. Nella casella di testo **Sample** (Esempio) immettere `{ "sampleField" : "test" }`.
 1. Selezionare **Salva**.
 
-:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Risposta API fittizia" border="false":::
+:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Aggiungere un'operazione API" border="false":::
 
 Sebbene non sia richiesto per questo esempio, è possibile configurare impostazioni aggiuntive per un'operazione API in altre schede, ad esempio:
 
@@ -87,6 +89,39 @@ Sebbene non sia richiesto per questo esempio, è possibile configurare impostazi
 |**Query**     |  Consente di aggiungere parametri di query. Oltre al nome e alla descrizione, è possibile specificare i valori che da assegnare a un parametro di query. Uno dei valori può essere contrassegnato come predefinito (facoltativo).        |
 |**Richiesta**     |  Consente di definire schemi, esempi e tipi di contenuto della richiesta.       |
 
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per iniziare a usare interfaccia della riga di comando di Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Per aggiungere un'operazione all'API di test, eseguire il comando [AZ gestione API API Operation create](/cli/azure/apim/api/operation#az_apim_api_operation_create) :
+
+```azurecli
+az apim api operation create --resource-group apim-hello-word-resource-group \
+    --display-name "Test call" --api-id test-api --method GET \
+    --url-template /test --service-name apim-hello-world 
+```
+
+Eseguire il comando [AZ gestione API API Operation List](/cli/azure/apim/api/operation#az_apim_api_operation_list) per visualizzare tutte le operazioni per un'API:
+
+```azurecli
+az apim api operation list --resource-group apim-hello-word-resource-group \
+    --api-id test-api --service-name apim-hello-world --output table
+```
+
+Per rimuovere un'operazione, usare il comando [AZ gestione API API Operation Delete](/cli/azure/apim/api/operation#az_apim_api_operation_delete) . Ottenere l'ID operazione dal comando precedente.
+
+```azurecli
+az apim api operation delete --resource-group apim-hello-word-resource-group \
+    --api-id test-api --operation-id 00000000000000000000000000000000 \
+    --service-name apim-hello-world
+```
+
+Mantieni questa operazione per l'uso nella parte restante di questo articolo.
+
+---
+
 ## <a name="enable-response-mocking"></a>Abilitare la simulazione della risposta
 
 1. Selezionare l'API creata nel passaggio [Creare un'API di test](#create-a-test-api).
@@ -94,15 +129,15 @@ Sebbene non sia richiesto per questo esempio, è possibile configurare impostazi
 1. Nella finestra a destra, assicurarsi che la scheda **Progettazione** sia selezionata.
 1. Nella finestra **Elaborazione in ingresso** fare clic su **+ Aggiungi criteri**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Risposta API fittizia" border="false":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Aggiungere i criteri di elaborazione" border="false":::
 
 1. Selezionare **Mock responses** (Simula risposte) dalla raccolta.
 
-    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Risposta API fittizia" border="false":::
+    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Riquadro del criterio Mock responses (Simula risposte)" border="false":::
 
 1. Nella casella di testo **API Management response** (Risposta di Gestione API) digitare **200 OK, application/json**. Questa selezione indica che l'API deve restituire l'esempio di risposta definito nella sezione precedente.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Risposta API fittizia":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Impostare la risposta fittizia":::
 
 1. Selezionare **Salva**.
 
@@ -115,11 +150,11 @@ Sebbene non sia richiesto per questo esempio, è possibile configurare impostazi
 1. Selezionare la scheda **Test**.
 1. Verificare che l'API **Test call** sia selezionata. Selezionare **Invia** per eseguire una chiamata di test.
 
-   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Risposta API fittizia":::
+   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Testare l'API fittizia":::
 
 1. La **risposta HTTP** visualizza il codice JSON fornito come esempio nella prima sezione dell'esercitazione.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Risposta API fittizia":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Simulare la risposta HTTP":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

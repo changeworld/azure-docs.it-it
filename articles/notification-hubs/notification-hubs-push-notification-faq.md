@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491427"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546449"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 
@@ -34,16 +34,16 @@ Hub di notifica di Azure dispone di due livelli di risorse: hub e spazi dei nomi
 
 Per informazioni dettagliate e aggiornate sui prezzi, vedere la pagina [Prezzi di Hub di notifica]. Hub di notifica viene fatturato a livello di spazio dei nomi. (Per la definizione di uno spazio dei nomi, vedere "Che cos'è la struttura di risorse di Hub di notifica?") Hub di notifica offre tre livelli:
 
-* **Gratuito** : questo livello è un buon punto di partenza per esplorare le funzionalità push. Non è consigliabile per le applicazioni di produzione. Si ottengono 500 dispositivi e 1 milione di push inclusi per ogni spazio dei nomi al mese, senza garanzia di Contratto di servizio.
-* **Basic** : questo livello, come il livello Standard, è consigliato per piccole applicazioni di produzione. Si ottengono 200.000 dispositivi e 10 milioni di push inclusi per ogni spazio dei nomi al mese come baseline.
-* **Standard** : livello consigliato per le applicazioni di produzione di medie o grandi dimensioni. Si ottengono 10 milioni di dispositivi e 10 milioni di push inclusi per ogni spazio dei nomi al mese come baseline. Include dati di telemetria avanzata. Vengono forniti dati aggiuntivi sullo stato di push.
+* **Gratuito**: questo livello è un buon punto di partenza per esplorare le funzionalità push. Non è consigliabile per le applicazioni di produzione. Si ottengono 500 dispositivi e 1 milione di push inclusi per ogni spazio dei nomi al mese, senza garanzia di Contratto di servizio.
+* **Basic**: questo livello, come il livello Standard, è consigliato per piccole applicazioni di produzione. Si ottengono 200.000 dispositivi e 10 milioni di push inclusi per ogni spazio dei nomi al mese come baseline.
+* **Standard**: livello consigliato per le applicazioni di produzione di medie o grandi dimensioni. Si ottengono 10 milioni di dispositivi e 10 milioni di push inclusi per ogni spazio dei nomi al mese come baseline. Include dati di telemetria avanzata. Vengono forniti dati aggiuntivi sullo stato di push.
 
 Funzionalità del livello Standard:
 
-* **Telemetria avanzata** : è possibile usare Hub di notifica per la telemetria per messaggio per tenere traccia delle richieste push e i commenti di Platform Notification System per il debug.
-* **Multi-tenant** : è possibile usare le credenziali Platform Notification System a livello di spazio dei nomi. Questa opzione consente di suddividere facilmente i tenant in hub all'interno del medesimo spazio dei nomi.
-* **Push pianificati** : è possibile le notifiche da inviare.
-* **Operazioni bulk** : Abilita la funzionalità di esportazione/importazione delle registrazioni come descritto nel documento relativo all' [esportazione/importazione delle registrazioni] .
+* **Telemetria avanzata**: è possibile usare Hub di notifica per la telemetria per messaggio per tenere traccia delle richieste push e i commenti di Platform Notification System per il debug.
+* **Multi-tenant**: è possibile usare le credenziali Platform Notification System a livello di spazio dei nomi. Questa opzione consente di suddividere facilmente i tenant in hub all'interno del medesimo spazio dei nomi.
+* **Push pianificati**: è possibile le notifiche da inviare.
+* **Operazioni bulk**: Abilita la funzionalità di esportazione/importazione delle registrazioni come descritto nel documento relativo all' [esportazione/importazione delle registrazioni] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Qual è il contratto di servizio di Hub di notifica?
 
@@ -103,6 +103,10 @@ Il PNS non garantisce alcun Contratto di servizio per il recapito delle notifich
 
 Data la natura delle modifiche push, che vengono recapitate da un PNS esterno specifico di una piattaforma, non esiste alcuna garanzia di latenza. In genere, la maggior parte delle notifiche push viene recapitata entro pochi minuti.
 
+### <a name="where-does-azure-notification-hubs-store-data"></a>Dove vengono archiviati i dati in hub di notifica di Azure?
+
+Hub di notifica di Azure archivia i dati di registrazione dei clienti nell'area selezionata dal cliente. Hub di notifica fornisce la copertura del ripristino di emergenza dei metadati (il nome dell'hub di notifica, la stringa di connessione e altre informazioni critiche). Per tutte le aree, ad eccezione del Brasile meridionale e sudorientale, il backup dei metadati è ospitato in un'area diversa, in genere l'area abbinata ad Azure. Per le aree del Brasile meridionale e sudorientale, i backup vengono archiviati nella stessa area per soddisfare i requisiti di residenza dei dati per tali aree.
+
 ### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>Quali sono gli aspetti da considerare per la progettazione di una soluzione con spazi dei nomi e hub di notifica?
 
 #### <a name="mobile-appenvironment"></a>Ambiente/app per dispositivi mobili
@@ -151,11 +155,11 @@ Tutte le connessioni, dal mittente a Hub notifiche di Azure al PNS, usano HTTPS.
 
 Per l'invio di payload sensibili è consigliabile usare un modello push sicuro. Il mittente invia una notifica ping con un identificatore di messaggio al dispositivo senza il payload sensibile. Quando l'app sul dispositivo riceve il payload, l'applicazione chiama un'API sicura direttamente per recuperare i dettagli del messaggio. Per informazioni di guida su come implementare questo modello, vedere la pagina sull'[esercitazione relativa al push sicuro di Hub di notifica].
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Quale supporto è fornito per il ripristino di emergenza?
 
-È fornita la copertura del ripristino di emergenza dei metadati (nome di Hub di notifica, stringa di connessione e altre informazioni fondamentali) sul lato del servizio. Quando viene attivato uno scenario di ripristino di emergenza, i dati delle registrazioni sono l' *unico segmento* dell'infrastruttura di Hub di notifica che andrà perso. È necessario implementare una soluzione per ripopolare questi dati nel nuovo hub dopo il ripristino:
+È fornita la copertura del ripristino di emergenza dei metadati (nome di Hub di notifica, stringa di connessione e altre informazioni fondamentali) sul lato del servizio. Quando viene attivato uno scenario di ripristino di emergenza, i dati delle registrazioni sono l'*unico segmento* dell'infrastruttura di Hub di notifica che andrà perso. È necessario implementare una soluzione per ripopolare questi dati nel nuovo hub dopo il ripristino:
 
 1. Creare un hub di notifica secondario in un controller di dominio diverso. È consigliabile crearne uno dall'inizio per proteggersi da un evento di ripristino di emergenza che potrebbe interferire con le capacità di gestione. È anche possibile crearne uno al momento dell'evento di ripristino di emergenza.
 

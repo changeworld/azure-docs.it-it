@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
-ms.openlocfilehash: 3be043af7b057c47f360ce36db6bb7c3afd80638
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7149233782815deebebde53767a3c654ac2321bb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535349"
+ms.locfileid: "100547758"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
@@ -83,22 +83,19 @@ Requisiti per i nomi di servizio:
 
 ## <a name="choose-a-location"></a>Scegliere una posizione
 
-Ricerca cognitiva di Azure è disponibile nella maggior parte delle aree. L'elenco delle aree supportate è disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/).
+Azure ricerca cognitiva è disponibile nella maggior parte delle aree geografiche, come documentato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/search/).
 
-> [!Note]
-> Le aree India centrale e Emirati Arabi Uniti settentrionali non sono attualmente disponibili per i nuovi servizi. Per i servizi già presenti in tali aree, è possibile aumentare le risorse senza alcuna restrizione e il servizio è completamente supportato. Le restrizioni sono temporanee e limitate solo ai nuovi servizi. Quando le restrizione non saranno più applicabili, questa nota verrà rimossa.
->
-> La crittografia doppia è disponibile solo in determinate aree. Per altre informazioni, vedere [Crittografia doppia](search-security-overview.md#double-encryption).
+In genere, se si usano più servizi di Azure, scegliere un'area che ospita anche i dati o il servizio dell'applicazione. In questo modo si riducono al minimo o si evitano gli addebiti per la larghezza di banda dei dati in uscita (non sono previsti addebiti per i dati in uscita se i servizi si trovano nella stessa area).
 
-### <a name="requirements"></a>Requisiti
+I clienti con requisiti di continuità aziendale e ripristino di emergenza dovranno creare i servizi in [coppie di aree](../best-practices-availability-paired-regions.md#azure-regional-pairs). Se ad esempio si opera in America del Nord, è possibile scegliere Stati Uniti orientali e Stati Uniti occidentali oppure Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali per ogni servizio.
 
- Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
+Le funzionalità seguenti sono disponibili solo in determinate aree geografiche:
 
- I clienti con requisiti di continuità aziendale e ripristino di emergenza dovranno creare i servizi in [coppie di aree](../best-practices-availability-paired-regions.md#azure-regional-pairs). Se ad esempio si opera in America del Nord, è possibile scegliere Stati Uniti orientali e Stati Uniti occidentali oppure Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali per ogni servizio.
+* L'arricchimento di intelligenza artificiale richiede che i servizi cognitivi si trovino nella stessa area del ricerca cognitiva di Azure. Scegliere prima l' [area per servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) (l'elenco è inferiore), quindi scegliere la stessa area per il servizio di ricerca.
 
-### <a name="recommendations"></a>Consigli
+* La crittografia doppia è disponibile solo in determinate aree. Per ulteriori informazioni, vedere [crittografia doppia](search-security-overview.md#double-encryption) .
 
-Se si usano più servizi di Azure, scegliere un'area che ospita anche i dati o il servizio dell'applicazione. In questo modo si riducono al minimo o si evitano gli addebiti per la larghezza di banda dei dati in uscita (non sono previsti addebiti per i dati in uscita se i servizi si trovano nella stessa area).
+* Il supporto per la zona di disponibilità è disponibile in aree specifiche, in servizi creati dopo date specifiche. Per ulteriori informazioni, vedere ["zone di disponibilità" in scale for performance](search-performance-optimization.md#availability-zones).
 
 ## <a name="choose-a-pricing-tier"></a>Scegliere un piano tariffario
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185887"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555907"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 
@@ -73,7 +73,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Ruoli personalizzati | Sì | Sì | [Elencare ruoli personalizzati](#save-custom-roles) | Tutti i ruoli personalizzati vengono eliminati definitivamente. È necessario ricreare i ruoli personalizzati e le assegnazioni di ruolo. |
 | Identità gestite assegnate dal sistema | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario disabilitare e riabilitare le identità gestite. È necessario ricreare le assegnazioni di ruolo. |
 | Identità gestite assegnate dall'utente | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario eliminare, ricreare e collegare le identità gestite alla risorsa appropriata. È necessario ricreare le assegnazioni di ruolo. |
-| Azure Key Vault | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
+| Insieme di credenziali chiave di Azure | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
 | Database SQL di Azure con Azure AD Integration Authentication abilitato | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Archiviazione di Azure e Azure Data Lake Storage Gen2 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | Azure Data Lake Storage Gen1 | Sì | Sì |  | È necessario ricreare gli ACL. |
@@ -307,9 +307,9 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
     az role definition create --role-definition <role_definition>
     ```
 
-### <a name="create-role-assignments"></a>Creare assegnazioni di ruolo
+### <a name="assign-roles"></a>Assegnare ruoli
 
-- Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per creare le assegnazioni di ruolo per utenti, gruppi ed entità servizio. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'interfaccia](role-assignments-cli.md)della riga di comando di Azure.
+- Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare ruoli a utenti, gruppi ed entità servizio. Per altre informazioni, vedere [assegnare ruoli di Azure tramite l'interfaccia](role-assignments-cli.md)della riga di comando di Azure.
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -325,7 +325,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Altri servizi | [Servizi che supportano le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per creare le assegnazioni di ruolo per le identità gestite assegnate dal sistema. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare ruoli a identità gestite assegnate dal sistema. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -341,7 +341,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Altri servizi | [Servizi che supportano le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Creare, elencare o eliminare un'identità gestita assegnata dall'utente usando l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per creare le assegnazioni di ruolo per le identità gestite assegnate dall'utente. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare ruoli a identità gestite assegnate dall'utente. Per altre informazioni, vedere [assegnare un accesso a identità gestite a una risorsa tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

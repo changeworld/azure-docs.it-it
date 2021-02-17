@@ -62,12 +62,16 @@
           href: quickstart-v2-uwp.md
         - name: .NET per Windows Desktop
           href: quickstart-v2-windows-desktop.md
+        - name: Node.js elettrone
+          href: quickstart-v2-nodejs-desktop.md
     - name: Daemon o servizio back-end
       items:
         - name: Console .NET Core (daemon)
           href: quickstart-v2-netcore-daemon.md
         - name: Console daemon Python
           href: quickstart-v2-python-daemon.md
+        - name: Daemon della console Node.js
+          href: quickstart-v2-nodejs-console.md
         - name: Daemon console Java
           href: quickstart-v2-java-daemon.md
 - name: Esercitazioni
@@ -88,6 +92,8 @@
           href: tutorial-v2-asp-webapp.md
         - name: Server Blazor
           href: tutorial-blazor-server.md
+        - name: Esercitazione sull'app Web Node.js
+          href: tutorial-v2-nodejs-webapp-msal.md
     - name: Per dispositivi mobili e desktop
       items:
         - name: Android
@@ -101,10 +107,14 @@
           href: tutorial-v2-windows-desktop.md
         - name: Usare la modalità dispositivo condiviso nell'app Android
           href: tutorial-v2-shared-device-mode.md
+        - name: App desktop Electron
+          href: tutorial-v2-nodejs-desktop.md
     - name: Daemon o servizio back-end
       items:
         - name: App Web daemon ASP.NET
           href: tutorial-v2-aspnet-daemon-web-app.md
+        - name: Daemon della console Node.js
+          href: tutorial-v2-nodejs-console.md
 - name: Esempi
   href: sample-v2-code.md
 - name: Concetti
