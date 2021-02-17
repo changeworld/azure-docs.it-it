@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a07670e3348f74fb5c6eaec57f5e9da627e8c09
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843074"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586729"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Esercitazione: Visualizzare e monitorare i dati
 
 
 
-Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile visualizzare e monitorare i dati usando la funzionalità Cartelle di lavoro di Monitoraggio di Azure disponibile in Azure Sentinel, che consente di creare dashboard personalizzati in modo versatile. Anche se le cartelle di lavoro sono visualizzate in modo diverso in Azure Sentinel, può essere utile vedere come [creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
+Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile visualizzare e monitorare i dati usando l'adozione di Azure Sentinel delle cartelle di lavoro di monitoraggio di Azure, che offre versatilità nella creazione di dashboard personalizzati. Anche se le cartelle di lavoro sono visualizzate in modo diverso in Azure Sentinel, può essere utile vedere come [creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
 
 
 Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
@@ -52,7 +52,7 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
    > In questo modo si crea una risorsa di Azure basata sul modello pertinente e si salva il file JSON della cartella di lavoro e non i dati.
 
 
-1. Selezionare **Visualizza cartella di lavoro salvata**. Fare quindi clic sul pulsante **Modifica** nella parte superiore della schermata. A questo punto è possibile modificare la cartella di lavoro e personalizzarla in base alle esigenze. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md).
+1. Selezionare **Visualizza cartella di lavoro salvata**. Fare quindi clic sul pulsante **Modifica** nella parte superiore della schermata. A questo punto è possibile modificare la cartella di lavoro e personalizzarla in base alle esigenze. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/visualize/workbooks-overview.md).
 ![Visualizza la cartella di lavoro](./media/tutorial-monitor-data/workbook-graph.png)
 1. Dopo avere apportato le modifiche, è possibile salvare la cartella di lavoro. 
 
@@ -64,7 +64,7 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
 1. Per creare una nuova cartella di lavoro, passare a **Cartelle di lavoro** e quindi selezionare **Aggiungi la cartella di lavoro**.
   ![Screenshot che mostra la schermata nuova cartella di lavoro.](./media/tutorial-monitor-data/create-workbook.png)
 
-1. Per modificare la cartella di lavoro, selezionare **Modifica** e quindi aggiungere testo, query e parametri, se necessari. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md). 
+1. Per modificare la cartella di lavoro, selezionare **Modifica** e quindi aggiungere testo, query e parametri, se necessari. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/visualize/workbooks-overview.md). 
 
 1. Quando si compila una query, assicurarsi che l' **origine dati** sia impostata su **logs** e **tipo di risorsa** sia impostato su **log Analytics**, quindi scegliere le aree di lavoro pertinenti. 
 

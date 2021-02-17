@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d1076239938988119d8a9838d0e060d70a22082
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323520"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583370"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analisi di utenti, sessioni ed eventi in Application Insights
 
@@ -41,10 +41,10 @@ Modificando le opzioni di query nella parte superiore dello strumento Utenti, è
 * Che ha usato: scegliere le visualizzazioni pagina e gli eventi personalizzati.
 * Durante: scegliere un intervallo di tempo.
 * Entro: scegliere la modalità di ordinazione dei dati in base a un intervallo di tempo o a un'altra proprietà, ad esempio la città o il browser.
-* Dividi per: scegliere una proprietà in base alla quale dividere o segmentare i dati. 
-* Aggiungi filtri: limitare le query a determinati utenti, sessioni o eventi in base alle relative proprietà, ad esempio città o browser. 
- 
-## <a name="saving-and-sharing-reports"></a>Salvataggio e condivisione di report 
+* Dividi per: scegliere una proprietà in base alla quale dividere o segmentare i dati. 
+* Aggiungi filtri: limitare le query a determinati utenti, sessioni o eventi in base alle relative proprietà, ad esempio città o browser. 
+ 
+## <a name="saving-and-sharing-reports"></a>Salvataggio e condivisione di report 
 È possibile salvare i report Utenti, mantenendoli privati nella sezione My Reports (Report personali) o condividendoli con tutti gli utenti con accesso a questa risorsa di Application Insights nella sezione Report condivisi.
 
 Per condividere un collegamento a un report Utenti, Sessioni o Eventi, fare clic su **Condividi** nella barra degli strumenti e quindi copiare il collegamento.
@@ -62,6 +62,6 @@ La sezione **Meet your users** (Conosci gli utenti) mostra informazioni relative
     - [Grafici a imbuto](usage-funnels.md)
     - [Conservazione](usage-retention.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Cartelle di lavoro](../platform/workbooks-overview.md)
+    - [Cartelle di lavoro](../visualize/workbooks-overview.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)
 

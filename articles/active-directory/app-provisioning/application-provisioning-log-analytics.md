@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 454d44eecd4eaa6d5c1f50edbd7edb1024ace041
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256882"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574196"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Informazioni sul modo in cui il provisioning si integra con i log di monitoraggio di Azure
 
@@ -24,7 +24,7 @@ Il provisioning si integra con i log di monitoraggio di Azure e Log Analytics. C
 
 ## <a name="enabling-provisioning-logs"></a>Abilitazione dei log di provisioning
 
-Si dovrebbe avere già familiarità con il monitoraggio di Azure e Log Analytics. In caso contrario, passare a informazioni su di essi e quindi tornare a informazioni sui log di provisioning delle applicazioni. Per altre informazioni sul monitoraggio di Azure, vedere [Panoramica di monitoraggio di Azure](../../azure-monitor/overview.md). Per altre informazioni sui log di monitoraggio di Azure e Log Analytics, vedere [Panoramica delle query di log in monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+Si dovrebbe avere già familiarità con il monitoraggio di Azure e Log Analytics. In caso contrario, passare a informazioni su di essi e quindi tornare a informazioni sui log di provisioning delle applicazioni. Per altre informazioni sul monitoraggio di Azure, vedere [Panoramica di monitoraggio di Azure](../../azure-monitor/overview.md). Per altre informazioni sui log di monitoraggio di Azure e Log Analytics, vedere [Panoramica delle query di log in monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md).
 
 Dopo aver configurato il monitoraggio di Azure, è possibile abilitare i log per il provisioning delle applicazioni. L'opzione è disponibile nella pagina **impostazioni di diagnostica** .
 
@@ -47,7 +47,7 @@ Il flusso di dati sottostante che esegue il provisioning invia i visualizzatori 
 
 ## <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
-Le cartelle di lavoro di monitoraggio di Azure offrono un Canvas flessibile per l'analisi dei dati. Forniscono inoltre la creazione di report visivi avanzati all'interno del portale di Azure. Per altre informazioni, vedere [Cenni preliminari sulle cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md).
+Le cartelle di lavoro di monitoraggio di Azure offrono un Canvas flessibile per l'analisi dei dati. Forniscono inoltre la creazione di report visivi avanzati all'interno del portale di Azure. Per altre informazioni, vedere [Cenni preliminari sulle cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/visualize/workbooks-overview.md).
 
 Il provisioning dell'applicazione viene fornito con un set di cartelle di lavoro predefinite. È possibile trovarli nella pagina cartelle di lavoro. Per visualizzare i dati, è necessario assicurarsi che tutti i filtri (timeRange, jobID, appName) siano popolati. Sarà anche necessario assicurarsi di avere effettuato il provisioning di un'app, in caso contrario non saranno presenti dati nei log.
 
@@ -57,7 +57,7 @@ Il provisioning dell'applicazione viene fornito con un set di cartelle di lavoro
 
 ## <a name="custom-queries"></a>Query personalizzate
 
-È possibile creare query personalizzate e visualizzare i dati nei dashboard di Azure. Per informazioni, vedere [creare e condividere i dashboard dei dati log Analytics](../../azure-monitor/log-query/get-started-queries.md). Vedere anche [Panoramica delle query di log in monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+È possibile creare query personalizzate e visualizzare i dati nei dashboard di Azure. Per informazioni, vedere [creare e condividere i dashboard dei dati log Analytics](../../azure-monitor/logs/get-started-queries.md). Vedere anche [Panoramica delle query di log in monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md).
 
 Di seguito sono riportati alcuni esempi per iniziare a eseguire il provisioning delle applicazioni.
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 Monitoraggio di Azure consente di configurare avvisi personalizzati in modo che sia possibile ricevere notifiche sugli eventi principali correlati al provisioning. È ad esempio possibile che si desideri ricevere un avviso relativo a picchi di errori. O forse picchi in Disabilita o Elimina. Un altro esempio in cui si potrebbe desiderare di ricevere un avviso è la mancanza di alcun provisioning, che indica che si è verificato un errore.
 
-Per altre informazioni sugli avvisi, vedere [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../../azure-monitor/learn/tutorial-response.md).
+Per altre informazioni sugli avvisi, vedere [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../../azure-monitor/alerts/tutorial-response.md).
 
 Avvisa in caso di picchi di errori. Sostituire jobID con il jobID per l'applicazione.
 
@@ -118,7 +118,7 @@ Stiamo adottando un approccio open source e basato sulla community per le query 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Log Analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Introduzione alle query nei log di Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
-- [Creare e gestire gruppi di azione nel portale di Azure](../../azure-monitor/platform/action-groups.md)
+- [Introduzione alle query nei log di Monitoraggio di Azure](../../azure-monitor/logs/get-started-queries.md)
+- [Creare e gestire gruppi di azione nel portale di Azure](../../azure-monitor/alerts/action-groups.md)
 - [Installare e usare le viste di analisi dei log per Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
 - [API dei log di provisioning](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

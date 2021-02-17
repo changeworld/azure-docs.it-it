@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: caf46850b3d8d6946225575b8a9a732a90847482
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618876"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574143"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -40,7 +40,7 @@ Nella tabella seguente vengono illustrati gli scenari per ogni tipo di risorsa d
 |:---|:---|
 |Archiviazione di Azure| Questa destinazione deve essere utilizzata quando la necessità principale è archiviare gli eventi di controllo di sicurezza per scopi di archiviazione. Le altre destinazioni possono essere usate per scopi di archiviazione, ma tali destinazioni forniscono funzionalità oltre la necessità principale di archiviazione. <br /><br />Prima di abilitare gli eventi di controllo di sicurezza Azure AD DS, [creare prima un account di archiviazione di Azure](../storage/common/storage-account-create.md).|
 |Hub eventi di Azure| Questa destinazione deve essere utilizzata quando la necessità principale consiste nel condividere gli eventi di controllo di sicurezza con software aggiuntivo, ad esempio software di analisi dei dati o informazioni sulla sicurezza & software di gestione degli eventi (SIEM).<br /><br />Prima di abilitare gli eventi di controllo di sicurezza di Azure AD DS, [creare un hub eventi usando portale di Azure](../event-hubs/event-hubs-create.md)|
-|Area di lavoro di Azure Log Analytics| Questa destinazione deve essere usata quando la necessità principale consiste nell'analizzare ed esaminare i controlli protetti direttamente dalla portale di Azure.<br /><br />Prima di abilitare gli eventi di controllo di sicurezza Azure AD DS, [creare un'area di lavoro log Analytics nel portale di Azure.](../azure-monitor/learn/quick-create-workspace.md)|
+|Area di lavoro di Azure Log Analytics| Questa destinazione deve essere usata quando la necessità principale consiste nell'analizzare ed esaminare i controlli protetti direttamente dalla portale di Azure.<br /><br />Prima di abilitare gli eventi di controllo di sicurezza Azure AD DS, [creare un'area di lavoro log Analytics nel portale di Azure.](../azure-monitor/logs/quick-create-workspace.md)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Abilitare gli eventi di controllo di sicurezza usando il portale di Azure
 
@@ -100,7 +100,7 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando Azure Powe
         > [!IMPORTANT]
         > Assicurarsi di impostare la regola di autorizzazione nello spazio dei nomi dell'hub eventi e non nell'hub eventi stesso.
 
-    * **Aree di lavoro**  -  analisi log di Azure [Creare un'area di lavoro log Analytics con Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Aree di lavoro**  -  analisi log di Azure [Creare un'area di lavoro log Analytics con Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. Ottenere l'ID di risorsa per il dominio gestito di Azure AD DS usando il cmdlet [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) . Creare una variabile denominata *$aadds. ResourceId* per conservare il valore:
 
@@ -141,9 +141,9 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando Azure Powe
 Le aree di lavoro di analisi dei log consentono di visualizzare e analizzare gli eventi di controllo di sicurezza usando monitoraggio di Azure e il linguaggio di query kusto. Questo linguaggio di query è progettato per l'utilizzo di sola lettura che offre funzionalità di analisi del risparmio energia con una sintassi di facile lettura. Per altre informazioni su come iniziare a usare i linguaggi di query kusto, vedere gli articoli seguenti:
 
 * [Documentazione di Monitoraggio di Azure](../azure-monitor/index.yml)
-* [Introduzione a Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md)
-* [Introduzione alle query su log in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
-* [Creare e condividere i dashboard dei dati di Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Introduzione a Log Analytics in Monitoraggio di Azure](../azure-monitor/logs/log-analytics-tutorial.md)
+* [Introduzione alle query su log in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
+* [Creare e condividere i dashboard dei dati di Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 Per iniziare ad analizzare gli eventi di controllo di sicurezza da Azure AD DS, è possibile usare le query di esempio seguenti.
 
@@ -227,7 +227,7 @@ Sono disponibili le categorie di eventi di controllo seguenti:
 |Accesso a oggetti| I controlli tentano di accedere a oggetti specifici o a tipi di oggetti in una rete o in un computer. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Generato dall'applicazione](/windows/security/threat-protection/auditing/audit-application-generated)</li><li>[Controlla Servizi di certificazione](/windows/security/threat-protection/auditing/audit-certification-services)</li><li>[Controlla condivisione file dettagliata](/windows/security/threat-protection/auditing/audit-detailed-file-share)</li><li>[Controlla Condivisione file](/windows/security/threat-protection/auditing/audit-file-share)</li><li>[Controllo del file System](/windows/security/threat-protection/auditing/audit-file-system)</li><li>[Controlla Connessione a Piattaforma filtro Windows](/windows/security/threat-protection/auditing/audit-filtering-platform-connection)</li><li>[Controlla Mancata elaborazione pacchetti Piattaforma filtro Windows](/windows/security/threat-protection/auditing/audit-filtering-platform-packet-drop)</li><li>[Controllo Manipolazione handle](/windows/security/threat-protection/auditing/audit-handle-manipulation)</li><li>[Controlla oggetto kernel](/windows/security/threat-protection/auditing/audit-kernel-object)</li><li>[Controlla Altri eventi di accesso agli oggetti](/windows/security/threat-protection/auditing/audit-other-object-access-events)</li><li>[Registro di controllo](/windows/security/threat-protection/auditing/audit-registry)</li><li>[Controlla archivi rimovibili](/windows/security/threat-protection/auditing/audit-removable-storage)</li><li>[Controlla SAM](/windows/security/threat-protection/auditing/audit-sam)</li><li>[Controlla Gestione temporanea Criteri di accesso centrale](/windows/security/threat-protection/auditing/audit-central-access-policy-staging)</li></ul>|
 |Modifica dei criteri|Controlla le modifiche apportate ai criteri di sicurezza importanti in un sistema locale o in una rete. I criteri vengono in genere stabiliti dagli amministratori per proteggere le risorse di rete. Il monitoraggio delle modifiche o dei tentativi di modifica di questi criteri può essere un aspetto importante della gestione della sicurezza per una rete. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Controlla modifica ai criteri](/windows/security/threat-protection/auditing/audit-audit-policy-change)</li><li>[Controlla Modifica criteri di autenticazione](/windows/security/threat-protection/auditing/audit-authentication-policy-change)</li><li>[Controlla Modifica criteri di autorizzazione](/windows/security/threat-protection/auditing/audit-authorization-policy-change)</li><li>[Controlla Modifica criteri Piattaforma filtro Windows](/windows/security/threat-protection/auditing/audit-filtering-platform-policy-change)</li><li>[Controlla Modifica criteri a livello di regola MPSSVC](/windows/security/threat-protection/auditing/audit-mpssvc-rule-level-policy-change)</li><li>[Controlla altre modifiche ai criteri](/windows/security/threat-protection/auditing/audit-other-policy-change-events)</li></ul>|
 |Uso dei privilegi| Controlla l'uso di determinate autorizzazioni in uno o più sistemi. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Utilizzo privilegi non sensibili](/windows/security/threat-protection/auditing/audit-non-sensitive-privilege-use)</li><li>[Controlla Utilizzo privilegi sensibili](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)</li><li>[Controlla Altri eventi di utilizzo dei privilegi](/windows/security/threat-protection/auditing/audit-other-privilege-use-events)</li></ul>|
-|System| Controlla le modifiche a livello di sistema in un computer non incluso in altre categorie e con possibili implicazioni di sicurezza. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Driver IPSec](/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Controlla Altri eventi di sistema](/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Controlla Modifica stato sicurezza](/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Controlla Estensione sistema di sicurezza](/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Controlla Integrità sistema](/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
+|Sistema| Controlla le modifiche a livello di sistema in un computer non incluso in altre categorie e con possibili implicazioni di sicurezza. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Driver IPSec](/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Controlla Altri eventi di sistema](/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Controlla Modifica stato sicurezza](/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Controlla Estensione sistema di sicurezza](/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Controlla Integrità sistema](/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
 
 ## <a name="event-ids-per-category"></a>ID evento per categoria
 

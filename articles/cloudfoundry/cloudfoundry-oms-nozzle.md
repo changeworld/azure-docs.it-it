@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fafa9bd014a44fdd0098ef2364375c3f9672bea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021589"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571057"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuire il nozzle di Azure Log Analytics per il monitoraggio del sistema Cloud Foundry
 
@@ -191,7 +191,7 @@ Dal portale di OMS passare a **Visualizza finestra di progettazione**  >  **Impo
 
 ### <a name="2-create-alert-rules"></a>2. creare regole di avviso
 
-È possibile [creare avvisi](../azure-monitor/platform/alerts-overview.md) e personalizzare le query e i valori di soglia come necessario. Di seguito è riportato un set di avvisi consigliati.
+È possibile [creare avvisi](../azure-monitor/alerts/alerts-overview.md) e personalizzare le query e i valori di soglia come necessario. Di seguito è riportato un set di avvisi consigliati.
 
 | Query di ricerca                                                                  | Genera l'avviso in base a | Descrizione                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
@@ -219,7 +219,7 @@ Per aumentare le istanze del nozzle, usare Apps Manager o l'interfaccia della ri
 Il loggregator invia il messaggio di log **LGR** per indicare problemi con il processo di registrazione. È possibile monitorare l'avviso per determinare se è necessario ridimensionare il loggregator.
 Per ridimensionare il loggregator, aumentare le dimensioni del buffer Doppler o aggiungere altre istanze del server Doppler nel manifesto di Cloud Foundry. Per altre informazioni vedere [il materiale sussidiario per il ridimensionamento di loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
-## <a name="update"></a>Aggiornamento
+## <a name="update"></a>Aggiorna
 
 Per aggiornare il nozzle a una versione più recente, scaricare la nuova versione, seguire i passaggi nella sezione precedente "Distribuire il nozzle" ed eseguire di nuovo il push dell'applicazione.
 

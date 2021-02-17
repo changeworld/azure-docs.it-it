@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986040"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571050"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
 
@@ -54,7 +54,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare la sottoscrizione che include le reti virtuali di cui è stato eseguito il peer al circuito ExpressRoute. Quindi, nell'elenco di servizi in **Marketplace** cercare "Monitoraggio prestazioni rete". Nell'elenco dei risultati fare clic per aprire la pagina **Monitoraggio prestazioni rete**.
 
    >[!NOTE]
-   >È possibile creare una nuova area di lavoro o usarne una esistente. Se si vuole usare un'area di lavoro esistente, verificare che sia stata eseguita la migrazione dell'area di lavoro al nuovo linguaggio di query. [Ulteriori informazioni...](../azure-monitor/log-query/log-query-overview.md)
+   >È possibile creare una nuova area di lavoro o usarne una esistente. Se si vuole usare un'area di lavoro esistente, verificare che sia stata eseguita la migrazione dell'area di lavoro al nuovo linguaggio di query. [Ulteriori informazioni...](../azure-monitor/logs/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -118,7 +118,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: Configurare le impostazioni proxy (facoltativo)
 
-Se si usa un proxy Web per accedere a Internet, eseguire la procedura seguente per configurare le impostazioni proxy per Microsoft Monitoring Agent. Eseguire questa procedura per ogni server. Se è necessario configurare molti server, può risultare più semplice usare uno script per automatizzare il processo. In questo caso, vedere [Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite uno script](../azure-monitor/platform/agent-windows.md).
+Se si usa un proxy Web per accedere a Internet, eseguire la procedura seguente per configurare le impostazioni proxy per Microsoft Monitoring Agent. Eseguire questa procedura per ogni server. Se è necessario configurare molti server, può risultare più semplice usare uno script per automatizzare il processo. In questo caso, vedere [Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite uno script](../azure-monitor/agents/agent-windows.md).
 
 Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite il Pannello di controllo:
 

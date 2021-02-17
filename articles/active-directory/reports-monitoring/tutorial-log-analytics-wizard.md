@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bdf3a763dc71eb842496775b6cc91b8ca39b4b3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: ca84fa57cb3a26337038275d1b7491154915c90e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343842"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574381"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Esercitazione: Configurare la procedura guidata di Log Analytics
 
@@ -41,7 +41,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Acquisire familiarità con questi articoli:
 
-- [Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
+- [Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure](../../azure-monitor/essentials/tutorial-resource-logs.md)
 
 - [Integrare i log attività con Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -49,7 +49,7 @@ Acquisire familiarità con questi articoli:
 
 - [Riferimento rapido sul linguaggio KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md)
+- [Cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 

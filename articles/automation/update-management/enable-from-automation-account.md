@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 06a29cd07a870e7553d599b5f719943acb259c2a
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 089d5d70d8ad8060455e5c1bee45e0bee4a12fae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054924"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575847"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Abilitare Gestione aggiornamenti da un account di Automazione
 
@@ -24,7 +24,8 @@ Questo articolo descrive come usare l'account di automazione per abilitare la fu
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Account di Automazione](../automation-security-overview.md) per gestire i computer.
-* Una [macchina virtuale di Azure](../../virtual-machines/windows/quick-create-portal.md), una VM o un server registrato con i server abilitati per Arc. Per le macchine virtuali o i server non di Azure è necessario che l' [agente di log Analytics](../../azure-monitor/platform/log-analytics-agent.md) per Windows o Linux sia installato e che la creazione di report nell'area di lavoro collegata all'account di automazione gestione aggiornamenti sia abilitata in. Si consiglia di installare l'agente di Log Analytics per Windows o Linux connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [Distribuisci agente di log Analytics a computer *Linux* o *Windows* Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . In alternativa, se si prevede di monitorare i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
+* Una [macchina virtuale di Azure](../../virtual-machines/windows/quick-create-portal.md), una VM o un server registrato con i server abilitati per Arc. Per le macchine virtuali o i server non di Azure è necessario che l' [agente di log Analytics](../../azure-monitor/agents/log-analytics-agent.md) per Windows o Linux sia installato e che la creazione di report nell'area di lavoro collegata all'account di automazione gestione aggiornamenti sia abilitata in. Si consiglia di installare l'agente di Log Analytics per Windows o Linux connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [Distribuisci agente di log Analytics a computer *Linux* o *Windows* Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . In alternativa, se si prevede di monitorare i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
+
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -54,7 +55,7 @@ Per i computer o i server ospitati all'esterno di Azure, inclusi quelli registra
 
 1. Nell'account di Automazione selezionare **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
-2. Selezionare **Aggiungi computer non Azure**. Questa azione consente di aprire una nuova finestra [del browser con le istruzioni per installare e configurare l'agente di log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md) in modo che il computer possa iniziare a segnalare gestione aggiornamenti. Se si Abilita un computer attualmente gestito da Operations Manager, non è necessario un nuovo agente. Le informazioni sull'area di lavoro vengono aggiunte alla configurazione degli agenti.
+2. Selezionare **Aggiungi computer non Azure**. Questa azione consente di aprire una nuova finestra [del browser con le istruzioni per installare e configurare l'agente di log Analytics per Windows](../../azure-monitor/agents/log-analytics-agent.md) in modo che il computer possa iniziare a segnalare gestione aggiornamenti. Se si Abilita un computer attualmente gestito da Operations Manager, non è necessario un nuovo agente. Le informazioni sull'area di lavoro vengono aggiunte alla configurazione degli agenti.
 
 ## <a name="enable-machines-in-the-workspace"></a>Abilitazione dei computer nell'area di lavoro
 

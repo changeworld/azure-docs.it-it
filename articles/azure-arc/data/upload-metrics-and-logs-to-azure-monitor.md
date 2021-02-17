@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac9c8efbe29bf1420a94d486b650758cc22bec2f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183431"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575753"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Caricare i dati di utilizzo, le metriche e i log in monitoraggio di Azure
 
@@ -42,18 +42,18 @@ Vedere [installare gli strumenti](./install-client-tools.md).
 
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 
-Prima di caricare le metriche o i dati utente in Azure, è necessario assicurarsi che la sottoscrizione di Azure disponga del `Microsoft.AzureData` provider di risorse registrato.
+Prima di caricare le metriche o i dati utente in Azure, è necessario assicurarsi che la sottoscrizione di Azure disponga del `Microsoft.AzureArcData` provider di risorse registrato.
 
 Per verificare il provider di risorse, eseguire il comando seguente:
 
 ```azurecli
-az provider show -n Microsoft.AzureData -o table
+az provider show -n Microsoft.AzureArcData -o table
 ```
 
 Se il provider di risorse non è attualmente registrato nella sottoscrizione, è possibile registrarlo. Per registrarlo, eseguire il comando seguente.  Il completamento del comando potrebbe richiedere un minuto o due.
 
 ```azurecli
-az provider register -n Microsoft.AzureData --wait
+az provider register -n Microsoft.AzureArcData --wait
 ```
 
 ## <a name="create-service-principal"></a>Creare un'entità servizio
@@ -193,7 +193,7 @@ Le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) in Azu
 
 Durante la fase di anteprima, questo processo si verifica ogni notte. Il materiale sussidiario generale è caricare l'utilizzo solo una volta al giorno. Quando le informazioni sull'utilizzo vengono esportate e caricate più volte nello stesso periodo di 24 ore, solo l'inventario delle risorse viene aggiornato in portale di Azure ma non nell'utilizzo delle risorse.
 
-Per il caricamento delle metriche, monitoraggio di Azure accetta solo gli ultimi 30 minuti di dati ([altre informazioni](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). Le linee guida per il caricamento delle metriche sono il caricamento delle metriche immediatamente dopo la creazione del file di esportazione, in modo da poter visualizzare l'intero set di dati in portale di Azure. Ad esempio, se le metriche sono state esportate alle 2:00 PM ed è stato eseguito il comando Upload alle 2:50 PM. Poiché monitoraggio di Azure accetta solo i dati per gli ultimi 30 minuti, è possibile che non vengano visualizzati dati nel portale. 
+Per il caricamento delle metriche, monitoraggio di Azure accetta solo gli ultimi 30 minuti di dati ([altre informazioni](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). Le linee guida per il caricamento delle metriche sono il caricamento delle metriche immediatamente dopo la creazione del file di esportazione, in modo da poter visualizzare l'intero set di dati in portale di Azure. Ad esempio, se le metriche sono state esportate alle 2:00 PM ed è stato eseguito il comando Upload alle 2:50 PM. Poiché monitoraggio di Azure accetta solo i dati per gli ultimi 30 minuti, è possibile che non vengano visualizzati dati nel portale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

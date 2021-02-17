@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648073"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590797"
 ---
 # <a name="manage-your-cache"></a>Gestire la cache
 
@@ -198,7 +198,7 @@ $
 
 ---
 
-## <a name="collect-diagnostics"></a>Raccolta di diagnostica
+## <a name="collect-diagnostics"></a>Raccogliere i dati di diagnostica
 
 Il pulsante **Raccogli diagnostica** avvia manualmente il processo per raccogliere le informazioni di sistema e caricarlo nel servizio Microsoft e il supporto per la risoluzione dei problemi. La cache raccoglie e carica automaticamente le stesse informazioni di diagnostica se si verifica un problema di cache grave.
 
@@ -253,7 +253,7 @@ La pagina Overview Mostra i grafici per alcune statistiche di base della cache, 
 
 ![Screenshot di tre grafici a linee che mostrano le statistiche sopra indicate per una cache di esempio](media/hpc-cache-overview-stats.png)
 
-Questi grafici fanno parte degli strumenti di monitoraggio e analisi incorporati di Azure. Gli strumenti e gli avvisi aggiuntivi sono disponibili nelle pagine sotto l'intestazione **monitoraggio** nell'intestazione laterale del portale. Per altre informazioni, vedere la sezione portale della [documentazione di monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+Questi grafici fanno parte degli strumenti di monitoraggio e analisi incorporati di Azure. Gli strumenti e gli avvisi aggiuntivi sono disponibili nelle pagine sotto l'intestazione **monitoraggio** nell'intestazione laterale del portale. Per altre informazioni, vedere la sezione portale della [documentazione di monitoraggio di Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: a5e280fb562bf9bb36d0d729e5f494bd23776ec7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702271"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570129"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Monitorare gli eventi pianificati per le macchine virtuali di Azure
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare il servizio Eventi pianificati per ricevere 
 
 Eventi pianificati è disponibile come parte del [servizio metadati dell'istanza di Azure](instance-metadata-service.md), presente in ogni macchina virtuale di Azure. I clienti possono scrivere l'automazione per eseguire query sull'endpoint delle macchine virtuali, individuare le notifiche di manutenzione pianificata e impostare delle mitigazioni, ad esempio il salvataggio dello stato o l'esclusione della macchina virtuale. È consigliabile creare l'automazione per registrare gli eventi pianificati in modo da disporre di un log di controllo degli eventi di manutenzione di Azure. 
 
-In questo articolo verrà illustrato come acquisire gli eventi pianificati di manutenzione per Log Analytics. Quindi, verranno attivate alcune azioni di notifica di base, come l'invio di email al team e la visualizzazione cronologica di tutti gli eventi che hanno interessato le macchine virtuali. Per l'aggregazione e l'automazione degli eventi viene usato [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md), ma è possibile usare qualsiasi soluzione di monitoraggio per la raccolta dei log e attivazione dell'automazione.
+In questo articolo verrà illustrato come acquisire gli eventi pianificati di manutenzione per Log Analytics. Quindi, verranno attivate alcune azioni di notifica di base, come l'invio di email al team e la visualizzazione cronologica di tutti gli eventi che hanno interessato le macchine virtuali. Per l'aggregazione e l'automazione degli eventi viene usato [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md), ma è possibile usare qualsiasi soluzione di monitoraggio per la raccolta dei log e attivazione dell'automazione.
 
 ![Diagramma che mostra il ciclo di vita dell'evento](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Ai fini di questo esempio è necessario creare una [macchina virtuale Windows in
 
 Non eliminare il gruppo di risorse di gruppo alla fine dell'esercitazione.
 
-Sarà anche necessario [creare un'area di lavoro di Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) da usare per aggregare le informazioni delle macchine virtuali del set di disponibilità.
+Sarà anche necessario [creare un'area di lavoro di Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) da usare per aggregare le informazioni delle macchine virtuali del set di disponibilità.
 
 ## <a name="set-up-the-environment"></a>Configurare l'ambiente
 
@@ -132,7 +132,7 @@ Viene installato [Microsoft Monitoring Agent](../extensions/oms-windows.md) nell
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Creare di una regola di avviso con Monitoraggio di Azure 
 
 
-Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguire questa [query](../../azure-monitor/log-query/log-analytics-tutorial.md) per cercare gli eventi di pianificazione.
+Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguire questa [query](../../azure-monitor/logs/log-analytics-tutorial.md) per cercare gli eventi di pianificazione.
 
 1. Nella parte superiore della pagina selezionare **Log** e incollare il codice seguente nella casella di testo:
 

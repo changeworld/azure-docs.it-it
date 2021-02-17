@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618162"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574202"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Esaminare gli eventi di controllo di sicurezza in Azure Active Directory Domain Services usando le cartelle di lavoro di monitoraggio di Azure
 
@@ -46,7 +46,7 @@ Azure AD DS include i due modelli di cartella di lavoro seguenti:
 * Report Panoramica sicurezza
 * Report attività account
 
-Per altre informazioni su come modificare e gestire le cartelle di lavoro, vedere [Cenni preliminari sulle cartelle di lavoro di monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md).
+Per altre informazioni su come modificare e gestire le cartelle di lavoro, vedere [Cenni preliminari sulle cartelle di lavoro di monitoraggio di Azure](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="use-the-security-overview-report-workbook"></a>Utilizzare la cartella di lavoro report Panoramica sicurezza
 

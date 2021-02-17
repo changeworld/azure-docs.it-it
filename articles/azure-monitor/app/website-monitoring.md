@@ -4,12 +4,12 @@ description: Questo argomento di avvio rapido illustra come configurare il monit
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 959beeac004c71fb4593740d3c1685771638e40c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 0a30fb12e93058690fbd7611ae64fc0a7dd96f64
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88611331"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583440"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Guida introduttiva: Avviare il monitoraggio del sito Web con Application Insights di Monitoraggio di Azure
 
@@ -137,5 +137,5 @@ Se si prevede di continuare a seguire altri argomenti di avvio rapido o esercita
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Rilevare e diagnosticare i problemi di prestazioni](../log-query/log-query-overview.md)
+> [Rilevare e diagnosticare i problemi di prestazioni](../logs/log-query-overview.md)
 

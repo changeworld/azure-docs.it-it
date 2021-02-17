@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323266"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584028"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurare Monitoraggio di Azure per l'applicazione Python
 
@@ -33,7 +33,7 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > Il comando `python -m pip install opencensus-ext-azure` presuppone la presenza di una variabile di ambiente `PATH` impostata per l'installazione di Python. Se questa non è stata configurata, sarà necessario specificare il percorso completo della directory in cui si trova l'eseguibile di Python. Il risultato è un comando simile al seguente: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare diversi tipi di dati di telemetria a monitoraggio di Azure. Si tratta di tracce, metriche e log. Per altre informazioni su questi tipi di telemetria, vedere la [panoramica della piattaforma dati](../platform/data-platform.md). Usare le istruzioni seguenti per inviare questi tipi di dati di telemetria tramite le tre utilità di esportazione.
+L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare diversi tipi di dati di telemetria a monitoraggio di Azure. Si tratta di tracce, metriche e log. Per altre informazioni su questi tipi di telemetria, vedere la [panoramica della piattaforma dati](../data-platform.md). Usare le istruzioni seguenti per inviare questi tipi di dati di telemetria tramite le tre utilità di esportazione.
 
 ## <a name="telemetry-type-mappings"></a>Mapping dei tipi di telemetria
 
@@ -438,7 +438,7 @@ Come illustrato, sono disponibili tre diversi esportatori di monitoraggio di Azu
 Ogni utilità di esportazione accetta gli stessi argomenti per la configurazione, passati attraverso i costruttori. È possibile visualizzare i dettagli su ciascuno di essi:
 
 - `connection_string`: Stringa di connessione usata per la connessione alla risorsa di monitoraggio di Azure. Ha la priorità `instrumentation_key` .
-- `enable_standard_metrics`: Usato per `AzureMetricsExporter` . Segnala all'utilità di esportazione di inviare automaticamente le metriche del [contatore delle prestazioni](../platform/app-insights-metrics.md#performance-counters) a monitoraggio di Azure. Il valore predefinito è `True`.
+- `enable_standard_metrics`: Usato per `AzureMetricsExporter` . Segnala all'utilità di esportazione di inviare automaticamente le metriche del [contatore delle prestazioni](../essentials/app-insights-metrics.md#performance-counters) a monitoraggio di Azure. Il valore predefinito è `True`.
 - `export_interval`: Usato per specificare la frequenza in secondi di esportazione.
 - `instrumentation_key`: Chiave di strumentazione usata per connettersi alla risorsa di monitoraggio di Azure.
 - `logging_sampling_rate`: Usato per `AzureLogHandler` . Fornisce una frequenza di campionamento [0, 1.0] per l'esportazione dei log. Il valore predefinito è 1,0.
@@ -458,7 +458,7 @@ Nell'elenco sotto **Attiva**:
 - Per i dati di telemetria inviati con l'utilità di esportazione delle metriche di Monitoraggio di Azure, le metriche inviate vengono visualizzate in `customMetrics`.
 - Per i dati di telemetria inviati con l'utilità di esportazione log di Monitoraggio di Azure, i log vengono visualizzati in `traces`. Le eccezioni vengono visualizzate in `exceptions`.
 
-Per informazioni più dettagliate su come usare le query e i log, vedere [Log in Monitoraggio di Azure](../platform/data-platform-logs.md).
+Per informazioni più dettagliate su come usare le query e i log, vedere [Log in Monitoraggio di Azure](../logs/data-platform-logs.md).
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Altre informazioni su OpenCensus per Python
 
@@ -473,11 +473,11 @@ Per informazioni più dettagliate su come usare le query e i log, vedere [Log in
 * [Rilevamento delle richieste in ingresso](./opencensus-python-dependency.md)
 * [Rilevamento delle richieste in uscita](./opencensus-python-request.md)
 * [Mappa delle applicazioni](./app-map.md)
-* [Monitoraggio delle prestazioni end-to-end](../learn/tutorial-performance.md)
+* [Monitoraggio delle prestazioni end-to-end](../app/tutorial-performance.md)
 
 ### <a name="alerts"></a>Avvisi
 
 * [Test di disponibilità](./monitor-web-app-availability.md): creare test per assicurarsi che il sito sia visibile sul Web.
 * [Diagnostica intelligente](./proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.
-* [Avvisi delle metriche](../platform/alerts-log.md): Impostare avvisi per essere avvertiti se una metrica supera una soglia. È possibile impostarli nelle metriche personalizzate di cui si scrive il codice nell'app.
+* [Avvisi delle metriche](../alerts/alerts-log.md): Impostare avvisi per essere avvertiti se una metrica supera una soglia. È possibile impostarli nelle metriche personalizzate di cui si scrive il codice nell'app.
 

@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: eb74137e515bff7a432367e75b4208490b1243c0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 33cd19f7bb1881b17f1ca9080a9634162014808a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681388"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574288"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Usare monitoraggio di Azure con l'area di lavoro di Azure sinapsi Analytics
 
@@ -28,7 +28,7 @@ Per altre informazioni, vedere [Panoramica di Monitoraggio di Azure](../../azure
 
 Con il monitoraggio è possibile ottenere visibilità sulle prestazioni e l'integrità dei carichi di lavoro di Azure. Il tipo più importante di dati di monitoraggio è la metrica, definita anche contatore delle prestazioni. Le metriche vengono emesse dalla maggior parte delle risorse di Azure. Il monitoraggio offre diversi modi per configurare e utilizzare queste metriche per il monitoraggio e la risoluzione dei problemi.
 
-Per accedere a queste metriche, seguire le istruzioni riportate nella [piattaforma dati di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md).
+Per accedere a queste metriche, seguire le istruzioni riportate nella [piattaforma dati di monitoraggio di Azure](../../azure-monitor/data-platform.md).
 
 ### <a name="workspace-level-metrics"></a>Metriche a livello di area di lavoro
 
@@ -171,7 +171,7 @@ Creare o aggiungere impostazioni di diagnostica per l'area di lavoro, il pool SQ
 1. Assegnare un nome all'impostazione, selezionare **Invia a log Analytics** e quindi selezionare un'area di lavoro da **log Analytics area di lavoro**.
 
     > [!NOTE]
-    > Poiché una tabella dei log di Azure non può contenere più di 500 colonne, è **consigliabile** selezionare la _modalità specifica della risorsa_. Per ulteriori informazioni, vedere [log Analytics limitazioni note](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Poiché una tabella dei log di Azure non può contenere più di 500 colonne, è **consigliabile** selezionare la _modalità specifica della risorsa_. Per ulteriori informazioni, vedere [log Analytics limitazioni note](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
 1. Selezionare **Salva**.
 

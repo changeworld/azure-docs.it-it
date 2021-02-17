@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183720"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575995"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Record DNS per le aree di Azure usate da automazione di Azure
 
@@ -21,7 +21,7 @@ Il servizio [automazione di Azure](../automation-intro.md) usa una serie di reco
 * Webhook
 
 >[!NOTE]
->La registrazione del ruolo di lavoro ibrido per Runbook di Linux avrà esito negativo con i nuovi record a meno che non si tratti di una versione 1.6.10.2 È necessario eseguire l'aggiornamento a una versione più recente dell' [agente di log Analytics per Linux](../../azure-monitor/platform/agent-linux.md) per consentire al computer di ricevere una versione aggiornata del ruolo di lavoro e di usare questi nuovi record. I computer esistenti continueranno a funzionare senza problemi.  
+>La registrazione del ruolo di lavoro ibrido per Runbook di Linux avrà esito negativo con i nuovi record a meno che non si tratti di una versione 1.6.10.2 È necessario eseguire l'aggiornamento a una versione più recente dell' [agente di log Analytics per Linux](../../azure-monitor/agents/agent-linux.md) per consentire al computer di ricevere una versione aggiornata del ruolo di lavoro e di usare questi nuovi record. I computer esistenti continueranno a funzionare senza problemi.  
 
 ## <a name="dns-records-per-region"></a>Record DNS per area
 

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380407"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576385"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Questo articolo descrive come monitorare e gestire le pipeline ed eseguirne il d
 > L'applicazione di monitoraggio e gestione offre un supporto migliore per il monitoraggio e la gestione delle pipeline di dati, nonché per la risoluzione di eventuali problemi. Per dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory versione 1 usa ora la nuova [infrastruttura di avvisi di Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md). L'infrastruttura di avvisi precedente è stata deprecata. Di conseguenza, gli avvisi esistenti configurati per la versione 1 delle data factory non funzionano più. Gli avvisi esistenti per le data factory versione 1 non vengono migrati automaticamente. È necessario ricreare questi avvisi per la nuova infrastruttura di avvisi. Accedere al portale di Azure e selezionare **Monitoraggio** per creare nuovi avvisi sulle metriche (ad esempio esecuzioni non riuscite o con esito positivo) per la versione 1 delle data factory.
+> Azure Data Factory versione 1 usa ora la nuova [infrastruttura di avvisi di Monitoraggio di Azure](../../azure-monitor/alerts/alerts-metric.md). L'infrastruttura di avvisi precedente è stata deprecata. Di conseguenza, gli avvisi esistenti configurati per la versione 1 delle data factory non funzionano più. Gli avvisi esistenti per le data factory versione 1 non vengono migrati automaticamente. È necessario ricreare questi avvisi per la nuova infrastruttura di avvisi. Accedere al portale di Azure e selezionare **Monitoraggio** per creare nuovi avvisi sulle metriche (ad esempio esecuzioni non riuscite o con esito positivo) per la versione 1 delle data factory.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

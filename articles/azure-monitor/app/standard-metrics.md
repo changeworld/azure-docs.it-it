@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.subservice: application-insights
-ms.openlocfilehash: 8da719f399c0c49efd478f05a0114d85233c880f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0a18088fa434efa76007607c067feec107bdae57
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732629"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572357"
 ---
 # <a name="application-insights-standard-metrics"></a>Metrica Application Insights standard
 
@@ -273,4 +273,4 @@ Numero di istruzioni di traccia registrate con la chiamata API TrackTrace () App
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sulle [metriche basate su log e pre-aggregate](./pre-aggregated-metrics-log-metrics.md).
-* [Query e definizioni delle metriche basate su log](../platform/app-insights-metrics.md).
+* [Query e definizioni delle metriche basate su log](../essentials/app-insights-metrics.md).

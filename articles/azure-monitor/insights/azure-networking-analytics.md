@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: cdb43bd8b91881905b1734d0c0b36c33fb27d232
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707691"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577509"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio di rete di Azure in Monitoraggio di Azure
 
@@ -113,11 +113,11 @@ La cartella di lavoro di Network Insights consente di sfruttare le funzionalità
 
 * Console centralizzata per il monitoraggio e la risoluzione dei problemi con i dati di [metrica](../insights/network-insights-overview.md#resource-health-and-metrics) e di log.
 
-* Area di disegno flessibile per supportare la creazione di [visualizzazioni](../platform/workbooks-overview.md#visualizations)personalizzate avanzate.
+* Area di disegno flessibile per supportare la creazione di [visualizzazioni](../visualize/workbooks-overview.md#visualizations)personalizzate avanzate.
 
-* Possibilità di utilizzare e [condividere modelli di cartelle di lavoro](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) con community più ampia.
+* Possibilità di utilizzare e [condividere modelli di cartelle di lavoro](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) con community più ampia.
 
-Per ulteriori informazioni sulle funzionalità della nuova soluzione cartella di lavoro [, vedere cartelle di lavoro-Panoramica](../platform/workbooks-overview.md)
+Per ulteriori informazioni sulle funzionalità della nuova soluzione cartella di lavoro [, vedere cartelle di lavoro-Panoramica](../visualize/workbooks-overview.md)
 
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrazione dalla soluzione Azure gateway Analytics alle cartelle di lavoro di monitoraggio di Azure
 
@@ -129,7 +129,7 @@ Per ulteriori informazioni sulle funzionalità della nuova soluzione cartella di
 > [!NOTE]
 > Tutti i dati precedenti sono già disponibili all'interno della cartella di lavoro dal punto in cui sono state originariamente abilitate le impostazioni di diagnostica. Non è necessario alcun trasferimento dei dati.
 
-2. Accedere alla [cartella di lavoro di Insights predefinita](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) per la risorsa del gateway applicazione. Tutte le informazioni dettagliate esistenti supportate dalla soluzione di analisi del gateway applicazione saranno già presenti nella cartella di lavoro. Per estendere questo problema, è possibile aggiungere [visualizzazioni](../platform/workbooks-overview.md#visualizations) personalizzate basate sulla metrica & i dati di log.
+2. Accedere alla [cartella di lavoro di Insights predefinita](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) per la risorsa del gateway applicazione. Tutte le informazioni dettagliate esistenti supportate dalla soluzione di analisi del gateway applicazione saranno già presenti nella cartella di lavoro. Per estendere questo problema, è possibile aggiungere [visualizzazioni](../visualize/workbooks-overview.md#visualizations) personalizzate basate sulla metrica & i dati di log.
 
 3. Dopo aver visualizzato tutte le informazioni dettagliate sulle metriche e i log, per pulire la soluzione Azure gateway Analytics dall'area di lavoro, è possibile eliminare la soluzione dalla pagina delle risorse della soluzione.
 
@@ -232,5 +232,5 @@ I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare le [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md) per visualizzare dati di diagnostica di Azure dettagliati.
+* Usare le [query di log in Monitoraggio di Azure](../logs/log-query-overview.md) per visualizzare dati di diagnostica di Azure dettagliati.
 

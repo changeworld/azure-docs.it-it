@@ -3,12 +3,12 @@ title: Inviare avvisi di integrità dei servizi di Azure con OpsGenie usando i w
 description: Ricevere notifiche personalizzate sugli eventi di integrità del servizio nell'istanza di OpsGenie.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8867d442d0c7fe563f6429fc1ff4edb212737c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86529098"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594601"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con OpsGenie usando i webhook
 
@@ -67,7 +67,7 @@ Questo articolo illustra come configurare gli avvisi di integrità dei servizi d
 1. Al termine fare clic su **Salva** per aggiornare il gruppo di azioni.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Test dell'integrazione del webhook tramite una richiesta HTTP POST
-1. Creare il payload di integrità del servizio che si vuole inviare. [Per gli avvisi del log attività di Azure](../azure-monitor/platform/activity-log-alerts-webhook.md)è possibile trovare un payload di esempio del webhook di integrità del servizio.
+1. Creare il payload di integrità del servizio che si vuole inviare. [Per gli avvisi del log attività di Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md)è possibile trovare un payload di esempio del webhook di integrità del servizio.
 
 1. Creare una richiesta HTTP POST nel modo seguente:
 
@@ -83,7 +83,7 @@ Questo articolo illustra come configurare gli avvisi di integrità dei servizi d
 1. Passare a [OpsGenie](https://www.opsgenie.com/) per verificare che l'integrazione sia stata configurata correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [configurare le notifiche webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
-- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
+- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Informazioni sulle [notifiche per l'integrità del servizio](./service-notifications.md).
-- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).
+- Altre informazioni sui [gruppi di azione](../azure-monitor/alerts/action-groups.md).

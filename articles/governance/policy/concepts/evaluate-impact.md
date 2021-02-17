@@ -3,12 +3,12 @@ title: Valutare l'impatto di una nuova definizione di Criteri di Azure
 description: Comprendere il processo da seguire quando si introduce una nuova definizione dei criteri nell'ambiente di Azure.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873868"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590806"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Valutare l'impatto di una nuova definizione di Criteri di Azure
 
@@ -63,7 +63,7 @@ Tutte le modifiche apportate all'ambito (livello o esclusioni) devono essere com
 
 ## <a name="monitor-your-policy-and-compliance"></a>Monitorare criteri e conformità
 
-L'implementazione e l'assegnazione della definizione dei criteri non è il passaggio finale. Monitorare costantemente il livello di [conformità](../how-to/get-compliance-data.md) delle risorse nella nuova definizione dei criteri e configurare [avvisi e notifiche di Monitoraggio di Azure](../../../azure-monitor/platform/alerts-overview.md) appropriati in caso di identificazione di dispositivi non conformi. È inoltre consigliabile valutare la definizione dei criteri e le assegnazioni correlate in base a una pianificazione, per verificare che la definizione dei criteri soddisfi le esigenze di conformità e i criteri aziendali. I criteri devono essere rimossi se non sono più necessari. I criteri richiedono anche un aggiornamento periodico, in quanto le risorse di Azure sottostanti si evolvono e aggiungono nuove proprietà e funzionalità.
+L'implementazione e l'assegnazione della definizione dei criteri non è il passaggio finale. Monitorare costantemente il livello di [conformità](../how-to/get-compliance-data.md) delle risorse nella nuova definizione dei criteri e configurare [avvisi e notifiche di Monitoraggio di Azure](../../../azure-monitor/alerts/alerts-overview.md) appropriati in caso di identificazione di dispositivi non conformi. È inoltre consigliabile valutare la definizione dei criteri e le assegnazioni correlate in base a una pianificazione, per verificare che la definizione dei criteri soddisfi le esigenze di conformità e i criteri aziendali. I criteri devono essere rimossi se non sono più necessari. I criteri richiedono anche un aggiornamento periodico, in quanto le risorse di Azure sottostanti si evolvono e aggiungono nuove proprietà e funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632462"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575893"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
@@ -59,7 +59,7 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
     > [!NOTE]
     > Questa opzione non è disponibile se è stata selezionata una macchina virtuale di Azure o un server abilitato per l'arco. Il computer viene indirizzato automaticamente alla distribuzione pianificata.
 
-6. Nell'area **Computer da aggiornare** selezionare una ricerca salvata o un gruppo importato oppure scegliere **Computer** dall'elenco a discesa e selezionare computer singoli. Con questa opzione è possibile visualizzare l'idoneità dell'agente di Log Analytics per ogni computer. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md). È possibile includere fino a un massimo di 1000 computer in una distribuzione di aggiornamenti pianificati.
+6. Nell'area **Computer da aggiornare** selezionare una ricerca salvata o un gruppo importato oppure scegliere **Computer** dall'elenco a discesa e selezionare computer singoli. Con questa opzione è possibile visualizzare l'idoneità dell'agente di Log Analytics per ogni computer. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/logs/computer-groups.md). È possibile includere fino a un massimo di 1000 computer in una distribuzione di aggiornamenti pianificati.
 
     > [!NOTE]
     > Questa opzione non è disponibile se è stata selezionata una macchina virtuale di Azure o un server abilitato per l'arco. Il computer viene indirizzato automaticamente alla distribuzione pianificata.

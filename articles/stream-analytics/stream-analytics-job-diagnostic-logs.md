@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 93d881419c4854b8e46608e150b55072267e0347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011119"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574411"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di Analisi di flusso di Azure usando i log delle risorse
 
@@ -24,9 +24,9 @@ Si consiglia vivamente di abilitare i log delle risorse per tutti i processi, in
 
 Analisi di flusso offre due tipi di log:
 
-* I [Log attività](../azure-monitor/platform/platform-logs-overview.md) (Always on) forniscono informazioni dettagliate sulle operazioni eseguite sui processi.
+* I [Log attività](../azure-monitor/essentials/platform-logs-overview.md) (Always on) forniscono informazioni dettagliate sulle operazioni eseguite sui processi.
 
-* [Log delle risorse](../azure-monitor/platform/platform-logs-overview.md) (configurabili), che forniscono informazioni dettagliate su tutto ciò che accade in un processo. I log delle risorse iniziano quando il processo viene creato e terminano quando il processo viene eliminato. Comprendono gli eventi di quando il processo viene aggiornato e di quando è in fase di esecuzione.
+* [Log delle risorse](../azure-monitor/essentials/platform-logs-overview.md) (configurabili), che forniscono informazioni dettagliate su tutto ciò che accade in un processo. I log delle risorse iniziano quando il processo viene creato e terminano quando il processo viene eliminato. Comprendono gli eventi di quando il processo viene aggiornato e di quando è in fase di esecuzione.
 
 > [!NOTE]
 > È possibile usare servizi come archiviazione di Azure, Hub eventi di Azure e log di monitoraggio di Azure per analizzare i dati non conformi. Gli addebiti avvengono in base al modello di determinazione dei prezzi per questi servizi.
@@ -115,7 +115,7 @@ Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è
 Nome | Descrizione
 ------- | -------
 Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
-Messaggio | Messaggio associato all'errore.
+Message | Messaggio associato all'errore.
 Tipo | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Data | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
@@ -136,7 +136,7 @@ Gli eventi generici sono tutti gli altri.
 Nome | Descrizione
 -------- | --------
 Errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
-Messaggio| Messaggio del log.
+Message| Messaggio del log.
 Tipo | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | GUID che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 

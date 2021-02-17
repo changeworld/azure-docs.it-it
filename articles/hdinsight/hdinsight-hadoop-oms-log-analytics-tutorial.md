@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945639"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590826"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Usare i log di Monitoraggio di Azure per monitorare i cluster HDInsight
 
 Informazioni su come abilitare i log di Monitoraggio di Azure per monitorare le operazioni del cluster Hadoop in HDInsight e su come aggiungere una soluzione di monitoraggio di HDInsight.
 
-I [log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) sono un servizio di Monitoraggio di Azure che consente di monitorare gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Il monitoraggio raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio. I dati vengono usati per consentire l'analisi in più origini.
+I [log di Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md) sono un servizio di Monitoraggio di Azure che consente di monitorare gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Il monitoraggio raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio. I dati vengono usati per consentire l'analisi in più origini.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -24,7 +24,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro Log Analytics. Un'area di lavoro è un ambiente dei log di Monitoraggio di Azure univoco con un proprio repository dei dati, origini dati e soluzioni proprie. Per istruzioni, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* Un'area di lavoro Log Analytics. Un'area di lavoro è un ambiente dei log di Monitoraggio di Azure univoco con un proprio repository dei dati, origini dati e soluzioni proprie. Per istruzioni, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
 
 * Disporre di un cluster HDInsight di Azure. Attualmente, è possibile usare i log di Monitoraggio di Azure con i tipi di cluster HDInsight seguenti:
 
@@ -144,7 +144,7 @@ Poiché il cluster è nuovo, il report non visualizza tutte le attività.
 
 ## <a name="configuring-performance-counters"></a>Configurazione dei contatori delle prestazioni
 
-Monitoraggio di Azure supporta la raccolta e l'analisi delle metriche delle prestazioni per i nodi del cluster. Pe altre informazioni, vedere [Origini dati delle prestazioni di Linux in Monitoraggio di Azure](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
+Monitoraggio di Azure supporta la raccolta e l'analisi delle metriche delle prestazioni per i nodi del cluster. Pe altre informazioni, vedere [Origini dati delle prestazioni di Linux in Monitoraggio di Azure](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Controllo dei cluster
 

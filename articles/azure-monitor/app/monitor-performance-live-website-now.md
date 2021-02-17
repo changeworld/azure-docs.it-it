@@ -4,12 +4,12 @@ description: Monitorare le prestazioni di un sito Web senza ripetere la distribu
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 79e14c171adde89c43c5ea82a60db39133157293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186304"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576429"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -93,7 +93,7 @@ Questi sono alcuni passaggi che è possibile eseguire per verificare che l'insta
 
 - Confermare la presenza del file applicationinsights.config nella directory di destinazione dell'app e l'inclusione della ikey.
 
-- Se si ritiene che i dati non siano presenti, è possibile eseguire una query in [Analytics](../log-query/log-analytics-tutorial.md) per elencare tutti i ruoli cloud che inviano dati di telemetria.
+- Se si ritiene che i dati non siano presenti, è possibile eseguire una query in [Analytics](../logs/log-analytics-tutorial.md) per elencare tutti i ruoli cloud che inviano dati di telemetria.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -320,9 +320,9 @@ Per le applicazioni già instrumentate in fase di compilazione:
 
 Visualizzare i dati di telemetria:
 
-* [Esaminare le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo
+* [Esaminare le metriche](../essentials/metrics-charts.md) per monitorare le prestazioni e l'utilizzo
 * Per diagnosticare i problemi, vedere [Eventi e log di ricerca][diagnostic]
-* Per informazioni sulle query più avanzate, vedere [Analytics](../log-query/log-query-overview.md)
+* Per informazioni sulle query più avanzate, vedere [Analytics](../logs/log-query-overview.md)
 
 Aggiungere altri dati di telemetria:
 

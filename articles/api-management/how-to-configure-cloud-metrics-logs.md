@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254530"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574062"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurare le metriche e i log cloud per il gateway self-hosted di gestione API di Azure
 
@@ -59,7 +59,7 @@ Il gateway self-hosted emette attualmente le metriche seguenti tramite monitorag
 
 Il gateway self-hosted attualmente non invia [log di diagnostica](./api-management-howto-use-azure-monitor.md#activity-logs) al cloud. Tuttavia, è possibile [configurare e salvare](how-to-configure-local-metrics-logs.md) in modo permanente i log in locale in cui viene distribuito il gateway self-hosted. 
 
-Se un gateway viene distribuito nel [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), è possibile abilitare [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md) per raccogliere i log dai contenitori e visualizzarli in log Analytics. 
+Se un gateway viene distribuito nel [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), è possibile abilitare [monitoraggio di Azure per i contenitori](../azure-monitor/containers/container-insights-overview.md) per raccogliere i log dai contenitori e visualizzarli in log Analytics. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

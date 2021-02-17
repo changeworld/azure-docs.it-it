@@ -4,12 +4,12 @@ description: È possibile monitorare i contatori degli eventi di sistema e di .N
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9af36f3c81ee52b41a8eed875c1a286b95bf838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1ae0937c25a68798acd87fe8b2a0a54aa765b35
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579531"
 ---
 # <a name="eventcounters-introduction"></a>Introduzione di EventCounter
 
@@ -88,14 +88,14 @@ Un approccio simile può essere usato anche per WorkerService SDK, ma lo spazio 
 
 ## <a name="event-counters-in-metric-explorer"></a>Contatori degli eventi nello strumento di esplorazione metriche
 
-Per visualizzare le metriche di EventCounter nello [strumento di esplorazione metriche](../platform/metrics-charts.md), selezionare la risorsa di Application Insights e scegliere le metriche basate su log come spazio dei nomi per la metrica. Le metriche di EventCounter vengono visualizzate nella categoria Personalizzata.
+Per visualizzare le metriche di EventCounter nello [strumento di esplorazione metriche](../essentials/metrics-charts.md), selezionare la risorsa di Application Insights e scegliere le metriche basate su log come spazio dei nomi per la metrica. Le metriche di EventCounter vengono visualizzate nella categoria Personalizzata.
 
 > [!div class="mx-imgBorder"]
 > ![Contatori di eventi segnalati in Application Insights Esplora metriche](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Contatori degli eventi in Analytics
 
-È anche possibile cercare e visualizzare report sui contatori degli eventi in [Analytics](../log-query/log-query-overview.md) nella scheda **customMetrics**.
+È anche possibile cercare e visualizzare report sui contatori degli eventi in [Analytics](../logs/log-query-overview.md) nella scheda **customMetrics**.
 
 Eseguire ad esempio la query seguente per visualizzare i contatori raccolti e disponibili per le query:
 
@@ -121,7 +121,7 @@ customMetrics
 Come altri dati di telemetria, **customMetrics** contiene anche una colonna `cloud_RoleInstance` che indica l'identità dell'istanza del server host in cui viene eseguita l'app. La query precedente mostra il valore del contatore per ogni istanza e può essere usata per confrontare le prestazioni di diverse istanze del server.
 
 ## <a name="alerts"></a>Avvisi
-Come per altre metriche, è possibile [impostare un avviso](../platform/alerts-log.md) per ricevere una notifica se un contatore degli eventi supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
+Come per altre metriche, è possibile [impostare un avviso](../alerts/alerts-log.md) per ricevere una notifica se un contatore degli eventi supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

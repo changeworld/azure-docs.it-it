@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049418"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574171"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Informazioni dettagliate e report di Accesso condizionale
 
@@ -43,7 +43,7 @@ Gli utenti devono anche avere uno dei ruoli seguenti nell'area di lavoro Log Ana
 
 Se non si sono integrati i log di Azure AD con i log di Monitoraggio di Azure, prima del caricamento della cartella di lavoro sarà necessario seguire questa procedura:  
 
-1. [Creare un'area di lavoro Log Analytics in Monitoraggio di Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Creare un'area di lavoro Log Analytics in Monitoraggio di Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Integrare i log di Azure AD con i log di Monitoraggio di Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## <a name="how-it-works"></a>Funzionamento 
@@ -120,7 +120,7 @@ Per configurare un criterio di accesso condizionale in modalità solo report:
 Per accedere alla cartella di lavoro, è necessario disporre delle autorizzazioni Azure AD appropriate, nonché delle autorizzazioni Log Analytics area di lavoro. Per verificare se sono disponibili le autorizzazioni appropriate per l'area di lavoro eseguendo una query di log Analytics di esempio:
 
 1. Accedere al **portale di Azure**.
-1. Passare a **Azure Active Directory**  >  **log**Azure Active Directory.
+1. Passare a   >  **log** Azure Active Directory.
 1. Digitare `SigninLogs` nella casella query e selezionare **Esegui**.
 1. Se la query non restituisce alcun risultato, è possibile che l'area di lavoro non sia stata configurata correttamente. 
 

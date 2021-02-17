@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e94191e80d39e28d7ff0ffc9aa22b522fda68c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183601"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576030"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Eseguire la migrazione delle distribuzioni di aggiornamento dei log di Monitoraggio di Azure al portale di Azure
 
-Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azure-monitor/platform/oms-portal-transition.md). Tutte le funzionalità precedentemente disponibili nel portale di OMS per Gestione aggiornamenti sono ora disponibili nel portale di Azure mediante i log di Monitoraggio di Azure. Questo articolo contiene le informazioni necessarie per eseguire la migrazione al portale di Azure.
+Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azure-monitor/logs/oms-portal-transition.md). Tutte le funzionalità precedentemente disponibili nel portale di OMS per Gestione aggiornamenti sono ora disponibili nel portale di Azure mediante i log di Monitoraggio di Azure. Questo articolo contiene le informazioni necessarie per eseguire la migrazione al portale di Azure.
 
 ## <a name="key-information"></a>Informazioni chiave
 
@@ -41,7 +41,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 ## <a name="recreate-existing-deployments"></a>Creare nuovamente le distribuzioni esistenti
 
-Tutte le distribuzioni di aggiornamenti create nel portale di OMS hanno una [ricerca salvata](../azure-monitor/platform/computer-groups.md), definita anche gruppo di computer, con lo stesso nome della distribuzione di aggiornamenti esistente. La ricerca salvata contiene l'elenco dei computer per cui è stata pianificata la distribuzione di aggiornamenti.
+Tutte le distribuzioni di aggiornamenti create nel portale di OMS hanno una [ricerca salvata](../azure-monitor/logs/computer-groups.md), definita anche gruppo di computer, con lo stesso nome della distribuzione di aggiornamenti esistente. La ricerca salvata contiene l'elenco dei computer per cui è stata pianificata la distribuzione di aggiornamenti.
 
 :::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot della pagina distribuzioni di aggiornamento con i campi nome e server evidenziati.":::
 
@@ -59,7 +59,7 @@ Per usare la ricerca salvata esistente, seguire questa procedura:
     | --- | --- |
     |Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
     |Sistema operativo| Selezionare **Linux** o **Windows**.|
-    |Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie **Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
+    |Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie **Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/logs/computer-groups.md) |
     |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie. CentOS non supporta questa operazione per impostazione predefinita.|
     |Aggiornamenti da escludere|Immettere gli aggiornamenti da escludere. Per Windows, immettere l'articolo della Knowledge Base senza il prefisso **KB**. Per Linux, immettere il nome del pacchetto o usare un carattere jolly.  |
     |Impostazioni di pianificazione|Selezionare l'ora di inizio e quindi selezionare **Una sola volta** o **Ricorrente** per la ricorrenza. | 

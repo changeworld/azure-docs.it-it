@@ -3,16 +3,16 @@ title: Schema delle risorse di Application Insights basate sull'area di lavoro i
 description: Informazioni sul nuovo schema e struttura della tabella per monitoraggio di Azure Application Insights risorse basate sull'area di lavoro.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385966"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575610"
 ---
 # <a name="workspace-based-resource-changes"></a>Modifiche alle risorse basate sull'area di lavoro
 
-Prima dell'introduzione delle [risorse Application Insights basate sull'area di lavoro](create-workspace-resource.md), i dati Application Insights sono stati archiviati separatamente dagli altri dati di log in monitoraggio di Azure. Entrambi sono basati su Esplora dati di Azure e usano lo stesso linguaggio di query kusto (KQL). Questa operazione è descritta in [log in monitoraggio di Azure](../platform/data-platform-logs.md).
+Prima dell'introduzione delle [risorse Application Insights basate sull'area di lavoro](create-workspace-resource.md), i dati Application Insights sono stati archiviati separatamente dagli altri dati di log in monitoraggio di Azure. Entrambi sono basati su Esplora dati di Azure e usano lo stesso linguaggio di query kusto (KQL). Questa operazione è descritta in [log in monitoraggio di Azure](../logs/data-platform-logs.md).
 
 Con i dati delle risorse Application Insights basati sull'area di lavoro vengono archiviati in un'area di lavoro Log Analytics con altri dati di monitoraggio e dati dell'applicazione. Questo semplifica la configurazione consentendo di analizzare più facilmente i dati tra più soluzioni e di sfruttare le funzionalità delle aree di lavoro.
 
@@ -464,6 +464,6 @@ Tabella legacy: tracce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplorare le metriche](../platform/metrics-charts.md)
-* [Scrivere query di Analisi](../log-query/log-query-overview.md)
+* [Esplorare le metriche](../essentials/metrics-charts.md)
+* [Scrivere query di Analisi](../logs/log-query-overview.md)
 

@@ -4,12 +4,12 @@ description: Informazioni su come gestire gli indirizzi IP e la georilevazione c
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521918"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584078"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 
@@ -30,7 +30,7 @@ Questo comportamento è progettato per evitare una raccolta non necessaria di da
 
 Mentre l'impostazione predefinita prevede di non raccogliere gli indirizzi IP. Si offre comunque la flessibilità necessaria per eseguire l'override di questo comportamento. Tuttavia, si consiglia di verificare che la raccolta non interrompa i requisiti di conformità o le normative locali. 
 
-Per ulteriori informazioni sulla gestione dei dati personali in Application Insights, consultare le [linee guida per i dati personali](../platform/personal-data-mgmt.md).
+Per ulteriori informazioni sulla gestione dei dati personali in Application Insights, consultare le [linee guida per i dati personali](../logs/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Archiviazione dei dati degli indirizzi IP
 
@@ -245,6 +245,6 @@ Se si verifica da localhost e il valore di `customDimensions_client-ip` è `::1`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sulla [raccolta di dati personali](../platform/personal-data-mgmt.md) in Application Insights.
+* Scopri di più sulla [raccolta di dati personali](../logs/personal-data-mgmt.md) in Application Insights.
 
 * Altre informazioni sul funzionamento della [raccolta di indirizzi IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) in Application Insights. (Questo articolo è un post di Blog esterno precedente scritto da uno dei nostri tecnici. Precede il comportamento predefinito corrente in cui l'indirizzo IP viene registrato come `0.0.0.0` , ma entra in una profondità maggiore sui meccanismi predefiniti `ClientIpHeaderTelemetryInitializer` .

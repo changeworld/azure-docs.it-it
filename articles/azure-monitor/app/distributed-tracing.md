@@ -7,12 +7,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2ee41fc9066aa4cf4775d4998b7e809e45519512
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a47b41a8b7f4e18be58c32c97cf279b9229f26da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904313"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579512"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
@@ -37,7 +37,7 @@ Gli agenti Application Insights e/o gli SDK per .NET, .NET Core, Java, Node.js e
 * [.NET](asp-net.md)
 * [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
-* [Node.js](../learn/nodejs-quick-start.md)
+* [Node.js](../app/nodejs-quick-start.md)
 * [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
@@ -57,5 +57,5 @@ Il sito Web OpenCensus include la documentazione di riferimento delle API per [P
 
 * [Guida all'utilizzo di Python con OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Mappa delle applicazioni](./app-map.md)
-* [Monitoraggio delle prestazioni end-to-end](../learn/tutorial-performance.md)
+* [Monitoraggio delle prestazioni end-to-end](../app/tutorial-performance.md)
 
