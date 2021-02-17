@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c706f38dabbe21e5bafb096bf406e70af0855aa3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
-ms.translationtype: HT
+ms.openlocfilehash: 59791b72272ccd721a61da88d13b973119cef5d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089979"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596141"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Esercitazione: Come monitorare le risorse di Spring Cloud tramite avvisi e gruppi di azioni.
 
@@ -113,7 +113,7 @@ Nei passaggi precedenti è stato creato un **Gruppo di azioni** che usa la posta
 In questa esercitazione è stato illustrato come configurare avvisi e gruppi di azioni per un'applicazione Azure Spring Cloud. Per altre informazioni sui gruppi di azioni, vedere:
 
 > [!div class="nextstepaction"]
-> [Creare e gestire gruppi di azione nel portale di Azure](../azure-monitor/platform/action-groups.md)
+> [Creare e gestire gruppi di azione nel portale di Azure](../azure-monitor/alerts/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [Comportamento degli avvisi SMS nei gruppi di azioni](../azure-monitor/platform/alerts-sms-behavior.md)
+> [Comportamento degli avvisi SMS nei gruppi di azioni](../azure-monitor/alerts/alerts-sms-behavior.md)

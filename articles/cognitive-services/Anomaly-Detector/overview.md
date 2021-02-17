@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: rilevamento anomalie, Machine Learning, algoritmi
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
-ms.translationtype: HT
+ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901369"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572088"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -38,7 +38,7 @@ Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in
 |Rilevamento anomalie in tempo reale. | Rilevare le anomalie nei dati di streaming usando i punti dati visualizzati in precedenza per determinare se la versione più recente è un'anomalia. Questa operazione genera un modello usando i punti dati inviati dall'utente e determina se il punto di destinazione è un'anomalia. Chiamando l'API con ogni nuovo punto dati generato, è possibile monitorare i dati durante la creazione. |
 |Rilevare le anomalie nel set di dati come batch. | Usare le serie temporali per rilevare eventuali anomalie che potrebbero esistere in tutti i dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.         |
 |Rilevare i punti di modifica nel set di dati come batch. | Usare la serie temporale per rilevare eventuali punti di modifica della tendenza presenti nei dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.    |
-| Ottenere informazioni aggiuntive sui dati. | Ottenere informazioni dettagliate utili su eventuali anomalie osservate, inclusi i valori previsti, i limiti e le posizioni delle anomalie. |
+| Ottenere informazioni aggiuntive sui dati. | Ottenere informazioni utili sui dati e sulle anomalie osservate, inclusi i valori previsti, i limiti delle anomalie e le posizioni. |
 | Regolare i limiti di rilevamento anomalie. | L'API Rilevamento anomalie crea automaticamente limiti per il rilevamento anomalie. Modificare questi limiti in modo da aumentare o diminuire la sensibilità dell'API alle anomalie di dati e adeguare i dati. |
 
 ## <a name="demo"></a>Demo
@@ -53,13 +53,13 @@ Per informazioni su come chiamare l'API Rilevamento anomalie, provare questo [no
 Per eseguire il notebook, seguire questa procedura:
 
 1. Ottenere una chiave di sottoscrizione valida dell'API Rilevamento anomalie e un endpoint API. La sezione seguente contiene le istruzioni per l'iscrizione.
-1. Accedere e fare clic su Clone in alto a destra.
-1. Prima di completare l'operazione di clonazione, deselezionare l'opzione "Public" (Pubblico) nella finestra di dialogo. In caso contrario, il notebook, incluse le chiavi di sottoscrizione, sarà pubblico.
-1. Fare clic su **Run on free compute** (Esegui in ambiente di calcolo gratuito)
+1. Accedere e selezionare Clone (clona) nell'angolo superiore destro.
+1. Deselezionare l'opzione "public" nella finestra di dialogo prima di completare l'operazione di clonazione. in caso contrario, il notebook, incluse le chiavi di sottoscrizione, sarà pubblico.
+1. Selezionare **Esegui su calcolo gratuito**
 1. Selezionare uno dei notebook.
 1. Aggiungere una chiave di sottoscrizione valida dell'API Rilevamento anomalie alla variabile `subscription_key`.
 1. Modificare la variabile `endpoint` in modo nel proprio endpoint. Ad esempio: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Nella barra dei menu superiore fare clic su **Cell** (Cella) quindi su **Run All** (Esegui tutto).
+1. Nella barra dei menu superiore selezionare **cella**, quindi **Esegui tutto**.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -97,7 +97,7 @@ Non è necessaria alcuna configurazione del cliente per abilitare la resilienza 
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
 
-[Usare i contenitori di Rilevamento anomalie](anomaly-detector-container-howto.md) per distribuire le funzionalità dell'API in locale. I contenitori Docker consentono di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo.
+[Usare i contenitori di Rilevamento anomalie](anomaly-detector-container-howto.md) per distribuire le funzionalità dell'API in locale. I contenitori Docker consentono di avvicinare il servizio ai dati per la conformità, la sicurezza o altri motivi operativi.
 
 ## <a name="join-the-anomaly-detector-community"></a>Partecipare alla community di Rilevamento anomalie
 

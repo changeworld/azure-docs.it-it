@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693733"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580471"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -60,7 +60,7 @@ A seconda del modello di servizio cloud, la responsabilità per le persone incar
 
 Le funzionalità predefinite sono organizzate in sei aree funzionali: operazioni, applicazioni, archiviazione, rete, calcolo e identità. Ulteriori dettagli sulle funzionalità e sulle funzionalità disponibili nella piattaforma Azure in queste sei aree sono fornite tramite le informazioni di riepilogo.
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per le operazioni di sicurezza e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="security-and-audit-dashboard"></a>Dashboard Sicurezza e controllo
@@ -81,12 +81,12 @@ Application Insights crea grafici e tabelle che illustrano, ad esempio, in quali
 Se sono presenti arresti anomali del sistema, errori o problemi di prestazioni, è possibile cercare i dati di telemetria in dettaglio per diagnosticare la causa. Il servizio invia anche messaggi di posta elettronica in caso di variazioni nella disponibilità e nelle prestazioni dell'app. Application Insights diventa quindi uno strumento utile per la sicurezza perché contribuisce alla disponibilità nell'ambito della triade di sicurezza: riservatezza, integrità e disponibilità.
 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
-[Monitoraggio di Azure](/azure/monitoring-and-diagnostics/) offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure ([log attività](../../azure-monitor/platform/platform-logs-overview.md)) che da ogni singola risorsa di Azure ([log di diagnostica](../../azure-monitor/platform/platform-logs-overview.md)). È possibile usare Monitoraggio di Azure per ricevere avvisi sugli eventi relativi alla sicurezza generati nei log di Azure.
+[Monitoraggio di Azure](/azure/monitoring-and-diagnostics/) offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure ([log attività](../../azure-monitor/essentials/platform-logs-overview.md)) che da ogni singola risorsa di Azure ([log di diagnostica](../../azure-monitor/essentials/platform-logs-overview.md)). È possibile usare Monitoraggio di Azure per ricevere avvisi sugli eventi relativi alla sicurezza generati nei log di Azure.
 
 ### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 [Log di monitoraggio di Azure](https://azure.microsoft.com/documentation/services/log-analytics/) : offre una soluzione di gestione IT per l'infrastruttura locale e basata sul cloud di terze parti, ad esempio AWS, oltre alle risorse di Azure. I dati di monitoraggio di Azure possono essere indirizzati direttamente ai log di monitoraggio di Azure, in modo da poter visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
 
-I log di monitoraggio di Azure possono essere uno strumento utile per analisi forensi e altre analisi della sicurezza, in quanto lo strumento consente di eseguire rapidamente ricerche in grandi quantità di voci correlate alla sicurezza con un approccio di query flessibile. Inoltre, [i log del proxy e del firewall locali possono essere esportati in Azure e resi disponibili per l'analisi usando i log di monitoraggio di Azure.](../../azure-monitor/platform/agent-windows.md)
+I log di monitoraggio di Azure possono essere uno strumento utile per analisi forensi e altre analisi della sicurezza, in quanto lo strumento consente di eseguire rapidamente ricerche in grandi quantità di voci correlate alla sicurezza con un approccio di query flessibile. Inoltre, [i log del proxy e del firewall locali possono essere esportati in Azure e resi disponibili per l'analisi usando i log di monitoraggio di Azure.](../../azure-monitor/agents/agent-windows.md)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](../../advisor/index.yml) è un servizio di consulenza personalizzato per il cloud che consente di ottimizzare le distribuzioni di Azure. Analizza la configurazione e la telemetria delle risorse Sono quindi consigliate soluzioni che consentono di migliorare le [prestazioni](../../advisor/advisor-performance-recommendations.md), la [sicurezza](../../advisor/advisor-security-recommendations.md)e la [disponibilità elevata](../../advisor/advisor-high-availability-recommendations.md) delle risorse, cercando al tempo stesso la possibilità di [ridurre la spesa complessiva di Azure](../../advisor/advisor-cost-recommendations.md). Azure Advisor offre consigli che possono migliorare notevolmente lo stato di sicurezza complessivo delle soluzioni distribuite in Azure. Tali raccomandazioni vengono ricavate dall'analisi della sicurezza eseguita dal [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).

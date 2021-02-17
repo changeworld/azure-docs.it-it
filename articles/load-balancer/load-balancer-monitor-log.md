@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785821"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596813"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Log di monitoraggio di Azure per Azure Load Balancer Standard
 
@@ -63,7 +63,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
      5. Nell'elenco a discesa **selezionare il nome dei criteri dell'hub eventi** selezionare il nome.
      6. Selezionare **OK**.
 
-   * **Invia a log Analytics**. È necessario che sia già stata creata e configurata un'area di lavoro di log Analytics per questo processo. Per creare un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
+   * **Invia a log Analytics**. È necessario che sia già stata creata e configurata un'area di lavoro di log Analytics per questo processo. Per creare un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/logs/quick-create-workspace.md).
      1. Selezionare la casella di controllo **Invia a Log Analytics**.
      2. Nell'elenco a discesa **sottoscrizione** selezionare la sottoscrizione in cui si trova l'area di lavoro log Analytics.
      3. Nell'elenco a discesa **area di lavoro log Analytics** selezionare l'area di lavoro.
@@ -100,10 +100,10 @@ Se si sta eseguendo l'esportazione nella risorsa di archiviazione, connettersi a
 > Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare gli [strumenti di conversione di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Streaming in un hub eventi
-Quando le informazioni di diagnostica vengono trasmesse a un hub eventi, è possibile usarle per l'analisi centralizzata dei log in uno strumento SIEM partner con l'integrazione di monitoraggio di Azure. Per altre informazioni, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+Quando le informazioni di diagnostica vengono trasmesse a un hub eventi, è possibile usarle per l'analisi centralizzata dei log in uno strumento SIEM partner con l'integrazione di monitoraggio di Azure. Per altre informazioni, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## <a name="send-to-log-analytics"></a>Invia a Log Analytics
-È possibile inviare le informazioni di diagnostica per le risorse in Azure direttamente a un'area di lavoro Log Analytics. In tale area di lavoro è possibile eseguire query complesse sulle informazioni per la risoluzione dei problemi e l'analisi. Per altre informazioni, vedere [raccogliere i log delle risorse di Azure in un'area di lavoro log Analytics in monitoraggio di Azure](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+È possibile inviare le informazioni di diagnostica per le risorse in Azure direttamente a un'area di lavoro Log Analytics. In tale area di lavoro è possibile eseguire query complesse sulle informazioni per la risoluzione dei problemi e l'analisi. Per altre informazioni, vedere [raccogliere i log delle risorse di Azure in un'area di lavoro log Analytics in monitoraggio di Azure](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="limitations"></a>Limitazioni
 La funzionalità di esportazione da metrica a log per Azure Load Balancer presenta le limitazioni seguenti:

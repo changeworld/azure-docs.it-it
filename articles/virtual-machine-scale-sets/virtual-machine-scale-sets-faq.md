@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016710"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587945"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -71,15 +71,15 @@ Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabil
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quali sono le procedure consigliate per la scalabilità automatica di Azure?
 
-Per informazioni sulle procedure consigliate per la scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica delle macchine virtuali](../azure-monitor/platform/autoscale-best-practices.md).
+Per informazioni sulle procedure consigliate per la scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica delle macchine virtuali](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Dove è possibile trovare i nomi delle metriche per la scalabilità automatica che usa metriche basate su host?
 
-Per informazioni sui nomi delle metriche per la scalabilità automatica che usa metriche basate su host, vedere [Metriche supportate con Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md).
+Per informazioni sui nomi delle metriche per la scalabilità automatica che usa metriche basate su host, vedere [Metriche supportate con Monitoraggio di Azure](../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Sono disponibili eventuali esempi di scalabilità automatica basata sull'argomento o sulla lunghezza della coda del bus di servizio di Azure?
 
-Sì. Per esempi di scalabilità automatica basata sull'argomento o sulla lunghezza della coda del bus di servizio di Azure, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
+Sì. Per esempi di scalabilità automatica basata sull'argomento o sulla lunghezza della coda del bus di servizio di Azure, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 Per una coda del bus di servizio, usare il codice JSON seguente:
 
@@ -104,9 +104,9 @@ Sostituire i valori dell'esempio con gli URI (Uniform Resource Identifier) della
 
 È possibile creare un'impostazione di scalabilità automatica in una macchina virtuale per l'uso di metriche a livello di host o per l'uso di metriche basate sul sistema operativo guest.
 
-Per un elenco delle metriche supportate, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
+Per un elenco delle metriche supportate, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
-Per un esempio completo per i set di scalabilità di macchine virtuali, vedere [Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
+Per un esempio completo per i set di scalabilità di macchine virtuali, vedere [Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali](../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md).
 
 L'esempio usa la metrica relativa alla CPU a livello di host e una metrica di conteggio dei messaggi.
 
@@ -114,13 +114,13 @@ L'esempio usa la metrica relativa alla CPU a livello di host e una metrica di co
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Come si impostano le regole di avviso in un set di scalabilità di macchine virtuali?
 
-È possibile creare avvisi sulle metriche per i set di scalabilità di macchine virtuali tramite PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) ed [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma 1.0 per Monitoraggio di Azure](../azure-monitor/samples/cli-samples.md#work-with-alerts).
+È possibile creare avvisi sulle metriche per i set di scalabilità di macchine virtuali tramite PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](../azure-monitor/powershell-samples.md#create-metric-alerts) ed [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma 1.0 per Monitoraggio di Azure](../azure-monitor/cli-samples.md#work-with-alerts).
 
 Il valore TargetResourceId del set di scalabilità di macchine virtuali ha un aspetto simile al seguente:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-È possibile scegliere qualsiasi contatore delle prestazioni delle macchine virtuali come metrica per cui impostare un avviso. Per altre informazioni, vedere [Metriche del sistema operativo guest per le VM Windows basate su Resource Manager](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) e [Metriche del sistema operativo guest per le VM Linux](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) nell'articolo [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
+È possibile scegliere qualsiasi contatore delle prestazioni delle macchine virtuali come metrica per cui impostare un avviso. Per altre informazioni, vedere [Metriche del sistema operativo guest per le VM Windows basate su Resource Manager](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) e [Metriche del sistema operativo guest per le VM Linux](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-linux-vms) nell'articolo [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Come si configura la scalabilità automatica in un set di scalabilità di macchine virtuali tramite PowerShell?
 

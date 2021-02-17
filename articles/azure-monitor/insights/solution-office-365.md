@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d031b64b36bd7ff91c64960642cfbf00fb1682ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807751"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587308"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -118,7 +118,7 @@ La soluzione di gestione di Office 365 consente di monitorare l'ambiente Office 
 - Monitoraggio delle attività dell'amministratore per tenere traccia delle modifiche alla configurazione o le operazioni con privilegi elevati.
 - Rilevamento e analisi del comportamento utente indesiderato, che può essere personalizzato per esigenze organizzative.
 - Dimostrazione di conformità e controllo. Ad esempio, è possibile monitorare le operazioni di accesso nei file riservati, favorendo così il processo di conformità e controllo.
-- Risoluzione dei problemi operativi usando le [query di log](../log-query/log-query-overview.md) oltre ai dati di attività di Office 365 dell'organizzazione.
+- Risoluzione dei problemi operativi usando le [query di log](../logs/log-query-overview.md) oltre ai dati di attività di Office 365 dell'organizzazione.
 
 
 ## <a name="uninstall"></a>Disinstallare
@@ -473,6 +473,6 @@ La tabella seguente include le query di log di esempio per i record di aggiornam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Usare le [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md) per visualizzare dati di aggiornamento dettagliati.
-* [Creare dashboard personalizzati](../learn/tutorial-logs-dashboards.md) per visualizzare le query di ricerca di Office 365 preferite.
-* [Creare avvisi](../platform/alerts-overview.md) per essere notificati in modo proattivo delle attività importanti di Office 365.  
+* Usare le [query di log in Monitoraggio di Azure](../logs/log-query-overview.md) per visualizzare dati di aggiornamento dettagliati.
+* [Creare dashboard personalizzati](../visualize/tutorial-logs-dashboards.md) per visualizzare le query di ricerca di Office 365 preferite.
+* [Creare avvisi](../alerts/alerts-overview.md) per essere notificati in modo proattivo delle attività importanti di Office 365.  

@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 7ed2a672f0f7149240e799b5529a7a3a6836a702
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 004a84cd98381af027c554a7ef40e27e69ec6dbc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499306"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587914"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Eseguire la migrazione delle risorse IaaS a Azure Resource Manager entro il 1 ° marzo 2023 
 
-In 2014 è stata avviata l'infrastruttura distribuita come servizio (IaaS) in [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Sono state migliorate le funzionalità da sempre. Poiché Azure Resource Manager ora ha funzionalità complete di IaaS e altri miglioramenti, è stata deprecata la gestione di macchine virtuali (VM) IaaS tramite [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) il 28 febbraio 2020. Questa funzionalità verrà completamente ritirata il 1 ° marzo 2023. 
+In 2014 è stata avviata l'infrastruttura distribuita come servizio (IaaS) in [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Sono state migliorate le funzionalità da sempre. Poiché Azure Resource Manager ora ha funzionalità complete di IaaS e altri miglioramenti, è stata deprecata la gestione di macchine virtuali (VM) IaaS tramite [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) il 28 febbraio 2020. Questa funzionalità verrà ritirata completamente il 1° marzo 2023. 
 
 Attualmente, circa il 90% delle VM IaaS USA Azure Resource Manager. Se si usano le risorse di IaaS tramite ASM, iniziare a pianificare la migrazione adesso. Completarlo entro il 1 ° marzo 2023 per sfruttare i vantaggi offerti da [Azure Resource Manager](../azure-resource-manager/management/index.yml).
 
@@ -30,7 +30,7 @@ Le macchine virtuali create con il modello di distribuzione classica seguiranno 
 - Il 1 ° marzo 2023, le sottoscrizioni di cui non viene eseguita la migrazione a Azure Resource Manager verranno informati sulle sequenze temporali per l'eliminazione di eventuali VM rimanenti (classiche).  
 
 Questo *ritiro non influisce sui* servizi e le funzionalità di Azure seguenti: 
-- Servizi cloud di Azure 
+- [Servizi cloud di Azure (versione classica)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
 - Account di archiviazione *non* usati dalle macchine virtuali (versione classica) 
 - Reti virtuali *non* usate dalle macchine virtuali (versione classica) 
 - Altre risorse classiche
@@ -49,9 +49,9 @@ Inizia a pianificare la migrazione a Azure Resource Manager oggi stesso.
 
 1. È consigliabile iniziare la pianificazione usando lo [strumento di migrazione del supporto della piattaforma](./migration-classic-resource-manager-overview.md) per eseguire la migrazione delle macchine virtuali esistenti con tre semplici passaggi: convalida, preparazione e commit. Lo strumento è progettato per eseguire la migrazione delle macchine virtuali in modo minimo senza tempi di inattività. 
 
-   1. Il primo passaggio, Validate, non ha alcun effetto sulla distribuzione esistente e fornisce un elenco di tutti gli scenari non supportati per la migrazione. 
-   1. Esaminare l' [elenco delle soluzioni alternative](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) per correggere la distribuzione e prepararla per la migrazione. 
-   1. Idealmente, dopo la correzione di tutti gli errori di convalida, non si verificheranno problemi durante i passaggi di preparazione e commit. Al termine del commit, viene eseguita la migrazione in tempo reale della distribuzione a Azure Resource Manager e può quindi essere gestita tramite le nuove API esposte da Azure Resource Manager. 
+   - Il primo passaggio, Validate, non ha alcun effetto sulla distribuzione esistente e fornisce un elenco di tutti gli scenari non supportati per la migrazione. 
+   - Esaminare l' [elenco delle soluzioni alternative](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) per correggere la distribuzione e prepararla per la migrazione. 
+   - Idealmente, dopo la correzione di tutti gli errori di convalida, non si verificheranno problemi durante i passaggi di preparazione e commit. Al termine del commit, viene eseguita la migrazione in tempo reale della distribuzione a Azure Resource Manager e può quindi essere gestita tramite le nuove API esposte da Azure Resource Manager. 
 
    Se lo strumento di migrazione non è adatto alla migrazione, è possibile esplorare [altre offerte di calcolo](/azure/architecture/guide/technology-choices/compute-decision-tree) per la migrazione. Poiché esistono molte offerte di calcolo di Azure e sono diverse l'una dall'altra, non è possibile fornire un percorso di migrazione supportato dalla piattaforma.  
 
@@ -65,6 +65,6 @@ Inizia a pianificare la migrazione a Azure Resource Manager oggi stesso.
 
 - [Supporto](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"})per la migrazione di Azure: team di supporto dedicato per assistenza tecnica durante la migrazione.
 
-- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast Track può aiutare i clienti idonei a pianificare & esecuzione della migrazione. [Candidarsi a se stessi](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0).  
+- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast Track può aiutare i clienti idonei a pianificare & esecuzione della migrazione. [Candidarsi](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) per il programma di migrazione del controller di dominio.  
 
 - Se la società o l'organizzazione ha collaborato con Microsoft o collabora con i rappresentanti Microsoft (ad esempio Cloud Solution Architects (CSAs) o Technical Account Manager (TAM), collaborare con loro per risorse aggiuntive per la migrazione.

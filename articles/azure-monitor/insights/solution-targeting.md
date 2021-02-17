@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498679"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587241"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure (Anteprima)
 Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
@@ -23,7 +23,7 @@ Definire l'ambito di una soluzione è una procedura di tre passaggi, come descri
 
 
 ### <a name="1-create-a-computer-group"></a>1. creare un gruppo di computer
-Specificare i computer da includere in un ambito creando un [gruppo di computer](../platform/computer-groups.md) in Monitoraggio di Azure.  Il gruppo di computer si può basare su una query di log o può essere importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Monitoraggio di Azure verranno inclusi nell'ambito.
+Specificare i computer da includere in un ambito creando un [gruppo di computer](../logs/computer-groups.md) in Monitoraggio di Azure.  Il gruppo di computer si può basare su una query di log o può essere importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Monitoraggio di Azure verranno inclusi nell'ambito.
 
 Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includerlo in una configurazione di ambito che può essere applicata a una o più soluzioni.
  
@@ -69,4 +69,4 @@ Il targeting della soluzione non può essere usato con le soluzioni seguenti anc
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Vedere altre informazioni sulle soluzioni di monitoraggio, tra cui le soluzioni disponibili per l'installazione nell'ambiente, riportate in [Aggiungere soluzioni di monitoraggio di Azure Log Analytics all'area di lavoro](solutions.md).
-- Vedere altre informazioni sulla creazione di gruppi di computer riportate in [Gruppi di computer nelle query di log in Monitoraggio di Azure](../platform/computer-groups.md).
+- Vedere altre informazioni sulla creazione di gruppi di computer riportate in [Gruppi di computer nelle query di log in Monitoraggio di Azure](../logs/computer-groups.md).

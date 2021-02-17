@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: a8a27a782d5e05b5febda659009284c22d3608c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a955273c01d8c0d865aabd91bb1bfcce70fd373
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318981"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587374"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (denominato in precedenza Status Monitor v2): istruzioni dettagliate
 
@@ -160,7 +160,7 @@ Se per qualsiasi motivo non è possibile connettersi al modulo di PowerShell, è
 
 1. Passare a https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Selezionare la versione più recente del file nella tabella di **cronologia delle versioni** .
-3. In **Opzioni di installazione**selezionare **download manuale**.
+3. In **Opzioni di installazione** selezionare **download manuale**.
 
 ### <a name="option-1-install-into-a-powershell-modules-directory"></a>Opzione 1: installare in una directory dei moduli di PowerShell
 Installare il modulo PowerShell scaricato manualmente in una directory di PowerShell, in modo che possa essere individuato dalle sessioni di PowerShell.
@@ -231,9 +231,9 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 
  Visualizzare i dati di telemetria:
 
-- [Esplora le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
+- [Esplora le metriche](../essentials/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
 - Eseguire [ricerche negli eventi e nei log](./diagnostic-search.md) per diagnosticare i problemi.
-- [Usare Analytics](../log-query/log-query-overview.md) per query più avanzate.
+- [Usare Analytics](../logs/log-query-overview.md) per query più avanzate.
 - [Creare dashboard](./overview-dashboard.md).
 
  Aggiungere altri dati di telemetria:

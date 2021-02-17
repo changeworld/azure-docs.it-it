@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 615297a4bf47d80c9313f011b90d343b7ae680e3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488045"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596301"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registrazione di controllo nel database di Azure per PostgreSQL-server singolo
 
@@ -21,7 +21,7 @@ Registrazione di controllo delle attività del database nel database di Azure pe
 > pgAudit è in anteprima nel database di Azure per PostgreSQL.
 > L'estensione può essere abilitata solo nei server per utilizzo generico e con ottimizzazione per la memoria.
 
-Se si vuole che i log a livello di risorsa di Azure per operazioni come il ridimensionamento di calcolo e archiviazione, vedere [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md).
+Se si vuole che i log a livello di risorsa di Azure per operazioni come il ridimensionamento di calcolo e archiviazione, vedere [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Considerazioni sull'utilizzo
 Per impostazione predefinita, le istruzioni di log di pgAudit vengono emesse insieme alle istruzioni di log regolari usando la funzionalità di registrazione standard di Postgres. In Database di Azure per PostgreSQL è possibile scaricare questi file con estensione log tramite il portale di Azure o l'interfaccia della riga di comando. Lo spazio di archiviazione massimo per la raccolta di file è 1 GB e ogni file è disponibile per un massimo di sette giorni (il valore predefinito è tre giorni). Questo servizio è un'opzione di archiviazione a breve termine.
@@ -82,15 +82,15 @@ t=%m u=%u db=%d pid=[%p]:
 
 Per altre informazioni su `log_line_prefix` , vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
-### <a name="getting-started"></a>Introduzione
+### <a name="getting-started"></a>Guida introduttiva
 Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE` e aprire i log per esaminare l'output. 
 
 ## <a name="viewing-audit-logs"></a>Visualizzazione dei log di controllo
 Se si usano file con estensione log, i log di controllo verranno inclusi nello stesso file dei log degli errori di PostgreSQL. È possibile scaricare i file di log dal [portale](howto-configure-server-logs-in-portal.md) di Azure o dall' [interfaccia](howto-configure-server-logs-using-cli.md)della riga di comando. 
 
-Se si usa la funzionalità di registrazione delle risorse di Azure, il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+Se si usa la funzionalità di registrazione delle risorse di Azure, il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) .
+Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md) .
 
 È possibile utilizzare questa query per iniziare. È possibile configurare gli avvisi in base alle query.
 

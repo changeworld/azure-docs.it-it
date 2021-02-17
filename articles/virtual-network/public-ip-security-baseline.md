@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806919"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596508"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Baseline della sicurezza di Azure per IP pubblico di Azure
 
@@ -52,7 +52,7 @@ IP pubblico fornisce strumenti per monitorare, diagnosticare, visualizzare le me
 
 È invece possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -64,7 +64,7 @@ IP pubblico fornisce strumenti per monitorare, diagnosticare, visualizzare le me
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni e rilevare le modifiche per le istanze IP pubbliche. Oltre che nel piano di controllo (ad esempio, portale di Azure), l'indirizzo IP pubblico stesso non genera log di controllo. IP pubblico fornisce strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -74,7 +74,7 @@ IP pubblico fornisce strumenti per monitorare, diagnosticare, visualizzare le me
 
 **Linee guida**: usare monitoraggio di Azure per impostare il periodo di conservazione dei log per le aree di lavoro log Analytics associate alle istanze IP pubbliche in base agli obblighi di conformità dell'organizzazione.
 
-- [Come impostare i parametri di conservazione dei log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -88,7 +88,7 @@ Usare log attività di Azure per monitorare le configurazioni e rilevare le modi
 
 L'IP pubblico stesso non genera log relativi al traffico di rete diverso dal piano di controllo (ad esempio, portale di Azure).
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

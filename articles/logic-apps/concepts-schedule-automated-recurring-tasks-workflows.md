@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/16/2021
+ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018793"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581811"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure
 
@@ -90,8 +90,8 @@ Ecco alcuni modelli che illustrano come è possibile controllare la ricorrenza c
 | Ora di inizio | Ricorrenza senza pianificazione | Ricorrenza con pianificazione (solo trigger di ricorrenza) |
 |------------|-----------------------------|----------------------------------------------------|
 | {none} | Esegue immediatamente il primo carico di lavoro. <p>Esegue i carichi di lavoro futuri in base all'ultima esecuzione. | Esegue immediatamente il primo carico di lavoro. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. |
-| Ora di inizio nel passato | Trigger di **ricorrenza** : calcola le esecuzioni in base all'ora di inizio specificata e rimuove le esecuzioni precedenti. Esegue il primo carico di lavoro all'esecuzione successiva. <p>Esegue i carichi di lavoro futuri in base ai calcoli dell'ultima esecuzione. <p><p>Trigger **finestra temporale scorrevole** : calcola le esecuzioni in base all'ora di inizio specificata e rispetta i tempi di esecuzione precedenti. <p>Esegue carichi di lavoro futuri in base ai calcoli dall'ora di inizio specificata. <p><p>Per altri chiarimenti, vedere l'esempio dopo questa tabella. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p>**Nota:** Se si specifica una ricorrenza con una pianificazione, ma non si specificano ore o minuti per la pianificazione, le app per la logica calcolano i tempi di esecuzione successivi usando rispettivamente le ore o i minuti dalla prima esecuzione. |
-| Ora di inizio o in futuro | Esegue il primo carico di lavoro all'ora di inizio specificata. <p>Esegue i carichi di lavoro futuri in base ai calcoli dell'ultima esecuzione. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p>**Nota:** Se si specifica una ricorrenza con una pianificazione, ma non si specificano ore o minuti per la pianificazione, le app per la logica calcolano i tempi di esecuzione successivi usando rispettivamente le ore o i minuti dalla prima esecuzione. |
+| Ora di inizio nel passato | Trigger di **ricorrenza** : calcola le esecuzioni in base all'ora di inizio specificata e rimuove le esecuzioni precedenti. <p><p>Esegue il primo carico di lavoro all'esecuzione successiva. <p><p>Esegue i carichi di lavoro futuri in base all'ultima esecuzione. <p><p>Trigger **finestra temporale scorrevole** : calcola le esecuzioni in base all'ora di inizio specificata e rispetta i tempi di esecuzione precedenti. <p><p>Esegue carichi di lavoro futuri in base all'ora di inizio specificata. <p><p>Per altri chiarimenti, vedere l'esempio dopo questa tabella. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p><p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p><p>**Nota:** Se si specifica una ricorrenza con una pianificazione, ma non si specificano ore o minuti per la pianificazione, le app per la logica calcolano i tempi di esecuzione successivi usando rispettivamente le ore o i minuti dalla prima esecuzione. |
+| Ora di inizio o in futuro | Esegue il primo carico di lavoro all'ora di inizio specificata. <p><p>Trigger di **ricorrenza** : esegue carichi di lavoro futuri in base all'ultima esecuzione. <p><p>Trigger **finestra temporale scorrevole** : esegue carichi di lavoro futuri in base all'ora di inizio specificata. | Esegue il primo carico di lavoro *non prima* dell'ora di inizio, in base alla pianificazione calcolata dall'ora di inizio. <p><p>Esegue i carichi di lavoro futuri in base alla pianificazione specificata. <p>**Nota:** Se si specifica una ricorrenza con una pianificazione, ma non si specificano ore o minuti per la pianificazione, le app per la logica calcolano i tempi di esecuzione successivi usando rispettivamente le ore o i minuti dalla prima esecuzione. |
 ||||
 
 *Esempio per ora di inizio e ricorrenza, ma nessuna pianificazione*

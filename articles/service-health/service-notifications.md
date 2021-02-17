@@ -3,16 +3,16 @@ title: Visualizzare le notifiche sull'integrità del servizio tramite il portale
 description: Visualizzare le notifiche sull'integrità del servizio nell'portale di Azure. Le notifiche sull'integrità del servizio vengono pubblicate dall'infrastruttura di Azure nel log attività di Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f9f3e7b10d9aa0014e4e00e7bfa72c9dc66e142
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967776"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588007"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
 
-Le notifiche sull'integrità del servizio vengono pubblicate dall'infrastruttura di Azure nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md).  Le notifiche contengono informazioni sulle risorse nella sottoscrizione. Dato il notevole volume di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata che semplifica la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio. 
+Le notifiche sull'integrità del servizio vengono pubblicate dall'infrastruttura di Azure nel [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md).  Le notifiche contengono informazioni sulle risorse nella sottoscrizione. Poiché le informazioni archiviate nel log attività possono raggiungere volumi elevati, è disponibile un'interfaccia utente separata che facilita la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio. 
 
 Le notifiche sull'integrità del servizio possono essere informative o operative a seconda della classe.
 
@@ -34,4 +34,4 @@ Per ulteriori informazioni sulle varie classi di notifiche sull'integrità del s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sugli [avvisi del log attività](../azure-monitor/platform/activity-log-alerts.md).
+* Altre informazioni sugli [avvisi del log attività](../azure-monitor/alerts/activity-log-alerts.md).

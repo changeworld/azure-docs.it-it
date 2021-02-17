@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 8c25e54143f0a0815a523bb923b7a7442de2a3d2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007738"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587869"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -30,7 +30,7 @@ Prima di distribuire Gestione aggiornamenti e abilitare i computer per la gestio
 
 Per eseguire la valutazione e distribuire gli aggiornamenti, i computer gestiti da Gestione aggiornamenti si basano sui seguenti elementi:
 
-* [Agente di log Analytics](../../azure-monitor/platform/log-analytics-agent.md) per Windows o Linux
+* [Agente di log Analytics](../../azure-monitor/agents/log-analytics-agent.md) per Windows o Linux
 * PowerShell DSC (Desired State Configuration) per Linux
 * Ruolo di lavoro ibrido per Runbook di automazione (installato automaticamente quando si Abilita Gestione aggiornamenti nel computer)
 * Microsoft Update o [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) per computer Windows
@@ -53,7 +53,7 @@ Gestione aggiornamenti genera report sullo stato di aggiornamento del computer i
 
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come facoltativi non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori.
 
-La distribuzione pianificata definisce i computer di destinazione che ricevono gli aggiornamenti applicabili, specificando in modo esplicito determinati computer o selezionando un [gruppo di computer](../../azure-monitor/platform/computer-groups.md) basato sulle ricerche log di un set specifico di computer oppure su una [query di Azure](query-logs.md) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](../../azure-monitor/insights/solution-targeting.md), che viene usata per controllare la selezione dei computer di destinazione che ricevono la configurazione per abilitare Gestione aggiornamenti. Questo approccio impedisce ai computer di eseguire e segnalare la conformità degli aggiornamenti e di installare gli aggiornamenti obbligatori.
+La distribuzione pianificata definisce i computer di destinazione che ricevono gli aggiornamenti applicabili, specificando in modo esplicito determinati computer o selezionando un [gruppo di computer](../../azure-monitor/logs/computer-groups.md) basato sulle ricerche log di un set specifico di computer oppure su una [query di Azure](query-logs.md) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](../../azure-monitor/insights/solution-targeting.md), che viene usata per controllare la selezione dei computer di destinazione che ricevono la configurazione per abilitare Gestione aggiornamenti. Questo approccio impedisce ai computer di eseguire e segnalare la conformità degli aggiornamenti e di installare gli aggiornamenti obbligatori.
 
 Durante la definizione di una distribuzione, si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo viene definito finestra di manutenzione. Un intervallo di 20 minuti della finestra di manutenzione viene riservato per i riavvii, presupponendo che sia necessario un riavvio e che sia stata selezionata l'opzione di riavvio appropriata. Se l'applicazione di patch richiede più tempo del previsto e sono disponibili meno di 20 minuti nella finestra di manutenzione, non verrà eseguito il riavvio.
 
@@ -82,7 +82,7 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per la valut
 |Ubuntu 14,04 LTS, 16,04 LTS e 18,04 LTS (x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
 
 > [!NOTE]
-> I set di scalabilità di macchine virtuali di Azure possono essere gestiti tramite Gestione aggiornamenti. Gestione aggiornamenti viene applicato alle istanze stesse, non all'immagine di base. Sarà necessario pianificare gli aggiornamenti in modo incrementale, affinché non vengano aggiornate contemporaneamente tutte le istanze. È possibile aggiungere nodi per i set di scalabilità di macchine virtuali seguendo la procedura disponibile in [Aggiungere un computer non di Azure a Rilevamento modifiche e inventario](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
+> Gestione aggiornamenti non supporta l'automazione sicura della gestione degli aggiornamenti in tutte le istanze di un set di scalabilità di macchine virtuali di Azure. [Aggiornamenti automatici delle immagini del sistema operativo](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) è il metodo consigliato per la gestione degli aggiornamenti delle immagini del sistema operativo nel set di scalabilità.
 
 ### <a name="unsupported-operating-systems"></a>Sistemi operativi non supportati
 
@@ -107,7 +107,7 @@ Requisiti software:
 
 Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Per le macchine ibride, è consigliabile installare l'agente di Log Analytics per Windows connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usare i criteri di Azure per assegnare i criteri predefiniti [distribuisci agente log Analytics a computer Windows Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . In alternativa, se si prevede di monitorare i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
-Gestione aggiornamenti può essere usato con Microsoft Endpoint Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager](mecmintegration.md). L'[agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md) è necessario per i server Windows gestiti dai siti nell'ambiente di Configuration Manager.
+Gestione aggiornamenti può essere usato con Microsoft Endpoint Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager](mecmintegration.md). L'[agente di Log Analytics per Windows](../../azure-monitor/agents/agent-windows.md) è necessario per i server Windows gestiti dai siti nell'ambiente di Configuration Manager.
 
 Per impostazione predefinita, le macchine virtuali Windows distribuite da Azure Marketplace sono impostate per ricevere aggiornamenti automatici dal servizio Windows Update. Questo comportamento non cambia quando si aggiungono VM Windows all'area di lavoro. Se gli aggiornamenti non vengono gestiti attivamente con Gestione aggiornamenti, è applicabile il comportamento predefinito, ovvero gli aggiornamenti vengono applicati automaticamente.
 
@@ -147,7 +147,7 @@ Ogni computer Windows gestito da Gestione aggiornamenti è elencato nella pagina
 
 ### <a name="management-packs"></a>Management Pack
 
-Se il gruppo di gestione di Operations Manager è [connesso all'area di lavoro Log Analytics](../../azure-monitor/platform/om-agents.md), in Operations Manager verranno installati i Management Pack seguenti. Questi Management Pack vengono installati anche per Gestione aggiornamenti nei computer Windows con connessione diretta. Non è necessario configurare o gestire questi Management Pack.
+Se il gruppo di gestione di Operations Manager è [connesso all'area di lavoro Log Analytics](../../azure-monitor/agents/om-agents.md), in Operations Manager verranno installati i Management Pack seguenti. Questi Management Pack vengono installati anche per Gestione aggiornamenti nei computer Windows con connessione diretta. Non è necessario configurare o gestire questi Management Pack.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -156,7 +156,7 @@ Se il gruppo di gestione di Operations Manager è [connesso all'area di lavoro L
 > [!NOTE]
 > Se è presente un gruppo di gestione di Operations Manager 1807 o 2019 connesso a un'area di lavoro Log Analytics con agenti configurati nel gruppo di gestione per raccogliere dati di log, sarà necessario eseguire l'override del parametro `IsAutoRegistrationEnabled` e impostarlo su True nella regola **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init**.
 
-Per altre informazioni sugli aggiornamenti ai Management Pack, vedere [Connettere Operations Manager ai log di Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md).
+Per altre informazioni sugli aggiornamenti ai Management Pack, vedere [Connettere Operations Manager ai log di Monitoraggio di Azure](../../azure-monitor/agents/om-agents.md).
 
 > [!NOTE]
 > Per consentire a Gestione aggiornamenti di gestire completamente i computer con l'agente di Log Analytics, è necessario aggiornare l'agente di Log Analytics per Windows o l'agente di Log Analytics per Linux. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Negli ambienti che usano Operations Manager è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versioni successive.
@@ -181,7 +181,7 @@ Gestione aggiornamenti analizza i computer gestiti per individuare i dati usando
 
 * Ogni computer Linux - Gestione aggiornamenti esegue un'analisi ogni ora.
 
-L'utilizzo medio dei dati da parte dei log di Monitoraggio di Azure per un computer che usa Gestione aggiornamenti è di circa 25 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per tenere traccia dell'utilizzo esatto. Per altre informazioni sull'analisi dell'utilizzo dei dati dei log di monitoraggio di Azure, vedere [gestire l'utilizzo e i costi](../../azure-monitor/platform/manage-cost-storage.md).
+L'utilizzo medio dei dati da parte dei log di Monitoraggio di Azure per un computer che usa Gestione aggiornamenti è di circa 25 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per tenere traccia dell'utilizzo esatto. Per altre informazioni sull'analisi dell'utilizzo dei dati dei log di monitoraggio di Azure, vedere [gestire l'utilizzo e i costi](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Pianificazione della rete
 
@@ -193,7 +193,7 @@ Per computer Red Hat Linux, vedere [Gli indirizzi IP per i server di distribuzio
 
 Per altre informazioni sulle porte necessarie per il ruolo di lavoro ibrido per runbook, vedere [Indirizzi di Gestione aggiornamenti per il ruolo di lavoro ibrido per runbook](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, è possibile configurare un [gateway log Analytics](../../azure-monitor/platform/gateway.md) e quindi configurare il computer per la connessione tramite il gateway ad automazione di Azure e monitoraggio di Azure.
+Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, è possibile configurare un [gateway log Analytics](../../azure-monitor/agents/gateway.md) e quindi configurare il computer per la connessione tramite il gateway ad automazione di Azure e monitoraggio di Azure.
 
 ## <a name="update-classifications"></a>Classificazioni degli aggiornamenti
 

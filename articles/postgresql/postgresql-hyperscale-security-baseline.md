@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ead666cecbc3208fe103aa740578ca36339c3e30
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19935037e98bbc7ce9c4152b034b664d802a8f3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804972"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588290"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -60,7 +60,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 È anche possibile inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da iperscale (CITUS). Nel monitoraggio di Azure usare Log Analytics le aree di lavoro per eseguire query ed eseguire analisi e usare gli account di archiviazione per l'archiviazione a lungo termine/archivio. In alternativa, è possibile abilitare e caricare i dati in Azure Sentinel o in una integrazione di Informazioni di sicurezza e gestione degli eventi (SIEM) di terze parti. 
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Metriche in iperscala (CITUS)](./concepts-hyperscale-monitoring.md)
 
@@ -80,7 +80,7 @@ Per la registrazione di controllo del piano di controllo, abilitare le impostazi
 
 - [Metriche in iperscala (CITUS)](./concepts-hyperscale-monitoring.md)
 
-- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
+- [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -92,9 +92,9 @@ Per la registrazione di controllo del piano di controllo, abilitare le impostazi
 
 **Linee guida**: all'interno di monitoraggio di Azure, per l'area di lavoro log Analytics usata per conservare i log di iperscalabilità (CITUS), impostare il periodo di conservazione in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione/memorizzazione a lungo termine.
 
-- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -106,9 +106,9 @@ Per la registrazione di controllo del piano di controllo, abilitare le impostazi
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Per ulteriori informazioni sull'Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Per ulteriori informazioni sull'Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -122,7 +122,7 @@ Eseguire l'onboarding dell'area di lavoro Log Analytics in Azure Sentinel perch�
 
 - [Metriche in iperscala (CITUS)](./howto-hyperscale-alert-on-metric.md)
 
-- [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
+- [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Almeno una volta al giorno, la scalabilità di database di Azure per PostgreSQL 
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di iperscala (CITUS) e altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
