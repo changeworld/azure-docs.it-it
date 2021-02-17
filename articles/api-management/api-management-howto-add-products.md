@@ -4,14 +4,14 @@ description: Questa esercitazione descrive come creare e pubblicare un prodotto 
 author: mikebudzynski
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993551"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545157"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Esercitazione: Creare e pubblicare un prodotto  
 
@@ -34,6 +34,8 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto
 
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 1. Accedere al portale di Azure e passare all'istanza di Gestione API.
 1. Nel riquadro di spostamento a sinistra selezionare **Prodotti** >  **+ Aggiungi**.
 1.  Nella finestra **Aggiungi prodotto** immettere i valori descritti nella tabella seguente per creare il prodotto.
@@ -47,16 +49,59 @@ In questa esercitazione verranno illustrate le procedure per:
     | State                    | Selezionare **Pubblicato** se si vuole pubblicare il prodotto. Per poter chiamare le API in un prodotto, il prodotto deve essere pubblicato. Per impostazione predefinita, i nuovi prodotti non sono pubblicati e sono visibili solo agli utenti nel gruppo **Amministratori**.                                                                                      |
     | Richiede la sottoscrizione    | Consente di specificare se un utente deve eseguire la sottoscrizione per usare il prodotto.                                                                                                                                                                                                                                   |
     | Richiede approvazione        | Specificare se si preferisce che i tentativi di sottoscrizione del prodotto vengano esaminati e quindi accettati o rifiutati da un amministratore. Se l'opzione non è selezionata, i tentativi di sottoscrizione vengono approvati automaticamente.                                                                                                                         |
-    | Limite per il numero di sottoscrizioni | Consente di limitare il numero di più sottoscrizioni simultanee.                                                                                                                                                                                                                                |
+    | Limite per il numero di sottoscrizioni | Facoltativamente, limitare il numero di più sottoscrizioni simultanee.                                                                                                                                                                                                                                |
     | Note legali              | È possibile includere le condizioni per l'utilizzo del prodotto che i sottoscrittori devono accettare per usare il prodotto.                                                                                                                                                                                                             |
     | API                     | Selezionare una o più API. È anche possibile aggiungere le API dopo la creazione del prodotto. Per altre informazioni, vedere [Aggiungere API a un prodotto](#add-apis-to-a-product) più avanti in questo articolo. |
 
 3. Fare clic su **Crea** per creare il nuovo prodotto.
 
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per iniziare a usare interfaccia della riga di comando di Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Per creare un prodotto, eseguire il comando [AZ gestione API Product create](/cli/azure/apim/product#az_apim_product_create) :
+
+```azurecli
+az apim product create --resource-group apim-hello-word-resource-group \
+    --product-name "Contoso product" --product-id contoso-product \
+    --service-name apim-hello-world --subscription-required true \
+    --state published --description "This is a test."
+```
+
+È possibile specificare diversi valori per il prodotto:
+
+   | Parametro | Descrizione |
+   |-----------|-------------|
+   | `--product-name` | Nome che dovrà essere visualizzato nel [portale per sviluppatori](api-management-howto-developer-portal.md). |
+   | `--description`  | Consente di specificare informazioni sul prodotto, ad esempio lo scopo, le API a cui fornisce l'accesso e altri dettagli. |
+   | `--state`        | Selezionare **pubblicato** se si desidera pubblicare il prodotto. Per poter chiamare le API in un prodotto, il prodotto deve essere pubblicato. Per impostazione predefinita, i nuovi prodotti non sono pubblicati e sono visibili solo agli utenti nel gruppo **Amministratori**. |
+   | `--subscription-required` | Consente di specificare se un utente deve eseguire la sottoscrizione per usare il prodotto. |
+   | `--approval-required` | Specificare se si preferisce che i tentativi di sottoscrizione del prodotto vengano esaminati e quindi accettati o rifiutati da un amministratore. Se l'opzione non è selezionata, i tentativi di sottoscrizione vengono approvati automaticamente. |
+   | `--subscriptions-limit` | Facoltativamente, limitare il numero di più sottoscrizioni simultanee.|
+   | `--legal-terms`         | È possibile includere le condizioni per l'utilizzo del prodotto che i sottoscrittori devono accettare per usare il prodotto. |
+
+Per visualizzare i prodotti correnti, usare il comando [AZ gestione API Product List](/cli/azure/apim/product#az_apim_product_list) :
+
+```azurecli
+az apim product list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Per eliminare un prodotto, è possibile usare il comando [AZ gestione API Product Delete](/cli/azure/apim/product#az_apim_product_delete) :
+
+```azurecli
+az apim product delete --product-id contoso-product \
+    --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --delete-subscriptions true
+```
+
+---
+
 ### <a name="add-more-configurations"></a>Aggiungere altre configurazioni
 
 Continuare a configurare il prodotto dopo averlo salvato. Nell'istanza di Gestione API selezionare il prodotto dalla finestra **Prodotti**. Aggiungere o aggiornare:
-
 
 |Elemento   |Descrizione  |
 |---------|---------|
@@ -74,6 +119,7 @@ Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodot
 
 ### <a name="add-an-api-to-an-existing-product"></a>Aggiungere un'API a un prodotto esistente
 
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nel riquadro di spostamento a sinistra dell'istanza di Gestione API selezionare **Prodotti**.
 1. Selezionare un prodotto, quindi selezionare **API**.
@@ -81,6 +127,40 @@ Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodot
 1. Selezionare una o più API e quindi fare clic su **Seleziona**.
 
 :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Aggiungere API a un prodotto esistente":::
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+1. Per visualizzare le API gestite, usare il comando [AZ gestione API API List](/cli/azure/apim/api#az_apim_api_list) :
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+1. Per aggiungere un'API al prodotto, eseguire il comando [AZ gestione API Product API Add](/cli/azure/apim/product/api#az_apim_product_api_add) :
+
+   ```azurecli
+   az apim product api add --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --product-id contoso-product \
+       --service-name apim-hello-world
+   ```
+
+1. Verificare l'aggiunta usando il comando [AZ gestione API Product API List](/cli/azure/apim/product/api#az_apim_product_api_list) :
+
+   ```azurecli
+   az apim product api list --resource-group apim-hello-word-resource-group \
+       --product-id contoso-product --service-name apim-hello-world --output table
+   ```
+
+È possibile rimuovere un'API da un prodotto usando il comando [AZ gestione API Product API Delete](/cli/azure/apim/product/api#az_apim_product_api_delete) :
+
+```azurecli
+az apim product api delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --product-id contoso-product \
+    --service-name apim-hello-world
+```
+
+---
 
 > [!TIP]
 > È possibile creare o aggiornare la sottoscrizione utente di un prodotto con chiavi di sottoscrizione personalizzate tramite l'[API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) o un comando PowerShell.

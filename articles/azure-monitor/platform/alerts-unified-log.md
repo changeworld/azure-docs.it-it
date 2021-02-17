@@ -4,14 +4,14 @@ description: Attivare messaggi di posta elettronica, notifiche, chiamare URL di 
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 5/31/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 0f81dd14988b069931bddf5f5636cb1bab426641
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857427"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544869"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
@@ -51,7 +51,7 @@ Query [log Analytics](../log-query/log-analytics-tutorial.md) utilizzata per val
 - Più risorse che usano [query tra risorse](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
-> Le query di avviso presentano vincoli per garantire prestazioni ottimali e la pertinenza dei risultati. [Altre informazioni](./alerts-log-query.md)sono disponibili qui.
+> Le query di avviso presentano vincoli per garantire prestazioni ottimali e la pertinenza dei risultati. Fare clic [qui](./alerts-log-query.md) per altre informazioni.
 
 > [!IMPORTANT]
 > Le query incentrate sulle risorse e [tra risorse](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) sono supportate solo usando l'API scheduledQueryRules corrente. Se si usa l' [API log Analytics Alert](api-alerts.md)legacy, sarà necessario passare a. [Altre informazioni sul cambio](./alerts-log-api-switch.md)
@@ -64,7 +64,7 @@ Analogamente a log Analytics, l'intervallo di tempo limita i dati delle query al
 
 Una query, ad esempio, analizza 60 minuti, quando l'intervallo di tempo è di 60 minuti, anche se il testo contiene **ago (1D)**. È necessario che l'intervallo di tempo e il filtro del tempo di query corrispondano. Nel caso di esempio, la modifica dell'  /  **intervallo di tempo della query di sostituzione** del periodo su un giorno, funziona come previsto.
 
-### <a name="measure"></a>Misura
+### <a name="measure"></a>Measure
 
 Gli avvisi del log consentono di accedere a valori numerici che possono essere valutati. È possibile misurare due elementi diversi:
 
@@ -187,8 +187,8 @@ Vedere questo esempio di valutazione degli avvisi:
 | Tempo    | Valutazione della condizione del log | Risultato 
 | ------- | ----------| ----------| ------- 
 | 00:05 | FALSE | L'avviso non viene attivato. Non è stata chiamata alcuna azione.
-| 00:10 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
-| 00:15 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:10 | true  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:15 | true  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
 | 00:20 | FALSE | L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato degli avvisi di precedente rimane attivo.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione per gli avvisi del log

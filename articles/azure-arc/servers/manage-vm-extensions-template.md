@@ -1,14 +1,14 @@
 ---
 title: Abilitare l'estensione della macchina virtuale usando il modello di Azure Resource Manager
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando un modello di Azure Resource Manager.
-ms.date: 02/03/2021
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: cfba14ac30553178bd509d0b0e7ba9c60332d299
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0115bda614133891275daff96c94dc4b1a680ccf
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493329"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555107"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Abilitare le estensioni di VM di Azure usando il modello ARM
 
@@ -631,13 +631,43 @@ Il codice JSON seguente mostra lo schema per l'estensione della macchina virtual
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "autoUpgradeMinorVersion":{
+            "type": "bool"
+        },
+        "pollingIntervalInS":{
+          "type": "int"
+        },
+        "certificateStoreName":{
+          "type": "string"
+        },
+        "certificateStoreLocation":{
+          "type": "string"
+        },
+        "observedCertificates":{
+          "type": "string"
+        },
+        "msiEndpoint":{
+          "type": "string"
+        },
+        "msiClientId":{
+          "type": "string"
+        }
+},
+"resources": [
+   {
       "type": "Microsoft.HybridCompute/machines/extensions",
-      "name": "KeyVaultForLinux",
-      "apiVersion": "2019-07-01",
-      "location": "<location>",
-      "dependsOn": [
-          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
-      ],
+      "name": "[concat(parameters('vmName'),'/KVVMExtensionForLinux')]",
+      "apiVersion": "2019-12-12",
+      "location": "[parameters('location')]",
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
@@ -646,12 +676,18 @@ Il codice JSON seguente mostra lo schema per l'estensione della macchina virtual
       "settings": {
           "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
-          "certificateStoreName": <ingnored on linux>,
+          "certificateStoreName": <ignored on linux>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-          }
+          },
+          "authenticationSettings": {
+                "msiEndpoint":  <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
+                "msiClientId":  <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
       }
-     }
+    }
+  }
+ ]
 }
 ```
 
@@ -659,13 +695,49 @@ Il codice JSON seguente mostra lo schema per l'estensione della macchina virtual
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "autoUpgradeMinorVersion":{
+            "type": "bool"
+        },
+        "pollingIntervalInS":{
+          "type": "int"
+        },
+        "certificateStoreName":{
+          "type": "string"
+        },
+        "linkOnRenewal":{
+          "type": "bool"
+        },
+        "certificateStoreLocation":{
+          "type": "string"
+        },
+        "requireInitialSync":{
+          "type": "bool"
+        },
+        "observedCertificates":{
+          "type": "string"
+        },
+        "msiEndpoint":{
+          "type": "string"
+        },
+        "msiClientId":{
+          "type": "string"
+        }
+},
+"resources": [
+   {
       "type": "Microsoft.HybridCompute/machines/extensions",
-      "name": "KVVMExtensionForWindows",
-      "apiVersion": "2019-07-01",
-      "location": "<location>",
-      "dependsOn": [
-          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
-      ],
+      "name": "[concat(parameters('vmName'),'/KVVMExtensionForWindows')]",
+      "apiVersion": "2019-12-12",
+      "location": "[parameters('location')]",
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForWindows",
@@ -673,28 +745,35 @@ Il codice JSON seguente mostra lo schema per l'estensione della macchina virtual
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
+          "pollingIntervalInS": "3600",
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net"
         },
         "authenticationSettings": {
-                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
-                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+                "msiEndpoint": <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
+                "msiClientId": <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
         }
       }
-     }
+    }
+  }
+ ]
 }
 ```
 
 > [!NOTE]
 > Gli URL dei certificati osservati devono essere nel formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
-> 
+>
 > Ciò è dovuto al fatto che il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo restituisce. Altre informazioni sui certificati sono disponibili qui: [Certificati Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
-Salvare il file modello su disco. È quindi possibile installare l'estensione in tutti i computer connessi in un gruppo di risorse con il comando seguente.
+### <a name="template-deployment"></a>Distribuzione del modello
+
+Salvare il file modello su disco. È quindi possibile distribuire l'estensione nel computer connesso con il comando seguente.
+
+> [!NOTE]
+> L'estensione della macchina virtuale richiede l'assegnazione di un'identità assegnata dal sistema per l'autenticazione a Key Vault. Vedere [come eseguire l'autenticazione a Key Vault usando identità gestita](managed-identity-authentication.md) per i server abilitati per Windows e Linux Arc.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
@@ -778,7 +857,9 @@ Per usare l'estensione dello scanner integrato di Azure Defender, viene fornito 
 }
 ```
 
-Salvare il file modello su disco. È quindi possibile installare l'estensione in tutti i computer connessi in un gruppo di risorse con il comando seguente.
+### <a name="template-deployment"></a>Distribuzione del modello
+
+Salvare il file modello su disco. È quindi possibile distribuire l'estensione nel computer connesso con il comando seguente.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"

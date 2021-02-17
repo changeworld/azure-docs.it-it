@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 1606315b6b6cb4cff787a67e97e64baedc6c508e
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: b68ba21e7a676dda46527313f2fceece0fcba578
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097101"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557927"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 e Ddsv4
 
@@ -34,7 +34,7 @@ Le nuove dimensioni delle macchine virtuali Ddv4 prevedono una risorsa di archiv
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
-[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata (*richiede almeno 4 vCPU*)<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 <br> 
 
@@ -65,7 +65,7 @@ Le nuove dimensioni delle macchine virtuali Ddsv4 prevedono una risorsa di archi
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
-[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata (*richiede almeno 4 vCPU*)<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 <br> 
 

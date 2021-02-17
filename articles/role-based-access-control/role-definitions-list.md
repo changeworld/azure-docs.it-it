@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369277"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555951"
 ---
 # <a name="list-azure-role-definitions"></a>Elencare le definizioni dei ruoli di Azure
 
@@ -356,7 +356,7 @@ Per elencare le definizioni dei ruoli, usare l'API REST per l' [elenco delle def
 1. Sostituire *{Filter}* con la condizione che si vuole applicare per filtrare l'elenco di definizioni di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Filtra | Description |
+    > | Filtra | Descrizione |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Elenca le definizioni dei ruoli per l'ambito specificato e per qualsiasi ambito. |
     > | `$filter=type+eq+'{type}'` | Elenca le definizioni dei ruoli del tipo specificato. Il tipo di ruolo può essere `CustomRole` o `BuiltInRole` . |
@@ -479,4 +479,4 @@ Il testo seguente è un esempio di output:
 - [Ruoli predefiniti di Azure](built-in-roles.md)
 - [Ruoli personalizzati di Azure](custom-roles.md)
 - [Elencare le assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-list-portal.md)
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](role-assignments-portal.md)

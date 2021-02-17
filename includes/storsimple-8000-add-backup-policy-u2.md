@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: e3bff61cfbf89aee3566d677ccf593b102cff36d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 23ce17844a0113f63931c6ece7d36bfefedc2de5
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376086"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551467"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Per aggiungere un criterio di backup per StorSimple
 
@@ -17,21 +17,21 @@ ms.locfileid: "93376086"
 
 2. Nel pannello **Criteri di backup** fare clic su **Aggiungi criteri** dalla barra dei comandi.
    
-    ![Aggiungere un criterio di backup](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Aggiungere un criterio di backup](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-01.png)
 
 3. Nel pannello **Creare i criteri di backup** seguire questa procedura:
    
    1. **Seleziona dispositivo** viene popolato automaticamente in base al dispositivo selezionato.
    
-   2. Specificare un **nome di criteri** di backup che contenga tra 3 e 150 caratteri. Dopo essere stati creati, i criteri non possono essere rinominati.
+   2. Specificare il nome di un **criterio** di backup che include da 3 a 150 caratteri. Dopo essere stati creati, i criteri non possono essere rinominati.
        
    3. Per assegnare volumi ai criteri di backup, selezionare **Aggiungi volumi** e nell'elenco tabulare dei volumi fare clic sulle caselle di controllo per assegnare uno o più volumi ai criteri di backup.
 
-       ![Aggiungere un criterio di backup 2](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Aggiungere un criterio di backup 2](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-02.png)<!--Replacement screen source: create-backup-policy-addvolumes.png-->
 
-   4. Per definire una pianificazione per i criteri di backup, fare clic su **Prima pianificazione** e quindi modificare i parametri seguenti:
+   4. Per definire una pianificazione per i criteri di backup, fare clic su **Prima pianificazione** e quindi modificare i parametri seguenti:<!--Do the substeps remain the same? Can they follow without a screenshot?-->
 
-       ![Aggiungere un criterio di backup 3](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Aggiungere un criterio di backup 3](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-03.png)<!--Replacement screen source: create-backup-policy-first-schedule.png-->
 
        1. Per **Tipo di snapshot** selezionare **Cloud** o **Locale**.
 
@@ -44,10 +44,7 @@ ms.locfileid: "93376086"
        5. Fare clic su **OK** per definire la pianificazione.
 
    5. Fare clic su **Crea** per creare criteri di backup.
-
-       ![Aggiungere un criterio di backup 4](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
    6. Dopo la creazione dei criteri di backup si riceve una notifica. I criteri appena aggiunti vengono visualizzati nella vista tabulare del pannello **Criteri di backup**.
 
-       ![Aggiungere un criterio di backup 5](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
-
+       ![Aggiungere un criterio di backup 5](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-07.png)

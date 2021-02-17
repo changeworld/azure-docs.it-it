@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
-ms.translationtype: HT
+ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614269"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557142"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Esercitazione: Creare flussi utente in Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ In questo articolo si è appreso come:
 > * Creare un flusso utente di modifica del profilo
 > * Creare un flusso utente di reimpostazione delle password
 
-Nelle esercitazioni successive si apprenderà come aggiungere provider di identità alle applicazioni per consentire agli utenti di accedere con provider come Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft o Twitter.
+Successivamente, si apprenderà come usare Azure AD B2C per accedere e iscrivere gli utenti in un'applicazione. Seguire l'applicazione Web ASP.NET collegata sotto oppure passare a un'altra applicazione nel sommario in **autenticare gli utenti**.
 
 > [!div class="nextstepaction"]
-> [Aggiungere provider di identità alle applicazioni >](tutorial-add-identity-providers.md)
+> [Esercitazione: abilitare l'autenticazione in un'applicazione Web usando Azure AD B2C >](tutorial-web-app-dotnet.md)

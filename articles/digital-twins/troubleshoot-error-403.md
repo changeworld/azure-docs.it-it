@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: ad28b3300e9107c7f6d4b1987205583ef60ed658
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049814"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545701"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Richiesta di servizio non riuscita. Stato: 403 (accesso negato)
 
@@ -26,8 +26,6 @@ Questo errore può verificarsi in molti tipi di richieste di servizio che richie
 ### <a name="cause-1"></a>Causare #1
 
 In genere, questo errore indica che le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per il servizio non sono configurate correttamente. Per molte azioni per un'istanza di Azure Digital Twins è necessario avere il ruolo di *proprietario dei dati di Azure Digital gemelli* nell' **istanza che si sta tentando di gestire**. 
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>Causare #2
 

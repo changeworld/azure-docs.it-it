@@ -7,23 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
-ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/15/2021
+ms.openlocfilehash: 3be043af7b057c47f360ce36db6bb7c3afd80638
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746697"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535349"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
 [Azure ricerca cognitiva](search-what-is-azure-search.md) è una risorsa di Azure usata per l'aggiunta di un'esperienza di ricerca full-text alle app personalizzate. Puoi integrarlo facilmente con altri servizi di Azure che forniscono dati o elaborazione aggiuntiva, con app nei server di rete o con il software in esecuzione su altre piattaforme cloud.
 
-In questo articolo viene illustrato come creare un servizio di ricerca nell' [portale di Azure](https://portal.azure.com/).
+È possibile creare il servizio di ricerca usando il [portale di Azure](https://portal.azure.com/)trattato in questo articolo. È anche possibile usare [Azure PowerShell](search-manage-powershell.md), l' [interfaccia](/cli/azure/search)della riga di comando di Azure o un [modello di servizio Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![GIF animata](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
-
-Se si preferisce PowerShell, usare il [modello di servizio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) di Azure Resource Manager. Per informazioni su come iniziare, vedere [Gestire il servizio Ricerca cognitiva di Azure con PowerShell](search-manage-powershell.md).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -136,9 +134,9 @@ Per le attività basate sul portale, l'endpoint e la chiave non sono necessari. 
 
 Al termine del provisioning del servizio, è possibile ridimensionare il servizio per adattarlo alle proprie esigenze. Se è stato scelto il piano tariffario Standard per il servizio Ricerca cognitiva di Azure, è possibile ridimensionare il servizio in due dimensioni, ovvero partizioni e repliche. Se fosse stato scelto il piano Basic, sarebbe stato possibile aggiungere solo le repliche. Se è stato effettuato il provisioning del servizio Gratuito, la scalabilità non è disponibile.
 
-**_Partizioni_* _ consentono al servizio di archiviare ed eseguire ricerche in più documenti.
+Le ***partizioni*** consentono di archiviare e di eseguire ricerche in un numero maggiore di documenti nel servizio.
 
-Le _*_repliche_*_ consentono al servizio di gestire un carico superiore di query di ricerca.
+***Repliche*** consentire al servizio gestire un carico superiore di query di ricerca.
 
 L'aggiunta di risorse fa aumentare la fattura mensile. Il [calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/) consente di capire le ramificazioni della fattura dovute all'aggiunta di risorse. Tenere presente che è possibile modificare le risorse in base al carico. Ad esempio, è possibile aumentare le risorse per creare un indice iniziale completo e ridurle successivamente a un livello più appropriato per l'indicizzazione incrementale.
 
@@ -146,7 +144,7 @@ L'aggiunta di risorse fa aumentare la fattura mensile. Il [calcolatore prezzi](h
 > Un servizio deve disporre di [2 repliche per ogni contratto di servizio di sola lettura e 3 repliche per ogni contratto di servizio di lettura/scrittura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Passare alla pagina del servizio di ricerca nel portale di Azure.
-2. Nel riquadro di spostamento a sinistra selezionare _ *Settings** > **scale**.
+2. Nel riquadro di navigazione a sinistra selezionare **Impostazioni** > **Scalabilità**.
 3. Usare la barra di scorrimento per aggiungere risorse di entrambi i tipi.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Aggiungere capacità tramite repliche e partizioni" border="false":::

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fd592b6f565cb23d7a922af2a68e6328911c2dc0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 58ce8dc67488c42485f2fac73e514c5639b11cf9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188270"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552598"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per [Unity](https://unity3d.com/).
 
@@ -29,9 +29,10 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 
 Questa guida introduttiva richiede:
 
+- In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) per la piattaforma in uso. La prima volta che si esegue questa installazione può essere necessario riavviare il sistema.
 - [Unity 2018.3 o versioni successive](https://store.unity.com/) con [Unity 2019.1 che aggiunge il supporto per la piattaforma UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). È accettabile anche Visual Studio 2017 versione 15.9 o successive.
-- Per il supporto di Windows ARM64, installare gli [strumenti di compilazione facoltativi per ARM64 e Windows 10 SDK per ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
+- Per il supporto di Windows ARM64, installare gli [strumenti di compilazione facoltativi per arm64 e Windows 10 SDK per arm64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
@@ -39,7 +40,7 @@ Per installare Speech SDK per Unity, seguire questa procedura:
 
 1. Scaricare e aprire [Speech SDK per Unity](https://aka.ms/csspeech/unitypackage), fornito come pacchetto di asset Unity (con estensione unitypackage). L'associazione con Unity dovrebbe essere già eseguita. All'apertura del pacchetto di asset, viene visualizzata la finestra di dialogo **Import Unity Package** (Importa pacchetto Unity). Potrebbe essere necessario creare e aprire un progetto vuoto affinché questo passaggio funzioni.
 
-   [![Finestra di dialogo Import Unity Package nell'editor di Unity](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-unity-01-import.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-unity-01-import.png#lightbox)
+   [![Finestra di dialogo Importa pacchetto Unity nell'editor di Unity](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-unity-01-import.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-unity-01-import.png#lightbox)
 
 1. Verificare che tutti i file siano selezionati e quindi selezionare **Import** (Importa). Dopo alcuni istanti, il pacchetto di asset Unity viene importato nel progetto.
 

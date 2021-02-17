@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9b1a2f87498d7869b21e6a8ab44fc1f9660456ad
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
-ms.translationtype: HT
+ms.openlocfilehash: e25db6213c99afaa46732831534956b01adba0b4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648297"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555215"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Esercitazione: Concedere a un gruppo l'accesso alle risorse di Azure con Azure PowerShell
 
@@ -294,4 +294,4 @@ Per pulire le risorse create con questa esercitazione, eliminare il gruppo di ri
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](role-assignments-powershell.md)
+> [Assegnare i ruoli di Azure usando Azure PowerShell](role-assignments-powershell.md)

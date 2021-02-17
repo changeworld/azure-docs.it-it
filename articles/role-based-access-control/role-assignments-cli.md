@@ -1,5 +1,5 @@
 ---
-title: Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure-RBAC
+title: Assegnare i ruoli di Azure usando l'interfaccia della riga di comando di Azure-RBAC
 description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando l'interfaccia della riga di comando di Azure e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 author: rolyon
@@ -10,31 +10,31 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: e1aa4945391e159f99c82fecff99c238ae0e7e93
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: ee356f32b6799c6182ec1c9e061a35271a4bbc23
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964406"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556976"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure
+# <a name="assign-azure-roles-using-azure-cli"></a>Assegnare i ruoli di Azure usando l'interfaccia della riga di comando
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
+Per assegnare ruoli, è necessario disporre di:
 
-- autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` autorizzazioni, ad esempio [amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [proprietario](built-in-roles.md#owner)
 - [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](../cloud-shell/overview.md) [Azure](/cli/azure)
 
-## <a name="steps-to-add-a-role-assignment"></a>Procedura per aggiungere un'assegnazione di ruolo
+## <a name="steps-to-assign-an-azure-role"></a>Passaggi per assegnare un ruolo di Azure
 
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di Azure, aggiungere un'assegnazione di ruolo. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito. Per aggiungere un'assegnazione di ruolo, attenersi alla seguente procedura.
+Per assegnare un ruolo è costituito da tre elementi: entità di sicurezza, definizione del ruolo e ambito.
 
 ### <a name="step-1-determine-who-needs-access"></a>Passaggio 1: determinare chi necessita dell'accesso
 
-È possibile assegnare un ruolo a un utente, un gruppo, un'entità servizio o un'identità gestita. Per aggiungere un'assegnazione di ruolo, potrebbe essere necessario specificare l'ID univoco dell'oggetto. Il formato dell'ID è il seguente: `11111111-1111-1111-1111-111111111111`. È possibile ottenere l'ID usando il portale di Azure o l'interfaccia della riga di comando di Azure.
+È possibile assegnare un ruolo a un utente, un gruppo, un'entità servizio o un'identità gestita. Per assegnare un ruolo, potrebbe essere necessario specificare l'ID univoco dell'oggetto. Il formato dell'ID è il seguente: `11111111-1111-1111-1111-111111111111`. È possibile ottenere l'ID usando il portale di Azure o l'interfaccia della riga di comando di Azure.
 
 **Utente**
 
@@ -75,7 +75,7 @@ Per elencare solo le identità gestite assegnate dall'utente, è possibile usare
 az identity list
 ```
     
-### <a name="step-2-find-the-appropriate-role"></a>Passaggio 2: trovare il ruolo appropriato
+### <a name="step-2-select-the-appropriate-role"></a>Passaggio 2: selezionare il ruolo appropriato
 
 Le autorizzazioni vengono raggruppate in ruoli. È possibile scegliere da un elenco di diversi [ruoli predefiniti di Azure](built-in-roles.md) oppure usare ruoli personalizzati. È consigliabile concedere l'accesso con il privilegio minimo necessario, quindi evitare di assegnare un ruolo più ampio.
 
@@ -129,9 +129,9 @@ Per ambito gruppo di gestione, è necessario il nome del gruppo di gestione. È 
 az account management-group list --query "[].{name:name, id:id}" --output tsv
 ```
     
-### <a name="step-4-add-role-assignment"></a>Passaggio 4: aggiungere l'assegnazione di ruolo
+### <a name="step-4-assign-role"></a>Passaggio 4: assegnare un ruolo
 
-Per aggiungere un'assegnazione di ruolo, usare il comando [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) . A seconda dell'ambito, il comando ha in genere uno dei formati seguenti.
+Per assegnare un ruolo, usare il comando [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create) . A seconda dell'ambito, il comando ha in genere uno dei formati seguenti.
 
 **Ambito risorsa**
 
@@ -181,9 +181,9 @@ Di seguito viene illustrato un esempio dell'output quando si assegna il ruolo [c
 }
 ```
     
-## <a name="add-role-assignment-examples"></a>Esempi di assegnazione di ruolo
+## <a name="assign-role-examples"></a>Esempi di assegnazione di ruolo
 
-#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Aggiungere un'assegnazione di ruolo per tutti i contenitori BLOB in un ambito di risorse dell'account di archiviazione
+#### <a name="assign-a-role-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Assegnare un ruolo a tutti i contenitori BLOB in un ambito di risorse dell'account di archiviazione
 
 Assegna il ruolo di [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) a un'entità servizio con ID oggetto *55555555-5555-5555-5555-555555555555* in un ambito di risorse per un account di archiviazione denominato *storage12345*.
 
@@ -193,7 +193,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
 
-#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Aggiungere un'assegnazione di ruolo per un ambito di risorsa contenitore BLOB specifico
+#### <a name="assign-a-role-for-a-specific-blob-container-resource-scope"></a>Assegnazione di un ruolo per un ambito di risorsa contenitore BLOB specifico
 
 Assegna il ruolo di [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) a un'entità servizio con ID oggetto *55555555-5555-5555-5555-555555555555* in un ambito di risorse per un contenitore BLOB denominato *BLOB-container-01*.
 
@@ -203,7 +203,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 ```
 
-#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Aggiungere un'assegnazione di ruolo per un gruppo in un ambito di risorse della rete virtuale specifico
+#### <a name="assign-a-role-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Assegnazione di un ruolo per un gruppo in un ambito di risorse della rete virtuale specifico
 
 Assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) al gruppo *Ann Mack Team* con ID 22222222-2222-2222-2222-222222222222 in un ambito di risorse per una rete virtuale denominata *Pharma-Sales-Project-Network*.
 
@@ -213,7 +213,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network"
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>Aggiungere un'assegnazione di ruolo per un utente in un ambito del gruppo di risorse
+#### <a name="assign-a-role-for-a-user-at-a-resource-group-scope"></a>Assegnazione di un ruolo per un utente in un ambito del gruppo di risorse
 
 Assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) all'utente *patlong \@ contoso.com* nell'ambito del gruppo di risorse *Pharma-Sales* .
 
@@ -223,7 +223,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Aggiungere l'assegnazione di ruolo per un utente usando l'ID del ruolo univoco in un ambito del gruppo di risorse
+#### <a name="assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Assegnare un ruolo a un utente usando l'ID del ruolo univoco in un ambito del gruppo di risorse
 
 Ci sono un paio di volte in cui un nome di ruolo potrebbe cambiare, ad esempio:
 
@@ -240,7 +240,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-#### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>Aggiungere un'assegnazione di ruolo per tutti i contenitori BLOB in un ambito del gruppo di risorse
+#### <a name="assign-a-role-for-all-blob-containers-at-a-resource-group-scope"></a>Assegnare un ruolo a tutti i contenitori BLOB in un ambito del gruppo di risorse
 
 Assegna il ruolo di [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) a un'entità servizio con ID oggetto *55555555-5555-5555-5555-555555555555* nell'ambito del gruppo di risorse *esempio-storage-RG* .
 
@@ -258,7 +258,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
 
-#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Aggiungere un'assegnazione di ruolo per un'applicazione in un ambito del gruppo di risorse
+#### <a name="assign-a-role-for-an-application-at-a-resource-group-scope"></a>Assegnazione di un ruolo per un'applicazione in un ambito del gruppo di risorse
 
 Assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) a un'applicazione con ID oggetto entità servizio 44444444-4444-4444-4444-444444444444 nell'ambito del gruppo di risorse *Pharma-Sales* .
 
@@ -268,11 +268,11 @@ az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 --resource-group "pharma-sales"
 ```
 
-#### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>Aggiungere un'assegnazione di ruolo per una nuova entità servizio in un ambito del gruppo di risorse
+#### <a name="assign-a-role-for-a-new-service-principal-at-a-resource-group-scope"></a>Assegnazione di un ruolo per una nuova entità servizio in un ambito del gruppo di risorse
 
 Se si crea una nuova entità servizio e si prova ad assegnare subito un ruolo a tale entità, in alcuni casi l'assegnazione di ruolo può avere esito negativo. Se ad esempio si utilizza uno script per creare una nuova identità gestita e quindi si tenta di assegnare un ruolo a tale entità servizio, l'assegnazione del ruolo potrebbe non riuscire. Il motivo di questo errore è probabilmente un ritardo di replica. L'entità servizio viene creata in un'area. L'assegnazione di ruolo potrebbe tuttavia verificarsi in un'area diversa che non ha ancora replicato l'entità servizio. Per risolvere questo scenario, è necessario specificare il tipo di entità durante la creazione dell'assegnazione di ruolo.
 
-Per aggiungere un'assegnazione di ruolo, usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create), specificare un valore per `--assignee-object-id` e quindi impostare `--assignee-principal-type` su `ServicePrincipal` .
+Per assegnare un ruolo, usare [AZ Role Assignment create](/cli/azure/role/assignment#az_role_assignment_create), specificare un valore per `--assignee-object-id` e quindi impostare `--assignee-principal-type` su `ServicePrincipal` .
 
 ```azurecli
 az role assignment create --assignee-object-id "{assigneeObjectId}" \
@@ -291,7 +291,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 --resource-group "pharma-sales"
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Aggiungere un'assegnazione di ruolo per un utente in un ambito di sottoscrizione
+#### <a name="assign-a-role-for-a-user-at-a-subscription-scope"></a>Assegnazione di un ruolo per un utente in un ambito di sottoscrizione
 
 Assegna il ruolo [Reader](built-in-roles.md#reader) all'utente *\@ example.com di annm* in un ambito di sottoscrizione.
 
@@ -301,7 +301,7 @@ az role assignment create --assignee "annm@example.com" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-#### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>Aggiungere un'assegnazione di ruolo per un gruppo in un ambito di sottoscrizione
+#### <a name="assign-a-role-for-a-group-at-a-subscription-scope"></a>Assegnazione di un ruolo per un gruppo in un ambito di sottoscrizione
 
 Assegna il ruolo [lettore](built-in-roles.md#reader) al gruppo *Ann Mack Team* con ID 22222222-2222-2222-2222-222222222222 nell'ambito di una sottoscrizione.
 
@@ -311,7 +311,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-#### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>Aggiungere un'assegnazione di ruolo per tutti i contenitori BLOB in un ambito di sottoscrizione
+#### <a name="assign-a-role-for-all-blob-containers-at-a-subscription-scope"></a>Assegnazione di un ruolo per tutti i contenitori BLOB in un ambito di sottoscrizione
 
 Assegna il ruolo [lettore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-reader) all'utente *Alain \@ example.com* in un ambito di sottoscrizione.
 
@@ -321,40 +321,12 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Aggiunta dell'assegnazione di ruolo per un utente in un ambito del gruppo di gestione
+#### <a name="assign-a-role-for-a-user-at-a-management-group-scope"></a>Assegnazione di un ruolo per un utente a un ambito del gruppo di gestione
 
 Assegna il ruolo di [lettore fatturazione](built-in-roles.md#billing-reader) all'utente *Alain \@ example.com* in un ambito del gruppo di gestione.
 
 ```azurecli
 az role assignment create --assignee "alain@example.com" \
---role "Billing Reader" \
---scope "/providers/Microsoft.Management/managementGroups/marketing-group"
-```
-
-## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
-
-In controllo degli accessi in base al ruolo di Azure, rimuovere un'assegnazione di ruolo usando [AZ Role Assignment Delete](/cli/azure/role/assignment#az_role_assignment_delete).
-
-Nell'esempio seguente viene rimossa l'assegnazione di ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) dall'utente *patlong \@ contoso.com* nel gruppo di risorse *Pharma-Sales* :
-
-```azurecli
-az role assignment delete --assignee "patlong@contoso.com" \
---role "Virtual Machine Contributor" \
---resource-group "pharma-sales"
-```
-
-Rimuove il ruolo [lettore](built-in-roles.md#reader) dal gruppo *Ann Mack Team* con ID 22222222-2222-2222-2222-222222222222 in un ambito della sottoscrizione.
-
-```azurecli
-az role assignment delete --assignee "22222222-2222-2222-2222-222222222222" \
---role "Reader" \
---subscription "00000000-0000-0000-0000-000000000000"
-```
-
-Rimuove il ruolo [Lettura fatturazione](built-in-roles.md#billing-reader) dall'utente *Alain \@ example.com* nell'ambito del gruppo di gestione.
-
-```azurecli
-az role assignment delete --assignee "alain@example.com" \
 --role "Billing Reader" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 2b6685952aee1c8600321070794f001e0881604b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104604"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535213"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -77,7 +77,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 |Novembre | [Traduzione del testo skill](cognitive-search-skill-text-translation.md) | Abilità cognitiva utilizzata durante l'indicizzazione che valuta e converte il testo. Disponibile a livello generale.|
 |Novembre | [Modelli di Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Modello per la visualizzazione del contenuto nell'archivio informazioni |
 |Novembre | [Azure Data Lake storage Gen2 (anteprima)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB API Gremlin (anteprima)](search-howto-index-cosmosdb.md)e [Cosmos DB API Cassandra (anteprima)](search-howto-index-cosmosdb.md) | Nuove origini dati dell'indicizzatore in anteprima pubblica. |
-|Luglio | [Supporto cloud di Azure per enti pubblici](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Disponibile a livello generale.|
+|Luglio | [Supporto cloud di Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Disponibile a livello generale.|
 
 <a name="new-service-name"></a>
 

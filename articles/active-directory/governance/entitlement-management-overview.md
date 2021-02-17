@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 7efaaf9cbfdb13c80ce653c99d05da451c2b8968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032033"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547316"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -174,5 +174,6 @@ Ecco alcuni esempi di scenari che consentono di determinare il numero di licenze
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare il primo pacchetto di accesso](entitlement-management-access-package-first.md)
+- Se si è interessati all'uso della portale di Azure per gestire l'accesso alle risorse, vedere [esercitazione: gestire l'accesso alle risorse-portale di Azure](entitlement-management-access-package-first.md).
+- Se si è interessati all'uso di Microsoft Graph per gestire l'accesso alle risorse, vedere [esercitazione: gestire l'accesso alle risorse-Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
 - [Scenari comuni](entitlement-management-scenarios.md)

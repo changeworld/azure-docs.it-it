@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a3d0236fc70757d7d9a98449bc4f6fdbf3d8bef
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ced568c310088e6a001f2a6c42cabcbf69bf2332
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092000"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554964"
 ---
 # <a name="dv2-and-dsv2-series"></a>Serie Dv2 e DSv2
 
@@ -28,7 +28,7 @@ Le dimensioni della serie dv2 vengono eseguite su Intel® Xeon® Platinum 8272CL
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
-[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata (*richiede almeno 4 vCPU*)<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
 <br>
 
@@ -50,7 +50,7 @@ Le dimensioni della serie DSv2 vengono eseguite su Intel® Xeon® Platinum 8272C
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
-[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata (*richiede almeno 4 vCPU*)<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 <br>
 

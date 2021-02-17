@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733820"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555661"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurare l'attestazione di Azure per il server logico SQL di Azure
 
@@ -114,7 +114,7 @@ Durante il flusso di lavoro di attestazione, il server logico SQL di Azure conte
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Usare portale di Azure per assegnare l'autorizzazione
 
-Per assegnare l'identità di un server SQL di Azure al ruolo di lettore di attestazione per un provider di attestazione, seguire le istruzioni generali in [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md). Quando ci si trova nel riquadro **Aggiungi assegnazione ruolo** :
+Per assegnare l'identità di un server SQL di Azure al ruolo di lettore di attestazione per un provider di attestazione, seguire le istruzioni generali in [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md). Quando ci si trova nel riquadro **Aggiungi assegnazione ruolo** :
 
 1. Nell'elenco a discesa **ruolo** selezionare il ruolo **lettore di attestazione** .
 1. Nel campo **Seleziona** immettere il nome del server di Azure SQL per cercarlo.
@@ -143,12 +143,12 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
+Per altre informazioni, vedere [assegnare ruoli di Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestire le chiavi per Always Encrypted con enclave sicuri](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Esercitazione: Introduzione ad Always Encrypted con enclave sicure nel database SQL di Azure](always-encrypted-enclaves-getting-started.md)

@@ -1,14 +1,14 @@
 ---
 title: Rimuovere l'accesso a una delega
 description: Informazioni su come rimuovere l'accesso alle risorse delegate a un provider di servizi per Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791357"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555790"
 ---
 # <a name="remove-access-to-a-delegation"></a>Rimuovere l'accesso a una delega
 
@@ -21,7 +21,7 @@ La rimozione di una delega può essere eseguita da un utente nel tenant del clie
 
 ## <a name="customers"></a>Clienti
 
-Gli utenti del tenant del cliente che dispongono del [ruolo predefinito proprietario](../../role-based-access-control/built-in-roles.md#owner) per una sottoscrizione possono rimuovere l'accesso del provider di servizi alla sottoscrizione o ai gruppi di risorse nella sottoscrizione. A tale scopo, un utente nel tenant del cliente può accedere alla pagina dei [provider di servizi](view-manage-service-providers.md#add-or-remove-service-provider-offers) della portale di Azure, trovare l'offerta nella schermata delle **offerte del provider di servizi** e selezionare l'icona del cestino nella riga relativa all'offerta.
+Gli utenti del tenant del cliente che hanno un ruolo con l' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [owner](../../role-based-access-control/built-in-roles.md#owner), possono rimuovere l'accesso del provider di servizi alla sottoscrizione (o ai gruppi di risorse nella sottoscrizione). A tale scopo, l'utente può accedere alla [pagina dei provider di servizi](view-manage-service-providers.md#add-or-remove-service-provider-offers) della portale di Azure, trovare l'offerta nella schermata **offerte del provider di servizi** e selezionare l'icona del cestino nella riga relativa all'offerta.
 
 Dopo la conferma dell'eliminazione, nessun utente nel tenant del provider di servizi sarà in grado di accedere alle risorse precedentemente Delegate.
 

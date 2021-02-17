@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856152"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555921"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Informazioni sull'ambito per RBAC di Azure
 
@@ -32,7 +32,7 @@ I gruppi di gestione sono un livello di ambito sopra le sottoscrizioni, ma i gru
 
 ## <a name="scope-format"></a>Formato ambito
 
-Se si aggiungono assegnazioni di ruolo tramite la riga di comando, è necessario specificare l'ambito. Per gli strumenti da riga di comando, l'ambito è una stringa potenzialmente lunga che identifica l'ambito esatto dell'assegnazione di ruolo. Nell'portale di Azure questo ambito è in genere elencato come *ID risorsa*.
+Se si assegnano ruoli tramite la riga di comando, è necessario specificare l'ambito. Per gli strumenti da riga di comando, l'ambito è una stringa potenzialmente lunga che identifica l'ambito esatto dell'assegnazione di ruolo. Nell'portale di Azure questo ambito è in genere elencato come *ID risorsa*.
 
 L'ambito è costituito da una serie di identificatori separati dal carattere barra (/). Questa stringa può essere considerata come espressione della seguente gerarchia, in cui il testo senza segnaposto (`{}`) è rappresentato da identificatori fissi:
 
@@ -66,7 +66,7 @@ I gruppi di gestione sono un livello superiore alle sottoscrizioni e hanno l'amb
 ## <a name="scope-examples"></a>Esempi di ambito
 
 > [!div class="mx-tableFixed"]
-> | Scope | Esempio |
+> | Ambito | Esempio |
 > | --- | --- |
 > | Gruppo di gestione | `/providers/Microsoft.Management/managementGroups/marketing-group` |
 > | Subscription | `/subscriptions/00000000-0000-0000-0000-000000000000` |
@@ -122,6 +122,6 @@ I gruppi di gestione sono un livello superiore alle sottoscrizioni e hanno l'amb
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedura per aggiungere un'assegnazione di ruolo](role-assignments-steps.md)
+- [Passaggi per assegnare un ruolo di Azure](role-assignments-steps.md)
 - [Provider di risorse per i servizi di Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Che cosa sono i gruppi di gestione di Azure?](../governance/management-groups/overview.md)
