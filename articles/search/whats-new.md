@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 2b6685952aee1c8600321070794f001e0881604b
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: d37b39f596a9986f001663847e0b8e6ae8adb987
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535213"
+ms.locfileid: "100545514"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -24,7 +24,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrizione | Disponibilità  |
 |------------------------------|---------------|---------------|
 | [Reimposta documenti (anteprima)](search-howto-run-reset-indexers.md) |  Rielabora i documenti di ricerca selezionati singolarmente nei carichi di lavoro dell'indicizzatore. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
-| [Zone di disponibilità](search-performance-optimization.md#availability-zones)| I servizi di ricerca con due o più repliche in determinate aree, come elencato in [questo articolo](search-performance-optimization.md#availability-zones), ottengono la resilienza con repliche in due o più percorsi fisici distinti.  | L'area e la data della creazione del servizio di ricerca determinano la disponibilità. Per informazioni dettagliate, vedere il documento relativo all'ottimizzazione delle prestazioni. |
+| [Zone di disponibilità](search-performance-optimization.md#availability-zones)| I servizi di ricerca con due o più repliche in determinate aree, come elencato in [scalabilità per le prestazioni](search-performance-optimization.md#availability-zones), ottengono la resilienza con repliche in due o più percorsi fisici distinti.  | L'area e la data della creazione del servizio di ricerca determinano la disponibilità. Per informazioni dettagliate, vedere l'articolo relativo alla scalabilità per le prestazioni. |
 
 ## <a name="january-2021"></a>Gennaio 2021
 

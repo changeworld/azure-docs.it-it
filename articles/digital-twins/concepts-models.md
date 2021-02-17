@@ -1,22 +1,22 @@
 ---
-title: Modelli personalizzati
+title: Modelli DTDL
 titleSuffix: Azure Digital Twins
-description: Informazioni sul modo in cui i dispositivi gemelli digitali di Azure usano i modelli definiti dall'utente per descrivere le entità nell'ambiente.
+description: Informazioni sul modo in cui i dispositivi gemelli digitali di Azure usano modelli personalizzati per descrivere le entità nell'ambiente.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131390"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558139"
 ---
-# <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendere i modelli gemelli nei dispositivi gemelli digitali di Azure
+# <a name="understand-twin-models-in-azure-digital-twins"></a>Informazioni sui modelli gemelli in Gemelli digitali di Azure
 
-Una caratteristica chiave dei dispositivi gemelli digitali di Azure è la possibilità di definire un vocabolario personalizzato e di creare un grafico a gemelli in termini autonomi dell'azienda. Questa funzionalità viene fornita tramite **modelli** definiti dall'utente. È possibile considerare i modelli come Sostantivi in una descrizione del mondo. 
+Una caratteristica chiave dei dispositivi gemelli digitali di Azure è la possibilità di definire un vocabolario personalizzato e di creare un grafico a gemelli in termini autonomi dell'azienda. Questa funzionalità viene fornita tramite **modelli** forniti dall'utente. È possibile considerare i modelli come Sostantivi in una descrizione del mondo. 
 
 Un modello è simile a una **classe** in un linguaggio di programmazione orientato a oggetti, definendo una forma dati per un particolare concetto nell'ambiente di lavoro reale. I modelli hanno nomi, ad esempio *room* o *sensore*, e contengono elementi quali proprietà, telemetria/eventi e comandi che descrivono il tipo di entità nell'ambiente. Successivamente, questi modelli vengono usati per creare i dispositivi [**gemelli digitali**](concepts-twins-graph.md) che rappresentano entità specifiche che soddisfano questa descrizione del tipo.
 
@@ -24,7 +24,7 @@ I modelli di dispositivi gemelli digitali di Azure sono rappresentati nel **DTDL
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>Digital Twin Definition Language (DTDL) per i modelli
 
-I modelli per i dispositivi gemelli digitali di Azure vengono definiti tramite il linguaggio DTDL (Digital Gemini Definition Language). DTDL è basato su JSON-LD ed è indipendente dal linguaggio di programmazione. DTDL non è esclusivo per i dispositivi gemelli digitali di Azure, ma viene usato anche per rappresentare i dati dei dispositivi in altri servizi Internet, ad esempio [plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
+I modelli per Gemelli digitali di Azure vengono definiti tramite il linguaggio DTDL (Digital Twins Definition Language). DTDL è basato su JSON-LD ed è indipendente dal linguaggio di programmazione. DTDL non è esclusivo per i dispositivi gemelli digitali di Azure, ma viene usato anche per rappresentare i dati dei dispositivi in altri servizi Internet, ad esempio [plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
 I dispositivi gemelli digitali di Azure usano **DTDL _versione 2_**. Per ulteriori informazioni su questa versione di DTDL, vedere la relativa documentazione specifica in GitHub: [*Digital Gemini Definition Language (DTDL)-versione 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). L'uso di DTDL _versione 1_ con i dispositivi gemelli digitali di Azure è ora deprecato.
 
@@ -35,7 +35,7 @@ I dispositivi gemelli digitali di Azure usano **DTDL _versione 2_**. Per ulterio
 
 ## <a name="elements-of-a-model"></a>Elementi di un modello
 
-All'interno di una definizione del modello, l'elemento di codice di primo livello è un' **interfaccia**. Questo incapsula l'intero modello e il resto del modello viene definito all'interno dell'interfaccia. 
+All'interno di una definizione del modello, l'elemento di codice di primo livello è un' **interfaccia**. che incapsula l'intero modello, mentre il resto del modello viene definito all'interno dell'interfaccia. 
 
 Un'interfaccia del modello DTDL può contenere zero, uno o molti dei seguenti campi:
 * **Proprietà** -le proprietà sono campi dati che rappresentano lo stato di un'entità (ad esempio le proprietà in molti linguaggi di programmazione orientati a oggetti). Le proprietà dispongono di archiviazione di backup e possono essere lette in qualsiasi momento.
@@ -136,23 +136,31 @@ Quando si progettano i modelli in modo da riflettere le entità nell'ambiente in
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="integrating-with-industry-standard-models"></a>Integrazione con i modelli standard del settore
+## <a name="tools-for-models"></a>Strumenti per i modelli 
 
-L'uso di modelli basati su standard del settore o la rappresentazione standard di ontologia, ad esempio RDF o OWL, fornisce un punto di partenza completo durante la progettazione dei modelli di dispositivi gemelli digitali di Azure. L'uso di modelli di settore contribuisce anche alla standardizzazione e alla condivisione delle informazioni.
+Sono disponibili diversi esempi per semplificare ulteriormente la gestione di modelli e ontologie. Si trovano in questo repository: [Tools for Digital Gemini Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
-Per l'uso con i dispositivi gemelli digitali di Azure, un modello deve essere rappresentato nel [**linguaggio DTDL (Digital Gemini Definition Language)**](concepts-models.md)basato su JSON-LD. Pertanto, per usare un modello standard di settore, è necessario prima convertirlo in DTDL in modo che i dispositivi gemelli digitali di Azure possano usarlo. Il modello DTDL funge quindi da origine della verità per il modello nei dispositivi gemelli digitali di Azure.
+In questa sezione viene descritto in modo più dettagliato il set di esempi corrente.
 
-Esistono due percorsi principali per l'integrazione dei modelli standard del settore con DTDL, a seconda della situazione:
-* Se è ancora necessario creare i modelli, è possibile progettarli intorno alle **ontologie Starter DTDL esistenti** che contengono il linguaggio specifico per il settore.
-* Se sono già presenti modelli basati su uno standard del settore, è necessario **convertirli in DTDL** per portarli in dispositivi gemelli digitali di Azure.
+### <a name="model-uploader"></a>Caricatore modello 
 
-Per altre informazioni su entrambi i processi, vedere [*procedura: integrare i modelli standard del settore*](how-to-integrate-models.md).
+_**Per il caricamento di modelli in dispositivi gemelli digitali di Azure**_
+
+Al termine della creazione, dell'estensione o della selezione dei modelli, è possibile caricarli nell'istanza di Azure Digital Twins per renderli disponibili per l'uso nella soluzione. Questa operazione viene eseguita usando le API dei dispositivi [gemelli digitali di Azure](how-to-use-apis-sdks.md), come descritto in [*procedura: gestire i modelli di DTDL*](how-to-manage-model.md#upload-models).
+
+Tuttavia, se si dispone di molti modelli da caricare, o se sono presenti molte interdipendenze che rendono complessa l'ordinamento di caricamenti singoli, è possibile usare questo esempio per caricare molti modelli contemporaneamente: il caricamento del [**modello di Azure Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Seguire le istruzioni fornite con l'esempio per configurare e usare questo progetto per caricare i modelli nell'istanza personalizzata.
+
+### <a name="model-visualizer"></a>Visualizzatore modelli 
+
+_**Per la visualizzazione di modelli**_
+
+Dopo aver caricato i modelli nell'istanza di Azure Digital Twins, è possibile visualizzare i modelli nell'istanza di Azure Digital Twins, incluse eventuali relazioni di ereditarietà e modello, usando il [**Visualizzatore del modello ADT**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Questo esempio si trova attualmente in uno stato bozza. Invitiamo la community di sviluppo di Digital gemelli a estendere e contribuire all'esempio. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere come gestire i modelli con le API DigitalTwinModels:
-* [*Procedura: Gestire modelli personalizzati*](how-to-manage-model.md)
+* Informazioni sulla creazione di modelli basati su ontologie standard del settore: [ *concetti: che cos'è un'ontologia?*](concepts-ontologies.md)
 
-In alternativa, informazioni su come vengono creati i dispositivi digitali gemelli in base ai modelli:
-* [*Concetti: i dispositivi gemelli digitali e i grafici gemelli*](concepts-twins-graph.md)
+* Approfondimento sulla gestione dei modelli con le operazioni API: [ *procedura: gestire i modelli DTDL*](how-to-manage-model.md)
+
+* Informazioni sul modo in cui i modelli vengono usati per creare i dispositivi gemelli digitali: [ *concetti: i gemelli digitali e il grafo gemello*](concepts-twins-graph.md)
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355767"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557833"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
@@ -27,9 +27,9 @@ Questo articolo descrive la registrazione dell'applicazione, gli oggetti applica
 ## <a name="application-registration"></a>Registrazione dell'applicazione
 Per delegare le funzioni di gestione delle identità e degli accessi ai Azure AD, un'applicazione deve essere registrata con un [tenant](developer-glossary.md#tenant)di Azure ad. Quando si registra l'applicazione con Azure AD, si crea una configurazione di identità per l'applicazione che consente l'integrazione con Azure AD. Quando si registra un'app nella [portale di Azure][AZURE-Portal], è possibile scegliere se si tratta di un singolo tenant (accessibile solo nel tenant) o multi-tenant (accessibile in altri tenant) ed è possibile impostare facoltativamente un URI di reindirizzamento (a cui viene inviato il token di accesso).
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Screenshot del riquadro registra un'applicazione del portale di Azure":::
+Per istruzioni dettagliate sulla registrazione di un'app, vedere la [Guida introduttiva alla registrazione dell'app](quickstart-register-app.md).
 
-Al termine della registrazione dell'app, si ha un'istanza univoca globale dell'app (oggetto applicazione) che risiede all'interno del tenant o della directory principale.  È anche presente un ID univoco globale per l'app (l'ID app o client).  Nel portale è quindi possibile aggiungere segreti o certificati e ambiti per eseguire il lavoro dell'app, personalizzare la personalizzazione dell'app nella finestra di dialogo di accesso e altro ancora.
+Al termine della registrazione dell'app, si ha un'istanza univoca globale dell'app ( [oggetto applicazione](#application-object)) che risiede all'interno del tenant o della directory principale.  È anche presente un ID univoco globale per l'app (l'ID app o client).  Nel portale è quindi possibile aggiungere segreti o certificati e ambiti per eseguire il lavoro dell'app, personalizzare la personalizzazione dell'app nella finestra di dialogo di accesso e altro ancora.
 
 Se si registra un'applicazione nel portale, vengono creati automaticamente un oggetto applicazione e un oggetto entità servizio nel tenant principale.  Se si registra o si crea un'applicazione usando le API di Microsoft Graph, la creazione dell'oggetto entità servizio è un passaggio separato.
 

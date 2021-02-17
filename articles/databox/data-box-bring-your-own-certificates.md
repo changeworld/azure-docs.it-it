@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: deb52c8716f97874beae4accbf6f34f72e20ca04
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1836ed57305fd7e168961eb81670b56d4ce296cd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516468"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545174"
 ---
 # <a name="use-your-own-certificates-with-data-box-and-data-box-heavy-devices"></a>Usare i propri certificati con Data Box e dispositivi Data Box Heavy
 
@@ -44,13 +44,13 @@ I certificati devono soddisfare i requisiti seguenti:
 - I certificati devono essere modificati se il nome del dispositivo o il nome di dominio DNS cambiano.
 - Usare la tabella seguente per la creazione di certificati endpoint:
 
-  |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+  |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
   |---------|---------|---------|---------|
   |Interfaccia utente locale| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
   |Archiviazione BLOB|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
   |Certificato singolo a più reti SAN|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
 
-Per ulteriori informazioni, vedere [requisiti dei certificati](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md).
+Per ulteriori informazioni, vedere [requisiti dei certificati](../../articles/databox-online/azure-stack-edge-gpu-certificate-requirements.md).
 
 ## <a name="add-certificates-to-device"></a>Aggiungere certificati al dispositivo
 

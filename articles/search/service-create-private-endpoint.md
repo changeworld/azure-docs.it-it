@@ -3,17 +3,17 @@ title: Creare un endpoint privato per una connessione protetta
 titleSuffix: Azure Cognitive Search
 description: Configurare un endpoint privato in una rete virtuale per una connessione sicura a un servizio ricerca cognitiva di Azure.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 02/16/2021
+ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779941"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545531"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
 
@@ -21,8 +21,10 @@ In questo articolo si userà il portale di Azure per creare una nuova istanza de
 
 Gli endpoint privati vengono forniti dal [collegamento privato di Azure](../private-link/private-link-overview.md)come servizio separato. Per ulteriori informazioni sui costi, vedere la [pagina](https://azure.microsoft.com/pricing/details/private-link/)relativa ai prezzi.
 
-> [!Important]
-> Il supporto per gli endpoint privati per ricerca cognitiva di Azure può essere configurato usando il portale di Azure o l' [API REST di gestione versione 2020-03-13](/rest/api/searchmanagement/). Quando l'endpoint del servizio è privato, alcune funzionalità del portale sono disabilitate. Sarà possibile visualizzare e gestire le informazioni sul livello di servizio, ma l'accesso al portale per i dati di indicizzazione e i vari componenti del servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza. In alternativa al portale, è possibile usare l' [estensione vs code](https://aka.ms/vscode-search) per interagire con i vari componenti del servizio.
+È possibile creare un endpoint privato nell'portale di Azure, come descritto in questo articolo. In alternativa, è possibile usare l' [API REST di gestione versione 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)o l'interfaccia della riga di comando di [Azure](/cli/azure/search).
+
+> [!NOTE]
+> Quando l'endpoint del servizio è privato, alcune funzionalità del portale sono disabilitate. È possibile visualizzare e gestire le informazioni sul livello di servizio, ma le informazioni relative a indici, indicizzatori e competenze sono nascoste per motivi di sicurezza. In alternativa al portale, è possibile usare l' [estensione vs code](https://aka.ms/vscode-search) per interagire con i vari componenti del servizio.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Perché usare un endpoint privato per l'accesso sicuro?
 
@@ -38,7 +40,7 @@ Gli endpoint privati per il servizio di ricerca consentono di:
 
 In questa sezione si creeranno una rete virtuale e una subnet per ospitare la macchina virtuale che verrà usata per accedere all'endpoint privato del servizio di ricerca.
 
-1. Nella scheda Home portale di Azure selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
+1. Nella scheda Home portale di Azure selezionare **Crea una risorsa**  >    >  **rete rete virtuale**.
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
@@ -47,7 +49,7 @@ In questa sezione si creeranno una rete virtuale e una subnet per ospitare la ma
     | Subscription | Selezionare la propria sottoscrizione|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
     | Nome | Immettere *MyVirtualNetwork* |
-    | Area | Selezionare l'area geografica desiderata |
+    | Region | Selezionare l'area geografica desiderata |
     |||
 
 1. Lasciare le impostazioni predefinite per le altre impostazioni. Fare clic su **Verifica + crea** e quindi su **Crea**

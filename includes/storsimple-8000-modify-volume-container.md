@@ -2,42 +2,42 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71f18cf8448060385ea38be9b2719b1ed545c5d2
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180193"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545419"
 ---
 > [!NOTE] 
 > Non è possibile modificare le impostazioni di crittografia e le credenziali dell'account di archiviazione associate a un contenitore del volume dopo la sua creazione.
 
 #### <a name="to-modify-a-volume-container"></a>Per modificare un contenitore di volumi
 
-1. Passare al servizio Gestione dispositivi StorSimple, quindi a **Gestione > Contenitori dei volumi**.
+1. Passare al servizio StorSimple Gestione dispositivi, quindi passare a **gestione > contenitori del volume**.
 
 2. Nell'elenco tabulare dei contenitori dei volumi selezionare il contenitore da modificare. Nella pagina **Dispositivi** selezionare il dispositivo, fare doppio clic su di esso, quindi fare clic sulla scheda **Contenitori di volumi**.
 
-2. Nell'elenco tabulare dei contenitori dei volumi selezionare il contenitore da modificare. Nel pannello che viene aperto fare clic su **Modifica** sulla barra dei comandi.
+3. Nell'elenco tabulare dei contenitori dei volumi selezionare il contenitore da modificare. Nel pannello che viene aperto fare clic su **Modifica** sulla barra dei comandi.
 
-    ![Modificare il contenitore di volumi](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
+    ![Modificare il contenitore di volumi](./media/storsimple-8000-modify-volume-container/modify-volume-container-01.png)
 
-3. Nella finestra di dialogo **Modifica contenitore di volumi** effettuare le operazioni seguenti:
+4. Nel pannello **modifica contenitore del volume** seguire questa procedura:
    
-   1. Non è possibile modificare il nome, la chiave di crittografia e l'account di archiviazione associati al contenitore di volumi dopo averli specificati. Modificare l'impostazione della larghezza di banda associata.
+   1. Non è possibile modificare il nome, la chiave di crittografia e l'account di archiviazione associati al contenitore di volumi dopo averli specificati. Modificare l'impostazione della larghezza di banda associata.<!--STEPS NEED WORK. Updated screen doesn't show alternative to Unlimited or subsequent steps if they customize bandwidth. Can we talk them through this (briefly)?-->
       
-       ![Modificare l'impostazione della larghezza di banda](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
+       ![Modificare l'impostazione della larghezza di banda](./media/storsimple-8000-modify-volume-container/modify-volume-container-02.png)<!--New graphic based on: modify-volume-container-bw-setting.png-->
 
-   2.  Fare clic su **OK**.
-4. Nella pagina seguente della finestra di dialogo **Modifica contenitore di volumi**:
+   1.  Fare clic su **OK**.<!--If they choose Custom, do they still click OK, or are there more steps?-->
+
+5. Nella pagina seguente della finestra di dialogo **Modifica contenitore di volumi**:<!--This step happens only if they choose Custom bandwidth? Are the steps similar to those in "Add volume container," step 3f, above?"-->
    
    1. Dall'elenco a discesa, selezionare un modello di larghezza di banda disponibile.
-   2. Fare riferimento alle impostazioni di pianificazione per il modello di larghezza di banda specificato.
-   3. Fare clic su **Salva** e confermare le modifiche.
+   1. Fare riferimento alle impostazioni di pianificazione per il modello di larghezza di banda specificato.
+   1. Fare clic su **Salva** e confermare le modifiche.
       
-       ![Confermare le modifiche](./media/storsimple-8000-modify-volume-container/modify-vol-container3.png)
+       ![Confermare le modifiche](./media/storsimple-8000-modify-volume-container/modify-volume-container-03.png)
 
-   3. Il pannello **Contenitori di volumi** viene aggiornato per includere le modifiche apportate.
-
+      Il pannello **Contenitori di volumi** viene aggiornato per includere le modifiche apportate.
