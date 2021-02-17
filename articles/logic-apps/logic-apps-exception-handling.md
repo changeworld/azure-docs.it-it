@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920758"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577957"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -27,7 +27,7 @@ Per la gestione degli errori e delle eccezioni di base, è possibile usare un *c
 
 Ecco i tipi di criteri di ripetizione:
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 |------|-------------|
 | **Default** | Questi criteri inviano fino a quattro richieste di ripetizione a intervalli con *crescita esponenziale* di 7,5 secondi ma con un limite massimo compreso tra 5 e 45 secondi. |
 | **Intervallo esponenziale**  | Questi criteri attendono un intervallo casuale selezionato da un intervallo con crescita esponenziale prima di inviare la richiesta successiva. |
@@ -67,21 +67,21 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 }
 ```
 
-*Richiesto*
+*Obbligatorio*
 
-| Valore | Type | Descrizione |
+| Valore | Tipo | Descrizione |
 |-------|------|-------------|
-| <*tipo di criteri di ripetizione*> | Stringa | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` |
-| <*intervallo tra tentativi*> | Stringa | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. |
+| <*tipo di criteri di ripetizione*> | string | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` |
+| <*intervallo tra tentativi*> | string | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. |
 | <*tentativi-tentativi*> | Integer | Numero di tentativi di ripetizione, che deve essere compresi tra 1 e 90 |
 ||||
 
 *Facoltativo*
 
-| Valore | Type | Descrizione |
+| Valore | Tipo | Descrizione |
 |-------|------|-------------|
-| <*intervallo minimo*> | Stringa | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
-| <*intervallo massimo*> | Stringa | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*intervallo minimo*> | string | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*intervallo massimo*> | string | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 ||||
 
 Di seguito sono riportate altre informazioni sui diversi tipi di criteri.
@@ -112,7 +112,7 @@ Anche se non è espressamente definito nell'azione o nel trigger, qui sotto vien
 }
 ```
 
-### <a name="none"></a>Nessuno
+### <a name="none"></a>nessuno
 
 Per specificare che l'azione o il trigger non ripete richieste con esito negativo, impostare <*retry-policy-type*> su `none`.
 
@@ -362,7 +362,7 @@ Le espressioni descritte in precedenza in questo articolo possono essere usate p
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurare i log di Monitoraggio di Azure
 
-I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni in un'esecuzione, ma è possibile anche identificare e rispondere agli errori indipendentemente dall'esecuzione. [Monitoraggio di Azure](../azure-monitor/overview.md) offre un modo semplice per inviare tutti gli eventi del flusso di lavoro, inclusi tutti gli Stati di esecuzione e azione, a un' [area di lavoro log Analytics](../azure-monitor/platform/data-platform-logs.md), a un [account di archiviazione di Azure](../storage/blobs/storage-blobs-overview.md)o a [Hub eventi di Azure](../event-hubs/event-hubs-about.md).
+I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni in un'esecuzione, ma è possibile anche identificare e rispondere agli errori indipendentemente dall'esecuzione. [Monitoraggio di Azure](../azure-monitor/overview.md) offre un modo semplice per inviare tutti gli eventi del flusso di lavoro, inclusi tutti gli Stati di esecuzione e azione, a un' [area di lavoro log Analytics](../azure-monitor/logs/data-platform-logs.md), a un [account di archiviazione di Azure](../storage/blobs/storage-blobs-overview.md)o a [Hub eventi di Azure](../event-hubs/event-hubs-about.md).
 
 Per valutare gli stati delle esecuzioni è possibile monitorare i log e le metriche o pubblicarli nello strumento di monitoraggio preferito. Una possibile opzione consiste nel trasmettere tutti gli eventi tramite Hub eventi ad [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). In Analisi di flusso è possibile scrivere query dinamiche in base a un'anomalia, una media o un errore dei log di diagnostica. È possibile usare Analisi di flusso per inviare informazioni ad altre origini dati, ad esempio a code, argomenti, SQL, Azure Cosmos DB o Power BI.
 

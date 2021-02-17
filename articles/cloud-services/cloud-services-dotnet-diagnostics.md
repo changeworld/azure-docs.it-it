@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 89ba50b91e8ff2e2d7a05d59f2b738a1f87a5fd2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: e4b5372a2b6e9b833f3a0213d69649b75ae2589b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742149"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578191"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Abilitazione di Diagnostica di Azure nei servizi cloud di Azure (versione classica)
 
@@ -189,13 +189,13 @@ In **Esplora server** di Visual Studio passare all'account di archiviazione di w
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Schema dei file di configurazione
-Il file di configurazione della diagnostica definisce i valori usati per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica. Vedere il [riferimento allo schema più recente](../azure-monitor/platform/diagnostics-extension-versions.md) per i valori validi ed alcuni esempi.
+Il file di configurazione della diagnostica definisce i valori usati per inizializzare le impostazioni di diagnostica quando viene avviato il monitor di diagnostica. Vedere il [riferimento allo schema più recente](../azure-monitor/agents/diagnostics-extension-versions.md) per i valori validi ed alcuni esempi.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-Se si verificano problemi, vedere l'argomento relativo alla [risoluzione dei problemi di Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-troubleshooting.md) per informazioni sui problemi comuni.
+Se si verificano problemi, vedere l'argomento relativo alla [risoluzione dei problemi di Diagnostica di Azure](../azure-monitor/agents/diagnostics-extension-troubleshooting.md) per informazioni sui problemi comuni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Vedere un elenco di articoli correlati sulla diagnostica delle macchine virtuali di Azure](../azure-monitor/platform/diagnostics-extension-overview.md) per modificare i dati raccolti, risolvere i problemi o ottenere altre informazioni sulla diagnostica in generale.
+[Vedere un elenco di articoli correlati sulla diagnostica delle macchine virtuali di Azure](../azure-monitor/agents/diagnostics-extension-overview.md) per modificare i dati raccolti, risolvere i problemi o ottenere altre informazioni sulla diagnostica in generale.
 
 [EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 

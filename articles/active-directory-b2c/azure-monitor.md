@@ -11,21 +11,21 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219231"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572995"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
-Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C (Azure AD B2C) e i log di [controllo](view-audit-logs.md) a diverse soluzioni di monitoraggio. È possibile conservare i log per l'uso a lungo termine o l'integrazione con strumenti di gestione di informazioni ed eventi di sicurezza di terze parti per ottenere informazioni approfondite sull'ambiente.
+Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C (Azure AD B2C) e i log di [controllo](view-audit-logs.md) a diverse soluzioni di monitoraggio. I log possono essere conservati per l'uso a lungo termine o integrati con strumenti di terze parti per informazioni di sicurezza e gestione degli eventi per ottenere informazioni dettagliate sull'ambiente.
 
 È possibile instradare gli eventi del log a:
 
 * Un [account di archiviazione](../storage/blobs/storage-blobs-introduction.md)di Azure.
-* Un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
+* Un' [area di lavoro log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
 * Un [Hub eventi](../event-hubs/event-hubs-about.md) di Azure (e si integrano con le istanze della logica Splunk e Sumo).
 
 ![Monitoraggio di Azure](./media/azure-monitor/azure-monitor-flow.png)
@@ -38,7 +38,7 @@ Questo articolo illustra come trasferire i log in un'area di lavoro di Azure Log
 
 ## <a name="deployment-overview"></a>Panoramica della distribuzione
 
-Azure AD B2C sfrutta [Azure Active Directory il monitoraggio](../active-directory/reports-monitoring/overview-monitoring.md). Per abilitare *le impostazioni di diagnostica* in Azure Active Directory all'interno del tenant di Azure ad B2C, usare [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) per [delegare una risorsa](../lighthouse/concepts/azure-delegated-resource-management.md), che consente al Azure ad B2C ( **provider di servizi**) di gestire una risorsa Azure ad ( **cliente**). Dopo aver completato i passaggi descritti in questo articolo, sarà possibile accedere al gruppo di risorse *Azure-ad-B2C-monitor* che contiene l' [area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md) nel portale di **Azure ad B2C** . Sarà anche possibile trasferire i log da Azure AD B2C nell'area di lavoro Log Analytics.
+Azure AD B2C sfrutta [Azure Active Directory il monitoraggio](../active-directory/reports-monitoring/overview-monitoring.md). Per abilitare *le impostazioni di diagnostica* in Azure Active Directory all'interno del tenant di Azure ad B2C, usare [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) per [delegare una risorsa](../lighthouse/concepts/azure-delegated-resource-management.md), che consente al Azure ad B2C ( **provider di servizi**) di gestire una risorsa Azure ad ( **cliente**). Dopo aver completato i passaggi descritti in questo articolo, sarà possibile accedere al gruppo di risorse *Azure-ad-B2C-monitor* che contiene l' [area di lavoro log Analytics](../azure-monitor/logs/quick-create-workspace.md) nel portale di **Azure ad B2C** . Sarà anche possibile trasferire i log da Azure AD B2C nell'area di lavoro Log Analytics.
 
 Durante questa distribuzione, è necessario autorizzare un utente o un gruppo nella directory Azure AD B2C per configurare l'istanza dell'area di lavoro Log Analytics all'interno del tenant che contiene la sottoscrizione di Azure. Per creare l'autorizzazione, si distribuisce un modello di [Azure Resource Manager](../azure-resource-manager/index.yml) nel tenant di Azure ad che contiene la sottoscrizione.
 
@@ -62,7 +62,7 @@ Un' **area di lavoro log Analytics** è un ambiente univoco per i dati di log di
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il **tenant Azure ad**.
-1. [Creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md). Questo esempio usa un'area di lavoro Log Analytics denominata *AzureAdB2C*, in un gruppo di risorse denominato *Azure-ad-B2C-monitor*.
+1. [Creare un'area di lavoro log Analytics](../azure-monitor/logs/quick-create-workspace.md). Questo esempio usa un'area di lavoro Log Analytics denominata *AzureAdB2C*, in un gruppo di risorse denominato *Azure-ad-B2C-monitor*.
 
 ## <a name="3-delegate-resource-management"></a>3. delegare la gestione delle risorse
 
@@ -144,9 +144,9 @@ Dopo aver distribuito il modello e aver atteso alcuni minuti per il completament
 
 Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le metriche per una risorsa. Le possibili destinazioni sono:
 
-- [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-- Soluzioni di [Hub eventi](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
-- [area di lavoro Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+- [Account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- Soluzioni di [Hub eventi](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
+- [area di lavoro Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 In questo esempio viene usata l'area di lavoro Log Analytics per creare un dashboard.
 
@@ -171,7 +171,7 @@ Per configurare le impostazioni di monitoraggio per i log attività Azure AD B2C
 1. Selezionare **Salva**.
 
 > [!NOTE]
-> Possono essere necessari fino a 15 minuti dopo la creazione di un evento [in un'area di lavoro log Analytics](../azure-monitor/platform/data-ingestion-time.md). Sono inoltre disponibili altre informazioni sulle [latenze per la creazione di report Active Directory](../active-directory/reports-monitoring/reference-reports-latencies.md), che possono influisca sull'obsolescenza dei dati e svolgono un ruolo importante nella creazione di report.
+> Possono essere necessari fino a 15 minuti dopo la creazione di un evento [in un'area di lavoro log Analytics](../azure-monitor/logs/data-ingestion-time.md). Sono inoltre disponibili altre informazioni sulle [latenze per la creazione di report Active Directory](../active-directory/reports-monitoring/reference-reports-latencies.md), che possono influisca sull'obsolescenza dei dati e svolgono un ruolo importante nella creazione di report.
 
 Se viene visualizzato il messaggio di errore "per configurare le impostazioni di diagnostica per usare monitoraggio di Azure per la directory Azure AD B2C, è necessario configurare la gestione delle risorse delegata", assicurarsi di accedere con un utente membro del gruppo di [sicurezza](#32-select-a-security-group) e [selezionare la sottoscrizione](#4-select-your-subscription).
 
@@ -181,7 +181,7 @@ A questo punto è possibile configurare l'area di lavoro di Log Analytics per vi
 
 ### <a name="61-create-a-query"></a>6,1 creare una query
 
-Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei log di Monitoraggio di Azure. Un linguaggio di query avanzato consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. È possibile rispondere a qualsiasi domanda ed eseguire l'analisi fino a quando i dati di supporto sono stati raccolti e si comprende come costruire la query corretta. Per altre informazioni, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md).
+Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei log di Monitoraggio di Azure. Un linguaggio di query avanzato consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. È possibile rispondere a qualsiasi domanda ed eseguire l'analisi fino a quando i dati di supporto sono stati raccolti e si comprende come costruire la query corretta. Per altre informazioni, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md).
 
 1. Dall' **area di lavoro log Analytics** selezionare **log**
 1. Nell'editor di query incollare la query del [linguaggio di query kusto](/azure/data-explorer/kusto/query/) seguente. Questa query Mostra l'utilizzo dei criteri per operazione negli ultimi x giorni. La durata predefinita è impostata su 90 giorni (90D). Si noti che la query si concentra solo sull'operazione in cui un token/codice viene emesso dal criterio.
@@ -228,7 +228,7 @@ Per altri esempi, vedere il [repository GitHub Azure ad B2C Siem](https://aka.ms
 
 ### <a name="62-create-a-workbook"></a>6,2 creare una cartella di lavoro
 
-Le cartelle di lavoro offrono un canvas flessibile per l'analisi dei dati e la creazione di report visivi avanzati nel portale di Azure. Consentono di sfruttare più origini dati in tutto Azure e di combinarle in esperienze interattive unificate. Per altre informazioni, vedere [cartelle di lavoro di monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md).
+Le cartelle di lavoro offrono un canvas flessibile per l'analisi dei dati e la creazione di report visivi avanzati nel portale di Azure. Consentono di sfruttare più origini dati in tutto Azure e di combinarle in esperienze interattive unificate. Per altre informazioni, vedere [cartelle di lavoro di monitoraggio di Azure](../azure-monitor/visualize/workbooks-overview.md).
 
 Seguire le istruzioni riportate di seguito per creare una nuova cartella di lavoro usando un modello di raccolta JSON. Questa cartella di lavoro fornisce un dashboard **User Insights** e **Authentication** per Azure ad B2C tenant.
 
@@ -259,10 +259,10 @@ Nella cartella di lavoro vengono visualizzati i report sotto forma di dashboard.
 
 ## <a name="create-alerts"></a>Creare avvisi
 
-Gli avvisi vengono creati tramite le regole di avviso in Monitoraggio di Azure e possono eseguire automaticamente query salvate o ricerche personalizzate nei log a intervalli regolari. È possibile creare avvisi in base a metriche di prestazioni specifiche o quando vengono creati determinati eventi, in assenza di un evento o per un numero di eventi creati all'interno di un intervallo di tempo specifico. Ad esempio, è possibile usare gli avvisi per ricevere una notifica quando il numero medio di accesso supera una determinata soglia. Per altre informazioni, vedere [Creare avvisi](../azure-monitor/learn/tutorial-response.md).
+Gli avvisi vengono creati tramite le regole di avviso in Monitoraggio di Azure e possono eseguire automaticamente query salvate o ricerche personalizzate nei log a intervalli regolari. È possibile creare avvisi in base a metriche di prestazioni specifiche o quando vengono creati determinati eventi, in assenza di un evento o per un numero di eventi creati all'interno di un intervallo di tempo specifico. Ad esempio, è possibile usare gli avvisi per ricevere una notifica quando il numero medio di accesso supera una determinata soglia. Per altre informazioni, vedere [Creare avvisi](../azure-monitor/alerts/tutorial-response.md).
 
 
-Usare le istruzioni seguenti per creare un nuovo avviso di Azure, che invierà una [notifica tramite posta elettronica](../azure-monitor/platform/action-groups.md#configure-notifications) ogni volta che si verifica un calo del 25% nel **totale delle richieste** rispetto al periodo precedente. L'avviso viene eseguito ogni 5 minuti e cerca il calo nelle ultime 24 ore di Windows. Gli avvisi vengono creati utilizzando il linguaggio di query kusto.
+Usare le istruzioni seguenti per creare un nuovo avviso di Azure, che invierà una [notifica tramite posta elettronica](../azure-monitor/alerts/action-groups.md#configure-notifications) ogni volta che si verifica un calo del 25% nel **totale delle richieste** rispetto al periodo precedente. L'avviso viene eseguito ogni 5 minuti e cerca il calo nelle ultime 24 ore di Windows. Gli avvisi vengono creati utilizzando il linguaggio di query kusto.
 
 
 1. Dall' **area di lavoro log Analytics** selezionare **log**. 
@@ -296,7 +296,7 @@ Dopo la creazione dell'avviso, passare all' **area di lavoro log Analytics** e s
 
 ### <a name="configure-action-groups"></a>Configurare i gruppi di azioni
 
-Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. È possibile includere l'invio di una chiamata vocale, un SMS, un messaggio di posta elettronica; o attivazione di diversi tipi di azioni automatiche. Seguire le linee guida [per creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md)
+Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. È possibile includere l'invio di una chiamata vocale, un SMS, un messaggio di posta elettronica; o attivazione di diversi tipi di azioni automatiche. Seguire le linee guida [per creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/alerts/action-groups.md)
 
 Di seguito è riportato un esempio di messaggio di posta elettronica di notifica di avviso. 
 
@@ -306,7 +306,7 @@ Di seguito è riportato un esempio di messaggio di posta elettronica di notifica
 
 Per caricare più log del tenant di Azure AD B2C nella stessa area di lavoro Log Analytics (o nell'account di archiviazione di Azure o nell'hub eventi), è necessario disporre di distribuzioni separate con valori di **nome dell'offerta msp** diversi. Assicurarsi che l'area di lavoro di Log Analytics si trovi nello stesso gruppo di risorse in cui è stato configurato in [creare o scegliere un gruppo di risorse](#1-create-or-choose-resource-group).
 
-Quando si utilizzano più aree di lavoro Log Analytics, utilizzare la [query tra aree](../azure-monitor/log-query/cross-workspace-query.md) di lavoro per creare query che funzionano in più aree di lavoro. Ad esempio, la query seguente esegue un join di due log di controllo da tenant diversi in base alla stessa categoria (ad esempio, l'autenticazione):
+Quando si utilizzano più aree di lavoro Log Analytics, utilizzare la [query tra aree](../azure-monitor/logs/cross-workspace-query.md) di lavoro per creare query che funzionano in più aree di lavoro. Ad esempio, la query seguente esegue un join di due log di controllo da tenant diversi in base alla stessa categoria (ad esempio, l'autenticazione):
 
 ```kusto
 workspace("AD-B2C-TENANT1").AuditLogs
@@ -316,12 +316,12 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## <a name="change-the-data-retention-period"></a>Cambiare il periodo di conservazione dei dati
 
-I log di monitoraggio di Azure sono progettati per scalare e supportare la raccolta, l'indicizzazione e l'archiviazione di grandi quantità di dati al giorno da qualsiasi origine nell'azienda o distribuita in Azure. Per impostazione predefinita, i log vengono conservati per 30 giorni, ma la durata della conservazione può essere aumentata fino a due anni. Informazioni su come [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](../azure-monitor/platform/manage-cost-storage.md). Dopo aver selezionato il piano tariffario, è possibile [modificare il periodo di conservazione dei dati](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period).
+I log di monitoraggio di Azure sono progettati per scalare e supportare la raccolta, l'indicizzazione e l'archiviazione di grandi quantità di dati al giorno da qualsiasi origine nell'azienda o distribuita in Azure. Per impostazione predefinita, i log vengono conservati per 30 giorni, ma la durata della conservazione può essere aumentata fino a due anni. Informazioni su come [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](../azure-monitor/logs/manage-cost-storage.md). Dopo aver selezionato il piano tariffario, è possibile [modificare il periodo di conservazione dei dati](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altri esempi sono disponibili nella [raccolta Azure ad B2C Siem](https://aka.ms/b2csiem). 
 
-* Per altre informazioni sull'aggiunta e la configurazione delle impostazioni di diagnostica in monitoraggio di Azure, vedere [esercitazione: raccogliere e analizzare i log delle risorse da una risorsa di Azure](../azure-monitor/insights/monitor-azure-resource.md).
+* Per altre informazioni sull'aggiunta e la configurazione delle impostazioni di diagnostica in monitoraggio di Azure, vedere [esercitazione: raccogliere e analizzare i log delle risorse da una risorsa di Azure](../azure-monitor/essentials/monitor-azure-resource.md).
 
 * Per informazioni sul flusso di log Azure AD a un hub eventi, vedere [esercitazione: trasmettere i log di Azure Active Directory a un hub eventi di Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

@@ -16,16 +16,16 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8e6c13600cb5940351d31b54af403584cc68a5f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515649"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577849"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
-Per impostazione predefinita, gli amministratori globali e gli amministratori utenti possono creare e gestire tutti gli aspetti della gestione dei diritti Azure AD. Tuttavia, gli utenti di questi ruoli potrebbero non essere a conoscenza di tutte le situazioni in cui sono necessari i pacchetti di accesso. Si tratta in genere di utenti all'interno dei rispettivi reparti, team o progetti che conoscono la collaborazione con, usando le risorse e per quanto tempo. Anziché concedere autorizzazioni senza restrizioni a utenti non amministratori, è possibile concedere agli utenti le autorizzazioni minime necessarie per eseguire il proprio lavoro ed evitare la creazione di diritti di accesso in conflitto o non appropriati.
+Per impostazione predefinita, gli amministratori globali e gli amministratori utenti possono creare e gestire tutti gli aspetti della gestione dei diritti Azure AD. Tuttavia, gli utenti di questi ruoli potrebbero non essere a conoscenza di tutte le situazioni in cui sono necessari i pacchetti di accesso. In genere si tratta di utenti all'interno dei rispettivi reparti, team o progetti che sanno chi collaborano, usando quali risorse e per quanto tempo. Anziché concedere autorizzazioni senza restrizioni a utenti non amministratori, è possibile concedere agli utenti le autorizzazioni minime necessarie per svolgere il proprio lavoro ed evitare la creazione di diritti di accesso in conflitto o non appropriati.
 
 In questo video viene fornita una panoramica su come delegare la governance di accesso dall'amministratore IT agli utenti che non sono amministratori.
 
@@ -39,7 +39,7 @@ Per comprendere come è possibile delegare la governance di accesso alla gestion
 
 In qualità di amministratore IT, Hana ha contattato in ogni reparto, ovvero la muratura in marketing, Mark in Finance e Joe in Legal, responsabile delle risorse del reparto e dei contenuti aziendali critici.
 
-Con la gestione dei diritti, è possibile delegare la governance di accesso a questi non amministratori perché sono quelli che conoscono quali utenti devono accedere, per quanto tempo e per quali risorse. In questo modo si garantisce che gli utenti giusti gestiscano l'accesso ai propri reparti.
+Con la gestione dei diritti, è possibile delegare la governance di accesso a questi non amministratori perché sono quelli che conoscono quali utenti devono accedere, per quanto tempo e per quali risorse. La delega a utenti non amministratori garantisce che le persone corrette gestiscano l'accesso ai propri reparti.
 
 Ecco un modo in cui Hana può delegare la governance degli accessi ai reparti marketing, finanza e legale.
 
@@ -47,15 +47,13 @@ Ecco un modo in cui Hana può delegare la governance degli accessi ai reparti ma
 
 1. Hana aggiunge tale gruppo al ruolo creatori del catalogo.
 
-    È ora possibile creare cataloghi per i reparti, aggiungere le risorse necessarie ai propri reparti ed eseguire ulteriori deleghe all'interno del catalogo.
-
-    Si noti che non è possibile visualizzare i cataloghi di tutti gli altri.
+    È ora possibile creare cataloghi per i reparti, aggiungere le risorse necessarie ai propri reparti ed eseguire ulteriori deleghe all'interno del catalogo. Non possono vedere i cataloghi reciproci.
 
 1. Per creare un catalogo **Marketing** , che è un contenitore di risorse,
 
 1. Con la proprietà del reparto marketing è possibile aggiungere le risorse a questo catalogo.
 
-1. È possibile aggiungere altri utenti del reparto come proprietari del catalogo per questo catalogo. Ciò consente di condividere le responsabilità di gestione del catalogo.
+1. È possibile aggiungere altri utenti del reparto come proprietari del catalogo per questo catalogo, che consente di condividere le responsabilità di gestione del catalogo.
 
 1. È possibile delegare ulteriormente la creazione e la gestione dei pacchetti di accesso nel catalogo marketing ai Project Manager del reparto marketing. A tale scopo, è possibile assegnarli al ruolo Gestione pacchetti di accesso. Una gestione pacchetti di accesso può creare e gestire i pacchetti di accesso. 
 
@@ -79,11 +77,11 @@ La gestione dei diritti ha i seguenti ruoli specifici per la gestione dei diritt
 | Ruolo di gestione dei diritti | Descrizione |
 | --- | --- |
 | Creatore del catalogo | Creare e gestire cataloghi. In genere un amministratore IT che non è un amministratore globale o un proprietario di risorse per una raccolta di risorse. La persona che crea un catalogo diventa automaticamente il primo proprietario del catalogo e può aggiungere altri proprietari del catalogo. Un autore del catalogo non può gestire o vedere cataloghi di cui non è proprietario e non può aggiungere risorse di cui non è proprietario per un catalogo. Se l'autore del catalogo deve gestire un altro catalogo o aggiungere risorse di cui non è proprietario, può richiedere di essere un comproprietario di tale catalogo o risorsa. |
-| Proprietario Catalogo | Modificare e gestire cataloghi esistenti. In genere un amministratore IT o proprietari di risorse oppure un utente designato dal proprietario del catalogo. |
+| Proprietario Catalogo | Modificare e gestire cataloghi esistenti. In genere un amministratore IT o proprietari di risorse oppure un utente scelto dal proprietario del catalogo. |
 | Gestione pacchetti di Access | Modificare e gestire tutti i pacchetti di accesso esistenti all'interno di un catalogo. |
 | Gestione assegnazione pacchetti di Access | Modificare e gestire tutte le assegnazioni dei pacchetti di accesso esistenti. |
 
-Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto di accesso dispongono anche di diritti, anche se non sono ruoli.
+Inoltre, il responsabile approvazione scelto e un richiedente di un pacchetto di accesso dispongono dei diritti, anche se non sono ruoli.
 
 | Destra | Descrizione |
 | --- | --- |
@@ -118,7 +116,7 @@ Nella tabella seguente sono elencate le attività che i ruoli di gestione dei di
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Ruoli necessari per aggiungere risorse a un catalogo
 
-Un amministratore globale può aggiungere o rimuovere qualsiasi gruppo (gruppi di sicurezza creati dal cloud o gruppi di Microsoft 365 creati dal cloud), un'applicazione o un sito di SharePoint online in un catalogo. Un amministratore utente può aggiungere o rimuovere qualsiasi gruppo o applicazione in un catalogo, ad eccezione di un gruppo configurato come assegnabile a un ruolo della directory. Si noti che un amministratore utente può gestire i pacchetti di accesso in un catalogo che include i gruppi configurati come assegnabili a un ruolo della directory.
+Un amministratore globale può aggiungere o rimuovere qualsiasi gruppo (gruppi di sicurezza creati dal cloud o gruppi di Microsoft 365 creati dal cloud), un'applicazione o un sito di SharePoint online in un catalogo. Un amministratore utente può aggiungere o rimuovere qualsiasi gruppo o applicazione in un catalogo, ad eccezione di un gruppo configurato come assegnabile a un ruolo della directory. Si noti che un amministratore utente può gestire i pacchetti di accesso in un catalogo che include i gruppi configurati come assegnabili a un ruolo della directory.  Per ulteriori informazioni sui gruppi assegnabili ai ruoli, fare riferimento [a creare un gruppo assegnabile al ruolo in Azure Active Directory](../roles/groups-create-eligible.md).
 
 Per un utente che non è un amministratore globale o un amministratore di utenti, per aggiungere gruppi, applicazioni o siti di SharePoint Online a un catalogo, tale utente deve avere *sia* il ruolo della directory Azure ad necessario che il ruolo di gestione dei diritti del proprietario del catalogo. Nella tabella seguente sono elencate le combinazioni di ruoli necessarie per aggiungere risorse a un catalogo. Per rimuovere le risorse da un catalogo, è necessario avere gli stessi ruoli.
 

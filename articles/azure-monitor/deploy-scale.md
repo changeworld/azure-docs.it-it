@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f06ed85e362f15e36e030cd11639d9d17348e938
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993254"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573607"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuire monitoraggio di Azure su larga scala usando criteri di Azure
 Mentre alcune funzionalità di monitoraggio di Azure sono configurate una volta o un numero limitato di volte, altre devono essere ripetute per ogni risorsa che si vuole monitorare. Questo articolo descrive i metodi per l'uso di criteri di Azure per implementare monitoraggio di Azure su larga scala per garantire che il monitoraggio sia configurato in modo coerente e accurato per tutte le risorse di Azure.
@@ -33,19 +33,19 @@ Criteri di Azure è costituito dagli oggetti nella tabella seguente. Per una spi
 | Assegnazione | Una definizione o un'iniziativa di criteri non diventa effettiva fino a quando non viene assegnata a un ambito. Ad esempio, assegnare un criterio a un gruppo di risorse per applicarlo a tutte le risorse create in tale risorsa o applicarlo a una sottoscrizione per applicarlo a tutte le risorse nella sottoscrizione.  Per altri dettagli, vedere [struttura di assegnazione dei criteri di Azure](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definizioni di criteri predefiniti per Monitoraggio di Azure
-Criteri di Azure include diverse definizioni predefinite correlate a monitoraggio di Azure. È possibile assegnare queste definizioni dei criteri alla sottoscrizione esistente o utilizzarle come base per creare definizioni personalizzate. Per un elenco completo delle politiche incorporate nella categoria **monitoraggio** , vedere [definizioni dei criteri predefiniti di criteri di Azure per monitoraggio di Azure](./samples/policy-reference.md).
+Criteri di Azure include diverse definizioni predefinite correlate a monitoraggio di Azure. È possibile assegnare queste definizioni dei criteri alla sottoscrizione esistente o utilizzarle come base per creare definizioni personalizzate. Per un elenco completo delle politiche incorporate nella categoria **monitoraggio** , vedere [definizioni dei criteri predefiniti di criteri di Azure per monitoraggio di Azure](.//policy-reference.md).
 
 Per visualizzare le definizioni dei criteri predefinite correlate al monitoraggio, eseguire le operazioni seguenti:
 
 1. Passare a **criteri di Azure** nella portale di Azure.
-2. Selezionare le **definizioni**.
-3. Per **tipo**selezionare *predefinito* e per **categoria**, selezionare *monitoraggio*.
+2. Selezionare **Definizioni**.
+3. Per **tipo** selezionare *predefinito* e per **categoria**, selezionare *monitoraggio*.
 
   ![Screenshot della pagina definizioni di criteri di Azure in portale di Azure che mostra un elenco di definizioni dei criteri per la categoria di monitoraggio e il tipo predefinito.](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>Impostazioni di diagnostica
-[Le impostazioni di diagnostica](platform/diagnostic-settings.md) raccolgono i log delle risorse e le metriche dalle risorse di Azure a più posizioni, in genere in un'area di lavoro log Analytics che consente di analizzare i dati con le [query di log](log-query/log-query-overview.md) e gli [avvisi del log](platform/alerts-log.md). Usare i criteri per creare automaticamente un'impostazione di diagnostica ogni volta che si crea una risorsa.
+[Le impostazioni di diagnostica](essentials/diagnostic-settings.md) raccolgono i log delle risorse e le metriche dalle risorse di Azure a più posizioni, in genere in un'area di lavoro log Analytics che consente di analizzare i dati con le [query di log](logs/log-query-overview.md) e gli [avvisi del log](alerts/alerts-log.md). Usare i criteri per creare automaticamente un'impostazione di diagnostica ogni volta che si crea una risorsa.
 
 Ogni tipo di risorsa di Azure dispone di un set univoco di categorie che devono essere elencate nell'impostazione di diagnostica. Per questo motivo, per ogni tipo di risorsa è necessaria una definizione di criteri separata. Alcuni tipi di risorse dispongono di definizioni di criteri predefinite che è possibile assegnare senza modifiche. Per altri tipi di risorse, è necessario creare una definizione personalizzata.
 
@@ -122,7 +122,7 @@ L'iniziativa verrà applicata a ogni macchina virtuale creata. Un' [attività di
 
 
 ## <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
-[Monitoraggio di Azure per le macchine virtuali](insights/vminsights-overview.md) è lo strumento principale di monitoraggio di Azure per il monitoraggio delle macchine virtuali. L'abilitazione di Monitoraggio di Azure per le macchine virtuali installa sia l'agente Log Analytics che Dependency Agent. Anziché eseguire manualmente queste attività, usare criteri di Azure per assicurarsi che ogni macchina virtuale sia configurata durante la creazione.
+[Monitoraggio di Azure per le macchine virtuali](vm/vminsights-overview.md) è lo strumento principale di monitoraggio di Azure per il monitoraggio delle macchine virtuali. L'abilitazione di Monitoraggio di Azure per le macchine virtuali installa sia l'agente Log Analytics che Dependency Agent. Anziché eseguire manualmente queste attività, usare criteri di Azure per assicurarsi che ogni macchina virtuale sia configurata durante la creazione.
 
 > [!NOTE]
 > Monitoraggio di Azure per le macchine virtuali include una funzionalità denominata **monitoraggio di Azure per le macchine virtuali copertura dei criteri** che consente di individuare e correggere le macchine virtuali non conformi nell'ambiente in uso. È possibile usare questa funzionalità piuttosto che lavorare direttamente con criteri di Azure per le macchine virtuali di Azure e per le macchine virtuali ibride connesse ad Azure Arc. Per i set di scalabilità di macchine virtuali di Azure, è necessario creare l'assegnazione usando criteri di Azure.
@@ -139,7 +139,7 @@ Monitoraggio di Azure per le macchine virtuali include le seguenti iniziative pr
 ### <a name="virtual-machines"></a>Macchine virtuali
 Anziché creare assegnazioni per queste iniziative usando l'interfaccia di criteri di Azure, Monitoraggio di Azure per le macchine virtuali include una funzionalità che consente di controllare il numero di macchine virtuali in ogni ambito per determinare se l'iniziativa è stata applicata. È quindi possibile configurare l'area di lavoro e creare le assegnazioni richieste usando tale interfaccia.
 
-Per informazioni dettagliate su questo processo, vedere [abilitare monitoraggio di Azure per le macchine virtuali usando criteri di Azure](./insights/vminsights-enable-policy.md).
+Per informazioni dettagliate su questo processo, vedere [abilitare monitoraggio di Azure per le macchine virtuali usando criteri di Azure](./vm/vminsights-enable-policy.md).
 
 ![Criteri di Monitoraggio di Azure per le macchine virtuali](media/deploy-scale/vminsights-policy.png)
 
@@ -148,7 +148,7 @@ Per usare criteri di Azure per abilitare il monitoraggio per i set di scalabilit
 
 ![Screenshot della pagina Assign Initiative in portale di Azure. La definizione Initiative è impostata per abilitare monitoraggio di Azure per i set di scalabilità di macchine virtuali.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Selezionare l'area di lavoro a cui verranno inviati i dati. Per questa area di lavoro deve essere installata la soluzione *VMInsights* come descritto in []() .
+Selezionare l'area di lavoro a cui verranno inviati i dati. Per questa area di lavoro deve essere installata la soluzione *VMInsights* come descritto in [configurare l'area di lavoro log Analytics per monitoraggio di Azure per le macchine virtuali](vm/vminsights-configure-workspace.md).
 
 ![Selezionare l'area di lavoro](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -166,8 +166,8 @@ Potrebbero esistere scenari in cui si vuole installare l'agente di Log Analytics
 |Nome |Descrizione |
 |-----|------------|
 |Controllare la distribuzione dell'agente Log Analytics-immagine di macchina virtuale (sistema operativo) non in elenco |Segnala le macchine virtuali come non conformi se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |
-|Distribuire Log Analytics Agent per macchine virtuali Linux |Distribuire Log Analytics Agent per VM Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |
-|Distribuire Log Analytics Agent per macchine virtuali Windows |Distribuire Log Analytics Agent per VM Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |
+|Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Distribuire Log Analytics Agent per VM Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |
+|Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Distribuire Log Analytics Agent per VM Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |
 | [Anteprima]: l'agente di Log Analytics deve essere installato nei computer Azure Arc Linux |Segnala i computer Azure Arc ibridi come non conformi per le VM Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |
 | [Anteprima]: l'agente di Log Analytics deve essere installato nei computer Windows Azure Arc |Segnala i computer Azure Arc ibridi come non conformi per le macchine virtuali Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |
 | [Anteprima]: distribuire Log Analytics Agent in computer Azure Arc Linux |Distribuire Log Analytics Agent per i computer ibridi di Azure Azure se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |
@@ -181,4 +181,4 @@ Potrebbero esistere scenari in cui si vuole installare l'agente di Log Analytics
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri di più su [criteri di Azure](../governance/policy/overview.md).
-- Altre informazioni sulle [impostazioni di diagnostica](platform/diagnostic-settings.md).
+- Altre informazioni sulle [impostazioni di diagnostica](essentials/diagnostic-settings.md).

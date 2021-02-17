@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184543"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577879"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Abilitare la registrazione delle risorse in gestione traffico di Azure
 
@@ -64,7 +64,7 @@ I log delle risorse di gestione traffico di Azure possono fornire informazioni s
 
 ## <a name="traffic-manager-log-schema"></a>Schema dei log di Gestione traffico
 
-Tutti i log delle risorse disponibili tramite monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità che consente a ogni servizio di emettere proprietà univoche per gli eventi. Per lo schema dei log delle risorse di livello superiore, vedere [servizi, schemi e categorie supportati per i log delle risorse di Azure](../azure-monitor/platform/resource-logs-schema.md).
+Tutti i log delle risorse disponibili tramite monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità che consente a ogni servizio di emettere proprietà univoche per gli eventi. Per lo schema dei log delle risorse di livello superiore, vedere [servizi, schemi e categorie supportati per i log delle risorse di Azure](../azure-monitor/essentials/resource-logs-schema.md).
 
 La tabella seguente include lo schema dei log specifico della risorsa del profilo di Gestione traffico di Azure.
 

@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577860"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Log di archiviazione e creazione di report su gestione entitlement di Azure AD in Monitoraggio di Azure
 
@@ -59,7 +59,7 @@ Per archiviare i log di controllo di Azure AD è necessario disporre di Monitora
 
 ## <a name="view-events-for-an-access-package"></a>Visualizzare gli eventi per un pacchetto di accesso  
 
-Per visualizzare gli eventi per un pacchetto di accesso, è necessario disporre dell'accesso all'area di lavoro Monitoraggio di Azure sottostante (vedere [Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) per informazioni) e in uno dei ruoli seguenti: 
+Per visualizzare gli eventi per un pacchetto di accesso, è necessario disporre dell'accesso all'area di lavoro Monitoraggio di Azure sottostante (vedere [Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) per informazioni) e in uno dei ruoli seguenti: 
 
 - Amministratore globale  
 - Amministratore della sicurezza  
@@ -189,4 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi:
-- [Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md)
+- [Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/visualize/workbooks-overview.md)

@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5de795811923c965a1473f8d91e3fd654aeef266
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309925"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574551"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Visualizzare e creare query per il monitoraggio e il rilevamento nei log di monitoraggio di Azure per app per la logica di Azure
 
-È possibile visualizzare le query sottostanti che producono i risultati dei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) e creare query che filtrano i risultati in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico. Le query usano il [linguaggio di query kusto](/azure/data-explorer/kusto/query/), che è possibile modificare se si desidera visualizzare risultati diversi. Per altre informazioni, vedere [query di log di monitoraggio di Azure](/azure/data-explorer/kusto/query/).
+È possibile visualizzare le query sottostanti che producono i risultati dei [log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md) e creare query che filtrano i risultati in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico. Le query usano il [linguaggio di query kusto](/azure/data-explorer/kusto/query/), che è possibile modificare se si desidera visualizzare risultati diversi. Per altre informazioni, vedere [query di log di monitoraggio di Azure](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Un'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 * Un'app per la logica configurata con la registrazione di monitoraggio di Azure e invia tali informazioni a un'area di lavoro Log Analytics. Informazioni su [come configurare i log di monitoraggio di Azure per l'app per la logica](../logic-apps/monitor-logic-apps.md).
 
@@ -45,15 +45,15 @@ Per visualizzare o modificare la query che produce i risultati nel riepilogo del
 
 ## <a name="create-your-own-query"></a>Creare una query personalizzata
 
-Per trovare o filtrare i risultati in base a proprietà o valori specifici, è possibile creare una query personalizzata iniziando da una query vuota o utilizzando una query esistente. Per altre informazioni, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md).
+Per trovare o filtrare i risultati in base a proprietà o valori specifici, è possibile creare una query personalizzata iniziando da una query vuota o utilizzando una query esistente. Per altre informazioni, vedere [Introduzione alle query di log in monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md).
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare l'area di lavoro log Analytics.
 
-1. Nel menu dell'area di lavoro in **generale**selezionare **log**.
+1. Nel menu dell'area di lavoro in **generale** selezionare **log**.
 
 1. Iniziare da una query vuota o da eventuali query esistenti disponibili.
 
-   * Per verificare se sono disponibili query esistenti, sulla barra degli strumenti query, selezionare **esempi**  >  di**cronologia**delle query, che mostra le query delle esecuzioni precedenti della query, oppure selezionare **Esplora query**, che mostra le query predefinite.
+   * Per verificare se sono disponibili query esistenti, sulla barra degli strumenti query, selezionare **esempi**  >  di **cronologia** delle query, che mostra le query delle esecuzioni precedenti della query, oppure selezionare **Esplora query**, che mostra le query predefinite.
 
      Ad esempio, la soluzione App per la logica B2B fornisce le query predefinite seguenti:
 

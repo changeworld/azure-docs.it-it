@@ -3,12 +3,12 @@ title: Indirizzi IP usati da monitoraggio di Azure
 description: Eccezioni del firewall del server necessarie per Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 72f825630ec94b5c32a949a4395c431318afa87f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220803"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584139"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Indirizzi IP usati da monitoraggio di Azure
 [Monitoraggio di Azure](../overview.md) usa diversi indirizzi IP. Monitoraggio di Azure è costituito da metriche e log principali della piattaforma, oltre che da Log Analytics e Application Insights. Potrebbe essere necessario conoscerli se l'app o l'infrastruttura monitorata è ospitata dietro un firewall.
@@ -254,21 +254,21 @@ La gestione delle modifiche agli indirizzi IP di origine può richiedere molto t
    1. Aggiungere il nome del gruppo di risorse e quindi immettere i *Dettagli dell'istanza*.
    1. Fare clic su **Verifica + crea** e quindi su *Crea*.
    
-   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Esempio su come creare un gruppo di sicurezza di rete."border="true":::
+   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="Esempio su come creare un gruppo di sicurezza di rete."border="true":::
 
 3. Passare a gruppo di risorse e quindi fare clic sul *gruppo di sicurezza di rete* creato.
 
     1. Selezionare *regole di sicurezza in ingresso*.
     1. Fare clic su **Aggiungi**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
 
 4. Nel riquadro destro viene aperta una nuova finestra.
     1.  Seleziona origine: **tag servizio**
     1.  Tag del servizio di origine: **ActionGroup**
     1.  Fare clic su **Aggiungi**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
 
 
 ## <a name="profiler"></a>Profiler

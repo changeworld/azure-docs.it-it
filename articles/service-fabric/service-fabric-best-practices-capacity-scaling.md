@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784681"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595075"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
@@ -26,7 +26,7 @@ Con il ridimensionamento automatico tramite i set di scalabilità di macchine vi
 
 * La distribuzione di modelli di Resource Manager con un'opportuna capacità dichiarata non è adatta al proprio caso.
      
-   Oltre al ridimensionamento manuale, è possibile configurare una [pipeline di integrazione e recapito continua in Azure DevOps Services usando i progetti di distribuzione del gruppo di risorse di Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Questa pipeline viene in genere attivata da un'app per la logica che usa le metriche delle prestazioni delle macchine virtuali sottoposte a query dall' [API REST di monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md). La pipeline viene ridimensionata in modo efficiente in base alle metriche desiderate, ottimizzando al contempo i modelli Gestione risorse.
+   Oltre al ridimensionamento manuale, è possibile configurare una [pipeline di integrazione e recapito continua in Azure DevOps Services usando i progetti di distribuzione del gruppo di risorse di Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Questa pipeline viene in genere attivata da un'app per la logica che usa le metriche delle prestazioni delle macchine virtuali sottoposte a query dall' [API REST di monitoraggio di Azure](../azure-monitor/essentials/rest-api-walkthrough.md). La pipeline viene ridimensionata in modo efficiente in base alle metriche desiderate, ottimizzando al contempo i modelli Gestione risorse.
 * È necessario ridimensionare orizzontalmente un solo nodo del set di scalabilità di macchine virtuali alla volta.
    
    Per applicare la scalabilità orizzontale di tre o più nodi alla volta, è consigliabile [scalare in orizzontale un cluster Service Fabric aggiungendo un set di scalabilità di macchine virtuali](virtual-machine-scale-set-scale-node-type-scale-out.md). È più sicuro ridimensionare orizzontalmente e scalare orizzontalmente i set di scalabilità di macchine virtuali, un nodo alla volta.

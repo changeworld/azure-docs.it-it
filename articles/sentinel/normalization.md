@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 35b3f4fe5703e9ce902553f992dfa44cea7db78f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390811"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570457"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizzazione in Sentinel di Azure
 
@@ -147,7 +147,7 @@ Una volta modificata la funzione, fare di nuovo clic su "Salva" e utilizzare lo 
 
 JSON, XML e CSV sono particolarmente utili per l'analisi in fase di query. Azure Sentinel include funzioni di analisi predefinite per JSON, XML e CSV, oltre a uno strumento di analisi JSON.  Per altre informazioni, vedere [uso dei campi JSON in Sentinel di Azure](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (Blog). 
 
-Altre informazioni sulle [query salvate](../azure-monitor/log-query/example-queries.md) , ovvero l'implementazione dei parser in fase di query, sono disponibili in log Analytics.
+Altre informazioni sulle [query salvate](../azure-monitor/logs/example-queries.md) , ovvero l'implementazione dei parser in fase di query, sono disponibili in log Analytics.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

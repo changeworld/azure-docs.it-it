@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367674"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571351"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Risolvere i problemi di monitoraggio di Azure per desktop virtuale Windows (anteprima)
 
@@ -26,9 +26,9 @@ Se la cartella di lavoro di configurazione non funziona correttamente per automa
 
 - Per abilitare manualmente la diagnostica o accedere all'area di lavoro Log Analytics, vedere [inviare diagnostica desktop virtuali Windows a log Analytics](diagnostics-log-analytics.md).
 - Per installare manualmente l'estensione Log Analytics in un host, vedere [log Analytics estensione macchina virtuale per Windows](../virtual-machines/extensions/oms-windows.md).
-- Per configurare una nuova area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
-- Per aggiungere o rimuovere i contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/platform/data-sources-performance-counters.md).
-- Per configurare gli eventi per un'area di lavoro Log Analytics, vedere [raccogliere origini dati del registro eventi di Windows con log Analytics Agent](../azure-monitor/platform/data-sources-windows-events.md).
+- Per configurare una nuova area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/logs/quick-create-workspace.md).
+- Per aggiungere o rimuovere i contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/agents/data-sources-performance-counters.md).
+- Per configurare gli eventi per un'area di lavoro Log Analytics, vedere [raccogliere origini dati del registro eventi di Windows con log Analytics Agent](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="my-data-isnt-displaying-properly"></a>I dati non vengono visualizzati correttamente
 
@@ -44,7 +44,7 @@ Se i dati non vengono visualizzati correttamente, controllare la configurazione,
 
 - Potrebbe essere necessario aprire le porte in uscita nel firewall del server per consentire a monitoraggio di Azure di inviare dati al portale. vedere [porte in uscita](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
 
-- Non vengono visualizzati dati dalle attività recenti? Potrebbe essere necessario attendere 15 minuti e aggiornare il feed. Monitoraggio di Azure prevede un periodo di latenza di 15 minuti per il popolamento dei dati di log. Per altre informazioni, vedere [tempo di inserimento dei dati di log in monitoraggio di Azure](../azure-monitor/platform/data-ingestion-time.md).
+- Non vengono visualizzati dati dalle attività recenti? Potrebbe essere necessario attendere 15 minuti e aggiornare il feed. Monitoraggio di Azure prevede un periodo di latenza di 15 minuti per il popolamento dei dati di log. Per altre informazioni, vedere [tempo di inserimento dei dati di log in monitoraggio di Azure](../azure-monitor/logs/data-ingestion-time.md).
 
 Se non sono presenti informazioni ma i dati non sono ancora visualizzati correttamente, potrebbe essersi verificato un problema nella query o nelle origini dati. Esaminare i problemi noti e le limitazioni. 
 
@@ -52,7 +52,7 @@ Se non sono presenti informazioni ma i dati non sono ancora visualizzati corrett
 
 Monitoraggio di Azure per desktop virtuale Windows usa le cartelle di lavoro di monitoraggio di Azure. Le cartelle di lavoro di consentono di salvare una copia del modello di cartella di lavoro di desktop virtuale Windows e di creare personalizzazioni personalizzate.
 
-Per impostazione predefinita, i modelli di cartella di lavoro personalizzati non adotteranno automaticamente gli aggiornamenti dal gruppo di prodotti. Per ulteriori informazioni, vedere la pagina relativa alla [risoluzione dei problemi relativi alle informazioni dettagliate basate sulla cartella di lavoro](../azure-monitor/insights/troubleshoot-workbooks.md) e alla [Panoramica delle cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md)
+Per impostazione predefinita, i modelli di cartella di lavoro personalizzati non adotteranno automaticamente gli aggiornamenti dal gruppo di prodotti. Per ulteriori informazioni, vedere la pagina relativa alla [risoluzione dei problemi relativi alle informazioni dettagliate basate sulla cartella di lavoro](../azure-monitor/insights/troubleshoot-workbooks.md) e alla [Panoramica delle cartelle di lavoro](../azure-monitor/visualize/workbooks-overview.md)
 
 ## <a name="i-cant-interpret-the-data"></a>Non è possibile interpretare i dati
 

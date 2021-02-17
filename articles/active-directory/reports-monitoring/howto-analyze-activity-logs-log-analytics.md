@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 905261058c2de0afae18cbc5572c64962bef8834
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181170"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580023"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure
 
@@ -36,9 +36,9 @@ Questo articolo descrive come analizzare i log attività di Azure AD nell'area d
 
 Per seguire la procedura, è necessario:
 
-* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 * Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Accedere](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) all'area di lavoro Log Analytics
+*  [Accedere](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) all'area di lavoro Log Analytics
 * I ruoli seguenti in Azure Active Directory se si accede a Log Analytics tramite il portale di Azure Active Directory.
     - Amministrazione della protezione
     - Ruolo con autorizzazioni di lettura per la sicurezza
@@ -96,7 +96,7 @@ AuditLogs
 
 3. Immettere un nome e una descrizione per l'avviso, quindi scegliere il livello di gravità. In questo esempio, si potrebbe impostare il livello **Informativo**.
 
-4. Selezionare il **Gruppo di azioni** che riceverà l'avviso quando si verifica il segnale. È possibile scegliere di inviare notifiche al team tramite posta elettronica o SMS oppure è possibile automatizzare l'azione con webhook, funzioni di Azure o app per la logica. Vedere altre informazioni sulla [creazione e gestione di gruppi di azioni nel portale di Azure](../../azure-monitor/platform/action-groups.md).
+4. Selezionare il **Gruppo di azioni** che riceverà l'avviso quando si verifica il segnale. È possibile scegliere di inviare notifiche al team tramite posta elettronica o SMS oppure è possibile automatizzare l'azione con webhook, funzioni di Azure o app per la logica. Vedere altre informazioni sulla [creazione e gestione di gruppi di azioni nel portale di Azure](../../azure-monitor/alerts/action-groups.md).
 
 5. Dopo aver configurato l'avviso, selezionare **Crea avviso** per abilitarlo. 
 
@@ -110,6 +110,6 @@ Le cartelle di lavoro di forniscono diversi report correlati a scenari comuni ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Introduzione alle query nei log di Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
-* [Creare e gestire gruppi di azione nel portale di Azure](../../azure-monitor/platform/action-groups.md)
+* [Introduzione alle query nei log di Monitoraggio di Azure](../../azure-monitor/logs/get-started-queries.md)
+* [Creare e gestire gruppi di azione nel portale di Azure](../../azure-monitor/alerts/action-groups.md)
 * [Installare e usare le viste di analisi dei log per Azure Active Directory](howto-install-use-log-analytics-views.md)

@@ -1,17 +1,15 @@
 ---
 title: Simulare errori nei microservizi di Azure
 description: In questo articolo vengono illustrate le azioni di Testabilità trovate in Infrastruttura di servizi di Microsoft Azure.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 06/07/2017
-ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aea918f75ad9c8aa58b5201d2fdd967794085438
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547078"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595025"
 ---
 # <a name="testability-actions"></a>Azioni di Testabilità
 Per simulare un'infrastruttura non affidabile, Azure Service Fabric offre agli sviluppatori la possibilità di simulare errori e transizioni di stato reali, esposti come azioni di testabilità. Le azioni sono le API di basso livello che causano una specifica fault injection, una transizione di stato o una convalida. La combinazione di queste azioni consente di scrivere scenari di test completi per i servizi.

@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 60b3e9229adb93ce32c97c2822a465f7f629d47d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 317050abd0aa77649800493c36b03b298f256096
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234359"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573796"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -132,7 +132,7 @@ appInsights.trackPageView();
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Invio di dati di telemetria al portale di Azure
 
-Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Queste includono:
+Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Tra queste sono incluse:
 
 - **Eccezioni non rilevate** nell'app, incluse informazioni su
     - Analisi dello stack
@@ -180,8 +180,8 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | maxBatchInterval | 15000 | Durata della telemetria batch per prima dell'invio (millisecondi) |
 | disableExceptionTracking | false | Se true, le eccezioni non vengono raccolte in autocollecting. L'impostazione predefinita è false. |
 | disableTelemetry | false | Se true, i dati di telemetria non vengono raccolti o inviati. L'impostazione predefinita è false. |
-| enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. L'impostazione predefinita è false. <br>**_Nota:_* se si abilita questa impostazione, i dati di telemetria vengono eliminati ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug, provare `consoleLoggingLevel` a usare o `telemetryLoggingLevel` invece di `enableDebug` . |
-| loggingLevelConsole | 0 | Log _ errori *interni** Application Insights alla console. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
+| enableDebug | false | Se true, i dati di debug **interni** vengono generati come eccezione **anziché** essere registrati, indipendentemente dalle impostazioni di registrazione dell'SDK. L'impostazione predefinita è false. <br>**_Nota:_** Se si abilita questa impostazione, la telemetria verrà eliminata ogni volta che si verifica un errore interno. Questo può essere utile per identificare rapidamente i problemi con la configurazione o l'utilizzo dell'SDK. Se non si vogliono perdere i dati di telemetria durante il debug, provare `consoleLoggingLevel` a usare o `telemetryLoggingLevel` invece di `enableDebug` . |
+| loggingLevelConsole | 0 | Registra gli errori **interni** di Application Insights alla console. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
 | loggingLevelTelemetry | 1 | Invia errori **interni** di Application Insights come dati di telemetria. <br>0: disattivato, <br>1: solo errori critici, <br>2: tutto (errori & avvisi) |
 | diagnosticLogInterval | 10000 | interno Intervallo di polling (in MS) per la coda di registrazione interna |
 | samplingPercentage | 100 | Percentuale di eventi che verranno inviati. Il valore predefinito è 100, ovvero tutti gli eventi vengono inviati. Impostare questa impostazione se si desidera mantenere il limite di dati per le applicazioni su larga scala. |
@@ -219,7 +219,7 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 
 ## <a name="enable-time-on-page-tracking"></a>Abilita rilevamento temporizzazione pagina
 
-Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](../platform/metrics-custom-overview.md) denominata `PageVisitTime` . Questa metrica personalizzata è visualizzabile nel [Esplora metriche](../platform/metrics-getting-started.md) come "metrica basata su log".
+Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](../essentials/metrics-custom-overview.md) denominata `PageVisitTime` . Questa metrica personalizzata è visualizzabile nel [Esplora metriche](../essentials/metrics-getting-started.md) come "metrica basata su log".
 
 ## <a name="enable-correlation"></a>Abilita correlazione
 
@@ -289,7 +289,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche delle dipendenze per un'applicazione Web.](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Aggiungendo un' `where` istruzione di `client_Type == "Browser"` , verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
  
@@ -330,7 +330,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 Questa versione include il numero minimo di caratteristiche e funzionalità e si basa su di esso per compilarlo nel modo appropriato. Ad esempio, non esegue alcuna raccolta (eccezioni non rilevate, AJAX e così via). Le API per inviare determinati tipi di dati di telemetria, ad esempio `trackTrace` , `trackException` e così via, non sono incluse in questa versione, pertanto sarà necessario fornire un wrapper personalizzato. L'unica API disponibile è `track` . Un [esempio](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) è disponibile qui.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Per esempi eseguibili, vedere [Application Insights esempi di JavaScript SDK](https://github.com/Azure-Samples?q=applicationinsights-js-demo).
 

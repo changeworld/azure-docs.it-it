@@ -8,18 +8,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660454"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593632"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Fare clic sul plug-in di analisi automatica della raccolta per Application Insights JavaScript SDK
 
 Questo plug-in consente di tenere traccia automaticamente degli eventi click sulle pagine Web e di usare gli attributi data-* sugli elementi HTML per popolare la telemetria degli eventi.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Gli utenti possono configurare il plug-in di raccolta automatica di analisi dei clic tramite NPM.
 
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Vedere il [repository GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e il [pacchetto NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) per il plug-in di analisi automatica della raccolta dei clic.
 - Usare l' [analisi degli eventi in esperienza di utilizzo](usage-segmentation.md) per analizzare i primi clic e sezionare in base alle dimensioni disponibili.
-- Trovare fare clic su dati sotto il campo contenuto all'interno dell'attributo customDimensions nella tabella CustomEvents in [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Per ulteriori informazioni, vedere l' [app di esempio](https://go.microsoft.com/fwlink/?linkid=2152871) .
-- Compilare una [cartella di lavoro](../platform/workbooks-overview.md) per creare visualizzazioni personalizzate dei dati di clic.
+- Trovare fare clic su dati sotto il campo contenuto all'interno dell'attributo customDimensions nella tabella CustomEvents in [log Analytics](../logs/log-analytics-tutorial.md#write-a-query). Per ulteriori informazioni, vedere l' [app di esempio](https://go.microsoft.com/fwlink/?linkid=2152871) .
+- Compilare una [cartella di lavoro](../visualize/workbooks-overview.md) per creare visualizzazioni personalizzate dei dati di clic.

@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-ms.translationtype: HT
+ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572040"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
 
@@ -73,7 +73,7 @@ La comunicazione audio e video è temporaneamente elaborata dal servizio e nella
 
 ## <a name="azure-monitor-and-log-analytics"></a>Monitoraggio di Azure e Log Analytics
 
-I Servizi di comunicazione di Azure trasmetteranno i dati di registrazione di Monitoraggio di Azure per acquisire informazioni sull'integrità operativa e sull'utilizzo del servizio. Alcuni di questi log includono le identità del servizio di comunicazione e i numeri di telefono come dati dei campi. Per eliminare eventuali dati potenzialmente personali [usare queste procedure per Monitoraggio di Azure](../../azure-monitor/platform/personal-data-mgmt.md). È anche possibile configurare un [periodo di conservazione predefinito per Monitoraggio di Azure](../../azure-monitor/platform/manage-cost-storage.md).
+I Servizi di comunicazione di Azure trasmetteranno i dati di registrazione di Monitoraggio di Azure per acquisire informazioni sull'integrità operativa e sull'utilizzo del servizio. Alcuni di questi log includono le identità del servizio di comunicazione e i numeri di telefono come dati dei campi. Per eliminare eventuali dati potenzialmente personali [usare queste procedure per Monitoraggio di Azure](../../azure-monitor/logs/personal-data-mgmt.md). È anche possibile configurare un [periodo di conservazione predefinito per Monitoraggio di Azure](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

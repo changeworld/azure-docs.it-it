@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: apimpm
 ms.service: api-management
-ms.openlocfilehash: 770a8191b1b07a7ebc779b84f443ae96d66d1c97
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 6cace4a02c8d45cacbbc34e9778b5c4a78ada27f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841429"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576518"
 ---
 # <a name="troubleshooting-client-response-timeouts-and-errors-with-api-management"></a>Risoluzione dei problemi relativi a timeout e errori di risposta del client con gestione API
 
@@ -24,7 +24,7 @@ Le applicazioni client che chiamano le API tramite il servizio gestione API (ges
 * Errori intermittenti HTTP 500
 * Messaggi di errore di timeout
 
-Questi sintomi si manifestano come istanze di `BackendConnectionFailure` nei [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/resource-logs.md).
+Questi sintomi si manifestano come istanze di `BackendConnectionFailure` nei [log delle risorse di monitoraggio di Azure](../azure-monitor/essentials/resource-logs.md).
 
 ## <a name="cause"></a>Causa
 
