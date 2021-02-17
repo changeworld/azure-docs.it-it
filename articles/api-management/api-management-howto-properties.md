@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491014"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545820"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Usare i valori denominati nei criteri di gestione API di Azure
 
@@ -86,6 +86,8 @@ Vedere [prerequisiti per l'integrazione di Key Vault](#prerequisites-for-key-vau
 
 ### <a name="add-a-plain-or-secret-value"></a>Aggiungere un valore normale o segreto
 
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
 1. Nel [portale di Azure](https://portal.azure.com) accedere all'istanza di Gestione API.
 1. In **API** selezionare **valori denominati**  >  **+ Aggiungi**.
 1. Immettere un identificatore **nome** e immettere un **nome visualizzato** usato per fare riferimento alla proprietà nei criteri.
@@ -95,6 +97,50 @@ Vedere [prerequisiti per l'integrazione di Key Vault](#prerequisites-for-key-vau
 1. Selezionare **Crea**.
 
 Una volta creato il valore denominato, è possibile modificarlo selezionando il nome. Se si modifica il nome visualizzato, tutti i criteri che fanno riferimento a quel valore denominato vengono aggiornati automaticamente in modo da utilizzare il nuovo nome visualizzato.
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per iniziare a usare interfaccia della riga di comando di Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Per aggiungere un valore denominato, usare il comando [AZ gestione API NV create](/cli/azure/apim/nv#az_apim_nv_create) :
+
+```azurecli
+az apim nv create --resource-group apim-hello-word-resource-group \
+    --display-name "named_value_01" --named-value-id named_value_01 \
+    --secret true --service-name apim-hello-world --value test
+```
+
+Dopo aver creato un valore denominato, è possibile aggiornarlo usando il comando [AZ gestione API NV Update](/cli/azure/apim/nv#az_apim_nv_update) . Per visualizzare tutti i valori denominati, eseguire il comando [AZ gestione API NV list](/cli/azure/apim/nv#az_apim_nv_list) :
+
+```azurecli
+az apim nv list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Per visualizzare i dettagli del valore denominato creato per questo esempio, eseguire il comando [AZ gestione API NV Show](/cli/azure/apim/nv#az_apim_nv_show) :
+
+```azurecli
+az apim nv show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Questo esempio è un valore Secret. Il comando precedente non restituisce il valore. Per visualizzare il valore, eseguire il comando [AZ gestione API NV Show-Secret](/cli/azure/apim/nv#az_apim_nv_show_secret) :
+
+```azurecli
+az apim nv show-secret --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Per eliminare un valore denominato, usare il comando [AZ gestione API NV Delete](/cli/azure/apim/nv#az_apim_nv_delete) :
+
+```azurecli
+az apim nv delete --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+---
 
 ## <a name="use-a-named-value"></a>Usa un valore denominato
 

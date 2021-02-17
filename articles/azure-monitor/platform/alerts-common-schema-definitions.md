@@ -4,13 +4,13 @@ description: Informazioni sulle definizioni dello schema di avviso comuni per Mo
 author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
-ms.date: 03/14/2019
-ms.openlocfilehash: 2442d90adf224de68ff49e0f0ea98f2c9f3e5546
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 09/22/2020
+ms.openlocfilehash: e4ab05b595b9961960371d3e13e85ccffd0d9401
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507252"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547775"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 

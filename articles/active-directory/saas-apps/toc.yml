@@ -977,7 +977,7 @@
           href: kantegassoforjira-tutorial.md
         - name: Keeper Password Manager & Digital Vault
           href: keeperpasswordmanager-tutorial.md
-        - name: Piattaforma Kendis-Scaling agile
+        - name: Integrazione di kendis-Azure AD
           href: kendis-scaling-agile-platform-tutorial.md
         - name: KFAdvance
           href: kfadvance-tutorial.md

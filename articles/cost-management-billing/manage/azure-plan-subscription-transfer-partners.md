@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.openlocfilehash: cb9a035217734028df325555cb0954dedd29ac30
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
-ms.translationtype: HT
+ms.openlocfilehash: d234227de98beeed6898697fb6ed8e0865546e16
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372290"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555857"
 ---
 # <a name="transfer-subscriptions-under-an-azure-plan-from-one-partner-to-another-preview"></a>Trasferire le sottoscrizioni in un piano di Azure da un partner a un altro (anteprima)
 
@@ -22,7 +22,7 @@ Questo articolo contiene le informazioni da sapere prima e dopo aver trasferito 
 
 La transizione non influisce sull'accesso per utenti, gruppi o entità servizio esistenti assegnati con Controllo degli accessi in base al ruolo di Azure. Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) consente di gestire chi può accedere alle risorse di Azure, le operazioni che si possono eseguire e le aree accessibili. Con il trasferimento della sottoscrizione, al nuovo partner non viene assegnato l'accesso alle risorse con Controllo degli accessi in base al ruolo di Azure. Il partner precedente mantiene il proprio accesso con Controllo degli accessi in base al ruolo di Azure.
 
-Di conseguenza, è importante rimuovere l'accesso con controllo degli accessi in base al ruolo di Azure per il vecchio partner e aggiungere l'accesso per quello nuovo. Per altre informazioni sull'assegnazione dell'accesso al nuovo partner, vedere [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../../role-based-access-control/overview.md) Per altre informazioni sulla rimozione dell'accesso con Controllo degli accessi in base al ruolo di Azure del partner precedente, vedere [Rimuovere un'assegnazione di ruolo](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment).
+Di conseguenza, è importante rimuovere l'accesso con controllo degli accessi in base al ruolo di Azure per il vecchio partner e aggiungere l'accesso per quello nuovo. Per altre informazioni sull'assegnazione dell'accesso al nuovo partner, vedere [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../../role-based-access-control/overview.md) Per altre informazioni sulla rimozione dell'accesso RBAC di Azure del partner precedente, vedere [rimuovere assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-remove.md).
 
 Inoltre, il nuovo partner non ottiene automaticamente l'accesso [Admin on Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) alle sottoscrizioni. L'accesso AOBO è necessario per il partner per gestire le sottoscrizioni di Azure per proprio conto. Per altre informazioni sui privilegi di Azure, vedere [Ottenere le autorizzazioni per gestire il servizio o l'abbonamento di un cliente](/partner-center/customers-revoke-admin-privileges).
 

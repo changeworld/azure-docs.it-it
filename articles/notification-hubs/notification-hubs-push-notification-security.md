@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76263762"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548251"
 ---
 # <a name="notification-hubs-security"></a>Sicurezza di hub di notifica
 
@@ -36,7 +36,7 @@ Hub di notifica implementa uno schema di sicurezza a livello di entità denomina
 Quando si crea un hub, vengono create automaticamente due regole: una con diritti di **ascolto** (che l'app client USA) e l'altra con **tutti** i diritti (usati dal back-end dell'app):
 
 - **DefaultListenSharedAccessSignature**: concede solo l'autorizzazione **Listen** .
-- **DefaultFullSharedAccessSignature**: concede le autorizzazioni **Listen**, **Manage**e **Send** . Questo criterio deve essere usato solo nel back-end dell'app. Non usarla nelle applicazioni client. usare un criterio solo con accesso in **ascolto** . Per creare nuovi criteri di accesso personalizzati con un nuovo token SAS, vedere [token di firma di accesso condiviso per i criteri di accesso](#sas-tokens-for-access-policies) più avanti in questo articolo.
+- **DefaultFullSharedAccessSignature**: concede le autorizzazioni **Listen**, **Manage** e **Send** . Questo criterio deve essere usato solo nel back-end dell'app. Non usarla nelle applicazioni client. usare un criterio solo con accesso in **ascolto** . Per creare nuovi criteri di accesso personalizzati con un nuovo token SAS, vedere [token di firma di accesso condiviso per i criteri di accesso](#sas-tokens-for-access-policies) più avanti in questo articolo.
 
 Quando si esegue la gestione delle registrazioni dalle app client, se le informazioni inviate tramite notifiche non sono riservate (ad esempio aggiornamenti meteorologici), un modo comune per accedere a un hub di notifica è assegnare il valore della chiave della regola di accesso solo in ascolto all'app client e il valore della chiave della regola di accesso completo al back-end dell'app.
 
@@ -46,7 +46,7 @@ La chiave con accesso in **ascolto** consente a un'app client di registrarsi per
 
 ## <a name="security-claims"></a>Attestazioni di sicurezza
 
-Analogamente ad altre entità, le operazioni dell'hub di notifica sono consentite per tre attestazioni di sicurezza: **ascolto**, **invio**e **gestione**.
+Analogamente ad altre entità, le operazioni dell'hub di notifica sono consentite per tre attestazioni di sicurezza: **ascolto**, **invio** e **gestione**.
 
 | Attestazione   | Descrizione                                          | Operazioni consentite |
 | ------- | ---------------------------------------------------- | ------------------ |
@@ -68,10 +68,10 @@ Per creare una nuova attestazione di sicurezza o per visualizzare le chiavi SAS 
 2. Selezionare **Tutte le risorse**.
 3. Selezionare il nome dell'hub di notifica per il quale si vuole creare l'attestazione o visualizzare la chiave SAS.
 4. Nel menu a sinistra selezionare **criteri di accesso**.
-5. Selezionare **nuovo criterio** per creare una nuova attestazione di sicurezza. Assegnare un nome al criterio e selezionare le autorizzazioni che si desidera concedere. Quindi scegliere **OK**.
+5. Selezionare **nuovo criterio** per creare una nuova attestazione di sicurezza. Assegnare un nome al criterio e selezionare le autorizzazioni che si desidera concedere. Selezionare **OK**.
 6. La stringa di connessione completa (inclusa la nuova chiave SAS) viene visualizzata nella finestra criteri di accesso. È possibile copiare questa stringa negli Appunti per un uso successivo.
 
-Per estrarre la chiave SAS da un criterio specifico, selezionare il pulsante **copia** accanto ai criteri che contengono la chiave SAS desiderata. Incollare questo valore in un percorso temporaneo, quindi copiare la parte della chiave SAS della stringa di connessione. Questo esempio usa uno spazio dei nomi di hub di notifica denominato **mytestnamespace1**e un criterio denominato **policy2**. La chiave SAS è il valore vicino alla fine della stringa, specificata da **SharedAccessKey**:
+Per estrarre la chiave SAS da un criterio specifico, selezionare il pulsante **copia** accanto ai criteri che contengono la chiave SAS desiderata. Incollare questo valore in un percorso temporaneo, quindi copiare la parte della chiave SAS della stringa di connessione. Questo esempio usa uno spazio dei nomi di hub di notifica denominato **mytestnamespace1** e un criterio denominato **policy2**. La chiave SAS è il valore vicino alla fine della stringa, specificata da **SharedAccessKey**:
 
 ```shell
 Endpoint=sb://mytestnamespace1.servicebus.windows.net/;SharedAccessKeyName=policy2;SharedAccessKey=<SAS key value here>

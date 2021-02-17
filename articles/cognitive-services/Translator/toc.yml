@@ -22,7 +22,7 @@
           href: character-counts.md
     - name: Guide pratiche
       items:
-        - name: Iscriversi a Traduttore
+        - name: Creare una risorsa per Translator
           href: ./translator-how-to-signup.md
         - name: Migrazione all'API per testo V3
           href: migrate-to-v3.md

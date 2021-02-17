@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102258"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534678"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -328,6 +328,17 @@ Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 
 - Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%.
 - Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro.
 - Questi numeri presuppongono un backlog tipico di circa cinque minuti. ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
+
+## <a name="storage-account-limits"></a>Limiti dell'account di archiviazione
+
+Quando aumenta la varianza media sui dischi, il numero di dischi che un account di archiviazione può supportare diminuisce. La tabella seguente può essere usata come guida per prendere decisioni sul numero di account di archiviazione di cui è necessario eseguire il provisioning.
+ 
+**Tipo di account di archiviazione**    |    **Varianza = 4 MBps per disco**    |    **Varianza = 8 MBps per disco**
+---    |    ---    |    ---
+V1 account di archiviazione    |    600 dischi    |    300 dischi
+V2 account di archiviazione    |    1500 dischi    |    750 dischi
+
+Si noti che i limiti precedenti sono applicabili solo agli scenari di ripristino di emergenza ibrido.
 
 ## <a name="vault-tasks"></a>Attività di insieme di credenziali
 

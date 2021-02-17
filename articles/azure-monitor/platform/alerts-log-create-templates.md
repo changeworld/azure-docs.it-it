@@ -4,14 +4,14 @@ description: Informazioni su come usare un modello di Gestione risorse per crear
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 74f067e6fb820b4fd7dcefd0777c342b72c2bbea
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 253751aad28d22f203852148e14605ad459faa47
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704249"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544884"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creare un avviso del log con un modello di Resource Manager
 

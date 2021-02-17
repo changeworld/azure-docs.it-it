@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913728"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535281"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 
@@ -57,7 +57,7 @@ Creare prima di tutto un servizio Load Balancer Standard pubblico usando il port
 È possibile distribuire un set di scalabilità con un'immagine di Windows Server o di Linux, ad esempio RHEL, CentOS, Ubuntu o SLES.
 
 1. Nella casella di ricerca digitare **Set di scalabilità**. Nei risultati di **Marketplace** selezionare **Set di scalabilità di macchine virtuali**. Selezionare **Crea** nella pagina **Set di scalabilità di macchine virtuali** che consente di aprire la pagina **Crea un set di scalabilità di macchine virtuali**. 
-1. Nella scheda **Nozioni di base**, sotto **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e quindi scegliere **Crea nuovo** gruppo di risorse. Digitare *myVMSSResourceGroup* per il nome e quindi selezionare **OK**. 
+1. Nella scheda **nozioni di base** , in **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e selezionare *myVMSSResourceGroup* nell'elenco gruppo di risorse. 
 1. Digitare *myScaleSet* come nome del set di scalabilità.
 1. In **Area** selezionare un'area vicina a quella in cui si risiede.
 1. Selezionare un'immagine del marketplace per **Immagine**. In questo esempio è stata scelta l'immagine *Ubuntu Server 18.04 LTS*.

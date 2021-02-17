@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Aggiungere un'assegnazione di ruolo di Azure tramite un modello di Azure Resource Manager - Controllo degli accessi in base al ruolo Azure"
+title: 'Guida introduttiva: assegnare un ruolo di Azure usando un modello di Azure Resource Manager-RBAC di Azure'
 description: Informazioni su come concedere l'accesso alle risorse di Azure per un utente nell'ambito di un gruppo di risorse tramite modelli di Azure Resource Manager e il controllo degli accessi in base al ruolo Azure.
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690443"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559260"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Avvio rapido: Aggiungere un'assegnazione di ruolo di Azure con un modello di Resource Manager
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Guida introduttiva: assegnare un ruolo di Azure usando un modello ARM
 
 Per gestire l'accesso alle risorse di Azure, si usa il [controllo degli accessi in base al ruolo Azure](overview.md). Questo argomento di avvio rapido illustra come creare un gruppo di risorse e come concedere l'accesso a un utente in modo che possa creare e gestire macchine virtuali nel gruppo di risorse. In questo argomento di avvio rapido si usa un modello di Azure Resource Manager (modello di Resource Manager) per concedere l'accesso.
 
@@ -29,11 +29,11 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per aggiungere assegnazioni di ruolo, è necessario disporre di
+Per assegnare i ruoli di Azure e rimuovere le assegnazioni di ruolo, è necessario disporre di:
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
-- Per aggiungere un'assegnazione di ruolo, è necessario specificare tre elementi, ovvero entità di sicurezza, definizione del ruolo e ambito. Per questo argomento di avvio rapido, l'entità di sicurezza è l'utente o un altro utente nella directory, la definizione del ruolo è [Collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) e l'ambito è un gruppo di risorse specificato.
+- Per assegnare un ruolo, è necessario specificare tre elementi: entità di sicurezza, definizione del ruolo e ambito. Per questo argomento di avvio rapido, l'entità di sicurezza è l'utente o un altro utente nella directory, la definizione del ruolo è [Collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) e l'ambito è un gruppo di risorse specificato.
 
 ## <a name="review-the-template"></a>Rivedere il modello
 

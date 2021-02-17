@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d54ecdac739bbc5a072426f5bf73f71ab394159
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417675"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545913"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Abilitare un'identità gestita per il routing degli eventi di Azure Digital gemelli (anteprima): portale di Azure
 
@@ -101,9 +101,10 @@ Per assegnare un ruolo all'identità, iniziare aprendo il [portale di Azure](htt
     :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Screenshot della portale di Azure che mostra la pagina controllo di accesso (IAM) per un hub eventi. Il pulsante + Aggiungi è evidenziato." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
 
 1. Nella pagina **Aggiungi assegnazione ruolo** Digitare i valori seguenti:
-    * **Ruolo**: selezionare il ruolo desiderato dal menu a discesa
-    * **Assegnare l'accesso a**: scegliere un **utente, un gruppo o un'entità servizio**
-    * **Select**: selezionare l'identità gestita dell'istanza di Azure Digital Twins a cui viene assegnato il ruolo. Il nome dell'identità gestita corrisponde al nome dell'istanza, quindi cercare il nome dell'istanza di Azure Digital gemelli. Quando si seleziona il risultato, l'identità per l'istanza viene visualizzata nella sezione **membri selezionati** .
+    * **Ruolo**: selezionare il ruolo desiderato dal menu a discesa.
+    * **Assegnare l'accesso a**: in **identità gestita assegnata dal sistema** selezionare **gemelli digitali**.
+    * **Sottoscrizione**: selezionare la propria sottoscrizione. Vengono visualizzate tutte le identità gestite di Azure Digital gemelli nella sottoscrizione selezionata.
+    * **Select**: selezionare l'identità gestita dell'istanza di Azure Digital Twins a cui viene assegnato il ruolo. Il nome dell'identità gestita corrisponde al nome dell'istanza, quindi scegliere il nome dell'istanza di Azure Digital gemelli. Quando si seleziona questa opzione, l'identità per l'istanza verrà visualizzata nella sezione **membri selezionati** nella parte inferiore del riquadro.
 
     :::row:::
         :::column:::

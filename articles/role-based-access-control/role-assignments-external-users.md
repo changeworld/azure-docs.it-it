@@ -1,35 +1,35 @@
 ---
-title: Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti esterni usando la portale di Azure-RBAC di Azure
+title: Assegnare i ruoli di Azure agli utenti Guest esterni usando la portale di Azure-RBAC di Azure
 description: Informazioni su come concedere l'accesso alle risorse di Azure per gli utenti esterni a un'organizzazione usando il portale di Azure e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
-editor: ''
-ms.assetid: ''
+manager: daveba
 ms.service: role-based-access-control
 ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: a18fc3e4851c2daf03c662cf40cef58cc7d9e77a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d834f4ccd8dba26c895e0578f161813fc49332ea
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117708"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556294"
 ---
-# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure
+# <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Assegnare i ruoli di Azure agli utenti Guest esterni usando il portale di Azure
 
 Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](overview.md) consente una migliore gestione della sicurezza per le organizzazioni di grandi dimensioni e per le aziende di piccole e medie dimensioni che lavorano con collaboratori esterni, fornitori o freelance che necessitano dell'accesso a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. È possibile usare le funzionalità di [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) per collaborare con utenti Guest esterni ed è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere solo le autorizzazioni necessarie per gli utenti guest nell'ambiente in uso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
+Per assegnare i ruoli di Azure o rimuovere le assegnazioni di ruolo, è necessario disporre di:
+
+- autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
+
 
 ## <a name="when-would-you-invite-guest-users"></a>Quando invitare gli utenti Guest?
 
@@ -65,9 +65,9 @@ Per consentire all'utente guest di accedere alla directory, è necessario comple
 
 Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/external-identities/redemption-experience.md).
 
-## <a name="add-a-role-assignment-for-a-guest-user"></a>Aggiungere un'assegnazione di ruolo per un utente Guest
+## <a name="assign-a-role-to-a-guest-user"></a>Assegnazione di un ruolo a un utente Guest
 
-Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, assegnare un ruolo. Per aggiungere un'assegnazione di ruolo per un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md#add-a-role-assignment) per un utente membro, un gruppo, un'entità servizio o un'identità gestita. Attenersi alla procedura seguente per aggiungere un'assegnazione di ruolo per un utente guest in ambiti diversi.
+Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, assegnare un ruolo. Per assegnare un ruolo a un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md) per un utente membro, un gruppo, un'entità servizio o un'identità gestita. Seguire questi passaggi per assegnare un ruolo a un utente guest in ambiti diversi.
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**.
 
@@ -101,9 +101,9 @@ Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, a
 
     ![Assegnazione di ruolo per collaboratore macchina virtuale](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-## <a name="add-a-role-assignment-for-a-guest-user-not-yet-in-your-directory"></a>Aggiungere un'assegnazione di ruolo per un utente Guest non ancora presente nella directory
+## <a name="assign-a-role-to-a-guest-user-not-yet-in-your-directory"></a>Assegnare un ruolo a un utente Guest non ancora presente nella directory
 
-Per aggiungere un'assegnazione di ruolo per un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md#add-a-role-assignment) per un utente membro, un gruppo, un'entità servizio o un'identità gestita.
+Per assegnare un ruolo a un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md) per un utente membro, un gruppo, un'entità servizio o un'identità gestita.
 
 Se l'utente Guest non è ancora presente nella directory, è possibile invitare l'utente direttamente dal riquadro Aggiungi assegnazione ruolo.
 
@@ -187,7 +187,7 @@ Se un utente Guest necessita di privilegi aggiuntivi nella directory, è possibi
 
 ### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>L'utente Guest non può esplorare utenti, gruppi o entità servizio per assegnare i ruoli
 
-Gli utenti guest hanno autorizzazioni di directory limitate. Anche se un utente Guest è un [proprietario](built-in-roles.md#owner) di un ambito, se tenta di aggiungere un'assegnazione di ruolo per concedere a un altro utente l'accesso, non può esplorare l'elenco di utenti, gruppi o entità servizio.
+Gli utenti guest hanno autorizzazioni di directory limitate. Anche se un utente Guest è un [proprietario](built-in-roles.md#owner) di un ambito, se tenta di assegnare un ruolo per concedere a un altro utente l'accesso, non può sfogliare l'elenco di utenti, gruppi o entità servizio.
 
 ![L'utente Guest non può esplorare le entità di sicurezza per assegnare i ruoli](./media/role-assignments-external-users/directory-no-browse.png)
 

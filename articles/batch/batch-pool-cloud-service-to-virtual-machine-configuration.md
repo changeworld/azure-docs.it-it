@@ -2,13 +2,13 @@
 title: Eseguire la migrazione della configurazione del pool di batch dai servizi cloud alle macchine virtuali
 description: Informazioni su come aggiornare la configurazione del pool alla configurazione più recente e consigliata
 ms.topic: how-to
-ms.date: 1/6/2021
-ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 2/16/2021
+ms.openlocfilehash: 9cbcf3864526bd8f8132f3b0f729e2d728e07bb8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731500"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546041"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Eseguire la migrazione della configurazione del pool di batch dai servizi cloud alle macchine virtuali
 
@@ -36,6 +36,19 @@ Quando si aggiorna la configurazione del pool, è necessario considerare quanto 
    > Come per le macchine virtuali e i set di scalabilità di macchine virtuali, il disco gestito del sistema operativo usato per ogni nodo comporta un costo, che è aggiuntivo per il costo delle macchine virtuali. Non è previsto alcun costo del disco del sistema operativo per i nodi ' cloudServiceConfiguration ' durante la creazione del disco del sistema operativo nell'unità SSD locale dei nodi.
 
 - I tempi di avvio e di eliminazione del pool e del nodo possono variare leggermente tra i pool ' cloudServiceConfiguration ' e i pool ' virtualMachineConfiguration '.
+
+## <a name="azure-data-factory-custom-activity-pools"></a>Azure Data Factory pool di attività personalizzati
+
+I pool di Azure Batch possono essere utilizzati per eseguire Data Factory attività personalizzate. È necessario eliminare tutti i pool ' cloudServiceConfiguration ' usati per eseguire attività personalizzate e creare nuovi pool ' virtualMachineConfiguration '.
+
+- Le pipeline devono essere sospese prima di Delete/ricrea per assicurarsi che nessuna esecuzione venga interrotta.
+- Lo stesso ID del pool può essere usato per evitare le modifiche alla configurazione del servizio collegato.
+- Riprendere le pipeline quando sono stati creati nuovi pool.
+
+Per ulteriori informazioni sull'utilizzo di Azure Batch per eseguire Data Factory attività personalizzate:
+
+- [Servizio collegato Azure Batch](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Attività personalizzate in una pipeline di Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,12 +4,12 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365226"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547234"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -76,7 +76,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> Sono supportate le seguenti versioni di ASP.NET Core: ASP.NET Core 2,1, 3,1 e 5,0. Le versioni 2,0, 2,2 e 3,0 sono state ritirate e non sono più supportate. Eseguire l'aggiornamento a una [versione supportata](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) di .NET Core per il funzionamento della strumentazione automatica.
+> Sono supportate le seguenti versioni di ASP.NET Core: ASP.NET Core 2,1 e 3,1. Le versioni 2,0, 2,2 e 3,0 sono state ritirate e non sono più supportate. Eseguire l'aggiornamento a una [versione supportata](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) di .NET Core per il funzionamento della strumentazione automatica.
 
 La definizione del Framework completo da ASP.NET Core, la distribuzione autonoma e le applicazioni basate su Linux non sono attualmente **supportate** con il monitoraggio basato su agenti/estensioni. La[Strumentazione manuale](./asp-net-core.md) tramite codice funzionerà in tutti gli scenari precedenti.
 

@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/01/2021
+ms.date: 02/15/2021
 ms.custom: generated
-ms.openlocfilehash: 384d00ee41f2b6bfc2e91815bfcf54819c7d9ab2
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: d9a2667907108cfb4c8d7a2a2c9b1558e02a9110
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809378"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535128"
 ---
 # <a name="azure-built-in-roles"></a>Ruoli predefiniti di Azure
 
@@ -176,15 +176,15 @@ La tabella seguente contiene una breve descrizione e l'ID univoco di ogni ruolo 
 > | [Collaboratore di Azure Sentinel](#azure-sentinel-contributor) | Collaboratore di Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Ruolo con autorizzazioni di lettura di Azure Sentinel](#azure-sentinel-reader) | Ruolo con autorizzazioni di lettura di Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Risponditore di Azure Sentinel](#azure-sentinel-responder) | Risponditore di Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Amministratore Key Vault (anteprima)](#key-vault-administrator-preview) | Eseguire tutte le operazioni del piano dati in un insieme di credenziali delle chiavi e in tutti gli oggetti al suo interno, inclusi i certificati, le chiavi e i segreti. Non è possibile gestire le risorse di Key Vault o gestire le assegnazioni di ruolo. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-> | [Ufficiale certificati Key Vault (anteprima)](#key-vault-certificates-officer-preview) | Eseguire qualsiasi azione sui certificati di un insieme di credenziali delle chiavi, eccetto le autorizzazioni Manage. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Amministratore Key Vault](#key-vault-administrator) | Eseguire tutte le operazioni del piano dati in un insieme di credenziali delle chiavi e in tutti gli oggetti al suo interno, inclusi i certificati, le chiavi e i segreti. Non è possibile gestire le risorse di Key Vault o gestire le assegnazioni di ruolo. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Ufficiale certificati Key Vault](#key-vault-certificates-officer) | Eseguire qualsiasi azione sui certificati di un insieme di credenziali delle chiavi, eccetto le autorizzazioni Manage. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Collaboratore di Key Vault](#key-vault-contributor) | Consente di gestire gli insiemi di credenziali delle chiavi, ma non di assegnare i ruoli in Azure RBAC e di accedere a segreti, chiavi o certificati. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Key Vault Crypto Officer (anteprima)](#key-vault-crypto-officer-preview) | Eseguire qualsiasi azione sulle chiavi di un insieme di credenziali delle chiavi, eccetto le autorizzazioni Manage. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [Utente crittografia servizio Key Vault Crypto (anteprima)](#key-vault-crypto-service-encryption-user-preview) | Legge i metadati delle chiavi ed esegue operazioni di wrapping/Unwrap. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-> | [Utente di crittografia Key Vault (anteprima)](#key-vault-crypto-user-preview) | Eseguire operazioni di crittografia usando chiavi. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 12338af0-0e69-4776-bea7-57ae8d297424 |
-> | [Lettore di Key Vault (anteprima)](#key-vault-reader-preview) | Leggere i metadati di insiemi di credenziali delle chiavi e i relativi certificati, chiavi e segreti. Non è possibile leggere i valori sensibili come il contenuto del segreto o il materiale della chiave. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 21090545-7ca7-4776-b22c-e363652d74d2 |
-> | [Amministratore di Key Vault Secrets (anteprima)](#key-vault-secrets-officer-preview) | Eseguire qualsiasi azione sui segreti di un insieme di credenziali delle chiavi, eccetto le autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | b86a8fe4-44CE-4948-aee5-eccb2c155cd7 |
-> | [Utente di Key Vault Secrets (anteprima)](#key-vault-secrets-user-preview) | Leggere il contenuto del segreto. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 4633458b-17de-408a-b874-0445c86b69e6 |
+> | [Agente di crittografia Key Vault](#key-vault-crypto-officer) | Eseguire qualsiasi azione sulle chiavi di un insieme di credenziali delle chiavi, eccetto le autorizzazioni Manage. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Utente crittografia servizio Key Vault Crypto](#key-vault-crypto-service-encryption-user) | Legge i metadati delle chiavi ed esegue operazioni di wrapping/Unwrap. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Utente di crittografia Key Vault](#key-vault-crypto-user) | Eseguire operazioni di crittografia usando chiavi. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Lettore di Key Vault](#key-vault-reader) | Leggere i metadati di insiemi di credenziali delle chiavi e i relativi certificati, chiavi e segreti. Non è possibile leggere i valori sensibili come il contenuto del segreto o il materiale della chiave. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Amministratore di Key Vault Secrets](#key-vault-secrets-officer) | Eseguire qualsiasi azione sui segreti di un insieme di credenziali delle chiavi, eccetto le autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | b86a8fe4-44CE-4948-aee5-eccb2c155cd7 |
+> | [Utente di Key Vault Secrets](#key-vault-secrets-user) | Leggere il contenuto del segreto. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure". | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Collaboratore HSM gestito](#managed-hsm-contributor) | Consente di gestire i pool HSM gestiti, ma non di accedervi. | 18500a29-7fe2-46b2-a342-b16a415e101d |
 > | [Amministrazione della protezione](#security-admin) | Visualizzazione e aggiornamento delle autorizzazioni per il Centro sicurezza. Ha le stesse autorizzazioni del Ruolo con autorizzazioni di lettura per la sicurezza e può anche aggiornare i criteri di sicurezza e rimuovere gli avvisi e le raccomandazioni. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Collaboratore per valutazioni della sicurezza](#security-assessment-contributor) | Consente di eseguire il push delle valutazioni nel Centro sicurezza | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
@@ -2175,8 +2175,9 @@ Consente di leggere, scrivere ed eliminare i contenitori e i BLOB di archiviazio
 > | **DataActions** |  |
 > | [Microsoft. storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Blobs/Delete | Eliminare un BLOB. |
 > | [Microsoft. storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Blobs/Read | Restituisce un BLOB o un elenco di BLOB. |
-> | [Microsoft. storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Blobs/Move/Action | Sposta il BLOB da un percorso a un altro |
 > | [Microsoft. storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Blobs/Write | Consente di scrivere in un BLOB. |
+> | [Microsoft. storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Blobs/Move/Action | Sposta il BLOB da un percorso a un altro |
+> | [Microsoft. storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Blobs/Add/Action | Restituisce il risultato dell'aggiunta di contenuto BLOB |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -2200,8 +2201,9 @@ Consente di leggere, scrivere ed eliminare i contenitori e i BLOB di archiviazio
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
       ],
       "notDataActions": []
     }
@@ -4399,6 +4401,8 @@ Consente di gestire i criteri relativi alla sicurezza di server e database SQL, 
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/Read | Restituisce l'elenco delle istanze gestite o ottiene le proprietà per l'istanza gestita specificata. |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/azureADOnlyAuthentications/* |  |
 > | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/sqlVulnerabilityAssessments/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/Administrators/Read | Ottiene un elenco degli amministratori di istanza gestita. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/Administrators/Read | Ottiene un oggetto Azure Active Directory amministratore specifico |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -4461,7 +4465,9 @@ Consente di gestire i criteri relativi alla sicurezza di server e database SQL, 
         "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
         "Microsoft.Sql/managedInstances/read",
         "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*",
-        "Microsoft.Security/sqlVulnerabilityAssessments/*"
+        "Microsoft.Security/sqlVulnerabilityAssessments/*",
+        "Microsoft.Sql/managedInstances/administrators/read",
+        "Microsoft.Sql/servers/administrators/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -7562,7 +7568,7 @@ Risponditore sentinella di Azure [altre informazioni](../sentinel/roles.md)
 }
 ```
 
-### <a name="key-vault-administrator-preview"></a>Amministratore Key Vault (anteprima)
+### <a name="key-vault-administrator"></a>Amministratore Key Vault
 
 Eseguire tutte le operazioni del piano dati in un insieme di credenziali delle chiavi e in tutti gli oggetti al suo interno, inclusi i certificati, le chiavi e i segreti. Non è possibile gestire le risorse di Key Vault o gestire le assegnazioni di ruolo. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -7615,13 +7621,13 @@ Eseguire tutte le operazioni del piano dati in un insieme di credenziali delle c
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Administrator (preview)",
+  "roleName": "Key Vault Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-certificates-officer-preview"></a>Ufficiale certificati Key Vault (anteprima)
+### <a name="key-vault-certificates-officer"></a>Ufficiale certificati Key Vault
 
 Eseguire qualsiasi azione sui certificati di un insieme di credenziali delle chiavi, eccetto le autorizzazioni Manage. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -7676,7 +7682,7 @@ Eseguire qualsiasi azione sui certificati di un insieme di credenziali delle chi
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Certificates Officer (preview)",
+  "roleName": "Key Vault Certificates Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7737,7 +7743,7 @@ Consente di gestire gli insiemi di credenziali delle chiavi, ma non di assegnare
 }
 ```
 
-### <a name="key-vault-crypto-officer-preview"></a>Key Vault Crypto Officer (anteprima)
+### <a name="key-vault-crypto-officer"></a>Agente di crittografia Key Vault
 
 Eseguire qualsiasi azione sulle chiavi di un insieme di credenziali delle chiavi, eccetto le autorizzazioni Manage. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -7790,13 +7796,13 @@ Eseguire qualsiasi azione sulle chiavi di un insieme di credenziali delle chiavi
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Officer (preview)",
+  "roleName": "Key Vault Crypto Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-crypto-service-encryption-user-preview"></a>Utente crittografia servizio Key Vault Crypto (anteprima)
+### <a name="key-vault-crypto-service-encryption-user"></a>Utente crittografia servizio Key Vault Crypto
 
 Legge i metadati delle chiavi ed esegue operazioni di wrapping/Unwrap. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -7839,13 +7845,13 @@ Legge i metadati delle chiavi ed esegue operazioni di wrapping/Unwrap. Funziona 
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Service Encryption User (preview)",
+  "roleName": "Key Vault Crypto Service Encryption User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-crypto-user-preview"></a>Utente di crittografia Key Vault (anteprima)
+### <a name="key-vault-crypto-user"></a>Utente di crittografia Key Vault
 
 Eseguire operazioni di crittografia usando chiavi. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -7894,13 +7900,13 @@ Eseguire operazioni di crittografia usando chiavi. Funziona solo per gli insiemi
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto User (preview)",
+  "roleName": "Key Vault Crypto User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-reader-preview"></a>Lettore di Key Vault (anteprima)
+### <a name="key-vault-reader"></a>Lettore di Key Vault
 
 Leggere i metadati di insiemi di credenziali delle chiavi e i relativi certificati, chiavi e segreti. Non è possibile leggere i valori sensibili come il contenuto del segreto o il materiale della chiave. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -7955,13 +7961,13 @@ Leggere i metadati di insiemi di credenziali delle chiavi e i relativi certifica
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Reader (preview)",
+  "roleName": "Key Vault Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-secrets-officer-preview"></a>Amministratore di Key Vault Secrets (anteprima)
+### <a name="key-vault-secrets-officer"></a>Amministratore di Key Vault Secrets
 
 Eseguire qualsiasi azione sui segreti di un insieme di credenziali delle chiavi, eccetto le autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -8014,13 +8020,13 @@ Eseguire qualsiasi azione sui segreti di un insieme di credenziali delle chiavi,
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets Officer (preview)",
+  "roleName": "Key Vault Secrets Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-secrets-user-preview"></a>Utente di Key Vault Secrets (anteprima)
+### <a name="key-vault-secrets-user"></a>Utente di Key Vault Secrets
 
 Leggere il contenuto del segreto. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "controllo degli accessi in base al ruolo di Azure".
 
@@ -8055,7 +8061,7 @@ Leggere il contenuto del segreto. Funziona solo per gli insiemi di credenziali d
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets User (preview)",
+  "roleName": "Key Vault Secrets User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

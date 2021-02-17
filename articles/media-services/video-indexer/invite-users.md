@@ -3,19 +3,19 @@ title: Invitare gli utenti a Video Indexer - Azure
 titleSuffix: Azure Media Services
 description: Questo articolo illustra come invitare gli utenti a Video Indexer.
 services: media-services
-author: ReutAmior
+author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 02/03/2021
 ms.author: juliako
-ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
-ms.translationtype: HT
+ms.openlocfilehash: 7d3415ffad4820d8651841398ec6d47352869ce2
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364142"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534740"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Guida introduttiva: Invitare gli utenti a Video Indexer
 
@@ -29,26 +29,33 @@ Per collaborare con i colleghi, è possibile invitarli all'account Video Indexer
 1. Accedere al sito Web di [Video Indexer](https://www.videoindexer.ai/). Assicurarsi di essere connessi con un account amministratore.
 1. Se si è amministratori, si vedrà il pulsante **Condividi account** nell'angolo in alto a destra. Fare clic sul pulsante per invitare utenti. 
 
-   ![Invitare nuovi utenti](./media/invite-users/share-account.png)
-1. Aggiungere gli indirizzi di posta elettronica delle persone che si desidera aggiungere all'account Video Indexer:
+    :::image type="content" source="./media/invite-users/share-account.png" alt-text="Condividi l'account":::
+1. Nella finestra di dialogo **Condividi questo account con altri utenti** immettere gli indirizzi di posta elettronica di una persona che si vuole invitare all'account video Indexer:
 
-    ![Invitare gli utenti a questo account](./media/invite-users/invite-to-account.png)
-        
-    >[!NOTE]
-    > Tutti gli utenti invitati avranno le autorizzazioni di lettura e scrittura per tutti i video nell'account.
-1. Gli utenti invitati riceveranno un messaggio di posta elettronica con un collegamento e potranno accedere all'account facendo clic sul collegamento **Join Video Indexer** (Partecipa a Video Indexer):
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Invitare gli utenti a questo account":::  
+1. Dopo aver premuto **invita**, l'utente verrà aggiunto all'elenco degli inviti in sospeso. <br/>È possibile scegliere tra due opzioni per ogni invito che non è ancora stato aggiunto all'account: **Rimuovi invito** o **Copia URL invito**.
 
-    ![Conferma](./media/invite-users/invite-msg.png)
+    :::image type="content" source="./media/invite-users/invites-pending.png" alt-text="Inviti in sospeso":::  
+1. Una volta che l'invito è stato aggiunto all'account, vengono visualizzate tre opzioni. Due opzioni per i ruoli: **collaboratore** (impostazione predefinita) o **proprietario**. Di, è possibile scegliere di rimuovere l'invito premendo **Rimuovi**.
 
-    Per ottenere l'accesso all'account, l'utente deve fare clic sul collegamento per partecipare. 
+    :::image type="content" source="./media/invite-users/joined-invitee-options.png" alt-text="Invito aggiunto":::  
 
-## <a name="removing-existing-users"></a>Rimozione di utenti esistenti
+    Gli utenti non ricevono una notifica al momento della rimozione. Una volta rimossi, gli utenti non saranno autorizzati ad accedere.
 
-Per rimuovere gli utenti che hanno accesso all'account, è possibile fare clic sul simbolo **X** accanto al nome:
+## <a name="manage-roles-invite-more-users"></a>Gestione dei ruoli, invito di un maggior numero di utenti
 
-![Rimuovere utenti](./media/invite-users/remove-users.png)
+Oltre ad attivare la finestra di dialogo **Condividi questo account con altri utenti** facendo clic su **Condividi account** (come descritto in precedenza), è possibile eseguire questa operazione dalle **Impostazioni**.
 
-Gli utenti non ricevono una notifica al momento della rimozione. Una volta rimossi, gli utenti non saranno autorizzati ad accedere.
+1. Premere il pulsante **Settings (impostazioni** ) nell'account aperto. 
+
+    :::image type="content" source="./media/invite-users/settings.png" alt-text="Impostazioni account":::  
+1. Fare clic sul pulsante **Gestisci ruoli** .
+1. Per invitare un altro utente, fare clic su **invitare più persone a questo account**.
+
+    :::image type="content" source="./media/invite-users/invite-more-people.png" alt-text="INVITE MORE USERS":::  
+1. Quando si preme **invita un numero maggiore di persone a questo account** , viene visualizzata la finestra di dialogo invita
+ 
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Invitare gli utenti a questo account":::  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
