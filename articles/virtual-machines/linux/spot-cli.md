@@ -1,6 +1,6 @@
 ---
-title: Usare l'interfaccia della riga di comando per distribuire VM di Azure
-description: Informazioni su come usare l'interfaccia della riga di comando per distribuire macchine virtuali di Azure spot per ridurre i costi.
+title: Usare l'interfaccia della riga di comando per distribuire macchine virtuali Azure spot
+description: Informazioni su come usare l'interfaccia della riga di comando per distribuire macchine virtuali Azure spot per ridurre i costi.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,27 +8,27 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 71e0f2e87fc71deef0bdc4dd48425cdc9dd99dc8
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: abb29c0826e38af0bbbc1b59e41234acdaaca0f9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200771"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554784"
 ---
-# <a name="deploy-spot-vms-using-the-azure-cli"></a>Distribuire macchine virtuali con l'interfaccia della riga di comando di Azure
+# <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Distribuire macchine virtuali Azure spot usando l'interfaccia della riga di comando di Azure
 
-L'uso di [macchine virtuali di Azure spot](../spot-vms.md) consente di sfruttare la capacità inutilizzata a un notevole risparmio sui costi. Quando, in qualsiasi momento, Azure avrà di nuovo bisogno di quella capacità, l'infrastruttura di Azure rimuoverà le macchine virtuali spot. Le macchine virtuali spot sono pertanto ideali per i carichi di lavoro in grado di gestire le interruzioni, come i processi di elaborazione batch, gli ambienti di sviluppo/test, i carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
+Con le [macchine virtuali di Azure spot](../spot-vms.md) è possibile sfruttare i vantaggi della capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le macchine virtuali di Azure spot. Le macchine virtuali di Azure spot sono quindi ottime per i carichi di lavoro in grado di gestire le interruzioni, ad esempio processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
-I prezzi per le macchine virtuali spot variano in base all'area e allo SKU. Per altre informazioni, vedere i prezzi delle macchine virtuali per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+I prezzi per le macchine virtuali Azure spot sono variabili in base all'area e allo SKU. Per altre informazioni, vedere i prezzi delle macchine virtuali per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-È possibile impostare un prezzo massimo che si è disposti a pagare, per ora, per la macchina virtuale. Il prezzo massimo per una VM spot può essere impostato in dollari USA (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il prezzo massimo su `-1`, la macchina virtuale non verrà eliminata in base al prezzo. Il prezzo della macchina virtuale corrisponderà al prezzo corrente per spot o al prezzo di una macchina virtuale standard, che sempre è inferiore, purché siano disponibili capacità e quota. Per altre informazioni sull'impostazione del prezzo massimo, vedere [spot VM-prezzi](../spot-vms.md#pricing).
+È possibile impostare un prezzo massimo che si è disposti a pagare, per ora, per la macchina virtuale. Il prezzo massimo per una macchina virtuale Azure spot può essere impostato in dollari USA (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il prezzo massimo su `-1`, la macchina virtuale non verrà eliminata in base al prezzo. Il prezzo della macchina virtuale corrisponderà al prezzo corrente per la macchina virtuale di Azure spot o al prezzo di una VM standard, che sempre è inferiore, purché siano disponibili capacità e quota. Per altre informazioni sull'impostazione del prezzo massimo, vedere [macchine virtuali di Azure spot-prezzi](../spot-vms.md#pricing).
 
-Il processo di creazione di una macchina virtuale con l'interfaccia della riga di comando di Azure è identico a quello descritto nell' [articolo introduttivo](./quick-create-cli.md). È sufficiente aggiungere il parametro '--Priority spot ', impostare `--eviction-policy` su deallocate (impostazione predefinita) o `Delete` e specificare un prezzo massimo o `-1` . 
+Il processo di creazione di una macchina virtuale di Azure con l'interfaccia della riga di comando di Azure è identico a quello descritto nell' [articolo introduttivo](./quick-create-cli.md). È sufficiente aggiungere il parametro '--Priority spot ', impostare `--eviction-policy` su deallocate (impostazione predefinita) o `Delete` e specificare un prezzo massimo o `-1` . 
 
 
 ## <a name="install-azure-cli"></a>Installare l'interfaccia da riga di comando di Azure
 
-Per creare macchine virtuali spot, è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Eseguire **az --version** per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+Per creare macchine virtuali Azure spot, è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Eseguire **az --version** per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 Accedere ad Azure tramite [az login](/cli/azure/reference-index#az-login).
 
@@ -36,9 +36,9 @@ Accedere ad Azure tramite [az login](/cli/azure/reference-index#az-login).
 az login
 ```
 
-## <a name="create-a-spot-vm"></a>Creare una VM spot
+## <a name="create-an-azure-spot-virtual-machine"></a>Creare una macchina virtuale Azure spot
 
-Questo esempio Mostra come distribuire una VM Linux spot che non verrà rimossa in base al prezzo. I criteri di rimozione sono impostati per deallocare la macchina virtuale, in modo che possa essere riavviata in un secondo momento. Se si vuole eliminare la macchina virtuale e il disco sottostante quando la macchina virtuale viene rimossa, impostare `--eviction-policy` su `Delete` .
+Questo esempio illustra come distribuire una macchina virtuale Linux Azure spot che non verrà rimossa in base al prezzo. I criteri di rimozione sono impostati per deallocare la macchina virtuale, in modo che possa essere riavviata in un secondo momento. Se si vuole eliminare la macchina virtuale e il disco sottostante quando la macchina virtuale viene rimossa, impostare `--eviction-policy` su `Delete` .
 
 ```azurecli
 az group create -n mySpotGroup -l eastus
@@ -66,7 +66,7 @@ az vm list \
 
 ## <a name="simulate-an-eviction"></a>Simulare un'eliminazione
 
-È possibile [simulare un'eliminazione](/rest/api/compute/virtualmachines/simulateeviction) di una macchina virtuale spot, per testare il modo in cui l'applicazione effettuerà il ristagno a una rimozione improvvisa. 
+È possibile [simulare un'eliminazione](/rest/api/compute/virtualmachines/simulateeviction) di una macchina virtuale di Azure spot, per testare il modo in cui l'applicazione effettuerà il ristagno a una rimozione improvvisa. 
 
 Sostituire quanto segue con le informazioni: 
 
@@ -81,8 +81,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 **Passaggi successivi**
 
-È anche possibile creare una VM spot usando [Azure PowerShell](../windows/spot-powershell.md), il [portale](../spot-portal.md)o un [modello](spot-template.md).
+È anche possibile creare una macchina virtuale Azure spot usando [Azure PowerShell](../windows/spot-powershell.md), il [portale](../spot-portal.md)o un [modello](spot-template.md).
 
-Eseguire query sulle informazioni sui prezzi correnti usando l' [API prezzi di vendita al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) per informazioni sui prezzi spot. `meterName`E `skuName` conterranno entrambi `Spot` .
+Eseguire query sulle informazioni sui prezzi correnti usando l' [API prezzi al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) per informazioni sulla macchina virtuale Azure spot. `meterName`E `skuName` conterranno entrambi `Spot` .
 
 Se si verifica un errore, vedere [codici di errore](../error-codes-spot.md).

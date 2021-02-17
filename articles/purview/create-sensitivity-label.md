@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 70aaa528fc86c9e543267b68b5b4cf157ec2dc65
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630277"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535264"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -41,17 +41,17 @@ Le etichette di riservatezza in Azure possono essere usate per applicare automat
 Per altre informazioni, vedere:
 
 - Informazioni [sulle etichette di riservatezza](/microsoft-365/compliance/sensitivity-labels) nella documentazione di Microsoft 365
-- [Che cosa sono le regole di etichetta automatica?](#what-are-autolabeling-rules)
+- [Che cosa sono le regole di etichetta automatica?](#what-are-auto-labeling-rules)
 - [Tipi di dati supportati per le etichette di riservatezza in Azure](#supported-data-types-for-sensitivity-labels-in-azure-purview)
 - [Assegnazione di etichette per le colonne del database SQL](#labeling-for-sql-database-columns)
 
-#### <a name="what-are-autolabeling-rules"></a>Che cosa sono le regole di etichetta automatica?
+#### <a name="what-are-auto-labeling-rules"></a>Che cosa sono le regole di etichetta automatica?
 
 I dati sono in continua crescita e cambiano. Il rilevamento dei dati attualmente senza etichetta e l'esecuzione di un'azione per applicare manualmente le etichette non sono solo complessi, ma è anche un mal di lavoro superfluo. 
 
 Le regole di etichetta automatica sono condizioni specificate, indicando quando applicare un'etichetta specifica. Quando vengono soddisfatte queste condizioni, l'etichetta viene assegnata automaticamente ai dati, mantenendo le etichette di riservatezza coerenti sui dati, su larga scala.
 
-Quando si creano le etichette, assicurarsi di definire le regole di etichetta automatica per [i file](#define-autolabeling-rules-for-files) e le [colonne del database](#define-autolabeling-rules-for-database-columns) per applicare automaticamente le etichette a ogni analisi dei dati. 
+Quando si creano le etichette, assicurarsi di definire regole di etichetta automatica per [i file](#define-auto-labeling-rules-for-files) e le [colonne del database](#define-auto-labeling-rules-for-database-columns) per applicare automaticamente le etichette a ogni analisi dei dati. 
 
 Dopo aver analizzato i dati in ambito, è possibile visualizzare le etichette applicate automaticamente nei report catalogo e Insight di competenza.
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipi di dati supportati per le etichette di riservatezza in Azure
@@ -125,8 +125,8 @@ Quando si estende l'assegnazione di etichette alle risorse in Azure, è possibil
 
     In particolare, definire le regole di etichetta automatica per i file e le colonne del database:
 
-    - [Definire le regole di etichetta automatica per i file](#define-autolabeling-rules-for-files)
-    - [Definire le regole di etichetta automatica per le colonne del database](#define-autolabeling-rules-for-database-columns)
+    - [Definire le regole di etichetta automatica per i file](#define-auto-labeling-rules-for-files)
+    - [Definire le regole di etichetta automatica per le colonne del database](#define-auto-labeling-rules-for-database-columns)
 
     Per ulteriori informazioni sulle opzioni della procedura guidata, vedere [quali etichette di riservatezza possono](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) essere eseguite nella documentazione Microsoft 365.
 
@@ -156,9 +156,9 @@ Continuare analizzando [i dati per applicare automaticamente le etichette](#scan
 - [Visualizzare le etichette negli asset](#view-labels-on-assets)
 - [Visualizzare i report dettagliati per le classificazioni e le etichette di riservatezza](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
-#### <a name="define-autolabeling-rules-for-files"></a>Definire le regole di etichetta automatica per i file
+#### <a name="define-auto-labeling-rules-for-files"></a>Definire le regole di etichetta automatica per i file
 
-Definire le regole di etichettatura automatica per i file nella procedura guidata quando si crea o si modifica l'etichetta. 
+Definire le regole di etichetta automatica per i file nella procedura guidata quando si crea o si modifica l'etichetta. 
 
 Nella pagina **etichetta automatica per le app di Office** abilitare l' **etichettatura automatica per le app di Office** e quindi definire le condizioni in cui si vuole che l'etichetta venga applicata automaticamente ai dati.
 
@@ -168,7 +168,7 @@ Ad esempio:
  
 Per ulteriori informazioni, vedere [applicare automaticamente un'etichetta di riservatezza ai dati](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) nella documentazione Microsoft 365. 
 
-#### <a name="define-autolabeling-rules-for-database-columns"></a>Definire le regole di etichetta automatica per le colonne del database
+#### <a name="define-auto-labeling-rules-for-database-columns"></a>Definire le regole di etichetta automatica per le colonne del database
 
 Definire le regole di etichetta automatica per le colonne del database nella procedura guidata quando si crea o si modifica l'etichetta. 
 
@@ -184,11 +184,11 @@ Ad esempio:
 
 ## <a name="scan-your-data-to-apply-labels-automatically"></a>Analizza i dati per applicare le etichette automaticamente
 
-Analizza i dati in Azure per applicare automaticamente le etichette create, in base alle regole di autoetichettatura definite. 
+Analizza i dati in Azure per applicare automaticamente le etichette create, in base alle regole di etichettatura automatica definite. 
 
 Per altre informazioni su come configurare le analisi in diversi asset in Azure, vedere:
 
-|Source (Sorgente)  |Informazioni di riferimento  |
+|Source (Sorgente)  |Riferimento  |
 |---------|---------|
 |**Archiviazione BLOB di Azure**     |[Registrare e analizzare l'archivio BLOB di Azure](register-scan-azure-blob-storage-source.md)         |
 |**Archiviazione di Azure Data Lake**     |[Registra e analizza Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Registra e analizza Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |

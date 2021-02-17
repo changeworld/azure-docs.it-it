@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575806"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545939"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -124,8 +124,6 @@ Tornare alla finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESam
 ### <a name="assign-permissions-to-the-function-app"></a>Assegnare le autorizzazioni all'app per le funzioni
 
 Per consentire l'accesso dell'app per le funzioni a Gemelli digitali di Azure, il passaggio successivo consiste nel configurare un'impostazione dell'app, assegnare all'app un'identità di Azure AD gestita dal sistema e assegnare a questa identità il ruolo *Proprietario dei dati di Gemelli digitali di Azure* nell'istanza di Gemelli digitali di Azure. Questo ruolo è necessario per qualsiasi utente o funzione che vuole eseguire molte attività del piano dati nell'istanza. Per altre informazioni sulla sicurezza e le assegnazioni di ruolo, vedere [*Concetti: Sicurezza per le soluzioni di Gemelli digitali di Azure*](concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 In Azure Cloud Shell usare il comando seguente per configurare un'impostazione che verrà usata dall'app per le funzioni per fare riferimento all'istanza di Gemelli digitali di Azure. Inserire i segnaposto con i dettagli delle risorse (tenere presente che l'URL dell'istanza di Azure Digital Twins è il nome host preceduto da *https://*).
 

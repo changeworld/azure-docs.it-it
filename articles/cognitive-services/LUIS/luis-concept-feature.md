@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372016"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546058"
 ---
 # <a name="machine-learning-features"></a>Funzionalità di Machine Learning
 
@@ -160,11 +160,9 @@ Indirizzo di spedizione (entità Machine Learn)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Funzionalità obbligatoria con le entità predefinite
 
-Città, stato e paese/area geografica sono in genere un set di elenchi chiuso, ovvero non cambiano molto nel tempo. Queste entità potrebbero avere le funzionalità consigliate pertinenti e tali funzionalità potrebbero essere contrassegnate come obbligatorie. Ciò significa che l'intero indirizzo di spedizione non viene restituito se le entità che hanno le funzionalità richieste non sono state trovate.
+Le entità predefinite, ad esempio città, stato e paese/area geografica, sono in genere un set di elenchi chiuso, ovvero non cambiano molto nel tempo. Queste entità potrebbero avere le funzionalità consigliate pertinenti e tali funzionalità potrebbero essere contrassegnate come obbligatorie. Tuttavia, il `isRequired` flag è correlato solo all'entità a cui è assegnato e non influisce sulla gerarchia. Se la funzionalità di sottoentità predefinita non viene trovata, questo non influirà sul rilevamento e sulla restituzione dell'entità padre.
 
-Cosa accade se la città, lo stato o il paese/area geografica sono presenti nell'espressione, ma si trovano in una posizione o sono slang non previsti da LUIS? Se si vuole fornire una fase di post-elaborazione per facilitare la risoluzione dell'entità, a causa di un punteggio a bassa confidenza da LUIS, non contrassegnare la funzionalità come richiesto.
-
-Un altro esempio di una funzionalità obbligatoria per l'indirizzo di spedizione è quello di rendere il numero di strada un numero obbligatorio e [precompilato](luis-reference-prebuilt-entities.md) . Questo consente a un utente di immettere "1 Microsoft Way" o "One Microsoft Way". Entrambi si risolvono nel numero "1" per la sottoentità numero civico.
+Come esempio di una funzionalità obbligatoria, tenere presente che si desidera rilevare gli indirizzi. È possibile prendere in considerazione il requisito di un numero civico. Questo consentirebbe a un utente di immettere "1 Microsoft Way" o "One Microsoft Way", che si risolverebbe nel numero "1" per la sottoentità numero via. Per ulteriori informazioni, vedere l'articolo relativo alle [entità predefinite ](luis-reference-prebuilt-entities.md) .
 
 ### <a name="required-feature-using-list-entities"></a>Funzionalità obbligatoria con le entità elenco
 
@@ -201,7 +199,7 @@ Poiché l'utente prevede di usare la lingua secondaria in qualsiasi finalità o 
 
 ### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Esempio: funzionalità dell'entità di prenotazione di ticket per un'app di viaggio  
 
-Come esempio di base, si consideri un'app per la prenotazione di un volo con _finalità_ di prenotazione del volo e un' _entità_di prenotazione di ticket. L'entità prenotazione biglietti acquisisce le informazioni per prenotare un ticket aereo in un sistema di prenotazione. 
+Come esempio di base, si consideri un'app per la prenotazione di un volo con _finalità_ di prenotazione del volo e un' _entità_ di prenotazione di ticket. L'entità prenotazione biglietti acquisisce le informazioni per prenotare un ticket aereo in un sistema di prenotazione. 
 
 L'entità Machine Learning per il ticket-Book ha due sottoentità per l'acquisizione dell'origine e della destinazione. Le funzionalità devono essere aggiunte a ogni sottoentità, non all'entità di primo livello.
 
@@ -209,7 +207,7 @@ L'entità Machine Learning per il ticket-Book ha due sottoentità per l'acquisiz
 
 L'entità di prenotazione del ticket è un'entità di Machine Learning, con sottoentità, tra cui l' _origine_ e la _destinazione_. Entrambe le sottoentità indicano una posizione geografica. Per estrarre i percorsi e distinguere tra l' _origine_ e la _destinazione_, è necessario che ogni sottoentità disponga di funzionalità.
 
-|Type|Sottoentità di origine |Sottoentità di destinazione|
+|Tipo|Sottoentità di origine |Sottoentità di destinazione|
 |--|--|--|
 |Modello come funzionalità|entità predefinita [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|entità predefinita [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|
 |Elenco di frasi|**Parole di origine**: `start at` , `begin from` , `leave`|**Parole di destinazione**: `to` , `arrive` , `land at` , `go` , `going` , `stay` , `heading`|
@@ -226,7 +224,7 @@ Dopo aver creato l'entità Machine Learning, è necessario aggiungere espression
 
 Per l'esempio di prenotazione di ticket, etichettare le espressioni di esempio nello scopo con l' `TicketBooking` entità e le eventuali sottoentità nel testo.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Schema di entità Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Etichettare le espressioni di esempio":::
 
 ### <a name="example-pizza-ordering-app"></a>Esempio: Pizza ordering app
 
@@ -234,20 +232,20 @@ Per un secondo esempio, si consideri un'app per un ristorante pizzeria che ricev
 
 L'entità Machine Learning in questo esempio è più complessa con le sottoentità nidificate, gli elenchi di frasi, le entità predefinite e le entità personalizzate.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schema di entità Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schema dell'entità dell'ordine di pizza":::
 
 In questo esempio vengono utilizzate le funzionalità a livello di sottoentità e figlio del livello di sottoentità. Il livello che ottiene il tipo di elenco di frasi o di modello come funzionalità è una parte importante della progettazione dell'entità.
 
 Sebbene le sottoentità possano avere molti elenchi di frasi come funzionalità che consentono di rilevare l'entità, ogni sottoentità ha un solo modello come funzionalità. In questa [app](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)per la pizza questi modelli sono principalmente elenchi.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Schema di entità Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Finalità dell'ordine di pizza con espressioni di esempio con etichetta":::
 
 Le espressioni di esempio correttamente etichettate vengono visualizzate in modo da illustrare il modo in cui le entità sono annidate. 
 
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Apprendere le [procedure consigliate](luis-concept-best-practices.md).
+Informazioni [sulle procedure](luis-concept-best-practices.md)consigliate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

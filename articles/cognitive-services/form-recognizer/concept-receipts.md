@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585042"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546007"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modello di ricezione predefinito del riconoscimento moduli
 
@@ -115,7 +115,12 @@ Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON in
 
 ### <a name="sample-json-output"></a>Output JSON di esempio
 
-Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" contiene tutto il testo riconosciuto. Il testo è organizzato in base alla pagina, quindi alla riga, infine in base a singole parole. Il nodo "documentResults" contiene i valori specifici della scheda business individuati dal modello. Qui sono disponibili coppie chiave/valore utili, ad esempio il nome, il cognome, il nome della società e altro ancora.
+
+La risposta all'operazione Get Analyze result result sarà la rappresentazione strutturata della ricevuta con tutte le informazioni estratte.  Vedere qui per un [file di ricezione di esempio](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) e il relativo output di output di [esempio](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)strutturato.
+
+Vedere l'esempio seguente di una risposta JSON riuscita:
+* Il nodo `"readResults"` contiene tutto il testo riconosciuto. Il testo è organizzato in base alla pagina, quindi alla riga, infine in base a singole parole. 
+* Il nodo `"documentResults"` contiene i valori specifici del biglietto da visita individuati dal modello. Qui sono disponibili coppie chiave/valore utili, ad esempio il nome, il cognome, il nome della società e altro ancora.
 
 ```json
 { 

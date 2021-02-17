@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
-ms.translationtype: HT
+ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126191"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558466"
 ---
 # <a name="pricing-scenarios"></a>Scenari relativi ai prezzi
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-I prezzi per Servizi di comunicazione di Azure sono in genere basati su un modello con pagamento in base al consumo.
+I prezzi per Servizi di comunicazione di Azure sono in genere basati su un modello con pagamento in base al consumo. I prezzi negli esempi seguenti sono a scopo illustrativo e potrebbero non riflettere i prezzi di Azure più recenti.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Chiamate vocali/video e condivisione dello schermo
 
@@ -46,11 +46,34 @@ Alice ha effettuato una chiamata di gruppo con i colleghi Bob e Charlie. Alice e
 - 2 partecipanti x 60 minuti x 0,004 USD per partecipante al minuto = 0,48 USD [video e audio vengono addebitati alla stessa tariffa]
 - 1 partecipante x 43 minuti x 0,004 USD per partecipante al minuto = 0,172 USD [video e audio vengono addebitati alla stessa tariffa]
 
-**Costo totale della chiamata di gruppo** : 0,48 USD + 0,172 USD = 0,652 USD
+**Costo totale della chiamata di gruppo**: 0,48 USD + 0,172 USD = 0,652 USD
+
+### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Esempio di prezzi: un utente della libreria client di Communication Services JS partecipa a una riunione pianificata Microsoft Teams
+
+Alice è una riunione del dottore con il suo paziente, Bob. Alice si unirà alla visita dell'applicazione desktop teams. Bob riceverà un collegamento per partecipare usando il sito Web del provider sanitario, che si connette alla riunione usando la libreria client JS di Communication Services. Bob userà il suo telefono cellulare per partecipare alla riunione usando un browser Web (iPhone con Safari). La chat sarà disponibile durante la visita virtuale. 
+
+- La chiamata dura un totale di 30 minuti.
+- Alice e Bob partecipano all'intera chiamata. Alice accende il video cinque minuti dopo l'avvio della chiamata e condivide lo schermo per 13 minuti. Bob ha il video su per l'intera chiamata.
+- Alice invia cinque messaggi, Bob risponde con tre messaggi.
+
+
+**Calcoli dei costi**
+
+- 1 partecipante (Bob) x 30 minuti x $0,004 per partecipante al minuto = $0,12 [sia il video che l'audio vengono addebitati alla stessa tariffa]
+- 1 partecipante (Alice) x 30 minuti x $0,000 per partecipante al minuto = $0,0 *. 
+- 1 partecipante (Bob) x 3 messaggi di chat x $0,0008 = $0,0024.
+- 1 partecipante (Alice) x 5 messaggi di chat x $0,000 = $0,0 *. 
+
+* La partecipazione di Alice è coperta dalla licenza dei team. Con la fattura di Azure verranno visualizzati i minuti e i messaggi di chat che i team hanno avuto con gli utenti di servizi di comunicazione per praticità, ma i minuti e i messaggi originati dal client dei team non costeranno.
+
+**Costo totale per la visita**: 
+- Aggiunta dell'utente tramite la libreria client JS di Communication Services: $0,12 + $0,0024 = $0,1224
+- Aggiunta di un utente all'applicazione desktop teams: $0 (coperta dalla licenza Teams) 
+
 
 ## <a name="chat"></a>Chat
 
-Con Servizi di comunicazione è possibile potenziare l'applicazione con la funzionalità di invio e ricezione di messaggi di chat tra due o più utenti. Le librerie client di chat sono disponibili per JavaScript, .NET, Python e Java. Vedere [questa pagina per informazioni sulle librerie client](./sdk-options.md).
+Con servizi di comunicazione è possibile migliorare l'applicazione con la possibilità di inviare e ricevere messaggi di chat tra due o più utenti. Le librerie client di chat sono disponibili per JavaScript, .NET, Python e Java. Vedere [questa pagina per informazioni sulle librerie client](./sdk-options.md).
 
 ### <a name="price"></a>Prezzo
 
@@ -58,7 +81,7 @@ Vengono addebitati $ 0,0008 per ogni messaggio di chat inviato.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Esempio di prezzi: chat tra due utenti 
 
-Geeta avvia un thread di chat con Emily per condividere un aggiornamento e inviare 5 messaggi. La chat dura 10 minuti, in cui Geeta ed Emily inviano altri 15 messaggi ciascuna.
+Geeta avvia un thread di chat con Emily per condividere un aggiornamento e inviare 5 messaggi. La chat dura 10 minuti. Gita e Emily inviano altri 15 messaggi ciascuno.
 
 **Calcoli dei costi** 
 - Numero di messaggi inviati (5 + 15 + 15) x 0,0008 USD = 0,028 USD

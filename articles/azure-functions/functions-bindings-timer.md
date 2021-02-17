@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: c6b3bd61386cbde0e8de63055eee9218e372dfcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874084"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547843"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
 
@@ -347,7 +347,7 @@ Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è mino
 
 ## <a name="scale-out"></a>Aumento delle istanze
 
-Se un'app per le funzioni viene scalata orizzontalmente a più istanze, viene eseguita un'unica istanza di una funzione attivata dal timer in tutte le istanze.
+Se un'app per le funzioni viene scalata orizzontalmente a più istanze, viene eseguita un'unica istanza di una funzione attivata dal timer in tutte le istanze. Non verrà attivato di nuovo se è ancora in corso una chiamata in attesa.
 
 ## <a name="function-apps-sharing-storage"></a>App per le funzioni che condividono un account di archiviazione
 

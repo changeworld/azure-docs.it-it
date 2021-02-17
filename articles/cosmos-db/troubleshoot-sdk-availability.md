@@ -3,17 +3,17 @@ title: Diagnosticare e risolvere i problemi relativi alla disponibilità di Azur
 description: Informazioni sul comportamento di disponibilità di Azure Cosmos SDK quando si opera in ambienti con più aree.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/20/2020
+ms.date: 02/16/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097890"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559691"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticare e risolvere i problemi relativi alla disponibilità di Azure Cosmos SDK in ambienti multiarea
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ Quando si imposta la preferenza a livello di area, il client si connetterà a un
 | Singola area di scrittura | Area preferita | Area primaria  |
 | Più aree di scrittura | Area preferita | Area preferita  |
 
-Se **non si imposta un'area preferita** , l'impostazione predefinita del client SDK è l'area primaria:
+Se **non si imposta un'area preferita**, l'impostazione predefinita del client SDK è l'area primaria:
 
 |Tipo di account |Letture |Scritture |
 |------------------------|--|--|
@@ -47,11 +47,11 @@ Se **non si imposta un'area preferita** , l'impostazione predefinita del client 
 
 In circostanze normali, il client SDK si connetterà all'area preferita (se è impostata una preferenza a livello di area) o all'area primaria (se non è impostata alcuna preferenza) e le operazioni saranno limitate a tale area, a meno che non si verifichi uno degli scenari seguenti.
 
-In questi casi, il client che usa Azure Cosmos SDK espone i log e include le informazioni di ripetizione dei tentativi come parte delle **informazioni di diagnostica dell'operazione** :
+In questi casi, il client che usa Azure Cosmos SDK espone i log e include le informazioni di ripetizione dei tentativi come parte delle **informazioni di diagnostica dell'operazione**:
 
 * Proprietà *RequestDiagnosticsString* sulle risposte in .NET v2 SDK.
 * Proprietà di *diagnostica* sulle risposte e sulle eccezioni in .NET V3 SDK.
-* Metodo *Getdiagnostics ()* sulle risposte e sulle eccezioni in Java v4 SDK.
+* Il metodo *getdiagnostics()* nelle risposte e nelle eccezioni in Java V4 SDK.
 
 Quando si determina l'area successiva in ordine di preferenza, il client SDK utilizzerà l'elenco dell'area account, assegnando la priorità alle aree preferite (se presenti).
 
@@ -83,9 +83,9 @@ Quando si usa la [coerenza di sessione](consistency-levels.md#guarantees-associa
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problemi di connettività temporanei sul protocollo TCP
 
-Negli scenari in cui il client Azure Cosmos SDK è configurato per l'uso del protocollo TCP, per una determinata richiesta potrebbero esserci situazioni in cui le condizioni della rete influiscono temporaneamente sulla comunicazione con un endpoint specifico. Queste condizioni di rete temporanea possono emergere come timeout TCP. Il client tenterà di ritentare la richiesta localmente sullo stesso endpoint per alcuni secondi.
+Negli scenari in cui il client Azure Cosmos SDK è configurato per l'uso del protocollo TCP, per una determinata richiesta potrebbero esserci situazioni in cui le condizioni della rete influiscono temporaneamente sulla comunicazione con un endpoint specifico. Queste condizioni di rete temporanea possono essere visibili come timeout TCP e errori del servizio (HTTP 503). Il client tenterà di ritentare la richiesta localmente sullo stesso endpoint per alcuni secondi prima di riaffiorare l'errore.
 
-Se l'utente ha configurato un elenco di aree preferite con più di un'area e l'account Azure Cosmos è costituito da più aree di scrittura o da un'area di scrittura singola e l'operazione è una richiesta di lettura, il client ritenterà la singola operazione nell'area successiva dall'elenco delle preferenze.
+Se l'utente ha configurato un elenco di aree preferite con più di un'area e l'account Azure Cosmos è costituito da più aree di scrittura o da un'area di scrittura singola e l'operazione è una richiesta di lettura, il client rileverà l'errore locale e ritenterà la singola operazione nell'area successiva dall'elenco delle preferenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

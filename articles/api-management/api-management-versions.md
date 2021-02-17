@@ -6,15 +6,15 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097998"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547197"
 ---
 # <a name="versions-in-azure-api-management"></a>Versioni in gestione API di Azure
 
@@ -64,9 +64,13 @@ Se si aggiunge una versione a un'API senza versione, verrà `Original` creata au
 
 ## <a name="how-versions-are-represented"></a>Rappresentazione delle versioni
 
-Gestione API di Azure gestisce una risorsa denominata *set*di versioni, che rappresenta un set di versioni per una singola API logica. Quando si usa il portale di Azure per gestire le versioni non è visibile il set di versioni, ma se si interagisce con il servizio gestione API usando PowerShell, i modelli Gestione risorse o l'API Azure Resource Manager, è possibile visualizzare e gestire direttamente i set di versioni. Un set di versioni contiene il nome visualizzato dell'API con versione, nonché lo schema di [controllo](#versioning-schemes) delle versioni utilizzato per indirizzare le richieste alle versioni specificate.
+Gestione API di Azure gestisce una risorsa denominata *set* di versioni, che rappresenta un set di versioni per una singola API logica. Un set di versioni contiene il nome visualizzato dell'API con versione e lo [schema di controllo](#versioning-schemes) delle versioni utilizzato per indirizzare le richieste alle versioni specificate.
 
-Ogni versione di un'API viene gestita come risorsa API, che viene quindi associata a un set di versioni. Un set di versioni potrebbe contenere API con operazioni o criteri molto diversi, il che riflette il fatto che è possibile apportare modifiche significative tra le versioni dell'API.
+Ogni versione di un'API viene gestita come risorsa API, che viene quindi associata a un set di versioni. Un set di versioni potrebbe contenere API con operazioni o criteri diversi. È possibile apportare modifiche significative tra le versioni di un set.
+
+Il portale di Azure crea automaticamente i set di versioni. È possibile modificare il nome e la descrizione di un set di versioni nel portale di Azure.
+
+È possibile visualizzare e gestire i set di versioni direttamente usando l'interfaccia della riga di comando di [Azure](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management) [Gestione risorse modelli](/azure/templates/microsoft.apimanagement/service/apiversionsets)o l' [API Azure Resource Manager](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>Migrazione di un'API senza versione a un'API con versione
 

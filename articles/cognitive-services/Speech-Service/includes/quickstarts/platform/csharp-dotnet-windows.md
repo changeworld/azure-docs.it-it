@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f63c97fd23d56ff508de8d5953eefac6b15ae1aa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 1a9faf24c5a82b815b40afe15769480b69074dc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188299"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551645"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per .NET Framework (Windows). Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `Install-Package Microsoft.CognitiveServices.Speech` nella console NuGet.
 
@@ -26,6 +26,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 
 Questa guida introduttiva richiede:
 
+* In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) per la piattaforma in uso. La prima volta che si esegue questa installazione può essere necessario riavviare il sistema.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Creare un progetto di Visual Studio e installare Speech SDK
@@ -36,13 +37,13 @@ Sarà necessario procedere all'installazione del [pacchetto NuGet Speech SDK](ht
 
 1. Aprire Visual Studio 2019.
 
-1. Nella finestra di avvio selezionare **Crea un nuovo progetto**. 
+1. Nella finestra iniziale selezionare **Crea un nuovo progetto**. 
 
 1. Nella finestra **Crea un nuovo progetto** scegliere **App console (.NET Framework)** e quindi fare clic su **Avanti**.
 
 1. Nella finestra **Configura il nuovo progetto** immettere *helloworld* in **Nome progetto** scegliere o creare il percorso della directory in **Percorso** e quindi selezionare **Crea**.
 
-1. Dalla barra dei menu di Visual Studio scegliere **Strumenti** > **Ottieni strumenti e funzionalità** per aprire il Programma di installazione di Visual Studio e visualizzare la finestra di dialogo **Modifica**.
+1. Dalla barra dei menu di Visual Studio scegliere **strumenti**  >  **Ottieni strumenti e funzionalità**, che consente di aprire programma di installazione di Visual Studio e visualizzare la finestra di dialogo **modifica** .
 
 1. Assicurarsi che il carico di lavoro di **Sviluppo per desktop .NET** sia disponibile. Se il carico di lavoro non è stato installato, selezionare la casella di controllo accanto ad esso e quindi fare clic su **Modifica** per avviare l'installazione. Il download e l'installazione può richiedere alcuni minuti.
 
@@ -74,9 +75,9 @@ Sarà necessario procedere all'installazione del [pacchetto NuGet Speech SDK](ht
 
 ### <a name="choose-target-architecture"></a>Scegliere l'architettura di destinazione
 
-Per compilare ed eseguire l'applicazione console, creare una configurazione della piattaforma corrispondente all'architettura del computer.
+Per compilare ed eseguire l'applicazione console, creare una configurazione di piattaforma corrispondente all'architettura del computer.
 
-1. Nella barra dei menu selezionare **Compila** > **Gestione configurazione**. Verrà visualizzata finestra di dialogo **Gestione configurazione**.
+1. Dalla barra dei menu selezionare **Compila**  >  **Configuration Manager**. Verrà visualizzata finestra di dialogo **Gestione configurazione**.
 
    ![Finestra di dialogo Gestione configurazione](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

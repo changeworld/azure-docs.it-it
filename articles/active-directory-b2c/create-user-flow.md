@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.openlocfilehash: 9bd436b972dfb1549232831b1f07c3726ff459dd
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109013"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556490"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Creare un flusso utente in Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ ms.locfileid: "97109013"
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 - **Registrare l'applicazione** che si vuole usare per testare il nuovo flusso utente. Per un esempio, vedere l'[Esercitazione: Registrare un'applicazione Web in Azure AD B2C](tutorial-register-applications.md).
-- **Aggiungere provider di identità esterni** se si vuole consentire agli utenti di accedere con provider come Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft o Twitter. Per un esempio, vedere [Esercitazione: Aggiungere provider di identità alle applicazioni in Azure AD B2C](tutorial-add-identity-providers.md).
+- **Aggiungere provider di identità esterni** se si vuole consentire agli utenti di accedere con provider come Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft o Twitter. Vedere [aggiungere provider di identità alle applicazioni in Azure ad B2C](add-identity-provider.md).
 - **Configurare il provider di identità dell'account locale** per specificare i tipi di identità (posta elettronica, nome utente, numero di telefono) che si vogliono supportare per gli account locali nel tenant. È quindi possibile scegliere tra questi tipi di identità supportati quando si creano flussi utente singoli. Quando un utente completa il flusso utente, viene creato un account locale nella directory Azure AD B2C e il provider di identità dell'**account locale** autentica le informazioni dell'utente. Configurare il provider di identità dell'account locale del tenant attenendosi alla procedura seguente:
 
    1. Accedere al [portale di Azure](https://portal.azure.com/). 
@@ -66,7 +66,7 @@ ms.locfileid: "97109013"
 
    - **Account locale**. Se si vuole consentire agli utenti di creare account locali nel tenant di Azure AD B2C, selezionare il tipo di identificatore che dovranno usare, ad esempio posta elettronica, ID utente o telefono. Sono elencati solo i tipi di identità configurati nelle impostazioni del [provider di identità dell'account locale](#before-you-begin).
 
-   - **Provider di identità basati su social network**. Se si vuole consentire agli utenti di accedere con [provider di identità basati su social network](tutorial-add-identity-providers.md), come Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft o Twitter, selezionare i provider dall'elenco.
+   - **Provider di identità basati su social network**. Se si vuole consentire agli utenti di accedere con [provider di identità basati su social network](add-identity-provider.md), come Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft o Twitter, selezionare i provider dall'elenco.
 
 9. Per **Attributi e attestazioni utente**, scegliere le attestazioni e gli attributi che si vogliono raccogliere e inviare all'utente durante l'iscrizione. Selezionare **Mostra altro**. Selezionare gli attributi e le attestazioni, quindi selezionare **OK**.
 

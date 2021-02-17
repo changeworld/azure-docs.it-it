@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362855"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548642"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sicurezza e protezione dei dati per Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
@@ -77,7 +77,7 @@ Le password assicurano che solo gli utenti autorizzati possano accedere ai dati.
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>Stabilire una relazione di trust con il dispositivo tramite certificati
 
-Azure Stack dispositivo robusto Edge consente di importare i propri certificati e di installarli per l'uso per tutti gli endpoint pubblici. Per altre informazioni, vedere [caricare il certificato](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). Per un elenco di tutti i certificati che possono essere installati nel dispositivo, vedere gestire i [certificati nel dispositivo](azure-stack-edge-j-series-manage-certificates.md).
+Azure Stack dispositivo robusto Edge consente di importare i propri certificati e di installarli per l'uso per tutti gli endpoint pubblici. Per altre informazioni, vedere [caricare il certificato](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). Per un elenco di tutti i certificati che possono essere installati nel dispositivo, vedere gestire i [certificati nel dispositivo](azure-stack-edge-gpu-manage-certificates.md).
 
 - Quando si configura il calcolo nel dispositivo, vengono creati un dispositivo e un dispositivo IoT Edge. A questi dispositivi vengono assegnate automaticamente delle chiavi di accesso simmetriche. Per una protezione ottimale, queste chiavi vengono ruotate regolarmente tramite il servizio dell'hub IoT.
 
