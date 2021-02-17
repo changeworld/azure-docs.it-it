@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046040"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581107"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 
@@ -28,7 +28,7 @@ Per garantire la sicurezza dei dati in transito in automazione di Azure, si cons
 
 Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. Non è consigliabile impostare in modo esplicito l'agente perché usi solo il protocollo TLS 1.2, a meno che non sia assolutamente necessario. Questa scelta potrebbe causare l'interruzione delle funzionalità di sicurezza a livello di piattaforma che consentono di rilevare automaticamente e sfruttare i vantaggi di protocolli più recenti e più sicuri quando saranno disponibili, ad esempio TLS 1.3.
 
-Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windows e Linux, che è una dipendenza per il ruolo di lavoro ibrido per Runbook, vedere [Panoramica di log Analytics Agent-TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
+Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windows e Linux, che è una dipendenza per il ruolo di lavoro ibrido per Runbook, vedere [Panoramica di log Analytics Agent-TLS 1,2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Indicazioni specifiche in base alla piattaforma
 

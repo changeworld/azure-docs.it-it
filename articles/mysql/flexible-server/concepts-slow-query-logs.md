@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543018"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579196"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Log di query lente nel server flessibile database di Azure per MySQL (anteprima)
 
@@ -27,10 +27,10 @@ Per impostazione predefinita, il log di query lente è disabilitato. Per abilita
 
 Altri parametri che è possibile modificare per controllare il comportamento della registrazione lenta delle query includono:
 
-- **long_query_time** : registra una query se richiede più tempo di `long_query_time` (in secondi) per il completamento. Il valore predefinito è 10 secondi.
-- **log_slow_admin_statements** : determina se le istruzioni amministrative (ad esempio `ALTER_TABLE`, `ANALYZE_TABLE` ) vengono registrati.
-- **log_queries_not_using_indexes** : determina se le query che non utilizzano indici vengono registrate.
-- **log_throttle_queries_not_using_indexes** : limita il numero di query non indicizzate che possono essere scritte nel log di query lente. Questo parametro viene applicato quando `log_queries_not_using_indexes` è impostato *su on* .
+- **long_query_time**: registra una query se richiede più tempo di `long_query_time` (in secondi) per il completamento. Il valore predefinito è 10 secondi.
+- **log_slow_admin_statements**: determina se le istruzioni amministrative (ad esempio `ALTER_TABLE`, `ANALYZE_TABLE` ) vengono registrati.
+- **log_queries_not_using_indexes**: determina se le query che non utilizzano indici vengono registrate.
+- **log_throttle_queries_not_using_indexes**: limita il numero di query non indicizzate che possono essere scritte nel log di query lente. Questo parametro viene applicato quando `log_queries_not_using_indexes` è impostato *su on* .
 
 > [!IMPORTANT]
 > Se le tabelle non sono indicizzate, l'impostazione `log_queries_not_using_indexes` dei `log_throttle_queries_not_using_indexes` parametri e **su on** può influire sulle prestazioni di MySQL perché tutte le query in esecuzione in queste tabelle non indicizzate verranno scritte nel log di query lente.
@@ -39,7 +39,7 @@ Per una descrizione completa dei parametri per il log di query lente, vedere la 
 
 ## <a name="access-slow-query-logs"></a>Accedere ai log di query lente
 
-I log di query lente sono integrati con le impostazioni di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di query lente sul server MySQL flessibile, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per ulteriori informazioni sulle impostazioni di diagnostica, vedere la [documentazione relativa ai log di diagnostica](../../azure-monitor/platform/platform-logs-overview.md). Per altre informazioni su come abilitare le impostazioni di diagnostica nella portale di Azure, vedere l' [articolo relativo al portale di log di query lente](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+I log di query lente sono integrati con le impostazioni di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di query lente sul server MySQL flessibile, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per ulteriori informazioni sulle impostazioni di diagnostica, vedere la [documentazione relativa ai log di diagnostica](../../azure-monitor/essentials/platform-logs-overview.md). Per altre informazioni su come abilitare le impostazioni di diagnostica nella portale di Azure, vedere l' [articolo relativo al portale di log di query lente](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
 Nella tabella seguente viene descritto l'output del log di query lente. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 

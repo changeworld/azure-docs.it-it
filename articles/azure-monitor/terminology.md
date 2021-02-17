@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99592544d97793f82db36e1d2cb33ba8c6af1c9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498611"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586958"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modifiche di denominazione e terminologia in Monitoraggio di Azure
 Di recente sono state apportate modifiche significative a Monitoraggio di Azure, con diversi servizi consolidati per semplificare il servizio di monitoraggio da parte dei clienti di Azure. Questo articolo descrive le recenti modifiche apportate alla terminologia e ai nomi all'interno della documentazione di Monitoraggio di Azure.
@@ -23,12 +23,12 @@ Di recente sono state apportate modifiche significative a Monitoraggio di Azure,
 Dopo il consolidamento di diversi servizi in Monitoraggio di Azure, stiamo affrontando il passaggio successivo con la modifica della terminologia nella documentazione per descrivere meglio il servizio di Monitoraggio di Azure e i relativi componenti. 
 
 ### <a name="log-analytics"></a>Log Analytics
-I dati di log di Monitoraggio di Azure rimangono archiviati in un'area di lavoro Log Analytics e vengono ancora raccolti e analizzati dal servizio Log Analytics stesso, tuttavia è in corso, in molte posizioni, la modifica del termine _Log Analytics_, in _Log di Monitoraggio di Azure _. Questo termine riflette meglio il proprio ruolo in monitoraggio di Azure e offre una maggiore coerenza con le [metriche in monitoraggio di Azure](platform/data-platform-metrics.md).
+I dati di log di Monitoraggio di Azure rimangono archiviati in un'area di lavoro Log Analytics e vengono ancora raccolti e analizzati dal servizio Log Analytics stesso, tuttavia è in corso, in molte posizioni, la modifica del termine _Log Analytics_, in _Log di Monitoraggio di Azure_. Questo termine riflette meglio il proprio ruolo in monitoraggio di Azure e offre una maggiore coerenza con le [metriche in monitoraggio di Azure](essentials/data-platform-metrics.md).
 
-Il termine _Log Analytics_ si applica ora principalmente alla pagina nel portale di Azure usata per scrivere, eseguire query e analizzare i dati di log. È l'equivalente funzionale di [Esplora metriche](platform/metrics-charts.md), ovvero la pagina nel portale di Azure usata per analizzare i dati delle metriche.
+Il termine _Log Analytics_ si applica ora principalmente alla pagina nel portale di Azure usata per scrivere, eseguire query e analizzare i dati di log. È l'equivalente funzionale di [Esplora metriche](essentials/metrics-charts.md), ovvero la pagina nel portale di Azure usata per analizzare i dati delle metriche.
 
 ### <a name="log-analytics-workspaces"></a>Aree di lavoro di Log Analytics
-Le [aree di lavoro](platform/manage-access.md) che contengono i dati di log in Monitoraggio di Azure si riferiscono ancora alle aree di lavoro di Log Analytics. Il menu **Log Analytics** nel portale di Azure è stato rinominato **Aree di lavoro di Log Analytics** ed è l'area in cui si possono [creare nuove aree di lavoro](learn/quick-create-workspace.md) e configurare le origini dati. Analizzare i log e gli altri dati di monitoraggio in **Monitoraggio di Azure** e configurare l'area di lavoro in **Aree di lavoro di Log Analytics**.
+Le [aree di lavoro](logs/manage-access.md) che contengono i dati di log in Monitoraggio di Azure si riferiscono ancora alle aree di lavoro di Log Analytics. Il menu **Log Analytics** nel portale di Azure è stato rinominato **Aree di lavoro di Log Analytics** ed è l'area in cui si possono [creare nuove aree di lavoro](logs/quick-create-workspace.md) e configurare le origini dati. Analizzare i log e gli altri dati di monitoraggio in **Monitoraggio di Azure** e configurare l'area di lavoro in **Aree di lavoro di Log Analytics**.
 
 ### <a name="management-solutions"></a>Soluzioni di gestione
 Le [Soluzioni di gestione](insights/solutions.md) sono state rinominate _Soluzioni di monitoraggio_, il che ne descrive meglio le funzionalità.
@@ -59,4 +59,4 @@ Operations Management Suite (OMS) era un bundle dei servizi di gestione di Azure
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere l'articolo [Panoramica di Monitoraggio di Azure](overview.md), che riporta la descrizione dei vari componenti e delle relative funzionalità.
-- Informazioni sulla [migrazione del portale di OMS](./platform/oms-portal-transition.md).
+- Informazioni sulla [migrazione del portale di OMS](./logs/oms-portal-transition.md).

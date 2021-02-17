@@ -3,12 +3,12 @@ title: Caricare il server Azure Arc abilitato in Sentinel di Azure
 description: Informazioni su come aggiungere i server abilitati per Azure Arc a Sentinel di Azure e monitorare in modo proattivo lo stato di sicurezza.
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60018e710613a27bcb5c00f38ee90be6ff46c61d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2364ba72ac5b10ec4e1f433cc6d591c3ca389ecd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811052"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584746"
 ---
 # <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Caricare i server abilitati per Azure Arc in Sentinel di Azure
 
@@ -18,7 +18,7 @@ Questo articolo ha lo scopo di aiutare l'utente a caricare il server abilitato p
 
 Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 
-- Un'[area di lavoro Log Analytics](../../azure-monitor/platform/data-platform-logs.md). Per altre informazioni sulle aree di lavoro Log Analytics, vedere [Progettazione della distribuzione dei log di Monitoraggio di Azure](../../azure-monitor/platform/design-logs-deployment.md).
+- Un'[area di lavoro Log Analytics](../../azure-monitor/logs/data-platform-logs.md). Per altre informazioni sulle aree di lavoro Log Analytics, vedere [Progettazione della distribuzione dei log di Monitoraggio di Azure](../../azure-monitor/logs/design-logs-deployment.md).
 
 - Azure Sentinel è [abilitato nella sottoscrizione](../../sentinel/quickstart-onboard.md).
 

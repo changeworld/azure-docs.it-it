@@ -7,12 +7,12 @@ ms.date: 02/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1f013f22b482c1e1d093f106bd786be870103f3d
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 0878686e203960a0b7f33c19cc64e82319997684
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008503"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590441"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduzione ad Azure Defender per Kubernetes
 
@@ -71,7 +71,7 @@ Per essere monitorati da Azure Defender, i nodi del servizio Azure Kubernetes de
 
 Se i cluster eseguono già l'agente di Monitoraggio di Azure per i contenitori, è possibile installare anche l'agente di Log Analytics e i due agenti possono interagire tra loro senza problemi.
 
-[Altre informazioni sull'agente di Monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-manage-agent.md).
+[Altre informazioni sull'agente di Monitoraggio di Azure per i contenitori](../azure-monitor/containers/container-insights-manage-agent.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -4,12 +4,12 @@ description: Informazioni su come usare i log di monitoraggio di Azure per monit
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3bc5c659d9871cb8f1d49d2a3bfde2ce03faea86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946959"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571890"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Come monitorare la disponibilità dei cluster con i log di monitoraggio di Azure in HDInsight
 
@@ -19,7 +19,7 @@ I cluster HDInsight includono l'integrazione dei log di monitoraggio di Azure, c
 
 I log di monitoraggio di Azure consentono di raccogliere e aggregare i dati generati da più risorse, ad esempio i cluster HDInsight, in un'unica posizione per ottenere un'esperienza di monitoraggio unificata.
 
-Come prerequisito, è necessario disporre di un'area di lavoro Log Analytics per archiviare i dati raccolti. Se non è già stato creato, è possibile seguire le istruzioni riportate qui: [creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Come prerequisito, è necessario disporre di un'area di lavoro Log Analytics per archiviare i dati raccolti. Se non è già stato creato, è possibile seguire le istruzioni riportate qui: [creare un'area di lavoro log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Abilitare l'integrazione dei log di monitoraggio di Azure HDInsight
 
@@ -81,7 +81,7 @@ Poiché questa query restituisce solo i nodi non disponibili come risultati, se 
 
 Nella sezione **valutato in base a** impostare il **periodo** e la **frequenza** in base alla frequenza con cui si desidera controllare i nodi non disponibili.
 
-Ai fini di questo avviso, è necessario assicurarsi che **periodo = frequenza.** Altre informazioni su periodo, frequenza e altri parametri di avviso sono disponibili [qui](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
+Ai fini di questo avviso, è necessario assicurarsi che **periodo = frequenza.** Altre informazioni su periodo, frequenza e altri parametri di avviso sono disponibili [qui](../azure-monitor/alerts/alerts-unified-log.md#alert-logic-definition).
 
 Selezionare **fine** al termine della configurazione della logica del segnale.
 
@@ -94,7 +94,7 @@ Se non si dispone già di un gruppo di azioni esistente, fare clic su **Crea nuo
 Verrà aperto **Aggiungi gruppo di azione**. Scegliere un **nome del gruppo di azioni**, un **nome breve**, una **sottoscrizione** e un **gruppo di risorse.** Nella sezione **azioni** scegliere un nome di **azione** e selezionare **posta elettronica/SMS/push/Voice** come **tipo di azione.**
 
 > [!NOTE]
-> Esistono diverse altre azioni che possono essere attivate da un avviso oltre a un messaggio di posta elettronica/SMS/push/Voice, ad esempio una funzione di Azure, LogicApp, webhook, ITSM e Runbook di automazione. [Ulteriori informazioni.](../azure-monitor/platform/action-groups.md#action-specific-information)
+> Esistono diverse altre azioni che possono essere attivate da un avviso oltre a un messaggio di posta elettronica/SMS/push/Voice, ad esempio una funzione di Azure, LogicApp, webhook, ITSM e Runbook di automazione. [Ulteriori informazioni.](../azure-monitor/alerts/action-groups.md#action-specific-information)
 
 Verrà aperta la **posta elettronica/SMS/push/Voice**. Scegliere un **nome** per il destinatario, **selezionare** la casella **posta elettronica** e digitare un indirizzo di posta elettronica a cui si vuole inviare l'avviso. Selezionare **OK** in  **posta elettronica/SMS/push/voce**, quindi in **Aggiungi gruppo di azioni** per completare la configurazione del gruppo di azioni.
 

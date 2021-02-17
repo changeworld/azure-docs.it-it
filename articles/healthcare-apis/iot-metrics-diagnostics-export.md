@@ -8,16 +8,16 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 14fd5378f37ebfc20b2d7084c08f15ea8f7a00b2
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 00abad784048b67e9d89c12b9be3f631f586fb07
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630533"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574536"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Esportare le metriche del connettore Azure IoT per FHIR (anteprima) tramite impostazioni di diagnostica
 
-Questo articolo illustra come esportare un connettore Azure per le risorse di interoperabilità sanitaria veloce (FHIR&#174;) * log di metrica. La funzionalità che Abilita la registrazione delle metriche è rappresentata dalle [**impostazioni di diagnostica**](../azure-monitor/platform/diagnostic-settings.md) nella portale di Azure. 
+Questo articolo illustra come esportare un connettore Azure per le risorse di interoperabilità sanitaria veloce (FHIR&#174;) * log di metrica. La funzionalità che Abilita la registrazione delle metriche è rappresentata dalle [**impostazioni di diagnostica**](../azure-monitor/essentials/diagnostic-settings.md) nella portale di Azure. 
 
 > [!TIP]
 > Per configurare la registrazione di controllo, seguire le istruzioni riportate nella pagina relativa all' [Abilitazione della registrazione diagnostica nell'API di Azure per FHIR e nel connettore Azure per FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) .
@@ -48,7 +48,7 @@ Questo articolo illustra come esportare un connettore Azure per le risorse di in
 > [!Note] 
 > Potrebbero essere necessari fino a 15 minuti per la visualizzazione dei primi log di metrica nel repository di propria scelta.  
  
-Per altre informazioni su come usare i log di diagnostica, vedere la [documentazione relativa al log delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md)
+Per altre informazioni su come usare i log di diagnostica, vedere la [documentazione relativa al log delle risorse di Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="conclusion"></a>Conclusione 
 L'accesso ai log delle metriche è essenziale per il monitoraggio e la risoluzione dei problemi.  Il connettore Azure per FHIR consente di eseguire queste azioni tramite i log di metrica. 
@@ -60,4 +60,4 @@ Vedere le domande frequenti sul connettore Azure per FHIR.
 >[!div class="nextstepaction"]
 >[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
 
-* Nel portale di Azure, il connettore Azure Internet per FHIR viene indicato come connettore Internet (anteprima). FHIR è un marchio registrato di HL7 e viene usato con l'autorizzazione di HL7.
+*Nel portale di Azure si fa riferimento al connettore Azure IoT per FHIR come Connettore IoT (anteprima). FHIR è un marchio registrato di HL7, usato con l'autorizzazione di HL7.

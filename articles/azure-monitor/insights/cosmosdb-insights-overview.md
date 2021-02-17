@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 878ae21cfbe55565c4a20064d937d1447f96ce7a
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209900"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582371"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Esplorare Monitoraggio di Azure per Azure Cosmos DB
 
@@ -125,6 +125,6 @@ Per informazioni aggiuntive sulla risoluzione dei problemi, vedere l'articolo de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
+* Configurare gli [avvisi sulle metriche](../alerts/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
 
-* Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
+* Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../visualize/workbooks-overview.md).

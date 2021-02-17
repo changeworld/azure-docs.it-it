@@ -3,12 +3,12 @@ title: Creare una nuova risorsa di Application Insights basata sull'area di lavo
 description: Informazioni sui passaggi necessari per abilitare le nuove risorse di Application Insights basate sull'area di lavoro in Monitoraggio di Azure.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063367"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578346"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Risorse di Application Insights basate sull’area di lavoro
 
@@ -23,10 +23,10 @@ Questo consente anche il controllo degli accessi in base al ruolo di Azure (RBAC
 
 Application Insights basata sull'area di lavoro consente di sfruttare le funzionalità più recenti di monitoraggio di Azure e Log Analytics, tra cui:
 
-* [Chiavi gestite dal cliente (CMK)](../platform/customer-managed-keys.md) fornisce la crittografia dei dati inattivi per i dati con chiavi di crittografia solo a cui si ha accesso.
-* [Collegamento privato di Azure](../platform/private-link-security.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati.
+* [Chiavi gestite dal cliente (CMK)](../logs/customer-managed-keys.md) fornisce la crittografia dei dati inattivi per i dati con chiavi di crittografia solo a cui si ha accesso.
+* [Collegamento privato di Azure](../logs/private-link-security.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati.
 * [Bring your own Storage (BYOS) per Profiler e snapshot debugger](./profiler-bring-your-own-storage.md) offre il controllo completo sui criteri di crittografia dei dati inattivi, sui criteri di gestione della durata e sull'accesso alla rete per tutti i dati associati a Application Insights Profiler e snapshot debugger. 
-* I [livelli di prenotazione della capacità](../platform/manage-cost-storage.md#pricing-model) consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. 
+* I [livelli di prenotazione della capacità](../logs/manage-cost-storage.md#pricing-model) consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. 
 * Inserimento più rapido dei dati tramite Log Analytics inserimento di flussi.
 
 ## <a name="create-workspace-based-resource"></a>Crea risorsa basata sull'area di lavoro
@@ -36,7 +36,7 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
 > [!div class="mx-imgBorder"]
 > ![Risorsa di Application Insights basata sull'area di lavoro](./media/create-workspace-resource/create-workspace-based.png)
 
-Se non si dispone di un'area di lavoro Log Analytics esistente, [consultare la documentazione relativa alla creazione dell'area di lavoro Log Analytics](../learn/quick-create-workspace.md).
+Se non si dispone di un'area di lavoro Log Analytics esistente, [consultare la documentazione relativa alla creazione dell'area di lavoro Log Analytics](../logs/quick-create-workspace.md).
 
 **Le risorse basate sull'area di lavoro sono attualmente disponibili in tutte le aree commerciali e in Azure per enti pubblici**
 
@@ -212,5 +212,5 @@ La funzionalità di esportazione continua legacy non è supportata per risorse b
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplorare le metriche](../platform/metrics-charts.md)
-* [Scrivere query di Analisi](../log-query/log-query-overview.md)
+* [Esplorare le metriche](../essentials/metrics-charts.md)
+* [Scrivere query di Analisi](../logs/log-query-overview.md)

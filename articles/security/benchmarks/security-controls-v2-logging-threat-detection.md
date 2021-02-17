@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369073"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576803"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controllo di sicurezza V2: registrazione e rilevamento minacce
 
@@ -133,7 +133,7 @@ Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requi
 
 È possibile usare il Centro sicurezza di Azure e i criteri di Azure per abilitare i log delle risorse e la raccolta dei dati di log sulle risorse di Azure per l'accesso ai log di controllo, sicurezza e risorse. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili. 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Informazioni sulla raccolta dati del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md)
 
@@ -163,7 +163,7 @@ Inoltre, abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze 
 
 Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usati di frequente e archiviazione di Azure per dati "a freddo" usati con minore frequenza. 
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -187,7 +187,7 @@ Configurare la conservazione dei log in base ai requisiti aziendali, normativi e
 
 In monitoraggio di Azure è possibile impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare archiviazione di Azure, Data Lake o Log Analytics account dell'area di lavoro per l'archiviazione a lungo termine e di archiviazione.
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 

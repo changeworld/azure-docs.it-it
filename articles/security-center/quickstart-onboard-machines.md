@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
-ms.translationtype: HT
+ms.openlocfilehash: cc44c7121cfc03b78ff820f6c50a88f646d599e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740607"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579011"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connettere macchine virtuali non di Azure al Centro sicurezza
 
@@ -121,7 +121,7 @@ Per aggiungere computer Windows, è necessario avere le informazioni riportate n
 
 Al termine, verrà visualizzato **Microsoft Monitoring Agent** nel **Pannello di controllo**. È possibile rivedere la configurazione e verificare che l'agente sia connesso.
 
-Per altre informazioni sull'installazione e la configurazione dell'agente, vedere [Connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+Per altre informazioni sull'installazione e la configurazione dell'agente, vedere [Connettere computer Windows](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 

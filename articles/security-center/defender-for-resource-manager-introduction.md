@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9591dae058a19cea73d88513b7c4ff4ab8f88045
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 922189909da21aac65d1e2e898df58598868b929
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797742"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590463"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introduzione ad Azure Defender per Resource Manager
 
@@ -48,7 +48,7 @@ Per un elenco completo degli avvisi forniti da Azure Defender per Resource Manag
 
 Gli avvisi di sicurezza di Azure Defender per Resource Manager si basano sulle minacce rilevate tramite il monitoraggio delle operazioni di Azure Resource Manager. Azure Defender usa origini di log interne di Azure Resource Manager e il log attività di Azure, un log di piattaforma di Azure che fornisce informazioni dettagliate sugli eventi a livello di sottoscrizione.
 
-Altre informazioni sul [log attività di Azure](../azure-monitor/platform/activity-log.md).
+Altre informazioni sul [log attività di Azure](../azure-monitor/essentials/activity-log.md).
 
 Per esaminare gli avvisi di sicurezza di Azure Defender per Resource Manager:
 

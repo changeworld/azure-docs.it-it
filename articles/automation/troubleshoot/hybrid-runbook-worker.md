@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388006"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580997"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -128,7 +128,7 @@ Le possibili cause sono le seguenti:
 #### <a name="resolution"></a>Risoluzione
 
 ##### <a name="mistyped-workspace-id-or-key"></a>Errore di digitazione di un ID o una chiave dell'area di lavoro
-Per verificare la presenza di errori di digitazione nell'ID o nella chiave dell'area di lavoro dell'agente, vedere [Aggiunta o rimozione di un'area di lavoro: Agente di Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) per l'agente Windows o [Aggiunta o rimozione di un'area di lavoro: Agente di Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) per l'agente di Linux. Assicurarsi di selezionare la stringa completa nel portale di Azure, quindi copiarla e incollarla con cautela.
+Per verificare la presenza di errori di digitazione nell'ID o nella chiave dell'area di lavoro dell'agente, vedere [Aggiunta o rimozione di un'area di lavoro: Agente di Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) per l'agente Windows o [Aggiunta o rimozione di un'area di lavoro: Agente di Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) per l'agente di Linux. Assicurarsi di selezionare la stringa completa nel portale di Azure, quindi copiarla e incollarla con cautela.
 
 ##### <a name="configuration-not-downloaded"></a>Configurazione non scaricata
 
@@ -169,7 +169,7 @@ Inserire questo file nella stessa cartella del file eseguibile `OrchestratorSand
 
 ## <a name="linux"></a>Linux
 
-Il ruolo di lavoro ibrido per runbook di Linux si affida all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md) per comunicare con l'account di Automazione e registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore.
+Il ruolo di lavoro ibrido per runbook di Linux si affida all'[agente di Log Analytics per Linux](../../azure-monitor/agents/log-analytics-agent.md) per comunicare con l'account di Automazione e registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore.
 
 ### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Scenario: Il ruolo di lavoro ibrido per runbook di Linux riceve la richiesta di una password durante la firma di un runbook
 
@@ -225,7 +225,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Il ruolo di lavoro ibrido per runbook di Windows si affida all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md) per comunicare con l'account di Automazione e registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro ha esito negativo, questa sezione include alcune possibili cause.
+Il ruolo di lavoro ibrido per runbook di Windows si affida all'[agente di Log Analytics per Windows](../../azure-monitor/agents/log-analytics-agent.md) per comunicare con l'account di Automazione e registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro ha esito negativo, questa sezione include alcune possibili cause.
 
 ### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Scenario: L'agente di Log Analytics per Windows non è in esecuzione
 
@@ -253,7 +253,7 @@ Questo problema può essere causato dal firewall proxy o di rete che blocca la c
 
 #### <a name="resolution"></a>Risoluzione
 
-I log vengono archiviati localmente in ogni ruolo di lavoro ibrido in C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. È possibile verificare la presenza di eventuali avvisi o eventi di errore nei registri eventi **Application and Services Logs\Microsoft-SMA\Operations** e **Application and Services Logs\Operations Manager**. Questi registri indicano problemi di connettività o di altro tipo che influiscono sull'abilitazione del ruolo in Automazione di Azure o problemi riscontrati durante normali operazioni. Per altre informazioni sulla risoluzione dei problemi relativi all'agente di Log Analytics, vedere [Risoluzione dei problemi relativi all'agente dell'analisi dei log di Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+I log vengono archiviati localmente in ogni ruolo di lavoro ibrido in C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. È possibile verificare la presenza di eventuali avvisi o eventi di errore nei registri eventi **Application and Services Logs\Microsoft-SMA\Operations** e **Application and Services Logs\Operations Manager**. Questi registri indicano problemi di connettività o di altro tipo che influiscono sull'abilitazione del ruolo in Automazione di Azure o problemi riscontrati durante normali operazioni. Per altre informazioni sulla risoluzione dei problemi relativi all'agente di Log Analytics, vedere [Risoluzione dei problemi relativi all'agente dell'analisi dei log di Windows](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 I ruoli di lavoro ibridi inviano [output e messaggi del runbook](../automation-runbook-output-and-messages.md) ad Automazione di Azure nello stesso modo in cui li inviano i processi del runbook in esecuzione nel cloud. È possibile abilitare i flussi dettagliati e di stato esattamente come per i runbook.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 725f15d72694534da1fd924b3b6ffe223722fd3d
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104468"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574633"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files
 
@@ -35,7 +35,7 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
 
 ## <a name="considerations"></a>Considerazioni
 
-* Assicurarsi di soddisfare i [requisiti per le connessioni Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Assicurarsi di soddisfare i [requisiti per le connessioni Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Creare una zona di ricerca inversa nel server DNS, quindi aggiungere un record del puntatore (PTR) del computer host AD nella zona di ricerca inversa. In caso contrario, la creazione del volume con doppio protocollo avrà esito negativo.
 * Verificare che il client NFS sia aggiornato ed esegua gli aggiornamenti più recenti per il sistema operativo.
 * Verificare che il server LDAP di Active Directory (AD) sia attivo e in esecuzione nell'Active Directory. Questa operazione può essere eseguita installando e configurando il ruolo [Active Directory Lightweight Directory Services (ad LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) nel computer ad.

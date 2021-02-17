@@ -6,12 +6,12 @@ author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 17de697686485d695586ffa798196efb4a34c251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933280b5d3b81098f18f22a72bd2c7f942869e6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578315"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlazione dei dati di Application Insights con origini dati personalizzate
 
@@ -31,19 +31,19 @@ Poiché Application Insights è supportato dalla potente piattaforma di log di M
 
 In questa sezione viene esaminata anche la procedura per ottenere i dati nei log di Monitoraggio di Azure.
 
-Se non ne è già presente uno, effettuare il provisioning di una nuova area di lavoro Log Analytics seguendo [queste istruzioni](../learn/quick-collect-azurevm.md) e includendo il passaggio "creare un'area di lavoro".
+Se non ne è già presente uno, effettuare il provisioning di una nuova area di lavoro Log Analytics seguendo [queste istruzioni](../vm/quick-collect-azurevm.md) e includendo il passaggio "creare un'area di lavoro".
 
 Per iniziare a inviare i dati di log in Monitoraggio di Azure. Sono disponibili diverse opzioni:
 
-- Per un meccanismo sincrono, è possibile chiamare direttamente l' [API dell'agente di raccolta dati](../platform/data-collector-api.md) o usare il connettore app per la logica. è sufficiente cercare "Azure log Analytics" e selezionare l'opzione "Invia dati":
+- Per un meccanismo sincrono, è possibile chiamare direttamente l' [API dell'agente di raccolta dati](../logs/data-collector-api.md) o usare il connettore app per la logica. è sufficiente cercare "Azure log Analytics" e selezionare l'opzione "Invia dati":
 
   ![Screenshot di scelta e azione](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- Per un'opzione asincrona, usare l'API di raccolta dati per creare una pipeline di elaborazione. Per informazioni dettagliate, vedere [questo articolo](../platform/create-pipeline-datacollector-api.md) .
+- Per un'opzione asincrona, usare l'API di raccolta dati per creare una pipeline di elaborazione. Per informazioni dettagliate, vedere [questo articolo](../logs/create-pipeline-datacollector-api.md) .
 
 ## <a name="correlating-data"></a>Correlazione dei dati
 
-Application Insights si basa sulla piattaforma di log di Monitoraggio di Azure. Di conseguenza verranno usati [join tra risorse](../log-query/cross-workspace-query.md) per correlare i dati inseriti in Monitoraggio di Azure con i dati di Application Insights.
+Application Insights si basa sulla piattaforma di log di Monitoraggio di Azure. Di conseguenza verranno usati [join tra risorse](../logs/cross-workspace-query.md) per correlare i dati inseriti in Monitoraggio di Azure con i dati di Application Insights.
 
 Ad esempio, è possibile inserire l'inventario e i percorsi del Lab in una tabella denominata "LabLocations_CL" in un'area di lavoro Log Analytics denominata "". Se si vuole esaminare le richieste registrate nell'app Application Insights denominata "myAI" e mettere in correlazione i nomi di computer che hanno servito le richieste ai percorsi di questi computer archiviati nella tabella personalizzata citata in precedenza, è possibile eseguire la query seguente dal Application Insights o dal contesto di monitoraggio di Azure:
 
@@ -57,5 +57,5 @@ app('myAI').requests
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Consultare il riferimento all'[API di raccolta dati](../platform/data-collector-api.md).
-- Altre informazioni sul [join tra risorse](../log-query/cross-workspace-query.md).
+- Consultare il riferimento all'[API di raccolta dati](../logs/data-collector-api.md).
+- Altre informazioni sul [join tra risorse](../logs/cross-workspace-query.md).

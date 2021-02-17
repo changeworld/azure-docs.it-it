@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8e2144a61d83f6c7dece8f34232031192b51cde8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d36ed6a795c5fa2241ee71751053a4cb5986aaf0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412698"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576831"
 ---
 # <a name="security-control-data-protection"></a>Controllo di sicurezza: protezione dei dati
 
@@ -58,7 +58,7 @@ Per la piattaforma sottostante gestita da Microsoft, tutti i contenuti dei clien
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.4 | 14,4 | Condiviso |
+| 4.4 | 14.4 | Condiviso |
 
 Crittografare tutte le informazioni riservate in transito. Assicurarsi che tutti i client che si connettono alle risorse di Azure siano in grado di negoziare TLS 1,2 o versione successiva.
 
@@ -70,7 +70,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.5 | 14,5 | Condiviso |
+| 4.5 | 14.5 | Condiviso |
 
 Quando non è disponibile alcuna funzionalità per il servizio specifico in Azure, usare uno strumento di individuazione attiva di terze parti per identificare tutte le informazioni riservate archiviate, elaborate o trasmesse dai sistemi tecnologici dell'organizzazione, incluse quelle situate in loco o a un provider di servizi remoti, e aggiornare l'inventario delle informazioni riservate dell'organizzazione.
 
@@ -88,7 +88,7 @@ Usare Information Protection SQL di Azure per semplificare la classificazione e 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4,6 | 14,6 | Customer |
+| 4.6 | 14,6 | Customer |
 
 Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso ai dati e alle risorse; in caso contrario, usare i metodi di controllo di accesso specifici del servizio.
 
@@ -98,7 +98,7 @@ Usare il controllo degli accessi in base al ruolo di Azure per controllare l'acc
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.7 | 14,7 | Condiviso |
+| 4.7 | 14.7 | Condiviso |
 
 Se necessario per la conformità alle risorse di calcolo, implementare uno strumento di terze parti, ad esempio una soluzione di prevenzione della perdita dei dati basata su host automatizzata, per applicare i controlli di accesso ai dati anche quando i dati vengono copiati fuori da un sistema.
 
@@ -114,7 +114,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia di consentire ad Azure di gestire le chiavi di crittografia. Tuttavia, è possibile gestire le proprie chiavi in alcune istanze. 
 
-- [Informazioni sulla crittografia inattiva in Azure](../fundamentals/encryption-atrest.md)
+- [Informazioni sulla crittografia dei dati inattivi in Azure](../fundamentals/encryption-atrest.md)
 
 - [Come configurare le chiavi di crittografia gestite dal cliente](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -122,11 +122,11 @@ Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.9 | 14,9 | Customer |
+| 4.9 | 14.9 | Customer |
 
 Usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse di Azure critiche.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

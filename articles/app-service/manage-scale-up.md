@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0ce5cfadbab247299cd3c22bf6ee618bf19731
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743914"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582476"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Aumentare le prestazioni di un'app nel servizio app di Azure
 
@@ -18,7 +18,7 @@ Questo articolo illustra come passare a un piano superiore per un'app nel serviz
 
 * [Aumentare le prestazioni](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): è possibile ottenere più CPU, memoria, spazio su disco e altre funzionalità, ad esempio macchine virtuali dedicate, domini e certificati personalizzati, slot di staging, ridimensionamento automatico e altro ancora. È possibile aumentare le prestazioni cambiando il piano tariffario del piano di servizio app a cui appartiene l'app.
 * [Aumentare il numero di istanze](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): è possibile incrementare il numero di istanze di macchine virtuali che eseguono l'app.
-  A seconda del piano tariffario, è possibile aumentare il numero di istanze fino a un massimo di 30. Gli [ambienti del servizio app](environment/intro.md) nel piano **Isolato** aumentano ulteriormente il numero di istanze facendolo passare a 100. Per altre informazioni sull'aumento del numero di istanze, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md). Questo articolo illustra come usare la scalabilità automatica, ovvero come ridimensionare automaticamente il numero di istanze sulla base di regole e pianificazioni predefinite.
+  A seconda del piano tariffario, è possibile aumentare il numero di istanze fino a un massimo di 30. Gli [ambienti del servizio app](environment/intro.md) nel piano **Isolato** aumentano ulteriormente il numero di istanze facendolo passare a 100. Per altre informazioni sull'aumento del numero di istanze, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/autoscale/autoscale-get-started.md). Questo articolo illustra come usare la scalabilità automatica, ovvero come ridimensionare automaticamente il numero di istanze sulla base di regole e pianificazioni predefinite.
 
 Le impostazioni di scalabilità diventano effettive in pochi secondi e interessano tutte le app nel [piano di servizio app](../app-service/overview-hosting-plans.md).
 Non richiedono di modificare il codice o ridistribuire l'applicazione.
@@ -77,7 +77,7 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
 
 ## <a name="more-resources"></a>Altre risorse
 
-[Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md)  
+[Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/autoscale/autoscale-get-started.md)  
 [Configurare il livello PremiumV3 per il servizio app](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->

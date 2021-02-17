@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bdfb1ac03ea6f896725d5c86cefe41021204359c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582196"
 ---
 # <a name="translator-v30"></a>Traduttore v 3.0
 
-## <a name="whats-new"></a>Quali sono le novità?
+## <a name="whats-new"></a>Novità
 
 La versione 3 di Translator fornisce un'API Web moderna basata su JSON. Migliora l'usabilità e le prestazioni consolidando le funzionalità esistenti in un minor numero di operazioni e offre nuove funzionalità.
 
@@ -230,7 +230,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 503000| Il servizio è temporaneamente non disponibile. Riprovare. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 
 ## <a name="metrics"></a>Metriche 
-Le metriche consentono di visualizzare le informazioni sull'utilizzo e sulla disponibilità del convertitore in portale di Azure, nella sezione metrica, come illustrato nella schermata seguente. Per altre informazioni, vedere [metriche dei dati e della piattaforma](../../../azure-monitor/platform/data-platform-metrics.md).
+Le metriche consentono di visualizzare le informazioni sull'utilizzo e sulla disponibilità del convertitore in portale di Azure, nella sezione metrica, come illustrato nella schermata seguente. Per altre informazioni, vedere [metriche dei dati e della piattaforma](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Metriche del traduttore](../media/translatormetrics.png)
 

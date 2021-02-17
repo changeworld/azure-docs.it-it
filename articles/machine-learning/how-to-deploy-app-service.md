@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cd3e2e552376a03d98673447a1b7b29f7ae3441e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452132"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579215"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 
@@ -29,7 +29,7 @@ Informazioni su come distribuire un modello da Azure Machine Learning come app W
 Con Azure Machine Learning, è possibile creare immagini Docker da modelli di apprendimento automatico sottoposti a training. Questa immagine contiene un servizio Web che riceve i dati, li invia al modello e quindi restituisce la risposta. App Azure servizio può essere usato per distribuire l'immagine e fornisce le funzionalità seguenti:
 
 * [Autenticazione](../app-service/configure-authentication-provider-aad.md) avanzata per la sicurezza avanzata. I metodi di autenticazione includono sia Azure Active Directory che l'autenticazione a più fattori.
-* [Ridimensionamento](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) automatico senza dover ridistribuire.
+* [Ridimensionamento](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) automatico senza dover ridistribuire.
 * [Supporto TLS](../app-service/configure-ssl-certificate-in-code.md) per proteggere le comunicazioni tra i client e il servizio.
 
 Per altre informazioni sulle funzionalità fornite dal servizio app Azure, vedere [Panoramica del servizio app](../app-service/overview.md).
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come configurare l'app Web nel [servizio app](/azure/app-service/containers/) nella documentazione di Linux.
-* Per altre informazioni sul ridimensionamento, [vedere Introduzione alla scalabilità automatica in Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
+* Per altre informazioni sul ridimensionamento, [vedere Introduzione alla scalabilità automatica in Azure](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Usare un certificato TLS/SSL nel servizio app Azure](../app-service/configure-ssl-certificate-in-code.md).
 * [Configurare l'app del servizio app per usare Azure Active Directory l'accesso](../app-service/configure-authentication-provider-aad.md).
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)

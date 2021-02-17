@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 41b058cf41aa1a8fb1def68851457385c8187823
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 91aed191e3bb165d6690759426a596df39f8c10f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209883"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582299"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitoraggio del servizio Key Vault con monitoraggio di Azure per Key Vault
 Monitoraggio di Azure per Key Vault offre un monitoraggio completo degli insiemi di credenziali delle chiavi grazie a una visualizzazione unificata delle richieste Key Vault, delle prestazioni, degli errori e della latenza.
@@ -169,4 +169,4 @@ L'intervallo di tempo dipende dalle impostazioni del dashboard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
+Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../visualize/workbooks-overview.md).

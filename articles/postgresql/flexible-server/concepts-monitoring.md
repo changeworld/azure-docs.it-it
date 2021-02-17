@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e7063cd1ae560fa077bd0b1b1279e4515e70464
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707847"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579024"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorare le metriche nel database di Azure per PostgreSQL-server flessibile
 
@@ -21,13 +21,13 @@ ms.locfileid: "91707847"
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
 
 ## <a name="metrics"></a>Metriche
-Database di Azure per PostgreSQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento delle risorse che supportano il server PostgreSQL. Ogni metrica viene emessa a una frequenza di un minuto e presenta fino a [93 giorni di cronologia](../../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). È possibile configurare avvisi in base alle metriche. Altre opzioni includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e la cronologia di archiviazione. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../../azure-monitor/platform/data-platform-metrics.md).
+Database di Azure per PostgreSQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento delle risorse che supportano il server PostgreSQL. Ogni metrica viene emessa a una frequenza di un minuto e presenta fino a [93 giorni di cronologia](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). È possibile configurare avvisi in base alle metriche. Altre opzioni includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e la cronologia di archiviazione. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per i server flessibili PostgreSQL sono disponibili le metriche seguenti:
 
 
-|Metrica|Nome visualizzato per la metrica|Unità|Description|
+|Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
 |---|---|---|---|
 | active_connections | Connessioni attive | Conteggio | Il numero di connessioni al server. | 
 | backup_storage_used | Risorse di backup in uso | Byte | Quantità di spazio di archiviazione di backup utilizzato. Questa metrica rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup completi del database, backup differenziali e backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. La frequenza dei backup è gestita dal servizio. Per l'archiviazione con ridondanza geografica, l'utilizzo dell'archiviazione di backup è due volte quello dell'archiviazione con ridondanza locale. |

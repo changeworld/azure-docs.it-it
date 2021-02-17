@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734175"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582340"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitoraggio di Azure per Esplora dati di Azure (anteprima)
 
@@ -162,4 +162,4 @@ Attualmente, i log di diagnostica non funzionano in modo retroattivo, quindi i d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
+Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../visualize/workbooks-overview.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 205f92d4282f0cad00c1dd136636da319e107f3f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391074"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590387"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
 
@@ -55,7 +55,7 @@ Entrambi sono descritti di seguito.
     
     - **Distribuire Azure Arc** : è possibile connettere qualsiasi computer Windows al centro sicurezza. Azure Arc fornisce tuttavia una maggiore integrazione in *tutti* gli ambienti di Azure. Se si configura Azure Arc, viene visualizzata la pagina **SQL Server-Azure Arc** nel portale e gli avvisi di sicurezza verranno visualizzati in una scheda **sicurezza** dedicata in tale pagina. Quindi, la prima opzione consigliata consiste nell' [impostare Azure Arc nell'host](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) e seguire le istruzioni per **SQL Server in Azure Arc**, sopra.
         
-    - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](../azure-monitor/platform/agent-windows.md).
+    - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](../azure-monitor/agents/agent-windows.md).
 
 
 ### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Passaggio 2: Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
@@ -75,7 +75,7 @@ Entrambi sono descritti di seguito.
     Il piano verrà abilitato in tutti i server SQL connessi all'area di lavoro selezionata. La protezione sarà completamente attiva dopo il primo riavvio dell'istanza di SQL Server.
 
     >[!TIP] 
-    > Per creare una nuova area di lavoro, seguire le istruzioni riportate in [creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+    > Per creare una nuova area di lavoro, seguire le istruzioni riportate in [creare un'area di lavoro log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 
 1. Facoltativamente, configurare la notifica tramite posta elettronica per gli avvisi di sicurezza. 

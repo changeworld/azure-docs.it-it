@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881232"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589405"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -19,7 +19,7 @@ Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i 
 Visualizzazioni come grafici e grafi consentono di analizzare i dati di monitoraggio per il drill-down dei problemi e per identificare i criteri. A seconda dello strumento usato, potrebbe essere possibile anche condividere visualizzazioni con altri utenti all'interno e all'esterno dell'organizzazione.
 
 ## <a name="workbooks"></a>Workbooks
-Le [cartelle di lavoro](./platform/workbooks-overview.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
+Le [cartelle di lavoro](./visualize/workbooks-overview.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
 
 ![Il diagramma mostra le schermate di alcune pagine di una cartella di lavoro, inclusa l'analisi delle visualizzazioni pagina, l'utilizzo e il tempo impiegato nella pagina.](media/visualizations/workbook.png)
 
@@ -46,9 +46,9 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Vantaggi
-- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui [Esplora metriche](platform/metrics-charts.md), [log Analytics](log-query/log-analytics-overview.md)e [Application Insights](app/app-insights-overview.md).
+- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui [Esplora metriche](essentials/metrics-charts.md), [log Analytics](logs/log-analytics-overview.md)e [Application Insights](app/app-insights-overview.md).
 - Supporto sia per le metriche sia per i log.
-- Combina i dati di più origini, incluso l'output da [Esplora metriche](platform/metrics-charts.md), [query di log](log-query/log-query-overview.md)e [mappe](app/app-map.md) e disponibilità in [Application Insights](app/app-insights-overview.md).
+- Combina i dati di più origini, incluso l'output da [Esplora metriche](essentials/metrics-charts.md), [query di log](logs/log-query-overview.md)e [mappe](app/app-map.md) e disponibilità in [Application Insights](app/app-insights-overview.md).
 - Opzione per dashboard personali o condivisi, Integrazione con il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 - Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti I log si aggiornano ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
@@ -66,7 +66,7 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) è particolarmente utile per la creazione di dashboard e report incentrati sul business, nonché di report di analisi delle tendenze a lungo termine degli indicatori di prestazioni chiave (KPI). È possibile [importare i risultati di una query di log](platform/powerbi.md) in un set di dati di Power BI in modo da poter sfruttare le funzionalità di questa soluzione, come la possibilità di combinare dati provenienti da origini diverse e di condividere report sul Web e su dispositivi mobili.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) è particolarmente utile per la creazione di dashboard e report incentrati sul business, nonché di report di analisi delle tendenze a lungo termine degli indicatori di prestazioni chiave (KPI). È possibile [importare i risultati di una query di log](visualize/powerbi.md) in un set di dati di Power BI in modo da poter sfruttare le funzionalità di questa soluzione, come la possibilità di combinare dati provenienti da origini diverse e di condividere report sul Web e su dispositivi mobili.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -86,7 +86,7 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) è una piattaforma aperta, ideale per i dashboard operativi. È particolarmente utile per il rilevamento, l'isolamento e la valutazione degli eventi operativi imprevisti. È possibile aggiungere il [plug-in Grafana dell'origine dati Monitoraggio di Azure](platform/grafana-plugin.md) alla sottoscrizione di Azure per visualizzare i dati delle metriche di Azure.
+[Grafana](https://grafana.com/) è una piattaforma aperta, ideale per i dashboard operativi. È particolarmente utile per il rilevamento, l'isolamento e la valutazione degli eventi operativi imprevisti. È possibile aggiungere il [plug-in Grafana dell'origine dati Monitoraggio di Azure](visualize/grafana-plugin.md) alla sottoscrizione di Azure per visualizzare i dati delle metriche di Azure.
 
 ![Screenshot mostra le visualizzazioni Grafana.](media/visualizations/grafana.png)
 
@@ -115,9 +115,9 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 ## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
 
 > [!IMPORTANT]
-> Le visualizzazioni stanno per diventare deprecate. Per informazioni aggiuntive sulla conversione delle visualizzazioni nelle cartelle di lavoro di, vedere [Guida alla transizione da Progettazione visualizzazioni a Cartelle di lavoro di Monitoraggio di Azure](platform/view-designer-conversion-overview.md).
+> Le visualizzazioni stanno per diventare deprecate. Per informazioni aggiuntive sulla conversione delle visualizzazioni nelle cartelle di lavoro di, vedere [Guida alla transizione da Progettazione visualizzazioni a Cartelle di lavoro di Monitoraggio di Azure](visualize/view-designer-conversion-overview.md).
 
-Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
+Le [visualizzazioni di Monitoraggio di Azure](visualize/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
 
 
 ![Screenshot mostra un riquadro della soluzione di monitoraggio del contenitore e la visualizzazione dettagliata di monitoraggio di Azure che viene visualizzata quando si seleziona.](media/visualizations/view.png)
@@ -126,7 +126,7 @@ Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consent
 - Visualizzazioni avanzate per i dati di log.
 - Esportazione e importazione delle visualizzazioni per trasferirle ad altri gruppi di risorse e sottoscrizioni.
 - Integrazione nel modello di gestione di Monitoraggio di Azure con aree di lavoro e soluzioni di monitoraggio.
-- [Filtri](platform/view-designer-filters.md) per i parametri personalizzati.
+- [Filtri](visualize/view-designer-filters.md) per i parametri personalizzati.
 - Interattività, supporto per il drill-in a più livelli con una visualizzazione che analizza un'altra visualizzazione.
 
 ### <a name="limitations"></a>Limitazioni
@@ -138,11 +138,11 @@ Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consent
 - Le dimensioni della risposta delle query sono limitate a 8 MB e il tempo di esecuzione è 110 secondi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-platform.md).
+- Informazioni sui [dati raccolti da Monitoraggio di Azure](/data-platform.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
-- Informazioni sulle [Esplora metriche](platform/metrics-getting-started.md)
-- Informazioni sulle [cartelle di lavoro](./platform/workbooks-overview.md).
-- Informazioni sull'[importazione dei dati di log in Power BI](./platform/powerbi.md).
-- Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](./platform/grafana-plugin.md).
-- Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
+- Informazioni sulle [Esplora metriche](essentials/metrics-getting-started.md)
+- Informazioni sulle [cartelle di lavoro](./visualize/workbooks-overview.md).
+- Informazioni sull'[importazione dei dati di log in Power BI](./visualize/powerbi.md).
+- Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](./visualize/grafana-plugin.md).
+- Informazioni sulle [visualizzazioni in Monitoraggio di Azure](visualize/view-designer.md).
 

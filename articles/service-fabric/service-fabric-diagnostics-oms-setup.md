@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570354"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurare i log di monitoraggio di Azure per un cluster
 
@@ -47,13 +47,13 @@ Se si usa Windows, continuare con i passaggi seguenti per connettere i log di mo
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connettere l'area di lavoro Log Analytics al cluster 
 
-1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric \<nameOfWorkspace\> ** e andare alla relativa pagina di panoramica. Da qui è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere all'area di lavoro Log Analytics.
+1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric \<nameOfWorkspace\>** e andare alla relativa pagina di panoramica. Da qui è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere all'area di lavoro Log Analytics.
 
 2. Nel menu di spostamento a sinistra in **Origini dati dell'area di lavoro** selezionare **Log account di archiviazione**.
 
 3. Nella pagina **Log account di archiviazione** selezionare **Aggiungi** nella parte superiore per aggiungere i log del cluster all'area di lavoro.
 
-4. Selezionare **Account di archiviazione** per aggiungere l'account appropriato creato nel cluster. Se è stato usato il nome predefinito, l'account di archiviazione è **sfdg \<resourceGroupName\> **. È anche possibile verificare con il modello di Azure Resource Manager usato per distribuire il cluster, controllando il valore usato per **applicationDiagnosticsStorageAccountName**. Se il nome non viene visualizzato, scorrere verso il basso e selezionare **Carica altro**. Selezionare il nome dell'account di archiviazione.
+4. Selezionare **Account di archiviazione** per aggiungere l'account appropriato creato nel cluster. Se è stato usato il nome predefinito, l'account di archiviazione è **sfdg \<resourceGroupName\>**. È anche possibile verificare con il modello di Azure Resource Manager usato per distribuire il cluster, controllando il valore usato per **applicationDiagnosticsStorageAccountName**. Se il nome non viene visualizzato, scorrere verso il basso e selezionare **Carica altro**. Selezionare il nome dell'account di archiviazione.
 
 5. Specificare il Tipo di dati. Impostarlo su **Eventi di Service Fabric**.
 
@@ -119,9 +119,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 Al termine, seguire i passaggi della sezione precedente per connettere i log di monitoraggio di Azure all'account di archiviazione appropriato.
 
-È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro Log Analytics usando PowerShell. Per altre informazioni, vedere [gestire i log di monitoraggio di Azure con PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro Log Analytics usando PowerShell. Per altre informazioni, vedere [gestire i log di monitoraggio di Azure con PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure
-* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../azure-monitor/platform/view-designer.md)
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/logs/log-query-overview.md) incluse nei log di Monitoraggio di Azure
+* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../azure-monitor/visualize/view-designer.md)

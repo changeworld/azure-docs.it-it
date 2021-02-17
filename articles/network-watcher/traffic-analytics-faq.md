@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895224"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579248"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -126,7 +126,7 @@ Sì.
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere l' [aggiornamento dei log di monitoraggio di Azure alla nuova ricerca log](../azure-monitor/log-query/log-query-overview.md).
+Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere l' [aggiornamento dei log di monitoraggio di Azure alla nuova ricerca log](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro Log Analytics?
 
@@ -262,7 +262,7 @@ Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttav
 - È possibile usare notifica per Log Analytics in Analisi del traffico. 
 - Usare lo [schema descritto qui](traffic-analytics-schema.md) per scrivere le query 
 - Fare clic su "nuova regola di avviso" per creare l'avviso
-- Vedere la [documentazione relativa agli avvisi di log](../azure-monitor/platform/alerts-log.md) per creare l'avviso
+- Vedere la [documentazione relativa agli avvisi di log](../azure-monitor/alerts/alerts-log.md) per creare l'avviso
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Ricerca per categorie verificare quali macchine virtuali ricevono la maggior parte del traffico locale?
 
@@ -403,4 +403,4 @@ La pagina della topologia di subnet virtuale contiene due sezioni principali:
 - Una volta selezionati tali nodi, è possibile consultarne tutte le connessioni, una per una, premendo il tasto `Shift+Left arrow`. L’attenzione si sposta sulla **casella degli strumenti Informazioni** di tale connessione. In qualsiasi momento è possibile spostare nuovamente l’attenzione sul nodo premendo nuovamente `Shift+Right arrow`.
 
 ## <a name="are-classic-nsgs-supported"></a>Sono supportate gruppi classiche?
-No, Analisi del traffico non supporta NSG classiche. È consigliabile eseguire la migrazione delle risorse IaaS dal modello di distribuzione classica a quello Azure Resource Manager perché le risorse classiche verranno [deprecate](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Vedere questo articolo per informazioni [su come eseguire la migrazione](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).
+No, Analisi del traffico non supporta NSG classiche. È consigliabile eseguire la migrazione delle risorse IaaS dal modello di distribuzione classica a quello Azure Resource Manager perché le risorse classiche verranno [deprecate](../virtual-machines/classic-vm-deprecation.md). Vedere questo articolo per informazioni [su come eseguire la migrazione](../virtual-machines/migration-classic-resource-manager-overview.md).

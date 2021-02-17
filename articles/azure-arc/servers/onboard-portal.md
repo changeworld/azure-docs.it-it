@@ -3,12 +3,12 @@ title: Connettere macchine virtuali ibride ad Azure dal portale di Azure
 description: Questo articolo illustra come installare l'agente e connettere i computer ad Azure usando i server abilitati per Azure Arc dal portale di Azure.
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 97962f7fd9816e398f017555d7043cf65db00ed8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398029"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584961"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connettere macchine virtuali ibride ad Azure dal portale di Azure
 
@@ -26,27 +26,27 @@ Lo script per automatizzare il download e l'installazione e stabilire la conness
 
 1. Nel browser passare al [portale di Azure](https://portal.azure.com).
 
-1. Nella pagina **Server-Azure Arc** selezionare **Aggiungi** in alto a sinistra.
+1. In alto a sinistra nella pagina **Server - Azure Arc** selezionare **Aggiungi**.
 
-1. Nella pagina **Selezione metodo** selezionare il riquadro **Aggiungi server tramite script interattivo** e quindi selezionare **Genera script**.
+1. Nella pagina **Selezionare un metodo** selezionare il riquadro **Aggiungi server tramite script interattivo** e quindi **Genera script**.
 
 1. Nella pagina **Genera script** selezionare la sottoscrizione e il gruppo di risorse in cui si vuole che la macchina virtuale venga gestita in Azure. Selezionare una località di Azure in cui verranno archiviati i metadati della macchina virtuale. La località può essere uguale o diversa da quella del gruppo di risorse.
 
-1. Nella pagina **prerequisiti** esaminare le informazioni e quindi fare clic su **Avanti: dettagli risorsa**.
+1. Nella pagina **Prerequisiti** esaminare le informazioni e quindi selezionare **Avanti: Dettagli risorsa**.
 
 1. Nella pagina **Dettagli risorsa** specificare quanto segue:
 
-    1. Nell'elenco a discesa **gruppo di risorse** selezionare il gruppo di risorse da cui verrà gestito il computer.
-    1. Nell'elenco a discesa **Region (area** ) selezionare l'area di Azure in cui archiviare i metadati dei server.
-    1. Nell'elenco a discesa **sistema operativo** selezionare il sistema operativo in cui si desidera eseguire lo script.
-    1. Se il computer sta comunicando tramite un server proxy per la connessione a Internet, specificare l'indirizzo IP del server proxy o il nome e il numero di porta che il computer utilizzerà per comunicare con il server proxy. Immettere il valore nel formato `http://<proxyURL>:<proxyport>`.
+    1. Nell'elenco a discesa **Gruppo di risorse** selezionare il gruppo di risorse da cui verrà gestito il computer.
+    1. Nell'elenco a discesa **Area** selezionare l'area di Azure in cui archiviare i metadati dei server.
+    1. Nell'elenco a discesa **Sistema operativo** selezionare il sistema operativo in cui verrà eseguito lo script.
+    1. Se il computer comunica tramite un server proxy per connettersi a Internet, specificare l'indirizzo IP del server proxy o il nome e il numero di porta che il computer userà per le comunicazioni. Immettere il valore nel formato `http://<proxyURL>:<proxyport>`.
     1. Selezionare **Avanti: Tag**.
 
-1. Nella pagina **tag** esaminare i **tag di posizione fisica** predefiniti suggeriti e immettere un valore oppure specificare uno o più **tag personalizzati** per supportare gli standard.
+1. Nella pagina **Tag** esaminare l'impostazione predefinita e suggerita di **Tag di località fisica** e immettere un valore oppure specificare una o più opzioni per **Tag personalizzati** in base ai propri standard.
 
-1. Selezionare **Avanti: Scarica ed Esegui script**.
+1. Selezionare **Avanti: Scarica ed esegui script**.
 
-1. Nella pagina **download ed esecuzione dello script** esaminare le informazioni di riepilogo e quindi selezionare **Scarica**. Se occorre ancora apportare modifiche, selezionare **Indietro**.
+1. Nella pagina **Scarica ed esegui script** esaminare le informazioni di riepilogo e quindi selezionare **Scarica**. Se occorre ancora apportare modifiche, selezionare **Indietro**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Installare e convalidare l'agente in Windows
 
@@ -166,6 +166,6 @@ Dopo aver installato l'agente e averlo configurato per la connessione ai server 
 
 * Le informazioni sulla risoluzione dei problemi sono reperibili nella [Guida alla risoluzione dei problemi relativi all'agente del computer connesso](troubleshoot-agent-onboard.md).
 
-* Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-policy.md) e molto altro ancora.
+* Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/vm/vminsights-enable-policy.md) e molto altro ancora.
 
-* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
+* Altre informazioni sull'[agente Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si desidera raccogliere dati di monitoraggio del carico di lavoro e del sistema operativo, gestirli con manuali operativi di automazione o funzionalità come Gestione aggiornamenti o usare altri servizi di Azure come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2bfd1064a02f0fb4982c9d2747b85707e98b5bcd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954530"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571856"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Esercitazione: Archiviare eventi di Servizi multimediali di Azure in Azure Log Analytics
 
@@ -42,11 +42,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 > * Una [sottoscrizione di Azure](how-to-set-azure-subscription.md)
 > * Un account di [Servizi multimediali](create-account-howto.md) e un gruppo di risorse.
 > * Un'installazione di [FFmpeg](https://ffmpeg.org/download.html) per il sistema operativo specifico.
-> * Un'area di lavoro di [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md)
+> * Un'area di lavoro di [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>Sottoscrivere un evento di Servizi multimediali con App per la logica
 
-1. Se non è già stato fatto, nel portale di Azure creare un'area di lavoro [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Sarà necessario avere l'ID area di lavoro e una delle chiavi, quindi occorre lasciare aperta la finestra del browser. Aprire quindi il portale in un'altra scheda o finestra.
+1. Se non è già stato fatto, nel portale di Azure creare un'area di lavoro [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md). Sarà necessario avere l'ID area di lavoro e una delle chiavi, quindi occorre lasciare aperta la finestra del browser. Aprire quindi il portale in un'altra scheda o finestra.
 
 1. Passare all'account di Servizi multimediali di Azure e selezionare **Eventi**. Verranno visualizzati tutti gli altri metodi per sottoscrivere eventi di Servizi multimediali di Azure.
     > [!div class="mx-imgBorder"]
@@ -230,4 +230,4 @@ Se non si vuole continuare a usare le risorse create durante questa esercitazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile creare query diverse e salvarle. Le query possono essere aggiunte a [Dashboard Azure](../../azure-monitor/learn/tutorial-logs-dashboards.md).
+È possibile creare query diverse e salvarle. Le query possono essere aggiunte a [Dashboard Azure](../../azure-monitor/visualize/tutorial-logs-dashboards.md).

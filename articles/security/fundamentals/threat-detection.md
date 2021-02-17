@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549934"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590354"
 ---
 # <a name="azure-threat-protection"></a>Azure Threat Protection
 
@@ -89,7 +89,7 @@ Il [Centro sicurezza di Azure](../../security-center/security-center-introductio
 I log di Monitoraggio di Azure consentono di comprendere rapidamente e facilmente l'approccio complessivo alla sicurezza di qualsiasi ambiente, tutto nel contesto delle operazioni IT, tra cui la valutazione dell'aggiornamento software, la valutazione antimalware e le linee di base di configurazione. I dati del log di sicurezza sono facilmente accessibili per semplificare i processi di controllo di sicurezza e conformità.
 
 ### <a name="insight-and-analytics"></a>Informazioni dettagliate e analisi
-Al centro dei [log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) si trova il repository, ospitato da Azure.
+Al centro dei [log di Monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md) si trova il repository, ospitato da Azure.
 
 ![Schema di informazioni dettagliate e analisi](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -98,8 +98,8 @@ I dati vengono raccolti nel repository da origini connesse configurando le origi
 Origini dati e soluzioni creano tipi di record distinti con il proprio set di proprietà, ma è comunque possibile analizzarli insieme nelle query al repository. Questa funzionalità consente di usare gli stessi strumenti e metodi per lavorare con diversi tipi di dati raccolti da diverse origini.
 
 La maggior parte delle interazioni con i log di Monitoraggio di Azure avviene attraverso il portale di Azure che viene eseguito in qualsiasi browser e consente all'utente l'accesso alle impostazioni e a più strumenti di configurazione per analizzare e agire in base ai dati raccolti. Nel portale è possibile usare:
-* [Ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in cui si creano query per analizzare i dati raccolti.
-* [Dashboard](../../azure-monitor/learn/tutorial-logs-dashboards.md), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
+* [Ricerche nei log](../../azure-monitor/logs/log-query-overview.md) in cui si creano query per analizzare i dati raccolti.
+* [Dashboard](../../azure-monitor/visualize/tutorial-logs-dashboards.md), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
 * [Soluzioni](../../azure-monitor/insights/solutions.md), che forniscono ulteriori funzionalità e strumenti di analisi.
 
 Le soluzioni aggiungono funzionalità ai log di Monitoraggio di Azure. Vengono eseguite principalmente nel cloud e offrono un'analisi dei dati raccolti nel repository di analisi dei log. Le soluzioni possono anche definire nuovi tipi di record da raccogliere, che possono essere analizzati con ricerche di log o con l'interfaccia utente aggiuntiva offerta dalla soluzione nel dashboard di analisi dei log.

@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bd20e3c7207c75e87a2132fca89906885de2676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446405"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579253"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorare, diagnosticare e risolvere i problemi di disconnessione con l'hub IoT di Azure
 
@@ -82,7 +82,7 @@ La metrica [*dispositivi connessi (anteprima)*](monitor-iot-hub-reference.md#dev
 
 È possibile usare le regole di avviso delle metriche per monitorare le anomalie di disconnessione dei dispositivi su larga scala. Ovvero, quando un numero significativo di dispositivi si disconnette in modo imprevisto. Quando viene rilevata una tale occorrenza, è possibile esaminare i log per risolvere il problema. Per monitorare le disconnessioni per ogni dispositivo e le disconnessioni per i dispositivi critici; Tuttavia, è necessario usare griglia di eventi. Griglia di eventi offre anche una maggiore esperienza in tempo reale rispetto alle metriche di Azure.
 
-Per altre informazioni sugli avvisi con l'hub Internet, vedere [avvisi nell'hub di monitoraggio](monitor-iot-hub.md#alerts). Per una procedura dettagliata per la creazione di avvisi nell'hub Internet, vedere l' [esercitazione usare metriche e log](tutorial-use-metrics-and-diags.md). Per una panoramica più dettagliata degli avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](../azure-monitor/platform/alerts-overview.md) nella documentazione di monitoraggio di Azure.
+Per altre informazioni sugli avvisi con l'hub Internet, vedere [avvisi nell'hub di monitoraggio](monitor-iot-hub.md#alerts). Per una procedura dettagliata per la creazione di avvisi nell'hub Internet, vedere l' [esercitazione usare metriche e log](tutorial-use-metrics-and-diags.md). Per una panoramica più dettagliata degli avvisi, vedere [Panoramica degli avvisi in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) nella documentazione di monitoraggio di Azure.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Monitoraggio di Azure: usare i log per risolvere gli errori di connettività
 

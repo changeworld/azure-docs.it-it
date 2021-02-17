@@ -3,17 +3,17 @@ title: Bursting del disco gestito
 description: Informazioni sul picco del disco per i dischi di Azure e le macchine virtuali di Azure.
 author: albecker1
 ms.author: albecker
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1cedac5814d1c547a28e9b1c894f416af5a924b5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576194"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585057"
 ---
 # <a name="managed-disk-bursting"></a>Bursting del disco gestito
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -30,3 +30,7 @@ Per impostazione predefinita, il bursting è abilitato per le macchine virtuali 
 Il bursting è disponibile anche nelle unità [SSD Premium](disks-types.md#premium-ssd) per le dimensioni dei dischi P20 e più piccole in tutte le aree dei cloud pubblico, per enti pubblici e per la Cina di Azure. Per impostazione predefinita, il bursting del disco è abilitato nelle distribuzioni nuove ed esistenti delle dimensioni dei dischi che lo supportano. 
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting-2.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per informazioni su come ottenere informazioni sulle risorse di espansione, vedere metriche di espansione del [disco](disks-metrics.md).

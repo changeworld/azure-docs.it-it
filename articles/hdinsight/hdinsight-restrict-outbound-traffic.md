@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 79e3349f009f71c5cd387a7c7265ad4904f2a40d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932135"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574593"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster di Azure HDInsight tramite il firewall
 
@@ -165,7 +165,7 @@ Dopo aver completato la configurazione della registrazione, se si usa Log Analyt
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-L'integrazione di Firewall di Azure con i log di Monitoraggio di Azure è utile quando si avvia un'applicazione per la prima volta. In particolare, quando non si è a conoscenza di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
+L'integrazione di Firewall di Azure con i log di Monitoraggio di Azure è utile quando si avvia un'applicazione per la prima volta. In particolare, quando non si è a conoscenza di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md)
 
 Per informazioni sui limiti di scalabilità di Firewall di Azure e sugli aumenti delle richieste, vedere [questo](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento o consultare le [domande frequenti ](../firewall/firewall-faq.yml).
 

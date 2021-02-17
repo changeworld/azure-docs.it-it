@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c3934af1af040b8b45175bacde43237802ab82cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582397"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -33,12 +33,12 @@ La soluzione raccoglie, analizza e mette in relazione i log di controllo e anali
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione:
 
-| **Origine connessa** | **Supporto tecnico** | **Descrizione** |
+| **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
-| [Agenti di Windows](../platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
-| [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
-| [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
-| [Account di archiviazione di Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | La soluzione non usa le risorse di archiviazione di Azure. |
+| [Agenti di Windows](../agents/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
+| [Agenti Linux](../vm/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
+| [Gruppo di gestione di System Center Operations Manager](../agents/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
+| [Account di archiviazione di Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
 
@@ -48,7 +48,7 @@ La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai serv
 
 Per configurare la soluzione, usare le informazioni seguenti:
 
-- È necessario un agente [Windows](../platform/agent-windows.md) o [Operations Manager](../platform/om-agents.md) in ogni server DNS che si vuole monitorare.
+- È necessario un agente [Windows](../agents/agent-windows.md) o [Operations Manager](../agents/om-agents.md) in ogni server DNS che si vuole monitorare.
 - È possibile aggiungere la soluzione Analisi DNS nell'area di lavoro Log Analytics da [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). È anche possibile seguire la procedura descritta in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](solutions.md).
 
 La soluzione avvia la raccolta dati senza che siano necessarie operazioni di configurazione aggiuntive. È tuttavia possibile usare la configurazione seguente per personalizzare la raccolta.
@@ -76,7 +76,7 @@ Se il gruppo di gestione di Operations Manager è connesso all'area di lavoro Lo
 - Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
 
-Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../platform/om-agents.md).
+Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../agents/om-agents.md).
 
 ## <a name="use-the-dns-analytics-solution"></a>Usare la soluzione DNS Analytics
 
@@ -185,4 +185,4 @@ Per fornire commenti e suggerimenti, visitare la [pagina log Analytics UserVoice
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire query di log](../log-query/log-query-overview.md) per visualizzare record di log dettagliati per DNS.
+[Eseguire query di log](../logs/log-query-overview.md) per visualizzare record di log dettagliati per DNS.

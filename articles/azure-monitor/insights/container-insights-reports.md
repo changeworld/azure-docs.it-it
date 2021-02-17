@@ -3,15 +3,15 @@ title: Report in monitoraggio di Azure per i contenitori
 description: Vengono descritti i report disponibili per analizzare i dati raccolti da monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 3cc2f8fb9bfaa278ce06b4a8cd6d379397b7129a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907534"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582320"
 ---
 # <a name="reports-in-azure-monitor-for-containers"></a>Report in monitoraggio di Azure per i contenitori
-I report in monitoraggio di Azure per i contenitori sono le cartelle di lavoro di [Azure](../platform/workbooks-overview.md)predefinite. Questo articolo descrive i diversi report disponibili e come accedervi.
+I report in monitoraggio di Azure per i contenitori sono le cartelle di lavoro di [Azure](../visualize/workbooks-overview.md)predefinite. Questo articolo descrive i diversi report disponibili e come accedervi.
 
 ## <a name="viewing-reports"></a>Visualizzazione dei report
 Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **contenitori**. Selezionare **informazioni dettagliate** nella sezione **monitoraggio** , scegliere un cluster specifico e quindi selezionare la pagina **report (anteprima)** . 
@@ -19,7 +19,7 @@ Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **contenit
 [![Pagina dei report](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## <a name="create-a-custom-workbook"></a>Creare una cartella di lavoro personalizzata
-Per creare una cartella di lavoro personalizzata in base a una di queste cartelle di lavoro, selezionare l'elenco a discesa **Visualizza cartelle di lavoro** e quindi **passare alla raccolta AKS** nella parte inferiore dell'elenco a discesa. Vedere [cartelle di lavoro di monitoraggio di Azure](../platform/workbooks-overview.md) per altre informazioni sulle cartelle di lavoro e sull'uso di modelli di cartelle di lavoro
+Per creare una cartella di lavoro personalizzata in base a una di queste cartelle di lavoro, selezionare l'elenco a discesa **Visualizza cartelle di lavoro** e quindi **passare alla raccolta AKS** nella parte inferiore dell'elenco a discesa. Vedere [cartelle di lavoro di monitoraggio di Azure](../visualize/workbooks-overview.md) per altre informazioni sulle cartelle di lavoro e sull'uso di modelli di cartelle di lavoro
 
 [![Raccolta AKS](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -78,4 +78,4 @@ Per creare una cartella di lavoro personalizzata in base a una di queste cartell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [cartelle di lavoro di monitoraggio di Azure](../platform/workbooks-overview.md) per informazioni dettagliate sulle cartelle di lavoro in monitoraggio di Azure.
+- Vedere [cartelle di lavoro di monitoraggio di Azure](../visualize/workbooks-overview.md) per informazioni dettagliate sulle cartelle di lavoro in monitoraggio di Azure.

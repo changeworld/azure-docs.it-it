@@ -4,18 +4,18 @@ description: Informazioni su come usare i server con abilitazione di Azure Arc p
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: be5955e9bf02e591fdbba3f080d034c126379c2f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183397"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584792"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
 I server con abilitazione di Azure Arc consentono di gestire le macchine virtuali Windows e Linux ospitate all'esterno di Azure, nella rete aziendale o in un altro provider di servizi cloud, in modo analogo a come si gestiscono le macchine virtuali native di Azure. Quando una macchina virtuale ibrida viene connessa ad Azure, diventa una macchina virtuale connessa e viene considerata come una risorsa in Azure. Ogni macchina virtuale connessa ha un ID risorsa, è inclusa in un gruppo di risorse e usufruisce dei vantaggi derivanti dai costrutti di Azure standard, ad esempio Criteri di Azure e applicazione di tag. I provider di servizi che gestiscono l'infrastruttura locale di un cliente possono gestire le proprie macchine virtuali ibride in più ambienti di clienti, proprio come avviene oggi con le risorse native di Azure, usando [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
 
-Per offrire questa esperienza con le macchine virtuali ibride ospitate all'esterno di Azure, è necessario installare l'agente Azure Connected Machine in ogni macchina virtuale che si prevede di connettere ad Azure. Questo agente non fornisce altre funzionalità e non sostituisce l'[agente di Azure Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
+Per offrire questa esperienza con le macchine virtuali ibride ospitate all'esterno di Azure, è necessario installare l'agente Azure Connected Machine in ogni macchina virtuale che si prevede di connettere ad Azure. Questo agente non fornisce altre funzionalità e non sostituisce l'[agente di Azure Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
@@ -25,7 +25,7 @@ Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, 
 
 - Creare report sulle modifiche di configurazione relative al software installato, ai servizi Microsoft, al Registro di sistema e ai file di Windows, nonché ai daemon Linux nei server monitorati usando [Rilevamento modifiche e inventario](../../automation/change-tracking/overview.md) di Automazione di Azure.
 
-- Monitorare le prestazioni del sistema operativo guest della macchina virtuale connessa e individuare i componenti dell'applicazione per monitorarne i processi e le dipendenze con altre risorse che l'applicazione comunica tramite [Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md).
+- Monitorare le prestazioni del sistema operativo guest della macchina virtuale connessa e individuare i componenti dell'applicazione per monitorarne i processi e le dipendenze con altre risorse che l'applicazione comunica tramite [Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/vm/vminsights-overview.md).
 
 - Semplificare la distribuzione con altri servizi di Azure, ad esempio [State Configuration](../../automation/automation-dsc-overview.md) di Automazione di Azure e l'area di lavoro Log Analytics di Monitoraggio di Azure, usando le [estensioni macchina virtuale di Azure](manage-vm-extensions.md) supportate per le macchine virtuali Windows o Linux non di Azure. È inclusa l'esecuzione della configurazione post-distribuzione o l'installazione del software tramite l'estensione Script personalizzato.
 
@@ -36,7 +36,7 @@ Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, 
 
 - Includere i server non di Azure per il rilevamento delle minacce e monitorare in modo proattivo le potenziali minacce per la sicurezza usando [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
 
-I dati di log raccolti e archiviati in un'area di lavoro Log Analytics dalla macchina virtuale ibrida includono ora proprietà specifiche della macchina virtuale, ad esempio un ID risorsa, che possono essere usate per supportare l'accesso ai log di tipo [risorsa-contesto](../../azure-monitor/platform/design-logs-deployment.md#access-mode).
+I dati di log raccolti e archiviati in un'area di lavoro Log Analytics dalla macchina virtuale ibrida includono ora proprietà specifiche della macchina virtuale, ad esempio un ID risorsa, che possono essere usate per supportare l'accesso ai log di tipo [risorsa-contesto](../../azure-monitor/logs/design-logs-deployment.md#access-mode).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

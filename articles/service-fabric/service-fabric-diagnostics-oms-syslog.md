@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258634"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570197"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventi cluster Linux di Service Fabric in Syslog
 
@@ -87,7 +87,7 @@ Qui ci sono le modifiche da richiamare
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Integrazione dei log di monitoraggio di Azure
-È possibile leggere questi eventi syslog in uno strumento di monitoraggio, ad esempio i log di monitoraggio di Azure. È possibile creare un’area di lavoro Log Analytics utilizzando Azure Marketplace tramite queste [istruzioni]. (../azure-monitor/learn/quick-create-workspace.md). È inoltre necessario aggiungere l'agente Log Analytics al cluster per raccogliere e inviare questi dati allo spazio di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
+È possibile leggere questi eventi syslog in uno strumento di monitoraggio, ad esempio i log di monitoraggio di Azure. È possibile creare un'area di lavoro Log Analytics usando Azure Marketplace usando queste [istruzioni]. (.. /Azure-monitor/logs/Quick-Create-Workspace.MD) è anche necessario aggiungere l'agente di Log Analytics al cluster per raccogliere e inviare questi dati all'area di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
 
 1. Passare al pannello `Advanced Settings`
 
@@ -113,6 +113,6 @@ L'esempio precedente è di un evento NodeDown. L'elenco completo degli eventi è
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure
-* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../azure-monitor/platform/view-designer.md)
-* Informazioni di riferimento sull' [integrazione dei log di monitoraggio di Azure con syslog](../azure-monitor/platform/data-sources-syslog.md).
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/logs/log-query-overview.md) incluse nei log di Monitoraggio di Azure
+* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../azure-monitor/visualize/view-designer.md)
+* Informazioni di riferimento sull' [integrazione dei log di monitoraggio di Azure con syslog](../azure-monitor/agents/data-sources-syslog.md).

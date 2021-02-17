@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4d7d4b5af9b86fe5116dc29f6ed1a789cdbf2047
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050669"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581102"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Avvio rapido: Creare un account di automazione con il modello di Resource Manager
 
@@ -80,11 +80,11 @@ Il modello JSON specifica un valore predefinito per gli altri parametri che potr
 
 Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è importante comprendere i dettagli di configurazione seguenti. Consentono di evitare errori quando si tenta di creare, configurare e usare un'area di lavoro Log Analytics collegata al nuovo account di Automazione.
 
-* Vedere [altri dettagli](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) per comprendere appieno le opzioni di configurazione dell'area di lavoro, ad esempio la modalità di controllo di accesso, il piano tariffario, la conservazione e il livello di prenotazione della capacità.
+* Vedere [altri dettagli](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) per comprendere appieno le opzioni di configurazione dell'area di lavoro, ad esempio la modalità di controllo di accesso, il piano tariffario, la conservazione e il livello di prenotazione della capacità.
 
 * Vedere i [mapping dell'area di lavoro](how-to/region-mappings.md) per specificare le aree supportate inline o in un file di parametri. Sono supportate solo determinate aree per il collegamento di un'area di lavoro Log Analytics e un account di Automazione nella sottoscrizione.
 
-* Se non si ha familiarità con i log di Monitoraggio di Azure e non è già stata distribuita un'area di lavoro, è consigliabile vedere le [linee guida per la progettazione delle aree di lavoro](../azure-monitor/platform/design-logs-deployment.md). Queste informazioni saranno utili per comprendere i meccanismi di controllo di accesso e le strategie di implementazione della progettazione consigliate per l'organizzazione.
+* Se non si ha familiarità con i log di Monitoraggio di Azure e non è già stata distribuita un'area di lavoro, è consigliabile vedere le [linee guida per la progettazione delle aree di lavoro](../azure-monitor/logs/design-logs-deployment.md). Queste informazioni saranno utili per comprendere i meccanismi di controllo di accesso e le strategie di implementazione della progettazione consigliate per l'organizzazione.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 

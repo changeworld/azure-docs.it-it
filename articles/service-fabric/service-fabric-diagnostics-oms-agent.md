@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47017fdb5f1fbaba800e71dea21afe2c39bd91e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258683"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570152"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoraggio delle prestazioni con i log di monitoraggio di Azure
 
@@ -67,7 +67,7 @@ Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite 
 
 Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analytics per scegliere i contatori delle prestazioni da raccogliere.
 
-1. Nel portale di Azure, passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric \<nameOfLog AnalyticsWorkspace\> **.
+1. Nel portale di Azure, passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric \<nameOfLog AnalyticsWorkspace\>**.
 
 2. Fare clic su **log Analytics**.
 
@@ -91,6 +91,6 @@ Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analyti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Raccogliere i [contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) rilevanti. Per configurare l'agente di Log Analytics affinché raccolga contatori di prestazioni specifici, vedere [Configurazione delle origini dati](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurare i log di monitoraggio di Azure per impostare [avvisi automatici](../azure-monitor/platform/alerts-overview.md) per facilitare il rilevamento e la diagnostica
+* Raccogliere i [contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) rilevanti. Per configurare l'agente di Log Analytics affinché raccolga contatori di prestazioni specifici, vedere [Configurazione delle origini dati](../azure-monitor/agents/agent-data-sources.md#configuring-data-sources).
+* Configurare i log di monitoraggio di Azure per impostare [avvisi automatici](../azure-monitor/alerts/alerts-overview.md) per facilitare il rilevamento e la diagnostica
 * In alternativa, è possibile raccogliere i contatori delle prestazioni tramite l'[estensione di Diagnostica di Azure e inviarli ad Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)
