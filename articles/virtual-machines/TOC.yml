@@ -262,7 +262,7 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
-    - name: Individuare le macchine virtuali
+    - name: Macchine virtuali Spot di Azure
       displayName: 'pre-empt, preempt, spot'
       items:
         - name: Panoramica
@@ -1143,6 +1143,8 @@
       href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Sicurezza
   items:
+    - name: Panoramica
+      href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
     - name: Centro sicurezza di Azure
       href: ../security-center/security-center-introduction.md
     - name: Baseline di sicurezza

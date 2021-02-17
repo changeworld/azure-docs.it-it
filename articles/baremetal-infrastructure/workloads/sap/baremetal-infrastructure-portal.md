@@ -2,13 +2,13 @@
 title: Unità di istanza di BareMetal in Azure
 description: Informazioni su come identificare e interagire con le unità di istanza di BareMetal tramite il portale di Azure.
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/17/2021
+ms.openlocfilehash: 076e84473a7d067712625dd12a2d5cae42bfa91a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733264"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548166"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gestire istanze bare metal tramite il portale di Azure
  
@@ -17,25 +17,9 @@ Questo articolo illustra come il [portale di Azure](https://portal.azure.com/) V
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 Un provider di risorse di Azure per le istanze di BareMetal offre visibilità delle istanze nel portale di Azure, attualmente in anteprima pubblica. Per impostazione predefinita, la sottoscrizione di Azure usata per le distribuzioni di istanze di BareMetal registra il provider di risorse *BareMetalInfrastructure* . Se non vengono visualizzate le unità di istanza BareMetal distribuite, è necessario registrare il provider di risorse con la sottoscrizione. 
 
-È possibile registrare il provider di risorse dell'istanza di BareMetal in due modi:
- 
-* [Interfaccia della riga di comando di Azure](#azure-cli)
- 
-* [Azure portal](#azure-portal)
- 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
- 
-Accedere alla sottoscrizione di Azure usata per la distribuzione dell'istanza di BareMetal tramite l'interfaccia della riga di comando di Azure. È possibile registrare il provider di risorse BareMetalInfrastructure con:
+È possibile registrare il provider di risorse dell'istanza di BareMetal usando l'interfaccia della riga di comando portale di Azure o Azure.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.BareMetalInfrastructure
-```
- 
-Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di risorse di Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell).
- 
-### <a name="azure-portal"></a>Portale di Azure
- 
-È possibile registrare il provider di risorse BareMetalInfrastructure tramite il portale di Azure.
+### <a name="portal"></a>[Portale](#tab/azure-portal)
  
 È necessario elencare la sottoscrizione nella portale di Azure e quindi fare doppio clic sulla sottoscrizione usata per distribuire le unità di istanza di BareMetal.
  
@@ -53,12 +37,32 @@ Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di ris
 >Se il provider di risorse non è registrato, selezionare **Registra**.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="Screenshot che mostra l'unità dell'istanza di BareMetal registrata":::
- 
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per iniziare a usare interfaccia della riga di comando di Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Accedere alla sottoscrizione di Azure usata per la distribuzione dell'istanza di BareMetal tramite l'interfaccia della riga di comando di Azure. Registrare il `BareMetalInfrastructure` provider di risorse con il comando [AZ provider Register](/cli/azure/provider#az_provider_register) :
+
+```azurecli
+az provider register --namespace Microsoft.BareMetalInfrastructure
+```
+
+È possibile usare il comando [AZ provider list](/cli/azure/provider#az_provider_list) per visualizzare tutti i provider disponibili.
+
+---
+
+Per altre informazioni sui provider di risorse, vedere [provider e tipi di risorse di Azure](../../../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## <a name="baremetal-instance-units-in-the-azure-portal"></a>Unità di istanza di BareMetal nel portale di Azure
  
 Quando si invia una richiesta di distribuzione dell'istanza di BareMetal, è necessario specificare la sottoscrizione di Azure a cui si sta eseguendo la connessione alle istanze di BareMetal. Usare la stessa sottoscrizione usata per distribuire il livello dell'applicazione che funziona con le unità di istanza di BareMetal.
  
 Durante la distribuzione delle istanze di BareMetal, viene creato un nuovo [gruppo di risorse di Azure](../../../azure-resource-manager/management/manage-resources-portal.md) nella sottoscrizione di Azure usata nella richiesta di distribuzione. Questo nuovo gruppo di risorse elenca tutte le unità di istanza di BareMetal distribuite nella sottoscrizione specifica.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nella portale di Azure della sottoscrizione BareMetal selezionare **gruppi di risorse**.
  
@@ -75,10 +79,27 @@ Durante la distribuzione delle istanze di BareMetal, viene creato un nuovo [grup
    
    >[!NOTE]
    >Se sono stati distribuiti più tenant di istanza di BareMetal nella stessa sottoscrizione di Azure, verranno visualizzati più gruppi di risorse di Azure.
- 
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per visualizzare tutte le istanze di BareMetal, eseguire il comando [AZ baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) per il gruppo di risorse:
+
+```azurecli
+az baremetalinstance list --resource-group DSM05A-T550 –output table
+```
+
+> [!TIP]
+> Il `--output` parametro è un parametro globale, disponibile per tutti i comandi. Il valore della **tabella** presenta l'output in un formato descrittivo. Per altre informazioni, vedere [formati di output per i comandi dell'interfaccia della riga di comando di Azure](/cli/azure/format-output-azure-cli)
+
+---
+
 ## <a name="view-the-attributes-of-a-single-instance"></a>Visualizzare gli attributi di una singola istanza
- 
-È possibile visualizzare i dettagli di una singola unità. Nell'elenco dell'istanza di BareMetal selezionare la singola istanza che si desidera visualizzare.
+
+È possibile visualizzare i dettagli di una singola unità.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+Nell'elenco dell'istanza di BareMetal selezionare la singola istanza che si desidera visualizzare.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png" alt-text="Screenshot che Mostra gli attributi di unità dell'istanza di BareMetal di una singola istanza" lightbox="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png":::
  
@@ -101,6 +122,18 @@ Sul lato destro è anche disponibile il nome del [gruppo di posizionamento di pr
  
 >[!TIP]
 >Per individuare il livello dell'applicazione nello stesso data center di Azure di revisione 4. x, vedere [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per visualizzare i dettagli di un'istanza di BareMetal, eseguire il comando [AZ baremetalinstance Show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show) :
+
+```azurecli
+az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
+```
+
+Se non si è certi del nome dell'istanza, eseguire il `az baremetalinstance list` comando descritto in precedenza.
+
+---
  
 ## <a name="check-activities-of-a-single-instance"></a>Controllare le attività di una singola istanza
  
@@ -113,11 +146,31 @@ Anche le modifiche apportate ai metadati dell'unità in Azure vengono registrate
 Un'altra attività che viene registrata è quando si aggiunge o si elimina un [tag](../../../azure-resource-manager/management/tag-resources.md) a un'istanza di.
  
 ## <a name="add-and-delete-an-azure-tag-to-an-instance"></a>Aggiungere ed eliminare un tag di Azure a un'istanza
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
  
 È possibile aggiungere i tag di Azure a un'unità di istanza di BareMetal o eliminarli. Il modo in cui i tag vengono assegnati non è diverso dall'assegnazione di tag alle macchine virtuali. Come per le macchine virtuali, i tag sono presenti nei metadati di Azure e, per le istanze di BareMetal, hanno le stesse restrizioni dei tag per le macchine virtuali.
  
 L'eliminazione dei tag funziona allo stesso modo delle macchine virtuali. L'applicazione e l'eliminazione di un tag sono elencate nel log attività dell'unità dell'istanza di BareMetal.
- 
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+L'assegnazione di tag alle istanze di BareMetal funziona come per le macchine virtuali. I tag sono presenti nei metadati di Azure e, per le istanze di BareMetal, hanno le stesse restrizioni dei tag per le macchine virtuali.
+
+Per aggiungere tag a un'unità di istanza di BareMetal, eseguire il comando [AZ baremetalinstance Update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) :
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
+```
+
+Usare lo stesso comando per rimuovere un tag:
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
+```
+
+---
+
 ## <a name="check-properties-of-an-instance"></a>Controllare le proprietà di un'istanza
  
 Quando si acquisiscono le istanze, è possibile passare alla sezione proprietà per visualizzare i dati raccolti sulle istanze. I dati raccolti includono connettività di Azure, back-end di archiviazione, ID del circuito ExpressRoute, ID di risorsa univoco e ID sottoscrizione. Queste informazioni verranno usate nelle richieste di supporto o quando si configura la configurazione dello snapshot di archiviazione.
@@ -127,15 +180,29 @@ Un'altra informazione critica che verrà visualizzata è l'indirizzo IP NFS di a
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-properties.png" alt-text="Screenshot che mostra le impostazioni delle proprietà dell'istanza di BareMetal" lightbox="media/baremetal-infrastructure-portal/baremetal-instance-properties.png":::
  
 ## <a name="restart-a-unit-through-the-azure-portal"></a>Riavviare un'unità tramite il portale di Azure
- 
-Esistono diverse situazioni in cui il sistema operativo non termina il riavvio, operazione che richiede il riavvio dell'alimentazione dell'unità di istanza di BareMetal. È possibile eseguire un riavvio dell'alimentazione dell'unità direttamente dalla portale di Azure:
+
+Esistono diverse situazioni in cui il sistema operativo non termina il riavvio, operazione che richiede il riavvio dell'alimentazione dell'unità di istanza di BareMetal.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+È possibile eseguire un riavvio dell'alimentazione dell'unità direttamente dalla portale di Azure:
  
 Selezionare **Riavvia** , quindi **Sì** per confermare il riavvio dell'unità.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-restart.png" alt-text="Screenshot che illustra come riavviare l'unità di istanza di BareMetal":::
  
 Quando si riavvia un'unità di istanza di BareMetal, si verificherà un ritardo. Durante questo ritardo, lo **stato di alimentazione** passa dall' **avvio** all'avvio, il che significa che il sistema operativo è stato avviato completamente. Di conseguenza, dopo un riavvio non è possibile accedere all'unità non appena lo stato passa a **avviato**.
- 
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per riavviare un'unità di istanza di BareMetal, usare il comando [AZ baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) :
+
+```azurecli
+az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
+```
+
+---
+
 >[!IMPORTANT]
 >A seconda della quantità di memoria nell'unità dell'istanza di BareMetal, un riavvio e un riavvio dell'hardware e del sistema operativo possono richiedere fino a un'ora.
  

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
-ms.openlocfilehash: b15238a4308fe055f914d1a684b79b38a2c64870
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122251"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556842"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Assegnare un utente come amministratore di una sottoscrizione di Azure
 
@@ -89,6 +89,6 @@ Il ruolo [proprietario](built-in-roles.md#owner) concede l'accesso completo per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
 - [Elencare le assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-list-portal.md)
 - [Organizzare le risorse con i gruppi di gestione di Azure ](../governance/management-groups/overview.md)

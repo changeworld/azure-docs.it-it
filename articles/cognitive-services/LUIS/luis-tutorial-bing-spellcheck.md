@@ -9,18 +9,41 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: f416fe8ef4f6e89d07e6065d4c9435642d9bacb9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef9cb083c9bbe6eae5c34cd3799debde771231b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179640"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558217"
 ---
-# <a name="correct-misspelled-words-with-bing-search-resource"></a>Correggere le parole errate con Ricerca Bing risorsa
+# <a name="correct-misspelled-words-with-bing-resource"></a>Correggere le parole errate con la risorsa Bing
 
-È possibile integrare l'app LUIS con [ricerca Bing](https://ms.portal.azure.com/#create/Microsoft.BingSearch) per correggere parole con errori di ortografia nelle espressioni prima che Luis predichi il punteggio e le entità dell'espressione.
+L'API di stima V3 supporta ora l' [API controllo ortografico Bing](https://docs.microsoft.com/bing/search-apis/bing-spell-check/overview). Aggiungere il controllo ortografico all'applicazione includendo la chiave per la risorsa di ricerca Bing nell'intestazione delle richieste. È possibile usare una risorsa Bing esistente se ne è già proprietaria o [crearne una nuova](https://portal.azure.com/#create/Microsoft.BingSearch) per usare questa funzionalità. 
 
-## <a name="create-endpoint-key"></a>Creare una chiave endpoint
+Esempio di output di stima per una query con errori di ortografia:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
+
+Le correzioni all'ortografia vengono effettuate prima della stima dell'espressione utente LUIS. Nella risposta è possibile visualizzare tutte le modifiche apportate all'espressione originale, inclusa l'ortografia.
+
+## <a name="create-bing-search-resource"></a>Crea risorsa Ricerca Bing
 
 Per creare una risorsa Ricerca Bing nel portale di Azure, seguire queste istruzioni:
 
@@ -32,7 +55,8 @@ Per creare una risorsa Ricerca Bing nel portale di Azure, seguire queste istruzi
 
 4. A destra viene visualizzato un pannello informativo contenente informazioni, tra cui le note legali. Selezionare **Crea** per avviare il processo di creazione della sottoscrizione.
 
-    :::image type="content" source="./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png" alt-text="Risorsa Controllo ortografico Bing API V7":::
+> [!div class="mx-imgBorder"]
+> ![Risorsa Controllo ortografico Bing API V7](./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png)
 
 5. Nella pannello successivo immettere le impostazioni del servizio. Attendere la fine del processo di creazione del servizio.
 
@@ -40,15 +64,23 @@ Per creare una risorsa Ricerca Bing nel portale di Azure, seguire queste istruzi
 
 7. Copiare una delle chiavi da aggiungere all'intestazione della richiesta di stima. Sarà necessaria solo una delle due chiavi.
 
-8. Aggiungere la chiave a `mkt-bing-spell-check-key` nell'intestazione della richiesta di stima.
-
 <!--
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
+## <a name="enable-spell-check-from-ui"></a>Abilitare il controllo ortografico dall'interfaccia utente 
+È possibile abilitare il controllo ortografico per la query di esempio tramite il [portale Luis](https://www.luis.ai). Selezionare **Gestisci** nella parte superiore della schermata e **risorse di Azure** nel percorso di spostamento a sinistra. Dopo aver associato una risorsa di stima all'applicazione, è possibile selezionare **modifica parametri query** nella parte inferiore della pagina e incollare la chiave di risorsa nel campo **Abilita controllo ortografico** .
+    
+   > [!div class="mx-imgBorder"]
+   > ![Abilita controllo ortografico](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
+
+
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Aggiungere la chiave all'URL dell'endpoint
 Per ogni query a cui si desidera applicare la correzione ortografica, per la query dell'endpoint è necessaria la chiave di risorsa del controllo ortografico Bing passata nel parametro di intestazione della query. Si può avere un chatbot che chiama LUIS o si può chiamare direttamente l'API dell'endpoint LUIS. Indipendentemente dal modo in cui viene chiamato l'endpoint, ogni chiamata deve includere le informazioni necessarie nella richiesta dell'intestazione affinché le correzioni ortografiche funzionino correttamente. È necessario impostare il valore con **MKT-Bing-spell-check-Key** sul valore della chiave.
 
+|Chiave di intestazione|Valore intestazione|
+|--|--|
+|`mkt-bing-spell-check-key`|Chiavi trovate nel pannello **chiavi ed endpoint** della risorsa|
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Inviare un’espressione con errori di ortografia a LUIS
 1. Aggiungere un'espressione con errori di ortografia nella query di stima che verrà inviata, ad esempio "quanto è la montagna?". In inglese, `mountain` con una `n` è la versione corretta.

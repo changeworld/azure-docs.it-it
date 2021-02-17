@@ -1,6 +1,6 @@
 ---
-title: Usare macchine virtuali di Azure spot
-description: Informazioni su come usare le macchine virtuali di Azure spot per risparmiare sui costi.
+title: Usare macchine virtuali Azure spot
+description: Scopri come usare le macchine virtuali di Azure spot per risparmiare sui costi.
 author: JagVeerappan
 ms.author: jagaveer
 ms.service: virtual-machines
@@ -8,23 +8,23 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 460529ab6e3227a998ac04c4819171274307ff9e
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375460"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557819"
 ---
-# <a name="use-spot-vms-in-azure"></a>Usare macchine virtuali spot in Azure
+# <a name="use-azure-spot-virtual-machines"></a>Usare macchine virtuali Azure spot 
 
-L'uso delle macchine virtuali spot consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. Quando, in qualsiasi momento, Azure avrà di nuovo bisogno di quella capacità, l'infrastruttura di Azure rimuoverà le macchine virtuali spot. Le macchine virtuali spot sono pertanto ideali per i carichi di lavoro in grado di gestire le interruzioni, come i processi di elaborazione batch, gli ambienti di sviluppo/test, i carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
+Con le macchine virtuali di Azure spot è possibile sfruttare i vantaggi della capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le macchine virtuali di Azure spot. Le macchine virtuali di Azure spot sono quindi ottime per i carichi di lavoro in grado di gestire le interruzioni, ad esempio processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
-La quantità di capacità disponibile dipende dalle dimensioni, dall'area, dal momento della giornata e da altri fattori. Quando si distribuiscono le macchine virtuali spot, Azure le alloca se c'è capacità disponibile, ma non esiste alcun contratto di servizio per queste macchine virtuali. Una macchina virtuale spot non offre garanzie di disponibilità elevata. Quando, in qualsiasi momento, Azure avrà di nuovo bisogno di quella capacità, l'infrastruttura di Azure rimuoverà le macchine virtuali spot con un preavviso di 30 secondi. 
+La quantità di capacità disponibile dipende dalle dimensioni, dall'area, dal momento della giornata e da altri fattori. Quando si distribuiscono macchine virtuali di Azure spot, Azure alloca le VM se la capacità è disponibile, ma non è previsto alcun contratto di funzione per queste macchine virtuali. Una macchina virtuale Azure spot non offre garanzie di disponibilità elevata. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le macchine virtuali di Azure spot con un preavviso di 30 secondi. 
 
 
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
-Le macchine virtuali possono essere eliminate in base alla capacità o al prezzo massimo impostato. Quando si crea una VM spot, è possibile impostare i criteri di rimozione per *deallocare* (impostazione predefinita) o *eliminare*. 
+Le macchine virtuali possono essere eliminate in base alla capacità o al prezzo massimo impostato. Quando si crea una macchina virtuale di Azure spot, è possibile impostare i criteri di rimozione per *deallocare* (impostazione predefinita) o *eliminare*. 
 
 Il criterio *deallocate* sposta la macchina virtuale in stato di arresto-deallocato, consentendo di ridistribuirla in un secondo momento. Tuttavia, non è garantito che l'allocazione avrà esito positivo. Le VM deallocate verranno conteggiate rispetto alla quota e verranno addebitati i costi di archiviazione per i dischi sottostanti. 
 
@@ -47,11 +47,11 @@ Se si vuole che la macchina virtuale venga eliminata quando viene rimossa, è po
 
 ## <a name="limitations"></a>Limitazioni
 
-Le seguenti dimensioni delle macchine virtuali non sono supportate per le macchine virtuali spot:
+Le dimensioni di VM seguenti non sono supportate per le macchine virtuali Azure spot:
  - Serie B
  - Versioni promo di qualsiasi dimensione (ad esempio, dimensioni promo Dv2, NV, NC, H)
 
-Le macchine virtuali spot possono essere distribuite in qualsiasi area, tranne Microsoft Azure Cina (21Vianet).
+Le macchine virtuali di Azure spot possono essere distribuite in qualsiasi area, ad eccezione Microsoft Azure Cina 21Vianet.
 
 <a name="channel"></a>
 
@@ -65,7 +65,7 @@ Sono attualmente supportati i [tipi di offerta](https://azure.microsoft.com/supp
 
 ## <a name="pricing"></a>Prezzi
 
-I prezzi per le macchine virtuali spot variano in base all'area e allo SKU. Per altre informazioni, vedere i prezzi delle macchine virtuali per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+I prezzi per le macchine virtuali Azure spot sono variabili in base all'area e allo SKU. Per altre informazioni, vedere i prezzi delle macchine virtuali per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 È anche possibile eseguire query sulle informazioni sui prezzi usando l' [API prezzi al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) per eseguire una query per informazioni sui prezzi spot. `meterName`E `skuName` conterranno entrambi `Spot` .
 
@@ -87,24 +87,24 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 
 ##  <a name="frequently-asked-questions"></a>Domande frequenti
 
-**D:** Se si crea una macchina virtuale spot, è identica a una normale macchina virtuale standard?
+**D:** Una volta creata, è una macchina virtuale di Azure spot identica alla normale VM standard?
 
-**R:** Sì, ad eccezione del fatto che per le macchine virtuali spot non esiste un contratto di servizio e che possono essere eliminate in qualsiasi momento.
+**R:** Sì, ad eccezione del fatto che non esiste alcun contratto di contratto per le macchine virtuali di Azure spot ed è possibile rimuoverli in qualsiasi momento.
 
 
 **D:** Cosa si può fare se la VM viene eliminata, ma è ancora necessaria capacità?
 
-**R:** È consigliabile usare le macchine virtuali standard anziché le macchine virtuali spot se si ha immediatamente bisogno di capacità.
+**R:** È consigliabile usare VM standard anziché macchine virtuali Azure spot se è necessaria immediatamente la capacità.
 
 
-**D:** Come viene gestita la quota per le macchine virtuali spot?
+**D:** Come viene gestita la quota per le macchine virtuali Azure spot?
 
-**R:** Le macchine virtuali spot avranno un pool di quota separato. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**R:** Le macchine virtuali di Azure spot avranno un pool di quote separato. La quota spot verrà condivisa tra le macchine virtuali e le istanze del set di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
-**D:** È possibile richiedere una quota aggiuntiva per le macchine virtuali spot?
+**D:** È possibile richiedere una quota aggiuntiva per le macchine virtuali Azure spot?
 
-**R:** Sì, è possibile inviare la richiesta di aumento della quota per le macchine virtuali spot attraverso il [processo di richiesta di quota standard](../azure-portal/supportability/per-vm-quota-requests.md).
+**R:** Sì, sarà possibile inviare la richiesta per aumentare la quota per le macchine virtuali Azure spot tramite il [processo standard di richiesta di quota](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **D:** Dove è possibile pubblicare le domande?
@@ -117,8 +117,8 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 **R:** Prima di poter modificare il prezzo massimo, è necessario deallocare la macchina virtuale. È quindi possibile modificare il prezzo massimo nel portale, dalla sezione di **configurazione** per la macchina virtuale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Usare l' [interfaccia](./linux/spot-cli.md)della riga di comando, il [portale](spot-portal.md), il [modello ARM](./linux/spot-template.md)o [PowerShell](./windows/spot-powershell.md) per distribuire le VM spot.
+Usare l' [interfaccia](./linux/spot-cli.md)della riga di comando, il [portale](spot-portal.md), il [modello ARM](./linux/spot-template.md)o [PowerShell](./windows/spot-powershell.md) per distribuire le macchine virtuali di Azure spot.
 
-È anche possibile distribuire un [set di scalabilità con le istanze di VM spot](../virtual-machine-scale-sets/use-spot.md).
+È anche possibile distribuire un [set di scalabilità con le istanze di macchina virtuale Azure spot](../virtual-machine-scale-sets/use-spot.md).
 
 Se si verifica un errore, vedere [codici di errore](./error-codes-spot.md).

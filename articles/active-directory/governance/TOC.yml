@@ -14,8 +14,10 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Creare il primo pacchetto di accesso
+    - name: Gestire l'accesso alle risorse-portale di Azure
       href: entitlement-management-access-package-first.md
+    - name: Gestire l'accesso alle risorse-Microsoft Graph
+      href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Concetti
   expanded: true
   items:

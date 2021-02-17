@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni su come aggiungere un endpoin
 ms.topic: article
 ms.date: 02/12/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b168bbdc69f2d18a724084d9de694fa83d23dda
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516142"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559578"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Consentire l'accesso allo spazio dei nomi del bus di servizio di Azure da reti virtuali specifiche
 L'integrazione di endpoint del servizio bus di servizio con [rete virtuale (VNet)][vnet-sep] consente di accedere in modo sicuro alle funzionalità di messaggistica da carichi di lavoro come le macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambe le estremità.
@@ -18,15 +18,16 @@ Una volta configurato per essere associato ad almeno un endpoint del servizio su
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi del bus di servizio corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici.
 
->[!WARNING]
-> L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con il bus di servizio. Come eccezione, è possibile consentire l'accesso alle risorse del bus di servizio da determinati servizi attendibili anche quando gli endpoint di servizio di rete sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
->
-> I servizi Microsoft seguenti devono essere in una rete virtuale
-> - Servizio app di Azure
-> - Funzioni di Azure
+L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con il bus di servizio. Come eccezione, è possibile consentire l'accesso alle risorse del bus di servizio da determinati servizi attendibili anche quando gli endpoint di servizio di rete sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
+
+I servizi Microsoft seguenti devono essere in una rete virtuale
+- Servizio app di Azure
+- Funzioni di Azure
+
+Le reti virtuali sono supportate solo negli spazi dei nomi del bus di servizio di [livello Premium](service-bus-premium-messaging.md). Quando si usano gli endpoint del servizio VNet con il bus di servizio, è consigliabile non abilitare questi endpoint nelle applicazioni che combinano gli spazi dei nomi del bus di servizio di livello standard e Premium. Poiché il livello standard non supporta reti virtuali. L'endpoint è limitato solo agli spazi dei nomi del livello Premium.
 
 > [!IMPORTANT]
-> Le reti virtuali sono supportate solo negli spazi dei nomi del bus di servizio di [livello Premium](service-bus-premium-messaging.md). Quando si usano gli endpoint del servizio VNet con il bus di servizio, è consigliabile non abilitare questi endpoint nelle applicazioni che combinano gli spazi dei nomi del bus di servizio di livello standard e Premium. Poiché il livello standard non supporta reti virtuali. L'endpoint è limitato solo agli spazi dei nomi del livello Premium.
+> Specificare almeno una regola IP o una regola della rete virtuale per lo spazio dei nomi per consentire il traffico solo dagli indirizzi IP o dalla subnet specificata di una rete virtuale. Se non sono presenti regole IP e reti virtuali, è possibile accedere allo spazio dei nomi tramite la rete Internet pubblica (usando la chiave di accesso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenari di sicurezza avanzati resi possibili dall'integrazione della rete virtuale 
 
@@ -57,9 +58,6 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
     > [!NOTE]
     > Viene visualizzata la scheda **rete** solo per gli spazi dei nomi **Premium** .  
     
-    >[!WARNING]
-    > Se si seleziona l'opzione **reti selezionate** e non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
-
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Pagina rete-impostazione predefinita" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
     Se si seleziona l'opzione **tutte le reti** , lo spazio dei nomi del bus di servizio accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
@@ -69,6 +67,9 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 1. Nella sezione **rete virtuale** della pagina selezionare **+ Aggiungi rete virtuale esistente**. 
 
     ![aggiungi rete virtuale esistente](./media/service-endpoints/add-vnet-menu.png)
+
+    >[!WARNING]
+    > Se si seleziona l'opzione **reti selezionate** e non si aggiunge almeno una regola del firewall IP o una rete virtuale in questa pagina, è possibile accedere allo spazio dei nomi tramite Internet pubblico (usando la chiave di accesso).
 3. Selezionare la rete virtuale dall'elenco di reti virtuali e quindi selezionare la **subnet**. Prima di aggiungere la rete virtuale all'elenco, è necessario abilitare l'endpoint del servizio. Se l'endpoint del servizio non è abilitato, il portale richiederà di abilitarlo.
    
    ![Selezionare una subnet](./media/service-endpoints/select-subnet.png)

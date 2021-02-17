@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934530"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547163"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -53,11 +53,6 @@ Azure fornisce **due ruoli predefiniti di Azure** per autorizzare l'accesso alle
 | --- | --- | --- |
 | Proprietario di dati dei dispositivi gemelli digitali di Azure | Consente l'accesso completo alle risorse dei dispositivi gemelli digitali di Azure | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Lettore dati di dispositivi gemelli digitali di Azure | Consente l'accesso in sola lettura alle risorse di Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
-
->[!NOTE]
-> Questi ruoli sono stati recentemente rinominati dai nomi precedenti nell'anteprima:
-> * Il ruolo *Proprietario dei dati di Gemelli digitali di Azure* era in precedenza *Proprietario di Gemelli digitali di Azure (anteprima)* .
-> * Il *lettore di dati di Azure Digital gemelli* era in precedenza lettore di dispositivi *gemelli di Azure (anteprima)*.
 
 È possibile assegnare i ruoli in due modi:
 * tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo di Azure con il portale di Azure*](../role-based-access-control/role-assignments-portal.md))

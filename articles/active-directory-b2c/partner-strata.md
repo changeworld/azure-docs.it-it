@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 69355b58e36f435b5b5dbe94af72d55d9806b156
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936693"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557178"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Esercitazione per estendere Azure AD B2C per proteggere le applicazioni locali usando gli strati
 
@@ -85,7 +85,7 @@ Per ottenere il software da usare per integrare l'app locale legacy con Azure AD
 
 2. **Creare un flusso utente**: creare un [flusso utente di iscrizione e accesso](./tutorial-create-user-flows.md).
 
-3. **Aggiungere un** provider di identità: scegliere di effettuare l'accesso dell'utente con un account locale o un [IDP](./tutorial-add-identity-providers.md)aziendale o sociale.
+3. **Aggiungere un** provider di identità: scegliere di effettuare l'accesso dell'utente con un account locale o un [IDP](./add-identity-provider.md)aziendale o sociale.
 
 4. **Definire gli attributi utente**: definire gli attributi da raccogliere durante l'iscrizione.
 

@@ -4,16 +4,16 @@ description: Informazioni su come identificare, diagnosticare e risolvere i prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/02/2021
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524308"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559987"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -213,6 +213,12 @@ Di seguito sono riportate alcune funzioni di sistema comuni che non utilizzano l
 | Superiore/inferiore                         | Anziché usare la funzione di sistema per normalizzare i dati per i confronti, normalizzare le maiuscole e minuscole al momento dell'inserimento. Una query come ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` diventa ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calcola l'ora corrente prima dell'esecuzione della query e usa tale valore stringa nella `WHERE` clausola. |
 | Funzioni matematiche (non aggregate) | Se nella query è necessario calcolare spesso un valore specifico, è consigliabile memorizzare il valore come proprietà nel documento JSON. |
+
+Queste funzioni di sistema possono usare gli indici, tranne quando vengono usati nelle query con aggregazioni:
+
+| **Funzione di sistema**                     | **Suggerimenti per l'ottimizzazione**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| Funzioni di sistema spaziali                        | Archiviare il risultato della query in una vista materializzata in tempo reale |
 
 Quando vengono utilizzate nella `SELECT` clausola, le funzioni di sistema inefficienti non influiscono sul modo in cui le query possono utilizzare gli indici.
 

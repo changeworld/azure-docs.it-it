@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460986"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558130"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Ruoli e requisiti per Condivisione dati di Azure 
 
@@ -63,7 +63,7 @@ Per creare manualmente un'assegnazione di ruolo per l'identità gestita della ri
 1. In *Seleziona* Digitare il nome della risorsa di condivisione dati di Azure.
 1. Fare clic su *Salva*.
 
-Per altre informazioni sull'assegnazione di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se si condividono dati usando le API REST, è possibile creare un'assegnazione di ruolo usando l'API facendo riferimento a [Aggiungi o Rimuovi assegnazioni di ruolo di Azure usando l'API REST](../role-based-access-control/role-assignments-rest.md). 
+Per altre informazioni sull'assegnazione di ruolo, vedere [assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md). Se si condividono dati usando le API REST, è possibile creare un'assegnazione di ruolo usando l'API facendo riferimento a [assegnare i ruoli di Azure usando l'API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Per le origini basate su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure durante la connessione al database SQL tramite l'autenticazione Azure Active Directory. A questo utente deve essere concessa l'autorizzazione *db_datareader* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [condividere da database SQL di Azure o da Azure sinapsi Analytics](how-to-share-from-sql.md) . 
 
@@ -83,7 +83,7 @@ Per creare manualmente un'assegnazione di ruolo per l'identità gestita della ri
 1. In *Seleziona* Digitare il nome della risorsa di condivisione dati di Azure.
 1. Fare clic su *Salva*.
 
-Per altre informazioni sull'assegnazione di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se si ricevono dati usando le API REST, è possibile creare un'assegnazione di ruolo usando l'API facendo riferimento a [Aggiungi o Rimuovi assegnazioni di ruolo di Azure usando l'API REST](../role-based-access-control/role-assignments-rest.md). 
+Per altre informazioni sull'assegnazione di ruolo, vedere [assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md). Se si ricevono dati usando le API REST, è possibile creare un'assegnazione di ruolo usando l'API facendo riferimento a [assegnare i ruoli di Azure usando l'API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Per la destinazione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure durante la connessione al database SQL tramite l'autenticazione Azure Active Directory. A questo utente deve essere concessa l'autorizzazione *db_datareader, db_datawriter db_ddladmin* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [condividere da database SQL di Azure o da Azure sinapsi Analytics](how-to-share-from-sql.md) . 
 
@@ -101,10 +101,10 @@ Seguire questa procedura per registrare il provider di risorse Microsoft. DataSh
 1. Selezionare la sottoscrizione che si sta usando per la condivisione di dati di Azure.
 1. Fare clic su **provider di risorse**.
 1. Cercare Microsoft. DataShare.
-1. Fare clic su **Register**.
+1. Fare clic su **Registra**.
  
 Per altre informazioni sul provider di risorse, vedere [provider e tipi di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui ruoli in Azure - [Comprendere le definizioni dei ruoli](../role-based-access-control/role-definitions.md)
+- Scopri di più sui ruoli in Azure: informazioni sulle definizioni dei ruoli di [Azure](../role-based-access-control/role-definitions.md)

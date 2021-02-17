@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: ecbf07c1a85c708d4117c83bca546cd8bd6ccd2b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701162"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546075"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connetti le app per le funzioni in Azure per l'elaborazione dei dati
 
@@ -121,8 +121,6 @@ Ora che l'applicazione è stata scritta, è possibile pubblicarla in Azure segue
 Per poter eseguire l'autenticazione con i dispositivi gemelli digitali di Azure, la struttura della funzione degli esempi precedenti richiede che venga passata una bearer token. Per assicurarsi che questo bearer token venga passato, è necessario configurare [identità del servizio gestita (MSI)](../active-directory/managed-identities-azure-resources/overview.md) per l'app per le funzioni. Questa operazione deve essere eseguita solo una volta per ogni app per le funzioni.
 
 È possibile creare un'identità gestita dal sistema e assegnare l'identità dell'app per le funzioni al ruolo di _**proprietario dei dati di Digital gemelli di Azure**_ per l'istanza di Digital gemelli di Azure. In questo modo si concede all'app per le funzioni l'autorizzazione per l'esecuzione di attività del piano dati. Quindi, rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Usare [Azure cloud Shell](https://shell.azure.com) per eseguire i comandi.
 
