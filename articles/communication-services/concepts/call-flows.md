@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593638"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559441"
 ---
-# <a name="call-flows"></a>Flussi di chiamate
+# <a name="call-flow-basics"></a>Nozioni di base sul flusso di chiamate
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -76,6 +76,14 @@ Se la libreria client non può usare UDP per i file multimediali a causa di rest
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagramma che illustra il flusso del processo multimediale TCP in Servizi di comunicazione.":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: libreria client dei servizi di comunicazione e team Microsoft in una riunione di Team pianificati
+
+Segnalazione dei flussi attraverso il controller di segnalazione. Flussi multimediali tramite il processore di contenuti multimediali. Il controller di segnalazione e il processore di contenuti multimediali sono condivisi tra i servizi di comunicazione e i team Microsoft. 
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagramma che illustra la libreria client dei servizi di comunicazione e il client teams in una riunione di team pianificata.":::
+
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
@@ -85,3 +93,4 @@ I documenti seguenti possono essere interessanti:
 
 - Altre informazioni sui [tipi di chiamate](../concepts/voice-video-calling/about-call-types.md)
 - Informazioni sull'[architettura client-server](./client-and-server-architecture.md)
+- Informazioni sulle [topologie del flusso di chiamate](./detailed-call-flows.md)

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 84987b12657a37264d3a1ca67fdc423ed8085662
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095857"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557912"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -21,15 +21,15 @@ La serie DCsv2 consente di proteggere la riservatezza e l'integrità dei dati e 
 
 I casi d'uso di esempio includono: condivisione tra più parti di dati riservati, rilevamento delle frodi, antiriciclaggio, blockchain, analisi di utilizzo riservata, analisi di Business Intelligence e Machine Learning riservato.
 
-[Archiviazione Premium](premium-storage-performance.md): supportato *<br>
-[Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
-[Live Migration](maintenance-and-updates.md): non supportato<br>
-[Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
-[Supporto](generation-2.md)per la generazione di VM: generazione 2<br>
-[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Archiviazione Premium](premium-storage-performance.md):*<br> 
+ [memorizzazione nella cache di archiviazione Premium](premium-storage-performance.md)supportata: <br> 
+ [Live Migration](maintenance-and-updates.md)supportati: non sono supportati <br> 
+ [gli aggiornamenti](maintenance-and-updates.md)per il mantenimento della memoria: supporto per la generazione di VM non supportata <br> 
+ [](generation-2.md): <br> 
+ [rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md)di seconda generazione: supportata (* richiede almeno 4 vCPU *) <br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 
-*Tranne che per Standard_DC8_v2
+*Tranne che per Standard_DC8_v2 <br>
 
 | Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) | Memoria EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

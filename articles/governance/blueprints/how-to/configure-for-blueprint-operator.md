@@ -3,12 +3,12 @@ title: Configurare l'ambiente per l'operatore Blueprint
 description: Informazioni su come configurare l'ambiente Azure per l'uso con il ruolo predefinito operatore di Azure.
 ms.date: 02/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 0e0f6680ab39481a480919af10fadc0f7103a1fb
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b43a33f4bac92903bd07454041d11850f217d480
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591602"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558717"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurare l'ambiente per un operatore di Blueprint
 
@@ -22,7 +22,7 @@ Il primo passaggio consiste nel concedere il ruolo di **operatore Blueprint** al
 
 1. Consigliabile [Creare un gruppo di sicurezza e aggiungere membri](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Aggiungere un'assegnazione di ruolo](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) dell' **operatore Blueprint** all'account o al gruppo di sicurezza
+1. [Assegnare il ruolo Azure](../../../role-based-access-control/role-assignments-portal.md) dell' **operatore Blueprint** all'account o al gruppo di sicurezza
 
 ## <a name="user-assign-managed-identity"></a>Utente-assegna identità gestita
 
@@ -32,7 +32,7 @@ Una definizione di progetto può usare identità gestite assegnate dal sistema o
 
 1. Concedere all'identità gestita assegnata dall'utente tutti i ruoli o le autorizzazioni richieste dalla definizione di progetto per l'ambito previsto.
 
-1. [Aggiungere un'assegnazione di ruolo](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) dell' **operatore di identità gestito** all'account o al gruppo di sicurezza. Definire l'ambito dell'assegnazione di ruolo alla nuova identità gestita assegnata dall'utente.
+1. [Assegnare il ruolo Azure](../../../role-based-access-control/role-assignments-portal.md) dell' **operatore di identità gestito** all'account o al gruppo di sicurezza. Definire l'ambito dell'assegnazione di ruolo alla nuova identità gestita assegnata dall'utente.
 
 1. Come **operatore del progetto**, [assegnare un progetto](../create-blueprint-portal.md#assign-a-blueprint) che usi la nuova identità gestita assegnata dall'utente.
 

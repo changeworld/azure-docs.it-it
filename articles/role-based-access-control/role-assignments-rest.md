@@ -1,40 +1,35 @@
 ---
-title: Aggiungere o rimuovere assegnazioni di ruolo di Azure usando l'API REST-RBAC di Azure
+title: Assegnare i ruoli di Azure usando l'API REST-RBAC di Azure
 description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando l'API REST e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: ''
-ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: e4f230663e0eeddcf874c24e5041653f241f481c
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: d012173adb5e238282e107b832ed9c6895237e48
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964270"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556074"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST
+# <a name="assign-azure-roles-using-the-rest-api"></a>Assegnare i ruoli di Azure usando l'API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando l'API REST.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
-- autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
+## <a name="assign-an-azure-role"></a>Assegnare un ruolo di Azure
 
-## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
-
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di Azure, aggiungere un'assegnazione di ruolo. Per aggiungere un'assegnazione di ruolo, usare le [assegnazioni di ruolo-crea](/rest/api/authorization/roleassignments/create) API REST e specificare l'entità di sicurezza, la definizione del ruolo e l'ambito. Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/write`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
+Per assegnare un ruolo, usare le [assegnazioni di ruolo-crea](/rest/api/authorization/roleassignments/create) API REST e specificare l'entità di sicurezza, la definizione del ruolo e l'ambito. Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/write`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
 
 1. Usare l'API REST per l'[elenco delle definizioni del ruolo](/rest/api/authorization/roledefinitions/list) o vedere [Ruoli predefiniti](built-in-roles.md) per ottenere l'identificatore per la definizione del ruolo da assegnare.
 
@@ -58,10 +53,10 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Ambito | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    > | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Risorsa |
 
@@ -72,10 +67,10 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di 
 1. Nel corpo della richiesta sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Ambito | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    > | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Risorsa |
 
@@ -109,55 +104,6 @@ Il testo seguente è un esempio di output:
         "createdOn": "2020-05-06T23:55:23.7679147Z",
         "updatedOn": "2020-05-06T23:55:23.7679147Z",
         "createdBy": null,
-        "updatedBy": "{updatedByObjectId1}"
-    },
-    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
-    "type": "Microsoft.Authorization/roleAssignments",
-    "name": "{roleAssignmentId1}"
-}
-```
-
-## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
-
-Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo Azure, si rimuove un'assegnazione di ruolo. Per rimuovere un'assegnazione di ruolo, usare l'API REST per l'[eliminazione delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/delete). Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/delete`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
-
-1. Ottenere l'identificatore di assegnazione di ruolo (GUID). Questo identificatore viene restituito quando si crea l'assegnazione di ruolo per la prima volta oppure è possibile ottenerlo elencando le assegnazioni di ruolo.
-
-1. Iniziare con la richiesta seguente:
-
-    ```http
-    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
-    ```
-
-1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
-
-    > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
-    > | --- | --- |
-    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    > | `subscriptions/{subscriptionId1}` | Sottoscrizione |
-    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Risorsa |
-
-1. Sostituire *{roleAssignmentId}* con l'identificatore GUID dell'assegnazione di ruolo.
-
-La richiesta seguente rimuove l'assegnazione di ruolo specificata nell'ambito della sottoscrizione:
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
-```
-
-Il testo seguente è un esempio di output:
-
-```json
-{
-    "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
-        "principalId": "{objectId1}",
-        "scope": "/subscriptions/{subscriptionId1}",
-        "createdOn": "2020-05-06T23:55:24.5379478Z",
-        "updatedOn": "2020-05-06T23:55:24.5379478Z",
-        "createdBy": "{createdByObjectId1}",
         "updatedBy": "{updatedByObjectId1}"
     },
     "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",

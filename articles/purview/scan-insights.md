@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 00f72e1de230cdc68f86010b7b25d86debaa5eb5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 7807659a30127f39bb79ad99bdb733c12eb1d25d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575789"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548683"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Analizza informazioni dettagliate sui dati in Azure
 
@@ -37,7 +37,7 @@ Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](ma
 
 In Azure competenza è possibile registrare e analizzare i tipi di origine. È possibile visualizzare lo stato di analisi nel tempo in analisi approfondite. Le informazioni dettagliate indicano il numero di analisi non riuscite, completate o annullate entro un determinato periodo di tempo.
 
-### <a name="view-scan-insights"></a>Visualizza informazioni dettagliate analisi
+### <a name="view-scan-insights"></a>Visualizzare informazioni dettagliate sulle analisi
 
 1. Passare alla schermata dell'istanza di **Azure** per la portale di Azure e selezionare l'account di competenza.
 
@@ -51,15 +51,27 @@ In Azure competenza è possibile registrare e analizzare i tipi di origine. È p
 
 1. Nell'area **Insights** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: selezionare **analisi** per visualizzare il report **Insights Scan Insights** .
 
-### <a name="view-high-level-kpis-to-show-count-of-scans-by-status"></a>Visualizzare gli indicatori KPI di alto livello per visualizzare il conteggio delle analisi in base allo stato
+### <a name="view-high-level-kpis-to-show-count-of-scans-by-status-and-deep-dive-into-each-scan"></a>Visualizzare gli indicatori KPI di alto livello per visualizzare il conteggio delle analisi in base allo stato e approfondimento di ogni analisi
  
-Gli indicatori KPI di alto livello mostrano le analisi totali eseguite entro un periodo di tempo. Il periodo di tempo è impostato sul valore predefinito degli ultimi 30 giorni. Tuttavia, è possibile selezionare anche gli ultimi sette giorni. In base al filtro temporale, i valori degli indicatori KPI riflettono il conteggio delle analisi in modo appropriato.
+1. Gli indicatori KPI di alto livello mostrano le analisi totali eseguite entro un periodo di tempo. Il periodo di tempo è impostato sul valore predefinito degli ultimi 30 giorni. Tuttavia, è possibile selezionare anche gli ultimi sette giorni. In base al filtro temporale, i valori degli indicatori KPI riflettono il conteggio delle analisi in modo appropriato.
 
 
-In base al valore del filtro temporale selezionato, è possibile visualizzare la distribuzione delle analisi riuscite, non riuscite e annullate in base alla settimana o al giorno nel grafico.
+1. In base al valore del filtro temporale selezionato, è possibile visualizzare la distribuzione delle analisi riuscite, non riuscite e annullate in base alla settimana o al giorno nel grafico.
 
-   :::image type="content" source="./media/scan-insights/scan-insights.png" alt-text="Visualizza informazioni dettagliate analisi":::
+1. Nella parte inferiore del grafico è disponibile un **altro** collegamento per esplorare ulteriormente. Il collegamento apre la pagina  **stato analisi** all'interno dell'esperienza analisi informazioni dettagliate. Qui è possibile visualizzare il nome di un'analisi e il numero di volte che ha avuto esito positivo, negativo o annullato negli ultimi 30 giorni.
+
+    :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="Visualizza lo stato di analisi nel tempo":::
+
+4. È possibile esplorare ulteriormente un'analisi specifica, facendo clic sul **nome dell'analisi** che consentirà di connettersi alla cronologia delle analisi nell'ambito **dell'esperienza di** Azure. Dalla pagina cronologia di esecuzione, è possibile ottenere l'ID esecuzione che consentirà di eseguire ulteriori indagini sugli errori.
+
+    :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="Visualizza dettagli analisi":::
+
+5. Infine, è possibile tornare alla pagina Scan Insights **Scan status** seguendo le briciole di pane nell'angolo superiore sinistro della pagina di cronologia di esecuzione.
+
+    :::image type="content" source="./media/scan-insights/scan-history.png" alt-text="Visualizzare la cronologia analisi"::: 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sui report Insights di Azure con [Asset](./asset-insights.md) Insights
+* Scopri di più su Azure- **Insights** Insights con informazioni dettagliate sui [dati](./concept-insights.md)
+
+* Scopri di più sulle **origini** di Azure per la [gestione delle origini dati](./manage-data-sources.md)

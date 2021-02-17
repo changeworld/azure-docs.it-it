@@ -4,15 +4,15 @@ description: Informazioni su come creare, pubblicare e ridimensionare le app in 
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 5/10/2020
+ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4653419d974db2e597111487c64682c75ffc40b
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: e8cc42500b9d8bfc507683b5cc96c7b12f95909b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826012"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548455"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
@@ -169,7 +169,7 @@ Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app
 
 È possibile integrare l'ambiente del servizio app con monitoraggio di Azure per inviare i log relativi all'ambiente del servizio app ad archiviazione di Azure, Hub eventi di Azure o Log Analytics. Questi elementi vengono registrati oggi:
 
-| Situazione | Messaggio |
+| Situazione | Message |
 |---------|----------|
 | Ambiente del servizio app non integro | L'ambiente del servizio app specificato non è integro a causa di una configurazione di rete virtuale non valida. L'ambiente del servizio app verrà sospeso se lo stato non integro continua. Verificare che siano seguite le linee guida definite in questo articolo: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | La subnet dell'ambiente del servizio app è quasi esaurita | L'ambiente del servizio app specificato si trova in una subnet quasi esaurita. Sono presenti {0} indirizzi rimanenti. Una volta esauriti questi indirizzi, l'ambiente del servizio app non sarà in grado di eseguire la scalabilità.  |

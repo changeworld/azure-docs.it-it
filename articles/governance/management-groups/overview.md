@@ -4,12 +4,12 @@ description: Informazioni sui gruppi di gestione, sul funzionamento delle autori
 ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 547f26717bfb516bbcf531af1418c812e4cbc63b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736323"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560199"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -184,7 +184,7 @@ Affinché un gruppo di gestione o una sottoscrizione possa essere spostato in mo
 Per eseguire l'azione di spostamento, è necessario avere: 
 
 - Autorizzazioni di scrittura per il gruppo di gestione e l'assegnazione di ruolo nel gruppo di gestione o nella sottoscrizione figlio.
-  - Esempio di ruolo predefinito: **Proprietario**
+  - **Proprietario** dell'esempio di ruolo predefinito
 - Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre di destinazione.
   - Esempio di ruolo predefinito: **Proprietario**, **Collaboratore**, **Collaboratore gruppo di gestione**
 - Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre esistente.

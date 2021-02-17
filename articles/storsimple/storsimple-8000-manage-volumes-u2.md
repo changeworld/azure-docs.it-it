@@ -4,14 +4,14 @@ description: Viene illustrato come aggiungere, modificare, monitorare ed elimina
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/08/2017
+ms.date: 12/09/2017
 ms.author: alkohli
-ms.openlocfilehash: a8fcadb8bdd4862dd95625228e3c190e5fe19a9a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3d649b54b544c120198963f8094764e9590e20b2
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961681"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547541"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
 
@@ -51,7 +51,7 @@ Se si usa il volume a livelli per i dati di archiviazione, selezionando la casel
 
 Fare riferimento alla tabella seguente per conoscere la capacità massima di cui viene effettuato il provisioning per ogni tipo di dispositivo e di volume. Si noti che i volumi aggiunti in locale non sono disponibili in un dispositivo virtuale.
 
-| Type | Dimensione massima volume a livelli | Dimensione massima volume aggiunto in locale |
+| Tipo | Dimensione massima volume a livelli | Dimensione massima volume aggiunto in locale |
 | --- | --- | --- |
 | **Dispositivi fisici** | | |
 | 8100 |64 TB |8 TB |
@@ -64,7 +64,7 @@ Fare riferimento alla tabella seguente per conoscere la capacità massima di cui
 
 Il pannello **Volumi** consente di gestire i volumi di archiviazione forniti nel dispositivo Microsoft Azure StorSimple per gli iniziatori (server). Visualizza l'elenco di volumi sui dispositivi StorSimple connessi al servizio.
 
- ![Pagina dei volumi](./media/storsimple-8000-manage-volumes-u2/volumeslist.png)
+ ![Pagina dei volumi](./media/storsimple-8000-manage-volumes-u2/volumes-list.png)
 
 Un volume è costituito da una serie di attributi:
 
@@ -90,7 +90,7 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
 
 1. Nell'elenco tabulare dei dispositivi del pannello **Dispositivi** selezionare il dispositivo. Fare clic su **+ Aggiungi volume**.
 
-    ![Aggiungere un nuovo volume](./media/storsimple-8000-manage-volumes-u2/step5createvol1.png)
+    ![Aggiungere un nuovo volume](./media/storsimple-8000-manage-volumes-u2/add-volume-01.png)
 
 2. Nel pannello **Aggiungi un volume**:
    
@@ -98,7 +98,7 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
 
     2. Nell'elenco a discesa selezionare il contenitore del volume in cui è necessario aggiungere un volume.
 
-    3.  Digitare un nome per il volume.**** Non è possibile rinominare un volume dopo che il volume è stato creato.
+    3.  Digitare un nome per il volume. Non è possibile rinominare un volume dopo che il volume è stato creato.
 
     4. Nell'elenco a discesa selezionare il **tipo** per il volume. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni più elevate, selezionare un volume **aggiunto in locale** . Per tutti gli altri dati, selezionare un volume **a livelli** . Se si usa questo volume per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**.
       
@@ -106,17 +106,19 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
        
        Per un volume aggiunto in locale viene eseguito il thick provisioning, per garantire che i dati primari rimangano a livello locale per il dispositivo e non a livello cloud.  Se si crea un volume aggiunto in locale, il dispositivo cercherà lo spazio disponibile nei livelli locali per il provisioning del volume delle dimensioni richieste. L'operazione di creazione di un volume aggiunto in locale potrebbe comportare la distribuzione dei dati esistenti dal dispositivo al cloud e il tempo impiegato per creare il volume potrebbe essere lungo. Il tempo totale dipende dalle dimensioni del volume di cui è stato eseguito il provisioning, dalla larghezza di banda di rete disponibile e dai dati sul dispositivo.
 
-    5. Specificare la capacità fornita per il volume.**** Prendere nota della capacità disponibile in base al tipo di volume selezionato. Le dimensioni del volume specificato non devono superare lo spazio disponibile.
+    5. Specificare la capacità fornita per il volume. Prendere nota della capacità disponibile in base al tipo di volume selezionato. Le dimensioni del volume specificato non devono superare lo spazio disponibile.
       
        È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8,5 TB oppure di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 22,5 TB o di volumi a livelli fino a 500 TB. Poiché è necessario spazio locale sul dispositivo per ospitare il working set di volumi a livelli, la creazione di volumi aggiunti in locale influirà sullo spazio disponibile per il provisioning di volumi a livelli. Creando un volume aggiunto in locale, viene quindi ridotto lo spazio disponibile per la creazione di volumi a livelli. Analogamente, creando un volume a livelli verrà ridotto lo spazio disponibile per la creazione di volumi aggiunti in locale.
       
        Se nel dispositivo 8100 si effettua il provisioning di un volume aggiunto in locale di 8,5 TB, ovvero le dimensioni massime consentite, si esaurisce tutto lo spazio locale disponibile nel dispositivo. Non è possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se nel dispositivo 8100 sono già presenti volumi a livelli di circa 106 TB, saranno disponibili solo 4 TB di spazio per i volumi aggiunti in locale.
 
-    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
+    6. Nel campo **host connessi** fare clic sulla freccia, quindi selezionare ogni record di record di cui si desidera connettersi. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server.<!--Please verify: Is new ACR capability still available? Are the labels and controls the same?--> 
 
-        ![Fare clic su Crea](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Aggiungere un host connesso](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)<!--New graphic. Source: add-volume-connected host-->
 
-Il volume è pronto per l'utilizzo.
+   7. Al termine delle impostazioni, fare clic su **Crea**. 
+
+      Verrà creato un volume con le impostazioni specificate. Il nuovo volume è pronto per l'uso.
 
 > [!NOTE]
 > Se si crea un volume aggiunto in locale e quindi se ne crea un altro subito dopo, i processi di creazione dei volumi vengono eseguiti in sequenza. Il primo processo di creazione del volume deve terminare prima che possa iniziare quello successivo.
@@ -133,19 +135,19 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
 1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Dall'elenco tabulare dei dispositivi, selezionare il dispositivo con il volume che si desidera modificare. Fare clic su **Impostazioni > Volumi**.
 
-    ![Passare al pannello Volumi](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Passare al pannello Volumi](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 2. Dall'elenco tabulare dei volumi, selezionare il volume e fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida. Selezionare **Take offline** (Mettere offline) per portare offline il volume che verrà modificato.
 
-    ![Selezionare e portare offline i volumi](./media/storsimple-8000-manage-volumes-u2/modifyvol4.png)
+    ![Selezionare e portare offline i volumi](./media/storsimple-8000-manage-volumes-u2/modify-volume-04.png)
 
 3. Nel pannello **Take offline** (Mettere offline), esaminare l'impatto del portare offline il volume e selezionare la casella di controllo corrispondente. Verificare innanzitutto che il volume corrispondente nell'host sia offline. Per informazioni su come portare un volume offline nel server host connesso a StorSimple, fare riferimento alle istruzioni specifiche del sistema operativo. Fare clic su **Porta offline**.
 
-    ![Esaminare l'impatto del portare un volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Esaminare l'impatto del portare un volume offline](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
 
 4. Una volta portato il volume offline (come illustrato nello stato del volume), selezionare il volume e fare clic con il pulsante destro del mouse su di esso per richiamare il menu di scelta rapida. Selezionare **Modifica volume**.
 
-    ![Selezionare Modifica volume](./media/storsimple-8000-manage-volumes-u2/modifyvol9.png)
+    ![Selezionare Modifica volume](./media/storsimple-8000-manage-volumes-u2/modify-volume-09.png)
 
 
 5. Nel pannello **Modifica volume** è possibile apportare le modifiche seguenti:
@@ -155,15 +157,15 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
    3. Aumentare il valore nel campo **Capacità fornita**. Il valore del campo **Capacità fornita** può essere solo incrementato. Non è possibile ridurre un volume dopo averlo creato.
    4. In **Host connessi** è possibile modificare i record di controllo di accesso. Per modificare un record, il volume deve essere offline.
 
-       ![Esaminare l'effetto dell'esecuzione offline del volume 2](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+       ![Esaminare l'effetto dell'esecuzione offline del volume 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)<!--Legacy screen doesn't match step. New graphic needed?-->
 
-5. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì**. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
+6. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì**. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
-    ![Esaminare l'effetto dell'esecuzione offline del volume 3](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Esaminare l'effetto dell'esecuzione offline del volume 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)<!--Updated graphic. Source: modify-volume-save-->
 
 7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
    
-   1. Passare a gestione **computer**gestione  -> **disco**.
+   1. Passare a gestione **computer** gestione  -> **disco**.
    2. Fare clic con il pulsante destro del mouse su **Gestione disco** e selezionare **Rescan Disks** (Ripeti analisi dischi).
    3. Nell'elenco dei dischi, selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi selezionare **Estendi Volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
    4. Completa la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
@@ -215,11 +217,11 @@ Se si desidera convertire più volumi che supportano diversi carichi di lavoro, 
 
 1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Dall'elenco tabulare dei dispositivi, selezionare il dispositivo con il volume che si desidera modificare. Fare clic su **Impostazioni > Volumi**.
 
-    ![Vai al pannello volumi 2](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Vai al pannello volumi 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. Dall'elenco tabulare dei volumi, selezionare il volume e fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida. Selezionare **Modifica**.
 
-    ![Seleziona Elimina dal menu di scelta rapida](./media/storsimple-8000-manage-volumes-u2/changevoltype2.png)
+    ![Seleziona Elimina dal menu di scelta rapida](./media/storsimple-8000-manage-volumes-u2/change-volume-type-02.png)
 
 4. Nel pannello **Modifica volume**, modificare il tipo di volume selezionandone uno nuovo nell'elenco a discesa **Tipo**.
    
@@ -227,15 +229,15 @@ Se si desidera convertire più volumi che supportano diversi carichi di lavoro, 
    * Se si intende impostare il tipo su **A livelli** e usare questo volume per i dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**.
    * Se si sta configurando un volume aggiunto in locale in volume a livelli o _viceversa_, verrà visualizzato il messaggio seguente.
    
-     ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-8000-manage-volumes-u2/change-volume-type-03.png)
 
 7. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì** per avviare la procedura di conversione. 
 
-    ![Salvare e confermare](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+    ![Salvare e confermare](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)
 
 8. Il portale di Azure consente di visualizzare una notifica per la creazione del processo che aggiorna il volume. Fare clic sulla notifica per monitorare lo stato del processo di conversione del volume.
 
-    ![Processo di conversione del volume](./media/storsimple-8000-manage-volumes-u2/changevoltype5.png)
+    ![Processo di conversione del volume](./media/storsimple-8000-manage-volumes-u2/change-volume-type-05.png)
 
 ## <a name="take-a-volume-offline"></a>Portare un volume offline
 
@@ -249,15 +251,15 @@ Potrebbe essere necessario portare un volume offline per modificarlo o eliminarl
    
     1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Dall'elenco tabulare dei dispositivi, selezionare il dispositivo con il volume che si desidera modificare. Fare clic su **Impostazioni > Volumi**.
 
-        ![Vai al pannello volumi 3](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+        ![Vai al pannello volumi 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
     2. Dall'elenco tabulare dei volumi, selezionare il volume e fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida. Selezionare **Take offline** (Mettere offline) per portare offline il volume che verrà modificato.
 
-        ![Selezionare e portare offline i volumi](./media/storsimple-8000-manage-volumes-u2/modifyvol4.png)
+        ![Selezionare e portare offline i volumi](./media/storsimple-8000-manage-volumes-u2/modify-volume-04.png)
 
 3. Nel pannello **Take offline** (Mettere offline), esaminare l'impatto del portare offline il volume e selezionare la casella di controllo corrispondente. Fare clic su **Porta offline**. 
 
-    ![Esaminare l'effetto dell'esecuzione offline del volume 4](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Esaminare l'effetto dell'esecuzione offline del volume 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
       
       Si riceverà una notifica quando il volume è offline. Anche lo stato del volume si aggiorna su Offline.
       
@@ -277,20 +279,20 @@ Completare la procedura seguente per eliminare un volume.
 
 1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Dall'elenco tabulare dei dispositivi, selezionare il dispositivo con il volume che si desidera modificare. Fare clic su **Impostazioni > Volumi**.
 
-    ![Vai al pannello volumi 4](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Vai al pannello volumi 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. Verificare lo stato del volume che si desidera eliminare. Se il volume da eliminare non è offline, portarlo prima offline. Seguire la procedura illustrata in [Portare un volume offline](#take-a-volume-offline).
 4. Una volta portato il volume offline, selezionarlo, fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida e quindi selezionare **Elimina**.
 
-    ![Seleziona Elimina dal menu di scelta rapida](./media/storsimple-8000-manage-volumes-u2/deletevol1.png)
+    ![Seleziona Elimina dal menu di scelta rapida](./media/storsimple-8000-manage-volumes-u2/delete-volume-01.png)
 
 5. Nel pannello **Elimina**, esaminare e selezionare la casella di controllo in relazione all'impatto dell'eliminazione di un volume. Quando si elimina un volume, tutti i dati che si trovano nel volume andranno persi. 
 
-    ![Salvare e confermare le modifiche](./media/storsimple-8000-manage-volumes-u2/deletevol2.png)
+    ![Salvare e confermare le modifiche](./media/storsimple-8000-manage-volumes-u2/delete-volume-02.png)
 
 6. Una volta eliminato il volume, l'elenco tabulare dei volumi viene aggiornato per indicare l'eliminazione.
 
-    ![Elenco aggiornato dei volumi](./media/storsimple-8000-manage-volumes-u2/deletevol3.png)
+    ![Elenco aggiornato dei volumi](./media/storsimple-8000-manage-volumes-u2/delete-volume-03.png)
    
    > [!NOTE]
    > Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio Gestione dispositivi StorSimple aggiorna periodicamente lo spazio locale disponibile. È consigliabile attendere alcuni minuti prima di creare il nuovo volume.
@@ -313,7 +315,7 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 2. Dall'elenco tabulare dei volumi, selezionare il volume e fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida. Selezionare **Modifica**.
 3. Nel pannello **Modifica volume**, per **Monitoraggio** selezionare **Abilita** o **Disabilita** per abilitare o disabilitare il monitoraggio.
 
-    ![Disabilitare il monitoraggio](./media/storsimple-8000-manage-volumes-u2/monitorvol1.png) 
+    ! [Disabilita monitoraggio] (/media/StorSimple-8000-Manage-Volumes-U2/monitor-volume-0 1.png) 
 
 4. Alla richiesta di conferma fare clic su **Salva** e quindi su **Sì**. Il portale di Azure consente di visualizzare una notifica per l'aggiornamento del volume e quindi un messaggio di conferma, dopo che il volume è stato aggiornato.
 

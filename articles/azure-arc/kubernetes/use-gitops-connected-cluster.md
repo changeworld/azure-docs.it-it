@@ -2,52 +2,32 @@
 title: Distribuire le configurazioni usando GitOps nei cluster Kubernetes con abilitazione di Azure Arc (anteprima)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Usare GitOps per configurare un cluster Kubernetes abilitato per Azure Arc (anteprima)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, container
-ms.openlocfilehash: 072bfc8c243eb9b69e06366961019b88b67e0941
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392239"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560170"
 ---
-# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuire le configurazioni usando GitOps nei cluster Kubernetes con abilitazione di Azure Arc (anteprima)
+# <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Distribuire le configurazioni con GitOps in un cluster Kubernetes abilitato per l'arco (anteprima)
 
-In relazione a Kubernetes, GitOps è la procedura per dichiarare lo stato desiderato delle configurazioni del cluster Kubernetes (distribuzioni, spazi dei nomi e così via) in un repository git. Questa dichiarazione è seguita da una distribuzione di polling e basata su pull di queste configurazioni cluster tramite un operatore. 
-
-Questo articolo illustra la configurazione dei flussi di lavoro GitOps nei cluster Kubernetes abilitati per Azure Arc.
-
-La connessione tra il cluster e un repository Git viene creata come `Microsoft.KubernetesConfiguration/sourceControlConfigurations` risorsa di estensione in Azure Resource Manager. Le proprietà della risorsa `sourceControlConfiguration` rappresentano la posizione e la modalità di flusso delle risorse Kubernetes da Git al cluster. I `sourceControlConfiguration` dati vengono archiviati in formato crittografato, inattivi in un database di Azure Cosmos DB per garantire la riservatezza dei dati.
-
-Il `config-agent` in esecuzione nel cluster è responsabile di:
-* Rilevamento `sourceControlConfiguration` delle risorse di estensione nuove o aggiornate nella risorsa Kubernetes abilitata per Azure Arc.
-* Distribuzione di un operatore Flux per il controllo dell'archivio git `sourceControlConfiguration` .
-* Applicazione degli aggiornamenti apportati a qualsiasi `sourceControlConfiguration` . 
-
-È possibile creare più `sourceControlConfiguration` risorse nello stesso cluster Kubernetes abilitato per Azure Arc per ottenere il multi-tenant. Limitare le distribuzioni all'interno dei rispettivi spazi dei nomi creando ognuna `sourceControlConfiguration` con un `namespace` ambito diverso.
-
-Il repository Git può contenere:
-* Manifesti di formato YAML che descrivono le risorse Kubernetes valide, inclusi spazi dei nomi, ConfigMaps, distribuzioni, gli elementi daemonset e così via. 
-* Grafici Helm per la distribuzione di applicazioni. 
-
-Un set di scenari comune prevede la definizione di una configurazione di base per l'organizzazione, ad esempio i ruoli e le associazioni comuni di Azure, gli agenti di monitoraggio o di registrazione o i servizi a livello di cluster.
-
-Lo stesso modello può essere usato per gestire una raccolta di cluster più ampia, che può essere distribuita in ambienti eterogenei. Ad esempio, si dispone di un repository che definisce la configurazione di base per l'organizzazione, che si applica a più cluster Kubernetes contemporaneamente. [Criteri di Azure consente di automatizzare](use-azure-policy.md) la creazione di un oggetto `sourceControlConfiguration` con un set specifico di parametri in tutte le risorse Kubernetes abilitate per Azure Arc in un ambito (sottoscrizione o gruppo di risorse).
-
-Esaminare i passaggi seguenti per apprendere come applicare un set di configurazioni con `cluster-admin` ambito.
+Questo articolo illustra l'applicazione delle configurazioni in un cluster Kubernetes abilitato per Azure Arc. Una panoramica concettuale dello stesso si trova [qui](./conceptual-configurations.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Verificare di disporre di un cluster con connessione Kubernetes abilitato per Azure ARC esistente. Se è necessario un cluster connesso, vedere la [Guida introduttiva alla connessione di un cluster Kubernetes abilitato per Azure Arc](./connect-cluster.md).
+* Verificare di disporre di un cluster con connessione Kubernetes abilitato per Azure ARC esistente. Se è necessario un cluster connesso, vedere la [Guida introduttiva alla connessione di un cluster Kubernetes abilitato per Azure Arc](./connect-cluster.md).
+
+* Per comprendere i vantaggi e l'architettura di questa funzionalità, vedere l' [articolo configurazioni e GitOps con Arc for Kubernetes](./conceptual-configurations.md) .
 
 ## <a name="create-a-configuration"></a>Creare una configurazione
 
 Il [repository di esempio](https://github.com/Azure/arc-k8s-demo) usato in questo articolo è strutturato intorno all'utente di un operatore cluster che desidera effettuare il provisioning di alcuni spazi dei nomi, distribuire un carico di lavoro comune e fornire una configurazione specifica del team. L'uso di questo repository crea nel cluster le risorse seguenti:
-
 
 * **Spazi dei nomi:** `cluster-config` , `team-a` , `team-b`
 * **Distribuzione:**`cluster-config/azure-vote`

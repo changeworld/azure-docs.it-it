@@ -1,17 +1,17 @@
 ---
 title: Creare test di failover e Chaos per Azure Service Fabric
 description: Utilizzando i test chaos dell'infrastruttura di servizi e gli scenari dei test di failover per provocare gli errori e verificare l'affidabilità dei servizi.
-author: motanv
+author: georgewallace
 ms.topic: conceptual
 ms.date: 10/1/2019
-ms.author: motanv
+ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13e22633008a4a5df25d84920386a22696648c9a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 78e613e9d86c44ad7daf8778b35e6af49abb7d38
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789314"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546364"
 ---
 # <a name="testability-scenarios"></a>Scenari di testabilità
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric offre agli sviluppatori la possibilità di scrivere servizi destinati ad essere eseguiti in infrastrutture inaffidabili. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testarne la stabilità dei servizi.

@@ -1,14 +1,14 @@
 ---
 title: Aggiornare una delega
 description: Informazioni su come aggiornare una delega per un cliente caricato in precedenza in Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791340"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555768"
 ---
 # <a name="update-a-delegation"></a>Aggiornare una delega
 
@@ -48,7 +48,7 @@ Se si aggiorna l'offerta per modificare solo le autorizzazioni e si mantiene lo 
 La rimozione dell'accesso alla delega può essere eseguita da qualsiasi utente nel tenant di gestione a cui è stato concesso il [ruolo eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) nella delega originale. Se nessun utente nel tenant di gestione dispone di questo ruolo, è possibile richiedere al cliente di [rimuovere l'accesso all'offerta nell'portale di Azure](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 > [!TIP]
-> Se la delega precedente è stata rimossa seguendo i passaggi precedenti e non è ancora possibile distribuire il nuovo modello ARM, potrebbe essere necessario [rimuovere completamente la definizione di registrazione](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Questa operazione può essere eseguita da qualsiasi utente con il ruolo proprietario nel tenant del cliente.  
+> Se la delega precedente è stata rimossa seguendo i passaggi precedenti e non è ancora possibile distribuire il nuovo modello ARM, potrebbe essere necessario [rimuovere completamente la definizione di registrazione](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Questa operazione può essere eseguita da qualsiasi utente con un ruolo che disponga dell' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [owner](../../role-based-access-control/built-in-roles.md#owner), nel tenant del cliente.  
 
 ## <a name="deploy-the-arm-template"></a>Distribuire il modello di Resource Manager
 
