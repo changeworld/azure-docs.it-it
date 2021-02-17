@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492111"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554728"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -96,9 +96,10 @@ La libreria client per le chiamate di Servizi di comunicazione supporta le confi
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 video + 1 condivisione dello schermo | 1 video |
-|**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 video + 1 condivisione dello schermo| 6 video + 1 condivisione dello schermo |
+|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 audio/video o 1 condivisione audio/schermo | 1 audio/video | 
+|**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 audio/video o 1 condivisione audio/schermo| 6 condivisione audio/video o 1 schermata |
 
+Si noti che in scenari di gruppo viene usato un flusso audio misto per supportare tutti i partecipanti audio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -106,6 +107,6 @@ La libreria client per le chiamate di Servizi di comunicazione supporta le confi
 > [Introduzione alle chiamate](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Per altre informazioni, vedere gli articoli seguenti:
-- Acquisire familiarità con i [flussi di chiamate](../call-flows.md) generali
+- Acquisire familiarità con i [flussi di chiamate](../call-flows.md) generali 
 - Informazioni sui [tipi di chiamate](../voice-video-calling/about-call-types.md)
 - [Pianificare la soluzione PSTN](../telephony-sms/plan-solution.md)

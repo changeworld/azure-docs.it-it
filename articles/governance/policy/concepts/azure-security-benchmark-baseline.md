@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573065"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Criteri di base di sicurezza di Azure per il benchmark di sicurezza di Azure
 
@@ -31,9 +31,9 @@ I criteri di Azure usano il termine _proprietario_ al posto della _responsabilit
 
 **Linee guida**: i criteri di Azure usano i log attività, abilitati automaticamente, per includere origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili.
 
-* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../../azure-monitor/platform/diagnostic-settings.md)
+* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
@@ -89,7 +89,7 @@ I criteri di Azure usano il termine _proprietario_ al posto della _responsabilit
 
 **Linee guida**: usare monitoraggio di Azure con i log attività per creare avvisi per le modifiche apportate ai criteri di Azure.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../../../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile

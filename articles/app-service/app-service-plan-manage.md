@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb0765a1d7934d60f787ed277dd3bd1f9bc1359b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ddf60a842a9583eae25a875f55227cee772a8a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962945"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582527"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -38,7 +38,7 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 
    ![Creare un piano di servizio app.][createASP] 
 
-4. Quando si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In **SKU e dimensioni**selezionare **modifica dimensioni** per modificare il piano tariffario. 
+4. Quando si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In **SKU e dimensioni** selezionare **modifica dimensioni** per modificare il piano tariffario. 
 
 <a name="move"></a>
 
@@ -58,7 +58,7 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 
 3. Nell'elenco a discesa **piano di servizio app** selezionare un piano esistente in cui spostare l'app. L'elenco a discesa Mostra solo i piani che si trovano nello stesso gruppo di risorse e area geografica del piano di servizio app corrente. Se non esiste alcun piano di questo tipo, è possibile creare un piano per impostazione predefinita. È anche possibile creare manualmente un nuovo piano selezionando **Crea nuovo**.
 
-4. Se si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In piano **tariffario**selezionare il livello esistente per modificarlo. 
+4. Se si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In piano **tariffario** selezionare il livello esistente per modificarlo. 
    
    > [!IMPORTANT]
    > Se si sta migrando un'app da un piano a più livelli a un piano di livello inferiore, ad esempio da **D1** a **F1**, l'app potrebbe perdere determinate funzionalità nel piano di destinazione. Ad esempio, se l'app usa certificati TLS/SSL, è possibile che venga visualizzato questo messaggio di errore:
@@ -82,7 +82,7 @@ L'area in cui viene eseguita l'app è l'area del piano di servizio app. Tuttavia
 
 Per passare a un piano tariffario superiore per un piano di servizio app, vedere [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md).
 
-Per scalare il numero di istanze di un'app, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md).
+Per scalare il numero di istanze di un'app, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="delete"></a>
 

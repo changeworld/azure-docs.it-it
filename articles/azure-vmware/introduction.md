@@ -3,12 +3,12 @@ title: Introduzione
 description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure.
 ms.topic: overview
 ms.date: 11/11/2020
-ms.openlocfilehash: 57edfc5786dfc95070b66eb9c8e2e038bafdcd35
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
-ms.translationtype: HT
+ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534654"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579288"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Che cos'è la soluzione Azure VMware?
 
@@ -48,12 +48,12 @@ Una volta distribuita la soluzione Azure VMware nella sottoscrizione, i [log di 
 
 Nel cloud privato è possibile:
 - Raccogliere i log presenti in ogni macchina virtuale.
-- [Scaricare e installare l'agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) in macchine virtuali Linux e Windows.
-- Abilitare l'[estensione Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-overview.md).
-- [Creare ed eseguire nuove query](../azure-monitor/platform/data-platform-logs.md#log-queries).
+- [Scaricare e installare l'agente MMA](../azure-monitor/agents/log-analytics-agent.md#installation-options) in macchine virtuali Linux e Windows.
+- Abilitare l'[estensione Diagnostica di Azure](../azure-monitor/agents/diagnostics-extension-overview.md).
+- [Creare ed eseguire nuove query](../azure-monitor/logs/data-platform-logs.md#log-queries).
 - Eseguire le stesse query eseguite in genere nelle macchine virtuali.
 
-I modelli di monitoraggio nella soluzione Azure VMware sono simili alle macchine virtuali di Azure nella piattaforma IaaS. Per altre informazioni e per le procedure, vedere [Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-vm-azure.md).
+I modelli di monitoraggio nella soluzione Azure VMware sono simili alle macchine virtuali di Azure nella piattaforma IaaS. Per altre informazioni e per le procedure, vedere [Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure](../azure-monitor/vm/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

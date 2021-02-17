@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632674"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579340"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisiti e considerazioni per l'uso della replica tra aree 
 
@@ -29,7 +29,7 @@ Tenere presente i requisiti e le considerazioni seguenti sull'uso della funziona
 
 * La funzionalità di replica tra aree è attualmente disponibile in anteprima pubblica. È necessario inviare una richiesta di attesa per l'accesso alla funzionalità tramite la pagina Azure NetApp Files l'invio dell'oggetto di attesa per la [replica tra aree](https://aka.ms/anfcrrpreviewsignup). Attendere un messaggio di posta elettronica di conferma ufficiale dal team di Azure NetApp Files prima di usare la funzionalità di replica tra aree.
 * Azure NetApp Files replica è disponibile solo in alcune coppie di aree fisse. Vedere [coppie di aree supportate](cross-region-replication-introduction.md#supported-region-pairs). 
-* I volumi SMB sono supportati insieme ai volumi NFS. Per la replica dei volumi SMB è necessaria una connessione Active Directory negli account NetApp di origine e di destinazione. La connessione AD di destinazione deve avere accesso ai server DNS o aggiungere controller di dominio raggiungibili dalla subnet delegata nell'area di destinazione. Per ulteriori informazioni, vedere [requisiti per le connessioni Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* I volumi SMB sono supportati insieme ai volumi NFS. Per la replica dei volumi SMB è necessaria una connessione Active Directory negli account NetApp di origine e di destinazione. La connessione AD di destinazione deve avere accesso ai server DNS o aggiungere controller di dominio raggiungibili dalla subnet delegata nell'area di destinazione. Per ulteriori informazioni, vedere [requisiti per le connessioni Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * L'account di destinazione deve trovarsi in un'area diversa dall'area del volume di origine. È anche possibile selezionare un account NetApp esistente in un'area diversa.  
 * Il volume di destinazione della replica è di sola lettura fino a quando non viene eseguito il [failover nell'area di destinazione](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) per abilitare il volume di destinazione per la lettura e la scrittura. 
 * Azure NetApp Files replica non supporta attualmente più sottoscrizioni. tutte le repliche devono essere eseguite in una singola sottoscrizione.

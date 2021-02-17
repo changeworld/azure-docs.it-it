@@ -3,12 +3,12 @@ title: Creare una nuova risorsa di Azure Application Insights | Microsoft Docs
 description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 3233aed895eac269bd34a961728b3302581ff360
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104587"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575625"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
@@ -35,7 +35,7 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
    | **Modalità risorsa** | `Classic` o `Workspace-based` | Le risorse basate sull'area di lavoro sono attualmente in anteprima pubblica e consentono di inviare i dati di telemetria Application Insights a un'area di lavoro Log Analytics comune. Per altre informazioni, vedere l' [articolo sulle risorse basate sull'area di lavoro](create-workspace-resource.md).
 
 > [!NOTE]
-> Sebbene sia possibile usare lo stesso nome di risorsa in gruppi di risorse diversi, può essere utile usare un nome univoco globale. Questa operazione può essere utile se si prevede di [eseguire query tra risorse](../log-query/cross-workspace-query.md#identifying-an-application) perché semplifica la sintassi richiesta.
+> Sebbene sia possibile usare lo stesso nome di risorsa in gruppi di risorse diversi, può essere utile usare un nome univoco globale. Questa operazione può essere utile se si prevede di [eseguire query tra risorse](../logs/cross-workspace-query.md#identifying-an-application) perché semplifica la sintassi richiesta.
 
 Immettere i valori appropriati nei campi obbligatori e quindi selezionare **Verifica + crea**.
 
@@ -159,13 +159,13 @@ Per la documentazione completa dell'interfaccia della riga di comando di Azure p
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ricerca diagnostica](./diagnostic-search.md)
-* [Esplorare le metriche](../platform/metrics-charts.md)
-* [Scrivere query di Analisi](../log-query/log-query-overview.md)
+* [Esplorare le metriche](../essentials/metrics-charts.md)
+* [Scrivere query di Analisi](../logs/log-query-overview.md)
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
 [diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
 

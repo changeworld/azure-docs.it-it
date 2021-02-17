@@ -3,12 +3,12 @@ title: Azure Lighthouse in scenari aziendali
 description: Le funzionalità di Azure Lighthouse possono essere usate per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004246"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573027"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
@@ -38,7 +38,7 @@ In entrambi i casi, assicurarsi di [seguire il principio dei privilegi minimi qu
 
 Azure Lighthouse fornisce solo collegamenti logici tra un tenant di gestione e i tenant gestiti, invece di trasferire fisicamente dati o risorse. L'accesso, inoltre, viene sempre eseguito in una sola direzione, dal tenant di gestione a quelli gestiti.  Gli utenti e i gruppi del tenant di gestione dovranno continuare a usare l'autenticazione a più fattori per eseguire le operazioni di gestione sulle risorse dei tenant gestiti.
 
-Le aziende con tutele interne o esterne per la governance e la conformità possono usare i [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) per soddisfarne i requisiti di trasparenza. Quando i tenant aziendali hanno stabilito relazioni di gestione e tenant gestite, gli utenti in ogni tenant possono visualizzare l'attività registrata per visualizzare le azioni eseguite dagli utenti nel tenant di gestione.
+Le aziende con tutele interne o esterne per la governance e la conformità possono usare i [log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md) per soddisfarne i requisiti di trasparenza. Quando i tenant aziendali hanno stabilito relazioni di gestione e tenant gestite, gli utenti in ogni tenant possono visualizzare l'attività registrata per visualizzare le azioni eseguite dagli utenti nel tenant di gestione.
 
 ## <a name="onboarding-considerations"></a>Considerazioni sull'onboarding
 

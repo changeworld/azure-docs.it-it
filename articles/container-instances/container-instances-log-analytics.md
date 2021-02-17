@@ -3,12 +3,12 @@ title: Raccogli & analizzare i log delle risorse
 description: Informazioni su come inviare i log delle risorse e i dati degli eventi da gruppi di contenitori in istanze di contenitore di Azure ai log di monitoraggio di Azure
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: b110ba46bdcf2741e5f16845f28fe8305bcee1a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148654"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579328"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure
 
@@ -27,7 +27,7 @@ Le sezioni seguenti descrivono come creare un gruppo di contenitori abilitato pe
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
-* [area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [area di lavoro Log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics
@@ -37,7 +37,7 @@ Il servizio Istanze di Azure Container deve avere l'autorizzazione per l'invio d
 Per ottenere l'ID e la chiave primaria dell'area di lavoro Log Analytics:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **Impostazioni**selezionare **agenti gestione**
+1. In **Impostazioni** selezionare **agenti gestione**
 1. Prendere nota di:
    * **ID area di lavoro**
    * **Chiave primaria**
@@ -105,7 +105,7 @@ Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi
 Per visualizzare i log del gruppo di contenitori nella tabella `ContainerInstanceLog_CL`:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **generale**selezionare **log** .  
+1. In **generale** selezionare **log** .  
 1. Digitare la query seguente: `ContainerInstanceLog_CL | limit 50`
 1. Selezionare **Esegui**
 
@@ -118,7 +118,7 @@ Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se inizial
 È anche possibile visualizzare gli eventi per le istanze di contenitori nel portale di Azure. Gli eventi includono la data e l'ora di creazione e di avvio dell'istanza. Per visualizzare i dati degli eventi nella tabella `ContainerEvent_CL`:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **generale**selezionare **log** .  
+1. In **generale** selezionare **log** .  
 1. Digitare la query seguente: `ContainerEvent_CL | limit 50`
 1. Selezionare **Esegui**
 
@@ -153,8 +153,8 @@ ContainerInstanceLog_CL
 
 Per altre informazioni sull'esecuzione di query sui log e la configurazione di avvisi nei log di Monitoraggio di Azure, vedere:
 
-* [Informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
-* [Avvisi unificati in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
+* [Informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md)
+* [Avvisi unificati in Monitoraggio di Azure](../azure-monitor/alerts/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorare CPU e memoria del contenitore

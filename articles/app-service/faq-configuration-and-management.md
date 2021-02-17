@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 843e11e7f2df404a6bf1866da7b383ee9d1097de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234002"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574783"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -292,7 +292,7 @@ Il modo più rapido per trovare la versione di Microsoft .NET installata nel ser
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Perché la scalabilità automatica non funziona come previsto?
 
-Se la scalabilità automatica di Azure non riduce né aumenta il numero di istanze dell'app Web come previsto, è possibile che sia in esecuzione uno scenario in cui la scalabilità non viene applicata intenzionalmente per evitare un ciclo infinito a causa dell'instabilità. Ciò in genere si verifica quando non il margine tra le soglie di riduzione e aumento non è adeguato. Per informazioni su come evitare l'instabilità e per le procedure consigliate per la scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
+Se la scalabilità automatica di Azure non riduce né aumenta il numero di istanze dell'app Web come previsto, è possibile che sia in esecuzione uno scenario in cui la scalabilità non viene applicata intenzionalmente per evitare un ciclo infinito a causa dell'instabilità. Ciò in genere si verifica quando non il margine tra le soglie di riduzione e aumento non è adeguato. Per informazioni su come evitare l'instabilità e per le procedure consigliate per la scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](../azure-monitor/autoscale/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Perché la scalabilità automatica talvolta viene applicata solo parzialmente?
 

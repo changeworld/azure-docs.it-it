@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Creare il pacchetto di accesso - Gestione entitlement di Azure AD
-description: Esercitazione dettagliata per la creazione del primo pacchetto di accesso in Gestione entitlement di Azure Active Directory.
+title: Esercitazione-gestire l'accesso alle risorse in Azure AD gestione dei diritti
+description: Esercitazione dettagliata su come creare il primo pacchetto di accesso usando il portale di Azure in Azure Active Directory la gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,14 +16,14 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937891"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547401"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Esercitazione: Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD
+# <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Esercitazione: gestire l'accesso alle risorse in Azure AD gestione dei diritti
 
 La gestione degli accessi a tutte le risorse necessarie per i dipendenti, ad esempio gruppi, applicazioni e siti, è una funzione importante per le organizzazioni. È necessario concedere ai dipendenti il livello di accesso corretto affinché possano essere produttivi e rimuovere l'accesso quando non è più necessario.
 
@@ -41,8 +41,6 @@ In questa esercitazione verranno illustrate le procedure per:
 Per una dimostrazione dettagliata del processo di distribuzione di Gestione entitlement di Azure Active Directory, inclusa la creazione del primo pacchetto di accesso, vedere il video seguente:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-È anche possibile creare un pacchetto di accesso a livello di codice usando Microsoft Graph. Per un'esercitazione che illustra come creare un pacchetto di accesso a livello di codice, vedere l'[API di gestione entitlement](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

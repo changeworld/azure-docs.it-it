@@ -239,13 +239,13 @@
         - name: Gestire i certificati
           items:
             - name: Requisiti
-              href: azure-stack-edge-j-series-certificate-requirements.md
+              href: azure-stack-edge-gpu-certificate-requirements.md
             - name: Usare quelli personali
-              href: azure-stack-edge-j-series-manage-certificates.md
+              href: azure-stack-edge-gpu-manage-certificates.md
             - name: Crearli con lo strumento di controllo dell'idoneità di Azure Stack
-              href: azure-stack-edge-j-series-create-certificates-tool.md
+              href: azure-stack-edge-gpu-create-certificates-tool.md
             - name: Risolvere gli errori relativi ai certificati
-              href: azure-stack-edge-j-series-certificate-troubleshooting.md
+              href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Gestire il calcolo Edge
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gestire il registro contenitori Edge

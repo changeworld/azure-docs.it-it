@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562617"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581390"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -80,10 +80,10 @@ L'abilitazione dell'[accesso condizionale](../active-directory/conditional-acces
 
 L'abilitazione della raccolta dei log di controllo consente di visualizzare l'attività di utenti e amministratori correlata a Desktop virtuale Windows. Ecco alcuni esempi di log di controllo principali:
 
--   [Log attività di Azure](../azure-monitor/platform/activity-log.md)
+-   [Log attività di Azure](../azure-monitor/essentials/activity-log.md)
 -   [Log attività di Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Host di sessione](../azure-monitor/platform/agent-windows.md)
+-   [Host di sessione](../azure-monitor/agents/agent-windows.md)
 -   [Log di diagnostica di Desktop virtuale Windows](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Log di insiemi di credenziali delle chiavi](../key-vault/general/logging.md)
 

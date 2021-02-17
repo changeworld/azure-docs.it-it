@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 70bf46de072a97eca810dda60a5331df14172ed6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045411"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555158"
 ---
 # <a name="add-tags-to-digital-twins"></a>Aggiungere tag ai dispositivi gemelli digitali 
 
@@ -91,7 +91,7 @@ Ecco una query per ottenere tutte le entità di dimensioni ridotte (tag di valor
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scopri di più sulla progettazione e la gestione di modelli di dispositivi gemelli digitali:
-* [*Procedura: Gestire modelli personalizzati*](how-to-manage-model.md)
+* [*Procedura: gestire i modelli DTDL*](how-to-manage-model.md)
 
 Altre informazioni sull'esecuzione di query sul grafico gemello:
 * [*Procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md)

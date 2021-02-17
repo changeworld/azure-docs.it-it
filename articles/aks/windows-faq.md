@@ -5,12 +5,12 @@ description: Vedere le domande frequenti quando si eseguono i pool di nodi di Wi
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013968"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574731"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Domande frequenti sui pool di nodi di Windows Server in AKS
 
@@ -42,7 +42,7 @@ I dischi di Azure e File di Azure sono i tipi di volume supportati. Questi sono 
 
 I nodi master (il piano di controllo) in un cluster AKS sono ospitati da AKS il servizio, non verranno esposti al sistema operativo dei nodi che ospitano i componenti Master. Tutti i cluster AKS vengono creati con un primo pool di nodi predefinito, basato su Linux. Questo pool di nodi contiene i servizi di sistema, necessari per il funzionamento del cluster. È consigliabile eseguire almeno due nodi nel primo pool di nodi per garantire l'affidabilità del cluster e la possibilità di eseguire operazioni di clustering. Il primo pool di nodi basato su Linux non può essere eliminato a meno che non venga eliminato il cluster AKS.
 
-## <a name="how-do-i-patch-my-windows-nodes"></a>Ricerca per categorie Patch My Windows nodes?
+## <a name="how-do-i-patch-my-windows-nodes"></a>In che modo è possibile applicare patch ai nodi di Windows?
 
 Per ottenere le patch più recenti per i nodi di Windows, è possibile [aggiornare il pool di nodi][nodepool-upgrade] o [aggiornare l'immagine del nodo][upgrade-node-image]. Gli aggiornamenti di Windows non sono abilitati nei nodi in AKS. AKS rilascia le nuove immagini del pool di nodi non appena sono disponibili le patch ed è responsabilità dell'utente aggiornare i pool di nodi per rimanere aggiornati su patch e hotfix. Questo vale anche per la versione di Kubernetes in uso. [Note sulla versione di AKS][aks-release-notes] indica quando sono disponibili nuove versioni. Per ulteriori informazioni sull'aggiornamento dell'intero pool di nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade]. Se si desidera solo aggiornare l'immagine del nodo, vedere [aggiornamenti dell'immagine del nodo AKS][upgrade-node-image].
 
@@ -189,7 +189,7 @@ Per iniziare a usare i contenitori di Windows Server in AKS, [creare un pool di 
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-rdp]: rdp.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362016"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559314"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il portale di Azure
 
@@ -58,7 +58,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo Azure, si crea un'assegnazione di ruolo.
+In controllo degli accessi in base al ruolo di Azure per concedere l'accesso, assegnare un ruolo di Azure.
 
 1. Nell'elenco **Gruppi di risorse** fare clic sul nuovo gruppo di risorse **rbac-resource-group**.
 
@@ -82,7 +82,7 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo Azu
 
 1. Nell'elenco **Selezionare** selezionare sé stessi o un altro utente.
 
-1. Fare clic su **Salva** per creare l'assegnazione di ruolo.
+1. Fare clic su **Salva** per assegnare un ruolo.
 
    Dopo qualche istante, all'utente verrà assegnato il ruolo Collaboratore macchina virtuale per il gruppo di risorse rbac-resource-group.
 

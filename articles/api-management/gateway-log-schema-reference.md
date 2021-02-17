@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
-ms.translationtype: HT
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379899"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582494"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Informazioni di riferimento: Schema del log delle risorse di Gestione API
 
-Questo articolo fornisce informazioni di riferimento sullo schema per il log delle risorse GatewayLogs di Gestione API di Azure. Le voci di log includono inoltre i campi nello [schema comune di primo livello](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
+Questo articolo fornisce informazioni di riferimento sullo schema per il log delle risorse GatewayLogs di Gestione API di Azure. Le voci di log includono inoltre i campi nello [schema comune di primo livello](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Per abilitare la raccolta del log delle risorse in Gestione API, vedere [Monitorare le API pubblicate](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -49,5 +49,5 @@ Per ogni richiesta dell'API, vengono registrate le proprietà seguenti.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sul monitoraggio delle API in Gestione API, vedere [Monitorare le API pubblicate](api-management-howto-use-azure-monitor.md)
-* Altre informazioni sullo [Schema comune e specifico del servizio per i log delle risorse di Azure](../azure-monitor/platform/resource-logs-schema.md)
+* Altre informazioni sullo [Schema comune e specifico del servizio per i log delle risorse di Azure](../azure-monitor/essentials/resource-logs-schema.md)
 

@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505666"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575471"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introduzione al controllo Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,11 +79,11 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         - Configurare SAS come segue:
 
-          - **Servizi consentiti** : BLOB
+          - **Servizi consentiti**: BLOB
 
-          - **Data di inizio** : per evitare problemi relativi al fuso orario, usare la data di ieri
+          - **Data di inizio**: per evitare problemi relativi al fuso orario, usare la data di ieri
 
-          - **Data di fine** : scegliere la data di scadenza del token di firma di accesso condiviso
+          - **Data di fine**: scegliere la data di scadenza del token di firma di accesso condiviso
 
             > [!NOTE]
             > Rinnovare il token alla scadenza per evitare errori di controllo.
@@ -126,11 +126,11 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
      1. Espandere la nota radice del Esplora oggetti.
 
-     1. Espandere il nodo **sicurezza** , fare clic con il pulsante destro del mouse sul nodo **controlli** e fare clic su **nuovo controllo** :
+     1. Espandere il nodo **sicurezza** , fare clic con il pulsante destro del mouse sul nodo **controlli** e fare clic su **nuovo controllo**:
 
         ![Espandere i nodi Sicurezza e Controlli](./media/auditing-configure/10_mi_SSMS_new_audit.png)
 
-     1. Verificare che l' **URL** sia selezionato in **destinazione controllo** e fare clic su **Sfoglia** :
+     1. Verificare che l' **URL** sia selezionato in **destinazione controllo** e fare clic su **Sfoglia**:
 
         ![Sfogliare Archiviazione di Azure](./media/auditing-configure/11_mi_SSMS_audit_browse.png)
 
@@ -138,7 +138,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         ![Accedere ad Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dall'elenco a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK** :
+     1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dall'elenco a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK**:
 
         ![Selezionare la sottoscrizione di Azure, l'account di archiviazione e il contenitore BLOB](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
@@ -223,7 +223,7 @@ Per utilizzare i dati dei log di controllo da Hub eventi, è necessario configur
 
 Se i log di controllo vengono scritti in Log di Monitoraggio di Azure, saranno disponibili nell'area di lavoro Log Analytics, in cui è possibile eseguire ricerche avanzate sui dati di controllo. Come punto di partenza, passare all'area di lavoro Log Analytics. Nella sezione **generale** fare clic su **log** e immettere una semplice query, ad esempio: `search "SQLSecurityAuditEvents"` per visualizzare i log di controllo.  
 
-Log di Monitoraggio di Azure consente di ottenere informazioni operative in tempo reale tramite funzionalità di ricerca integrate e dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log di Monitoraggio di Azure, vedere [Guida di riferimento alla ricerca in Log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+Log di Monitoraggio di Azure consente di ottenere informazioni operative in tempo reale tramite funzionalità di ricerca integrate e dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log di Monitoraggio di Azure, vedere [Guida di riferimento alla ricerca in Log di Monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
