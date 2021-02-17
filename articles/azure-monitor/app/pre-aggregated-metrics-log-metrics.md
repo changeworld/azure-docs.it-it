@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: c419411b0956cdc42055f0e97a47fc8e4ddb38c9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027160"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589738"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
 
@@ -30,12 +30,12 @@ Allo stesso tempo, la raccolta di un set completo di eventi può risultare poco 
 
 ## <a name="pre-aggregated-metrics"></a>Metriche preaggregate
 
-Oltre alle metriche basate su log, alla fine del 2018, il team Application Insights ha fornito un'anteprima pubblica delle metriche archiviate in un repository specializzato ottimizzato per le serie temporali. Le nuove metriche non vengono più mantenute come singoli eventi con un numero elevato di proprietà. Al contrario, vengono archiviate come serie temporali preaggregate e solo con dimensioni di chiave. Questa caratteristica le rende migliori in fase di query: il recupero dei dati avviene molto più rapidamente e richiede meno potenza di calcolo. Di conseguenza, sono possibili nuovi scenari, come la [generazione di avvisi praticamente in tempo reale in base alle dimensioni delle metriche](../platform/alerts-metric-near-real-time.md), [dashboard](./overview-dashboard.md) più reattivi e così via.
+Oltre alle metriche basate su log, alla fine del 2018, il team Application Insights ha fornito un'anteprima pubblica delle metriche archiviate in un repository specializzato ottimizzato per le serie temporali. Le nuove metriche non vengono più mantenute come singoli eventi con un numero elevato di proprietà. Al contrario, vengono archiviate come serie temporali preaggregate e solo con dimensioni di chiave. Questa caratteristica le rende migliori in fase di query: il recupero dei dati avviene molto più rapidamente e richiede meno potenza di calcolo. Di conseguenza, sono possibili nuovi scenari, come la [generazione di avvisi praticamente in tempo reale in base alle dimensioni delle metriche](../alerts/alerts-metric-near-real-time.md), [dashboard](./overview-dashboard.md) più reattivi e così via.
 
 > [!IMPORTANT]
 > Le metriche basate su log e quelle preaggregate coesistono in Azure Application Insights. Per distinguere i due elementi, nella Application Insights UX le metriche pre-aggregate sono ora denominate "metriche standard (anteprima)", mentre le metriche tradizionali dagli eventi sono state rinominate "metriche basate su log".
 
-Gli SDK più recenti ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK o versioni successive per .NET) metriche di pre-aggregazione durante la raccolta. Questo vale per le  [metriche standard inviate per impostazione predefinita](../platform/metrics-supported.md#microsoftinsightscomponents) , pertanto l'accuratezza non è influenzata dal campionamento o dal filtro. Si applica anche alle metriche personalizzate inviate tramite [Getmetric](./api-custom-events-metrics.md#getmetric) , con conseguente minore inserimento di dati e costi ridotti.
+Gli SDK più recenti ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK o versioni successive per .NET) metriche di pre-aggregazione durante la raccolta. Questo vale per le  [metriche standard inviate per impostazione predefinita](../essentials/metrics-supported.md#microsoftinsightscomponents) , pertanto l'accuratezza non è influenzata dal campionamento o dal filtro. Si applica anche alle metriche personalizzate inviate tramite [Getmetric](./api-custom-events-metrics.md#getmetric) , con conseguente minore inserimento di dati e costi ridotti.
 
 Per gli SDK che non implementano la pre-aggregazione (ovvero le versioni precedenti di Application Insights SDK o per la strumentazione del browser), il Application Insights back-end compila ancora le nuove metriche aggregando gli eventi ricevuti dall'endpoint della raccolta di eventi Application Insights. Ciò significa che anche se non è possibile trarre vantaggio dal volume ridotto dei dati trasmessi in rete, è comunque possibile usare le metriche pre-aggregate e provare a migliorare le prestazioni e il supporto degli avvisi dimensionali quasi in tempo reale con SDK che non preaggregano le metriche durante la raccolta.
 
@@ -81,7 +81,7 @@ La raccolta di dimensioni di metriche personalizzate è disattivata per impostaz
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Creazione di grafici ed esplorazione di metriche basate su log e preaggregate standard
 
-Usare [monitoraggio di Azure Esplora metriche](../platform/metrics-getting-started.md) per tracciare i grafici dalle metriche pre-aggregate e basate su log e per creare dashboard con grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
+Usare [monitoraggio di Azure Esplora metriche](../essentials/metrics-getting-started.md) per tracciare i grafici dalle metriche pre-aggregate e basate su log e per creare dashboard con grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
 
 ![Spazio dei nomi delle metriche](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
@@ -93,5 +93,5 @@ Selezionando l'opzione [Abilita avvisi sulle dimensioni della metrica personaliz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Generazione di avvisi praticamente in tempo reale](../platform/alerts-metric-near-real-time.md)
+* [Generazione di avvisi praticamente in tempo reale](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric e TrackValue](./api-custom-events-metrics.md#getmetric)

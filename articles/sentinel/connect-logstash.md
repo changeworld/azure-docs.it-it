@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: d388478fb3bc9b4e355d8c3cd3f16c0a785b8b27
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299633"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578921"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Usare logstash per connettere le origini dati ad Azure Sentinel
 
@@ -49,7 +49,7 @@ Il motore logstash è costituito da tre componenti:
 Il plug-in di output di Azure Sentinel per logstash invia dati in formato JSON all'area di lavoro Log Analytics, usando l'API REST dell'agente di raccolta dati HTTP Log Analytics. I dati vengono inseriti in log personalizzati.
 
 - Altre informazioni sull' [API REST di log Analytics](/rest/api/loganalytics/create-request).
-- Altre informazioni sui [log personalizzati](../azure-monitor/platform/data-sources-custom-logs.md).
+- Altre informazioni sui [log personalizzati](../azure-monitor/agents/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Distribuire il plug-in di output di Azure Sentinel in logstash
 
@@ -57,7 +57,7 @@ Il plug-in di output di Azure Sentinel per logstash invia dati in formato JSON a
 
 Il plug-in di output di Azure Sentinel è disponibile nella raccolta logstash.
 
-- Seguire le istruzioni riportate nel documento logstash [uso dei plug](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) -in per installare il plug-in **_[Microsoft-logstash-output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
+- Seguire le istruzioni riportate nel documento logstash [uso dei plug](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) -in per installare il plug-in ***[Microsoft-logstash-output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)*** .
    
 - Se il sistema logstash non dispone di accesso a Internet, seguire le istruzioni nel documento di [gestione dei plug](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) -in logstash offline per preparare e usare un pacchetto di plug-in offline. Questa operazione richiederà la creazione di un altro sistema logstash con accesso a Internet.
 
@@ -65,17 +65,17 @@ Il plug-in di output di Azure Sentinel è disponibile nella raccolta logstash.
 
 Usare le informazioni nella struttura logstash [di un documento del file di configurazione](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html) e aggiungere il plug-in di output di Azure Sentinel alla configurazione con le chiavi e i valori seguenti. La sintassi corretta del file di configurazione viene visualizzata dopo la tabella.
 
-| Nome campo | Tipo di dati | Descrizione |
+| Nome del campo | Tipo di dati | Descrizione |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Immettere il GUID dell'ID dell'area di lavoro. _ |
+| `workspace_id` | string | Immettere il GUID dell'ID dell'area di lavoro. * |
 | `workspace_key` | string | Immettere il GUID della chiave primaria dell'area di lavoro. * |
 | `custom_log_table_name` | string | Consente di impostare il nome della tabella in cui verranno inseriti i log. È possibile configurare solo un nome di tabella per ogni plug-in di output. La tabella dei log verrà visualizzata in Sentinel di Azure in **log**, in **tabelle** nella categoria **log personalizzati** con un `_CL` suffisso. |
 | `endpoint` | string | Campo facoltativo. Per impostazione predefinita, si tratta dell'endpoint Log Analytics. Utilizzare questo campo per impostare un endpoint alternativo. |
 | `time_generated_field` | string | Campo facoltativo. Questa proprietà esegue l'override del campo predefinito **TimeGenerated** in log Analytics. Immettere il nome del campo timestamp nell'origine dati. I dati nel campo devono essere conformi al formato ISO 8601 ( `YYYY-MM-DDThh:mm:ssZ` ) |
 | `key_names` | array | Immettere un elenco di Log Analytics campi dello schema di output. Ogni elemento dell'elenco deve essere racchiuso tra virgolette singole e gli elementi separati da virgole e l'intero elenco racchiuso tra parentesi quadre. Vedi l'esempio seguente. |
-| `plugin_flush_interval` | Numero | Campo facoltativo. Impostare per definire l'intervallo massimo (in secondi) tra le trasmissioni dei messaggi a Log Analytics. Il valore predefinito è 5. |
+| `plugin_flush_interval` | d'acquisto | Campo facoltativo. Impostare per definire l'intervallo massimo (in secondi) tra le trasmissioni dei messaggi a Log Analytics. Il valore predefinito è 5. |
     | `amount_resizing` | boolean | True o false. Abilita o Disabilita il meccanismo di scalabilità automatica, che regola le dimensioni del buffer del messaggio in base al volume dei dati di log ricevuti. |
-| `max_items` | Numero | Campo facoltativo. Si applica solo se è `amount_resizing` impostato su "false". Utilizzare per impostare un limite per le dimensioni del buffer dei messaggi (nei record). Il valore predefinito è 2000.  |
+| `max_items` | d'acquisto | Campo facoltativo. Si applica solo se è `amount_resizing` impostato su "false". Utilizzare per impostare un limite per le dimensioni del buffer dei messaggi (nei record). Il valore predefinito è 2000.  |
 
 \* È possibile trovare l'ID dell'area di lavoro e la chiave primaria nella risorsa dell'area di lavoro, in **Gestione agenti**.
 

@@ -3,12 +3,12 @@ title: Distribuire un esempio di progetto Media
 description: Procedura di distribuzione per l'esempio di progetto Media, inclusi i dettagli dei parametri degli artefatti del progetto.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5dc3720ceb1bdd8e50ab220288cef64c73e304ff
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-ms.translationtype: HT
+ms.openlocfilehash: 13d50c2a791a72c58d8ebef7a46c592efd0cb9a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035003"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577295"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Distribuire l'esempio di progetto Media
 
@@ -93,12 +93,12 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Area di lavoro Log Analytics per VM Linux |Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Area di lavoro Log Analytics per VM Linux |Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito |Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: `[]` |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito |Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: `[]` |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Area di lavoro Log Analytics per VM Windows |Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Area di lavoro Log Analytics per VM Windows |Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Anteprima\]: Verifica controlli Media e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate |Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate. |
-|\[Anteprima\]: Verifica controlli Media e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Anteprima\]: Verifica controlli Media e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas). |
 |\[Anteprima\]: Verifica controlli Media e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Gruppo Administrators |Gruppo. Esempio: `Administrator; myUser1; myUser2` |
 |\[Anteprima\]: Verifica controlli Media e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows |Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. Esempio: `Administrator; myUser1; myUser2` |
 |Distribuisci Advanced Threat Protection negli account di archiviazione |Assegnazione di criteri |Effetto |Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md). |

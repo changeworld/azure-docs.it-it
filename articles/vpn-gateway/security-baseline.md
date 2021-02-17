@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8221e814b4555a75d596cec3ab00aa3b63e41a14
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: caff705a03f7c4645eedc9423f6a9f9649c1167e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197405"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571286"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Baseline della sicurezza di Azure per il gateway VPN
 
@@ -78,9 +78,9 @@ Per informazioni sul mapping completo del gateway VPN al benchmark di sicurezza 
 
 **Indicazioni**: usare log attività di Azure per monitorare le configurazioni delle risorse e rilevare le modifiche apportate alle risorse della rete virtuale. Creare avvisi in monitoraggio di Azure che verranno attivati quando si verificano modifiche alle risorse critiche correlate al gateway VPN.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -100,7 +100,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -112,9 +112,9 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 **Linee guida**: abilitare le impostazioni di diagnostica nelle risorse del gateway VPN per l'accesso ai log di controllo, sicurezza e diagnostica. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili. 
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -124,7 +124,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione. 
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -140,9 +140,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introduzione alle query di Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -158,7 +158,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -382,7 +382,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 - [Configurare gli avvisi per gli eventi del log di diagnostica dal gateway VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

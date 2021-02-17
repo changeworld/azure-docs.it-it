@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362400"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577768"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -47,23 +47,23 @@ Con Azure AD monitoraggio, è possibile indirizzare i log a:
 * Hub eventi di Azure in cui è possibile eseguire l'integrazione con gli strumenti SIEM esistenti, ad esempio Splunk, Sumologic o QRadar.
 
 > [!NOTE]
-Di recente abbiamo iniziato a usare il termine log di monitoraggio di Azure anziché Log Analytics. I dati di log vengono comunque archiviati in un'area di lavoro Log Analytics e vengano ancora raccolti e analizzati dallo stesso servizio Log Analytics. Si sta procedendo a un aggiornamento della terminologia per riflettere meglio il ruolo dei [log in Monitoraggio di Azure](../../azure-monitor/platform/data-platform.md). Per informazioni dettagliate, vedere [Modifiche della terminologia di Monitoraggio di Azure](../../azure-monitor/terminology.md).
+Di recente abbiamo iniziato a usare il termine log di monitoraggio di Azure anziché Log Analytics. I dati di log vengono comunque archiviati in un'area di lavoro Log Analytics e vengano ancora raccolti e analizzati dallo stesso servizio Log Analytics. Si sta procedendo a un aggiornamento della terminologia per riflettere meglio il ruolo dei [log in Monitoraggio di Azure](../../azure-monitor/data-platform.md). Per informazioni dettagliate, vedere [Modifiche della terminologia di Monitoraggio di Azure](../../azure-monitor/terminology.md).
 
 [Altre informazioni sui criteri di conservazione dei report](./reference-reports-data-retention.md).
 
-### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenze e prerequisiti per la creazione di report e il monitoraggio di Azure AD
+### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenze e prerequisiti per i report e il monitoraggio di Azure AD
 
-Per accedere ai log di accesso Azure AD è necessaria una licenza di Azure AD Premium.
+Per accedere ai log di accesso di Azure AD, è necessario avere una licenza Premium di Azure AD.
 
-Per informazioni dettagliate sulle funzionalità e sulle licenze, fare [riferimento alla guida ai prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Per informazioni dettagliate su funzionalità e licenze, vedere la [guida ai prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Per distribuire Azure AD monitoraggio e la creazione di report, è necessario un utente che sia amministratore globale o amministratore della sicurezza per il tenant di Azure AD.
+Per distribuire funzionalità di monitoraggio e report di Azure AD, è necessario avere il ruolo di amministratore globale o amministratore della sicurezza per il tenant di Azure AD.
 
-A seconda della destinazione finale dei dati di log, è necessario disporre di uno dei seguenti elementi:
+A seconda della destinazione finale dei dati di log, è necessario avere uno degli elementi seguenti:
 
 * Un account di archiviazione di Azure, con autorizzazioni ListKeys. È consigliabile usare un account di archiviazione generale invece di un account di archiviazione BLOB. Per informazioni sui prezzi di archiviazione, vedere il [calcolatore dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?service=storage).
 
-* Uno spazio dei nomi di hub eventi di Azure per l'integrazione con soluzioni SIEM di terze parti.
+* Uno spazio dei nomi di Hub eventi di Azure per l'integrazione con soluzioni SIEM di terze parti.
 
 * Un'area di lavoro Azure Log Analytics per inviare log a log di Monitoraggio di Azure.
 
@@ -102,7 +102,7 @@ La creazione di report e il monitoraggio vengono usati per soddisfare i requisit
 |Area |Descrizione |
 |-|-|
 |Conservazione| **Conservazione dei log di più di 30 giorni**. A causa dei requisiti legali o aziendali, è necessario archiviare i log di controllo e i log di accesso di Azure AD più di 30 giorni. |
-|Analytics| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |
+|Analisi| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |
 | Operational Insights| **Informazioni dettagliate per diversi team**. La necessità di concedere l'accesso a utenti diversi per ottenere informazioni operative, ad esempio l'utilizzo delle applicazioni, errori di accesso, utilizzo self-service, tendenze e così via. |
 | Informazioni dettagliate sulla sicurezza| **Informazioni dettagliate per diversi team**. La necessità di concedere l'accesso a utenti diversi per ottenere informazioni operative, ad esempio l'utilizzo delle applicazioni, errori di accesso, utilizzo self-service, tendenze e così via. |
 | Integrazione nei sistemi SIEM      | **Integrazione Siem**. La necessità di integrare e trasmettere in flusso Azure AD log di accesso e i log di controllo ai sistemi SIEM esistenti. |
@@ -121,7 +121,7 @@ Informazioni su come [indirizzare i dati all'account di archiviazione](./quickst
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Inviare log ai log di Monitoraggio di Azure
 
-I log di monitoraggio di [Azure](../../azure-monitor/log-query/log-query-overview.md) consolidano i dati di monitoraggio da origini diverse. Fornisce anche un linguaggio di query e un motore di analisi che offre informazioni dettagliate sul funzionamento delle applicazioni e sull'uso delle risorse. Inviando Azure AD log attività ai log di monitoraggio di Azure, è possibile recuperare, monitorare e avvisare rapidamente i dati raccolti. Utilizzare questo metodo quando non si dispone di una soluzione SIEM esistente a cui si desidera inviare direttamente i dati, ma si desidera eseguire query e analisi. Una volta che i dati sono presenti nei log di monitoraggio di Azure, è possibile inviarli a hub eventi e da qui a un SIEM se lo si desidera.
+I log di monitoraggio di [Azure](../../azure-monitor/logs/log-query-overview.md) consolidano i dati di monitoraggio da origini diverse. Fornisce anche un linguaggio di query e un motore di analisi che offre informazioni dettagliate sul funzionamento delle applicazioni e sull'uso delle risorse. Inviando Azure AD log attività ai log di monitoraggio di Azure, è possibile recuperare, monitorare e avvisare rapidamente i dati raccolti. Utilizzare questo metodo quando non si dispone di una soluzione SIEM esistente a cui si desidera inviare direttamente i dati, ma si desidera eseguire query e analisi. Una volta che i dati sono presenti nei log di monitoraggio di Azure, è possibile inviarli a hub eventi e da qui a un SIEM se lo si desidera.
 
 Vedere come [inviare dati ai log di Monitoraggio di Azure](./howto-integrate-activity-logs-with-log-analytics.md).
 

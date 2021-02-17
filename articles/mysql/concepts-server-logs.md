@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534977"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595938"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente in Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -25,11 +25,11 @@ Per impostazione predefinita il log delle query lente è disabilitato. Per abili
 
 Altri parametri che è possibile modificare includono:
 
-- **long_query_time** : se una query richiede più tempo del valore di long_query_time (in secondi), la query viene registrata. Il valore predefinito è 10 secondi.
-- **log_slow_admin_statements** : se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
-- **log_queries_not_using_indexes** : determina se le query che non usano gli indici vengono registrate in slow_query_log
-- **log_throttle_queries_not_using_indexes** : questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
-- **log_output** : se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se è "Nessuna", il log di query lente verrà scritto solo nei log di diagnostica di Monitoraggio di Azure. 
+- **long_query_time**: se una query richiede più tempo del valore di long_query_time (in secondi), la query viene registrata. Il valore predefinito è 10 secondi.
+- **log_slow_admin_statements**: se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
+- **log_queries_not_using_indexes**: determina se le query che non usano gli indici vengono registrate in slow_query_log
+- **log_throttle_queries_not_using_indexes**: questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
+- **log_output**: se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se è "Nessuna", il log di query lente verrà scritto solo nei log di diagnostica di Monitoraggio di Azure. 
 
 > [!IMPORTANT]
 > Se le tabelle non sono indicizzate, l'impostazione `log_queries_not_using_indexes` dei `log_throttle_queries_not_using_indexes` parametri e su on può influire sulle prestazioni di MySQL perché tutte le query in esecuzione in queste tabelle non indicizzate verranno scritte nel log di query lente.<br><br>
@@ -53,7 +53,7 @@ I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per pri
 > La conservazione dei log precedente non si applica ai log che vengono inviati tramite pipe usando i log di diagnostica di monitoraggio di Azure. È possibile modificare il periodo di memorizzazione per i sink di dati emessi in (ad esempio, Archiviazione di Azure).
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
-Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log di query lente nel server MySQL, è possibile scegliere di crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/platform-logs-overview.md).
+Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log di query lente nel server MySQL, è possibile scegliere di crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/essentials/platform-logs-overview.md).
 
 La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 

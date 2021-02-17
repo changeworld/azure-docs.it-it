@@ -3,12 +3,12 @@ title: Dettagli della struttura di assegnazione dei criteri
 description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558444"
+ms.locfileid: "100581952"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
@@ -63,7 +63,7 @@ Usare **DisplayName** e **Description** per identificare l'assegnazione dei crit
 
 ## <a name="enforcement-mode"></a>Modalità di imposizione
 
-La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza avviare l'effetto del criterio o attivare le voci nel [log attività di Azure](../../../azure-monitor/platform/platform-logs-overview.md). Questo scenario viene in genere definito "What If" e viene allineato a procedure di distribuzione sicure. **enforcementMode** è diverso dall'effetto [disabilitato](./effects.md#disabled) , perché questo effetto impedisce la valutazione delle risorse.
+La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza avviare l'effetto del criterio o attivare le voci nel [log attività di Azure](../../../azure-monitor/essentials/platform-logs-overview.md). Questo scenario viene in genere definito "What If" e viene allineato a procedure di distribuzione sicure. **enforcementMode** è diverso dall'effetto [disabilitato](./effects.md#disabled) , perché questo effetto impedisce la valutazione delle risorse.
 
 Questa proprietà presenta i valori seguenti:
 

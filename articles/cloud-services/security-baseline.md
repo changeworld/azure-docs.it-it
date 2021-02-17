@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e6a42a39e55e379865332fce8a9aed8dfe78f57b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 28be34e9323697759b2492d86b968f8e3d47a28e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201332"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572043"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Baseline della sicurezza di Azure per servizi cloud di Azure
 
@@ -175,9 +175,9 @@ Raccogliere informazioni dettagliate dal log attività, un log di piattaforma in
 
 Creare un'impostazione di diagnostica per inviare il log attività a monitoraggio di Azure, Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione. Configurare monitoraggio di Azure per gli avvisi di notifica quando vengono modificate le risorse critiche nei servizi cloud di Azure. 
 
-- [Log attività di Azure](../azure-monitor/platform/activity-log.md)
+- [Log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Monitoraggio di gestione traffico](../traffic-manager/traffic-manager-monitoring.md)
 
@@ -233,7 +233,7 @@ I servizi cloud di Azure possono essere monitorati da Application Insights per d
 
 - [Abilitare la diagnostica in Visual Studio prima della distribuzione](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [Visualizzare la cronologia modifiche](../azure-monitor/platform/activity-log.md#view-change-history)
+- [Visualizzare la cronologia modifiche](../azure-monitor/essentials/activity-log.md#view-change-history)
 
 - [Application Insights per il servizio cloud di Azure (versione classica)](../azure-monitor/app/cloudservices.md)
 
@@ -369,7 +369,7 @@ Esaminare le differenze tra i ruoli amministrativi delle sottoscrizioni classich
 
 Vedere la documentazione sulle API REST del servizio cloud di Azure e creare un processo per la protezione dei dati sensibili, in base ai requisiti dell'organizzazione.
 
-- [Ottenere la distribuzione](/rest/api/compute/cloudservices/rest-get-deployment)
+- [Ottenere una distribuzione](/rest/api/compute/cloudservices/rest-get-deployment)
 
 - [Recuperare le proprietà del servizio cloud](/rest/api/compute/cloudservices/rest-get-cloud-service-properties)
 
@@ -465,9 +465,9 @@ I dati dell'applicazione archiviati nei dischi temporanei non vengono crittograf
 
 Inoltre, Application Insights possibile monitorare le app di servizi cloud di Azure per disponibilità, prestazioni, errori e utilizzo. Questa operazione USA i dati combinati di Application Insights SDK con i dati Diagnostica di Azure dai servizi cloud di Azure.
 
-- [Creare, visualizzare e gestire gli avvisi delle metriche classici con monitoraggio di Azure](../azure-monitor/platform/alerts-classic-portal.md)
+- [Creare, visualizzare e gestire gli avvisi delle metriche classici con monitoraggio di Azure](../azure-monitor/alerts/alerts-classic-portal.md)
 
-- [Panoramica degli avvisi delle metriche](../azure-monitor/platform/alerts-metric-overview.md) 
+- [Panoramica degli avvisi delle metriche](../azure-monitor/alerts/alerts-metric-overview.md) 
 
 - [Application Insights per il servizio cloud di Azure (versione classica)](../azure-monitor/app/cloudservices.md)
 

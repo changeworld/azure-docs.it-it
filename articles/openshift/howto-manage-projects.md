@@ -7,13 +7,13 @@ author: mjudeikis
 ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
-ms.service: container-service
-ms.openlocfilehash: 0abc086553f5e903a71bcfd0b6322bcee56d2d8b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.service: azure-redhat-openshift
+ms.openlocfilehash: bf2cf5a0d41af15821035c615fe071c8580e125f
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216930"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633105"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gestire progetti, modelli, flussi di immagini in un cluster Azure Red Hat OpenShift
 
@@ -31,7 +31,7 @@ In una piattaforma OpenShift container, i progetti vengono utilizzati per raggru
 
 Quando viene inviata una richiesta di progetto, l'API sostituisce i parametri seguenti nel modello:
 
-| Parametro               | Description                                    |
+| Parametro               | Descrizione                                    |
 | ----------------------- | ---------------------------------------------- |
 | PROJECT_NAME            | Nome del progetto. Obbligatorio.             |
 | PROJECT_DISPLAYNAME     | Nome visualizzato del progetto. Può essere vuoto. |

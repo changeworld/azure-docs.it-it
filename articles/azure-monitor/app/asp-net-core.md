@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 93f72b7e2f709f32942564dc7322a4c5d1064cfc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249109"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589903"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -29,7 +29,10 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 * **IDE**: Visual Studio, vs code o riga di comando.
 
 > [!NOTE]
-> ASP.NET Core 3. X richiede [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o versione successiva.
+> ASP.NET Core 3,1 richiede [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o versione successiva.
+
+> [!IMPORTANT]
+> Sono supportate le seguenti versioni di ASP.NET Core: ASP.NET Core 2,1 e 3,1. Le versioni 2,0, 2,2 e 3,0 sono state ritirate e non sono più supportate.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -125,7 +128,7 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>Segreti utente e altri provider di configurazione
 
-Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio, `services.AddApplicationInsightsTelemetry(Configuration);`.
+Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio: `services.AddApplicationInsightsTelemetry(Configuration);`.
 A partire da Microsoft. ApplicationInsights. AspNetCore versione [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` la chiamata a leggerà automaticamente la chiave di strumentazione dall' `Microsoft.Extensions.Configuration.IConfiguration` applicazione. Non è necessario fornire esplicitamente `IConfiguration` .
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione

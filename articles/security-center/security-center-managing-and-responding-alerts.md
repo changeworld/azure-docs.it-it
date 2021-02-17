@@ -11,21 +11,16 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 3f319c35631f8c85cab4613df0f1c14f98356caa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a47ece762f2df3fa18cf2b79d338c28d4069c4ad
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563348"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633498"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure
-
-> [!TIP]
-> Le informazioni contenute in questa pagina fanno riferimento alla nuova esperienza di avvisi (anteprima) disponibile nel banner nella parte superiore della pagina degli avvisi di sicurezza. 
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner con collegamento alla nuova esperienza avvisi di anteprima":::
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 
 In questo argomento viene illustrato come visualizzare ed elaborare gli avvisi del Centro sicurezza e proteggere le risorse.
 
@@ -84,7 +79,7 @@ Per una panoramica del modo in cui il Centro sicurezza genera avvisi, vedere [co
 
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 In questo documento si è appreso come visualizzare gli avvisi di sicurezza. Vedere le pagine seguenti per il materiale correlato:
 

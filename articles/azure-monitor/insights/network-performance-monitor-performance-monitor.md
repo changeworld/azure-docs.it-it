@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5335882c11ee6a1a7352ef3dc9822cfa88eda196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832964"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573518"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
 
@@ -131,4 +131,5 @@ Nella figura seguente la causa radice delle aree problematiche relative alla sez
 ![Mappa della topologia con proprietà del nodo selezionato](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Effettuare una ricerca nei log](../log-query/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
+[Effettuare una ricerca nei log](../logs/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
+

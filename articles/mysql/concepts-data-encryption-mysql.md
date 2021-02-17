@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 4c8f4b490c46ed8061201ba6362999f0e426ecb7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518805"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596336"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
@@ -118,7 +118,7 @@ Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'
 * [Integrità risorse di Azure](../service-health/resource-health-overview.md): un database inaccessibile che ha perso l'accesso alla chiave del cliente viene indicato come "Inaccessibile" dopo che viene negata la prima connessione al database.
 * [Log attività](../service-health/alerts-activity-log-service-notifications-portal.md): quando l'accesso alla chiave del cliente nell'istanza di Key Vault gestita dal cliente non riesce, nel log attività vengono aggiunte voci. Se si creano avvisi per questi eventi, è possibile ripristinare l'accesso tempestivamente.
 
-* [Gruppi di azioni](../azure-monitor/platform/action-groups.md): definire questi gruppi per l'invio di notifiche e avvisi in base alle preferenze.
+* [Gruppi di azioni](../azure-monitor/alerts/action-groups.md): definire questi gruppi per l'invio di notifiche e avvisi in base alle preferenze.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Eseguire il ripristino e la replica con una chiave gestita del cliente in Key Vault
 

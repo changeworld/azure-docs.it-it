@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616655"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588591"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: registrazione diagnostica
 
@@ -35,8 +35,8 @@ Attivare le impostazioni di diagnostica per avviare la raccolta dei log nell'ist
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle impostazioni di diagnostica e il pulsante per aggiungere" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Nella pagina seguente compilare i valori seguenti:
-     * **Nome dell'impostazione di diagnostica** : assegnare un nome alle impostazioni di diagnostica.
-     * **Dettagli categoria** : scegliere le operazioni che si desidera monitorare e selezionare le caselle per abilitare la diagnostica per tali operazioni. Le operazioni per cui le impostazioni di diagnostica possono inviare report sono:
+     * **Nome dell'impostazione di diagnostica**: assegnare un nome alle impostazioni di diagnostica.
+     * **Dettagli categoria**: scegliere le operazioni che si desidera monitorare e selezionare le caselle per abilitare la diagnostica per tali operazioni. Le operazioni per cui le impostazioni di diagnostica possono inviare report sono:
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -44,7 +44,7 @@ Attivare le impostazioni di diagnostica per avviare la raccolta dei log nell'ist
         - AllMetrics
         
         Per ulteriori informazioni su queste categorie e sulle informazioni che contengono, vedere la sezione relativa alle [*categorie di log*](#log-categories) riportata di seguito.
-     * **Dettagli destinazione** : scegliere il percorso in cui si desidera inviare i log. È possibile selezionare qualsiasi combinazione delle tre opzioni:
+     * **Dettagli destinazione**: scegliere il percorso in cui si desidera inviare i log. È possibile selezionare qualsiasi combinazione delle tre opzioni:
         - Invia a Log Analytics
         - Archivia in un account di archiviazione
         - Streaming in un hub eventi
@@ -57,7 +57,7 @@ Attivare le impostazioni di diagnostica per avviare la raccolta dei log nell'ist
 
 Le nuove impostazioni diventano effettive in circa 10 minuti. Successivamente, i log vengono visualizzati nella destinazione configurata di nuovo nella pagina **impostazioni di diagnostica** per l'istanza. 
 
-Per informazioni più dettagliate sulle impostazioni di diagnostica e sulle relative opzioni di installazione, è possibile vedere [*creare le impostazioni di diagnostica per inviare i log della piattaforma e le metriche a destinazioni diverse*](../azure-monitor/platform/diagnostic-settings.md).
+Per informazioni più dettagliate sulle impostazioni di diagnostica e sulle relative opzioni di installazione, è possibile vedere [*creare le impostazioni di diagnostica per inviare i log della piattaforma e le metriche a destinazioni diverse*](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## <a name="log-categories"></a>Categorie di log
 
@@ -112,7 +112,7 @@ Questo schema del registro è coerente per `ADTDigitalTwinsOperation` , `ADTMode
 
 Di seguito sono riportate le descrizioni dei campi e delle proprietà per i log API.
 
-| Nome campo | Tipo di dati | Descrizione |
+| Nome del campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceID` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |
@@ -124,7 +124,7 @@ Di seguito sono riportate le descrizioni dei campi e delle proprietà per i log 
 | `ResultDescription` | string | Dettagli aggiuntivi sull'evento |
 | `DurationMs` | string | Tempo impiegato per eseguire l'evento in millisecondi |
 | `CallerIpAddress` | string | Un indirizzo IP di origine mascherato per l'evento |
-| `CorrelationId` | GUID | Identificatore univoco fornito dal cliente per l'evento |
+| `CorrelationId` | Guid | Identificatore univoco fornito dal cliente per l'evento |
 | `Level` | string | Gravità della registrazione dell'evento |
 | `Location` | string | Area in cui è avvenuto l'evento |
 | `RequestUri` | Uri | Endpoint utilizzato durante l'evento |
@@ -198,7 +198,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
 
 Si tratta dello schema per i `ADTEventRoutesOperation` log. Sono inclusi i dettagli relativi alle eccezioni e le operazioni API relative agli endpoint in uscita connessi a un'istanza di dispositivi gemelli digitali di Azure.
 
-|Nome campo | Tipo di dati | Descrizione |
+|Nome del campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceId` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |
@@ -255,10 +255,10 @@ Di seguito viene illustrato come eseguire una query sui log per l'istanza di.
     - La scheda *query* contiene le query di esempio che è possibile caricare nell'editor.
     - La scheda *filtro* consente di personalizzare una visualizzazione filtrata dei dati restituiti dalla query.
 
-Per informazioni più dettagliate sulle query di log e su come scriverle, vedere [*Panoramica delle query di log in monitoraggio di Azure*](../azure-monitor/log-query/log-query-overview.md).
+Per informazioni più dettagliate sulle query di log e su come scriverle, vedere [*Panoramica delle query di log in monitoraggio di Azure*](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sulla configurazione della diagnostica, vedere [*raccogliere e utilizzare i dati di log dalle risorse di Azure*](../azure-monitor/platform/platform-logs-overview.md).
+* Per altre informazioni sulla configurazione della diagnostica, vedere [*raccogliere e utilizzare i dati di log dalle risorse di Azure*](../azure-monitor/essentials/platform-logs-overview.md).
 * Per informazioni sulle metriche dei dispositivi gemelli digitali di Azure, vedere [*risoluzione dei problemi: visualizzare le metriche con monitoraggio di Azure*](troubleshoot-metrics.md).
 * Per informazioni su come abilitare gli avvisi per le metriche, vedere [*risoluzione dei problemi: configurare gli avvisi*](troubleshoot-alerts.md).

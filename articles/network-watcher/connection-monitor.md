@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834086"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570839"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
@@ -137,7 +137,7 @@ Gli avvisi vengono creati tramite le regole di avviso in Monitoraggio di Azure e
 2. Fare clic su **Seleziona la destinazione** e quindi selezionare le risorse di destinazione. Selezionare la **sottoscrizione** e impostare **Tipo di risorsa** per filtrare fino al monitoraggio della connessione da usare.
 
     ![schermata di avviso con destinazione selezionata](./media/connection-monitor/set-alert-rule.png)
-1. Dopo aver selezionato una risorsa di destinazione, selezionare **Aggiungi criteri**. In Network Watcher sono disponibili [metriche in base alle quali è possibile creare avvisi](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Impostare **Segnali disponibili** sulle metriche ProbesFailedPercent e AverageRoundtripMs:
+1. Dopo aver selezionato una risorsa di destinazione, selezionare **Aggiungi criteri**. In Network Watcher sono disponibili [metriche in base alle quali è possibile creare avvisi](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Impostare **Segnali disponibili** sulle metriche ProbesFailedPercent e AverageRoundtripMs:
 
     ![pagina degli avvisi con segnali selezionati](./media/connection-monitor/set-alert-signals.png)
 1. Immettere i dettagli dell'avviso, ad esempio il nome della regola di avviso, la descrizione e la gravità. È anche possibile aggiungere all'avviso un gruppo di azioni per automatizzare e personalizzare la risposta dell'avviso.

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: adcbf4efc4dfaa7701c18440531327949640cb53
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452393"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581984"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -249,7 +249,7 @@ Per aggiornare la configurazione di campionamento della traccia distribuita per 
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Tipo | Descrizione |
+| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sì | Integer | Sono attualmente supportati i valori di due modalità per attivare e disattivare il campionamento. `1` per attivare e `2` per disattivare. |
 | `sampling_rate` | Sì | Integer | Questo valore indica una percentuale. Sono consentiti solo valori compresi tra `0` e `100` (estremi inclusi).  |
@@ -260,7 +260,7 @@ Per visualizzare tutte le tracce registrate da un hub IoT, eseguire una query su
 
 ### <a name="query-using-log-analytics"></a>Eseguire query usando Log Analytics
 
-Se è stato configurato [log Analytics con i log delle risorse](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), eseguire una query cercando i log nella `DistributedTracing` categoria. Questa query ad esempio mostra tutte le tracce registrate:
+Se è stato configurato [log Analytics con i log delle risorse](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), eseguire una query cercando i log nella `DistributedTracing` categoria. Questa query ad esempio mostra tutte le tracce registrate:
 
 ```Kusto
 // All distributed traces 

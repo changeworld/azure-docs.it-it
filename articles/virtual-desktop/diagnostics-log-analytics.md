@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d8b696b175c4ef841eef1a51f1d357d1781cba7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37990cc4322717f090c7a35c62512ba0e1a04293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018291"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576144"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
 
@@ -39,23 +39,23 @@ Le connessioni che non raggiungono Desktop virtuale Windows non vengono visualiz
 Monitoraggio di Azure consente di analizzare i dati di desktop virtuali Windows ed esaminare i contatori delle prestazioni delle macchine virtuali (VM), il tutto nello stesso strumento. In questo articolo vengono illustrate altre informazioni su come abilitare la diagnostica per l'ambiente di desktop virtuale di Windows.
 
 >[!NOTE]
->Per informazioni su come monitorare le VM in Azure, vedere [monitoraggio delle macchine virtuali di Azure con monitoraggio di Azure](../azure-monitor/insights/monitor-vm-azure.md). Assicurarsi inoltre di [esaminare le soglie dei contatori delle prestazioni](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) per comprendere meglio l'esperienza utente nell'host sessione.
+>Per informazioni su come monitorare le VM in Azure, vedere [monitoraggio delle macchine virtuali di Azure con monitoraggio di Azure](../azure-monitor/vm/monitor-vm-azure.md). Assicurarsi inoltre di [esaminare le soglie dei contatori delle prestazioni](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) per comprendere meglio l'esperienza utente nell'host sessione.
 
 ## <a name="before-you-get-started"></a>Prima di iniziare
 
 Prima di poter usare Log Analytics, è necessario creare un'area di lavoro. A tale scopo, seguire le istruzioni riportate in uno dei due articoli seguenti:
 
-- Se si preferisce usare portale di Azure, vedere [creare un'area di lavoro log Analytics in portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
-- Se si preferisce PowerShell, vedere [creare un'area di lavoro log Analytics con PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+- Se si preferisce usare portale di Azure, vedere [creare un'area di lavoro log Analytics in portale di Azure](../azure-monitor/logs/quick-create-workspace.md).
+- Se si preferisce PowerShell, vedere [creare un'area di lavoro log Analytics con PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
-Dopo aver creato l'area di lavoro, seguire le istruzioni in [connettere i computer Windows a monitoraggio di Azure](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) per ottenere le informazioni seguenti:
+Dopo aver creato l'area di lavoro, seguire le istruzioni in [connettere i computer Windows a monitoraggio di Azure](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) per ottenere le informazioni seguenti:
 
 - ID dell'area di lavoro
 - Chiave primaria dell'area di lavoro
 
 Queste informazioni saranno necessarie in un secondo momento nel processo di installazione.
 
-Assicurarsi di controllare la gestione delle autorizzazioni per monitoraggio di Azure per abilitare l'accesso ai dati per gli utenti che monitorano e gestiscono l'ambiente desktop virtuale Windows. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](../azure-monitor/platform/roles-permissions-security.md).
+Assicurarsi di controllare la gestione delle autorizzazioni per monitoraggio di Azure per abilitare l'accesso ai dati per gli utenti che monitorano e gestiscono l'ambiente desktop virtuale Windows. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](../azure-monitor/roles-permissions-security.md).
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>Eseguire il push dei dati di diagnostica nell'area di lavoro
 
@@ -73,7 +73,7 @@ Per configurare Log Analytics per un nuovo oggetto:
 
     Le opzioni visualizzate nella pagina impostazioni di diagnostica variano a seconda del tipo di oggetto che si sta modificando.
 
-    Ad esempio, quando si Abilita la diagnostica per un gruppo di app, verranno visualizzate le opzioni per configurare i checkpoint, gli errori e la gestione. Per le aree di lavoro, queste categorie configurano un feed per tenere traccia del momento in cui gli utenti sottoscrivono l'elenco di app. Per altre informazioni sulle impostazioni di diagnostica [, vedere creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../azure-monitor/platform/diagnostic-settings.md).
+    Ad esempio, quando si Abilita la diagnostica per un gruppo di app, verranno visualizzate le opzioni per configurare i checkpoint, gli errori e la gestione. Per le aree di lavoro, queste categorie configurano un feed per tenere traccia del momento in cui gli utenti sottoscrivono l'elenco di app. Per altre informazioni sulle impostazioni di diagnostica [, vedere creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
      >[!IMPORTANT]
      >Ricordarsi di abilitare la diagnostica per ogni oggetto Azure Resource Manager che si desidera monitorare. I dati saranno disponibili per le attività dopo l'abilitazione della diagnostica. La prima configurazione potrebbe richiedere alcune ore.
@@ -83,7 +83,7 @@ Per configurare Log Analytics per un nuovo oggetto:
 6. Selezionare **Salva**.
 
 >[!NOTE]
->Log Analytics offre la possibilità di trasmettere dati a [Hub eventi](../event-hubs/event-hubs-about.md) o di archiviarli in un account di archiviazione. Per altre informazioni su questa funzionalità, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) e [archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+>Log Analytics offre la possibilità di trasmettere dati a [Hub eventi](../event-hubs/event-hubs-about.md) o di archiviarli in un account di archiviazione. Per altre informazioni su questa funzionalità, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md) e [archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 ## <a name="how-to-access-log-analytics"></a>Come accedere a Log Analytics
 
@@ -134,9 +134,9 @@ Accedere a query di esempio tramite il monitoraggio di Azure Log Analytics inter
 1. Selezionare **desktop virtuale Windows** per esaminare le query disponibili.
 1. Selezionare **Esegui** per eseguire la query selezionata.
 
-Per altre informazioni sull'interfaccia di query di esempio, vedere [query salvate in monitoraggio di Azure log Analytics](../azure-monitor/log-query/example-queries.md).
+Per altre informazioni sull'interfaccia di query di esempio, vedere [query salvate in monitoraggio di Azure log Analytics](../azure-monitor/logs/example-queries.md).
 
-L'elenco di query seguente consente di esaminare le informazioni di connessione o i problemi per un singolo utente. È possibile eseguire queste query nell' [editor di query log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Per ogni query, sostituire `userupn` con l'UPN dell'utente che si desidera cercare.
+L'elenco di query seguente consente di esaminare le informazioni di connessione o i problemi per un singolo utente. È possibile eseguire queste query nell' [editor di query log Analytics](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). Per ogni query, sostituire `userupn` con l'UPN dell'utente che si desidera cercare.
 
 
 Per trovare tutte le connessioni per un singolo utente:

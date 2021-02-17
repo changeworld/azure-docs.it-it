@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896630"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572616"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -34,9 +34,9 @@ Rilevamento modifiche e l'inventario usano il [monitoraggio dell'integrità dei 
 
 L'abilitazione di tutte le funzionalità incluse in Rilevamento modifiche e nell'inventario può causare addebiti aggiuntivi. Prima di procedere, esaminare i prezzi di [automazione](https://azure.microsoft.com/pricing/details/automation/) e i [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
-Rilevamento modifiche e l'inventario inviano i dati ai log di monitoraggio di Azure e i dati raccolti vengono archiviati in un'area di lavoro di Log Analytics. La funzionalità di monitoraggio dell'integrità dei file (FIM) è disponibile solo quando **Azure Defender per i server** è abilitato. Per altre informazioni, vedere [prezzi](../../security-center/security-center-pricing.md) del Centro sicurezza di Azure. FIM carica i dati nella stessa area di lavoro Log Analytics come quello creato per archiviare i dati da Rilevamento modifiche e da inventario. Si consiglia di monitorare l'area di lavoro di Log Analytics collegata per tenere traccia dell'utilizzo esatto. Per altre informazioni sull'analisi dell'utilizzo dei dati dei log di monitoraggio di Azure, vedere [gestire l'utilizzo e i costi](../../azure-monitor/platform/manage-cost-storage.md).
+Rilevamento modifiche e l'inventario inviano i dati ai log di monitoraggio di Azure e i dati raccolti vengono archiviati in un'area di lavoro di Log Analytics. La funzionalità di monitoraggio dell'integrità dei file (FIM) è disponibile solo quando **Azure Defender per i server** è abilitato. Per altre informazioni, vedere [prezzi](../../security-center/security-center-pricing.md) del Centro sicurezza di Azure. FIM carica i dati nella stessa area di lavoro Log Analytics come quello creato per archiviare i dati da Rilevamento modifiche e da inventario. Si consiglia di monitorare l'area di lavoro di Log Analytics collegata per tenere traccia dell'utilizzo esatto. Per altre informazioni sull'analisi dell'utilizzo dei dati dei log di monitoraggio di Azure, vedere [gestire l'utilizzo e i costi](../../azure-monitor/logs/manage-cost-storage.md).
 
-I computer connessi all'area di lavoro Log Analytics usano l' [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md) per raccogliere dati sulle modifiche al software installato, ai servizi Microsoft, al registro di sistema di Windows e ai file e ai Daemon Linux nei server monitorati. Quando i dati sono disponibili, l'agente li invia ai log di monitoraggio di Azure per l'elaborazione. Log di monitoraggio di Azure applica la logica ai dati ricevuti, li registra e li rende disponibili per l'analisi.
+I computer connessi all'area di lavoro Log Analytics usano l' [agente log Analytics](../../azure-monitor/agents/log-analytics-agent.md) per raccogliere dati sulle modifiche al software installato, ai servizi Microsoft, al registro di sistema di Windows e ai file e ai Daemon Linux nei server monitorati. Quando i dati sono disponibili, l'agente li invia ai log di monitoraggio di Azure per l'elaborazione. Log di monitoraggio di Azure applica la logica ai dati ricevuti, li registra e li rende disponibili per l'analisi.
 
 > [!NOTE]
 > Rilevamento modifiche e inventario richiedono il collegamento di un'area di lavoro Log Analytics all'account di automazione. Per un elenco completo delle aree supportate, vedere [Mapping dell'area di lavoro di Azure](../how-to/region-mappings.md). I mapping a livello di area non influiscono sulla possibilità di gestire le VM in un'area separata rispetto all'account di Automazione.
@@ -48,7 +48,7 @@ Rilevamento modifiche e l'inventario non supportano o presenta le limitazioni se
 - Ricorsione per Rilevamento del Registro di sistema di Windows
 - File system di rete
 - Metodi di installazione diversi
-- *file con *_estensione exe_* archiviati in Windows
+- *file con **estensione exe** archiviati in Windows
 - La colonna **Dimensioni massime file** e i valori non sono usati nell'implementazione corrente.
 - Se si tenta di raccogliere più di 2500 file in un ciclo di raccolta di 30 minuti, è possibile che le prestazioni Rilevamento modifiche e inventario risultino ridotte.
 - Se il traffico di rete è elevato, i record delle modifiche possono richiedere fino a sei ore per la visualizzazione.
@@ -58,7 +58,7 @@ Rilevamento modifiche e l'inventario non supportano o presenta le limitazioni se
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-La funzionalità Rilevamento modifiche e inventario è supportata in tutti i sistemi operativi che soddisfano i requisiti degli agenti di Log Analytics. Per un elenco delle versioni del sistema operativo Windows e Linux attualmente supportate dall'agente di Log Analytics, vedere [sistemi operativi supportati](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
+La funzionalità Rilevamento modifiche e inventario è supportata in tutti i sistemi operativi che soddisfano i requisiti degli agenti di Log Analytics. Per un elenco delle versioni del sistema operativo Windows e Linux attualmente supportate dall'agente di Log Analytics, vedere [sistemi operativi supportati](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) .
 
 Per informazioni sui requisiti dei client per TLS 1,2, vedere [tls 1,2 Enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -159,7 +159,7 @@ La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macc
 |Servizi|250|
 |Daemon|250|
 
-L'uso medio dei dati di Log Analytics per un computer che usa Rilevamento modifiche e inventario è di circa 40 MB al mese, in base all'ambiente. Con la funzionalità utilizzo e costi stimati dell'area di lavoro Log Analytics, è possibile visualizzare i dati inseriti da Rilevamento modifiche e inventario in un grafico di utilizzo. Questa vista dati consente di valutare l'utilizzo dei dati e di determinare il modo in cui influiscono sulla fattura. Vedere [Comprendere l'utilizzo e stimare i costi](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
+L'uso medio dei dati di Log Analytics per un computer che usa Rilevamento modifiche e inventario è di circa 40 MB al mese, in base all'ambiente. Con la funzionalità utilizzo e costi stimati dell'area di lavoro Log Analytics, è possibile visualizzare i dati inseriti da Rilevamento modifiche e inventario in un grafico di utilizzo. Questa vista dati consente di valutare l'utilizzo dei dati e di determinare il modo in cui influiscono sulla fattura. Vedere [Comprendere l'utilizzo e stimare i costi](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dati del servizio Microsoft
 

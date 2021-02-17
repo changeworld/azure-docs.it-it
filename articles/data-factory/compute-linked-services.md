@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 7dae067b5d8648f1441047c26f8792e55591b64d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 95d35b3496248db9acb69181191acde58ede7b44
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368524"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589242"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 
@@ -322,6 +322,9 @@ Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Bat
 * [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
 * Cmdlet [New-AzureBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account di Azure Batch oppure [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account di Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account).
 * Cmdlet [New AzureBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool di Azure Batch.
+
+> [!IMPORTANT]
+> Quando si crea un nuovo pool di Azure Batch, è necessario usare ' VirtualMachineConfiguration ' e non ' CloudServiceConfiguration '. Per altri dettagli, vedere [Azure batch informazioni aggiuntive sulla migrazione del pool](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration). 
 
 ### <a name="example"></a>Esempio
 

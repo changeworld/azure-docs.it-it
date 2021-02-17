@@ -4,12 +4,12 @@ description: Avvisa sui cambiamenti insoliti nella frequenza delle richieste non
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 978b63d74e6be4104ff53eef66e9633c78b90eb8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f4de3aaba4acf86df37048134089326196e87ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510635"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587544"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](./app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, i dettagli della notifica includono un'analisi delle caratteristiche degli errori e i dati delle applicazioni correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -31,7 +31,7 @@ I dettagli dell'avviso indicano:
 * Collegamenti diretti alle ricerche rilevanti nei dati in Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Vantaggi del rilevamento intelligente
-I normali [avvisi relativi alla metrica](../platform/alerts-log.md) indicano che potrebbe essersi verificato un problema. Tuttavia, la funzionalità di rilevamento intelligente avvia automaticamente i processi di diagnostica ed esegue la maggior parte dell'analisi che altrimenti l'utente dovrebbe eseguire manualmente. Si ottengono risultati ben strutturati che consentono individuare rapidamente le cause del problema.
+I normali [avvisi relativi alla metrica](../alerts/alerts-log.md) indicano che potrebbe essersi verificato un problema. Tuttavia, la funzionalità di rilevamento intelligente avvia automaticamente i processi di diagnostica ed esegue la maggior parte dell'analisi che altrimenti l'utente dovrebbe eseguire manualmente. Si ottengono risultati ben strutturati che consentono individuare rapidamente le cause del problema.
 
 ## <a name="how-it-works"></a>Funzionamento
 Il rilevamento intelligente monitora i dati ricevuti dall'app e, in particolare, le frequenze degli errori. Questa regola conta il numero di richieste per cui la proprietà `Successful request` è false e il numero di chiamate alle dipendenze per cui la proprietà `Successful call` è false. Per le richieste, per impostazione predefinita, `Successful request == (resultCode < 400)` a meno che sia stato scritto codice personalizzato per [filtrare](./api-filtering-sampling.md#filtering) o generare particolari chiamate [TrackRequest](./api-custom-events-metrics.md#trackrequest). 
@@ -48,7 +48,7 @@ Quando il servizio viene instrumentato con queste chiamate, l'analizzatore cerca
 
 I risultati dell'analisi vengono inviati all'utente come avviso, a meno che la configurazione attiva preveda di non eseguire questa operazione.
 
-Analogamente agli [avvisi impostati manualmente](../platform/alerts-log.md), è possibile controllare lo stato dell'avviso attivato, che può essere risolto se il problema è stato risolto. Configurare le regole di avviso nella pagina Avvisi della risorsa di Application Insights. A differenza di altri avvisi, non è però necessario impostare o configurare il rilevamento intelligente. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
+Analogamente agli [avvisi impostati manualmente](../alerts/alerts-log.md), è possibile controllare lo stato dell'avviso attivato, che può essere risolto se il problema è stato risolto. Configurare le regole di avviso nella pagina Avvisi della risorsa di Application Insights. A differenza di altri avvisi, non è però necessario impostare o configurare il rilevamento intelligente. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
 
 ### <a name="alert-logic-details"></a>Dettagli della logica degli avvisi
 
@@ -64,11 +64,11 @@ Gli avvisi vengono attivati da un algoritmo di apprendimento automatico propriet
 
 È possibile disabilitare la regola di avviso per il rilevamento intelligente dal portale o usando Azure Resource Manager ([vedere l'esempio del modello](./proactive-arm-config.md)).
 
-Questa regola di avviso viene creata con un [gruppo di azioni](../platform/action-groups.md) associato denominato "Rilevamento intelligente di Application Insights" che contiene le azioni di posta elettronica e webhook e può essere esteso per attivare azioni aggiuntive quando viene attivato l'avviso.
+Questa regola di avviso viene creata con un [gruppo di azioni](../alerts/action-groups.md) associato denominato "Rilevamento intelligente di Application Insights" che contiene le azioni di posta elettronica e webhook e può essere esteso per attivare azioni aggiuntive quando viene attivato l'avviso.
 
 > [!NOTE]
 > Le notifiche di posta elettronica inviate da questa regola di avviso vengono ora inviate per impostazione predefinita agli utenti associati ai ruoli di lettore di monitoraggio e di collaboratore monitoraggio della sottoscrizione. Altre informazioni su questo argomento sono disponibili [qui](./proactive-email-notification.md).
-> Le notifiche inviate da questa regola di avviso seguono lo [schema di avviso comune](../platform/alerts-common-schema.md).
+> Le notifiche inviate da questa regola di avviso seguono lo [schema di avviso comune](../alerts/alerts-common-schema.md).
 >
 
 Aprire la pagina degli avvisi. Le regole di avviso di anomalie degli errori sono disponibili con gli eventuali avvisi impostati manualmente e si può vedere se attualmente sono in uno stato di avviso.
@@ -410,7 +410,7 @@ Fare clic su **Avvisi** nella pagina delle risorse di Application Insights per o
 ## <a name="whats-the-difference-"></a>Qual è la differenza
 Il rilevamento intelligente delle anomalie degli errori integra altre funzionalità simili ma distinte di Application Insights.
 
-* gli [avvisi delle metriche](../platform/alerts-log.md) vengono impostati dall'utente e possono monitorare un'ampia gamma di metriche, ad esempio utilizzo della CPU, frequenza delle richieste, tempi di caricamento delle pagine e così via. È possibile usarli per avvisare l'utente, ad esempio, se è necessario aggiungere altre risorse. Al contrario, il rilevamento intelligente delle anomalie degli errori copre una gamma ristretta di metriche critiche (attualmente solo la percentuale di richieste non riuscite), progettate per inviare notifiche quasi in tempo reale dopo l'aumento della percentuale di richieste non riuscite dell'app Web rispetto al comportamento normale della stessa app Web. Diversamente dagli avvisi delle metriche, il rilevamento intelligente imposta e aggiorna automaticamente le soglie nelle modifiche della risposta nel comportamento. Il rilevamento intelligente avvia anche l'attività di diagnostica, risparmiando tempo per la risoluzione dei problemi.
+* gli [avvisi delle metriche](../alerts/alerts-log.md) vengono impostati dall'utente e possono monitorare un'ampia gamma di metriche, ad esempio utilizzo della CPU, frequenza delle richieste, tempi di caricamento delle pagine e così via. È possibile usarli per avvisare l'utente, ad esempio, se è necessario aggiungere altre risorse. Al contrario, il rilevamento intelligente delle anomalie degli errori copre una gamma ristretta di metriche critiche (attualmente solo la percentuale di richieste non riuscite), progettate per inviare notifiche quasi in tempo reale dopo l'aumento della percentuale di richieste non riuscite dell'app Web rispetto al comportamento normale della stessa app Web. Diversamente dagli avvisi delle metriche, il rilevamento intelligente imposta e aggiorna automaticamente le soglie nelle modifiche della risposta nel comportamento. Il rilevamento intelligente avvia anche l'attività di diagnostica, risparmiando tempo per la risoluzione dei problemi.
 
 * Il [rilevamento intelligente delle anomalie delle prestazioni](proactive-performance-diagnostics.md) usa l'intelligenza artificiale per individuare modelli insoliti nelle metriche, senza richiedere alcuna configurazione. A differenza del rilevamento intelligente delle anomalie degli errori, tuttavia, lo scopo del rilevamento intelligente delle anomalie delle prestazioni è trovare i segmenti dei molteplici modi di utilizzo che potrebbero essere gestiti in modo non corretto, ad esempio da pagine specifiche in un tipo specifico di browser. L'analisi viene eseguita ogni giorno e se viene trovato un risultato, è probabilmente molto meno urgente di un avviso. Al contrario, l'analisi per le anomalie degli errori viene eseguita continuamente sui dati dell'applicazione in ingresso e l'utente riceverà una notifica entro pochi minuti se la percentuale di errori del server è superiore a quella prevista.
 
@@ -441,16 +441,16 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 
 *Alcuni avvisi segnalano problemi noti che è inutile ricevere.*
 
-* È possibile usare la funzionalità di eliminazione delle [regole di azione di avviso](../platform/alerts-action-rules.md).
+* È possibile usare la funzionalità di eliminazione delle [regole di azione di avviso](../alerts/alerts-action-rules.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli strumenti di diagnostica seguenti consentono di controllare i dati dall'app:
 
-* [Esplora metriche](../platform/metrics-charts.md)
+* [Esplora metriche](../essentials/metrics-charts.md)
 * [Esplora ricerche](./diagnostic-search.md)
-* [Linguaggio avanzato di query di Analisi](../log-query/log-analytics-tutorial.md)
+* [Linguaggio avanzato di query di Analisi](../logs/log-analytics-tutorial.md)
 
 Gli avvisi di rilevamento intelligente sono automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
-* [Configurare manualmente gli avvisi relativi alle metriche](../platform/alerts-log.md)
+* [Configurare manualmente gli avvisi relativi alle metriche](../alerts/alerts-log.md)
 * [Test Web di disponibilità](./monitor-web-app-availability.md)

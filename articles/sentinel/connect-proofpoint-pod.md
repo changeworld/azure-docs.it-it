@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: bdc9cbf942b88af93befa34f73eb3a90469cfcef
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73a9d9c7ab321aebd615922e5d4395c0318e809c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873502"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580456"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>Connetti la soluzione di sicurezza della posta elettronica di Proofpoint on demand ad Azure Sentinel
 
@@ -35,7 +35,7 @@ Questo articolo illustra come connettere l'appliance di sicurezza della posta el
 
 - È necessario disporre dell'autorizzazione di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 
-- È necessario disporre delle autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- È necessario disporre delle autorizzazioni di lettura per le chiavi condivise per l'area di lavoro. [Altre informazioni sulle chiavi dell'area di lavoro](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Per creare una app per le funzioni, è necessario disporre delle autorizzazioni di lettura e scrittura per le funzioni di Azure. [Altre informazioni su funzioni di Azure](../azure-functions/index.yml).
 
