@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d5537079341823275ba521c9d44139a0e0305286
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2bee856adef1208aabbe65ecd5fd11235579bb82
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014937"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582703"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. Azure Analysis Services è integrato con Monitoraggio di Azure. I [log delle risorse di Monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/overview.md).
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. Azure Analysis Services è integrato con Monitoraggio di Azure. I [log delle risorse di Monitoraggio di Azure](../azure-monitor/essentials/platform-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/overview.md).
 
 ![Registrazione delle risorse in Archiviazione, Hub eventi o log di Monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -82,7 +82,7 @@ La categoria Metriche registra le stesse [metriche del server](analysis-services
 
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md). Seguire le istruzioni per creare un account di Resource Manager di uso generale, quindi selezionare l'account di archiviazione ritornando in questa pagina del portale. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per altre informazioni, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
-    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - area di lavoro Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
+    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - area di lavoro Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/logs/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
 
     * **Engine** (Motore). Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di mantenimento dati per i log delle risorse. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione dei dati per i log delle risorse. Alla scadenza del periodo, i log verranno automaticamente eliminati.
@@ -90,7 +90,7 @@ La categoria Metriche registra le stesse [metriche del server](analysis-services
 
 3. Fare clic su **Salva**.
 
-    Se viene visualizzato un errore che indica che non è stato possibile aggiornare la diagnostica per \<workspace name> . La sottoscrizione \<subscription id> non è registrata per l'uso di Microsoft. Insights. " seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](../azure-monitor/platform/resource-logs.md) per registrare l'account, quindi ripetere questa procedura.
+    Se viene visualizzato un errore che indica che non è stato possibile aggiornare la diagnostica per \<workspace name> . La sottoscrizione \<subscription id> non è registrata per l'uso di Microsoft. Insights. " seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](../azure-monitor/essentials/resource-logs.md) per registrare l'account, quindi ripetere questa procedura.
 
     Se in seguito si vuole modificare la modalità di salvataggio dei log delle risorse, è possibile tornare in questa pagina e modificare le impostazioni.
 
@@ -140,7 +140,7 @@ Informazioni su come [modificare le impostazioni di diagnostica usando l'API RES
 
 ### <a name="resource-manager-template"></a>Modello di Resource Manager
 
-Informazioni su come [abilitare le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager](../azure-monitor/samples/resource-manager-diagnostic-settings.md). 
+Informazioni su come [abilitare le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager](../azure-monitor/essentials/resource-manager-diagnostic-settings.md). 
 
 ## <a name="manage-your-logs"></a>Gestire i log
 
@@ -208,7 +208,7 @@ window
 | order by TimeGenerated asc 
 ```
 
-Sono disponibili centinaia di query. Per altre informazioni sulle query, vedere [Introduzione alle query di log in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md).
+Sono disponibili centinaia di query. Per altre informazioni sulle query, vedere [Introduzione alle query di log in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md).
 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Abilitare la registrazione tramite PowerShell
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [Registrazione delle risorse di Monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md).
+Per altre informazioni, vedere [Registrazione delle risorse di Monitoraggio di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 Vedere [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.

@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: 733a9af589718e9abe8736491023003744428cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c928d4234e82e7c43c2365e20d57d0b97d4dbc1c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361059"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589001"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Usare Log Analytics per esaminare i log del Web Application Firewall (WAF) del gateway applicazione
 
-Quando il gateway applicazione WAF è operativo, è possibile abilitare i log per controllare cosa accade con ogni richiesta. I log del firewall forniscono informazioni sulle attività di valutazione, corrispondenza e blocco del WAF. Con monitoraggio di Azure Log Analytics, è possibile esaminare i dati all'interno dei log del firewall per fornire informazioni ancora più dettagliate. Per ulteriori informazioni sulla creazione di un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Per altre informazioni sulle query di log, vedere [Panoramica delle query di log in Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+Quando il gateway applicazione WAF è operativo, è possibile abilitare i log per controllare cosa accade con ogni richiesta. I log del firewall forniscono informazioni sulle attività di valutazione, corrispondenza e blocco del WAF. Con monitoraggio di Azure Log Analytics, è possibile esaminare i dati all'interno dei log del firewall per fornire informazioni ancora più dettagliate. Per ulteriori informazioni sulla creazione di un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../azure-monitor/logs/quick-create-workspace.md). Per altre informazioni sulle query di log, vedere [Panoramica delle query di log in Monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importa log WAF
 

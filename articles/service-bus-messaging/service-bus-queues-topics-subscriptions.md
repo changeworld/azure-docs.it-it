@@ -1,14 +1,14 @@
 ---
 title: 'Messaggistica del bus di servizio di Azure: code, argomenti e sottoscrizioni'
 description: Questo articolo fornisce una panoramica delle entità di messaggistica del bus di servizio di Azure (code, argomenti e sottoscrizioni).
-ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.topic: conceptual
+ms.date: 02/16/2021
+ms.openlocfilehash: f647164ba18cb83e35b5bd174f09e07a4a9f9aa7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791598"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652820"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 Il bus di servizio di Azure supporta un set di tecnologie middleware orientate ai messaggi e basate sul cloud, incluso l'accodamento dei messaggi affidabile e la messaggistica di pubblicazione e sottoscrizione permanente. Queste funzionalità di messaggistica negoziata possono essere considerate come funzionalità di messaggistica disaccoppiate che supportano scenari di pubblicazione-sottoscrizione, disaccoppiamento temporale e bilanciamento del carico tramite il carico di lavoro della messaggistica del bus di servizio. La comunicazione disaccoppiata presenta molti vantaggi. Ad esempio, i client e i server possono connettersi in base alle esigenze ed eseguire le operazioni in modo asincrono.
@@ -26,19 +26,16 @@ L'uso di code da interporre tra producer e consumer di messaggi fornisce un acco
 È possibile creare code usando il [portale di Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), l' [interfaccia](service-bus-quickstart-cli.md)della riga di comando o i [modelli gestione risorse](service-bus-resource-manager-namespace-queue.md). Inviare e ricevere messaggi usando i client scritti in [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [php](service-bus-php-how-to-use-queues.md)e [Ruby](service-bus-ruby-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Modalità di ricezione
-È possibile specificare due diverse modalità con cui ricevere i messaggi del bus di servizio: **ReceiveAndDelete** o **PeekLock**. In modalità [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) , quando il bus di servizio riceve la richiesta dal consumer, contrassegna il messaggio come utilizzato e lo restituisce all'applicazione consumer. Questa modalità è il modello più semplice. Funziona meglio per gli scenari in cui l'applicazione può tollerare la mancata elaborazione di un messaggio se si verifica un errore. Per comprendere meglio questo scenario, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, l'applicazione inizia a consumare messaggi al riavvio. Il messaggio utilizzato prima dell'arresto anomalo verrà perso.
+È possibile specificare due modalità diverse in cui il bus di servizio riceve i messaggi.
 
-In modalità [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) , l'operazione Receive diventa a due fasi, che rende possibile il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve la richiesta, esegue le operazioni seguenti:
+- **Receive ed Delete**. In questa modalità, quando il bus di servizio riceve la richiesta dal consumer, contrassegna il messaggio come utilizzato e lo restituisce all'applicazione consumer. Questa modalità è il modello più semplice. Funziona meglio per gli scenari in cui l'applicazione può tollerare la mancata elaborazione di un messaggio se si verifica un errore. Per comprendere meglio questo scenario, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, l'applicazione inizia a consumare messaggi al riavvio. Il messaggio utilizzato prima dell'arresto anomalo verrà perso.
+- **Peek Lock**. In questa modalità, l'operazione Receive diventa in due fasi, che rende possibile il supporto di applicazioni che non possono tollerare messaggi mancanti. 
+    1. Trova il messaggio successivo da utilizzare, lo **blocca** per impedirne la ricezione da parte di altri consumer e quindi restituisce il messaggio all'applicazione. 
+    1. Al termine dell'elaborazione del messaggio, l'applicazione richiede al servizio del bus di servizio di completare la seconda fase del processo di ricezione. Il servizio contrassegna quindi **il messaggio come utilizzato**. 
 
-1. Trova il messaggio successivo da utilizzare.
-1. Lo blocca per impedirne la ricezione da parte di altri consumer.
-1. Quindi, restituire il messaggio all'applicazione. 
+        Se l'applicazione non è in grado di elaborare il messaggio per qualche motivo, può richiedere al servizio del bus di servizio di **abbandonare** il messaggio. Il bus di servizio **Sblocca** il messaggio e lo rende disponibile per essere nuovamente ricevuto, dallo stesso consumer o da un altro consumer concorrente. In secondo luogo, al blocco è associato un **timeout** . Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout di blocco, il bus di servizio Sblocca il messaggio e lo rende disponibile per la ricezione.
 
-Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione completa la seconda fase del processo di ricezione chiamando [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sul messaggio. Quando il bus di servizio riceve la richiesta **CompleteAsync** , contrassegna il messaggio come utilizzato.
-
-Se l'applicazione non è in grado di elaborare il messaggio per qualche motivo, può chiamare il [`AbandonAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) metodo sul messaggio (anziché [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) ). Questo metodo abilita il bus di servizio per sbloccare il messaggio che sarà disponibile per essere nuovamente ricevuto dallo stesso consumer o da un altro consumer concorrente. In secondo luogo, al blocco è associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout di blocco, il bus di servizio Sblocca il messaggio e lo rende disponibile per la ricezione.
-
-Se l'applicazione si arresta in modo anomalo dopo l'elaborazione del messaggio, ma prima che venga chiamato [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) , il bus di servizio riconsegnerà il messaggio all'applicazione al riavvio. Questo processo viene spesso chiamato elaborazione **at-least-once** . Ovvero ogni messaggio viene elaborato almeno una volta. ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera l'elaborazione duplicata, aggiungere logica aggiuntiva nell'applicazione per rilevare i duplicati. È possibile ottenerlo utilizzando la proprietà [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid) del messaggio, che rimane costante in tutti i tentativi di recapito. Questa funzionalità è nota come elaborazione **esatta una sola volta** .
+        Se l'applicazione si arresta in modo anomalo dopo l'elaborazione del messaggio, ma prima che venga richiesto al servizio del bus di servizio di completare il messaggio, il bus di servizio recapita nuovamente il messaggio all'applicazione al riavvio. Questo processo viene spesso chiamato elaborazione **at-least-once** . Ovvero ogni messaggio viene elaborato almeno una volta. ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera l'elaborazione duplicata, aggiungere logica aggiuntiva nell'applicazione per rilevare i duplicati. Per altre informazioni, vedere [Rilevamento duplicati](duplicate-detection.md). Questa funzionalità è nota come elaborazione **esatta una sola volta** .
 
 ## <a name="topics-and-subscriptions"></a>Argomenti e sottoscrizioni
 Una coda consente l'elaborazione di un messaggio da un singolo consumer. Diversamente dalle code, gli argomenti e le sottoscrizioni offrono una forma di comunicazione uno-a-molti in un modello di **pubblicazione e sottoscrizione** . È utile per la scalabilità a un numero elevato di destinatari. Ogni messaggio pubblicato viene reso disponibile per ogni sottoscrizione registrata con l'argomento. Il server di pubblicazione invia un messaggio a un argomento e uno o più Sottoscrittori ricevono una copia del messaggio, a seconda delle regole di filtro impostate per queste sottoscrizioni. Per limitare i messaggi da ricevere, le sottoscrizioni possono usare filtri aggiuntivi. Gli autori inviano messaggi a un argomento nello stesso modo in cui inviano messaggi a una coda. Tuttavia, gli utenti non ricevono messaggi direttamente dall'argomento. I consumer ricevono invece messaggi dalle sottoscrizioni dell'argomento. La sottoscrizione di un argomento è simile a una coda virtuale che riceve copie dei messaggi inviati all'argomento. I consumer ricevono messaggi da una sottoscrizione in modo identico al modo in cui ricevono messaggi da una coda.
@@ -55,7 +52,7 @@ Per un esempio funzionante completo, vedere [TopicSubscriptionWithRuleOperations
 
 Per altre informazioni sui valori di filtro possibili, vedere la documentazione relativa alle classi [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
-## <a name="java-message-service-jms-20-entities-preview"></a>Entità Java Message Service (JMS) 2,0 (anteprima)
+## <a name="java-message-service-jms-20-entities"></a>Entità Java Message Service (JMS) 2,0
 Le entità seguenti sono accessibili tramite l'API di Java Message Service (JMS) 2,0.
 
   * Code temporanee

@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ed9af178c10d033806b05f73372a0642bb28cab4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
-ms.translationtype: HT
+ms.openlocfilehash: 24926640de3b50823dfeaf195500f33b49aebc18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801655"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652718"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Avvio rapido: Inviare messaggi SMS in App per la logica di Azure con Servizi di comunicazione di Azure
 
@@ -39,6 +39,8 @@ Anche se questa guida di avvio rapido illustra come usare il connettore per risp
 
 - Un numero di telefono abilitato per SMS; in alternativa, [ottenere un numero di telefono](./get-phone-number.md).
 
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 ## <a name="add-an-sms-action"></a>Aggiungere un'azione SMS
 
 Per aggiungere l'azione **Invia SMS** come nuovo passaggio del flusso di lavoro usando il connettore SMS di Servizi di comunicazione di Azure, seguire questa procedura nel [portale di Azure](https://portal.azure.com) con il flusso di lavoro dell'app per la logica aperto in Progettazione app per la logica:
@@ -47,7 +49,7 @@ Per aggiungere l'azione **Invia SMS** come nuovo passaggio del flusso di lavoro 
 
 1. Nella casella di ricerca **Scegliere un'operazione** immettere `Azure Communication Services`. Nell'elenco di azioni selezionare **Invia SMS**.
 
-   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Screenshot che mostra Progettazione app per la logica nel portale di Azure, con un esempio di app per la logica che usa l'azione Invia SMS per il connettore di Servizi di comunicazione di Azure.":::
+   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Screenshot che mostra Progettazione app per la logica e il connettore di Servizi di comunicazione di Azure con l'azione Invia SMS selezionata.":::
 
 1. Ora creare una connessione alla risorsa di Servizi di comunicazione.
 
@@ -57,7 +59,7 @@ Per aggiungere l'azione **Invia SMS** come nuovo passaggio del flusso di lavoro 
 
    1. Selezionare **Create** (Crea).
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot che mostra Progettazione app per la logica nel portale di Azure, con un esempio di app per la logica che usa l'azione Invia SMS per il connettore di Servizi di comunicazione di Azure.":::
+   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot che mostra la configurazione dell'azione Invia SMS con le informazioni di esempio.":::
 
 1. Nell'azione **Invia SMS** specificare le informazioni seguenti: 
 
@@ -67,7 +69,7 @@ Per aggiungere l'azione **Invia SMS** come nuovo passaggio del flusso di lavoro 
 
    Ecco un'azione **Invia SMS** con le informazioni di esempio:
 
-   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Screenshot che mostra Progettazione app per la logica nel portale di Azure, con un esempio di app per la logica che usa l'azione Invia SMS per il connettore di Servizi di comunicazione di Azure.":::
+   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Screenshot che mostra l'azione Invia SMS con le informazioni di esempio.":::
 
 1. Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
@@ -93,5 +95,5 @@ In questa guida di avvio rapido si è appreso come inviare messaggi SMS tramite 
 Per altre informazioni sugli SMS in Servizi di comunicazione di Azure, vedere questi articoli:
 
 - [Concetti sugli SMS](../../concepts/telephony-sms/concepts.md)
-- [Pianificare la soluzione di telefonia e SMS](../../concepts/telephony-sms/plan-solution.md)
+- [Tipi di numero di telefono](../../concepts/telephony-sms/plan-solution.md)
 - [SMS SDK](../../concepts/telephony-sms/sdk-features.md)

@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 10d4e99d7bbebb6bc7d7def308e233507ed99ce9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 637f748882b3ac84127c8b71761a06629e1e0957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98166496"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653833"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Gestire il livello di accesso predefinito di un account di archiviazione di Azure
 
-Ogni account di archiviazione di Azure ha un livello di accesso predefinito, ad accesso frequente, sporadico o archivio. Il livello di accesso viene assegnato quando si crea un account di archiviazione. Il livello di accesso predefinito è caldo.
+Ogni account di archiviazione di Azure ha un livello di accesso predefinito, ad accesso frequente o sporadico. Il livello di accesso viene assegnato quando si crea un account di archiviazione. Il livello di accesso predefinito è caldo.
 
 È possibile modificare il livello di account predefinito impostando l'attributo **livello di accesso** nell'account di archiviazione. La modifica del livello dell'account si applica a tutti gli oggetti archiviati nell'account che non dispongono di un set di livelli esplicito. L'attivazione/disattivazione del livello di account da frequente a sporadico comporta operazioni di scrittura (per 10.000) per tutti i BLOB senza un livello di impostazione solo per gli account GPv2 e l'attivazione/disattivazione da sporadico a frequente comporta sia le operazioni di lettura (per 10.000) che i costi di recupero dati (per GB) per tutti i BLOB negli account GPv2
 

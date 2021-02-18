@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202539"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589660"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurare Bring your own Storage (BYOS) per Application Insights Profiler e Snapshot Debugger
 
@@ -21,9 +21,9 @@ Quando si usa Application Insights Profiler o Snapshot Debugger, gli artefatti g
 Con Bring your own storage, questi elementi vengono caricati in un account di archiviazione controllato dall'utente. Ciò significa che è possibile controllare i criteri di crittografia inattivi, i criteri di gestione della durata e l'accesso alla rete. Si sarà tuttavia responsabili dei costi associati a tale account di archiviazione.
 
 > [!NOTE]
-> Se si Abilita il collegamento privato, è necessario disporre di una risorsa di archiviazione personalizzata. Per ulteriori informazioni sul collegamento privato per Application Insights, [vedere la documentazione di.](../platform/private-link-security.md)
+> Se si Abilita il collegamento privato, è necessario disporre di una risorsa di archiviazione personalizzata. Per ulteriori informazioni sul collegamento privato per Application Insights, [vedere la documentazione di.](../logs/private-link-security.md)
 >
-> Se si abilitano le chiavi di Customer-Managed, è necessario portare il proprio spazio di archiviazione. Per ulteriori informazioni sulle chiavi di Customer-Managed per Application Insights, [vedere la documentazione.](../platform/customer-managed-keys.md)
+> Se si abilitano le chiavi di Customer-Managed, è necessario portare il proprio spazio di archiviazione. Per ulteriori informazioni sulle chiavi di Customer-Managed per Application Insights, [vedere la documentazione.](../logs/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Come verrà eseguito l'accesso all'account di archiviazione?
 1. Gli agenti in esecuzione nelle macchine virtuali o nel servizio app caricherà gli artefatti (profili, snapshot e simboli) nei contenitori BLOB nell'account. Questo processo comporta il contatto con il servizio Application Insights Profiler o Snapshot Debugger per ottenere un token di firma di accesso condiviso (SAS) a un nuovo BLOB nell'account di archiviazione.

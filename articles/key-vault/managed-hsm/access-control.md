@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445235"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653901"
 ---
 # <a name="managed-hsm-access-control"></a>Controllo di accesso per il modulo di protezione hardware gestito
 
@@ -63,7 +63,7 @@ La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 | Piano di&nbsp;accesso | Endpoint di accesso | Operazioni | Meccanismo di controllo di accesso |
 | --- | --- | --- | --- |
 | Piano di gestione | **Globale:**<br> management.azure.com:443<br> | Creazione, lettura, aggiornamento, eliminazione e spostamento di HSM gestiti<br>Imposta tag HSM gestiti | Controllo degli accessi in base al ruolo di Azure |
-| Piano dati | **Globale:**<br> &lt;HSM-Name &gt; . Vault.Azure.NET:443<br> | **Chiavi** : decrittografare, crittografare,<br> annullamento del wrapping, wrapping, verifica, firma, recupero, elenco, aggiornamento, creazione, importazione, eliminazione, backup, ripristino, eliminazione<br/><br/> **Gestione dei ruoli del piano dati (RBAC locale del modulo di protezione hardware gestito)**_: elencare le definizioni di ruolo, assegnare ruoli, <br/> <br/> eliminare le assegnazioni di ruolo, definire ruoli personalizzati_ * backup/ripristino **: <br/> <br/> backup, ripristino, controllo dello stato backup/ripristino operazioni** sicurezza dominio * *: scaricare e caricare il dominio di sicurezza | RBAC locale HSM gestito |
+| Piano dati | **Globale:**<br> &lt;HSM-Name &gt; . managedhsm.Azure.NET:443<br> | **Chiavi**: decrittografare, crittografare,<br> annullamento del wrapping, wrapping, verifica, firma, recupero, elenco, aggiornamento, creazione, importazione, eliminazione, backup, ripristino, eliminazione<br/><br/> **Gestione dei ruoli del piano dati (RBAC locale del modulo di protezione hardware gestito)**_: elencare le definizioni di ruolo, assegnare ruoli, <br/> <br/> eliminare le assegnazioni di ruolo, definire ruoli personalizzati_* backup/ripristino **: <br/> <br/> backup, ripristino, controllo dello stato backup/ripristino operazioni** sicurezza dominio * *: scaricare e caricare il dominio di sicurezza | RBAC locale HSM gestito |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Piano di gestione e RBAC di Azure
 
@@ -71,10 +71,10 @@ Nel piano di gestione usare il controllo degli accessi in base al ruolo di Azure
 
 Si crea un insieme di credenziali delle chiavi in un gruppo di risorse e si gestisce l'accesso usando Azure Active Directory. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. Si concede l'accesso a un livello di ambito specifico assegnando i ruoli di Azure appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
 
-- **Gruppo di gestione** : un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutte le sottoscrizioni del gruppo di gestione.
-- **Sottoscrizione** : un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
-- **Gruppo di risorse** : un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
-- **Risorsa specifica** : un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
+- **Gruppo di gestione**: un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutte le sottoscrizioni del gruppo di gestione.
+- **Sottoscrizione**: un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
+- **Gruppo di risorse**: un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
+- **Risorsa specifica**: un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
 
 Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere controllo degli accessi [in base al ruolo di Azure: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
 
@@ -82,8 +82,8 @@ Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le speci
 
 Si concede a un'entità di sicurezza l'accesso per eseguire operazioni chiave specifiche assegnando un ruolo. Per ogni assegnazione di ruolo è necessario specificare un ruolo e un ambito a cui si applica tale assegnazione. Per il modulo di protezione hardware gestito locale sono disponibili due ambiti.
 
-- **"/" o "/Keys"** : ambito del livello HSM. Le entità di sicurezza a cui è stato assegnato un ruolo in questo ambito possono eseguire le operazioni definite nel ruolo per tutti gli oggetti (chiavi) nel modulo di protezione hardware gestito.
-- **"/Keys/ &lt; key-name &gt; "** : ambito a livello di chiave. Le entità di sicurezza a cui è stato assegnato un ruolo in questo ambito possono eseguire le operazioni definite in questo ruolo solo per tutte le versioni della chiave specificata.
+- **"/" o "/Keys"**: ambito del livello HSM. Le entità di sicurezza a cui è stato assegnato un ruolo in questo ambito possono eseguire le operazioni definite nel ruolo per tutti gli oggetti (chiavi) nel modulo di protezione hardware gestito.
+- **"/Keys/ &lt; key-name &gt; "**: ambito a livello di chiave. Le entità di sicurezza a cui è stato assegnato un ruolo in questo ambito possono eseguire le operazioni definite in questo ruolo solo per tutte le versioni della chiave specificata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

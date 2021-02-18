@@ -8,18 +8,18 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a723023bf8614b837ba9783bae987403921c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157688"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585489"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Raggruppare più azioni da eseguire da una o più regole
 
 *Questo articolo si applica ai generatori e agli amministratori.*
 
-In IoT Central di Azure è possibile creare regole per eseguire azioni quando viene soddisfatta una condizione. Le regole sono basate sui dati di telemetria del dispositivo o sugli eventi. Ad esempio, è possibile inviare una notifica a un operatore quando la temperatura di un dispositivo supera una soglia. Questo articolo descrive come usare i [Azure Monitor](../../azure-monitor/overview.md) *gruppi di azioni* di monitoraggio di Azure per alleghi più azioni a una regola di IOT Central. È possibile aggiungere un gruppo di azioni a più regole. Un [gruppo di azioni](../../azure-monitor/platform/action-groups.md) è una raccolta di preferenze di notifica definite dal proprietario di una sottoscrizione di Azure.
+In IoT Central di Azure è possibile creare regole per eseguire azioni quando viene soddisfatta una condizione. Le regole sono basate sui dati di telemetria del dispositivo o sugli eventi. Ad esempio, è possibile inviare una notifica a un operatore quando la temperatura di un dispositivo supera una soglia. Questo articolo descrive come usare i [](../../azure-monitor/overview.md) *gruppi di azioni* di monitoraggio di Azure per alleghi più azioni a una regola di IOT Central. È possibile aggiungere un gruppo di azioni a più regole. Un [gruppo di azioni](../../azure-monitor/alerts/action-groups.md) è una raccolta di preferenze di notifica definite dal proprietario di una sottoscrizione di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ In IoT Central di Azure è possibile creare regole per eseguire azioni quando vi
 
 ## <a name="create-action-groups"></a>Creare gruppi di azioni
 
-È possibile [creare e gestire gruppi di azioni nella portale di Azure](../../azure-monitor/platform/action-groups.md) o con un [modello di Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+È possibile [creare e gestire gruppi di azioni nella portale di Azure](../../azure-monitor/alerts/action-groups.md) o con un [modello di Azure Resource Manager](../../azure-monitor/alerts/action-groups-create-resource-manager-template.md).
 
 Un gruppo di azioni può:
 
@@ -59,7 +59,7 @@ Nella tabella seguente sono riepilogate le informazioni inviate ai tipi di azion
 
 | Tipo di azione | Formato di output |
 | ----------- | -------------- |
-| Posta elettronica       | Modello di posta elettronica standard IoT Central |
+| E-mail       | Modello di posta elettronica standard IoT Central |
 | SMS         | Avviso IoT Central di Azure: $ {ApplicationName}-"$ {RuleName}" attivata in "$ {DeviceName}" in $ {triggerDate} $ {triggerTime} |
 | Chiamata vocale       | Avviso centrale Azure I. O. T: regola "$ {RuleName}" attivata sul dispositivo "$ {DeviceName}" in $ {triggerDate} $ {triggerTime}, nell'applicazione $ {applicationName} |
 | webhook     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[payload del webhook normale](howto-create-webhooks.md#payload)}} |

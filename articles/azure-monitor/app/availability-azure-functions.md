@@ -3,12 +3,12 @@ title: Creare ed eseguire test di disponibilità personalizzati con funzioni di 
 description: Questo documento illustra come creare una funzione di Azure con TrackAvailability () che verrà eseguito periodicamente in base alla configurazione specificata nella funzione TimerTrigger. I risultati di questo test verranno inviati alla risorsa Application Insights, in cui sarà possibile eseguire una query e inviare un avviso sui dati dei risultati di disponibilità. I test personalizzati consentiranno di scrivere test di disponibilità più complessi rispetto a quanto possibile tramite l'interfaccia utente del portale, monitorare un'app all'interno della VNET di Azure, modificare l'indirizzo dell'endpoint o creare un test di disponibilità se non è disponibile nella propria area.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945652"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589934"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 
@@ -175,7 +175,7 @@ Se è stato eseguito tutto come è (senza aggiungere la logica di business), si 
 
 ## <a name="query-in-logs-analytics"></a>Eseguire query nei log (analisi)
 
-È possibile usare i log (Analytics) per visualizzare i risultati della disponibilità, le dipendenze e altro ancora. Per altre informazioni sui log, vedere [Cenni preliminari sulle query di log](../log-query/log-query-overview.md).
+È possibile usare i log (Analytics) per visualizzare i risultati della disponibilità, le dipendenze e altro ancora. Per altre informazioni sui log, vedere [Cenni preliminari sulle query di log](../logs/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Risultati della disponibilità](media/availability-azure-functions/availabilityresults.png)

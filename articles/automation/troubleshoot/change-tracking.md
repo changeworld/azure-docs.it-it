@@ -3,18 +3,63 @@ title: Risolvere i problemi di Rilevamento modifiche e inventario di Automazione
 description: Questo articolo mostra come risolvere i problemi relativi alla funzionalità di Rilevamento modifiche e inventario di Automazione di Azure.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/31/2019
+ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9fe53a343a9f6675519b60d37d077886adaf8a9d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896546"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651162"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Risolvere i problemi relativi a Rilevamento modifiche e Inventario
 
 Questo articolo descrive come risolvere i problemi relativi a Rilevamento modifiche e inventario di Automazione di Azure. Per informazioni generali su Rilevamento modifiche e inventario, vedere [Panoramica di rilevamento modifiche e inventario](../change-tracking/overview.md).
+
+## <a name="general-errors"></a>Errori generali
+
+### <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Scenario: il computer è già registrato per un altro account
+
+### <a name="issue"></a>Problema
+
+Viene visualizzato il messaggio di errore seguente:
+
+```error
+Unable to Register Machine for Change Tracking, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+### <a name="cause"></a>Causa
+
+Il computer è già stato distribuito in un'altra area di lavoro per Rilevamento modifiche.
+
+### <a name="resolution"></a>Soluzione
+
+1. Controllare che il computer invii report all'area di lavoro corretta. Per istruzioni su come verificare questo problema, vedere [verificare la connettività dell'agente a monitoraggio di Azure](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Assicurarsi anche che l'area di lavoro sia collegata all'account di Automazione di Azure. Per confermare, passare all'account di Automazione e selezionare **Area di lavoro collegata** in **Risorse correlate**.
+
+1. Assicurarsi che i computer siano visualizzati nell'area di lavoro Log Analytics collegata all'account di Automazione. Eseguire la query seguente nell'area di lavoro Log Analytics.
+
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
+
+   Se il computer non viene visualizzato nei risultati della query, non è stato archiviato di recente. Probabilmente si è verificato un problema di configurazione locale. Reinstallare l'agente di Log Analytics.
+
+   Se il computer è elencato nei risultati della query, verificare nella proprietà Solutions che **rilevamento modifiche** sia elencato. Questo verifica che sia registrato con Rilevamento modifiche e l'inventario. In caso contrario, verificare la presenza di problemi di configurazione dell'ambito. La configurazione dell'ambito determina quali computer sono configurati per Rilevamento modifiche e l'inventario. Per configurare la configurazione dell'ambito per il computer di destinazione, vedere [abilitare rilevamento modifiche e inventario da un account di automazione](../change-tracking/enable-from-automation-account.md).
+
+   Eseguire la query nell'area di lavoro.
+
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
+
+1. Se si ottiene il risultato ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota```, vuol dire che è stata raggiunta la quota definita nell'area di lavoro, interrompendo il salvataggio dei dati. Nell'area di lavoro passare a **utilizzo e costi stimati**. Selezionare un nuovo piano **tariffario** che consente di usare più dati oppure fare clic su **limite giornaliero** e rimuovere il limite.
+
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="Utilizzo e costi stimati." lightbox="./media/change-tracking/change-tracking-usage.png":::
+
+Se il problema persiste, seguire i passaggi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows. Per Linux, seguire la procedura descritta in  [distribuire un ruolo di lavoro ibrido per Runbook di Linux](../automation-linux-hrw-install.md).
 
 ## <a name="windows"></a>Windows
 
@@ -96,11 +141,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario reinstallare l'agente. Per informazioni sull'installazione e la configurazione, vedere [Raccogliere dati di log con l'agente di Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
+Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario reinstallare l'agente. Per informazioni sull'installazione e la configurazione, vedere [Raccogliere dati di log con l'agente di Log Analytics](../../azure-monitor/agents/log-analytics-agent.md).
 
 Se il computer viene visualizzato nei risultati della query, verificare la configurazione dell'ambito. Vedere [Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure](../../azure-monitor/insights/solution-targeting.md).
 
-Per altre informazioni sulla risoluzione di questo problema, vedere [Problema: I dati di Linux non vengono visualizzati](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
+Per altre informazioni sulla risoluzione di questo problema, vedere [Problema: I dati di Linux non vengono visualizzati](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Agente di Log Analytics per Linux non configurato correttamente
 
@@ -112,8 +157,8 @@ La funzionalità FIM del Centro sicurezza di Azure potrebbe convalidare erroneam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere maggiore assistenza:
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottenere risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/).
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto di Azure mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto di Azure consente di entrare in contatto con la community di Azure e quindi di ottenere risposte, assistenza e consulenza.
 * Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Supporto tecnico**.

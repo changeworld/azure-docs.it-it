@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fc8e30274f0a11b7ddfc5eeb184f1a45a5351d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076142"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588368"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
 > [!div class="op_single_selector"]
@@ -346,7 +346,7 @@ Nel modello di Resource Manager, in "WadCfg" aggiungere un "Sink" apportando le 
 
 In entrambi i frammenti di codice precedenti il nome "applicationInsights" è stato usato per descrivere il sink. Questo non è un requisito e fino a quando il nome del sink è incluso in "sink", è possibile impostare il nome per qualsiasi stringa.
 
-Attualmente, i log del cluster vengono mostrati come **tracce** nel visualizzatore di log di Application Insights. Poiché la maggior parte delle tracce provenienti dalla piattaforma è di livello "informativo", è anche possibile modificare la configurazione del sink per inviare solo i log di tipo "Warning" o "Error". Questa operazione può essere eseguita aggiungendo i "Canali" al sink, come illustrato in [questo articolo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Attualmente, i log del cluster vengono mostrati come **tracce** nel visualizzatore di log di Application Insights. Poiché la maggior parte delle tracce provenienti dalla piattaforma è di livello "informativo", è anche possibile modificare la configurazione del sink per inviare solo i log di tipo "Warning" o "Error". Questa operazione può essere eseguita aggiungendo i "Canali" al sink, come illustrato in [questo articolo](../azure-monitor/agents/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Se si usa una chiave di Application Insights errata nel portale o nel modello di Resource Manager è necessario modificare la chiave e aggiornare il cluster o ridistribuirlo manualmente.

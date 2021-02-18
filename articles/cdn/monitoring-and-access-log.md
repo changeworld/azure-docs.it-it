@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 43f53d1098e08a0f913e3baec2c6aaf3d65054d0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501562"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575457"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Monitoraggio in tempo reale, metriche e log di accesso per la rete CDN di Azure
 Con la rete CDN di Azure di Microsoft, è possibile monitorare le risorse nei modi seguenti per risolvere i problemi, rilevare ed eseguire il debug dei problemi. 
@@ -215,7 +215,7 @@ Le metriche vengono visualizzate in grafici e accessibili tramite PowerShell, l'
 
 La rete CDN di Azure di Microsoft misura e invia le metriche in intervalli di 60 secondi. Le metriche possono richiedere fino a 3 minuti per essere visualizzate nel portale. 
 
-Per altre informazioni, vedere [metriche di monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
+Per altre informazioni, vedere [metriche di monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Metriche supportate dalla rete CDN di Azure di Microsoft**
 
@@ -226,7 +226,7 @@ Per altre informazioni, vedere [metriche di monitoraggio di Azure](../azure-moni
 | ResponseSize | Numero di byte inviati come risposte dal perimetro della rete CDN ai client. |Endpoint </br> Paese del client. </br> Area client. </br> Stato HTTP. </br> Gruppo di stato HTTP. |
 | TotalLatency | Tempo totale dalla richiesta client ricevuta dalla rete CDN **fino all'invio dell'ultimo byte di risposta dalla rete CDN al client**. |Endpoint </br> Paese del client. </br> Area client. </br> Stato HTTP. </br> Gruppo di stato HTTP. |
 
-**_Byte raggiunti razione = (in uscita da Edge-uscita dall'origine)/egress da Edge_*
+***Byte raggiunti razione = (in uscita da Edge-uscita dall'origine)/egress da Edge**
 
 Scenari esclusi dal calcolo della percentuale di riscontri in byte:
 
@@ -259,13 +259,13 @@ Scenari esclusi dal calcolo della percentuale di riscontri in byte:
 
 ### <a name="alerts"></a>Avvisi
 
-È possibile configurare gli avvisi sulla rete CDN Microsoft selezionando avvisi di **monitoraggio**  >>  **Alerts**.
+È possibile configurare gli avvisi sulla rete CDN Microsoft selezionando avvisi di **monitoraggio**  >>  .
 
 Selezionare **nuova regola di avviso** per le metriche elencate nella sezione metrica:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configurare gli avvisi per l'endpoint della rete CDN." border="true":::
 
-L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazioni sugli avvisi, vedere [avvisi di monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md).
+L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazioni sugli avvisi, vedere [avvisi di monitoraggio di Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Metriche aggiuntive
 È possibile abilitare metriche aggiuntive usando Log Analytics di Azure e i log non elaborati per un costo aggiuntivo.
@@ -299,4 +299,4 @@ Per altre informazioni sulla rete CDN di Azure e sugli altri servizi di Azure me
 
 * Altre informazioni su [Monitoraggio di Azure](../azure-monitor/overview.md).
 
-* Configurare [Log Analytics in Monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configurare [Log Analytics in Monitoraggio di Azure](../azure-monitor/logs/log-analytics-tutorial.md).

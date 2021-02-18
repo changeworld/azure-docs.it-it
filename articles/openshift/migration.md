@@ -3,16 +3,16 @@ title: Eseguire la migrazione da Azure Red Hat OpenShift 3.11 ad Azure Red Hat O
 description: Eseguire la migrazione da Azure Red Hat OpenShift 3.11 ad Azure Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migrazione, Aro, OpenShift, Red Hat
-ms.openlocfilehash: f9bfc924581d5dbe33c7c2683a0f6083cb2abc23
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 371672de83a6d745d7b367f8327a64e11059923e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071036"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653279"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Eseguire la migrazione da Azure Red Hat OpenShift 3,11 ad Azure Red Hat OpenShift 4
 
@@ -100,13 +100,13 @@ Per informazioni sulla configurazione di questi tipi di archiviazione, vedere [c
 
 Azure Red Hat OpenShift 4 può creare immagini dal codice sorgente, distribuirle e gestirne il ciclo di vita. Per abilitare questa funzionalità, Azure Red Hat OpenShift fornisce 4 un [registro interno integrato di immagini del contenitore](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) che può essere distribuito nell'ambiente Azure Red Hat OpenShift per gestire le immagini in locale.
 
-Se si usano registri esterni come [Azure container Registry](../container-registry/index.yml), [registri Red Hat Quay](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options)o un [Registro Red Hat abilitato](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)per l'autenticazione, seguire la procedura per fornire le credenziali al cluster per consentire al cluster di accedere ai repository.
+Se si usano registri esterni come [Azure container Registry](../container-registry/index.yml), [registri Red Hat Quay](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options)o un [Registro Red Hat abilitato](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)per l'autenticazione, seguire la procedura per fornire le credenziali al cluster per consentire al cluster di accedere ai repository.
 
 ### <a name="monitoring"></a>Monitoraggio
 
 Azure Red Hat OpenShift include uno stack di monitoraggio preconfigurato, pre-installato e con aggiornamento automatico basato sul progetto Prometheus open source e sul rispettivo eco-sistema più ampio. Fornisce il monitoraggio dei componenti cluster e include un set di avvisi per notificare immediatamente all'amministratore del cluster eventuali problemi che si verificano e un set di dashboard Grafana. Lo stack di monitoraggio del cluster è supportato solo per il monitoraggio dei cluster OpenShift di Azure Red Hat. Per altre informazioni, vedere [monitoraggio del cluster per Azure Red Hat OpenShift](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html).
 
-Se si usa [monitoraggio di Azure per i contenitori per Azure Red Hat OpenShift 3,11](../azure-monitor/insights/container-insights-azure-redhat-setup.md), è anche possibile abilitare monitoraggio di Azure per i contenitori per i [cluster di Azure Red Hat OpenShift 4](../azure-monitor/insights/container-insights-azure-redhat4-setup.md) e continuare a usare la stessa area di lavoro log Analytics.
+Se si usa [monitoraggio di Azure per i contenitori per Azure Red Hat OpenShift 3,11](../azure-monitor/containers/container-insights-azure-redhat-setup.md), è anche possibile abilitare monitoraggio di Azure per i contenitori per i [cluster di Azure Red Hat OpenShift 4](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) e continuare a usare la stessa area di lavoro log Analytics.
 
 ## <a name="move-your-dns-or-load-balancer-configuration-to-the-new-cluster"></a>Spostare il DNS o la configurazione del servizio di bilanciamento del carico nel nuovo cluster
 

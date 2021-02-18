@@ -2,13 +2,13 @@
 title: Panoramica di AMQP 1,0 nel bus di servizio di Azure
 description: Informazioni su come il bus di servizio di Azure supporta Advance Message Queueing Protocol (AMQP), un protocollo standard aperto.
 ms.topic: article
-ms.date: 11/20/2020
-ms.openlocfilehash: 58c2cc8e9d92fff31a286b6e9bd63b63bee26aee
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 02/17/2021
+ms.openlocfilehash: b2ca126312f5fc3da2a7ff6e20a9ade252f489f1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632885"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653884"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
 Il servizio cloud del bus di servizio di Azure usa il [protocollo AMQP (Advanced Message Queueing Protocol) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) come mezzo di comunicazione principale. Microsoft è stata impegnata con i partner di tutto il settore, sia per i clienti che per i fornitori di broker di messaggistica in competizione, per sviluppare e sviluppare AMQP negli ultimi decenni, con nuove estensioni sviluppate nel [Comitato tecnico AMQP di Oasis](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 è uno standard ISO e IEC ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -84,9 +84,8 @@ Per altre informazioni, vedere i collegamenti seguenti:
 
 * [Uso del bus di servizio da .NET con AMQP]
 * [Uso del bus di servizio da Java con AMQP]
-* [Installazione di Apache Qpid Proton-C in una macchina virtuale Linux di Azure]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Uso del bus di servizio da .NET con AMQP]: service-bus-amqp-dotnet.md
 [Uso del bus di servizio da Java con AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Installazione di Apache Qpid Proton-C in una VM Linux di Azure]::
+
