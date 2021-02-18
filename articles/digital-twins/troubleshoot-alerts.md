@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 461d7a82854ce62ee99eef1227c13c7a8f0371e2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616603"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594861"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Risoluzione dei problemi di Azure Digital gemelli: avvisi
 
 I dispositivi gemelli digitali di Azure raccolgono le [metriche](troubleshoot-metrics.md) per l'istanza del servizio che forniscono informazioni sullo stato delle risorse. È possibile usare queste metriche per valutare l'integrità complessiva del servizio dispositivi gemelli digitali di Azure e le risorse connesse.
 
-Gli **avvisi** inviano notifiche in modo proattivo quando si trovano importanti condizioni nei dati di metrica. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. Per ulteriori informazioni sugli avvisi, vedere [*Panoramica degli avvisi in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+Gli **avvisi** inviano notifiche in modo proattivo quando si trovano importanti condizioni nei dati di metrica. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. Per ulteriori informazioni sugli avvisi, vedere [*Panoramica degli avvisi in Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="turn-on-alerts"></a>Attiva avvisi
 
@@ -38,7 +38,7 @@ Di seguito viene illustrato come abilitare gli avvisi per l'istanza di Azure Dig
 
 :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot che mostra la pagina creare una regola di avviso con le sezioni relative ai dettagli dell'ambito, della condizione, del gruppo di azioni e della regola di avviso" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
-Per una procedura dettagliata relativa alla compilazione di questi campi, vedere [*Panoramica degli avvisi in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Di seguito sono riportati alcuni esempi di come appariranno i passaggi per i dispositivi gemelli digitali di Azure.
+Per una procedura dettagliata relativa alla compilazione di questi campi, vedere [*Panoramica degli avvisi in Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md). Di seguito sono riportati alcuni esempi di come appariranno i passaggi per i dispositivi gemelli digitali di Azure.
 
 ### <a name="select-conditions"></a>Seleziona condizioni
 
@@ -58,6 +58,6 @@ Dopo aver configurato gli avvisi, questi verranno visualizzati nella pagina degl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sugli avvisi con monitoraggio di Azure, vedere [*Panoramica degli avvisi in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+* Per ulteriori informazioni sugli avvisi con monitoraggio di Azure, vedere [*Panoramica degli avvisi in Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 * Per informazioni sulle metriche dei dispositivi gemelli digitali di Azure, vedere [*risoluzione dei problemi: visualizzare le metriche con monitoraggio di Azure*](troubleshoot-metrics.md).
 * Per informazioni su come abilitare la registrazione diagnostica per le metriche, vedere [*risoluzione dei problemi: configurare la diagnostica*](troubleshoot-diagnostics.md).

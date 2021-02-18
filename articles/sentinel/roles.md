@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f9b50c831b435a6189a9b9e4d79a934a2661b033
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498470"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570405"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Azure Sentinel
 
@@ -91,7 +91,7 @@ La tabella seguente riepiloga i ruoli e le azioni consentite in Azure Sentinel.
 
 - Oltre a, o invece di usare i ruoli predefiniti di Azure, è possibile creare ruoli personalizzati di Azure per Sentinel di Azure. I ruoli personalizzati di Azure per Sentinel di Azure vengono creati nello stesso modo in cui si creano altri [ruoli personalizzati di Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), in base a [autorizzazioni specifiche per Sentinel di Azure](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e ad [Azure log Analytics risorse](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- È possibile usare il controllo degli accessi in base al ruolo di Azure Log Analytics nei dati nell'area di lavoro di Azure Sentinel. Sono inclusi sia il controllo degli accessi in base al tipo di dati che il controllo delle risorse di Azure. Per altre informazioni sui ruoli di Log Analytics, vedere [gestire i dati di log e le aree di lavoro in monitoraggio di Azure](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- È possibile usare il controllo degli accessi in base al ruolo di Azure Log Analytics nei dati nell'area di lavoro di Azure Sentinel. Sono inclusi sia il Controllo degli accessi in base ruolo relativo al tipo di dati che quello incentrato sulle risorse. Per altre informazioni sui ruoli di Log Analytics, vedere [Gestire i dati di log e le aree di lavoro in Monitoraggio di Azure](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

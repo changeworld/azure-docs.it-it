@@ -2,13 +2,13 @@
 title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica generale del bus di servizio di Azure, un broker di messaggi completamente gestito per l'integrazione aziendale.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219163"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570474"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 Il bus di servizio di Microsoft Azure è un broker di messaggi aziendale completamente gestito, con code di messaggi e argomenti di pubblicazione-sottoscrizione. Il bus di servizio viene usato per disaccoppiare le applicazioni dai servizi, offrendo i vantaggi seguenti:
@@ -118,11 +118,10 @@ La creazione di batch sul lato client consente a un client di coda o di sottoscr
 Una transazione raggruppa due o più operazioni in un *ambito di esecuzione*. Il bus di servizio consente di raggruppare le operazioni rispetto a più entità di messaggistica all'interno dell'ambito di una singola transazione. Un'entità di messaggistica può essere una coda, un argomento o una sottoscrizione. Per altre informazioni, vedere [Panoramica dell'elaborazione delle transazioni del bus di servizio](service-bus-transactions.md).
 
 ### <a name="autodelete-on-idle"></a>Eliminazione automatica in caso di inattività
-
-L'eliminazione automatica in caso di inattività consente di specificare un intervallo di inattività trascorso il quale una coda o una sottoscrizione viene automaticamente eliminata. La durata minima è 5 minuti. Per altre informazioni, vedere [Proprietà QueueDescription.AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+L'eliminazione automatica in caso di inattività consente di specificare un intervallo di inattività trascorso il quale una coda o una sottoscrizione viene automaticamente eliminata. La durata minima è 5 minuti. 
 
 ### <a name="duplicate-detection"></a>Rilevamento duplicati
-La funzionalità di rilevamento duplicati consente al mittente di rinviare di nuovo lo stesso messaggio e al broker di rimuovere un possibile duplicato. Il rilevamento duplicati si basa sul monitoraggio della proprietà `message-id` di un messaggio, per cui l'applicazione deve assicurarsi di usare lo stesso valore quando rinvia il messaggio, che potrebbe derivare direttamente da un contesto specifico dell'applicazione. Per altre informazioni, vedere [Rilevamento duplicati](duplicate-detection.md).
+La funzionalità di rilevamento duplicati consente al mittente di rinviare di nuovo lo stesso messaggio e al broker di rimuovere un possibile duplicato. Per altre informazioni, vedere [Rilevamento duplicati](duplicate-detection.md).
 
 ### <a name="geo-disaster-recovery"></a>Ripristino di emergenza geografico
 

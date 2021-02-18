@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526671"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594167"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurare le metriche e i log locali per il gateway self-hosted di gestione API di Azure
 
@@ -204,7 +204,7 @@ Il gateway self-hosted restituisce i log a `stdout` e `stderr` per impostazione 
 kubectl logs <pod-name>
 ```
 
-Se il gateway self-hosted viene distribuito nel servizio Azure Kubernetes, è possibile abilitare [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md) per la raccolta `stdout` e `stderr` i carichi di lavoro e per visualizzare i log in log Analytics. 
+Se il gateway self-hosted viene distribuito nel servizio Azure Kubernetes, è possibile abilitare [monitoraggio di Azure per i contenitori](../azure-monitor/containers/container-insights-overview.md) per la raccolta `stdout` e `stderr` i carichi di lavoro e per visualizzare i log in log Analytics. 
 
 Il gateway self-hosted supporta inoltre diversi protocolli, tra cui `localsyslog` , `rfc5424` e `journal` . Nella tabella seguente sono riepilogate tutte le opzioni supportate. 
 

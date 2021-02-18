@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590648"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576686"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione code di Azure
 
@@ -36,7 +36,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 #### <a name="queue-storage-metrics"></a>Metriche di archiviazione di Accodamento
 
-Questa tabella mostra le [metriche di archiviazione delle code](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
+Questa tabella mostra le [metriche di archiviazione delle code](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
@@ -77,7 +77,7 @@ La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione 
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - Per una descrizione del monitoraggio dell'archiviazione code di Azure, vedere [monitoraggio dell'archiviazione code di Azure](monitor-queue-storage.md) .
-- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md).
+- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/essentials/monitor-azure-resource.md).

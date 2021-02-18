@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546752"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583736"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -62,7 +62,7 @@ Controllare la configurazione degli avvisi classici per verificare se l'indirizz
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Non si è ricevuto la notifica webhook?
 
-Verificare che l'applicazione che riceve la notifica webhook sia disponibile e che riesca a elaborare le richieste di un webhook. Per altre informazioni, vedere [qui](../platform/alerts-log-webhook.md).
+Verificare che l'applicazione che riceve la notifica webhook sia disponibile e che riesca a elaborare le richieste di un webhook. Per altre informazioni, vedere [qui](../alerts/alerts-log-webhook.md).
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Si ricevono 403 errori non consentiti, che cosa significa?
 
@@ -113,7 +113,7 @@ Non supportato attualmente.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
 
-Questa sezione si applica solo agli avvisi classici e aiuterà a ottimizzare le notifiche di avviso assicurando che siano ricevute solo dai destinatari desiderati. Per capire meglio la differenza tra gli [avvisi classici](../platform/alerts-classic.overview.md) e la nuova esperienza di avviso fare riferimento all'[articolo Panoramica avvisi](../platform/alerts-overview.md). Per controllare la notifica di avviso nella nuova esperienza di avviso usare i [gruppi di azioni](../platform/action-groups.md).
+Questa sezione si applica solo agli avvisi classici e aiuterà a ottimizzare le notifiche di avviso assicurando che siano ricevute solo dai destinatari desiderati. Per capire meglio la differenza tra gli [avvisi classici](../alerts/alerts-classic.overview.md) e la nuova esperienza di avviso fare riferimento all'[articolo Panoramica avvisi](../alerts/alerts-overview.md). Per controllare la notifica di avviso nella nuova esperienza di avviso usare i [gruppi di azioni](../alerts/action-groups.md).
 
 * Consigliamo di usare destinatari specifici per le notifiche di avviso classiche.
 
@@ -124,7 +124,7 @@ Questa sezione si applica solo agli avvisi classici e aiuterà a ottimizzare le 
 > [!NOTE]
 > Se attualmente si usa l'opzione **in blocco/gruppo** della casella di controllo e la si disabilita, sarà impossibile annullare le modifiche.
 
-Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera inviare notifiche agli utenti in base ai ruoli. Con [gruppi di azioni](../platform/action-groups.md), è possibile configurare notifiche tramite posta elettronica agli utenti con ruolo proprietario, collaboratore o lettore (non combinati insieme come una singola opzione).
+Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera inviare notifiche agli utenti in base ai ruoli. Con [gruppi di azioni](../alerts/action-groups.md), è possibile configurare notifiche tramite posta elettronica agli utenti con ruolo proprietario, collaboratore o lettore (non combinati insieme come una singola opzione).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Visualizzare le metriche di griglia di eventi di Azure e impostare gli av
 description: Questo articolo descrive come usare la portale di Azure per visualizzare le metriche per gli argomenti e le sottoscrizioni di griglia di eventi di Azure e creare avvisi su di essi.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008957"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577403"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
 Questo articolo descrive come usare il portale per visualizzare le metriche per gli argomenti e le sottoscrizioni di griglia di eventi e per creare avvisi su di essi. 
@@ -52,7 +52,7 @@ Se è stato pubblicato un argomento personalizzato, è possibile visualizzare le
 
 :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Argomento-pagina metrica":::
 
-Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md)
+Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md)
 
 Vedere, ad esempio, il grafico delle metriche per la metrica **eventi pubblicati** .
 
@@ -63,7 +63,7 @@ Vedere, ad esempio, il grafico delle metriche per la metrica **eventi pubblicati
 1. Passare alla pagina dell' **argomento griglia di eventi** attenendosi alla procedura descritta nella sezione precedente. 
 2. Selezionare la sottoscrizione nel riquadro inferiore, come illustrato nell'esempio seguente. 
 
-    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Selezionare la sottoscrizione di eventi":::    
+    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Seleziona sottoscrizione evento":::    
 
     È anche possibile cercare le **sottoscrizioni di griglia di eventi** nella barra di ricerca del portale di Azure, selezionare **tipo di argomento**, **sottoscrizione** e **località** per visualizzare una sottoscrizione di eventi. 
 
@@ -91,7 +91,7 @@ Vedere, ad esempio, il grafico delle metriche per la metrica **eventi pubblicati
 
 :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Argomento sistema-pagina metrica":::
 
-Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md)
+Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862e8f07e321975ec5b673cfe5c86de85c9d160b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2947faa8c7b56fdbe4cf549529b63d506b810750
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202301"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570863"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Baseline della sicurezza di Azure per l'hub Azure
 
@@ -148,9 +148,9 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate all'hub Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -185,9 +185,9 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 - [Configurare i log dell'hub Azure](monitor-iot-hub-reference.md#resource-logs)
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -205,7 +205,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dei log per le aree di lavoro log Analytics associate alle istanze dell'hub Azure Internet in base alle normative di conformità dell'organizzazione.
 
-- [Come impostare i parametri di conservazione dei log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -220,9 +220,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 - [Monitorare l'integrità di Azure](monitor-iot-hub.md)
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introduzione alle query di Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
    
-- [ Come eseguire query personalizzate in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
+- [ Come eseguire query personalizzate in monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -236,7 +236,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 - [Centro sicurezza di Azure per gli avvisi](../defender-for-iot/concept-security-alerts.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -527,7 +527,7 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione dell'hub Azure e ad altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 

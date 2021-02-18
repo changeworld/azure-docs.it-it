@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cdad5a0ec158f216a63ae7e1e2abc10d2841b3bc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131781"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593731"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Avvio rapido: Introduzione ad Application Insights in un progetto Web Java
 
@@ -168,7 +168,7 @@ Fare clic su un tipo di richiesta specifico per visualizzare le singole istanze.
 ![Esaminare una visualizzazione di esempio specifica](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics: linguaggio di query avanzato
-Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole.  [Analisi](../log-query/log-query-overview.md) è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
+Quando si accumulano molti dati, è possibile eseguire query per aggregare i dati e per individuare istanze singole.  [Analisi](../logs/log-query-overview.md) è uno strumento avanzato per ottenere informazioni sulle prestazioni e sull'utilizzo e ai fini della diagnostica.
 
 ![Esempio di Analytics](./media/java-get-started/0025.png)
 
@@ -292,7 +292,7 @@ Application Insights può testare il sito Web a intervalli regolari per verifica
 * [Monitorare contatori delle prestazioni Unix](java-collectd.md)
 * Aggiungere il [monitoraggio alle pagine Web](javascript.md) per monitorare i tempi di caricamento delle pagine, le chiamate AJAX e le eccezioni del browser.
 * Scrivere [dati di telemetria personalizzati](./api-custom-events-metrics.md) per tenere traccia dell'uso nel browser o nel server.
-* Usare  [Analytics](../log-query/log-query-overview.md) per eseguire query avanzate sui dati di telemetria dall'app
+* Usare  [Analytics](../logs/log-query-overview.md) per eseguire query avanzate sui dati di telemetria dall'app
 * Per altre informazioni, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
 
 <!--Link references-->
@@ -302,5 +302,5 @@ Application Insights può testare il sito Web a intervalli regolari per verifica
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md

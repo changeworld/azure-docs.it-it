@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ba15deed98af16b9b501439082ee6c9237fe20b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d95a2318d94f52352c9546aedc24d0111c5ba0a4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807208"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571662"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Baseline della sicurezza di Azure per Sentinel di Azure
 
@@ -37,9 +37,9 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 - [Come abilitare il controllo in Sentinel di Azure](resources.md)
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -73,7 +73,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione del log per le aree di lavoro log Analytics associate alle aree di lavoro di Azure Sentinel in base alle normative di conformità dell'organizzazione.
 
-- [Come impostare i parametri di conservazione dei log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -341,7 +341,7 @@ Ogni cartella di lavoro di Sentinel è inoltre una risorsa di Azure ed è possib
 
 **Indicazioni**: le aree di lavoro di monitoraggio di Azure e di monitoraggio di Azure log Analytics attualmente usano chiavi gestite da Microsoft per la crittografia di tutti i dati inattivi. La possibilità di portare la propria chiave non è ancora completamente supportata per Sentinel, ma si troverà nel prossimo futuro.
 
-- [Panoramica della chiave gestita dal cliente di monitoraggio di Azure](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
+- [Panoramica della chiave gestita dal cliente di monitoraggio di Azure](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Informazioni sulle chiavi gestite dal cliente in Sentinel di Azure (anteprima)](customer-managed-keys.md)
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986480"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577023"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -70,7 +70,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 | Automazione di Azure  | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici |  | Anteprima </br> [Informazioni su come creare un endpoint privato per Automazione di Azure.](../automation/how-to/private-link-security.md)| |
 | Hub IoT Azure | Tutte le aree pubbliche    |  | GA   <br/> [Informazioni su come creare un endpoint privato per Hub IoT di Azure.](../iot-hub/virtual-network-support.md) |
 | Servizio Azure SignalR | STATI UNITI ORIENTALI, STATI UNITI CENTRO-MERIDIONALI,<br/>STATI UNITI OCCIDENTALI 2, tutte le aree della Cina      |  | Anteprima   <br/> [Informazioni su come creare un endpoint privato per il Servizio Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
-| Monitoraggio di Azure <br/>(Log Analytics e Application Insights) | Tutte le aree pubbliche      |  | GA   <br/> [Informazioni su come creare un endpoint privato per Monitoraggio di Azure.](../azure-monitor/platform/private-link-security.md)   | 
+| Monitoraggio di Azure <br/>(Log Analytics e Application Insights) | Tutte le aree pubbliche      |  | GA   <br/> [Informazioni su come creare un endpoint privato per Monitoraggio di Azure.](../azure-monitor/logs/private-link-security.md)   | 
 | Azure Batch | Tutte le aree pubbliche, ad eccezione di: Germania CENTRALE, Germania NORD-ORIENTALE <br/> Tutte le aree per enti pubblici  | | GA <br/> [Informazioni su come creare un endpoint privato per Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina    | Le credenziali devono essere archiviate in un insieme di credenziali delle chiavi di Azure| GA   <br/> [Informazioni su come creare un endpoint privato per Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
 |Azure Managed Disks | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina    | [Fare clic qui per informazioni sulle limitazioni note](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Informazioni su come creare un endpoint privato per Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |

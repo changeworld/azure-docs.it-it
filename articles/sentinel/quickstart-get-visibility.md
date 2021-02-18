@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 384c6df86b4aadb117bb31b4604fa4c2ffcda09a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188582"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570596"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Avvio rapido: Introduzione ad Azure Sentinel
 
@@ -52,7 +52,7 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
 ## <a name="use-built-in-workbooks"></a>Usare cartelle di lavoro predefinite<a name="dashboards"></a>
 
-Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origini dati connesse e consentono quindi di esaminare in modo approfondito gli eventi generati in tali servizi. Sono disponibili cartelle di lavoro predefinite per Azure AD, eventi relativi ad attività di Azure ed eventi locali, che possono essere dati di eventi di Windows provenienti da server, avvisi proprietari, eventuali terze parti, inclusi i log del traffico firewall, Office 365 e protocolli non sicuri basati su eventi di Windows. Le cartelle di lavoro sono basate sulle cartelle di lavoro di Monitoraggio di Azure per offrire una maggiore personalizzazione e flessibilità durante la progettazione di una cartella di lavoro personalizzata. Per altre informazioni, vedere l'articolo sulle [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md).
+Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origini dati connesse e consentono quindi di esaminare in modo approfondito gli eventi generati in tali servizi. Sono disponibili cartelle di lavoro predefinite per Azure AD, eventi relativi ad attività di Azure ed eventi locali, che possono essere dati di eventi di Windows provenienti da server, avvisi proprietari, eventuali terze parti, inclusi i log del traffico firewall, Office 365 e protocolli non sicuri basati su eventi di Windows. Le cartelle di lavoro sono basate sulle cartelle di lavoro di Monitoraggio di Azure per offrire una maggiore personalizzazione e flessibilità durante la progettazione di una cartella di lavoro personalizzata. Per altre informazioni, vedere l'articolo sulle [cartelle di lavoro](../azure-monitor/visualize/workbooks-overview.md).
 
 1. In **Impostazioni** selezionare **Cartelle di lavoro**. In **Installate** è possibile visualizzare tutte le cartelle di lavoro installate. In **Tutte** è possibile visualizzare l'intera raccolta di cartelle di lavoro predefinite disponibili per l'installazione. 
 2. Cercare una cartella di lavoro specifica per visualizzare l'elenco completo e una descrizione delle caratteristiche di ognuna. 
@@ -66,14 +66,14 @@ Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origi
       ![Dashboard Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante di modifica query](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante Log Analytics](./media/qs-get-visibility/go-to-la-button.png) per passare a [Log Analytics e modificarvi la query](../azure-monitor/log-query/log-analytics-tutorial.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro**, che consente di modificare il filtro temporale principale o rimuovere i riquadri specifici dalla cartella di lavoro.
+È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante di modifica query](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante Log Analytics](./media/qs-get-visibility/go-to-la-button.png) per passare a [Log Analytics e modificarvi la query](../azure-monitor/logs/log-analytics-tutorial.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro**, che consente di modificare il filtro temporale principale o rimuovere i riquadri specifici dalla cartella di lavoro.
 
-Per altre informazioni sull'uso delle query, vedere [Esercitazione: Visualizzare i dati in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Per altre informazioni sull'uso delle query, vedere [Esercitazione: Visualizzare i dati in Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Aggiungere un nuovo riquadro
 
 Se si vuole aggiungere un nuovo riquadro, è possibile aggiungerlo a una cartella di lavoro esistente, a una creata autonomamente oppure a una cartella di lavoro predefinita di Azure Sentinel. 
-1. In Log Analytics creare un riquadro seguendo le istruzioni disponibili in [Esercitazione: Visualizzare i dati in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. In Log Analytics creare un riquadro seguendo le istruzioni disponibili in [Esercitazione: Visualizzare i dati in Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
 2. Dopo aver creato il riquadro, in **Aggiungi** selezionare la cartella di lavoro in cui si vuole che compaia il riquadro.
 
 ## <a name="create-new-workbooks"></a>Creare nuove cartelle di lavoro

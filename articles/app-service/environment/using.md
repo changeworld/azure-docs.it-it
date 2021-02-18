@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: d4cd673b5029d8379a699becd7339a265c787390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209730"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586398"
 ---
 # <a name="using-an-app-service-environment"></a>Uso di un ambiente del servizio app
 
@@ -143,7 +143,7 @@ Se si integra con Log Analytics, è possibile visualizzare i log selezionando **
 
 **Creazione di un avviso**
 
-Per creare un avviso nei log, seguire le istruzioni riportate in [creare, visualizzare e gestire gli avvisi di log con monitoraggio di Azure](../../azure-monitor/platform/alerts-log.md). In breve:
+Per creare un avviso nei log, seguire le istruzioni riportate in [creare, visualizzare e gestire gli avvisi di log con monitoraggio di Azure](../../azure-monitor/alerts/alerts-log.md). In breve:
 
 * Aprire la pagina degli avvisi nel portale dell'ambiente del servizio app
 * Seleziona **nuova regola di avviso**
@@ -206,4 +206,4 @@ Per eliminare un ambiente del servizio app:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

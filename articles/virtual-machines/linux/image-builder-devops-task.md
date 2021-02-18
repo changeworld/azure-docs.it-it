@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6090adffbab7c8c57837b62e190f90c8ffb18e3d
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807615"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636425"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Attività DevOps del servizio Generatore di immagini di Azure
 
@@ -21,7 +21,7 @@ Questo articolo illustra come usare un'attività DevOps di Azure per inserire gl
 ## <a name="devops-task-versions"></a>Versioni dell'attività DevOps
 Sono disponibili due attività DevOps di Azure VM Image Builder (AIB):
 
-* [Attività AIB "stabile"](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), che consente di inserire gli aggiornamenti e le funzionalità più recenti, consentire ai clienti di testarli, prima di innalzarli di livello all'attività "stabile", circa una settimana in un secondo momento. 
+* [Attività AIB "stabile"](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), questa è la build stabile più recente che è stata testata e la telemetria non mostra alcun problema. 
 
 
 * [Attività AIB ' unstable '](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), che consente di inserire gli aggiornamenti e le funzionalità più recenti, consentire ai clienti di testarli, prima di innalzarli di livello all'attività "stabile". Se non sono presenti problemi segnalati e i dati di telemetria non mostrano alcun problema, circa una settimana dopo, il codice dell'attività verrà innalzato di livello a "stabile". 
