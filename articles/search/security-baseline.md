@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8c32d06247516611fc79bd6f77b60fec6b73044d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0618e4445629893fbe623df4bc937698bd307c7c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591801"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096571"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Baseline della sicurezza di Azure per Azure ricerca cognitiva
 
@@ -495,7 +495,7 @@ Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse
 
 **Linee guida**: per l'amministrazione del servizio, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alle chiavi e alla configurazione. Per le operazioni sul contenuto, ad esempio indicizzazione e query, ricerca cognitiva usa le chiavi anziché un modello di controllo degli accessi in base all'identità. Usare il controllo degli accessi in base al ruolo di Azure.
-- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Come usare i ruoli per l'accesso amministrativo ai ricerca cognitiva](./search-security-rbac.md)

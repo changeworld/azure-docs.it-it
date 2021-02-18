@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 64821819530e142eb207c001d3e3ccfe349cf917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 19ae5dc24e0a08548f4914114c9c0a6be65f4f0b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547776"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096094"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -24,7 +24,7 @@ ms.locfileid: "92547776"
 
 Il routing dei messaggi consente di inviare messaggi dai dispositivi ai servizi cloud in modo automatizzato, scalabile e affidabile. Il routing dei messaggi può essere usato per: 
 
-* **Inviare i messaggi di telemetria del dispositivo e gli eventi** in particolare gli eventi del ciclo di vita del dispositivo e gli eventi di modifica del dispositivo gemello all'endpoint predefinito e agli endpoint personalizzati. Informazioni sugli [endpoint di routing](#routing-endpoints).
+* **Invio di messaggi di telemetria del dispositivo** e di eventi, eventi del ciclo di vita del dispositivo, eventi di modifica del dispositivo gemello e eventi di modifica del gemello digitale all'endpoint predefinito e agli endpoint personalizzati. Informazioni sugli [endpoint di routing](#routing-endpoints). Per altre informazioni sugli eventi inviati dai dispositivi Plug and Play, vedere la pagina relativa alle informazioni sui dispositivi [gemelli plug and Play digitali](../iot-pnp/concepts-digital-twin.md).
 
 * **Filtrare i dati prima del routing a vari endpoint** applicando query complesse. Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Altre informazioni sull'uso delle [query nel routing dei messaggi](iot-hub-devguide-routing-query-syntax.md).
 
@@ -34,7 +34,7 @@ L'hub IoT definisce un [formato comune](iot-hub-devguide-messages-construct.md) 
 
 ## <a name="routing-endpoints"></a>Endpoint di routing
 
-Un hub IoT ha un endpoint incorporato predefinito ( **messaggi/eventi** ) compatibile con Hub eventi. È possibile creare [endpoint personalizzati](iot-hub-devguide-endpoints.md#custom-endpoints) per indirizzare i messaggi collegando altri servizi nella sottoscrizione all'hub IoT. 
+Un hub IoT ha un endpoint incorporato predefinito (**messaggi/eventi**) compatibile con Hub eventi. È possibile creare [endpoint personalizzati](iot-hub-devguide-endpoints.md#custom-endpoints) per indirizzare i messaggi collegando altri servizi nella sottoscrizione all'hub IoT. 
 
 Ogni messaggio viene indirizzato a tutti gli endpoint le cui query di routing corrispondono. In altre parole, è possibile indirizzare un messaggio a più endpoint.
 
@@ -49,7 +49,7 @@ L'hub Internet delle cose supporta attualmente gli endpoint seguenti:
 
 ## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Endpoint predefinito come endpoint di routing
 
-È possibile usare l' [integrazione standard di Hub eventi e gli SDK](iot-hub-devguide-messages-read-builtin.md) per ricevere i messaggi da dispositivo a cloud dall'endpoint predefinito ( **messaggi/eventi** ). Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint.
+È possibile usare l'[integrazione standard di Hub eventi e gli SDK](iot-hub-devguide-messages-read-builtin.md) per ricevere i messaggi da dispositivo a cloud dall'endpoint predefinito (**messaggi/eventi**). Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint.
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>Archiviazione di Azure come endpoint di routing
 
@@ -95,7 +95,7 @@ Per creare un account di archiviazione Azure Data Lake compatibile con Gen2, cre
 
 ## <a name="service-bus-queues-and-service-bus-topics-as-a-routing-endpoint"></a>Code del bus di servizio e argomenti del bus di servizio come endpoint di routing
 
-Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati** . Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
+Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati**. Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
 
 ## <a name="event-hubs-as-a-routing-endpoint"></a>Hub eventi come endpoint di routing
 
@@ -120,13 +120,13 @@ Usare le esercitazioni seguenti per informazioni su come leggere messaggi da un 
 
 ## <a name="fallback-route"></a>Route di fallback
 
-La route di fallback invia tutti i messaggi che non soddisfano le condizioni di query su una delle route esistenti all'istanza predefinita di Hub eventi ( **messaggi/eventi** ), compatibile con [Hub eventi](../event-hubs/index.yml). Se il routing dei messaggi è attivato, è possibile abilitare la funzionalità di route di fallback. Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint. Se non esistono route verso l'endpoint predefinito ed è abilitata una route di fallback, solo i messaggi che non corrispondono ad alcuna condizione di query sulle route verranno inviati all'endpoint predefinito. Inoltre, se vengono eliminate tutte le route esistenti, è necessario abilitare la route di fallback per ricevere tutti i dati sull'endpoint predefinito.
+La route di fallback invia tutti i messaggi che non soddisfano le condizioni di query su una delle route esistenti all'istanza predefinita di Hub eventi (**messaggi/eventi**), compatibile con [Hub eventi](../event-hubs/index.yml). Se il routing dei messaggi è attivato, è possibile abilitare la funzionalità di route di fallback. Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint. Se non esistono route verso l'endpoint predefinito ed è abilitata una route di fallback, solo i messaggi che non corrispondono ad alcuna condizione di query sulle route verranno inviati all'endpoint predefinito. Inoltre, se vengono eliminate tutte le route esistenti, è necessario abilitare la route di fallback per ricevere tutti i dati sull'endpoint predefinito.
 
 È possibile abilitare o disabilitare la route di fallback nel pannello routing dei messaggi portale di Azure >. È anche possibile usare Azure Resource Manager per [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) per usare un endpoint personalizzato per la route di fallback.
 
 ## <a name="non-telemetry-events"></a>Eventi non di telemetria
 
-Oltre ai dati di telemetria del dispositivo, il routing dei messaggi consente anche l'invio di eventi di modifica del dispositivo gemello, eventi del ciclo di vita del dispositivo e eventi di modifica Ad esempio, se viene creata una route con origine dati impostata su **Eventi di modifica del dispositivo gemello** , l'hub IoT invia messaggi all'endpoint che contengono la modifica nel dispositivo gemello. Analogamente, se viene creata una route con l'origine dati impostata su **eventi del ciclo** di vita del dispositivo, l'hub Internet invia un messaggio che indica se il dispositivo è stato eliminato o creato. Infine, come parte del [plug and Play](../iot-pnp/overview-iot-plug-and-play.md)di Internet delle cose, uno sviluppatore può creare route con l'origine dati impostata su **eventi di modifica digitali gemelli** e l'hub Internet invia messaggi ogni volta che viene impostata o modificata una [proprietà](../iot-pnp/iot-plug-and-play-glossary.md) di un dispositivo gemello [digitale o](../iot-pnp/iot-plug-and-play-glossary.md) quando si verifica un evento di modifica per il dispositivo gemello sottostante.
+Oltre ai dati di telemetria del dispositivo, il routing dei messaggi consente anche l'invio di eventi di modifica del dispositivo gemello, eventi del ciclo di vita del dispositivo e eventi di modifica Ad esempio, se viene creata una route con origine dati impostata su **Eventi di modifica del dispositivo gemello**, l'hub IoT invia messaggi all'endpoint che contengono la modifica nel dispositivo gemello. Analogamente, se viene creata una route con l'origine dati impostata su **eventi del ciclo** di vita del dispositivo, l'hub Internet invia un messaggio che indica se il dispositivo è stato eliminato o creato. Infine, come parte del [plug and Play di Azure](../iot-pnp/overview-iot-plug-and-play.md)Internet, uno sviluppatore può creare route con l'origine dati impostata su **eventi di modifica digitali gemelli** e l'hub Internet invia messaggi ogni volta che viene impostata o modificata una [proprietà](../iot-pnp/iot-plug-and-play-glossary.md) del dispositivo gemello digitale, viene sostituito un dispositivo [gemello](../iot-pnp/iot-plug-and-play-glossary.md) o quando si verifica un evento di modifica per il dispositivo gemello sottostante.
 
 L'hub Internet si [integra anche con griglia di eventi di Azure](iot-hub-event-grid.md) per pubblicare gli eventi del dispositivo per supportare integrazioni in tempo reale e automazione dei flussi di lavoro in base a questi eventi. Vedere le principali [differenze tra il routing dei messaggi e Griglia di eventi](iot-hub-event-grid-routing-comparison.md) per determinare la soluzione ottimale per il proprio scenario.
 
@@ -144,7 +144,7 @@ Per la gestione dei duplicati dei messaggi, è consigliabile contrassegnare un i
 
 Quando si indirizzano i messaggi di telemetria da dispositivo a cloud tramite endpoint predefiniti, si verifica un lieve aumento della latenza end-to-end dopo la creazione della prima route.
 
-Nella maggior parte dei casi, l'aumento medio della latenza è inferiore a 500 ms. È possibile monitorare la latenza con la metrica dell'hub IoT **Routing: message latency for messages/events** (Routing: latenza messaggi per messaggi/eventi) o **d2c.endpoints.latency.builtIn.events** . La creazione o l'eliminazione di una route successiva alla prima non influisce sulla latenza end-to-end.
+Nella maggior parte dei casi, l'aumento medio della latenza è inferiore a 500 ms. È possibile monitorare la latenza con la metrica dell'hub IoT **Routing: message latency for messages/events** (Routing: latenza messaggi per messaggi/eventi) o **d2c.endpoints.latency.builtIn.events**. La creazione o l'eliminazione di una route successiva alla prima non influisce sulla latenza end-to-end.
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 

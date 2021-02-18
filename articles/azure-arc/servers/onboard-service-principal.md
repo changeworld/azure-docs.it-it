@@ -3,12 +3,12 @@ title: Connettere macchine virtuali ibride ad Azure su larga scala
 description: Questo articolo illustra come connettere i computer ad Azure usando i server abilitati per Azure ARC usando un'entità servizio.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50c6789044f76b3eb9d8b65b62ef4d8c26006af0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9e0d3bd2bd5ea59e39ba2ebe33418b7d43b2de9b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584883"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096507"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connettere macchine virtuali ibride ad Azure su larga scala
 
@@ -67,7 +67,7 @@ I valori delle proprietà seguenti vengono usati con i parametri passati al `azc
 > Usare la proprietà **ApplicationId** dell'entità servizio e non la proprietà **Id**.
 >
 
-Il ruolo di **Onboarding di Azure Connected Machine** contiene solo le autorizzazioni necessarie per eseguire l'onboarding di un computer. È possibile assegnare l'autorizzazione dell'entità servizio per consentire al suo ambito di includere un gruppo di risorse o una sottoscrizione. Per aggiungere l'assegnazione di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [aggiungere o rimuovere assegnazioni di ruolo](../../role-based-access-control/role-assignments-cli.md)di Azure tramite l'interfaccia della riga di comando di Azure.
+Il ruolo di **Onboarding di Azure Connected Machine** contiene solo le autorizzazioni necessarie per eseguire l'onboarding di un computer. È possibile assegnare l'autorizzazione dell'entità servizio per consentire al suo ambito di includere un gruppo di risorse o una sottoscrizione. Per aggiungere l'assegnazione di ruolo, vedere [assegnare ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [assegnare i ruoli di Azure usando l'interfaccia](../../role-based-access-control/role-assignments-cli.md)della riga di comando di Azure
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installare l'agente e connettersi ad Azure
 

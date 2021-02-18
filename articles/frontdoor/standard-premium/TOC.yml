@@ -1,0 +1,91 @@
+- name: Documentazione standard/Premium (anteprima) dello sportello anteriore
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è Azure front door standard/Premium (anteprima)?
+      href: overview.md
+    - name: Confronto tra livelli
+      href: tier-comparison.md
+- name: Avvi rapidi
+  expanded: true
+  items:
+    - name: Creare una porta anteriore standard/Premium-Portal
+      href: create-front-door-portal.md
+- name: Concetti
+  items:
+    - name: Domande frequenti su Front Door
+      href: faq.md
+    - name: Gestione endpoint
+      href: concept-endpoint-manager.md
+    - name: Origine
+      href: concept-origin.md
+    - name: Route
+      href: concept-route.md
+    - name: Set di regole
+      href: concept-rule-set.md
+    - name: Condizioni di corrispondenza del set di regole
+      href: concept-rule-set-match-conditions.md
+    - name: Azioni set di regole
+      href: concept-rule-set-actions.md
+    - name: Reindirizzamento URL e riscrittura URL
+      href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: Probe di integrità
+      href: concept-health-probes.md
+    - name: Collegamento privato
+      href: concept-private-link.md
+    - name: Memorizzazione nella cache
+      href: concept-caching.md
+    - name: DDoS
+      href: concept-ddos.md
+- name: Guide pratiche
+  items:
+    - name: Configurare Gestione endpoint
+      href: how-to-configure-endpoint-manager.md
+    - name: Configurare i gruppi di origine
+      href: how-to-create-origin.md
+    - name: Aggiungere un dominio personalizzato
+      href: how-to-add-custom-domain.md
+    - name: Abilitare HTTPS per un dominio personalizzato
+      href: how-to-configure-https-custom-domain.md
+    - name: Associazione Route
+      href: how-to-configure-route.md
+    - name: Configurare le intestazioni di sicurezza con il set di regole
+      href: how-to-add-security-headers.md
+    - name: Ripulire la cache
+      href: how-to-cache-purge.md
+    - name: Compressione
+      href: how-to-compression.md
+    - name: Abilita collegamento privato
+      href: how-to-enable-private-link.md
+    - name: Registrazione
+      href: how-to-logs.md
+    - name: Monitoraggio e avvisi
+      href: how-to-monitor-metrics.md
+    - name: Report
+      href: how-to-reports.md
+    - name: Risolvere problemi
+      items:
+        - name: Problemi di routing
+          href: troubleshoot-route-issues.md
+        - name: Autorità di certificazione consentite
+          href: troubleshoot-allowed-certificate-authority.md
+        - name: Compressione
+          href: troubleshoot-compression.md
+        - name: Condivisione di risorse tra le origini
+          href: troubleshoot-cross-origin-resources.md
+- name: Informazioni di riferimento
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: API REST
+      href: /rest/api/cdn/
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=frontdoor'

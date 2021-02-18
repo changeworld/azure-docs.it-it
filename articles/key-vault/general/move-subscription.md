@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a84627b2b426385d21ad72b85780db86e7dd5ee3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790292"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096069"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Spostamento di Azure Key Vault in un'altra sottoscrizione
 
@@ -106,9 +106,9 @@ Per l'assegnazione dei criteri, vedere:
 - [Assegnare un criterio di accesso usando PowerShell](assign-access-policy-powershell.md)
 
 Per aggiungere assegnazioni di ruolo, vedere:
-- [Aggiungere un'assegnazione di ruolo tramite il portale](../../role-based-access-control/role-assignments-portal.md)
-- [Aggiungere un'assegnazione di ruolo usando l'interfaccia della riga di comando](../../role-based-access-control/role-assignments-cli.md)
-- [Aggiungere un'assegnazione di ruolo con PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando l'interfaccia della riga di comando](../../role-based-access-control/role-assignments-cli.md)
+- [Assegnare i ruoli di Azure tramite PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Aggiorna identità gestite

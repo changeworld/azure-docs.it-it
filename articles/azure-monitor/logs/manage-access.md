@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 184d5c98b2b434c87e112c569ff4e8ab347344c5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613977"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091203"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
@@ -120,7 +120,7 @@ Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
 ## <a name="manage-access-using-azure-permissions"></a>Gestire l'accesso con le autorizzazioni di Azure
 
-Per concedere l'accesso all'area di lavoro Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md). Per esempi di ruoli personalizzati, vedere [ruoli personalizzati di esempio](#custom-role-examples)
+Per concedere l'accesso all'area di lavoro Log Analytics usando le autorizzazioni di Azure, seguire la procedura descritta in [assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md). Per esempi di ruoli personalizzati, vedere [ruoli personalizzati di esempio](#custom-role-examples)
 
 Azure offre due ruoli utente predefiniti per le aree di lavoro di Log Analytics:
 

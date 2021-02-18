@@ -37,10 +37,8 @@
   items:
     - name: Eseguire la migrazione di SQL Server
       items:
-        - name: al database SQL di Azure (offline)
+        - name: nel database SQL di Azure
           href: tutorial-sql-server-to-azure-sql.md
-        - name: al database SQL di Azure (online)
-          href: tutorial-sql-server-azure-sql-online.md
         - name: a Istanza gestita di SQL di Azure (offline)
           href: tutorial-sql-server-to-managed-instance.md
         - name: a Istanza gestita di SQL di Azure (online)

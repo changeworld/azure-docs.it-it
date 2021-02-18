@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1574149e0587701323cb9ae5ae0c5cfeaccf47c7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897426"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096417"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gestire l'accesso alle informazioni di fatturazione per Azure
 
@@ -40,7 +40,7 @@ L'amministratore account può concedere ad altri utenti l'accesso alle informazi
 
 Questi ruoli hanno accesso alle informazioni di fatturazione nel [portale di Azure](https://portal.azure.com/). Gli utenti a cui sono assegnati tali ruoli possono anche usare le [API di fatturazione](consumption-api-overview.md#usage-details-api) per ottenere le fatture e i dettagli di utilizzo a livello di codice.
 
-Per assegnare i ruoli, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Per assegnare i ruoli, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ** Se si è un cliente con contratto EA, un proprietario dell'account può assegnare tale ruolo ad altri utenti del proprio team. Per consentire a questi utenti di visualizzare le informazioni di fatturazione, tuttavia, l'amministratore dell'organizzazione deve abilitare la visualizzazione degli addebiti per i proprietari dell'account in Enterprise Portal.
 
@@ -105,7 +105,7 @@ La funzionalità Fatturazione per lettore è disponibile in anteprima e non supp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Gli utenti in altri ruoli, ad esempio proprietario o collaboratore, possono accedere non solo alle informazioni di fatturazione, ma anche ai servizi di Azure. Per gestire tali ruoli, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+- Gli utenti in altri ruoli, ad esempio proprietario o collaboratore, possono accedere non solo alle informazioni di fatturazione, ma anche ai servizi di Azure. Per gestire questi ruoli, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 - Per altre informazioni sui ruoli, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.

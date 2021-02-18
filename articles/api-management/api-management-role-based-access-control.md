@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc41d2904d5a6676f1e9e1e2d178985bef0a9aa3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015290"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095540"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Come usare il controllo degli accessi in base al ruolo in Gestione API di Azure
 
@@ -30,7 +30,7 @@ Gestione API di Azure si basa sul controllo degli accessi in base al ruolo di Az
 
 In Gestione API sono attualmente disponibili tre ruoli predefiniti e altri due ne verranno aggiunti prossimamente. Questi ruoli possono essere assegnati ad ambiti diversi, tra cui una sottoscrizione, un gruppo di risorse e una singola istanza di Gestione API. Ad esempio, se si assegna il ruolo "lettore del servizio gestione API" a un utente a livello di gruppo di risorse, l'utente ha accesso in lettura a tutte le istanze di gestione API all'interno del gruppo di risorse. 
 
-La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. È possibile assegnare questi ruoli tramite il portale di Azure o altri strumenti, tra cui Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), l'[interfaccia della riga di comando di Azure ](../role-based-access-control/role-assignments-cli.md) e l'[API REST](../role-based-access-control/role-assignments-rest.md). Per dettagli su come assegnare ruoli predefiniti, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
+La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. È possibile assegnare questi ruoli tramite il portale di Azure o altri strumenti, tra cui Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), l'[interfaccia della riga di comando di Azure ](../role-based-access-control/role-assignments-cli.md) e l'[API REST](../role-based-access-control/role-assignments-rest.md). Per informazioni dettagliate su come assegnare i ruoli predefiniti, vedere [assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
 
 | Ruolo          | Accesso in lettura<sup>[1]</sup> | Accesso in scrittura<sup>[2]</sup> | Creazione, eliminazione e ridimensionamento di servizi, VPN e configurazione dominio personalizzato | Accesso al portale di pubblicazione legacy | Descrizione
 | ------------- | ---- | ---- | ---- | ---- | ---- 
@@ -81,6 +81,6 @@ Nell'articolo [Operazioni di provider di risorse con Azure Resource Manager](../
 
 Per altre informazioni sul controllo degli accessi in base al ruolo in Azure, vedere gli articoli seguenti:
   * [Introduzione alla gestione degli accessi nel portale di Azure](../role-based-access-control/overview.md)
-  * [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md)
+  * [Assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md)
   * [Ruoli personalizzati in RBAC di Azure](../role-based-access-control/custom-roles.md)
   * [Operazioni dei provider di risorse di Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

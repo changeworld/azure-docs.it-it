@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e44515c8ca71d115ced65c9123e2b1ae3bdf23a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ba497094a28e056d5984f1e58e2f15c9d21eae2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578235"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094447"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Baseline della sicurezza di Azure per Azure Resource Manager
 
@@ -241,7 +241,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Linee guida**: usare Azure ad RBAC per controllare l'accesso ai dati e alle risorse; in caso contrario, usare i metodi di controllo di accesso specifici del servizio.
 
-- [Come configurare il controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Come configurare RBAC di Azure](../../role-based-access-control/role-assignments-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

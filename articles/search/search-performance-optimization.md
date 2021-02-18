@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: bbd3e5774c6effa45888f6e59874d29f3b55b45f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 5e8b873e0e4e89979769183cfbf0ad473069e897
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545582"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096428"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Scalabilità per le prestazioni in Azure ricerca cognitiva
 
@@ -100,6 +100,7 @@ Azure ricerca cognitiva supporta attualmente zone di disponibilità per i serviz
 + Australia orientale (creato il 30 gennaio 2021 o versione successiva)
 + Canada centrale (creato il 30 gennaio 2021 o versione successiva)
 + Stati Uniti centrali (creati il 4 dicembre 2020 o versione successiva)
++ Stati Uniti orientali (creati il 27 gennaio 2021 o versione successiva)
 + Stati Uniti orientali 2 (creati il 30 gennaio 2021 o versione successiva)
 + Francia centrale (creato il 23 ottobre 2020 o versione successiva)
 + Giappone orientale (creato il 30 gennaio 2021 o versione successiva)

@@ -3,12 +3,12 @@ title: 'Messaggistica del bus di servizio di Azure: code, argomenti e sottoscriz
 description: Questo articolo fornisce una panoramica delle entità di messaggistica del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: f647164ba18cb83e35b5bd174f09e07a4a9f9aa7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652820"
+ms.locfileid: "101096325"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 Il bus di servizio di Azure supporta un set di tecnologie middleware orientate ai messaggi e basate sul cloud, incluso l'accodamento dei messaggi affidabile e la messaggistica di pubblicazione e sottoscrizione permanente. Queste funzionalità di messaggistica negoziata possono essere considerate come funzionalità di messaggistica disaccoppiate che supportano scenari di pubblicazione-sottoscrizione, disaccoppiamento temporale e bilanciamento del carico tramite il carico di lavoro della messaggistica del bus di servizio. La comunicazione disaccoppiata presenta molti vantaggi. Ad esempio, i client e i server possono connettersi in base alle esigenze ed eseguire le operazioni in modo asincrono.
@@ -36,6 +36,9 @@ L'uso di code da interporre tra producer e consumer di messaggi fornisce un acco
         Se l'applicazione non è in grado di elaborare il messaggio per qualche motivo, può richiedere al servizio del bus di servizio di **abbandonare** il messaggio. Il bus di servizio **Sblocca** il messaggio e lo rende disponibile per essere nuovamente ricevuto, dallo stesso consumer o da un altro consumer concorrente. In secondo luogo, al blocco è associato un **timeout** . Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout di blocco, il bus di servizio Sblocca il messaggio e lo rende disponibile per la ricezione.
 
         Se l'applicazione si arresta in modo anomalo dopo l'elaborazione del messaggio, ma prima che venga richiesto al servizio del bus di servizio di completare il messaggio, il bus di servizio recapita nuovamente il messaggio all'applicazione al riavvio. Questo processo viene spesso chiamato elaborazione **at-least-once** . Ovvero ogni messaggio viene elaborato almeno una volta. ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera l'elaborazione duplicata, aggiungere logica aggiuntiva nell'applicazione per rilevare i duplicati. Per altre informazioni, vedere [Rilevamento duplicati](duplicate-detection.md). Questa funzionalità è nota come elaborazione **esatta una sola volta** .
+
+        > [!NOTE]
+        > Per ulteriori informazioni su queste due modalità, vedere la pagina relativa alla [risoluzione delle operazioni di ricezione](message-transfers-locks-settlement.md#settling-receive-operations).
 
 ## <a name="topics-and-subscriptions"></a>Argomenti e sottoscrizioni
 Una coda consente l'elaborazione di un messaggio da un singolo consumer. Diversamente dalle code, gli argomenti e le sottoscrizioni offrono una forma di comunicazione uno-a-molti in un modello di **pubblicazione e sottoscrizione** . È utile per la scalabilità a un numero elevato di destinatari. Ogni messaggio pubblicato viene reso disponibile per ogni sottoscrizione registrata con l'argomento. Il server di pubblicazione invia un messaggio a un argomento e uno o più Sottoscrittori ricevono una copia del messaggio, a seconda delle regole di filtro impostate per queste sottoscrizioni. Per limitare i messaggi da ricevere, le sottoscrizioni possono usare filtri aggiuntivi. Gli autori inviano messaggi a un argomento nello stesso modo in cui inviano messaggi a una coda. Tuttavia, gli utenti non ricevono messaggi direttamente dall'argomento. I consumer ricevono invece messaggi dalle sottoscrizioni dell'argomento. La sottoscrizione di un argomento è simile a una coda virtuale che riceve copie dei messaggi inviati all'argomento. I consumer ricevono messaggi da una sottoscrizione in modo identico al modo in cui ricevono messaggi da una coda.

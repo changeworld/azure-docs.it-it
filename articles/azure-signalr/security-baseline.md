@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4716679de08bbae137e42f91db5b6f93c0c96e22
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3a8c0139d5739fbb75e6f6a157e80287864aeac8
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593376"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094966"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Baseline della sicurezza di Azure per il servizio Azure SignalR
 
@@ -336,7 +336,7 @@ Usare i ruoli predefiniti per allocare l'autorizzazione e creare ruoli personali
 
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md)
 
-- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 

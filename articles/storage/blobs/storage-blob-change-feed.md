@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390573"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095563"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Supporto del feed delle modifiche nell'archiviazione BLOB di Azure
 
@@ -268,7 +268,7 @@ Per una descrizione di ogni proprietà, vedere [schema di eventi di griglia di e
 
 - Modificare i record degli eventi `eventType` in cui il valore di è costituito da `Control` record di sistema interni e non riflette una modifica apportata agli oggetti nell'account. È possibile ignorare tali record in modo sicuro.
 
-- I valori nel `storageDiagnonstics` contenitore delle proprietà sono solo per uso interno e non sono progettati per l'uso da parte dell'applicazione. Le applicazioni non devono avere una dipendenza contrattuale sui dati. È possibile ignorare queste proprietà in modo sicuro.
+- I valori nel `storageDiagnostics` contenitore delle proprietà sono solo per uso interno e non sono progettati per l'uso da parte dell'applicazione. Le applicazioni non devono avere una dipendenza contrattuale sui dati. È possibile ignorare queste proprietà in modo sicuro.
 
 - L'ora rappresentata dal segmento è **approssimativa** con limiti di 15 minuti. Quindi, per garantire l'utilizzo di tutti i record entro un periodo di tempo specificato, utilizzare il segmento consecutivo precedente e ora successiva.
 
