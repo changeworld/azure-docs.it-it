@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879949"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588349"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Metriche di competenza di Azure in monitoraggio di Azure
 
@@ -24,7 +24,7 @@ Gli amministratori di Azure per le competenze possono usare monitoraggio di Azur
 
 ## <a name="aggregated-metrics"></a>Metriche aggregate
 
-È possibile accedere alle metriche dalla portale di Azure per un account di competenza. L'accesso alle metriche è controllato dall'assegnazione di ruolo dell'account di competenza. Per visualizzare le metriche, gli utenti devono far parte del ruolo "lettore di monitoraggio" in Azure. Per ulteriori informazioni sui livelli di accesso ai ruoli, vedere [autorizzazioni del ruolo di lettore di monitoraggio](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) .
+È possibile accedere alle metriche dalla portale di Azure per un account di competenza. L'accesso alle metriche è controllato dall'assegnazione di ruolo dell'account di competenza. Per visualizzare le metriche, gli utenti devono far parte del ruolo "lettore di monitoraggio" in Azure. Per ulteriori informazioni sui livelli di accesso ai ruoli, vedere [autorizzazioni del ruolo di lettore di monitoraggio](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) .
 
 La persona che ha creato l'account di competenza ottiene automaticamente le autorizzazioni per visualizzare le metriche. Se altri utenti vogliono visualizzare le metriche, aggiungerle al ruolo di **lettore di monitoraggio** attenendosi alla procedura seguente:
 
@@ -58,7 +58,7 @@ Gli utenti di Azure di competenza possono anche accedere alla pagina delle metri
 
 ### <a name="available-metrics"></a>Metriche disponibili
 
-Per acquisire familiarità con l'uso della sezione metrica nel portale di Azure leggere i due documenti seguenti. Introduzione [a Esplora metriche](../azure-monitor/platform/metrics-getting-started.md) e [funzionalità avanzate di Esplora metriche](../azure-monitor/platform/metrics-charts.md).
+Per acquisire familiarità con l'uso della sezione metrica nel portale di Azure leggere i due documenti seguenti. Introduzione [a Esplora metriche](../azure-monitor/essentials/metrics-getting-started.md) e [funzionalità avanzate di Esplora metriche](../azure-monitor/essentials/metrics-charts.md).
 
 La tabella seguente contiene l'elenco delle metriche disponibili per l'esplorazione nel portale di Azure:
 
@@ -75,7 +75,7 @@ Gli eventi di telemetria non elaborati vengono emessi in monitoraggio di Azure. 
 
 Seguire i passaggi per creare un'impostazione di diagnostica per l'account Azure.
 
-1. Creare una nuova impostazione di diagnostica per raccogliere i log e le metriche della piattaforma seguendo questo articolo: [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](../azure-monitor/platform/diagnostic-settings.md). Selezionare la destinazione solo come account di archiviazione di Azure.
+1. Creare una nuova impostazione di diagnostica per raccogliere i log e le metriche della piattaforma seguendo questo articolo: [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](../azure-monitor/essentials/diagnostic-settings.md). Selezionare la destinazione solo come account di archiviazione di Azure.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot che mostra la creazione del log di diagnostica." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 

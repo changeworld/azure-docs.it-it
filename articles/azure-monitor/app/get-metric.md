@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 345d0d31528f7bdc40be4400e783ad5be45df72f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930561"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584186"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Raccolta di metriche personalizzate in .NET e .NET Core
 
@@ -109,7 +109,7 @@ Se esaminiamo la risorsa Application Insights nell'esperienza log (Analytics), q
 > [!NOTE]
 > Mentre l'elemento di telemetria non elaborato non contiene una proprietà o un campo Sum esplicito dopo l'inserimento, ne viene creato uno. In questo caso, entrambe `value` le `valueSum` proprietà e rappresentano la stessa cosa.
 
-È anche possibile accedere ai dati di telemetria delle metriche personalizzati nella sezione [_metrica_](../platform/metrics-charts.md) del portale. Sia come [metrica basata su log che come metrica personalizzata](pre-aggregated-metrics-log-metrics.md). Lo screenshot seguente è un esempio di basato su log. ![Visualizzazione Esplora metriche](./media/get-metric/metrics-explorer.png)
+È anche possibile accedere ai dati di telemetria delle metriche personalizzati nella sezione [_metrica_](../essentials/metrics-charts.md) del portale. Sia come [metrica basata su log che come metrica personalizzata](pre-aggregated-metrics-log-metrics.md). Lo screenshot seguente è un esempio di basato su log. ![Visualizzazione Esplora metriche](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Riferimento alle metriche per la memorizzazione nella cache per l'utilizzo con velocità effettiva elevata
 
@@ -302,6 +302,6 @@ SeverityLevel.Error);
 
 * [Altre ](./worker-service.md)informazioni sul monitoraggio delle applicazioni del servizio Worker.
 * Per altre informazioni sulle [metriche basate su log e pre-aggregate](./pre-aggregated-metrics-log-metrics.md).
-* [Esplora metriche](../platform/metrics-getting-started.md)
+* [Esplora metriche](../essentials/metrics-getting-started.md)
 * Come abilitare Application Insights per [le applicazioni ASP.NET Core](asp-net-core.md)
 * Come abilitare Application Insights per [le applicazioni ASP.NET](asp-net.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0a7a5b9e19436deaed45382fe23063fa61edadf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325985"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587259"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente SQL con la soluzione controllo integrità SQL Server in monitoraggio di Azure
 
@@ -44,9 +44,9 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di *
 
 Per eseguire il controllo dell'integrità sui server SQL Server, richiedono un agente e la connettività a monitoraggio di Azure usando uno dei metodi supportati seguenti:
 
-1. Installare [Microsoft Monitoring Agent (MMA)](../platform/agent-windows.md) se il server non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
+1. Installare [Microsoft Monitoring Agent (MMA)](../agents/agent-windows.md) se il server non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
 2. Se viene monitorato con System Center 2016-Operations Manager o Operations Manager 2012 R2 e il gruppo di gestione non è integrato con monitoraggio di Azure, il server può essere multihomed con Log Analytics per raccogliere i dati e inviarli al servizio e continuare a monitorarli con Operations Manager.  
-3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) dopo aver abilitato la soluzione nell'area di lavoro.  
+3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) dopo aver abilitato la soluzione nell'area di lavoro.  
 
 L'agente sul SQL Server che segnala a un gruppo di gestione di Operations Manager, raccoglie i dati, li inoltra al server di gestione assegnato e quindi viene inviato direttamente da un server di gestione a monitoraggio di Azure.  I dati non vengono scritti nei database di Operations Manager.  
 
@@ -257,5 +257,5 @@ I risultati possono quindi essere esportati in Excel per analizzarli più attent
 * Sì, vedere la sezione [Ignorare le raccomandazioni](#ignore-recommendations) sopra.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Query di log](../log-query/log-query-overview.md) per informazioni su come analizzare i dati dettagliati di controllo integrità SQL e le raccomandazioni.
+* [Query di log](../logs/log-query-overview.md) per informazioni su come analizzare i dati dettagliati di controllo integrità SQL e le raccomandazioni.
 

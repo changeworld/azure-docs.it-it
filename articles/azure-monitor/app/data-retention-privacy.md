@@ -4,12 +4,12 @@ description: Informativa sulla conservazione e sulla privacy
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263913"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579584"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione di dati in Application Insights
 
@@ -25,7 +25,7 @@ Innanzitutto, chiariamo alcuni aspetti:
 
 Nella parte restante di questo articolo verranno elaborate ulteriormente queste risposte. Questa parte è progettata per essere indipendente dal resto, pertanto è possibile mostrarla ai colleghi che non fanno parte del proprio team.
 
-## <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
+## <a name="what-is-application-insights"></a>Informazioni su Application Insights
 [Azure Application Insights][start] è un servizio Microsoft che consente di migliorare le prestazioni e l'usabilità di un'applicazione live. Esegue il monitoraggio dell'applicazione per tutto il tempo che è in esecuzione, sia durante il test che dopo la pubblicazione o la distribuzione. Application Insights crea grafici e tabelle che illustrano, ad esempio, in quali ore del giorno si ottengono più utenti, i tempi di risposta dell'app e come funzionano i servizi esterni da cui dipende. Se sono presenti arresti anomali del sistema, errori o problemi di prestazioni, è possibile cercare i dati di telemetria in dettaglio per diagnosticare la causa. Inoltre, il servizio invierà messaggi di posta elettronica in caso di modifiche della disponibilità e delle prestazioni dell'app.
 
 Per ottenere questa funzionalità, installare Application Insights SDK nell'applicazione, che diventa parte del codice. Quando l'app è in esecuzione, l’SDK monitora il funzionamento e invia i dati di telemetria al servizio Application Insights. Si tratta di un servizio cloud ospitato da [Microsoft Azure](https://azure.com). Ma Application Insights funziona per qualsiasi applicazione, non solo per le applicazioni ospitate in Azure.
@@ -120,7 +120,7 @@ Sì, alcuni canali di dati di telemetria manterranno i dati in locale se non è 
 
 I canali di telemetria che usano l'archiviazione locale creano file temporanei nelle directory TEMP o APPDATA, che sono limitati all'account specifico che esegue l'applicazione. Ciò può verificarsi quando un endpoint è stato temporaneamente non disponibile o si raggiunge il limite della limitazione delle richieste. Una volta risolto il problema, il canale di telemetria riprenderà l'invio di tutti i dati nuovi e persistenti.
 
-I dati salvati in modalità permanente non sono crittografati localmente. Se si tratta di un problema, esaminare i dati e limitare la raccolta di dati privati. Per ulteriori informazioni, vedere [come esportare ed eliminare dati privati](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+I dati salvati in modalità permanente non sono crittografati localmente. Se si tratta di un problema, esaminare i dati e limitare la raccolta di dati privati. Per ulteriori informazioni, vedere [come esportare ed eliminare dati privati](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).
 
 Se un cliente deve configurare questa directory con specifici requisiti di sicurezza, può essere configurata per ogni Framework. Assicurarsi che il processo che esegue l'applicazione abbia accesso in scrittura a questa directory, ma assicurarsi anche che la directory sia protetta per evitare la lettura da parte di utenti malintenzionati dei dati di telemetria.
 
@@ -212,7 +212,7 @@ Non è consigliabile impostare in modo esplicito l'applicazione in modo che usi 
 | Servizi app di Azure  | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | App per le funzioni di Azure | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Supportato, la configurazione varia a seconda della versione. | Per informazioni dettagliate sulla configurazione di .NET 4,7 e versioni precedenti, fare riferimento a [queste istruzioni](/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitoraggio stato | Supportato, è necessaria la configurazione | Status Monitor si basa sulla configurazione .NET del [sistema operativo](/windows-server/security/tls/tls-registry-settings)  +  [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) per il supporto di TLS 1,2.
+|Monitoraggio stato | Supportato, è necessaria la configurazione | Status Monitor si basa sulla configurazione .NET del [sistema operativo](/windows-server/security/tls/tls-registry-settings)  +  [](/dotnet/framework/network-programming/tls#support-for-tls-12) per il supporto di TLS 1,2.
 |Node.js |  Supportato, nella versione 10.5.0, potrebbe essere necessaria la configurazione. | Usare la [documentazione ufficiale Node.js TLS/SSL](https://nodejs.org/api/tls.html) per qualsiasi configurazione specifica dell'applicazione. |
 |Java | Supportato, supporto JDK per TLS 1.2 aggiunto in [JDK 6 aggiornamento 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 per impostazione predefinita](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2.  | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
@@ -240,7 +240,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Dati personali archiviati in Application Insights
 
-Questo argomento viene trattato in modo approfondito nell'[articolo sui dati personali di Application Insights](../platform/personal-data-mgmt.md).
+Questo argomento viene trattato in modo approfondito nell'[articolo sui dati personali di Application Insights](../logs/personal-data-mgmt.md).
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Gli utenti possono disattivare Application Insights?
 Non direttamente. Non viene fornita alcuna opzione che gli utenti possono usare per disattivare Application Insights.
@@ -277,7 +277,7 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 | ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. |
 | Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser. |
 | Metriche |Nome e valore della metrica. |
-| Events |Nome e valore dell'evento. |
+| Eventi |Nome e valore dell'evento. |
 | PageViews |URL e nome della pagina o della schermata. |
 | Client perf |URL/nome pagina, tempo di caricamento del browser. |
 | Ajax |Chiamate HTTP dalla pagina Web al server |
@@ -293,7 +293,7 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 È possibile [disattivare alcuni dei dati modificando ApplicationInsights.config][config]
 
 > [!NOTE]
-> Il client IP viene utilizzato per dedurre la posizione geografica, tuttavia per impostazione predefinita i dati IP non vengono più memorizzati e tutti gli zeri vengono scritti nel campo associato. Per comprendere meglio la gestione dei dati personali si consiglia questo [articolo](../platform/personal-data-mgmt.md#application-data). Se è necessario archiviare i dati degli indirizzi IP, l' [articolo raccolta indirizzi IP](./ip-collection.md) illustra le opzioni disponibili.
+> Il client IP viene utilizzato per dedurre la posizione geografica, tuttavia per impostazione predefinita i dati IP non vengono più memorizzati e tutti gli zeri vengono scritti nel campo associato. Per comprendere meglio la gestione dei dati personali si consiglia questo [articolo](../logs/personal-data-mgmt.md#application-data). Se è necessario archiviare i dati degli indirizzi IP, l' [articolo raccolta indirizzi IP](./ip-collection.md) illustra le opzioni disponibili.
 
 ## <a name="credits"></a>Credits
 Questo prodotto include i dati GeoLite2 creati da MaxMind, disponibili da [https://www.maxmind.com](https://www.maxmind.com) .

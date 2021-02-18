@@ -5,18 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 02/16/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f80fe9865c551e41e061d53872afae14fc14e2ad
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: HT
+ms.openlocfilehash: 768112c5cd5ab39333a6d0df68b1c6223ad2c999
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92419907"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645524"
 ---
-1. Nel portale passare al gateway di rete virtuale da reimpostare.
-1. Nella pagina del gateway di rete virtuale selezionare **Reimposta** .
+1. Nel portale passare al gateway di rete virtuale che si vuole reimpostare.
+1. Nella pagina del gateway di rete virtuale selezionare **Reimposta**.
 
-   :::image type="content" source="./media/vpn-gateway-reset-gw-portal/reset.png" alt-text="Reimpostare il gateway":::
-1. Nella pagina **Reimposta** selezionare **Reimposta** . Dopo l'emissione del comando, l'istanza attualmente attiva del gateway VPN di Azure viene riavviata immediatamente. La reimpostazione del gateway provocherà un gap nella connettività VPN e potrebbe limitare l'analisi futura della causa radice del problema.
+   :::image type="content" source="./media/vpn-gateway-reset-gw-portal/menu.png" alt-text="Menu-Reimposta gateway":::
+1. Nella pagina **Reimposta** fare clic su **Reimposta**. Dopo l'emissione del comando, l'istanza attualmente attiva del gateway VPN di Azure viene riavviata immediatamente. La reimpostazione del gateway provocherà un gap nella connettività VPN e potrebbe limitare l'analisi futura della causa radice del problema.
+
+   :::image type="content" source="./media/vpn-gateway-reset-gw-portal/reset.png" alt-text="Reimpostare il gateway" lightbox="./media/vpn-gateway-reset-gw-portal/reset.png":::

@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dadbaba049d6baea54b3b64c9e248fc48004a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87045766"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573440"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 
@@ -46,9 +46,9 @@ Nella pagina delle informazioni dettagliate sul gruppo di risorse sono disponibi
 
    |         |          |
    | ---------------- |:-----|
-   | [**Avvisi**](../platform/alerts-overview.md)      |  Consente di visualizzare, creare e gestire gli avvisi. |
-   | [**Metriche**](../platform/data-platform.md) | Consente di visualizzare ed esplorare i dati in base alle metriche.    |
-   | [**Log attività**](../platform/platform-logs-overview.md) | Indicano gli eventi a livello di sottoscrizione che si sono verificati in Azure.  |
+   | [**Avvisi**](../alerts/alerts-overview.md)      |  Consente di visualizzare, creare e gestire gli avvisi. |
+   | [**Metriche**](../data-platform.md) | Consente di visualizzare ed esplorare i dati in base alle metriche.    |
+   | [**Log attività**](../essentials/platform-logs-overview.md) | Indicano gli eventi a livello di sottoscrizione che si sono verificati in Azure.  |
    | [**Mappa delle applicazioni**](../app/app-map.md) | Consente di esplorare la topologia dell'applicazione distribuita per identificare i colli di bottiglia delle prestazioni o le aree sensibili agli errori. |
 
 ## <a name="failures-and-performance"></a>Errori e prestazioni
@@ -117,6 +117,6 @@ Monitoraggio di Azure per i gruppi di risorse si basa sul sistema Gestione avvis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md)
+- [Cartelle di lavoro di Monitoraggio di Azure](../visualize/workbooks-overview.md)
 - [Integrità risorse di Azure](../../service-health/resource-health-overview.md)
-- [Avvisi di Monitoraggio di Azure](../platform/alerts-overview.md)
+- [Avvisi di Monitoraggio di Azure](../alerts/alerts-overview.md)

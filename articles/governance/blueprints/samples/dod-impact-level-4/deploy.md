@@ -3,12 +3,12 @@ title: Esempio di progetto DoD Impact Level 4
 description: Procedura di distribuzione per l'esempio di progetto DoD Impact Level 4, inclusi i dettagli dei parametri degli artefatti del progetto.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-ms.translationtype: HT
+ms.openlocfilehash: 389090b79c0aad343c1999ea17ed8c9332958544
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033762"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594795"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Distribuire l'esempio di progetto DoD Impact Level 4
 
@@ -109,7 +109,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Distribuisci l'agente di Log Analytics per le macchine virtuali Windows|Assegnazione di criteri|Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito|Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: \[\]|
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|Membri che devono essere inclusi nel gruppo Administrators locale|Elenco delimitato da punto e virgola con i membri da escludere dal gruppo locale Administrators, ad esempio Administrator; utente1; utente2|
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|Membri che devono essere esclusi nel gruppo Administrators locale|Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. ad esempio Administrator; utente1; utente2|
-|\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate|Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate.|
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|Il backup con ridondanza geografica a lungo termine deve essere abilitato per i database SQL di Azure|Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md).|
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL|Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md).|

@@ -3,12 +3,12 @@ title: Abilitare l'estensione della macchina virtuale usando il modello di Azure
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando un modello di Azure Resource Manager.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0115bda614133891275daff96c94dc4b1a680ccf
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b84f9d4d13de3ce2d661e254528e1f0a304001f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555107"
+ms.locfileid: "100580916"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Abilitare le estensioni di VM di Azure usando il modello ARM
 
@@ -545,7 +545,7 @@ Per usare l'estensione DSC di PowerShell, viene fornito l'esempio seguente per l
 
 ## <a name="deploy-the-dependency-agent-extension"></a>Distribuire l'estensione di Dependency Agent
 
-Per usare l'estensione dell'agente di dipendenza di monitoraggio di Azure, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con Dependency Agent, vedere [Panoramica degli agenti di monitoraggio di Azure](../../azure-monitor/platform/agents-overview.md#dependency-agent).
+Per usare l'estensione dell'agente di dipendenza di monitoraggio di Azure, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con Dependency Agent, vedere [Panoramica degli agenti di monitoraggio di Azure](../../azure-monitor/agents/agents-overview.md#dependency-agent).
 
 ### <a name="template-file-for-linux"></a>File modello per Linux
 

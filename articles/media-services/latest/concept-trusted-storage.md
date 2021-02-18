@@ -9,16 +9,19 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098079"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585393"
 ---
 # <a name="trusted-storage-for-media-services"></a>Archiviazione attendibile per servizi multimediali
 
 Quando si crea un account di servizi multimediali, è necessario associarlo a un account di archiviazione. Servizi multimediali può accedere a tale account di archiviazione usando l'autenticazione di sistema o l'autenticazione dell'identità gestita. Servizi multimediali verifica che l'account di servizi multimediali e l'account di archiviazione si trovino nella stessa sottoscrizione e che l'utente che aggiunge l'associazione abbia accesso all'account di archiviazione con Azure Resource Manager RBAC.
+
+>[!NOTE]
+>L'archiviazione attendibile è disponibile solo nell'API e non è attualmente abilitata nel portale di Azure.
 
 ## <a name="trusted-storage-with-a-firewall"></a>Archiviazione attendibile con un firewall
 

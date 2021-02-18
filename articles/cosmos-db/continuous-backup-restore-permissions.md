@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82af70547d20509c48f1e07bbc7610fc666a6da1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393055"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648604"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gestire le autorizzazioni per ripristinare un account di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -61,7 +61,7 @@ Per eseguire le diverse attività relative al ripristino per gli account in moda
 |Autorizzazione  |Impatto  |Ambito minimo  |Ambito massimo  |
 |---------|---------|---------|---------|
 |`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | Queste autorizzazioni sono necessarie per la distribuzione del modello ARM per la creazione dell'account ripristinato. Per informazioni sull'impostazione di questo ruolo, vedere l'autorizzazione di esempio [RestorableAction](#custom-restorable-action) di seguito. | Non applicabile | Non applicabile  |
-|Microsoft.DocumentDB/databaseAccounts/write | Questa autorizzazione è necessaria per ripristinare un account in un gruppo di risorse | Gruppo di risorse in cui viene creato l'account ripristinato. | Sottoscrizione in cui viene creato l'account ripristinato |
+|`Microsoft.DocumentDB/databaseAccounts/write` | Questa autorizzazione è necessaria per ripristinare un account in un gruppo di risorse | Gruppo di risorse in cui viene creato l'account ripristinato. | Sottoscrizione in cui viene creato l'account ripristinato |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |Questa autorizzazione è necessaria per l'ambito dell'account del database ripristinabile di origine per consentire l'esecuzione delle azioni di ripristino.  | Risorsa *RestorableDatabaseAccount* che appartiene all'account di origine da ripristinare. Questo valore viene fornito anche dalla `ID` proprietà della risorsa account del database ripristinabile. Un esempio di account ripristinabile è */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>* | Sottoscrizione che contiene l'account di database ripristinabile. Il gruppo di risorse non può essere scelto come ambito.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |Questa autorizzazione è necessaria nell'ambito dell'account del database ripristinabile di origine per elencare gli account di database che è possibile ripristinare.  | Risorsa *RestorableDatabaseAccount* che appartiene all'account di origine da ripristinare. Questo valore viene fornito anche dalla `ID` proprietà della risorsa account del database ripristinabile. Un esempio di account ripristinabile è */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| Sottoscrizione che contiene l'account di database ripristinabile. Il gruppo di risorse non può essere scelto come ambito.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | Questa autorizzazione è necessaria per l'ambito dell'account ripristinabile di origine per consentire la lettura di risorse ripristinabili, ad esempio un elenco di database e contenitori per un account ripristinabile.  | Risorsa *RestorableDatabaseAccount* che appartiene all'account di origine da ripristinare. Questo valore viene fornito anche dalla `ID` proprietà della risorsa account del database ripristinabile. Un esempio di account ripristinabile è */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| Sottoscrizione che contiene l'account di database ripristinabile. Il gruppo di risorse non può essere scelto come ambito. |

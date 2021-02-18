@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 0c083f4576e123ea14d837ed3915c56d18d84623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
-ms.translationtype: HT
+ms.openlocfilehash: 8451067ae86e95269c0c2f22554e1654ac64c1e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593786"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Individuare quale software è installato nelle VM
 
@@ -48,7 +48,7 @@ Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento mod
 
 1. Passare all'account di Automazione e selezionare **Inventario** o **Rilevamento modifiche** in **Gestione della configurazione**.
 
-2. Scegliere l'area di lavoro [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Questa area di lavoro raccoglie i dati generati da funzionalità come Rilevamento modifiche e inventario. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
+2. Scegliere l'area di lavoro [Log Analytics](../azure-monitor/logs/log-query-overview.md). Questa area di lavoro raccoglie i dati generati da funzionalità come Rilevamento modifiche e inventario. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -72,7 +72,7 @@ Dopo l'abilitazione della funzionalità, le informazioni sul software installato
 
 3. Selezionare la propria VM nell'elenco. 
 
-4. Fare clic su**Abilita** per abilitare Rilevamento modifiche e inventario nella VM. L'agente di Log Analytics per Windows viene distribuito nella macchina virtuale e la configura per comunicare con l'area di lavoro Log Analytics. L'operazione di configurazione può richiedere alcuni minuti. 
+4. Fare clic su **Abilita** per abilitare Rilevamento modifiche e inventario nella VM. L'agente di Log Analytics per Windows viene distribuito nella macchina virtuale e la configura per comunicare con l'area di lavoro Log Analytics. L'operazione di configurazione può richiedere alcuni minuti. 
 
 5. A questo punto, se si desidera, è possibile selezionare una nuova macchina virtuale nell'elenco da abilitare per la funzionalità.
 
@@ -80,7 +80,7 @@ Dopo l'abilitazione della funzionalità, le informazioni sul software installato
 
 Per abilitare i computer non di Azure per la funzionalità:
 
-1. Installare l'[agente di Log Analytics per Windows](../azure-monitor/platform/agent-windows.md) o l'[agente di Log Analytics per Linux](automation-linux-hrw-install.md), in base al sistema operativo in uso. 
+1. Installare l'[agente di Log Analytics per Windows](../azure-monitor/agents/agent-windows.md) o l'[agente di Log Analytics per Linux](automation-linux-hrw-install.md), in base al sistema operativo in uso. 
 
 2. Passare all'account di Automazione e selezionare **Inventario** o **Rilevamento modifiche** in **Gestione della configurazione**. 
 
@@ -122,7 +122,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Per altre informazioni sull'esecuzione dei file di log e sulla ricerca al loro interno nei log di Monitoraggio di Azure, vedere [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
+Per altre informazioni sull'esecuzione dei file di log e sulla ricerca al loro interno nei log di Monitoraggio di Azure, vedere [Log di Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="see-the-software-inventory-for-a-single-machine"></a>Vedere l'inventario del software per un singolo computer
 

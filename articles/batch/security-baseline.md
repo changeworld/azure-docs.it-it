@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737236"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593300"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Baseline della sicurezza di Azure per batch
 
@@ -142,7 +142,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 - [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
-- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -200,7 +200,7 @@ Se necessario, è possibile connettersi ai singoli nodi del pool tramite la shel
 
 - [Come configurare il monitoraggio e la registrazione di Azure Batch](monitoring-overview.md)
 
-- [Come configurare il periodo di conservazione dell'area di lavoro di Azure Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Come configurare il periodo di conservazione dell'area di lavoro di Azure Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -514,7 +514,7 @@ Crittografia dischi di Azure può essere usata per proteggere e salvaguardare i 
 
 Configurare le impostazioni di diagnostica per gli account di archiviazione associati al pool Azure Batch per monitorare e registrare tutte le operazioni CRUD sui dati del pool.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Come abilitare la registrazione o il controllo aggiuntivo per un account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md)
 

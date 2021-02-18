@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: d78ddf983f1c8f2bfeaf733c273afc1cc98b1185
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 561375eb41600ba1404bba2bcbf15b6cbfc61851
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684859"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595353"
 ---
-# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorare i dati Azure Cosmos DB usando le impostazioni di diagnostica in Azure
+# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorare i dati di Azure Cosmos DB usando le impostazioni di diagnostica in Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Le impostazioni di diagnostica in Azure vengono usate per raccogliere i log delle risorse. I log delle risorse di Azure vengono generati da una risorsa e forniscono dati avanzati e frequenti sul funzionamento di tale risorsa. Questi log vengono acquisiti per ogni richiesta e sono detti anche "log del piano dati". Alcuni esempi di operazioni del piano dati includono Delete, INSERT e readFeed. Il contenuto di questi log varia in base al tipo di risorsa.
@@ -103,7 +103,7 @@ Le metriche della piattaforma e i log attività vengono raccolti automaticamente
 
 * **Richieste**: selezionare questa opzione per raccogliere i dati delle metriche da Azure Cosmos DB alle destinazioni nell'impostazione di diagnostica. Si tratta degli stessi dati raccolti automaticamente in metriche di Azure. Raccogliere i dati delle metriche con i log delle risorse per analizzare entrambi i tipi di dati e inviare i dati delle metriche all'esterno di monitoraggio di Azure.
 
-Per informazioni dettagliate su come creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell, vedere l'articolo su come [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../azure-monitor/platform/diagnostic-settings.md) .
+Per informazioni dettagliate su come creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell, vedere l'articolo su come [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../azure-monitor/essentials/diagnostic-settings.md) .
 
 
 ## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Risolvere i problemi relativi alle query di diagnostica

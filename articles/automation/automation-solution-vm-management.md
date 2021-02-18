@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007007"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593831"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
-Il Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionalità avvia o arresta le VM di Azure abilitate. Consente di avviare o arrestare computer in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di Monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando i [gruppi di azioni](../azure-monitor/platform/action-groups.md). Questa funzionalità può essere abilitata sia in Azure Resource Manager che nelle macchine virtuali classiche per la maggior parte degli scenari.
+Il Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionalità avvia o arresta le VM di Azure abilitate. Consente di avviare o arrestare computer in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di Monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando i [gruppi di azioni](../azure-monitor/alerts/action-groups.md). Questa funzionalità può essere abilitata sia in Azure Resource Manager che nelle macchine virtuali classiche per la maggior parte degli scenari. 
 
 Questa funzionalità Usa il cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) per avviare le macchine virtuali. USA [Stop-AzVM](/powershell/module/az.compute/stop-azvm) per arrestare le macchine virtuali.
 

@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936992"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578535"
 ---
 # <a name="azure-functions-custom-handlers"></a>Gestori personalizzati di funzioni di Azure
 
@@ -122,9 +122,6 @@ Per i gestori personalizzati, impostare `FUNCTIONS_WORKER_RUNTIME` `Custom` su i
 }
 ```
 
-> [!NOTE]
-> `Custom` potrebbe non essere riconosciuto come runtime valido nei piani di servizio app o Premium Linux. Se si tratta della destinazione di distribuzione, impostare `FUNCTIONS_WORKER_RUNTIME` su una stringa vuota.
-
 ### <a name="function-metadata"></a>Metadati della funzione
 
 Quando viene usato con un gestore personalizzato, i *function.jssul* contenuto non sono diversi da come definire una funzione in qualsiasi altro contesto. L'unico requisito è che *function.js* nei file deve trovarsi in una cartella denominata in modo che corrisponda al nome della funzione.
@@ -216,7 +213,7 @@ Questo è un esempio di payload di risposta.
 }
 ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 I gestori personalizzati possono essere implementati in qualsiasi linguaggio che supporti la ricezione di eventi HTTP. Negli esempi seguenti viene illustrato come implementare un gestore personalizzato utilizzando il linguaggio di programmazione go.
 

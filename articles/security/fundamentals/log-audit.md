@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 79c15f2df82125f20dcfaf9992d9047b632c253d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0d85cf6ae501a7d50f20e48543e361149f4b57d0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412800"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580547"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registrazione e controllo di sicurezza di Azure
 
@@ -38,20 +38,20 @@ Le applicazioni cloud sono complesse e hanno molte parti mobili. La registrazion
 - Automatizzare le azioni che richiederebbero altrimenti l'intervento manuale
 
 I log di Azure sono suddivisi nei tipi seguenti:
-* **Log di gestione/controllo** , che offrono informazioni sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager. Per altre informazioni, vedere la [Log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+* **Log di gestione/controllo**, che offrono informazioni sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager. Per altre informazioni, vedere la [Log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
-* **Log del piano dati** , che offrono informazioni sugli eventi generati durante l'utilizzo di una risorsa di Azure. Sono esempi di questo tipo il registro eventi di sistema di Windows, il log di sicurezza, il log applicazioni di una macchina virtuale e i [log di diagnostica](../../azure-monitor/platform/platform-logs-overview.md) configurati tramite Monitoraggio di Azure.
+* **Log del piano dati**, che offrono informazioni sugli eventi generati durante l'utilizzo di una risorsa di Azure. Sono esempi di questo tipo il registro eventi di sistema di Windows, il log di sicurezza, il log applicazioni di una macchina virtuale e i [log di diagnostica](../../azure-monitor/essentials/platform-logs-overview.md) configurati tramite Monitoraggio di Azure.
 
-* **Eventi elaborati** , che offrono informazioni sugli eventi o avvisi analizzati dopo essere stati elaborati per conto dell'utente. Esempi di questo tipo sono i brevi [avvisi emessi dal Centro sicurezza di Azure](../../security-center/security-center-managing-and-responding-alerts.md) dopo aver eseguito l'[elaborazione e l'analisi della sottoscrizione](../../security-center/security-center-introduction.md).
+* **Eventi elaborati**, che offrono informazioni sugli eventi o avvisi analizzati dopo essere stati elaborati per conto dell'utente. Esempi di questo tipo sono i brevi [avvisi emessi dal Centro sicurezza di Azure](../../security-center/security-center-managing-and-responding-alerts.md) dopo aver eseguito l'[elaborazione e l'analisi della sottoscrizione](../../security-center/security-center-introduction.md).
 
 La tabella seguente elenca i più importanti tipi di log disponibili in Azure.
 
 | Categoria di log | Tipo di log | Utilizzo | Integrazione |
 | ------------ | -------- | ------ | ----------- |
-|[Log attività](../../azure-monitor/platform/platform-logs-overview.md)|Gli eventi del piano di controllo sulle risorse di Azure Resource Manager|  Offrono informazioni dettagliate sulle operazioni eseguite sulle risorse nella sottoscrizione.|    API REST e [Monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md)|
-|[Log delle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md)|Dati frequenti sul funzionamento delle risorse di Azure Resource Manager nella sottoscrizione|   Offrono informazioni dettagliate sulle operazioni eseguite dalla risorsa stessa.| Monitoraggio di Azure|
+|[Log attività](../../azure-monitor/essentials/platform-logs-overview.md)|Gli eventi del piano di controllo sulle risorse di Azure Resource Manager|    Offrono informazioni dettagliate sulle operazioni eseguite sulle risorse nella sottoscrizione.|    API REST e [Monitoraggio di Azure](../../azure-monitor/essentials/platform-logs-overview.md)|
+|[Log delle risorse di Azure](../../azure-monitor/essentials/platform-logs-overview.md)|Dati frequenti sul funzionamento delle risorse di Azure Resource Manager nella sottoscrizione| Offrono informazioni dettagliate sulle operazioni eseguite dalla risorsa stessa.| Monitoraggio di Azure|
 |[Creazione di report Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Log e report | Segnalano attività di accesso dell'utente e informazioni sulle attività di sistema riguardo alla gestione di utenti e gruppi.|[API Graph](../../active-directory/develop/microsoft-graph-intro.md)|
-|[Macchine virtuali e servizi cloud](../../azure-monitor/learn/quick-collect-azurevm.md)|Servizio Registro eventi di Windows e Syslog Linux|  Acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e li trasferisce all'account di archiviazione desiderato.|   Windows tramite [WAD](../../azure-monitor/platform/diagnostics-extension-overview.md) (archiviazione di Diagnostica di Windows Azure) e Linux in Monitoraggio di Azure|
+|[Macchine virtuali e servizi cloud](../../azure-monitor/vm/quick-collect-azurevm.md)|Servizio Registro eventi di Windows e Syslog Linux| Acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e li trasferisce all'account di archiviazione desiderato.|   Windows tramite [WAD](../../azure-monitor/agents/diagnostics-extension-overview.md) (archiviazione di Diagnostica di Windows Azure) e Linux in Monitoraggio di Azure|
 |[Analisi archiviazione di Azure](/rest/api/storageservices/fileservices/storage-analytics)|Esegue la registrazione di archiviazione e offre i dati delle metriche per un account di archiviazione|Offre informazioni dettagliate per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.| API REST o [libreria client](/dotnet/api/overview/azure/storage)|
 |[Log del flusso del gruppo di sicurezza di rete (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|Formato JSON, mostra i flussi in ingresso e in uscita in base a ciascuna regola|Visualizza le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application Insights](../../azure-monitor/app/app-insights-overview.md)|Log, eccezioni e diagnostica personalizzata|  Offre un servizio di monitoraggio delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme.| API REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

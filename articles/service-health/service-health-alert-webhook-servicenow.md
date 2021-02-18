@@ -4,12 +4,12 @@ description: Ricevere notifiche personalizzate sugli eventi di integrità dei se
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6596dd9853a792b5bfdb333361a2b9cd02a347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588192"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con ServiceNow usando i webhook
 
@@ -178,7 +178,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 1. Al termine fare clic su **Salva** per aggiornare il gruppo di azioni.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Test dell'integrazione del webhook tramite una richiesta HTTP POST
-1. Creare il payload di integrità del servizio che si vuole inviare. [Per gli avvisi del log attività di Azure](../azure-monitor/platform/activity-log-alerts-webhook.md)è possibile trovare un payload di esempio del webhook di integrità del servizio.
+1. Creare il payload di integrità del servizio che si vuole inviare. [Per gli avvisi del log attività di Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md)è possibile trovare un payload di esempio del webhook di integrità del servizio.
 
 1. Creare una richiesta HTTP POST nel modo seguente:
 
@@ -195,6 +195,6 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
-- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Informazioni sulle [notifiche per l'integrità del servizio](./service-notifications.md).
-- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).
+- Altre informazioni sui [gruppi di azione](../azure-monitor/alerts/action-groups.md).

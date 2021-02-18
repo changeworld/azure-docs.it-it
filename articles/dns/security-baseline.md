@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bdfdba3bb9ad6d393e55e6070b2435c72254668a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 26075a272252c0e04948315593bb2e4a38e195da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201298"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577368"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Baseline della sicurezza di Azure per DNS di Azure
 
@@ -30,7 +30,7 @@ Inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza g
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -48,7 +48,7 @@ Inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza g
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione.
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -64,9 +64,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introduzione alle query di Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -82,7 +82,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -278,7 +278,7 @@ In DNS di Azure esiste il ruolo Collaboratore zona DNS, nonché il livello di zo
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate al servizio DNS di Azure e ad altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

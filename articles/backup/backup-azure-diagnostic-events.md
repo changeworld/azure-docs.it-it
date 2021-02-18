@@ -3,12 +3,12 @@ title: Usare le impostazioni di diagnostica per gli insiemi di credenziali dei s
 description: Questo articolo descrive come usare i vecchi e i nuovi eventi di diagnostica per backup di Azure.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2130f06e17dd2b5cf8461d4e58342ee41c14f96
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002886"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575410"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Usare le impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino
 
@@ -37,7 +37,7 @@ I dati relativi a questi eventi possono essere inviati a un account di archiviaz
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Usare le impostazioni di diagnostica con Log Analytics
 
-È ora possibile usare backup di Azure per inviare i dati di diagnostica dell'insieme di credenziali a tabelle Log Analytics dedicate per il backup. Queste tabelle sono denominate [tabelle specifiche delle risorse](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+È ora possibile usare backup di Azure per inviare i dati di diagnostica dell'insieme di credenziali a tabelle Log Analytics dedicate per il backup. Queste tabelle sono denominate [tabelle specifiche delle risorse](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 Per inviare i dati di diagnostica dell'insieme di credenziali a Log Analytics:
 

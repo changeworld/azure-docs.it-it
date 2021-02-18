@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a5639d583d9b98f6527e47bf5db213cb191ebeb7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832522"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575302"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Visualizzare e configurare gli avvisi di protezione DDoS
 
@@ -72,7 +72,7 @@ Entro pochi minuti dal rilevamento degli attacchi, si dovrebbe ricevere un messa
 
 ![Avviso di attacco](./media/manage-ddos-protection/ddos-alert.png)
 
-È anche possibile leggere altre informazioni relative alla [configurazione dei webhook](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e alle [app per la logica](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per la creazione di avvisi.
+È anche possibile leggere altre informazioni relative alla [configurazione dei webhook](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e alle [app per la logica](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per la creazione di avvisi.
 
 ## <a name="view-alerts-in-azure-security-center"></a>Visualizzare gli avvisi nel centro sicurezza di Azure
 

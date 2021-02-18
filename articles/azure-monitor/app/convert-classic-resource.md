@@ -3,12 +3,12 @@ title: Eseguire la migrazione di un monitoraggio di Azure Application Insights r
 description: Informazioni sui passaggi necessari per aggiornare il monitoraggio di Azure Application Insights risorsa classica al nuovo modello basato sull'area di lavoro.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945102"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584259"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Eseguire la migrazione a risorse Application Insights basate sull'area di lavoro
 
@@ -22,21 +22,21 @@ Le risorse basate sull'area di lavoro consentono il controllo degli accessi in b
 
 Application Insights basata sull'area di lavoro consente di sfruttare tutte le funzionalità più recenti di monitoraggio di Azure e Log Analytics, tra cui:
 
-* [Chiavi gestite dal cliente (CMK)](../platform/customer-managed-keys.md) fornisce la crittografia dei dati inattivi per i dati con chiavi di crittografia solo a cui si ha accesso.
-* [Collegamento privato di Azure](../platform/private-link-security.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati.
+* [Chiavi gestite dal cliente (CMK)](../logs/customer-managed-keys.md) fornisce la crittografia dei dati inattivi per i dati con chiavi di crittografia solo a cui si ha accesso.
+* [Collegamento privato di Azure](../logs/private-link-security.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati.
 * [Bring your own Storage (BYOS) per Profiler e snapshot debugger](./profiler-bring-your-own-storage.md) offre il controllo completo sui criteri di crittografia dei dati inattivi, sui criteri di gestione della durata e sull'accesso alla rete per tutti i dati associati a Application Insights Profiler e snapshot debugger. 
-* I [livelli di prenotazione della capacità](../platform/manage-cost-storage.md#pricing-model) consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. 
+* I [livelli di prenotazione della capacità](../logs/manage-cost-storage.md#pricing-model) consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. 
 * Inserimento più rapido dei dati tramite Log Analytics inserimento di flussi.
 
 ## <a name="migration-process"></a>Processo di migrazione
 
 Quando si esegue la migrazione a una risorsa basata sull'area di lavoro, nessun dato viene trasferito dall'archiviazione della risorsa classica alla nuova archiviazione basata sull'area di lavoro. Se si sceglie di eseguire la migrazione, viene invece modificato il percorso in cui vengono scritti i nuovi dati in un'area di lavoro Log Analytics mantenendo l'accesso ai dati della risorsa classica. 
 
-I dati della risorsa classica verranno mantenuti e saranno soggetti alle impostazioni di conservazione della risorsa di Application Insights classica. Tutti i nuovi dati inseriti dopo la migrazione saranno soggetti alle [impostazioni di conservazione](../platform/manage-cost-storage.md#change-the-data-retention-period) dell'area di lavoro log Analytics associata, che supporta anche [impostazioni di conservazione diverse in base al tipo di dati](../platform/manage-cost-storage.md#retention-by-data-type).
+I dati della risorsa classica verranno mantenuti e saranno soggetti alle impostazioni di conservazione della risorsa di Application Insights classica. Tutti i nuovi dati inseriti dopo la migrazione saranno soggetti alle [impostazioni di conservazione](../logs/manage-cost-storage.md#change-the-data-retention-period) dell'area di lavoro log Analytics associata, che supporta anche [impostazioni di conservazione diverse in base al tipo di dati](../logs/manage-cost-storage.md#retention-by-data-type).
 Il processo di migrazione è **permanente e non può essere annullato**. Quando si esegue la migrazione di una risorsa a Application Insights basata sull'area di lavoro, sarà sempre una risorsa basata sull'area di lavoro. Tuttavia, una volta eseguita la migrazione, è possibile modificare l'area di lavoro di destinazione con la frequenza necessaria. 
 
 > [!NOTE]
-> L'inserimento e la conservazione dei dati per le risorse Application Insights basate sull'area di lavoro vengono [fatturate tramite l'area di lavoro log Analytics in](../platform/manage-cost-storage.md) cui si trovano i dati. Se è stata selezionata la conservazione dei dati superiore a 90 giorni per i dati inseriti nella risorsa Application Insights classica prima della migrazione, la conservazione dei dati continuerà a essere fatturata attraverso la risorsa Application Insights. [Altre informazioni]( ./pricing.md#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro.
+> L'inserimento e la conservazione dei dati per le risorse Application Insights basate sull'area di lavoro vengono [fatturate tramite l'area di lavoro log Analytics in](../logs/manage-cost-storage.md) cui si trovano i dati. Se è stata selezionata la conservazione dei dati superiore a 90 giorni per i dati inseriti nella risorsa Application Insights classica prima della migrazione, la conservazione dei dati continuerà a essere fatturata attraverso la risorsa Application Insights. [Altre informazioni]( ./pricing.md#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro.
 
 Se non è necessario eseguire la migrazione di una risorsa esistente e si vuole creare una nuova risorsa Application Insights basata sull'area di lavoro, usare la [Guida alla creazione di risorse basata sull'area di lavoro](create-workspace-resource.md).
 
@@ -44,12 +44,12 @@ Se non è necessario eseguire la migrazione di una risorsa esistente e si vuole 
 
 - Un'area di lavoro Log Analytics con la modalità di controllo di accesso impostata sull' **`use resource or workspace permissions`** impostazione. 
 
-    - Le risorse Application Insights basate sull'area di lavoro non sono compatibili con le aree di lavoro impostate sull' **`workspace based permissions`** impostazione dedicata. Per ulteriori informazioni sul controllo di accesso dell'area di lavoro Log Analytics, consultare la [log Analytics configurare le linee guida per la modalità controllo di accesso](../platform/manage-access.md#configure-access-control-mode)
+    - Le risorse Application Insights basate sull'area di lavoro non sono compatibili con le aree di lavoro impostate sull' **`workspace based permissions`** impostazione dedicata. Per ulteriori informazioni sul controllo di accesso dell'area di lavoro Log Analytics, consultare la [log Analytics configurare le linee guida per la modalità controllo di accesso](../logs/manage-access.md#configure-access-control-mode)
 
-    - Se non si dispone di un'area di lavoro Log Analytics esistente, [consultare la documentazione relativa alla creazione dell'area di lavoro Log Analytics](../learn/quick-create-workspace.md).
+    - Se non si dispone di un'area di lavoro Log Analytics esistente, [consultare la documentazione relativa alla creazione dell'area di lavoro Log Analytics](../logs/quick-create-workspace.md).
     
 - L'esportazione continua non è supportata per le risorse basate sull'area di lavoro e deve essere disabilitata.
-Al termine della migrazione, è possibile usare [le impostazioni di diagnostica](../platform/diagnostic-settings.md) per configurare l'archiviazione dei dati in un account di archiviazione o in streaming nell'hub eventi di Azure.  
+Al termine della migrazione, è possibile usare [le impostazioni di diagnostica](../essentials/diagnostic-settings.md) per configurare l'archiviazione dei dati in un account di archiviazione o in streaming nell'hub eventi di Azure.  
 
 - Controllare le impostazioni di conservazione correnti in utilizzo **generale**  >  e conservazione dei dati **sui costi stimati**  >   per l'area di lavoro log Analytics. Questa impostazione influirà sul tempo durante il quale i nuovi dati inseriti vengono archiviati dopo la migrazione della risorsa Application Insights. Se attualmente si archiviano i dati Application Insights per un periodo di tempo superiore a quello predefinito di 90 giorni e si desidera mantenere questo periodo di conservazione più ampio, potrebbe essere necessario modificare le impostazioni di conservazione dell'area di lavoro.
 
@@ -209,7 +209,7 @@ Dall'interno del riquadro Application Insights risorsa selezionare **Proprietà*
 
 **Messaggio di errore:** *l'area di lavoro selezionata è configurata con modalità di accesso basata sull'area di lavoro. Alcune funzionalità APM potrebbero essere interessate. Selezionare un'altra area di lavoro o consentire l'accesso basato sulle risorse nelle impostazioni dell'area di lavoro. È possibile eseguire l'override di questo errore usando l'interfaccia* della riga di comando. 
 
-Per il corretto funzionamento della risorsa Application Insights basata sull'area di lavoro, è necessario modificare la modalità di controllo di accesso dell'area di lavoro Log Analytics di destinazione nell'impostazione delle autorizzazioni per la **risorsa o l'area di lavoro** . Questa impostazione si trova nell'interfaccia utente dell'area di lavoro log Analytics in  >  **modalità controllo di accesso** proprietà. Per istruzioni dettagliate, vedere la [log Analytics configurare le linee guida per la modalità controllo di accesso](../platform/manage-access.md#configure-access-control-mode). Se la modalità di controllo di accesso è impostata sull'impostazione esclusiva **Richiedi autorizzazioni** per l'area di lavoro, la migrazione tramite l'esperienza di migrazione del portale rimarrà bloccata.
+Per il corretto funzionamento della risorsa Application Insights basata sull'area di lavoro, è necessario modificare la modalità di controllo di accesso dell'area di lavoro Log Analytics di destinazione nell'impostazione delle autorizzazioni per la **risorsa o l'area di lavoro** . Questa impostazione si trova nell'interfaccia utente dell'area di lavoro log Analytics in  >  **modalità controllo di accesso** proprietà. Per istruzioni dettagliate, vedere la [log Analytics configurare le linee guida per la modalità controllo di accesso](../logs/manage-access.md#configure-access-control-mode). Se la modalità di controllo di accesso è impostata sull'impostazione esclusiva **Richiedi autorizzazioni** per l'area di lavoro, la migrazione tramite l'esperienza di migrazione del portale rimarrà bloccata.
 
 Se non è possibile modificare la modalità di controllo di accesso per motivi di sicurezza per l'area di lavoro di destinazione corrente, è consigliabile creare una nuova area di lavoro Log Analytics da usare per la migrazione. 
 
@@ -229,7 +229,7 @@ La funzionalità di esportazione continua legacy non è supportata per risorse b
 
 - Dopo aver selezionato Disabilita, è possibile tornare all'interfaccia utente di migrazione. Se nella pagina modifica esportazione continua viene richiesto se le impostazioni non verranno salvate, è possibile selezionare OK per questa richiesta poiché non è pertinente alla disabilitazione o all'abilitazione dell'esportazione continua.
 
-- Dopo aver eseguito la migrazione della risorsa di Application Insights in base all'area di lavoro, è possibile usare le impostazioni di diagnostica per sostituire le funzionalità usate da Export continuo per fornire. Selezionare **impostazioni di diagnostica**  >  **Aggiungi impostazione di diagnostica** dall'interno della risorsa Application Insights. È possibile selezionare tutte le tabelle o un subset di tabelle da archiviare in un account di archiviazione o di cui eseguire lo streaming in Hub eventi di Azure. Per istruzioni dettagliate sulle impostazioni di diagnostica, vedere le [indicazioni sulle impostazioni di diagnostica di monitoraggio di Azure](../platform/diagnostic-settings.md).
+- Dopo aver eseguito la migrazione della risorsa di Application Insights in base all'area di lavoro, è possibile usare le impostazioni di diagnostica per sostituire le funzionalità usate da Export continuo per fornire. Selezionare **impostazioni di diagnostica**  >  **Aggiungi impostazione di diagnostica** dall'interno della risorsa Application Insights. È possibile selezionare tutte le tabelle o un subset di tabelle da archiviare in un account di archiviazione o di cui eseguire lo streaming in Hub eventi di Azure. Per istruzioni dettagliate sulle impostazioni di diagnostica, vedere le [indicazioni sulle impostazioni di diagnostica di monitoraggio di Azure](../essentials/diagnostic-settings.md).
 
 ### <a name="retention-settings"></a>Impostazioni di conservazione
 
@@ -241,5 +241,5 @@ Non è necessario apportare modifiche prima di eseguire la migrazione, ma questo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplorare le metriche](../platform/metrics-charts.md)
-* [Scrivere query di Analisi](../log-query/log-query-overview.md)
+* [Esplorare le metriche](../essentials/metrics-charts.md)
+* [Scrivere query di Analisi](../logs/log-query-overview.md)
