@@ -11,20 +11,22 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
-ms.translationtype: HT
+ms.openlocfilehash: 9d665df8eacfa575cd8dc50251662730e58fa7b3
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659693"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653432"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Avvio rapido: Inviare un messaggio SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 
 > [!IMPORTANT]
 > L'invio e la ricezione di SMS è consentita solo da numeri di telefono degli Stati Uniti. I numeri di telefono di altri paesi non sono ancora supportati con gli SMS di Servizi di comunicazione.
-> Per altre informazioni, vedere **[Pianificare l'uso della soluzione di telefonia e SMS](../../concepts/telephony-sms/plan-solution.md)** .
+> Per ulteriori informazioni, vedere **[tipi di numero di telefono](../../concepts/telephony-sms/plan-solution.md)**.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -58,7 +60,7 @@ In questa guida di avvio rapido si è appreso come inviare messaggi SMS tramite 
 > [Sottoscrivere eventi SMS](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Pianificare la soluzione PSTN](../../concepts/telephony-sms/plan-solution.md)
+> [Tipi di numero di telefono](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sugli SMS](../../concepts/telephony-sms/concepts.md)

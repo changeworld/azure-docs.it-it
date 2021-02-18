@@ -3,12 +3,12 @@ title: Abilitare l'estensione della macchina virtuale da portale di Azure
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi dal portale di Azure.
 ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728951"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587664"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Abilitare le estensioni di VM di Azure dalla portale di Azure
 
@@ -33,7 +33,7 @@ Le estensioni della macchina virtuale possono essere applicate all'arco per il c
 
     ![Installare Log Analytics estensione VM](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Per completare l'installazione, è necessario specificare l'ID e la chiave primaria dell'area di lavoro. Se non si ha familiarità con la ricerca di queste informazioni, vedere [ottenere l'ID e la chiave dell'area di lavoro](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+    Per completare l'installazione, è necessario specificare l'ID e la chiave primaria dell'area di lavoro. Se non si ha familiarità con la ricerca di queste informazioni, vedere [ottenere l'ID e la chiave dell'area di lavoro](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 4. Dopo aver confermato le informazioni necessarie, selezionare **Crea**. Viene visualizzato un riepilogo della distribuzione ed è possibile esaminare lo stato della distribuzione.
 

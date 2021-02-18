@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 3fc880e238c1c9f45c663975470a6ab57267a648
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 940f7efc7130ef80817be3b42e3c0eff83588a90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879545"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587985"
 ---
 # <a name="monitoring-time-series-insights"></a>Time Series Insights di monitoraggio
 
@@ -29,7 +29,7 @@ La pagina **Panoramica** nel portale di Azure per ogni ambiente Time Series Insi
 
 Time Series Insights crea dati di monitoraggio tramite [monitoraggio di Azure](../azure-monitor/overview.md), un servizio di monitoraggio dello stack completo in Azure che fornisce un set completo di funzionalità per il monitoraggio delle risorse di Azure, oltre alle risorse in altri cloud e in locale.
 
-Iniziare con l'articolo [monitoraggio delle risorse di Azure con monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md), che descrive i concetti seguenti:
+Iniziare con l'articolo [monitoraggio delle risorse di Azure con monitoraggio di Azure](../azure-monitor/essentials/monitor-azure-resource.md), che descrive i concetti seguenti:
 
 - Informazioni su Monitoraggio di Azure
 - Costi associati al monitoraggio
@@ -40,11 +40,11 @@ Iniziare con l'articolo [monitoraggio delle risorse di Azure con monitoraggio di
 Le sezioni seguenti si basano su questo articolo, descrivendo i dati specifici raccolti per Azure Time Series Insights. Queste sezioni forniscono anche esempi per la configurazione della raccolta dei dati e l'analisi di questi dati con gli strumenti di Azure.
 
 > [!TIP]
-> Per comprendere i costi associati a monitoraggio di Azure, vedere [utilizzo e costi stimati](../azure-monitor/platform/usage-estimated-costs.md). Per informazioni sul tempo necessario per la visualizzazione dei dati in monitoraggio di Azure, vedere [tempo di inserimento dei dati di log](../azure-monitor/platform/data-ingestion-time.md).
+> Per comprendere i costi associati a monitoraggio di Azure, vedere [utilizzo e costi stimati](../azure-monitor//usage-estimated-costs.md). Per informazioni sul tempo necessario per la visualizzazione dei dati in monitoraggio di Azure, vedere [tempo di inserimento dei dati di log](../azure-monitor/logs/data-ingestion-time.md).
 
 ## <a name="monitoring-data-from-azure-time-series-insights"></a>Monitoraggio dei dati da Azure Time Series Insights
 
-Azure Time Series Insights raccoglie gli stessi tipi di dati di monitoraggio delle altre risorse di Azure descritte in [monitoraggio dei dati dalle risorse di Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Azure Time Series Insights raccoglie gli stessi tipi di dati di monitoraggio delle altre risorse di Azure descritte in [monitoraggio dei dati dalle risorse di Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 Vedere [Azure Time Series Insights riferimento ai dati di monitoraggio](how-to-monitor-tsi-reference.md) per un riferimento dettagliato dei log e delle metriche che è possibile raccogliere.
 
@@ -53,7 +53,7 @@ Vedere [Azure Time Series Insights riferimento ai dati di monitoraggio](how-to-m
 Le metriche della piattaforma vengono raccolte e archiviate automaticamente, ma possono essere indirizzate ad altre posizioni usando un'impostazione di diagnostica.
 
 I log delle risorse non vengono raccolti e archiviati fino a quando non si crea un'impostazione di diagnostica e la si instrada a una o più posizioni.
-Vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../azure-monitor/platform/diagnostic-settings.md) per il processo dettagliato per la creazione di un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell. Quando si crea un'impostazione di diagnostica, è necessario specificare le categorie di log da raccogliere.
+Vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../azure-monitor/essentials/diagnostic-settings.md) per il processo dettagliato per la creazione di un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell. Quando si crea un'impostazione di diagnostica, è necessario specificare le categorie di log da raccogliere.
 
 È possibile raccogliere i log dalle seguenti categorie per Azure Time Series Insights:
 
@@ -80,7 +80,7 @@ Byte archiviati in **ingresso** in byte [ ![ archiviati in ingresso serie tempor
 
 I dati nei log di Monitoraggio di Azure vengono archiviati in tabelle in cui ogni tabella dispone di un proprio set di proprietà univoche.
 
-Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Per un elenco dei tipi di log delle risorse raccolti per Azure Time Series Insights, vedere [Azure Time Series Insights riferimento ai dati di monitoraggio](how-to-monitor-tsi-reference.md#resource-logs).
+Tutti i log delle risorse in monitoraggio di Azure hanno gli stessi campi seguiti dai campi specifici del servizio. Lo schema comune è illustrato nello schema del [log delle risorse di monitoraggio di Azure](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Per un elenco dei tipi di log delle risorse raccolti per Azure Time Series Insights, vedere [Azure Time Series Insights riferimento ai dati di monitoraggio](how-to-monitor-tsi-reference.md#resource-logs).
 
 Azure Time Series Insights archivia i dati nelle tabelle seguenti.
 
@@ -122,4 +122,4 @@ Quando si crea una regola di avviso basata sulle metriche della piattaforma, ten
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [Azure Time Series Insights riferimento ai dati di monitoraggio](how-to-monitor-tsi-reference.md) per un riferimento dei log e delle metriche creati da Azure Time Series Insights.
-* Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md).
+* Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/essentials/monitor-azure-resource.md).

@@ -4,12 +4,12 @@ description: Proprietari, collaboratori e lettori di informazioni dell'organizza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076685"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589607"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Risorse, ruoli e controllo di accesso in Application Insights
 
@@ -54,7 +54,7 @@ Selezionare **Controllo di accesso (IAM)** dal menu a sinistra.
 
 ![Screenshot del pulsante del controllo di accesso nel portale di Azure](./media/resources-roles-access-control/0001-access-control.png)
 
-Selezionare **Aggiungi assegnazione ruolo**
+Selezionare **Aggiungi assegnazione di ruolo**
 
 ![Screenshot del menu di controllo di accesso con il pulsante Aggiungi evidenziato in rosso](./media/resources-roles-access-control/0002-add.png)
 
@@ -76,7 +76,7 @@ Dove applicabile sarà presente un collegamento alla documentazione di riferimen
 | [Lettore](../../role-based-access-control/built-in-roles.md#reader) |Può visualizzare qualsiasi oggetto ma non può apportare alcuna modifica. |
 | [Debugger di snapshot di Application Insights](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Concede l'autorizzazione utente per l'uso delle funzionalità di Snapshot Debugger di Application Insights. Si noti che questo ruolo non è incluso nei ruoli Proprietario e Collaboratore. |
 | Collaboratore alla gestione delle versioni di distribuzione dei servizi di Azure | Ruolo di collaboratore per i servizi di distribuzione tramite la distribuzione dei servizi di Azure. |
-| [Pulizia dati](../../role-based-access-control/built-in-roles.md#data-purger) | Ruolo speciale per l'eliminazione dei dati personali. Vedere le [linee guida per i dati personali](../platform/personal-data-mgmt.md) per altre informazioni.   |
+| [Pulizia dati](../../role-based-access-control/built-in-roles.md#data-purger) | Ruolo speciale per l'eliminazione dei dati personali. Vedere le [linee guida per i dati personali](../logs/personal-data-mgmt.md) per altre informazioni.   |
 | Amministratore di ExpressRoute | Può creare, eliminare e gestire le istanze di ExpressRoute.|
 | [Collaboratore di Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Il ruolo Collaboratore di Log Analytics può leggere tutti i dati di monitoraggio e modificare le impostazioni di monitoraggio. La modifica delle impostazioni di monitoraggio include l'aggiunta di estensioni delle VM alle VM, la lettura delle chiavi dell'account di archiviazione per potere configurare la raccolta di log dall'Archiviazione di Azure, la creazione e la configurazione degli account di Automazione, l'aggiunta di soluzioni e la configurazione di Diagnostica di Azure in tutte le risorse di Azure.  |
 | [Lettore di Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Il ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutti i dati di monitoraggio e può visualizzare le impostazioni di monitoraggio, inclusa la visualizzazione della configurazione di Diagnostica di Azure in tutte le risorse di Azure. |

@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 04e658e3107ac0c9622ca1601eb93b01b9986fef
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1db7eeb61bc4ded2d7015baecaacd974d7767812
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645552"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653509"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -60,7 +60,11 @@ Le classi seguenti gestiscono alcune delle principali funzionalità della librer
 
 ## <a name="create-a-chat-client"></a>Creare un client di chat
 
-Per creare un client di chat, è necessario usare l'endpoint di servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi dei prerequisiti. È necessario usare la classe `CommunicationIdentityClient` dalla libreria client `Administration` per creare un utente e generare un token da passare al client di chat. Vedere altre informazioni sui [token di accesso utente](../../access-tokens.md).
+Per creare un client di chat, è necessario usare l'endpoint di servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi dei prerequisiti. È necessario usare la classe `CommunicationIdentityClient` dalla libreria client `Administration` per creare un utente e generare un token da passare al client di chat.
+
+Vedere altre informazioni sui [token di accesso utente](../../access-tokens.md).
+
+Questa Guida introduttiva non illustra la creazione di un livello di servizio per gestire i token per l'applicazione di chat, sebbene sia consigliabile. Altre informazioni sull' [architettura della chat](../../../concepts/chat/concepts.md)
 
 ```csharp
 using Azure.Communication.Identity;

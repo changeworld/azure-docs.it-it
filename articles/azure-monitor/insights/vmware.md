@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc31cd4f492a4e95ce8232a8df28f07206e23b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450404"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587167"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione Monitoraggio VMware (deprecata) in monitoraggio di Azure
 
@@ -33,7 +33,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 vSphere ESXi Host 5.5, 6.0 e 6.5
 
 #### <a name="prepare-a-linux-server"></a>Preparazione di un server Linux
-Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog dagli host ESXi. L'[agente di Log Analytics per Linux](../learn/quick-collect-linux-computer.md) è il punto di raccolta di tutti i dati di Syslog dell'host ESXi. È possibile usare più host ESXi per inoltrare i log a un singolo server Linux, come nell'esempio seguente.
+Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog dagli host ESXi. L'[agente di Log Analytics per Linux](../vm/quick-collect-linux-computer.md) è il punto di raccolta di tutti i dati di Syslog dell'host ESXi. È possibile usare più host ESXi per inoltrare i log a un singolo server Linux, come nell'esempio seguente.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -43,7 +43,7 @@ Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog da
 1. Configurare l'inoltro di Syslog per VSphere. Per informazioni dettagliate utili a configurare l'inoltro di Syslog, consultare [Configurazione di Syslog su ESXi 5.0 e versioni successive (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Passare a **ESXi host Configuration**  >  **software**  >  **Advanced Settings**  >  **syslog**.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
 1. Nel campo *Syslog.global.logHost*, aggiungere il server Linux e il numero di porta *1514*. Ad esempio, `tcp://hostname:1514` o `tcp://123.456.789.101:1514`
-1. Aprire il firewall dell'host ESXi per Syslog. Configurazione dell'host **ESXi**  >  **Software**  >  di **Profilo**  >  di sicurezza **Firewall** e **Proprietà**aperte.  
+1. Aprire il firewall dell'host ESXi per Syslog. Configurazione dell'host **ESXi**  >  **Software**  >  di **Profilo**  >  di sicurezza **Firewall** e **Proprietà** aperte.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
 
@@ -122,12 +122,12 @@ Nella vista dashboard di **VMware** i pannelli sono organizzati in base a questi
 
 Fare clic su qualsiasi pannello per aprire il riquadro di ricerca di Log Analytics che mostra informazioni dettagliate specifiche per il pannello.
 
-Da qui è possibile modificare la query di log per modificarla per un elemento specifico. Per informazioni dettagliate sulla creazione di query di log, vedere [trovare dati con query di log in monitoraggio di Azure](../log-query/log-query-overview.md).
+Da qui è possibile modificare la query di log per modificarla per un elemento specifico. Per informazioni dettagliate sulla creazione di query di log, vedere [trovare dati con query di log in monitoraggio di Azure](../logs/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Individuazione degli eventi host ESXi
 Un singolo host ESXi genera più log, in base ai loro processi. La soluzione di monitoraggio VMware li centralizza e riepiloga il conteggio degli eventi. Questa vista centralizzata aiuta a comprendere quale host ESXi ha un volume elevato di eventi e quali eventi si verificano più di frequente nell'ambiente.
 
-![event](./media/vmware/events.png)
+![evento](./media/vmware/events.png)
 
 È possibile approfondire più nel dettaglio facendo clic su un host ESXi o un tipo di evento.
 
@@ -151,12 +151,12 @@ La soluzione include altre query utili che aiutano a gestire gli host ESXi, ad e
 
 
 #### <a name="save-queries"></a>Salvataggio delle query
-Il salvataggio delle query di log è una funzionalità standard di monitoraggio di Azure che consente di gestire le query che sono risultate utili. Dopo aver creato una query che si ritiene utile, salvarla facendo clic su **Preferiti**. Salvando una query, è possibile usarla di nuovo in un secondo momento dalla pagina [Dashboard personale](../learn/tutorial-logs-dashboards.md) in cui è possibile creare i dashboard personalizzati.
+Il salvataggio delle query di log è una funzionalità standard di monitoraggio di Azure che consente di gestire le query che sono risultate utili. Dopo aver creato una query che si ritiene utile, salvarla facendo clic su **Preferiti**. Salvando una query, è possibile usarla di nuovo in un secondo momento dalla pagina [Dashboard personale](../visualize/tutorial-logs-dashboards.md) in cui è possibile creare i dashboard personalizzati.
 
 ![Screenshot mostra parte di un dashboard personalizzato con etichetta ricerca log con icone per le operazioni di annullamento, esportazione, avviso, salvataggio, Preferiti e cronologia.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Creazione di avvisi da query
-Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si verifichino eventi specifici. Per informazioni su come creare avvisi, vedere [Avvisi in Log Analytics](../platform/alerts-overview.md). Per esempi di query di avviso e di altro tipo, vedere il post di blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Monitoraggio di VMware con Log Analytics).
+Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si verifichino eventi specifici. Per informazioni su come creare avvisi, vedere [Avvisi in Log Analytics](../alerts/alerts-overview.md). Per esempi di query di avviso e di altro tipo, vedere il post di blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Monitoraggio di VMware con Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Cosa bisogna fare con l'impostazione esistente dell'host ESXi? Quali saranno le conseguenze per l'ambiente esistente?
@@ -197,7 +197,7 @@ Possono esserci diversi motivi:
      d. Se il file non esiste o l'impostazione di utente e gruppo non è corretta, provvedere all'azione correttiva come descritto in [Preparazione di un server Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare le [query nei log](../log-query/log-query-overview.md) in Log Analytics per visualizzare i dati dettagliati dell'host VMware.
-* [Creare dashboard personalizzati](../learn/tutorial-logs-dashboards.md) che mostrino i dati dell'host VMware.
-* [Creare avvisi](../platform/alerts-overview.md) quando si verificano eventi specifici relativi all'host VMware.
+* Usare le [query nei log](../logs/log-query-overview.md) in Log Analytics per visualizzare i dati dettagliati dell'host VMware.
+* [Creare dashboard personalizzati](../visualize/tutorial-logs-dashboards.md) che mostrino i dati dell'host VMware.
+* [Creare avvisi](../alerts/alerts-overview.md) quando si verificano eventi specifici relativi all'host VMware.
 

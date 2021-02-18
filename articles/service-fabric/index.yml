@@ -7,12 +7,12 @@ metadata:
   author: erikadoyle
   ms.author: edoyle
   ms.date: 07/31/2020
-  ms.openlocfilehash: 2f9b7264fe8199cb25772b0598354e474196ca93
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-  ms.translationtype: HT
+  ms.openlocfilehash: e850855a4f794e5e90abe9c86d6ddedd0af26a6b
+  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96499799"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100634839"
 landingContent:
 - title: Provare i cluster gestiti di Service Fabric (anteprima)
   linkLists:
@@ -24,8 +24,6 @@ landingContent:
       url: quickstart-managed-cluster-template.md
   - linkListType: tutorial
     links:
-    - text: Creare un cluster gestito (anteprima)
-      url: tutorial-managed-cluster-deploy.md
     - text: Aumentare il numero di istanze di un tipo di nodo del cluster gestito (anteprima)
       url: tutorial-managed-cluster-scale.md
     - text: Aggiungere e rimuovere tipi di nodo del cluster gestito (anteprima)
@@ -34,6 +32,8 @@ landingContent:
       url: tutorial-managed-cluster-deploy-app.md
     - text: Aggiungere un'estensione del set di scalabilità di macchine virtuali a un tipo di nodo del cluster gestito (anteprima)
       url: how-to-managed-cluster-vmss-extension.md
+    - text: Abilitare la crittografia del disco per i nodi del cluster gestito
+      url: how-to-enable-managed-cluster-disk-encryption.md
   - linkListType: whats-new
     links:
     - text: Domande frequenti sui cluster gestiti di Service Fabric

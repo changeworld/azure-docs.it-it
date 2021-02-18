@@ -3,12 +3,12 @@ title: Modello di dati di Monitoraggio di Azure
 description: In questo articolo si apprenderanno i dettagli del modello di dati di Log Analytics di Monitoraggio di Azure per i dati di Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2146612763bac39eb636bb7da522586a0daee2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020950"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586775"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -462,7 +462,7 @@ Di seguito sono riportati alcuni esempi che facilitano la scrittura di query sui
 
 ## <a name="v1-schema-vs-v2-schema"></a>Schema V1 e schema V2 schema
 
-In precedenza, i dati di diagnostica per l'agente di Backup di Azure e per il backup delle macchine virtuali di Azure venivano inviati a una tabella di Diagnostica di Azure in uno schema denominato ***Schema V1***. Successivamente sono state aggiunte nuove colonne per supportare altri scenari e altri carichi di lavoro ed è stato eseguito il push dei dati di diagnostica in un nuovo schema denominato ***Schema V2***.  
+In precedenza, i dati di diagnostica per l'agente di backup di Azure e il backup delle macchine virtuali di Azure venivano inviati a Diagnostica di Azure tabella in uno schema denominato ***V1 schema** _. Successivamente, sono state aggiunte nuove colonne per supportare altri scenari e carichi di lavoro e i dati di diagnostica sono stati inseriti in un nuovo schema denominato _ *_v2 schema_* *.  
 
 Per motivi di compatibilità con le versioni precedenti, i dati di diagnostica per l'agente di Backup di Azure e per il backup delle macchine virtuali di Azure vengono attualmente inviati alla tabella di Diagnostica di Azure sia nello schema V1 che nello schema V2 (con lo schema V1 ora in un percorso di deprecazione). È possibile identificare quali record in Log Analytics appartengono allo schema V1 filtrando i record per SchemaVersion_s=="V1" nelle query di log.
 
@@ -495,4 +495,4 @@ Poiché lo schema V1 si trova in un percorso di deprecazione, è consigliabile u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver esaminato il modello di dati, è possibile iniziare [la creazione di query personalizzate](../azure-monitor/learn/tutorial-logs-dashboards.md) nei log di Monitoraggio di Azure per creare un dashboard personalizzato.
+Dopo aver esaminato il modello di dati, è possibile iniziare [la creazione di query personalizzate](../azure-monitor/visualize/tutorial-logs-dashboards.md) nei log di Monitoraggio di Azure per creare un dashboard personalizzato.
