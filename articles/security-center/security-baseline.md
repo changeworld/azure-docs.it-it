@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0e4c749d875ab22f8cdf26adf6050e1fa0476b28
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 195c264eca0c40712816495a09e1387fcaa2c910
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202250"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572937"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Baseline della sicurezza di Azure per il Centro sicurezza
 
@@ -30,7 +30,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 - [Traffico di rete del filer con un gruppo di sicurezza di rete](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Requisiti del firewall per l'uso dell'agente di Log Analytics](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Requisiti del firewall per l'uso dell'agente di Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Informazioni sul collegamento privato di Azure](../private-link/private-link-overview.md) 
 
@@ -46,7 +46,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 - [Raccolta dati nel Centro sicurezza di Azure](security-center-enable-data-collection.md)
 
-- [Requisiti del firewall per l'uso dell'agente di Log Analytics](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Requisiti del firewall per l'uso dell'agente di Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -70,7 +70,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 - [Raccolta dati nel Centro sicurezza di Azure](security-center-enable-data-collection.md)
 
-- [Requisiti del firewall per l'uso dell'agente di Log Analytics](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Requisiti del firewall per l'uso dell'agente di Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md) 
 
@@ -86,9 +86,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse e rilevare le modifiche per le risorse di rete correlate al centro sicurezza di Azure. Creare avvisi in monitoraggio di Azure per ricevere una notifica quando si verificano modifiche alle risorse critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
-- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -112,9 +112,9 @@ In alternativa, è possibile inviare i dati generati dal centro sicurezza ad Azu
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -126,11 +126,11 @@ In alternativa, è possibile inviare i dati generati dal centro sicurezza ad Azu
 
 **Linee guida**: i log attività di monitoraggio di Azure sono automaticamente disponibili. questi log contengono tutte le operazioni di scrittura per la risorsa, ad esempio il Centro sicurezza di Azure, incluse le operazioni effettuate, l'utente che ha avviato l'operazione e quando si sono verificate. Inviare i log attività di Azure a un'area di lavoro Log Analytics per il consolidamento dei log e una maggiore conservazione.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Inviare i log attività a un'area di lavoro Log Analytics](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)
+- [Inviare i log attività a un'area di lavoro Log Analytics](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -140,7 +140,7 @@ In alternativa, è possibile inviare i dati generati dal centro sicurezza ad Azu
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione. 
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -156,9 +156,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introduzione alle query di Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -174,11 +174,11 @@ In alternativa, è possibile abilitare e caricare i dati correlati e prodotti da
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) 
 
-- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Configurare le risposte automatiche alle minacce in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-- [Avvisi del log in Monitoraggio di Azure](../azure-monitor/platform/alerts-unified-log.md)
+- [Avvisi del log in Monitoraggio di Azure](../azure-monitor/alerts/alerts-unified-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -368,7 +368,7 @@ Per impostazione predefinita, i dati del Centro sicurezza di Azure vengono archi
 
 Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei dati inattivi e la crittografia in transito, ove applicabile. 
 
-- [Invio sicuro di dati a Log Analytics](../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)
+- [Invio sicuro di dati a Log Analytics](../azure-monitor/logs/data-security.md#sending-data-securely-using-tls-12)
 
 - [Informazioni sulla crittografia in transito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -394,7 +394,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Linee guida**: il Centro sicurezza di Azure usa un'area di lavoro configurata log Analytics per archiviare i dati, gli avvisi e le raccomandazioni che genera. Configurare una chiave gestita dal cliente (CMK) per l'area di lavoro configurata per la raccolta dei dati del Centro sicurezza. CMK consente la crittografia di tutti i dati salvati o inviati all'area di lavoro con una chiave di Azure Key Vault creata e di proprietà dell'utente. 
 
-- [Chiave gestita dal cliente di Monitoraggio di Azure](../azure-monitor/platform/customer-managed-keys.md)
+- [Chiave gestita dal cliente di Monitoraggio di Azure](../azure-monitor/logs/customer-managed-keys.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -404,7 +404,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Linee guida**: usare monitoraggio di Azure per creare avvisi quando le modifiche vengono apportate alle risorse di Azure critiche correlate al centro sicurezza di Azure. Queste modifiche possono includere qualsiasi azione che modifichi le configurazioni relative al centro sicurezza, come la disabilitazione di avvisi o consigli oppure l'aggiornamento o l'eliminazione di archivi dati.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -596,7 +596,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: il Centro sicurezza di Azure usa un'area di lavoro configurata log Analytics per archiviare i dati, gli avvisi e le raccomandazioni che genera. Configurare una chiave gestita dal cliente (CMK) per l'area di lavoro configurata per la raccolta dei dati del Centro sicurezza. CMK consente la crittografia di tutti i dati salvati o inviati all'area di lavoro con una chiave di Azure Key Vault creata e di proprietà dell'utente. 
 
-- [Chiave gestita dal cliente di Monitoraggio di Azure](../azure-monitor/platform/customer-managed-keys.md)
+- [Chiave gestita dal cliente di Monitoraggio di Azure](../azure-monitor/logs/customer-managed-keys.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -656,7 +656,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: garantire la possibilità di eseguire periodicamente il ripristino usando Azure Resource Manager file di modello supportati. Testare il ripristino delle chiavi gestite dal cliente sottoposte a backup.
 
-- [Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md)
+- [Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md)
 
 - [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 

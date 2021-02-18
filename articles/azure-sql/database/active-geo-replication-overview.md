@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985757"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634295"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,6 +25,9 @@ La replica geografica attiva è una funzionalità del database SQL di Azure che 
 
 > [!NOTE]
 > La replica geografica attiva non è supportata da Azure SQL Istanza gestita. Per il failover geografico di istanze di SQL Istanza gestita, usare i [gruppi di failover automatico](auto-failover-group-overview.md).
+
+> [!NOTE]
+> Per eseguire la migrazione di database SQL da Azure Germania usando la replica geografica attiva, vedere [eseguire la migrazione del database SQL tramite la replica geografica attiva](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
 
 La replica geografica attiva è progettata come una soluzione di continuità aziendale che consente all'applicazione di eseguire un rapido ripristino di emergenza di singoli database in caso di emergenza a livello di area o di un guasto su larga scala. Se la replica geografica è abilitata, l'applicazione può avviare il failover in un database secondario in un'altra area di Azure. Sono supportati al massimo quattro database secondari nella stessa area o in aree geografiche diverse ed è possibile usare i database secondari anche per le query di accesso in sola lettura. Il failover deve essere avviato manualmente dall'utente o dall'applicazione. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso.
 
@@ -292,6 +295,9 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 | [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Ottiene tutti i collegamenti di replica per un determinato database in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. |
 | [Delete Replication Link](/rest/api/sql/replicationlinks/delete) | Elimina un collegamento alla replica del database. Non può essere eseguito durante il failover. |
 |  | |
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,12 +4,12 @@ description: Automatizzare i report personalizzati giornalieri/settimanali/mensi
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590038"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -31,7 +31,7 @@ Ogni azienda ha esigenze di report univoche, ad esempio:
 
 È possibile [eseguire una query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/) per generare report personalizzati in base alla pianificazione scelta. Le opzioni seguenti consentono di essere subito operativi:
 
-* [Automatizzare i report con Power automatici](../platform/logicapp-flow-connector.md)
+* [Automatizzare i report con Power automatici](../logs/logicapp-flow-connector.md)
 * [Automatizzare i report con App per la logica](automate-with-logic-apps.md)
 * Usare il modello di [funzione di Azure](../../azure-functions/functions-get-started.md) del digest pianificato di Application Insights nello scenario di monitoraggio. Questa funzione usa SendGrid per recapitare il messaggio di posta elettronica. 
 
@@ -150,7 +150,7 @@ Questi passaggi sono validi solo se non è già stato configurato un account Sen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla creazione di [query di Analisi](../log-query/get-started-queries.md).
+* Altre informazioni sulla creazione di [query di Analisi](../logs/get-started-queries.md).
 * Altre informazioni sull'[esecuzione di query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/)
 * Altre informazioni su [App per la logica](../../logic-apps/logic-apps-overview.md).
 * Scopri di più su [Microsoft Power Automatic](https://ms.flow.microsoft.com).

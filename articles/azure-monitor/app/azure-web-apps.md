@@ -4,12 +4,12 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547234"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573992"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -434,8 +434,8 @@ Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire il profiler sull'app live](./profiler.md).
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample): monitorare Funzioni di Azure con Application Insights
-* [Abilitare l'invio dei dati di diagnostica di Azure](../platform/diagnostics-extension-to-application-insights.md) ad Application Insights.
-* [Monitorare le metriche di integrità del servizio](../platform/data-platform.md) per assicurarsi che il servizio sia disponibile e reattivo.
-* [Ricevere notifiche di avviso](../platform/alerts-overview.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
+* [Abilitare l'invio dei dati di diagnostica di Azure](../agents/diagnostics-extension-to-application-insights.md) ad Application Insights.
+* [Monitorare le metriche di integrità del servizio](../data-platform.md) per assicurarsi che il servizio sia disponibile e reattivo.
+* [Ricevere notifiche di avviso](../alerts/alerts-overview.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
 * Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](javascript.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
 * [Monitorare la disponibilità e la velocità di risposta dei siti Web](monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.

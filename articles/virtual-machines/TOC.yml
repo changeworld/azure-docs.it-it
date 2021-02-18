@@ -445,7 +445,7 @@
         - name: Monitoraggio di Azure
           items:
             - name: Agente di Monitoraggio di Azure
-              href: ../azure-monitor/platform/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
             - name: Estensione di Diagnostica
               href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
             - name: Log Analytics
@@ -950,6 +950,8 @@
           href: disks-reserved-capacity.md
         - name: Progettare per prestazioni elevate
           href: premium-storage-performance.md
+        - name: Metriche correlate al disco
+          href: disks-metrics.md
         - name: Bursting del disco
           href: disk-bursting.md
         - name: Livelli di prestazioni dei dischi
@@ -1287,7 +1289,7 @@
     - name: Agenti
       items:
         - name: Panoramica degli agenti
-          href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: Domande frequenti
           href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
         - name: Estensione di Diagnostica di Azure
@@ -1308,29 +1310,29 @@
             - name: Panoramica
               href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
             - name: Agenti Linux
-              href: ../azure-monitor/platform/agent-linux.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux.md?context=/azure/virtual-machines/context/context
             - name: Gateway di Log Analytics
               href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
             - name: Gestione dell'agente
-              href: ../azure-monitor/platform/agent-manage.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-manage.md?context=/azure/virtual-machines/context/context
             - name: Integrità agente
               href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
             - name: Origini dati
               items:
                 - name: Panoramica
-                  href: ../azure-monitor/platform/agent-data-sources.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/agent-data-sources.md?context=/azure/virtual-machines/context/context
                 - name: Dati JSON personalizzati
-                  href: ../azure-monitor/platform/data-sources-json.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-json.md?context=/azure/virtual-machines/context/context
                 - name: Dati sulle prestazioni di collectD
-                  href: ../azure-monitor/platform/data-sources-collectd.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-collectd.md?context=/azure/virtual-machines/context/context
                 - name: syslog
-                  href: ../azure-monitor/platform/data-sources-syslog.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-syslog.md?context=/azure/virtual-machines/context/context
                 - name: Contatori delle prestazioni
-                  href: ../azure-monitor/platform/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
                 - name: Prestazioni dell'applicazione Linux
-                  href: ../azure-monitor/platform/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
                 - name: Log personalizzati
-                  href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
                 - name: Campi personalizzati
                   href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
         - name: Risolvere problemi
@@ -1339,7 +1341,7 @@
               href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
             - name: Agente Linux di Log Analytics
-              href: ../azure-monitor/platform/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
         - name: Monitoraggio di Azure per le macchine virtuali
           items:

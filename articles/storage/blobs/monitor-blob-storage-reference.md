@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6dd53358b67eef481948d3349afc07086ea26fcd
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b37586f66106e33b2a8dad034a6e7c131484be73
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584907"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571621"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione BLOB di Azure
 
@@ -36,7 +36,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 #### <a name="blob-storage"></a>Archiviazione BLOB
 
-Questa tabella mostra le [metriche di archiviazione BLOB](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
+Questa tabella mostra le [metriche di archiviazione BLOB](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
@@ -176,4 +176,4 @@ La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione 
 ## <a name="see-also"></a>Vedere anche
 
 - Per una descrizione del monitoraggio di Archiviazione di Azure, vedere [Monitoraggio di Archiviazione di Azure](monitor-blob-storage.md).
-- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md).
+- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/essentials/monitor-azure-resource.md).

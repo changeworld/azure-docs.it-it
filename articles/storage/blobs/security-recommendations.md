@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 05fdf681b7cdc3b8145a30041e261eece420e560
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5653b59ed29495334079e932fb305fd4ba10475c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878088"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592345"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per archiviazione BLOB
 
@@ -71,7 +71,7 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
 | Tenere traccia del modo in cui le richieste sono autorizzate | Abilitare la registrazione di archiviazione di Azure per tenere traccia del modo in cui ogni richiesta effettuata nell'archiviazione di Azure è stata autorizza I log indicano se una richiesta è stata effettuata in modo anonimo, usando un token OAuth 2,0, usando la chiave condivisa o usando una firma di accesso condiviso (SAS). Per altre informazioni, vedere [monitoraggio dell'archiviazione BLOB di Azure con](monitor-blob-storage.md) monitoraggio di Azure o [registrazione di analisi archiviazione di Azure con il monitoraggio classico](../common/storage-analytics-logging.md). | - |
-| Configurare gli avvisi in monitoraggio di Azure | Configurare gli avvisi del log per valutare i log delle risorse a una frequenza impostata e generare un avviso in base ai risultati. Per altre informazioni, vedere [avvisi del log in monitoraggio di Azure](../../azure-monitor/platform/alerts-unified-log.md). | - |
+| Configurare gli avvisi in monitoraggio di Azure | Configurare gli avvisi del log per valutare i log delle risorse a una frequenza impostata e generare un avviso in base ai risultati. Per altre informazioni, vedere [avvisi del log in monitoraggio di Azure](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Monitoraggio delle prestazioni delle app Web-applicazione Azure Insights
 description: Funzione di Application Insights nel ciclo devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc897cc0259894964e0b6164219b1e5459e824b6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324489"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579560"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
@@ -47,7 +47,7 @@ Alcune domande da chiedersi durante lo sviluppo di un sistema Web:
 * Qual è la causa radice? L'errore si è verificato al livello di un componente o di una dipendenza? Si tratta di un problema di comunicazione?
 * Quanti sono gli utenti interessati? Se i più problemi da affrontare sono più di uno, qual è il più importante?
 
-## <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
+## <a name="what-is-application-insights"></a>Informazioni su Application Insights
 ![Flusso di lavoro di base di Application Insights](./media/devops/020.png)
 
 1. Application Insights consente di instrumentare l'app, inviandone i dati di telemetria durante l'esecuzione. È possibile compilare l'SDK di Application Insights direttamente nell'applicazione oppure applicare la strumentazione in fase di runtime. Il primo metodo è più flessibile, perché consente di aggiungere i propri dati di telemetria ai normali moduli.
@@ -110,7 +110,7 @@ La mappa delle applicazioni individua automaticamente la topologia dell'applicaz
 ![Mappa delle applicazioni](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Analytics in Application Insights
-Con [Analytics](../log-query/log-query-overview.md)è possibile scrivere query arbitrarie in un efficace linguaggio simile a SQL.  Effettuare la diagnosi nell'intero stack diventa facile, perché il confluire di diverse prospettive permette di porre le domande corrette per correlare le prestazioni del servizio alle metriche aziendali e all'esperienza del cliente. 
+Con [Analytics](../logs/log-query-overview.md)è possibile scrivere query arbitrarie in un efficace linguaggio simile a SQL.  Effettuare la diagnosi nell'intero stack diventa facile, perché il confluire di diverse prospettive permette di porre le domande corrette per correlare le prestazioni del servizio alle metriche aziendali e all'esperienza del cliente. 
 
 È possibile eseguire query di tutte le istanze di telemetria e dei dati non elaborati archiviati nel portale. Il linguaggio include filtri, join, aggregazioni e altre operazioni. È possibile calcolare i campi ed eseguire analisi statistiche e sono disponibili visualizzazioni grafiche e tabulari.
 

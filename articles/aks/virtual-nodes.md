@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Panoramica dell'uso di un nodo virtuale con i servizi Kubernetes di Azure (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 02/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684775"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634448"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Creare e configurare un cluster di servizi Kubernetes di Azure per l'uso di nodi virtuali
 
@@ -45,7 +45,6 @@ La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di Ist
 * [Gli elementi daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i pod nei nodi virtuali
 * I nodi virtuali supportano la pianificazione di pod Linux. È possibile installare manualmente il provider open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) per pianificare i contenitori di Windows Server in Istanze di Azure Container.
 * I nodi virtuali richiedono cluster AKS con rete CNI di Azure.
-* Nodi virtuali con cluster privati.
 * Uso degli intervalli IP autorizzati del server API per AKS.
 * Montaggio del volume File di Azure condivisione supporto per [utilizzo generico V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Seguire le istruzioni per montare [un volume con file di Azure condivisione](azure-files-volume.md)
 * L'utilizzo di IPv6 non è supportato.

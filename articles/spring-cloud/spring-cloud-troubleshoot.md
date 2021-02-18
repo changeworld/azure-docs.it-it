@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 9350b5dbcedd2773e94ef9d35cfe26f97fbd97bc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c4dbeae0cfb76063fdca70b3ad1d264b59f9ace
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571609"
+ms.locfileid: "100634244"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Risolvere i problemi comuni di Azure Spring cloud
 
@@ -212,7 +212,7 @@ Cercare il nodo figlio denominato `systemEnvironment` .  Questo nodo contiene le
 
 Passare a **gestione app** per assicurarsi che lo stato dell'applicazione sia _in esecuzione_ e _su_.
 
-Verificare che Weather _JMX_ sia abilitato nel pacchetto dell'applicazione. Questa funzionalità può essere abilitata con la proprietà di configurazione `spring.jmx.enabled=true` .  
+Verificare se _JMX_ è abilitato nel pacchetto dell'applicazione. Questa funzionalità può essere abilitata con la proprietà di configurazione `spring.jmx.enabled=true` .  
 
 Verificare `spring-boot-actuator` che la dipendenza sia abilitata nel pacchetto dell'applicazione e che venga avviata correttamente.
 

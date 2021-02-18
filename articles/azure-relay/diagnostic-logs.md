@@ -3,20 +3,20 @@ title: Log di diagnostica per le connessioni ibride
 description: Questo articolo illustra tutti i log di attività e diagnostica disponibili per Inoltro di Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533003"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590877"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Abilitare i log di diagnostica per le connessioni ibride di Inoltro di Azure
 Quando si iniziano a usare le connessioni ibride di Inoltro di Azure, potrebbe essere utile monitorare l'apertura e la chiusura di listener e mittenti, nonché la modalità di creazione delle connessioni ibride e l'invio dei messaggi. Questo articolo include una panoramica dei log di attività e diagnostica forniti dal servizio Inoltro di Azure. 
 
 È possibile visualizzare due tipi di log per Inoltro di Azure:
 
-- [Log attività](../azure-monitor/platform/platform-logs-overview.md): questi log contengono informazioni sulle operazioni eseguite sullo spazio dei nomi nel portale di Azure o tramite il modello di Azure Resource Manager. Questi log sono sempre abilitati. Ad esempio: "Creazione o aggiornamento dello spazio dei nomi", "Creazione o aggiornamento della connessione ibrida". 
-- [Log di diagnostica](../azure-monitor/platform/platform-logs-overview.md): è possibile configurare i log di diagnostica per un quadro completo degli eventi relativi a operazioni e azioni eseguite sullo spazio dei nomi con l'API o tramite l'SDK del linguaggio.
+- [Log attività](../azure-monitor/essentials/platform-logs-overview.md): questi log contengono informazioni sulle operazioni eseguite sullo spazio dei nomi nel portale di Azure o tramite il modello di Azure Resource Manager. Questi log sono sempre abilitati. Ad esempio: "Creazione o aggiornamento dello spazio dei nomi", "Creazione o aggiornamento della connessione ibrida". 
+- [Log di diagnostica](../azure-monitor/essentials/platform-logs-overview.md): è possibile configurare i log di diagnostica per un quadro completo degli eventi relativi a operazioni e azioni eseguite sullo spazio dei nomi con l'API o tramite l'SDK del linguaggio.
 
 ## <a name="view-activity-logs"></a>Visualizzare log di attività
 Per visualizzare i log attività per lo spazio dei nomi di Inoltro di Azure, passare alla pagina **Log attività** nel portale di Azure.
@@ -46,7 +46,7 @@ Per abilitare i log di diagnostica, seguire questa procedura:
         ![Impostazioni di diagnostica di esempio](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni.
 
-Le nuove impostazioni diventano effettive entro 10 minuti circa. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**. Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
+Le nuove impostazioni diventano effettive entro 10 minuti circa. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**. Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schema per gli eventi di connessioni ibride
@@ -54,12 +54,12 @@ Le stringhe JSON dei log degli eventi di connessioni ibride includono gli elemen
 
 | Nome | Descrizione |
 | ------- | ------- |
-| ResourceId | ID della risorsa Azure Resource Manager |
-| ActivityId | ID interno, usato per identificare l'operazione specificata. Può essere indicato anche come "TrackingId" |
-| Endpoint | Indirizzo della risorsa di Inoltro |
-| OperationName | Tipo dell'operazione delle connessioni ibride da includere nel log |
-| EventTimeString | Timestamp UTC del record del log |
-| Message | Messaggio dettagliato dell'evento |
+| ResourceId | ID della risorsa Azure Resource Manager |
+| ActivityId | ID interno, usato per identificare l'operazione specificata. Può essere indicato anche come "TrackingId" |
+| Endpoint | Indirizzo della risorsa di Inoltro |
+| OperationName | Tipo dell'operazione delle connessioni ibride da includere nel log |
+| EventTimeString | Timestamp UTC del record del log |
+| Message | Messaggio dettagliato dell'evento |
 | Category | Categoria dell'evento. Attualmente è disponibile solo `HybridConnectionsEvents`. 
 
 
@@ -86,13 +86,13 @@ Ecco un evento di connessioni ibride di esempio in formato JSON.
 | InvalidSasToken | Il token di firma di accesso condiviso non è valido. | 
 | ListenerAcceptingConnection | Il listener accetta la connessione. |
 | ListenerAcceptingConnectionTimeout | Si è verificato un timeout del listener che accetta la connessione. |
-| ListenerAcceptingHttpRequestFailed | Si è verificato un errore del listener che accetta la richiesta HTTP a causa di un'eccezione. |
-| ListenerAcceptingRequestTimeout | Si è verificato un timeout del listener che accetta la richiesta. |  
-| ListenerClosingFromExpiredToken | Il listener verrà chiuso perché il token di sicurezza è scaduto. | 
+| ListenerAcceptingHttpRequestFailed | Si è verificato un errore del listener che accetta la richiesta HTTP a causa di un'eccezione. |
+| ListenerAcceptingRequestTimeout | Si è verificato un timeout del listener che accetta la richiesta. |  
+| ListenerClosingFromExpiredToken | Il listener verrà chiuso perché il token di sicurezza è scaduto. | 
 | ListenerRejectedConnection | Il listener ha rifiutato la connessione. |
-| ListenerReturningHttpResponse | Il listener restituisce una risposta HTTP. |  
+| ListenerReturningHttpResponse | Il listener restituisce una risposta HTTP. |  
 | ListenerReturningHttpResponseFailed | Il listener restituisce una risposta HTTP con un codice errore. | 
- ListenerSentHttpResponse | Il servizio Inoltro ha ricevuto una risposta HTTP dal listener. | 
+ ListenerSentHttpResponse | Il servizio Inoltro ha ricevuto una risposta HTTP dal listener. | 
 | ListenerUnregistered | La registrazione del listener è stata annullata. | 
 | ListenerUnresponsive | Il listener non risponde quando viene restituita una risposta. | 
 | MessageSendingToListener | Il messaggio verrà inviato al listener. |

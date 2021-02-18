@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 120f160e3c7bc7a9a0e81586ea4b97ee827dd33e
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5999e8da5dffce85dd12ecd01cd5991ea4abc098
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807429"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590248"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Connettere le macchine virtuali dell'hub Azure Stack ad Azure Sentinel
 
@@ -50,9 +50,9 @@ Aggiungere l'estensione di macchina virtuale di **monitoraggio, aggiornamento e 
 
 1. Al termine dell'installazione dell'estensione, il relativo stato viene visualizzato come **provisioning riuscito**. La visualizzazione della macchina virtuale nel portale di Azure Sentinel potrebbe richiedere fino a un'ora.
 
-Per ulteriori informazioni sull'installazione e la configurazione dell'agente per Windows, vedere [connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+Per ulteriori informazioni sull'installazione e la configurazione dell'agente per Windows, vedere [connettere computer Windows](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
-Per risolvere i problemi relativi agli agenti Linux, vedere [Risoluzione dei problemi relativi all'agente Linux di Azure Log Analytics](../azure-monitor/platform/agent-linux-troubleshoot.md).
+Per risolvere i problemi relativi agli agenti Linux, vedere [Risoluzione dei problemi relativi all'agente Linux di Azure Log Analytics](../azure-monitor/agents/agent-linux-troubleshoot.md).
 
 Nel portale di Azure Sentinel in Azure, in **macchine virtuali**, è presente una panoramica di tutte le macchine virtuali e dei computer insieme al relativo stato. 
 

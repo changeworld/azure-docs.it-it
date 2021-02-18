@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195722"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591560"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
@@ -158,7 +158,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 - [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Come creare avvisi in Monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi in Monitoraggio di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -180,7 +180,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 **Linee guida**: inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da dispositivi endpoint, risorse di rete e altri sistemi di sicurezza. In monitoraggio di Azure usare Log Analytics le aree di lavoro per eseguire query ed eseguire analisi e usare gli account di archiviazione di Azure per l'archiviazione a lungo termine/archiviazione, facoltativamente con funzionalità di sicurezza come l'archiviazione non modificabile e la conservazione applicata.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -210,7 +210,7 @@ Quando è necessario definire l'ambito di accesso alla rete per gli account di a
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](./storage-monitor-storage-account.md#configure-logging)
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -238,7 +238,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Come inviare un avviso sui dati del log di log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Registrazione di Analisi di archiviazione di Azure](./storage-analytics-logging.md)
 
@@ -362,7 +362,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 - [Informazioni sui rilevamenti di rischi di Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](../../azure-monitor/platform/action-groups.md)
+- [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](../../azure-monitor/alerts/action-groups.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -572,7 +572,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse dell'account di archiviazione. È anche possibile abilitare la registrazione di archiviazione di Azure per tenere traccia del modo in cui ogni richiesta effettuata nell'archiviazione di Azure è stata autorizzata I log indicano se una richiesta è stata effettuata in modo anonimo, usando un token OAuth 2,0, usando la chiave condivisa o usando una firma di accesso condiviso (SAS). Usare inoltre monitoraggio di Azure per avvertire l'accesso anonimo per gli account di archiviazione usando la condizione di autenticazione anonima.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Registrazione di Analisi di archiviazione di Azure](./storage-analytics-logging.md)
 

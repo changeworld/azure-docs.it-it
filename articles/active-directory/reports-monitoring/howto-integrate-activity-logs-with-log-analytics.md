@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0f328ed44252f7fb314552d6d05df9806f59d972
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180456"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591125"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare log di Azure AD con i log di monitoraggio di Azure
 
@@ -59,7 +59,7 @@ Per usare questa funzionalità, sono necessari:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Un tenant di Azure AD.
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
-* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="licensing-requirements"></a>Requisiti di licenza
 

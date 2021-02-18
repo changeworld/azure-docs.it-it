@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: 95ba93c4a5d71e6813c1bee144c983e1dfd8c89d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500326"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571329"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Raccomandazioni sulla sicurezza per le macchine virtuali in Azure
 
@@ -56,7 +56,7 @@ Per informazioni generali sul centro sicurezza di Azure, vedere informazioni sul
 
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
-| Monitorare le VM. | È possibile usare [monitoraggio di Azure per le macchine virtuali](../azure-monitor/insights/vminsights-overview.md) per monitorare lo stato delle VM di Azure e dei set di scalabilità di macchine virtuali. I problemi di prestazioni di una VM possono causare interruzioni del servizio, il che viola il principio di disponibilità della sicurezza. | - |
+| Monitorare le VM. | È possibile usare [monitoraggio di Azure per le macchine virtuali](../azure-monitor/vm/vminsights-overview.md) per monitorare lo stato delle VM di Azure e dei set di scalabilità di macchine virtuali. I problemi di prestazioni di una VM possono causare interruzioni del servizio, il che viola il principio di disponibilità della sicurezza. | - |
 
 ## <a name="networking"></a>Rete
 

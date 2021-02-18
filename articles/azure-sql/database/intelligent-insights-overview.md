@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 61033e3eb8264c1e462faac3e4553a855a1d06c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488868"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592077"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights uso di AI per monitorare e risolvere i problemi relativi alle prestazioni del database (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ Di seguito è riportato un esempio del report di Intelligent Insights attraverso
 
 ### <a name="set-up-with-event-hubs"></a>Configurare con Hub eventi
 
-Per usare Intelligent Insights con hub eventi, configurare Intelligent Insights i dati di log da trasmettere a hub eventi, vedere [metriche e registrazione diagnostica](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [trasmettere log di diagnostica di Azure a hub eventi](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Per usare Intelligent Insights con hub eventi, configurare Intelligent Insights i dati di log da trasmettere a hub eventi, vedere [metriche e registrazione diagnostica](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [trasmettere log di diagnostica di Azure a hub eventi](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 Per usare hub eventi per configurare il monitoraggio e gli avvisi personalizzati, vedere [cosa fare con le metriche e i log di diagnostica in hub eventi](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
@@ -164,7 +164,7 @@ Il modello basato sui tempi di attesa eccessivi monitora le singole query di dat
 - Raggiungimento dei limiti delle risorse del pool elastico
 - Numero eccessivo di thread di sessioni o di processi di lavoro
 - Blocco eccessivo del database
-- Utilizzo elevato della memoria
+- Utilizzo elevato di memoria
 - Altre statistiche di attesa
 
 Il raggiungimento dei limiti delle risorse o dei limiti delle risorse del pool elastico indica che il consumo di risorse disponibili in una sottoscrizione o nel pool elastico ha superato le soglie assolute, indicando una riduzione delle prestazioni del carico di lavoro. Un numero eccessivo di thread di sessioni o di processi di lavoro indica una condizione in cui il numero di thread di processi di lavoro o di sessioni avviate ha superato le soglie assolute, indicando una riduzione delle prestazioni del carico di lavoro.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3f0d191157fbabeab2b6f08a9d0a9b3bf1a35250
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388941"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591892"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
 
@@ -109,12 +109,13 @@ L'audio con trascrizioni con etichetta umana offre i miglioramenti più accurati
 
 Considerare i seguenti dettagli:
 
-* Riconoscimento vocale personalizzato possibile acquisire solo il contesto di Word per ridurre gli errori di sostituzione, non gli errori di inserimento o eliminazione.
+* Il training con audio offrirà i maggiori vantaggi se l'audio è anche difficile da comprendere per gli utenti. Nella maggior parte dei casi, è consigliabile avviare il training semplicemente utilizzando il testo correlato.
+* Se si usa uno dei linguaggi usati più di frequente, ad esempio inglese (Stati Uniti), è possibile che non sia necessario eseguire il training con dati audio. Per tali lingue, i modelli di base offrono risultati di riconoscimento già molto validi nella maggior parte degli scenari. è probabilmente sufficiente per eseguire il training con testo correlato.
+* Riconoscimento vocale personalizzato possibile acquisire solo il contesto di Word per ridurre gli errori di sostituzione, non di inserimento o di eliminazione.
 * Evitare esempi che includono errori di trascrizione, ma includere una varietà di qualità audio.
 * Evitare frasi non correlate al dominio del problema. Le frasi non correlate possono danneggiare il modello.
 * Quando la qualità delle trascrizioni varia, è possibile duplicare frasi eccezionalmente valide, come le trascrizioni eccezionali che includono frasi chiave, per aumentarne il peso.
 * Il servizio riconoscimento vocale userà automaticamente le trascrizioni per migliorare il riconoscimento di parole e frasi specifiche del dominio, come se fossero state aggiunte come testo correlato.
-* Il training con audio offrirà i maggiori vantaggi se l'audio è anche difficile da comprendere per gli utenti. Nella maggior parte dei casi, è consigliabile avviare il training semplicemente utilizzando il testo correlato.
 * Il completamento di un'operazione di training può richiedere diversi giorni. Per migliorare la velocità di training, assicurarsi di creare la sottoscrizione al servizio di riconoscimento vocale in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
 
 > [!NOTE]

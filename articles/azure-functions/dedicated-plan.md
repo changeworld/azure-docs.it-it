@@ -3,12 +3,12 @@ title: Hosting dedicato di funzioni di Azure
 description: Informazioni sui vantaggi derivanti dall'esecuzione di funzioni di Azure in un piano di hosting dedicato del servizio app.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ebf83aa919d91f161b247539ae20873242a8ed8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937624"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591063"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Piani di hosting dedicati per funzioni di Azure
 
@@ -33,7 +33,7 @@ Anche con Always On abilitato, il timeout di esecuzione per le singole funzioni 
 
 ## <a name="scaling"></a>Ridimensionamento
 
-Usando un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di VM. È anche possibile abilitare la scalabilità automatica, anche se la scalabilità automatica sarà più lenta rispetto alla scalabilità elastica del piano Premium. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/manage-scale-up.md). 
+Usando un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di VM. È anche possibile abilitare la scalabilità automatica, anche se la scalabilità automatica sarà più lenta rispetto alla scalabilità elastica del piano Premium. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/manage-scale-up.md). 
 
 > [!NOTE] 
 > Quando si eseguono funzioni JavaScript (Node.js) in un piano di servizio app, è necessario scegliere un piano con un minor numero di vCPU. Per altre informazioni, vedere [scegliere i piani di servizio app Single Core](functions-reference-node.md#choose-single-vcpu-app-service-plans). 

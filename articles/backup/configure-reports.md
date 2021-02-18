@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897276"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591984"
 ---
 # <a name="configure-azure-backup-reports-preview"></a>Configurare i report di backup di Azure (anteprima)
 
@@ -18,7 +18,7 @@ Un'esigenza comune degli amministratori del backup è quella di ottenere informa
 - Controllo delle attività dii backup e ripristino.
 - Identificazione delle tendenze principali a diversi livelli di granularità.
 
-Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [log di Monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md) e le [cartelle di lavoro di Azure](../azure-monitor/platform/workbooks-overview.md). Queste risorse consentono di acquisire informazioni estremamente dettagliate sui backup nell'intera struttura di backup. Questo articolo spiega come configurare e visualizzare i report di Backup di Azure.
+Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [log di Monitoraggio di Azure](../azure-monitor/logs/log-analytics-tutorial.md) e le [cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md). Queste risorse consentono di acquisire informazioni estremamente dettagliate sui backup nell'intera struttura di backup. Questo articolo spiega come configurare e visualizzare i report di Backup di Azure.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
@@ -41,9 +41,9 @@ Seguire questi passaggi per iniziare a usare i report.
 
 Configurare una o più aree di lavoro Log Analytics in cui archiviare i dati dei report di Backup. La località e la sottoscrizione in cui è possibile creare l'area di lavoro Log Analytics sono indipendenti dalla località e dalla sottoscrizione in cui si trovano gli insiemi di credenziali.
 
-Per informazioni su come configurare un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
+Per informazioni su come configurare un'area di lavoro Log Analytics, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Per impostazione predefinita, i dati contenuti in un'area di lavoro Log Analytics vengono conservati per 30 giorni. Per visualizzare i dati relativi a un periodo di tempo più lungo, modificare il periodo di conservazione dell'area di lavoro Log Analytics. Per informazioni su come cambiare il periodo di conservazione, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](../azure-monitor/platform/manage-cost-storage.md).
+Per impostazione predefinita, i dati contenuti in un'area di lavoro Log Analytics vengono conservati per 30 giorni. Per visualizzare i dati relativi a un periodo di tempo più lungo, modificare il periodo di conservazione dell'area di lavoro Log Analytics. Per informazioni su come cambiare il periodo di conservazione, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configurare le impostazioni di diagnostica per gli insiemi di credenziali
 

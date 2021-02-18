@@ -3,13 +3,13 @@ title: Concetti-monitoraggio e ripristino di cloud privati della soluzione VMwar
 description: Scopri in che modo la soluzione VMware di Azure monitora e ripristina VMware ESXi Server in un cloud privato della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 02/03/2021
-ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 02/16/2021
+ms.openlocfilehash: 59319b5598be9770e82b9676a28444648230a019
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538959"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633139"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorare e ripristinare i cloud privati della soluzione VMware di Azure
 
@@ -17,7 +17,7 @@ La soluzione VMware di Azure monitora costantemente i server VMware ESXi in un c
 
 ## <a name="what-azure-vmware-solution-monitors"></a>Quali monitoraggi della soluzione VMware di Azure
 
-La soluzione VMware di Azure monitora le condizioni di errore seguenti per l'host:  
+La soluzione VMware di Azure monitora le condizioni seguenti nell'host:  
 
 - Stato processore 
 - Stato memoria 
@@ -37,9 +37,9 @@ La soluzione VMware di Azure monitora le condizioni di errore seguenti per l'hos
 
 ## <a name="azure-vmware-solution-host-remediation"></a>Monitoraggio e aggiornamento dell'host della soluzione VMware di Azure  
 
-Quando la soluzione VMware di Azure rileva un calo o un errore in un nodo della soluzione VMware di Azure nel cloud privato di un tenant, attiva il processo di monitoraggio e aggiornamento dell'host. La correzione host comporta la sostituzione del nodo difettoso con un nuovo nodo integro.  
+Quando la soluzione VMware di Azure rileva un calo o un errore in un nodo della soluzione VMware di Azure, attiva il processo di monitoraggio e aggiornamento dell'host. La correzione host comporta la sostituzione del nodo difettoso con un nuovo nodo integro.  
 
-Il processo di monitoraggio e aggiornamento dell'host inizia con l'aggiunta di un nuovo nodo integro nel cluster. Quindi, quando possibile, l'host difettoso viene inserito in modalità di manutenzione VMware vSphere. VMware vMotion viene usato per spostare le macchine virtuali dall'host difettoso ad altri server disponibili nel cluster, in modo da consentire la migrazione in tempo reale senza tempi di inattività dei carichi di lavoro. Negli scenari in cui l'host difettoso non può essere inserito in modalità di manutenzione, l'host viene rimosso dal cluster.
+La correzione dell'host inizia con l'aggiunta di un nuovo nodo integro nel cluster. Quindi, quando possibile, l'host difettoso viene inserito in modalità di manutenzione VMware vSphere. VMware vMotion sposta le VM dall'host difettoso ad altri server disponibili nel cluster, consentendo potenzialmente un tempo di inattività per la migrazione in tempo reale dei carichi di lavoro. Se l'host difettoso non può essere inserito in modalità di manutenzione, l'host viene rimosso dal cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

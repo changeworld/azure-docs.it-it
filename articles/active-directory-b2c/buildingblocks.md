@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0170877995573bdfcb13ebc1c0387bed0893deac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42c1d06051c283f0e911c4cd166884ddd060f45
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201226"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633275"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -78,4 +78,4 @@ L'elemento **BuildingBlocks** contiene gli elementi seguenti, che devono essere 
 
 - [Localization](localization.md): consente di supportare più lingue. Il supporto di localizzazione nei criteri consente di impostare l'elenco delle lingue supportate in un criterio e di selezionare una lingua predefinita. Sono inoltre supportate stringhe e raccolte specifiche della lingua.
 
-- [DisplayControls](display-controls.md) : definisce i controlli da visualizzare in una pagina. I controlli di visualizzazione hanno funzionalità speciali e interagiscono con i profili tecnici di convalida back-end. I controlli di visualizzazione sono attualmente in **Anteprima**.
+- [DisplayControls](display-controls.md) : definisce i controlli da visualizzare in una pagina. I controlli di visualizzazione hanno funzionalità speciali e interagiscono con i profili tecnici di convalida back-end. 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 150269dd2cc6a25a507f03c7d6b47544a89da12a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222730"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579705"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Come creare avvisi per Gestione aggiornamenti
 
@@ -18,7 +18,7 @@ Gli avvisi in Azure notificano in modo proattivo i risultati dei processi Runboo
 
 ## <a name="available-metrics"></a>Metriche disponibili
 
-Automazione di Azure crea due metriche di piattaforma distinte correlate ai Gestione aggiornamenti che vengono raccolte e trasmesse a monitoraggio di Azure. Queste metriche sono disponibili per l'analisi usando [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) e per gli avvisi usando una [regola di avviso](../../azure-monitor/platform/alerts-metric.md)per le metriche.
+Automazione di Azure crea due metriche di piattaforma distinte correlate ai Gestione aggiornamenti che vengono raccolte e trasmesse a monitoraggio di Azure. Queste metriche sono disponibili per l'analisi usando [Esplora metriche](../../azure-monitor/essentials/metrics-charts.md) e per gli avvisi usando una [regola di avviso](../../azure-monitor/alerts/alerts-metric.md)per le metriche.
 
 Le due metriche emesse sono:
 
@@ -34,9 +34,9 @@ Quando vengono usati per gli avvisi, entrambe le metriche supportano le dimensio
 
 ## <a name="create-alert"></a>Creare un avviso
 
-Attenersi alla procedura seguente per configurare gli avvisi per indicare lo stato di una distribuzione degli aggiornamenti. Se non si ha familiarità con gli avvisi di Azure, vedere [Panoramica degli avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
+Attenersi alla procedura seguente per configurare gli avvisi per indicare lo stato di una distribuzione degli aggiornamenti. Se non si ha familiarità con gli avvisi di Azure, vedere [Panoramica degli avvisi di Azure](../../azure-monitor/alerts/alerts-overview.md).
 
-1. Nell'account di automazione selezionare **avvisi** sotto **monitoraggio**e quindi selezionare **nuova regola di avviso**.
+1. Nell'account di automazione selezionare **avvisi** sotto **monitoraggio** e quindi selezionare **nuova regola di avviso**.
 
 2. Nella pagina **Crea regola di avviso** l'account di automazione è già selezionato come risorsa. Se si desidera modificarlo, selezionare **Modifica risorsa**.
 
@@ -62,7 +62,7 @@ Attenersi alla procedura seguente per configurare gli avvisi per indicare lo sta
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configurare gruppi di azioni per gli avvisi
 
-Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni da usare in più avvisi. Le azioni possono includere notifiche tramite posta elettronica, manuali operativi, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../../azure-monitor/platform/action-groups.md).
+Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni da usare in più avvisi. Le azioni possono includere notifiche tramite posta elettronica, manuali operativi, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../../azure-monitor/alerts/action-groups.md).
 
 1. Selezionare un avviso e quindi selezionare **Crea nuovo** in **Gruppi di azioni**.
 
@@ -86,8 +86,8 @@ Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sugli [avvisi in monitoraggio di Azure](../../azure-monitor/platform/alerts-overview.md).
+* Altre informazioni sugli [avvisi in monitoraggio di Azure](../../azure-monitor/alerts/alerts-overview.md).
 
-* Informazioni sulle [query di log](../../azure-monitor/log-query/log-query-overview.md) per recuperare e analizzare i dati da un'area di lavoro log Analytics.
+* Informazioni sulle [query di log](../../azure-monitor/logs/log-query-overview.md) per recuperare e analizzare i dati da un'area di lavoro log Analytics.
 
-* Gestire l' [utilizzo e i costi con i log di monitoraggio di Azure](../../azure-monitor/platform/manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati e come analizzare e inviare avvisi sull'utilizzo dei dati.
+* Gestire l' [utilizzo e i costi con i log di monitoraggio di Azure](../../azure-monitor/logs/manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati e come analizzare e inviare avvisi sull'utilizzo dei dati.
