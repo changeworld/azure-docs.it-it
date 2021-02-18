@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 9ccf28f5431a92f71b1c18e609639d0abf309c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590851"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Distribuire app ASP.NET Core nel servizio Azure Kubernetes usando Azure DevOps Starter
 
@@ -24,7 +24,7 @@ DevOps Starter consente inoltre di effettuare le seguenti operazioni:
 * Creare automaticamente risorse di Azure, ad esempio un servizio Azure Kubernetes.
 * Creare e configurare una pipeline di versione in Azure DevOps per configurare una compilazione e pipeline di versione per CI/CD.
 * Creare una risorsa di Azure Application Insights per il monitoraggio.
-* Consente a [Monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md) di monitorare le prestazioni per i carichi di lavoro dei contenitori nel cluster del servizio Azure Kubernetes
+* Consente a [Monitoraggio di Azure per i contenitori](../azure-monitor/containers/container-insights-overview.md) di monitorare le prestazioni per i carichi di lavoro dei contenitori nel cluster del servizio Azure Kubernetes
 
 In questa esercitazione si apprenderà come:
 
@@ -134,7 +134,7 @@ DevOps Starter crea e configura automaticamente i passaggi necessari per la dist
 
 A questo punto, si è pronti per collaborare con un team a un'app usando un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web. Ogni modifica al repository Git avvia una compilazione in DevOps di Azure e una pipeline CD esegue una distribuzione in Azure. Seguire la procedura in questa sezione o usare altre tecniche per eseguire il commit delle modifiche nel repository. Ad esempio, è possibile clonare il repository Git nello strumento o nell'IDE preferito e quindi eseguire il push delle modifiche in questo repository.
 
-1. Nel menu di Azure DevOps, selezionare **Codice** > **File**e quindi passare al repository.
+1. Nel menu di Azure DevOps, selezionare **Codice** > **File** e quindi passare al repository.
 
 1. Passare alla directory *Views\Home*, selezionare i puntini di sospensione (...) accanto al file *Index.cshtml* e scegliere **Modifica**.
 

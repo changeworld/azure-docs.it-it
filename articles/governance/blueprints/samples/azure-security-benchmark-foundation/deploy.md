@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto Azure Security benchmark Foundation
 description: Procedura di distribuzione per l'esempio di progetto di benchmark Foundation di Azure, inclusi i dettagli del parametro dell'artefatto Blueprint.
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: e1a5e011f5b53d35971fa43613914c0a43549600
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100421974"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633955"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Distribuire l'esempio di progetto Azure Security benchmark Foundation
 
@@ -132,10 +132,8 @@ La tabella seguente fornisce un elenco dei parametri del progetto:
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Nomi degli indirizzi subnet (facoltativo)|Matrice di nomi di subnet da distribuire nella rete virtuale spoke; ad esempio, "Subnet1", "Subnet2"|
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Prefissi di indirizzo della subnet (facoltativo)|Matrice di prefissi di indirizzo IP per subnet facoltative per la rete virtuale spoke; ad esempio, "10.0.7.0/24", "10.0.8.0/24"|
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Distribuzione spoke|Immettere ' true ' o ' false ' per specificare se l'assegnazione distribuisce i componenti spoke dell'architettura|
-|Gruppo di risorse Network Watcher|Resource group|Nome del gruppo di risorse|Bloccato: usa il nome del gruppo di risorse Network Watcher|
-|Gruppo di risorse Network Watcher|Resource group|Località del gruppo di risorse|Bloccato: usa la posizione dell'hub|
-|Modello di Network Watcher di Azure|Modello di Resource Manager|Località Network Watcher|Percorso per la risorsa Network Watcher|
-|Modello di Network Watcher di Azure|Modello di Resource Manager|Località del gruppo di risorse Network Watcher|Percorso del gruppo di risorse Network Watcher|
+|Modello di Network Watcher di Azure|Modello di Resource Manager|Località Network Watcher|Se Network Watcher è già abilitato, il valore di questo parametro **deve** corrispondere al percorso del gruppo di risorse Network Watcher esistente.|
+|Modello di Network Watcher di Azure|Modello di Resource Manager|Località del gruppo di risorse Network Watcher|Se Network Watcher è già abilitato, il valore di questo parametro **deve** corrispondere al nome del gruppo di risorse Network Watcher esistente.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

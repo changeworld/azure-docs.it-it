@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092129"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650729"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -37,7 +37,7 @@ Prima di usare la API Analisi del testo, sarà necessario creare una risorsa di 
 
 ## <a name="change-your-pricing-tier"></a>Modificare il piano tariffario 
 
-Se si dispone di una risorsa Analisi del testo esistente usando il piano tariffario S0-S4, è possibile aggiornarla in modo che usi il piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)standard (S):
+Se si dispone di una risorsa Analisi del testo esistente usando il piano tariffario S0-S4, è necessario aggiornarla per usare il piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)standard. I piani tariffari S0 tramite S4 verranno ritirati. Per aggiornare i prezzi della risorsa:
 
 1. Passare alla risorsa Analisi del testo nel [portale di Azure](https://portal.azure.com/).
 2. Selezionare piano **tariffario** nel menu di spostamento a sinistra. Si troverà sotto la **gestione delle risorse**. 

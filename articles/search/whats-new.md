@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: d37b39f596a9986f001663847e0b8e6ae8adb987
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545514"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590544"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -25,6 +25,7 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 |------------------------------|---------------|---------------|
 | [Reimposta documenti (anteprima)](search-howto-run-reset-indexers.md) |  Rielabora i documenti di ricerca selezionati singolarmente nei carichi di lavoro dell'indicizzatore. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
 | [Zone di disponibilità](search-performance-optimization.md#availability-zones)| I servizi di ricerca con due o più repliche in determinate aree, come elencato in [scalabilità per le prestazioni](search-performance-optimization.md#availability-zones), ottengono la resilienza con repliche in due o più percorsi fisici distinti.  | L'area e la data della creazione del servizio di ricerca determinano la disponibilità. Per informazioni dettagliate, vedere l'articolo relativo alla scalabilità per le prestazioni. |
+| [Interfaccia della riga di comando di Azure](/cli/azure/search) </br>[Azure PowerShell](/powershell/module/az.search/) | Le nuove revisioni forniscono ora la gamma completa di operazioni nell'API REST di gestione 2020-08-01, incluso il supporto per le regole del firewall IP e l'endpoint privato. | Disponibile a livello generale. |
 
 ## <a name="january-2021"></a>Gennaio 2021
 

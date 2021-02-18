@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920444"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634167"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminare gli avvisi di Azure Defender
 
@@ -60,9 +60,7 @@ Per creare una regola direttamente nel portale di Azure:
 
 1. Dalla pagina degli avvisi di sicurezza del Centro sicurezza:
 
-    - Individuare l'avviso specifico che non si vuole visualizzare più e dal menu con i puntini di sospensione (...) per l'avviso selezionare **Create suppression rule** (Crea regola di eliminazione):
-
-        [![Opzione **Crea regola di eliminazione**](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - Selezionare l'avviso specifico che non si desidera visualizzare più e nel riquadro dei dettagli selezionare **intervenire**.
 
     - In alternativa, selezionare il collegamento **Regole di eliminazione** nella parte superiore della pagina e nella pagina delle regole di eliminazione selezionare **Crea una nuova regola di eliminazione**:
 
@@ -85,9 +83,9 @@ Per creare una regola direttamente nel portale di Azure:
 1. Salvare la regola. 
 
 
-## <a name="edit-a-suppression-rules"></a>Modificare le regole di eliminazione
+## <a name="edit-a-suppression-rule"></a>Modificare una regola di eliminazione
 
-Per modificare le regole create, usare la pagina regole di eliminazione.
+Per modificare una regola creata, usare la pagina regole di eliminazione.
 
 1. Nella pagina degli avvisi di sicurezza del Centro sicurezza selezionare il collegamento **Regole di eliminazione** nella parte superiore della pagina.
 1. Verrà visualizzata la pagina regole di eliminazione con tutte le regole per le sottoscrizioni selezionate.
@@ -106,20 +104,6 @@ Per eliminare una o più regole create, usare la pagina delle regole di eliminaz
 1. Per eliminare una singola regola, aprire il menu con i puntini di sospensione (...) per la regola e selezionare **Elimina**.
 1. Per eliminare più regole, selezionare le caselle di controllo per le regole da eliminare e selezionare **Elimina**.
     ![Eliminazione di una o più regole di eliminazione](media/alerts-suppression-rules/delete-multiple-alerts.png)
-
-## <a name="view-suppressed-alerts"></a>Visualizza avvisi eliminati
-
-Gli avvisi che corrispondono alle regole di eliminazione abilitate vengono comunque generati, ma il loro stato viene impostato su **Ignorato**. È possibile visualizzare lo stato nel portale di Azure o accedendo agli avvisi di sicurezza del Centro sicurezza. 
-
-> [!TIP]
-> [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) non creerà eventi imprevisti per gli avvisi eliminati. Per le altre tecnologie SIEM, è possibile filtrare gli avvisi eliminati usando lo stato degli avvisi "Ignorato".
-
-Usare il filtro del Centro sicurezza per visualizzare gli avvisi che sono stati ignorati in base alle regole.
-
-* Nella pagina degli avvisi di sicurezza del Centro sicurezza aprire le opzioni di filtro e selezionare **Ignorato**.  
-
-   [![Visualizzazione degli avvisi ignorati](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Creare e gestire le regole di eliminazione con l'API
 

@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d3ed064547b1202aa562fffdfde85a28cbe8514e
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
-ms.translationtype: HT
+ms.openlocfilehash: 5e39093e0472705111907e72b70446db53770012
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809548"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634490"
 ---
 # <a name="quickstart-set-up-azure-security-center"></a>Avvio rapido: Configurare il Centro sicurezza di Azure
 
@@ -88,7 +88,7 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
 1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
 1. Selezionare la sottoscrizione pertinente.
-1. Nella pagina **Raccolta dati** impostare **Provisioning automatico** su **Sì**.
+1. Nella pagina **provisioning automatico** , per l' **agente log Analytics per le macchine virtuali di Azure** , impostare lo stato **su on**.
 1. Selezionare **Salva**.
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Abilitare il provisioning automatico dell'agente di Log Analytics":::

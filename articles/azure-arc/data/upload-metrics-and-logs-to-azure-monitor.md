@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: ac9c8efbe29bf1420a94d486b650758cc22bec2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 61ac4c979445ef48b5986ec3793a9880cedc837a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575753"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650253"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Caricare i dati di utilizzo, le metriche e i log in monitoraggio di Azure
 
@@ -29,7 +29,7 @@ Periodicamente, è possibile esportare le informazioni di utilizzo per finalità
 Prima di poter caricare i dati di utilizzo, le metriche o i log, è necessario:
 
 * Installare gli strumenti 
-* [Registrare il `Microsoft.AzureData` provider di risorse](#register-the-resource-provider) 
+* [Registrare il `Microsoft.AzureArcData` provider di risorse](#register-the-resource-provider) 
 * [Creare l'entità servizio](#create-service-principal)
 
 ## <a name="install-tools"></a>Installare gli strumenti

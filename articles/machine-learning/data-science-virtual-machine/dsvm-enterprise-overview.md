@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: a22b253081a6695758a737a506620f2f56e90227
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 28dea7c28f47a9850486877571672cbd717e9f1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519695"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596766"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente di intelligenza artificiale e analisi di collaborazione in team basato su Data Science Virtual Machine 
 [Data Science Virtual Machine](overview.md) (DSVM) fornisce un ambiente avanzato nella piattaforma Azure, con software precompilato per l'intelligenza artificiale e l'analisi dei dati.
@@ -37,7 +37,7 @@ Gli elementi costitutivi chiave di un ambiente di analisi di un team aziendale i
 Questa serie di articoli fornisce linee guida e indicazioni per ognuno degli argomenti precedenti. Non illustra tutti i requisiti e le considerazioni relative alla distribuzione di Data Science Virtual Machine nelle configurazioni aziendali di grandi dimensioni. Ecco altre risorse di Azure che è possibile usare durante l'implementazione di istanze di Data Science Virtual Machine nell'azienda:
 
 * [Sicurezza di rete](../../security/fundamentals/network-overview.md)
-* [Monitoraggio](../../azure-monitor/insights/monitor-vm-azure.md) e [gestione](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Monitoraggio](../../azure-monitor/vm/monitor-vm-azure.md) e [gestione](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Registrazione e controllo](../../security/fundamentals/log-audit.md)
 * [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)
 * [Imposizione e impostazione di criteri](../../governance/policy/overview.md)

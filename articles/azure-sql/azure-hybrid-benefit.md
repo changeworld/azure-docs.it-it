@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
-ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/16/2021
+ms.openlocfilehash: f1761851f91e6d0c0aadb3315dbb7980a00bba5b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737456"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633819"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Vantaggio Azure Hybrid: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -85,12 +85,12 @@ Il Vantaggio Azure Hybrid per SQL Server differisce dalla mobilità delle licenz
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quali sono i diritti specifici inclusi nel Vantaggio Azure Hybrid per SQL Server?
 
-I clienti del database SQL dispongono dei diritti seguenti associati a Vantaggio Azure Hybrid per SQL Server:
+I clienti del database SQL e di SQL Istanza gestita dispongono dei diritti seguenti associati ai Vantaggio Azure Hybrid per SQL Server:
 
 |Impronta della licenza|Che cosa Vantaggio Azure Hybrid per SQL Server ottenere?|
 |---|---|
 |Clienti di SQL Server Enterprise Edition con Software Assurance|<li>Può pagare la tariffa di base per lo SKU di iperscalabilità, per utilizzo generico o business critical</li><br><li>1 Core locale = 4 Core nello SKU con iperscalabilità</li><br><li>1 core in locale = 4 core nello SKU del livello Utilizzo generico</li><br><li>1 core in locale = 1 core nello SKU del livello Business Critical</li>|
-|Clienti di SQL Server Standard Edition con Software Assurance|<li>Può pagare la tariffa di base su scala e solo per utilizzo generico SKU</li><br><li>1 Core locale = 1 Core nello SKU con iperscalabilità</li><br><li>1 core in locale = 1 core nello SKU del livello Utilizzo generico</li>|
+|Clienti di SQL Server Standard Edition con Software Assurance|<li>Può pagare la tariffa di base per lo SKU di iperscalabilità, per utilizzo generico o business critical</li><br><li>1 Core locale = 1 Core nello SKU con iperscalabilità</li><br><li>1 core in locale = 1 core nello SKU del livello Utilizzo generico</li><br><li>4 core locale = 1 Core nello SKU business critical</li>|
 |||
 
 
