@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560526"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094670"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Gestione dei ruoli del contratto Enterprise di Azure
 
@@ -197,12 +197,12 @@ La tabella seguente illustra la relazione tra i ruoli di amministratore del Cont
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato |none|Nessun prezzo|
 |nessuno|Non applicabile |Proprietario|Prezzi al dettaglio|
 
-Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di Azure può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di Azure può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestire l'accesso alle informazioni di fatturazione per Azure](manage-billing-access.md)
-- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)

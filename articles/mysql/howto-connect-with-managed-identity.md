@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 74530b861b4dc7a35fa8b192ecc0e79ce5fa59c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 898f568d285c3b4b4360ea4dda8c63a1e0f13a42
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742987"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091806"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Connettersi con l'identità gestita a Database di Azure per MySQL
 
@@ -31,7 +31,7 @@ Si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con la funzionalità delle identità gestite per le risorse di Azure, vedere questa [panoramica](../../articles/active-directory/managed-identities-azure-resources/overview.md). Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le attività richieste di creazione delle risorse e gestione dei ruoli, l'account deve avere le autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alle risorse della sottoscrizione di Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Per eseguire le attività richieste di creazione delle risorse e gestione dei ruoli, l'account deve avere le autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - È necessaria una macchina virtuale di Azure, ad esempio che esegue Ubuntu Linux, da usare per l'accesso al database tramite l'identità gestita
 - È necessario un server di Database di Azure per MySQL con l'[autenticazione di Azure AD](howto-configure-sign-in-azure-ad-authentication.md) configurata
 - Per seguire l'esempio in C#, completare prima di tutto la procedura per [connettersi tramite C#](connect-csharp.md)

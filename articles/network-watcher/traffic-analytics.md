@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585521"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095368"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -71,33 +71,34 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
       Stati Uniti centrali  
       Cina orientale 2  
       Cina settentrionale 2  
+      Asia orientale       
    :::column-end:::
    :::column span="":::
-      Asia orientale  
       Stati Uniti orientali  
       Stati Uniti orientali 2  
       Stati Uniti orientali 2 EUAP  
       Francia centrale  
-      Giappone orientale  
+      Germania centro-occidentale Giappone orientale  
       Giappone occidentale  
       Corea centrale  
       Corea meridionale  
       Stati Uniti centro-settentrionali  
+      Europa settentrionale    
    :::column-end:::
    :::column span="":::
-      Europa settentrionale  
       Sudafrica settentrionale  
       Stati Uniti centro-meridionali  
       India meridionale  
       Asia sud-orientale  
       Svizzera settentrionale  
       Svizzera occidentale  
+      Emirati Arabi Uniti settentrionali  
       Regno Unito meridionale  
-      Regno Unito occidentale  
+      Regno Unito occidentale   
       USGov Arizona  
+      USGov Texas
    :::column-end:::
    :::column span="":::
-      USGov Texas  
       USGov Virginia  
       USNat est  
       USNat ovest  
@@ -143,14 +144,15 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
       Svizzera settentrionale  
       Svizzera occidentale  
       Emirati Arabi Uniti centrali  
+      Emirati Arabi Uniti settentrionali  
       Regno Unito meridionale  
-      Regno Unito occidentale  
+      Regno Unito occidentale   
       USGov Arizona  
       USGov Virginia  
-      USNat est  
-      USNat ovest  
+      USNat est   
    :::column-end:::
    :::column span="":::
+      USNat ovest   
       USSec est  
       USSec ovest  
       Stati Uniti centro-occidentali  

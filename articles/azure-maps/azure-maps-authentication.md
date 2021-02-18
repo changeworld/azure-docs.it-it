@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905316"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094096"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
@@ -84,13 +84,13 @@ Azure Maps supporta l'accesso a tutti i tipi di entità per il [controllo degli 
 
 Le sezioni successive illustrano i concetti e i componenti dell'integrazione di Azure Maps con RBAC di Azure. Nell'ambito del processo di configurazione dell'account Azure Maps, una directory Azure AD viene associata alla sottoscrizione di Azure in cui risiede l'account Azure maps. 
 
-Quando si configura il controllo degli accessi in base al ruolo di Azure, scegliere un'entità di sicurezza e applicarla a un'assegnazione di ruolo Per informazioni su come aggiungere assegnazioni di ruolo nella portale di Azure, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure](../role-based-access-control/role-assignments-portal.md).
+Quando si configura il controllo degli accessi in base al ruolo di Azure, scegliere un'entità di sicurezza e applicarla a un'assegnazione di ruolo Per informazioni su come aggiungere assegnazioni di ruolo nella portale di Azure, vedere [assegnare ruoli di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Selezione di una definizione di ruolo
 
 Per supportare gli scenari di applicazione, sono disponibili i seguenti tipi di definizione di ruolo.
 
-| Definizione di ruolo di Azure       | Description                                                                                              |
+| Definizione di ruolo di Azure       | Descrizione                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Lettore di dati per Mappe di Azure      | Fornisce l'accesso alle API REST di Azure Maps non modificabili.                                                       |
 | Collaboratore dati di Azure Maps | Fornisce l'accesso alle API REST di Azure Maps modificabili. La mutabilità è definita dalle azioni: Write ed Delete. |
@@ -100,7 +100,7 @@ Alcuni servizi di Azure Maps potrebbero richiedere privilegi elevati per eseguir
 
 | Servizio Maps di Azure | Definizione del ruolo mappe di Azure  |
 | :----------------- | :-------------------------- |
-| Dati               | Collaboratore dati di Azure Maps |
+| Data               | Collaboratore dati di Azure Maps |
 | Autore            | Collaboratore dati di Azure Maps |
 | Spaziali            | Collaboratore dati di Azure Maps |
 

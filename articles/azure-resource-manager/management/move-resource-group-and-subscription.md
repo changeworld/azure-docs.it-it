@@ -4,12 +4,12 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319555"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093619"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
@@ -37,7 +37,7 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
 
 1. Se si sposta una risorsa che dispone di un ruolo di Azure assegnato direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario ricreare l'assegnazione di ruolo. Infine, l'assegnazione di ruolo orfana verrà rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima di spostare la risorsa.
 
-    Per informazioni su come gestire le assegnazioni di ruolo, vedere [elencare le assegnazioni](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) di ruolo di Azure e [aggiungere o rimuovere assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).
+    Per informazioni su come gestire le assegnazioni di ruolo, vedere [elencare le assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e assegnare i ruoli di [Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Le sottoscrizioni di origine e di destinazione devono essere attive. In caso di problemi durante l'abilitazione di un account precedentemente disabilitato, [creare una richiesta di supporto tecnico di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
 
@@ -178,11 +178,11 @@ Quando si Visualizza il gruppo di risorse, l'opzione Move è disabilitata.
 
 Per abilitare l'opzione di spostamento, selezionare le risorse che si desidera spostare. Per selezionare tutte le risorse, selezionare la casella di controllo nella parte superiore dell'elenco. In alternativa, selezionare risorse singolarmente. Dopo aver selezionato le risorse, l'opzione di spostamento è abilitata.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="opzione Move disabilitata":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Selezionare le risorse":::
 
 Selezionare il pulsante **Sposta** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opzione Move disabilitata":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opzioni di spostamento":::
 
 Questo pulsante offre tre opzioni:
 
@@ -194,11 +194,11 @@ Selezionare se si desidera spostare le risorse in un nuovo gruppo di risorse o i
 
 Selezionare il gruppo di risorse di destinazione. Confermare di dover aggiornare gli script per queste risorse e selezionare **OK**. Se si è scelto di passare a una nuova sottoscrizione, è necessario selezionare anche la sottoscrizione di destinazione.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="opzione Move disabilitata":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Selezionare la destinazione":::
 
 Dopo aver convalidato la possibilità di spostare le risorse, viene visualizzata una notifica che indica che l'operazione di spostamento è in esecuzione.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="opzione Move disabilitata":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notifica":::
 
 Al completamento dell'operazione si riceverà la notifica del risultato.
 

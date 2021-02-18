@@ -3,12 +3,12 @@ title: Creare dashboard di Azure a livello di codice
 description: Usare un dashboard nel portale di Azure come modello per creare dashboard di Azure a livello di codice. Include il riferimento JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745809"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095166"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -46,7 +46,7 @@ Dopo aver configurato il dashboard, il passaggio successivo consiste nel pubblic
 
 ![condivisione di un dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selezionando **Condividi** viene richiesto di scegliere la sottoscrizione e il gruppo di risorse in cui eseguire la pubblicazione. È necessario avere accesso in scrittura alla sottoscrizione e al gruppo di risorse scelti. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+Selezionando **Condividi** viene richiesto di scegliere la sottoscrizione e il gruppo di risorse in cui eseguire la pubblicazione. È necessario avere accesso in scrittura alla sottoscrizione e al gruppo di risorse scelti. Per altre informazioni, vedere [assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![modificare la condivisione e l'accesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -665,7 +665,7 @@ az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-È possibile aggiornare un dashboard usando il comando [AZ Portal Dashboard Update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+È possibile aggiornare un dashboard con il comando [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update):
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -678,7 +678,7 @@ Per visualizzare i dettagli di un dashboard, eseguire il comando [AZ Portal Dash
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-Per visualizzare tutti i dashboard per la sottoscrizione corrente, usare [AZ Portal Dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Per visualizzare tutti i dashboard della sottoscrizione corrente, usare [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -694,4 +694,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 Per ulteriori informazioni sui desktop, vedere [gestire le impostazioni e le preferenze di portale di Azure](set-preferences.md).
 
-Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure per i dashboard, vedere [AZ Portal Dashboard](/cli/azure/ext/portal/portal/dashboard).
+Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure per i dashboard, vedere [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).

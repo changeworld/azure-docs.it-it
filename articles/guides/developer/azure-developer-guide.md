@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 1c28ed90c041a65b2ff8dd08a3aac799795171eb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1caab392af1dab4f2e706d7372b0a1d9b5e62db6
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897460"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091209"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -306,7 +306,7 @@ Quando si consente l'accesso alle risorse di Azure, è sempre consigliabile forn
 
   > **Uso consigliato**: quando è necessaria una gestione degli accessi con granularità fine per utenti e gruppi o quando è necessario impostare un utente come proprietario di una sottoscrizione.
   >
-  > Come **iniziare**: per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+  > Come **iniziare**: per altre informazioni, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 - **Oggetti entità servizio**: oltre a fornire l'accesso a entità utente e gruppi, è possibile concedere lo stesso accesso a un'entità servizio.
 

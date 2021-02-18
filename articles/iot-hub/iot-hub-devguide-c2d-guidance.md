@@ -13,22 +13,24 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 10206aced4f38f4d157f46703aac2d28ec863274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319151"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093010"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Indicazioni sulle comunicazioni da cloud a dispositivo
 
 L'hub IoT fornisce tre opzioni per le app per dispositivo che consentono di esporre le funzionalità a un'app back-end:
 
-* [Metodi diretti](iot-hub-devguide-direct-methods.md) per le comunicazioni che richiedono una conferma immediata del risultato. I metodi diretti vengono spesso usati per il controllo interattivo dei dispositivi, ad esempio l'accensione di una ventola.
+* I [metodi diretti](iot-hub-devguide-direct-methods.md) servono per le comunicazioni che richiedono una conferma immediata del risultato. I metodi diretti vengono spesso usati per il controllo interattivo dei dispositivi, ad esempio l'accensione di una ventola.
 
 * [Proprietà desiderate del dispositivo gemello](iot-hub-devguide-device-twins.md), per comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti.
 
 * [Messaggi da cloud a dispositivo](iot-hub-devguide-messages-c2d.md), per le notifiche unidirezionali verso l'app per dispositivo.
+
+Per informazioni sull'uso di queste opzioni da parte di [Azure plug and Play](../iot-pnp/overview-iot-plug-and-play.md) per controllare i dispositivi Plug and Play, plug and Play vedere la guida per gli [sviluppatori dei servizi](../iot-pnp/concepts-developer-guide-service.md)Internet.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

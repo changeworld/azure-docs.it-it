@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370035"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093381"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -69,19 +69,8 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
    > ![Selezionare Docker](./media/quickstarts/select-docker.png)
 
 6. A questo punto è possibile configurare il contenitore docker. Tutti i campi sono obbligatori se non diversamente specificato:
-
-    # <a name="v20"></a>[v2.0](#tab/v2-0)
-
-* Opzioni-selezionare un **singolo contenitore**
-* Origine immagine-selezionare il **Registro di sistema privato** 
-* URL server: impostare questa impostazione su `https://mcr.microsoft.com`
-* Username (facoltativo): creare un nome utente. 
-* Password (facoltativo): creare una password sicura da ricordare.
-* Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
-* Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
-
-    # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1) 
+<!-- markdownlint-disable MD025 -->
+# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
 
 * Opzioni-selezionare un **singolo contenitore**
 * Origine immagine-selezionare il **Registro di sistema privato** 
@@ -92,7 +81,18 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
 * Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
 * Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
 
-    ---
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+* Opzioni-selezionare un **singolo contenitore**
+* Origine immagine-selezionare il **Registro di sistema privato** 
+* URL server: impostare questa impostazione su `https://mcr.microsoft.com`
+* Username (facoltativo): creare un nome utente. 
+* Password (facoltativo): creare una password sicura da ricordare.
+* Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
+* Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
+
+ ---
 
    > [!div class="mx-imgBorder"]
    > ![Configurare Docker](./media/quickstarts/configure-docker.png)
@@ -104,7 +104,7 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
 
 > [!IMPORTANT]
 > Potrebbe essere necessario abilitare TLS per l'app Web in modo da visualizzarlo al suo `https` indirizzo. Seguire le istruzioni in [abilitare un endpoint TLS](../../container-instances/container-instances-container-group-ssl.md) per configurare un contenitore sidecar che Abilita TLS/SSL per l'app Web.
-
+<!-- markdownlint-disable MD001 -->
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 In alternativa all'uso del portale di Azure, è possibile creare una risorsa usando l'interfaccia della riga di comando di Azure. Prima di continuare, è necessario installare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli). È possibile ignorare questo passaggio se si sta già lavorando con l'interfaccia della riga di comando di Azure. 
@@ -113,12 +113,32 @@ In alternativa all'uso del portale di Azure, è possibile creare una risorsa usa
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` genera un nome DNS casuale. 
 * Questo esempio presuppone che si disponga di un gruppo di risorse che è possibile usare per creare una risorsa. Sostituire `<resource_group_name>` con un gruppo di risorse valido associato alla sottoscrizione. 
-* È necessario specificare la posizione in cui si vuole creare la risorsa. Sostituire `<region name>` con l'area desiderata per l'app Web. 
+* È necessario specificare la posizione in cui si vuole creare la risorsa. Sostituire `<region name>` con l'area desiderata per l'app Web.
 * Questo comando accetta automaticamente il contratto di licenza.
 
 Dall'interfaccia della riga di comando di Azure eseguire questo comando per creare una risorsa dell'app Web per lo strumento di assegnazione di etichette di esempio:
 
+<!-- markdownlint-disable MD024 -->
+# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
+
+```
+
 # <a name="v20"></a>[v2.0](#tab/v2-0)
+
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -133,24 +153,8 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-`
+``` 
 
-# [v2.1 preview](#tab/v2-1) 
-   
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
 
 ---
 

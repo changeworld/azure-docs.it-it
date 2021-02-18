@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: d68ec580f25bfd5f9c1a994efc15abd8835ac8a5
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934986"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093502"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi di Azure e una chiave con un modello di Azure Resource Manager (anteprima)
 
@@ -26,7 +26,7 @@ ms.locfileid: "97934986"
 Per completare questo articolo:
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- L'utente dovrà avere un ruolo predefinito Controllo degli accessi in base al ruolo assegnato, ad esempio Collaboratore. [Per altre informazioni, vedi qui](../../role-based-access-control/role-assignments-portal.md)
+- Per l'utente deve essere assegnato un ruolo predefinito di Azure, ad esempio. Collaboratore. [Per altre informazioni, vedi qui](../../role-based-access-control/role-assignments-portal.md)
 - Per la configurazione delle autorizzazioni nel modello è necessario l'ID oggetto utente di Azure AD. La procedura seguente recupera l'ID oggetto (GUID).
 
     1. Eseguire il seguente comando di Azure PowerShell o dell'interfaccia della riga di comando di Azure selezionando **Prova** e quindi incollare lo script nel riquadro della shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.

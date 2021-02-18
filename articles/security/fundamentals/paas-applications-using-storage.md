@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693184"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093989"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure
 Questo articolo illustra un insieme di procedure consigliate di sicurezza in Archiviazione di Azure per la protezione delle applicazioni PaaS Web e per applicazioni mobili. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
@@ -33,7 +33,7 @@ La [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security
 
 In questo articolo vengono illustrate le seguenti procedure consigliate:
 
-- Firme di accesso condiviso
+- Firme di accesso condiviso (SAS)
 - Controllo degli accessi in base al ruolo di Azure
 - Crittografia lato client per i dati di valore elevato
 - Crittografia del servizio di archiviazione
@@ -64,7 +64,7 @@ Le organizzazioni che non applicano il controllo di accesso ai dati usando funzi
 
 Per ulteriori informazioni su RBAC di Azure, vedere:
 
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)
 - [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security-recommendations.md) 
 

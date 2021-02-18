@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.custom: seodec18
-ms.openlocfilehash: 912dbf48254a8d68b9bf76db04734fd791a3edb9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 56f4cb49f42936e7b9f64c2546b94c99d16bac79
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677055"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092089"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Esercitazione: Configurare un ambiente Azure Time Series Insights Gen2
 
@@ -38,7 +38,7 @@ Registrarsi per creare una [sottoscrizione di Azure gratuita](https://azure.micr
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario avere almeno il ruolo **Collaboratore** per la sottoscrizione di Azure. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+* È necessario avere almeno il ruolo **Collaboratore** per la sottoscrizione di Azure. Per altre informazioni, vedere [assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Creare una simulazione di dispositivi
 
@@ -91,8 +91,8 @@ Questa sezione descrive come creare un ambiente Azure Time Series Insights Gen2 
     | **Gruppo di risorse** | Selezionare un gruppo di risorse esistente per la risorsa dell'ambiente Azure Time Series Insights Gen2 oppure creare un gruppo di risorse nuovo. Un gruppo di risorse è un contenitore per le risorse di Azure. È consigliabile usare lo stesso gruppo di risorse delle altre risorse IoT create dal simulatore di dispositivi. |
     | **Posizione** | Selezionare un'area del data center per l'ambiente Azure Time Series Insights Gen2. Per evitare un aumento della latenza, è consigliabile creare l'ambiente Azure Time Series Insights Gen2 nella stessa area dell'hub IoT creato dal simulatore di dispositivo. |
     | **Livello** |  Selezionare **Gen2(L1)** . Si tratta dello SKU del prodotto Azure Time Series Insights Gen2. |
-    | **Nome proprietà ID serie temporale** | Immettere il nome di una proprietà contenente valori che identificano in modo univoco le istanze della serie temporale. Il valore immesso nella casella **Nome proprietà** come ID della serie temporale non può essere modificato successivamente. Per questa esercitazione immettere **_iothub-connection-device-id_* _. Per altre informazioni sull'ID serie temporale, incluso l'ID serie temporale composito, vedere [Procedure consigliate per la scelta di un ID serie temporale](./how-to-select-tsid.md). |
-    | _ *Nome dell'account di archiviazione** | Immettere un nome univoco globale per un nuovo account di archiviazione.|
+    | **Nome proprietà ID serie temporale** | Immettere il nome di una proprietà contenente valori che identificano in modo univoco le istanze della serie temporale. Il valore immesso nella casella **Nome proprietà** come ID della serie temporale non può essere modificato successivamente. Per questa esercitazione, immettere **_iothub-Connection-Device-ID_**. Per ulteriori informazioni sull'ID della serie temporale, incluso l'ID della serie temporale composita, vedere [procedure consigliate per la scelta di un ID di serie temporale](./how-to-select-tsid.md). |
+    | **Nome account di archiviazione** | Immettere un nome univoco globale per un nuovo account di archiviazione.|
     | **Tipo di account di archiviazione** | Selezionare il tipo di archiviazione per un nuovo account di archiviazione. Il tipo consigliato è Archiviazione V2|
     | **Replica dell'account di archiviazione** | Selezionare il tipo di archiviazione per un nuovo account di archiviazione. In base alla selezione della località, è possibile scegliere tra Archiviazione con ridondanza locale, Archiviazione con ridondanza geografica e Archiviazione con ridondanza della zona. Per questa esercitazione è possibile selezionare Archiviazione con ridondanza locale.|
     | **Spazio dei nomi gerarchico** |Questa opzione può essere selezionata dopo aver selezionato Archiviazione V2 come tipo di archiviazione. Per impostazione predefinita, è disabilitata. Per questa esercitazione è possibile mantenere lo stato predefinito *disabilitato*|
@@ -123,7 +123,7 @@ Questa sezione descrive come creare un ambiente Azure Time Series Insights Gen2 
 
    [![Configurare l'hub IoT creato come origine evento.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
     [![Pagina Rivedi e crea, con il pulsante Crea.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 

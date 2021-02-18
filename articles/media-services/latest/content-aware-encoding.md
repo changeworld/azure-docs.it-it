@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ce18e71ced320c408933caeb39b469d5885bd6ba
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954430"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095933"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usare il set di impostazioni di codifica compatibile con il contenuto per trovare il valore di velocità in bit ottimale per una determinata risoluzione
 
@@ -29,7 +29,7 @@ Per preparare il contenuto per la distribuzione tramite [streaming a bitrate ada
 
 Il set di impostazioni di [streaming adattivo](autogen-bitrate-ladder.md) di Microsoft risolve parzialmente il problema della variabilità nella qualità e nella risoluzione dei video di origine. I nostri clienti hanno una diversa combinazione di contenuto, alcuni a 1080p, altri a 720p e alcuni a SD e risoluzioni ridotte. Inoltre, non tutto il contenuto di origine è un mezzanino di alta qualità dei film o degli studi TV. Il set di impostazioni di streaming adattivo risolve questi problemi garantendo che la scala in bit non superi mai la risoluzione o la velocità in bit media del mezzanino di input. Tuttavia, questo set di impostazioni non esamina le proprietà di origine oltre alla risoluzione e alla velocità in bit.
 
-## <a name="the-content-aware-encoding"></a>Codifica compatibile con il contenuto 
+## <a name="the-content-aware-encoding"></a>Codifica compatibile con il contenuto
 
 Il set di impostazioni di codifica compatibile con il contenuto estende il meccanismo di streaming a bitrate adattivo, incorporando logica personalizzata che consente al codificatore di ricercare il valore di velocità in bit ottimale per una determinata risoluzione, ma senza richiedere un'analisi computazionale completa. Questo set di impostazioni genera un set di MP4s allineati a GOP. Dato un contenuto di input, il servizio esegue un'analisi leggera iniziale del contenuto di input e usa i risultati per determinare il numero ottimale di livelli, le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Questo set di impostazioni è particolarmente efficace per i video con complessità bassa e media, in cui i file di output saranno a velocità in bit inferiori rispetto al set di impostazioni di streaming adattivo, ma con una qualità che offre comunque una valida esperienza ai visualizzatori. L'output conterrà file MP4 con interfoliazione video e audio
 
@@ -57,7 +57,7 @@ Di seguito sono riportati i risultati per un'altra categoria di contenuto di ori
 
 È possibile creare trasformazioni che usano questo set di impostazioni come indicato di seguito. 
 
-Vedere la sezione [passaggi successivi](#next-steps) per le esercitazioni che usano output trasformare. L'asset di output può essere recapitato dagli endpoint di streaming di servizi multimediali nei protocolli, ad esempio MPEG-DASH e HLS, come illustrato nelle esercitazioni.
+Vedere la sezione [passaggi successivi](#next-steps) per le esercitazioni che usano output di trasformazione. L'asset di output può essere recapitato dagli endpoint di streaming di servizi multimediali nei protocolli, ad esempio MPEG-DASH e HLS, come illustrato nelle esercitazioni.
 
 > [!NOTE]
 > Assicurarsi di usare il set di impostazioni **ContentAwareEncoding** non ContentAwareEncodingExperimental.

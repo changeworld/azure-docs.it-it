@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ac2982b021172893e4aabe0f21c7077115684eff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e5a395f71ed1b1ab06d97b8aa6d83278d59d15c0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592617"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091953"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Baseline della sicurezza di Azure per la cache HPC di Azure
 
@@ -381,7 +381,7 @@ Usare i ruoli predefiniti per assegnare le autorizzazioni e creare ruoli persona
 
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) 
 
-- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md) 
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 

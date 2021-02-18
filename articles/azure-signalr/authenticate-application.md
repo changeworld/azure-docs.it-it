@@ -6,12 +6,12 @@ ms.author: tefa
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/03/2020
-ms.openlocfilehash: 97386b18360e22b457dbcdda53c4f81e7d4ed272
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 597b69c1180ea1fb2a6812d648f8b8ad37707d66
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797524"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092611"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-azure-signalr-service"></a>Autenticare un'applicazione con Azure Active Directory per accedere al servizio Azure SignalR
 Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basata su Azure Active Directory (Azure AD). Un vantaggio fondamentale dell'uso di Azure AD con il servizio Azure SignalR è che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è `https://signalr.azure.com/` . Azure AD autentica l'entità di sicurezza (un'applicazione, un gruppo di risorse o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse del servizio Azure SignalR.
@@ -55,8 +55,8 @@ L'applicazione richiede un segreto client per dimostrare la propria identità qu
 
 ![Caricare una certificazione](./media/authenticate/certification.png)
 
-## <a name="add-rbac-roles-using-the-azure-portal"></a>Aggiungere i ruoli RBAC usando il portale di Azure  
-Per altre informazioni sulla gestione dell'accesso alle risorse di Azure con RBAC e la portale di Azure, vedere [questo articolo](..//role-based-access-control/role-assignments-portal.md). 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Assegnare i ruoli di Azure usando il portale di Azure  
+Per altre informazioni sulla gestione dell'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e la portale di Azure, vedere [questo articolo](..//role-based-access-control/role-assignments-portal.md). 
 
 Dopo aver determinato l'ambito appropriato per un'assegnazione di ruolo, passare a tale risorsa nel portale di Azure. Visualizzare le impostazioni di controllo di accesso (IAM) per la risorsa e seguire queste istruzioni per gestire le assegnazioni di ruolo:
 

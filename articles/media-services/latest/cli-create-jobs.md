@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3e35ab78b83c0daa96e9b958d70f6e341cdcc537
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9291d53822f0fbb80f759908933db58f2224c3d7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98891421"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091902"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Esempio dell'interfaccia della riga di comando: Creare e inviare un processo
 
@@ -28,11 +28,9 @@ ms.locfileid: "98891421"
 
 In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare un URL HTTPS come input del processo, come illustrato in questo articolo. 
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerequisiti 
 
 [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script di esempio
 

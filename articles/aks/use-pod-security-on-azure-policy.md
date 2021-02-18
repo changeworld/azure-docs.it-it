@@ -4,12 +4,12 @@ description: Informazioni su come proteggere i pod con criteri di Azure in Azure
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 34f2bfe346d7163a254e2ccecd1d7ef63ddb4194
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348526"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092615"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteggere i pod con Criteri di Azure
 
@@ -60,7 +60,7 @@ Le limitazioni generali seguenti si applicano al componente aggiuntivo di criter
 Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Azure per AKS:
 
 - Non è possibile abilitare entrambi i criteri di sicurezza del servizio contenitore di Azure [(anteprima)](use-pod-security-policies.md) e il componente aggiuntivo criteri di Azure per AKS. 
-- Spazi dei nomi esclusi automaticamente dal componente aggiuntivo criteri di Azure per la valutazione: _Kube-System_ , _Gatekeeper-System_ e _AKS-periscopio_.
+- Spazi dei nomi esclusi automaticamente dal componente aggiuntivo criteri di Azure per la valutazione: _Kube-System_, _Gatekeeper-System_ e _AKS-periscopio_. Se si usano i criteri di rete di calice con Kubernetes versione 1,20 e successive, vengono automaticamente esclusi altri due spazi dei nomi, ovvero "Tigro _-System_ " e " _tigera-operator_".
 
 ### <a name="recommendations"></a>Consigli
 
@@ -151,9 +151,9 @@ If the built-in initiatives to address pod security do not match your requiremen
 
 AKS richiede che i pod di sistema vengano eseguiti in un cluster per fornire servizi critici, ad esempio la risoluzione DNS. I criteri che limitano la funzionalità Pod possono avere un effetto sulla stabilità del pod di sistema. Di conseguenza, gli spazi dei nomi seguenti vengono **esclusi dalla valutazione dei criteri durante le richieste di ammissione durante la creazione, l'aggiornamento e il controllo dei criteri**. In questo modo le nuove distribuzioni a questi spazi dei nomi verranno escluse dai criteri di Azure.
 
-1. Kube-sistema
+1. kube-system
 1. Gatekeeper-sistema
-1. Azure-Arc
+1. azure-arc
 1. AKS-periscopio
 
 Gli spazi dei nomi personalizzati aggiuntivi possono essere esclusi dalla valutazione durante la creazione, l'aggiornamento e il controllo. Queste esclusioni devono essere usate se si dispone di Pod specializzati che vengono eseguiti in uno spazio dei nomi approvato e si vuole evitare di attivare violazioni di controllo.
@@ -252,7 +252,7 @@ Creare il pod usando il comando [kubectl Apply][kubectl-apply] e specificare il 
 kubectl apply -f nginx-unprivileged.yaml
 ```
 
-La pianificazione del Pod è stata completata. Quando si controlla lo stato del pod usando il comando [kubectl Get][kubectl-get] pods, il Pod è *in esecuzione* :
+La pianificazione del Pod è stata completata. Quando si controlla lo stato del pod usando il comando [kubectl Get][kubectl-get] pods, il Pod è *in esecuzione*:
 
 ```console
 $ kubectl get pods

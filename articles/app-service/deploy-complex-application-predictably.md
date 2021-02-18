@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962027"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095831"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell. 
@@ -45,14 +45,14 @@ Per ulteriori informazioni, vedere [utilizzo di Azure PowerShell con Azure Resou
 Questo [strumento in anteprima](https://resources.azure.com) consente di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e delle singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove.  Le informazioni immediatamente disponibili in questo strumento sono molto utili per la creazione di modelli perché mostrano le proprietà che è necessario impostare per un determinato tipo di risorsa, i valori corretti e così via. È anche possibile creare il gruppo di risorse nel [portale di Azure](https://portal.azure.com/), quindi controllare le relative definizioni JSON nello strumento di esplorazione per impostare il gruppo di risorse.
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure
-Se si usa GitHub per il controllo del codice sorgente, è possibile inserire nel file README.MD un [pulsante Deploy to Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) , che abilita un'interfaccia utente di distribuzione in Azure pronta all'uso. Mentre si può procedere in questo modo per qualsiasi app semplice, è possibile estendere questa opzione per abilitare la distribuzione di un intero gruppo di risorse inserendo un file azuredeploy.json nella radice del repository. Questo file JSON, che contiene il modello di gruppo di risorse, verrà usato dal pulsante Deploy to Azure per creare il gruppo di risorse. Per un esempio vedere [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , l'app di esempio che verrà usata in questa esercitazione.
+Se si usa GitHub per il controllo del codice sorgente, è possibile inserire nel file README.MD un [pulsante Deploy to Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) , che abilita un'interfaccia utente di distribuzione in Azure pronta all'uso. Mentre si può procedere in questo modo per qualsiasi app semplice, è possibile estendere questa opzione per abilitare la distribuzione di un intero gruppo di risorse inserendo un file azuredeploy.json nella radice del repository. Questo file JSON, che contiene il modello di gruppo di risorse, verrà usato dal pulsante Deploy to Azure per creare il gruppo di risorse. Per un esempio vedere [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , l'app di esempio che verrà usata in questa esercitazione.
 
 ## <a name="get-the-sample-resource-group-template"></a>Ottenere il modello del gruppo di risorse di esempio
 Ecco come scaricarlo.
 
 1. Passare all'esempio di servizio app [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) .
 2. Nel file readme.md fare clic su **Deploy to Azure**.
-3. Verrà aperto il sito [deploy-to-azure](https://deploy.azure.com) e verrà chiesto di immettere i parametri di distribuzione. Come si noterà, la maggior parte dei campi è già popolata con il nome del repository e alcune stringhe casuali. È possibile modificare tutti i campi, se lo si desidera, ma le uniche informazioni che è necessario immettere sono l'accesso amministrativo e la password di SQL Server, quindi fare clic su **Next**.
+3. Verrà aperto il sito [deploy-to-azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-appservice-samples%2FToDoApp%2Fmaster%2Fazuredeploy.json) e verrà chiesto di immettere i parametri di distribuzione. Come si noterà, la maggior parte dei campi è già popolata con il nome del repository e alcune stringhe casuali. È possibile modificare tutti i campi, se lo si desidera, ma le uniche informazioni che è necessario immettere sono l'accesso amministrativo e la password di SQL Server, quindi fare clic su **Next**.
    
    ![Mostra i parametri di distribuzione di input nel sito di Deploy-to-Azure.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. Fare quindi clic su **Deploy** per avviare il processo di distribuzione. Al termine del processo, fare clic sul collegamento http://todoapp*XXXX*.azurewebsites.net per accedere all'applicazione distribuita. 
@@ -130,7 +130,7 @@ L'app dipende da due diverse risorse. Ciò significa che Azure Resource Manager 
 
 ![Mostra le dipendenze dell'app nel piano di servizio app e nell'istanza di SQL Server.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Impostazioni dell'app
+##### <a name="app-settings"></a>Impostazioni app
 Le impostazioni dell'app vengono definite anche come risorsa annidata.
 
 ![Mostra le impostazioni dell'app definite come una risorsa annidata nel codice JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)

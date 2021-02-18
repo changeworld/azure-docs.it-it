@@ -658,6 +658,9 @@
         - name: Servizio Frontdoor
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/
+        - name: Sportello anteriore standard/Premium (anteprima)
+          tocHref: /azure/frontdoor/standard-premium
+          topicHref: /azure/frontdoor/standard-premium
         - name: Analizzatore Internet
           tocHref: /azure/internet-analyzer/
           topicHref: /azure/internet-analyzer/

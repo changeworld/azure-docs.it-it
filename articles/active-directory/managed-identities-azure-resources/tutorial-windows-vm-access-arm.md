@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 935ae74147219d8dc5f615c80ec36f24b6e32b15
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
-ms.translationtype: HT
+ms.openlocfilehash: e4555baf658f720bc92e882e141b71f3b8050a1a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007773"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093787"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a Resource Manager
 
@@ -32,11 +32,11 @@ Questa esercitazione illustra come accedere all'API di Azure Resource Manager us
 > * Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Azure Resource Manager 
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per chiamare Azure Resource Manager
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Conoscenza di base delle identità gestite. Se non si ha familiarità con la funzionalità delle identità gestite per le risorse di Azure, vedere questa [panoramica](overview.md).
 - Un account Azure. [Iscriversi per riceverne uno gratuito](https://azure.microsoft.com/free/).
-- Autorizzazioni di "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse) per eseguire le procedure di creazione delle risorse e gestione dei ruoli. Se è necessaria assistenza con l'assegnazione, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
+- Autorizzazioni di "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse) per eseguire le procedure di creazione delle risorse e gestione dei ruoli. Se è necessaria assistenza per l'assegnazione di ruolo, vedere [assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
 - È anche necessaria una macchina virtuale Windows con identità gestite assegnate dal sistema abilitate.
   - Se è necessario creare una macchina virtuale per questa esercitazione, è possibile seguire l'articolo [Creare una macchina virtuale con l'identità assegnata dal sistema abilitata](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 

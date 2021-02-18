@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
-ms.translationtype: HT
+ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203263"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091489"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
 
@@ -21,7 +21,7 @@ Per fornire una singola fattura combinata per i servizi gestiti e l'utilizzo di 
 
 Questa funzionalità è disponibile solo per i partner con fatturazione diretta CSP, certificati come [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). È soggetta alla governance e ai criteri di Microsoft e potrebbe richiedere la revisione e l'approvazione per determinati clienti.
 
-Per richiedere la proprietà della fatturazione, è necessario disporre del ruolo **Amministratore globale** o **Agenti amministratori** . Per altre informazioni, vedere [Centro per i partner - Assegnare autorizzazioni e ruoli utente](/partner-center/permissions-overview).
+Per richiedere la proprietà della fatturazione, è necessario disporre del ruolo **Amministratore globale** o **Agenti amministratori**. Per altre informazioni, vedere [Centro per i partner - Assegnare autorizzazioni e ruoli utente](/partner-center/permissions-overview).
 
 Le informazioni in questo articolo si applicano agli account di fatturazione per i contratti Microsoft Partner. Questi account vengono creati per i provider CSP e consentire loro di gestire la fatturazione per conto dei clienti nella nuova esperienza Commerce. La nuova esperienza è disponibile solo per i partner che hanno almeno un cliente che ha accettato un Contratto del cliente Microsoft con un piano di Azure. [Verificare di avere accesso a un Contratto Microsoft Partner](#check-access-to-a-microsoft-partner-agreement).
 
@@ -34,18 +34,18 @@ Le informazioni in questo articolo si applicano agli account di fatturazione per
 ## <a name="request-billing-ownership"></a>Richiedere la proprietà della fatturazione
 
 1. Accedere al [portale di Azure](https://portal.azure.com) mediante le credenziali di agente amministratore CSP nel tenant CSP.
-1. Cercare **Gestione dei costi e fatturazione** .  
+1. Cercare **Gestione dei costi e fatturazione**.  
     ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure per richiedere la proprietà della fatturazione.](./media/mpa-request-ownership/search-cmb.png)
 1. Selezionare **Clienti** sul lato sinistro e quindi selezionare un cliente dall'elenco.  
     [![Screenshot che mostra la selezione dei clienti](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
-1. Selezionare **Richieste di trasferimento** sul lato sinistro e quindi **Aggiungi una nuova richiesta** .  
+1. Selezionare **Richieste di trasferimento** sul lato sinistro e quindi **Aggiungi una nuova richiesta**.  
     [![Screenshot che mostra la selezione delle richieste di trasferimento](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. Immettere l'indirizzo di posta elettronica dell'utente nell'organizzazione cliente che accetterà la richiesta di trasferimento. L'utente deve essere un proprietario dell'account con un contratto Enterprise. Selezionare **Invia la richiesta di trasferimento** .  
+1. Immettere l'indirizzo di posta elettronica dell'utente nell'organizzazione cliente che accetterà la richiesta di trasferimento. L'utente deve essere un proprietario dell'account con un contratto Enterprise. Selezionare **Invia la richiesta di trasferimento**.  
     [![Screenshot che mostra l'invio di una richiesta di trasferimento](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. L'utente riceve un messaggio di posta elettronica con le istruzioni per esaminare la richiesta di trasferimento.  
     ![Screenshot che mostra il messaggio di posta elettronica per l'esame della richiesta di trasferimento](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. Per approvare la richiesta di trasferimento, l'utente seleziona il collegamento nel messaggio di posta elettronica e segue le istruzioni.  
-    [![Screenshot che mostra la verifica della richiesta di trasferimento](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) L'utente può selezionare l'account di fatturazione da cui vuole trasferire i prodotti di Azure. Dopo la selezione, vengono visualizzati i prodotti idonei che possono essere trasferiti. **Nota:** le sottoscrizioni disabilitate non possono essere trasferite e verranno mostrate nell'elenco "Non-transferrable Azure Products" (Prodotti di Azure non trasferibili), se applicabile. Dopo la selezione dei prodotti di Azure da trasferire, selezionare **Convalida** .
+    [![Screenshot che mostra la verifica della richiesta di trasferimento](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) L'utente può selezionare l'account di fatturazione da cui vuole trasferire i prodotti di Azure. Dopo la selezione, vengono visualizzati i prodotti idonei che possono essere trasferiti. **Nota:** le sottoscrizioni disabilitate non possono essere trasferite e verranno mostrate nell'elenco "Non-transferrable Azure Products" (Prodotti di Azure non trasferibili), se applicabile. Dopo la selezione dei prodotti di Azure da trasferire, selezionare **Convalida**.
 1. L'area **Transfer Validation Result** (Risultato della convalida del trasferimento) mostrerà l'impatto dei prodotti di Azure che verranno trasferiti. Ecco gli stati possibili:
     * **Superata** -La convalida per questo prodotto di Azure è stata superata ed è possibile trasferirlo.
     * **Avviso** - È presente un avviso per il prodotto di Azure selezionato. Benché sia comunque possibile trasferire il prodotto, il trasferimento avrà impatti di cui l'utente deve essere consapevole nel caso in cui voglia eseguire azioni di mitigazione. La sottoscrizione di Azure da trasferire sfrutta ad esempio i vantaggi di un'istanza riservata. Dopo il trasferimento la sottoscrizione non riceverà più tale vantaggio. Per massimizzare i risparmi, assicurarsi che l'istanza riservata sia associata a un'altra sottoscrizione che può usare i rispettivi vantaggi. L'utente può anche scegliere invece di tornare alla pagina di selezione e deselezionare questa sottoscrizione di Azure.
@@ -55,7 +55,7 @@ Le informazioni in questo articolo si applicano agli account di fatturazione per
 ## <a name="check-the-transfer-request-status"></a>Verificare lo stato della richiesta di trasferimento
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare **Gestione dei costi e fatturazione** .  
+1. Cercare **Gestione dei costi e fatturazione**.  
     ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure per richiedere lo stato del trasferimento.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Selezionare **Clienti** sul lato sinistro.  
     [![Screenshot che mostra la selezione dei clienti](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
@@ -174,4 +174,4 @@ Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 * La proprietà della fatturazione delle sottoscrizioni di Azure è stata trasferita all'utente. È possibile tenere traccia degli addebiti per queste sottoscrizioni nel [portale di Azure](https://portal.azure.com).
-* Collaborare con il cliente per ottenere l'accesso alle sottoscrizioni di Azure trasferite. [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+* Collaborare con il cliente per ottenere l'accesso alle sottoscrizioni di Azure trasferite. [Assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).

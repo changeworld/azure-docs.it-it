@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653075"
+ms.locfileid: "101092410"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servizio di rilevamento anomalie per la fatturazione a consumo
 
@@ -50,7 +50,7 @@ Il modello funziona generando intervalli di confidenza retrospettiva. La previsi
 
 ## <a name="anomaly-detection-notification"></a>Notifica di rilevamento anomalie
 
-È possibile valutare, gestire e confermare le anomalie nel centro per i partner. Per informazioni, vedere [rilevamento delle anomalie per la fatturazione a consumo](../anomaly-detection.md).
+È possibile valutare, gestire e confermare le anomalie nel centro per i partner. Per informazioni, vedere [gestire le anomalie di fatturazione a consumo nel centro](../anomaly-detection.md)per i partner.
 
 Per assicurarsi che i clienti non vengano sovraccaricati per l'utilizzo a consumo, è necessario verificare se le anomalie rilevate sono problemi reali. In tal caso, è possibile riconoscere l'utilizzo errato nel centro per i partner.
 
@@ -83,4 +83,4 @@ Per altre opzioni di supporto per gli editori, vedere [supporto per il programma
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sull' [API del servizio di misurazione del Marketplace](marketplace-metering-service-apis.md).
-- [Rilevamento delle anomalie per la fatturazione a consumo](../anomaly-detection.md)
+- [Gestire le anomalie di fatturazione a consumo nel centro per i partner](../anomaly-detection.md)

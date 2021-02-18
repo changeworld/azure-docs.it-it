@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ca92e6e888ead6bbd79c7a8d524516ee95e8c45d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602383"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092922"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
 Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows che può essere usata con processi esistenti dell'organizzazione.
 
 >[!IMPORTANT]
->Si consiglia di usare un'immagine dalla raccolta immagini di Azure. Tuttavia, se è necessario usare un'immagine personalizzata, assicurarsi che nel dispositivo non sia già installato l'agente desktop virtuale di WIndows. L'utilizzo di un'immagine personalizzata con l'agente desktop virtuale di Windows può causare problemi con l'immagine.  
+>Si consiglia di usare un'immagine dalla raccolta immagini di Azure. Tuttavia, se è necessario usare un'immagine personalizzata, assicurarsi che l'agente desktop virtuale di Windows non sia già installato nella macchina virtuale. L'utilizzo di un'immagine personalizzata con l'agente desktop virtuale di Windows può causare problemi con l'immagine, ad esempio bloccando la registrazione e impedendo le connessioni della sessione utente.  
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -216,3 +216,5 @@ Ora che si dispone di un'immagine, è possibile creare o aggiornare i pool host.
 - [Creare un pool di host con PowerShell](create-host-pools-powershell.md)
 - [Creare un contenitore di profili per un pool di host con una condivisione file](create-host-pools-user-profile.md)
 - [Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows](configure-host-pool-load-balancing.md)
+
+Se si è verificato un problema di connettività dopo aver preparato o personalizzato l'immagine del disco rigido virtuale, consultare la [Guida alla risoluzione dei problemi](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) per assistenza.

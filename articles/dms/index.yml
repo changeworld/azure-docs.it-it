@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: seo-azure-migrate
-  ms.openlocfilehash: c2461fa9eb2c326141d244fbc576355226f891dd
-  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-  ms.translationtype: HT
+  ms.openlocfilehash: 2703c34dc56303103c682bed740a34991a6471f6
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94962706"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101092156"
 landingContent:
 - title: Informazioni sul Servizio Migrazione del database di Azure
   linkLists:
@@ -57,29 +57,27 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Eseguire la migrazione online al database singolo del database SQL
-      url: tutorial-sql-server-azure-sql-online.md
-    - text: Eseguire la migrazione offline al database singolo del database SQL
+    - text: Eseguire la migrazione al database SQL di Azure
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Eseguire la migrazione online all'istanza gestita del database SQL
+    - text: Eseguire la migrazione a Istanza gestita SQL di Azure (online)
       url: tutorial-sql-server-managed-instance-online.md
-    - text: Eseguire la migrazione offline all'istanza gestita del database SQL
+    - text: Esegui la migrazione a SQL Istanza gestita (offline)
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Eseguire la migrazione online di RDS SQL Server al database singolo o all'istanza gestita del database SQL
+    - text: Eseguire la migrazione di SQL Server RDS ad Azure SQL
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - linkListType: reference
     links:
-    - text: Problemi noti - Migrazione online al database SQL (database singolo)
+    - text: Problemi noti-migrazione in linea al database SQL
       url: known-issues-azure-sql-online.md
-    - text: Problemi noti - Migrazione online all'istanza gestita di database SQL
+    - text: Problemi noti-migrazione in linea a SQL Istanza gestita
       url: known-issues-azure-sql-db-managed-instance-online.md
-    - text: Topologie di rete per migrazioni a Istanza gestita di database SQL
+    - text: Topologie di rete per le migrazioni di SQL Istanza gestita
       url: resource-network-topologies.md
-    - text: Ruoli personalizzati per migrazioni online da SQL Server all'istanza gestita di database SQL
+    - text: Ruoli personalizzati per migrazioni online da SQL Server a SQL Istanza gestita
       url: resource-custom-roles-sql-db-managed-instance.md
   - linkListType: video
     links:
-    - text: Eseguire la migrazione di SQL Server 2008 all'istanza gestita del database SQL
+    - text: Eseguire la migrazione di SQL Server 2008 a SQL Istanza gestita
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
 - title: Eseguire la migrazione di database open source ad Azure
   linkLists:

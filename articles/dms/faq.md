@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f4d65c97bfccd223453583b25ee0586c5bc0b1ec
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134149"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091452"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Domande frequenti sull'uso del servizio migrazione del database di Azure
 
@@ -62,7 +62,7 @@ Sono necessari alcuni prerequisiti per garantire che il servizio migrazione del 
 In base ai prerequisiti del Servizio Migrazione del database di Azure comuni a tutti gli scenari di migrazione supportati, è necessario:
 
 * Creare una rete virtuale di Microsoft Azure per il Servizio Migrazione del database di Azure usando il modello di distribuzione di Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione seguenti 443, 53, 5671-5672, 9350-9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino la porta 443 per ServiceTags di ServiceBus, storage e AzureMonitor. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 
 Per un elenco di tutti i prerequisiti necessari per competere con scenari di migrazione specifici usando il servizio migrazione del database di Azure, vedere le esercitazioni correlate nella [documentazione](./dms-overview.md) del servizio migrazione del database di azure in docs.Microsoft.com.
@@ -91,7 +91,7 @@ Potrebbe essere necessario includere nell'elenco indirizzi consentiti anche l'or
 **D. Ricerca per categorie configurare una Rete virtuale di Microsoft Azure?**
 Sebbene più esercitazioni di Microsoft possano illustrare il processo di configurazione di una rete virtuale, la documentazione ufficiale viene visualizzata nell'articolo [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 **D. Che cos'è un riepilogo dei passaggi necessari per usare il servizio migrazione del database di Azure per eseguire una migrazione del database?**
 Durante una semplice migrazione di database tipica, è necessario:

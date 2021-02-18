@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576583"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095719"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -49,7 +49,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
    >
    >
 
-    Per altre informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](../role-based-access-control/role-assignments-portal.md).
+    Per altre informazioni sulla connessione alle risorse di Azure da Visual Studio, vedere [assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 2. In **Esplora server** espandere **Azure** e quindi **Servizio app**.
 3. Espandere il gruppo di risorse che include l'app creata in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure), quindi fare clic con il pulsante destro del mouse sul nodo dell'app e selezionare **Visualizza impostazioni**.
 

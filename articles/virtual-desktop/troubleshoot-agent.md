@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b71c5426b6fba6f232b5a7aa42347f6b25d46299
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099949"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094960"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Risolvere i problemi comuni relativi all'agente desktop virtuale di Windows
 
@@ -269,6 +269,7 @@ Se il problema non è stato trovato in questo articolo o le istruzioni non sono 
 - Le macchine virtuali non vengono visualizzate nell'elenco degli host della sessione
 - Il **caricatore dell'agente di desktop remoto** non viene visualizzato nella finestra Servizi
 - Il componente **RdAgentBootLoader** non è visualizzato in Gestione attività
+- Si riceve un **broker di connessione che non è riuscito a convalidare l'errore delle impostazioni** nelle VM di immagini personalizzate
 - Le istruzioni riportate in questo articolo non hanno risolto il problema
 
 ### <a name="step-1-uninstall-all-agent-boot-loader-and-stack-component-programs"></a>Passaggio 1: disinstallare tutti i programmi Agent, boot loader e stack Component

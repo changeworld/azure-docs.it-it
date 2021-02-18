@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione dati automatica, elaborazione di documenti, immissione automatica di dati, elaborazione di moduli
-ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 95bbc33035ca99a64242274570be5c9263029aef
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584567"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094379"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -27,26 +27,27 @@ Riconoscimento modulo di Azure è un servizio cognitivo che consente di creare s
 Riconoscimento modulo è costituito da modelli di elaborazione di documenti personalizzati, da modelli predefiniti di fatture, ricevute e biglietti da visita e dal modello di layout. È possibile chiamare i modelli di Riconoscimento modulo usando un'API REST o SDK delle librerie client per ridurre la complessità e integrarli nel flusso di lavoro o nell'applicazione.
 
 Riconoscimento modulo è costituito dai servizi seguenti:
+
 * **[API Layout](#layout-api)** : estrarre testo, contrassegni di selezione e strutture di tabelle, oltre alle relative coordinate dei rettangoli delimitatori, dai documenti.
 * **[Modelli personalizzati](#custom-models)** : estrarre testo, coppie chiave-valore, contrassegni di selezione e dati di tabelle dai moduli. Questi modelli vengono sottoposti a training con i dati dell'utente, quindi sono personalizzati per i suoi moduli.
 * **[Modelli predefiniti](#prebuilt-models)** : estrarre dati da tipi di moduli univoci usando modelli predefiniti. Attualmente sono disponibili i modelli predefiniti seguenti
-    * [Fatture](./concept-invoices.md)
-    * [Scontrini](./concept-receipts.md)
-    * [Biglietti da visita](./concept-business-cards.md)
-
+  * [Fatture](./concept-invoices.md)
+  * [Scontrini](./concept-receipts.md)
+  * [Biglietti da visita](./concept-business-cards.md)
 
 ## <a name="try-it-out"></a>Provare questa operazione
 
 Per provare il servizio Riconoscimento modulo, passare allo strumento dell'interfaccia utente di esempio online:
-
-
-# <a name="v20"></a>[v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Provare Riconoscimento modulo](https://fott.azurewebsites.net/)
-
+<!-- markdownlint-disable MD025 -->
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Provare Riconoscimento modulo](https://fott-preview.azurewebsites.net/)
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Provare Riconoscimento modulo](https://fott.azurewebsites.net/)
 
 ---
 
@@ -137,12 +138,11 @@ Per eseguire il training dei modelli ed estrarre dati strutturati dai moduli, ve
 | **Analyze Receipt** | Analizzare una ricevuta per estrarre informazioni chiave e altro testo.|
 | **Analyze Business Card** | Analizzare un biglietto da lavoro per estrarre le principali informazioni e il testo.|
 
+# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
+Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
-
-# <a name="v21"></a>[v2.1](#tab/v2-1)
-Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
 
 ---
 

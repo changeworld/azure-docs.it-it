@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 66958e275a6dee13244f0f283b1ee1dbb5d40470
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760996"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093454"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -194,9 +194,9 @@ az role assignment create \
 
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere gli articoli seguenti:
 
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md)
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+- [Assegnare i ruoli di Azure usando l'interfaccia della riga di comando](../../role-based-access-control/role-assignments-cli.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
 

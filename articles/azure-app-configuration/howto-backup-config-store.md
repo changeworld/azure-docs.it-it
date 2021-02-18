@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565926"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095518"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Eseguire il backup automatico degli archivi di configurazione delle app
 
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Per eseguire la creazione di risorse e la gestione dei ruoli necessari, l'account deve disporre `Owner` delle autorizzazioni nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [come aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+> Per eseguire la creazione di risorse e la gestione dei ruoli necessari, l'account deve disporre `Owner` delle autorizzazioni nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [come assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 Usare i comandi seguenti o il [portale di Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) per concedere all'identità gestita dell'app per le funzioni l'accesso agli archivi di configurazione dell'app. Usare i ruoli seguenti:
 - Assegnare il `App Configuration Data Reader` ruolo nell'archivio di configurazione delle app primarie.
@@ -216,7 +216,7 @@ Per verificare che tutto funzioni, è possibile creare, aggiornare o eliminare u
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-L'evento è stato attivato. In alcuni istanti, griglia di eventi invierà la notifica degli eventi alla coda. *Dopo la successiva esecuzione pianificata della funzione* , visualizzare le impostazioni di configurazione nell'archivio secondario per verificare se contiene il valore chiave aggiornato dell'archivio primario.
+L'evento è stato attivato. In alcuni istanti, griglia di eventi invierà la notifica degli eventi alla coda. *Dopo la successiva esecuzione pianificata della funzione*, visualizzare le impostazioni di configurazione nell'archivio secondario per verificare se contiene il valore chiave aggiornato dell'archivio primario.
 
 > [!NOTE]
 > È possibile [attivare manualmente la funzione](../azure-functions/functions-manually-run-non-http.md) durante i test e la risoluzione dei problemi senza attendere il trigger timer pianificato.

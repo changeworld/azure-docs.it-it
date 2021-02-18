@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547163"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094557"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -55,7 +55,7 @@ Azure fornisce **due ruoli predefiniti di Azure** per autorizzare l'accesso alle
 | Lettore dati di dispositivi gemelli digitali di Azure | Consente l'accesso in sola lettura alle risorse di Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 È possibile assegnare i ruoli in due modi:
-* tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo di Azure con il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
+* tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*assegnare i ruoli di Azure usando il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
 * tramite i comandi dell'interfaccia della riga di comando per aggiungere o rimuovere un ruolo
 
 Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'esercitazione sui dispositivi gemelli di Azure per la [*connessione di una soluzione end-to-end*](tutorial-end-to-end.md).

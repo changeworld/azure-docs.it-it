@@ -1,14 +1,14 @@
 ---
 title: Pubblicare un'offerta di servizio gestito in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che carica i clienti nel Faro di Azure.
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 3af460f17533d70b24f76ab40460a5fa920cdece
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555793"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092143"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure Marketplace
 
@@ -33,6 +33,9 @@ La tabella seguente consente di determinare se eseguire l'onboarding dei clienti
 |Richiede l'accettazione del cliente in portale di Azure     |Sì     |No   |
 |Può usare l'automazione per caricare più sottoscrizioni, gruppi di risorse o clienti |No     |Sì    |
 |Accesso immediato ai nuovi ruoli predefiniti e alle funzionalità di Azure Lighthouse     |Non sempre (disponibile a livello generale dopo un certo ritardo)         |Sì         |
+
+> [!NOTE]
+> Le offerte del servizio gestito potrebbero non essere disponibili in Azure per enti pubblici e in altri cloud nazionali.
 
 ## <a name="create-your-offer"></a>Creare l'offerta
 

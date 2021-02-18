@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 48d045fb89a4b04826ecb9fd0c7d0b2ac676d64a
-  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+  ms.openlocfilehash: 322be97658752fb1fd6c775ba25fc74f4e04e50d
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/28/2021
-  ms.locfileid: "98944978"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101093282"
 landingContent:
 - title: Informazioni sull'API Analisi del testo
   linkLists:
@@ -114,6 +114,36 @@ landingContent:
     links:
     - text: Riconoscimento delle entità
       url: how-tos/text-analytics-how-to-entity-linking.md
+- title: Uso responsabile dell'intelligenza artificiale
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nota sulla trasparenza per Analisi del testo
+      url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Nota sulla trasparenza per l'integrità
+      url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Nota sulla trasparenza per informazioni personali
+      url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Nota sulla trasparenza per Analisi del sentiment
+      url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+  - linkListType: concept
+    links:
+    - text: Integrazione e uso responsabile
+      url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+- title: Usare i contenitori Docker
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Installare ed eseguire i contenitori di Analisi del testo
+      url: how-tos/text-analytics-how-to-install-containers.md
+    - text: Configurare i contenitori di Analisi del testo
+      url: text-analytics-resource-container-config.md
+    - text: Usare il contenitore Analisi del testo per la sanità
+      url: How-tos/text-analytics-for-health.md
+    - text: Distribuire un'istanza di contenitore in Azure
+      url: ../containers/azure-container-instance-recipe.md
+    - text: Distribuire un contenitore nel servizio Azure Kubernetes
+      url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
@@ -134,20 +164,6 @@ landingContent:
       url: /powershell/module/az.cognitiveservices
     - text: Interfaccia della riga di comando di Azure
       url: /cli/azure/cognitiveservices?view=azure-cli-latest
-- title: Usare i contenitori Docker
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Installare ed eseguire i contenitori di Analisi del testo
-      url: how-tos/text-analytics-how-to-install-containers.md
-    - text: Configurare i contenitori di Analisi del testo
-      url: text-analytics-resource-container-config.md
-    - text: Usare il contenitore Analisi del testo per la sanità
-      url: How-tos/text-analytics-for-health.md
-    - text: Distribuire un'istanza di contenitore in Azure
-      url: ../containers/azure-container-instance-recipe.md
-    - text: Distribuire un contenitore nel servizio Azure Kubernetes
-      url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - title: Guida e feedback
   linkLists:
   - linkListType: reference

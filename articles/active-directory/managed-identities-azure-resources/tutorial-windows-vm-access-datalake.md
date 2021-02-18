@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908fb1ac869ec2b22085af2e07ced6ff64229308
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: cd28ee509dc76ea0b2aca9264c591a7176ae2661
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592484"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093820"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
@@ -32,11 +32,11 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 > * Concedere alla VM l'accesso a un'istanza di Azure Data Lake Store
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per accedere a un'istanza di Azure Data Lake Store
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Conoscenza delle identità gestite. Se non si ha familiarità con la funzionalità delle identità gestite per le risorse di Azure, vedere questa [panoramica](overview.md). 
 - Un account Azure. [Iscriversi per riceverne uno gratuito](https://azure.microsoft.com/free/).
-- Autorizzazioni di "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse) per eseguire le procedure di creazione delle risorse e gestione dei ruoli. Se è necessaria assistenza con l'assegnazione, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
+- Autorizzazioni di "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse) per eseguire le procedure di creazione delle risorse e gestione dei ruoli. Se è necessaria assistenza per l'assegnazione di ruolo, vedere [assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
 - È anche necessaria una macchina virtuale Windows con identità gestite assegnate dal sistema abilitate.
   - Se è necessario creare una macchina virtuale per questa esercitazione, è possibile seguire l'articolo [Creare una macchina virtuale con l'identità assegnata dal sistema abilitata](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
@@ -59,7 +59,7 @@ Nell'istanza di Data Lake Store creare una nuova cartella e concedere all'identi
 2. Fare clic sull'istanza di Data Lake Store che si vuole usare per questa esercitazione.
 3. Fare clic su **Esplora dati** sulla barra dei comandi.
 4. Viene selezionata la cartella radice dell'istanza di Data Lake Store.  Fare clic su **Accedi** sulla barra dei comandi.
-5. Scegliere **Aggiungi**.  Nel campo **Seleziona** immettere il nome della VM, ad esempio **DevTestVM**.  Fare clic per selezionare la VM nei risultati della ricerca, quindi fare clic su **Seleziona**.
+5. Fare clic su **Aggiungi**.  Nel campo **Seleziona** immettere il nome della VM, ad esempio **DevTestVM**.  Fare clic per selezionare la VM nei risultati della ricerca, quindi fare clic su **Seleziona**.
 6. Fare clic su **Selezionare le autorizzazioni**.  Selezionare **Lettura** ed **Esecuzione**, aggiungere a **Questa cartella** e aggiungere come **An access permission only** (Solo autorizzazione di accesso).  Fare clic su **OK**.  L'autorizzazione verrà aggiunta correttamente.
 7. Chiudere il pannello **Accesso**.
 8. Per questa esercitazione creare una nuova cartella.  Fare clic su **Nuova cartella** sulla barra dei comandi e assegnare un nome alla nuova cartella, ad esempio **TestFolder**.  Fare clic su **OK**.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 176acea34dead929986acb807b465593f9ffda5a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 23507a01f3ed0015690d9655fde92a875f89c2da
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615126"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095482"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Visualizzare più risorse in Esplora metriche di Azure
 
@@ -33,7 +33,7 @@ Alcuni tipi di risorse possono eseguire query per le metriche su più risorse. L
 ![Screenshot che mostra un menu di risorse compatibili con più risorse.](./media/metrics-dynamic-scope/020.png)
 
 > [!WARNING] 
-> Per visualizzare le metriche tra più risorse, gruppi di risorse o una sottoscrizione, è necessario disporre dell'autorizzazione di lettura monitoraggio a livello di sottoscrizione. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+> Per visualizzare le metriche tra più risorse, gruppi di risorse o una sottoscrizione, è necessario disporre dell'autorizzazione di lettura monitoraggio a livello di sottoscrizione. Per altre informazioni, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Per visualizzare le metriche su più risorse, iniziare selezionando più risorse all'interno della selezione dell'ambito delle risorse. 
 
@@ -81,7 +81,7 @@ In questo esempio viene filtrato in base a TailspinToysDemo. In questo caso il f
 
 ## <a name="pin-multiple-resource-charts"></a>Aggiungere grafici a più risorse 
 
-Per i grafici a più risorse che visualizzano le metriche tra gruppi di risorse e sottoscrizioni, è necessario che l'utente disponga dell'autorizzazione *monitoraggio lettura* a livello di sottoscrizione. Assicurarsi che tutti gli utenti dei dashboard a cui vengono aggiunti i grafici a più risorse dispongano di autorizzazioni sufficienti. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Per i grafici a più risorse che visualizzano le metriche tra gruppi di risorse e sottoscrizioni, è necessario che l'utente disponga dell'autorizzazione *monitoraggio lettura* a livello di sottoscrizione. Assicurarsi che tutti gli utenti dei dashboard a cui vengono aggiunti i grafici a più risorse dispongano di autorizzazioni sufficienti. Per altre informazioni, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Per aggiungere il grafico a più risorse a un dashboard, vedere [aggiunta ai dashboard](../essentials/metrics-charts.md#pinning-to-dashboards). 
 

@@ -1,20 +1,20 @@
 ---
-title: Rilevamento di anomalie per la fatturazione a consumo | Azure Marketplace
-description: Scopri come il rilevamento automatico delle anomalie per la fatturazione a consumo aiuta a garantire che i tuoi clienti vengano fatturati correttamente per l'utilizzo a consumo dell'offerta del Marketplace commerciale.
+title: Gestire le anomalie di fatturazione a consumo nel centro per i partner | Azure Marketplace
+description: Scopri come il rilevamento automatico delle anomalie per la fatturazione a consumo aiuta a garantire che i tuoi clienti vengano fatturati correttamente per l'utilizzo a consumo delle offerte del Marketplace commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/17/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653007"
+ms.locfileid: "101092520"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>Rilevamento delle anomalie per la fatturazione a consumo
+# <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gestire le anomalie di fatturazione a consumo nel centro per i partner
 
 L'opzione di fatturazione a consumo personalizzato è attualmente disponibile per le offerte SaaS ( [software as a Service](plan-saas-offer.md) ) e [le applicazioni Azure](plan-azure-application-offer.md#types-of-plans) con un piano di applicazione gestito.
 
@@ -80,3 +80,4 @@ Quando si contrassegna un utilizzo in eccedenza come anomalia o si accetta un mo
 ## <a name="see-also"></a>Vedi anche
 - [Fatturazione a consumo per SaaS tramite il servizio di misurazione del Marketplace commerciale](./partner-center-portal/saas-metered-billing.md)
 - [Fatturazione a consumo delle applicazioni gestite](./partner-center-portal/azure-app-metered-billing.md)
+- [Servizio di rilevamento anomalie per la fatturazione a consumo](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

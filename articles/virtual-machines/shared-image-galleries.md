@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730323"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091890"
 ---
 # <a name="shared-image-galleries-overview"></a>Informazioni generali sulle raccolte di immagini condivise
 
@@ -24,7 +24,7 @@ Raccolta immagini condivise è un servizio che consente di compilare la struttur
 - Controllo delle versioni e raggruppamento delle immagini per la semplificazione della gestione.
 - Immagini a disponibilità elevata con account di archiviazione con ridondanza della zona (ZRS) in aree che supportano le zone di disponibilità. Le ZRS offrono una migliore resilienza nei confronti degli errori di zona.
 - Supporto archiviazione Premium (Premium_LRS).
-- Condivisione tra sottoscrizioni e persino tra tenant Active Directory, con il Controllo degli accessi in base al ruolo.
+- Condivisione tra sottoscrizioni e persino tra tenant Active Directory con il controllo degli accessi in base al ruolo di Azure.
 - Ridimensionamento delle distribuzioni con repliche delle immagini in ogni area.
 
 Usando una raccolta di immagini condivise è possibile condividere le immagini con utenti diversi, entità servizio o gruppi di Active Directory all'interno dell'organizzazione. Le immagini condivise possono essere replicate in più aree, per un ridimensionamento più rapido delle distribuzioni.
@@ -146,14 +146,14 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 ## <a name="access"></a>Accesso
 
-Poiché la Raccolta immagini condivise, la definizione dell'immagine e la versione dell'immagine condivisa sono tutte risorse, possono essere condivise usando i controlli degli accessi in base al ruolo nativi di Azure. Usando il RBAC è possibile condividere tali risorse con altri utenti, entità servizio e gruppi. È inoltre possibile condividere l'accesso a utenti esterni al tenant in cui sono stati creati. Una volta che un utente ha accesso alla versione dell'immagine condivisa, può distribuire una macchina virtuale o un set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
+Poiché la Raccolta immagini condivise, la definizione dell'immagine e la versione dell'immagine condivisa sono tutte risorse, possono essere condivise usando i controlli degli accessi in base al ruolo nativi di Azure. Usando il controllo degli accessi in base al ruolo di Azure è possibile condividere queste risorse con altri utenti, entità servizio e gruppi. È inoltre possibile condividere l'accesso a utenti esterni al tenant in cui sono stati creati. Una volta che un utente ha accesso alla versione dell'immagine condivisa, può distribuire una macchina virtuale o un set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
 | Condivisi con l'utente     | Raccolta di immagini condivise | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
 | Raccolta di immagini condivise | Sì                  | Sì          | Sì                  |
 | Definizione delle immagini     | No                   | Sì          | Sì                  |
 
-Per un'esperienza ottimale è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le versioni dell'immagine singole. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md).
+Per un'esperienza ottimale è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le versioni dell'immagine singole. Per altre informazioni su RBAC di Azure, vedere [assegnare ruoli di Azure](../role-based-access-control/role-assignments-portal.md).
 
 Le immagini possono inoltre essere condivise su larga scala anche tra tenant usando una registrazione di app multi-tenant. Per altre informazioni sulla condivisione di immagini tra i tenant, vedere la sezione relativa alla condivisione delle immagini di VM tra i tenant di Azure tramite l'interfaccia della riga di comando di [Azure](./linux/share-images-across-tenants.md) o [PowerShell](./windows/share-images-across-tenants.md).
 

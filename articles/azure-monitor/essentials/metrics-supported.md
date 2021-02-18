@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 51cd3bf3349e1880d4dc9f5d98d2d9b5dc5bb228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616677"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091807"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -154,21 +154,21 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
-|attivo-timer-conteggio|Sì|System.Runtime|attivo-timer-conteggio|Conteggio|Media|Numero di timer attualmente attivi|Distribuzione, AppName, Pod|
-|frequenza di allocazione|Sì|System.Runtime|frequenza di allocazione|Byte|Media|Numero di byte allocati nell'heap gestito|Distribuzione, AppName, Pod|
+|attivo-timer-conteggio|Sì|attivo-timer-conteggio|Conteggio|Media|Numero di timer attualmente attivi|Distribuzione, AppName, Pod|
+|frequenza di allocazione|Sì|frequenza di allocazione|Byte|Media|Numero di byte allocati nell'heap gestito|Distribuzione, AppName, Pod|
 |AppCpuUsage|Sì|Utilizzo CPU app (anteprima)|Percentuale|Media|Utilizzo della CPU recente per l'app|Distribuzione, AppName, Pod|
-|conteggio assembly|Sì|System.Runtime|conteggio assembly|Conteggio|Media|Numero di assembly caricati|Distribuzione, AppName, Pod|
-|utilizzo CPU|Sì|System.Runtime|utilizzo CPU|Percentuale|Media|Percentuale tempo di utilizzo della CPU da parte del processo|Distribuzione, AppName, Pod|
-|richieste correnti|Sì|Microsoft.AspNetCore.Hosting|richieste correnti|Conteggio|Media|Numero totale di richieste nell'elaborazione della durata del processo|Distribuzione, AppName, Pod|
-|conteggio eccezioni|Sì|System.Runtime|conteggio eccezioni|Conteggio|Totale|Numero di eccezioni|Distribuzione, AppName, Pod|
-|richieste non riuscite|Sì|Microsoft.AspNetCore.Hosting|richieste non riuscite|Conteggio|Media|Numero totale di richieste non riuscite nel corso della durata del processo|Distribuzione, AppName, Pod|
-|GC-heap-dimensioni|Sì|System.Runtime|GC-heap-dimensioni|Conteggio|Media|Dimensioni totali heap restituite dal GC (MB)|Distribuzione, AppName, Pod|
-|gen-0-GC-count|Sì|System.Runtime|gen-0-GC-count|Conteggio|Media|Numero di cataloghi globali di generazione 0|Distribuzione, AppName, Pod|
-|gen-0-dimensioni|Sì|System.Runtime|gen-0-dimensioni|Byte|Media|Dimensioni heap di generazione 0|Distribuzione, AppName, Pod|
-|gen-1-GC-count|Sì|System.Runtime|gen-1-GC-count|Conteggio|Media|System.Runtime|Numero di cataloghi globali di generazione 1|Distribuzione, AppName, Pod|
-|gen-1-dimensioni|Sì|System.Runtime|gen-1-dimensioni|Byte|Media|Dimensioni heap di generazione 1|Distribuzione, AppName, Pod|
-|Gen-2-GC-count|Sì|System.Runtime|Gen-2-GC-count|Conteggio|Media|Numero di cataloghi globali di generazione 2|Distribuzione, AppName, Pod|
-|Gen-2-dimensioni|Sì|System.Runtime|Gen-2-dimensioni|Byte|Media|Dimensioni heap di generazione 2|Distribuzione, AppName, Pod|
+|conteggio assembly|Sì|conteggio assembly|Conteggio|Media|Numero di assembly caricati|Distribuzione, AppName, Pod|
+|utilizzo CPU|Sì|utilizzo CPU|Percentuale|Media|Percentuale tempo di utilizzo della CPU da parte del processo|Distribuzione, AppName, Pod|
+|richieste correnti|Sì|richieste correnti|Conteggio|Media|Numero totale di richieste nell'elaborazione della durata del processo|Distribuzione, AppName, Pod|
+|conteggio eccezioni|Sì|conteggio eccezioni|Conteggio|Totale|Numero di eccezioni|Distribuzione, AppName, Pod|
+|richieste non riuscite|Sì|richieste non riuscite|Conteggio|Media|Numero totale di richieste non riuscite nel corso della durata del processo|Distribuzione, AppName, Pod|
+|GC-heap-dimensioni|Sì|GC-heap-dimensioni|Conteggio|Media|Dimensioni totali heap restituite dal GC (MB)|Distribuzione, AppName, Pod|
+|gen-0-GC-count|Sì|gen-0-GC-count|Conteggio|Media|Numero di cataloghi globali di generazione 0|Distribuzione, AppName, Pod|
+|gen-0-dimensioni|Sì|gen-0-dimensioni|Byte|Media|Dimensioni heap di generazione 0|Distribuzione, AppName, Pod|
+|gen-1-GC-count|Sì|gen-1-GC-count|Conteggio|Media|Numero di cataloghi globali di generazione 1|Distribuzione, AppName, Pod|
+|gen-1-dimensioni|Sì|gen-1-dimensioni|Byte|Media|Dimensioni heap di generazione 1|Distribuzione, AppName, Pod|
+|Gen-2-GC-count|Sì|Gen-2-GC-count|Conteggio|Media|Numero di cataloghi globali di generazione 2|Distribuzione, AppName, Pod|
+|Gen-2-dimensioni|Sì|Gen-2-dimensioni|Byte|Media|Dimensioni heap di generazione 2|Distribuzione, AppName, Pod|
 |JVM. GC. Live. Data. size|Sì|JVM. GC. Live. Data. size|Byte|Media|Dimensioni del pool di memoria di generazione precedente dopo un catalogo globale completo|Distribuzione, AppName, Pod|
 |JVM. GC. max. Data. size|Sì|JVM. GC. max. Data. size|Byte|Media|Dimensioni massime del pool di memoria di generazione precedente|Distribuzione, AppName, Pod|
 |JVM. GC. memory. allocato|Sì|JVM. GC. memory. allocato|Byte|Massimo|Incrementato per un aumento delle dimensioni del pool di memoria di generazione giovani dopo un GC a prima del successivo|Distribuzione, AppName, Pod|
@@ -178,15 +178,15 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |JVM. memory. commit|Sì|JVM. memory. commit|Byte|Media|Memoria assegnata a JVM in byte|Distribuzione, AppName, Pod|
 |JVM. memory. max|Sì|JVM. memory. max|Byte|Massimo|Quantità massima di memoria in byte che può essere utilizzata per la gestione della memoria|Distribuzione, AppName, Pod|
 |JVM. memory. used|Sì|JVM. memory. used|Byte|Media|Memoria app utilizzata in byte|Distribuzione, AppName, Pod|
-|dimensioni Loh|Sì|System.Runtime|dimensioni Loh|Byte|Media|Dimensioni heap LOH|Distribuzione, AppName, Pod|
-|monitoraggio-blocco-contesa-conteggio|Sì|System.Runtime|monitoraggio-blocco-contesa-conteggio|Conteggio|Media|Numero di volte in cui si è verificato un conflitto durante il tentativo di eseguire il blocco del monitoraggio|Distribuzione, AppName, Pod|
+|dimensioni Loh|Sì|dimensioni Loh|Byte|Media|Dimensioni heap LOH|Distribuzione, AppName, Pod|
+|monitoraggio-blocco-contesa-conteggio|Sì|monitoraggio-blocco-contesa-conteggio|Conteggio|Media|Numero di volte in cui si è verificato un conflitto durante il tentativo di eseguire il blocco del monitoraggio|Distribuzione, AppName, Pod|
 |Process. CPU. Usage|Sì|Process. CPU. Usage|Percentuale|Media|Utilizzo della CPU recente per il processo JVM|Distribuzione, AppName, Pod|
-|richieste al secondo|Sì|Microsoft.AspNetCore.Hosting|richieste-frequenza|Conteggio|Media|Frequenza di richieste|Distribuzione, AppName, Pod|
+|richieste al secondo|Sì|richieste-frequenza|Conteggio|Media|Frequenza di richieste|Distribuzione, AppName, Pod|
 |System. CPU. Usage|Sì|System. CPU. Usage|Percentuale|Media|Utilizzo della CPU recente per l'intero sistema|Distribuzione, AppName, Pod|
-|ThreadPool-completed-Items-count|Sì|System.Runtime|ThreadPool-completed-Items-count|Conteggio|Media|Conteggio elementi di lavoro completati da ThreadPool|Distribuzione, AppName, Pod|
-|ThreadPool-coda-lunghezza|Sì|System.Runtime|ThreadPool-coda-lunghezza|Conteggio|Media|Lunghezza coda elementi di lavoro ThreadPool|Distribuzione, AppName, Pod|
-|ThreadPool-thread-conteggio|Sì|System.Runtime|ThreadPool-thread-conteggio|Conteggio|Media|Numero di thread ThreadPool|Distribuzione, AppName, Pod|
-|Time-in-GC|Sì|System.Runtime|Time-in-GC|Percentuale|Media|Percentuale tempo in GC dall'ultimo GC|Distribuzione, AppName, Pod|
+|ThreadPool-completed-Items-count|Sì|ThreadPool-completed-Items-count|Conteggio|Media|Conteggio elementi di lavoro completati da ThreadPool|Distribuzione, AppName, Pod|
+|ThreadPool-coda-lunghezza|Sì|ThreadPool-coda-lunghezza|Conteggio|Media|Lunghezza coda elementi di lavoro ThreadPool|Distribuzione, AppName, Pod|
+|ThreadPool-thread-conteggio|Sì|ThreadPool-thread-conteggio|Conteggio|Media|Numero di thread ThreadPool|Distribuzione, AppName, Pod|
+|Time-in-GC|Sì|Time-in-GC|Percentuale|Media|Percentuale tempo in GC dall'ultimo GC|Distribuzione, AppName, Pod|
 |Tomcat. Global. Error|Sì|Tomcat. Global. Error|Conteggio|Totale|Tomcat Global Error (Errore globale Tomcat)|Distribuzione, AppName, Pod|
 |Tomcat. Global. received|Sì|Tomcat. Global. received|Byte|Totale|Tomcat Total Received Bytes (Byte totali ricevuti Tomcat)|Distribuzione, AppName, Pod|
 |Tomcat. Global. Request. AVG. Time|Sì|Tomcat. Global. Request. AVG. Time|Millisecondi|Media|Tomcat Request Average Time (Tempo medio richiesta Tomcat)|Distribuzione, AppName, Pod|
@@ -202,8 +202,8 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Tomcat. Sessions. rifiutato|Sì|Tomcat. Sessions. rifiutato|Conteggio|Totale|Tomcat Session Rejected Count (Conteggio rifiuto sessioni Tomcat)|Distribuzione, AppName, Pod|
 |tomcat.threads.config. max|Sì|tomcat.threads.config. max|Conteggio|Totale|Numero massimo thread di configurazione Tomcat|Distribuzione, AppName, Pod|
 |Tomcat. Threads. Current|Sì|Tomcat. Threads. Current|Conteggio|Totale|Conteggio thread correnti Tomcat|Distribuzione, AppName, Pod|
-|Totale richieste|Sì|Microsoft.AspNetCore.Hosting|Totale richieste|Conteggio|Media|Numero totale di richieste nel corso della durata del processo|Distribuzione, AppName, Pod|
-|working-set|Sì|System.Runtime|working-set|Conteggio|Media|Quantità di working set utilizzata dal processo (MB)|Distribuzione, AppName, Pod|
+|Totale richieste|Sì|Totale richieste|Conteggio|Media|Numero totale di richieste nel corso della durata del processo|Distribuzione, AppName, Pod|
+|working-set|Sì|working-set|Conteggio|Media|Quantità di working set utilizzata dal processo (MB)|Distribuzione, AppName, Pod|
 
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts

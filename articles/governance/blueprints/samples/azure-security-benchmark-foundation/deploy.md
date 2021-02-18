@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto Azure Security benchmark Foundation
 description: Procedura di distribuzione per l'esempio di progetto di benchmark Foundation di Azure, inclusi i dettagli del parametro dell'artefatto Blueprint.
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: aaaabc8767c6d80548a26d64d8557587180fb6f3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633955"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095287"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Distribuire l'esempio di progetto Azure Security benchmark Foundation
 
@@ -92,6 +92,9 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
      - **Nome Network Watcher**: nome della risorsa Network Watcher
      - **Network Watcher nome del gruppo di risorse**: nome del gruppo di risorse Network Watcher
      - **Abilita protezione DDoS**: immettere ' true ' o ' false ' per specificare se la protezione DDoS è abilitata nella rete virtuale
+     
+    > [!NOTE] 
+    > Se Network Watcher è già abilitato, è consigliabile usare il gruppo di risorse Network Watcher esistente. È anche necessario specificare il percorso per il gruppo di risorse Network Watcher esistente per il parametro dell'artefatto **Network Watcher percorso del gruppo di risorse**.
 
    - Parametri dell'elemento
 
@@ -132,8 +135,14 @@ La tabella seguente fornisce un elenco dei parametri del progetto:
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Nomi degli indirizzi subnet (facoltativo)|Matrice di nomi di subnet da distribuire nella rete virtuale spoke; ad esempio, "Subnet1", "Subnet2"|
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Prefissi di indirizzo della subnet (facoltativo)|Matrice di prefissi di indirizzo IP per subnet facoltative per la rete virtuale spoke; ad esempio, "10.0.7.0/24", "10.0.8.0/24"|
 |Modello spoke della rete virtuale di Azure|Modello di Resource Manager|Distribuzione spoke|Immettere ' true ' o ' false ' per specificare se l'assegnazione distribuisce i componenti spoke dell'architettura|
-|Modello di Network Watcher di Azure|Modello di Resource Manager|Località Network Watcher|Se Network Watcher è già abilitato, il valore di questo parametro **deve** corrispondere al percorso del gruppo di risorse Network Watcher esistente.|
+|Modello di Network Watcher di Azure|Modello di Resource Manager|Località Network Watcher|Percorso per la risorsa Network Watcher|
 |Modello di Network Watcher di Azure|Modello di Resource Manager|Località del gruppo di risorse Network Watcher|Se Network Watcher è già abilitato, il valore di questo parametro **deve** corrispondere al nome del gruppo di risorse Network Watcher esistente.|
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se si verifica l'errore `The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.` , verificare che il parametro blueprint **Network Watcher nome del gruppo di risorse** specifichi il nome del gruppo di risorse Network Watcher esistente e che il parametro dell'artefatto **Network Watcher percorso del gruppo di risorse** specifichi il percorso del gruppo di risorse Network Watcher esistente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

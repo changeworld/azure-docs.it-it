@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 002c6762c71d5ffb45e56f3bc74d911570bca8bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79743ba2c733855a377ae8e2522ce54eca9e8c04
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571951"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091085"
 ---
 # <a name="azure-security-baseline-for-azure-database-migration-service"></a>Baseline della sicurezza di Azure per il servizio migrazione del database di Azure
 
@@ -269,7 +269,7 @@ Usare i ruoli predefiniti per assegnare le autorizzazioni e creare ruoli persona
 
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md)
 
-- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md) 
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 

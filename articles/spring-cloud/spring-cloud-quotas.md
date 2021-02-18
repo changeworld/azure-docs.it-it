@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 496f2e812a102e85fea92a535552daaaadf5f31e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 20ebeb23fe09ba4fd70a724828afadfaa3901abd
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093430"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095659"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quote e piani di servizio per Azure Spring cloud
 
@@ -22,13 +22,17 @@ Tutti i servizi di Azure impostano i limiti e le quote predefiniti per le risors
 
 ## <a name="azure-spring-cloud-service-tiers-and-limits"></a>Livelli di servizio e limiti di Azure Spring cloud
 
-| Risorsa | Basic | Standard
+| Risorsa | Ambito | Basic | Standard
 ------- | ------- | -------
-vCPU | 1 per istanza del servizio | 4 per istanza del servizio
-Memoria | 2 GB per istanza del servizio | 8 GB per istanza del servizio
-Istanze del servizio Azure Spring Cloud per area e per sottoscrizione | 10 | 10
-Numero totale di istanze di app per ogni istanza del servizio Azure Spring Cloud | 25 | 500
-Volumi permanenti | app da 1 GB/app x 10 | App 50 GB/app x 10
+vCPU | per istanza di app | 1 | 4
+Memoria | per istanza di app | 2 GB | 8 GB
+Istanze del servizio cloud Spring di Azure | per area per sottoscrizione | 10 | 10
+Totale istanze app | per istanza del servizio cloud di Azure Spring | 25 | 500
+Domini personalizzati | per istanza del servizio cloud di Azure Spring | 0 | 25 
+Volumi permanenti | per istanza del servizio cloud di Azure Spring | app da 1 GB/app x 10 | App 50 GB/app x 10
+
+> [!TIP]
+> Le tariffe elencate per le istanze totali dell'app per ogni istanza del servizio si applicano alle app/distribuzioni in stato interrotto. Eliminare le app e le distribuzioni non in uso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

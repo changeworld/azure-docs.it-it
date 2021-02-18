@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aabaad54dce52d57aaa4689f591351e290b0f9a3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371253"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093688"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse Azure Resource Manager usando il portale di Azure
 
@@ -62,7 +62,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
 ## <a name="open-resource-groups"></a>Apri gruppi di risorse
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **gruppi di risorse**.
+2. Selezionare **Gruppi di risorse**.
 3. Selezionare il gruppo di risorse che si vuole aprire.
 
 ## <a name="delete-resource-groups"></a>Eliminare i gruppi di risorse
@@ -89,7 +89,7 @@ Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificar
 1. Aprire il gruppo di risorse che si desidera bloccare.  Vedere [aprire gruppi di risorse](#open-resource-groups).
 2. Nel riquadro sinistro selezionare **blocchi**.
 3. Per aggiungere un blocco al gruppo di risorse, selezionare **Aggiungi**.
-4. Immettere il **nome del blocco**, il tipo di **blocco**e le **Note**. I tipi di blocco sono di sola **lettura**ed **Elimina**.
+4. Immettere il **nome del blocco**, il tipo di **blocco** e le **Note**. I tipi di blocco sono di sola **lettura** ed **Elimina**.
 
     ![blocca il gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
@@ -105,7 +105,7 @@ Per informazioni sull'esportazione di modelli, vedere [esportazione a più risor
 
 ## <a name="manage-access-to-resource-groups"></a>Gestire l'accesso ai gruppi di risorse
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Per altre informazioni, vedere [assegnare i ruoli di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

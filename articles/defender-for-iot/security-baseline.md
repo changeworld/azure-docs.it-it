@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6fbd70c1de99818e2baf73d15ed365db3a54e43d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: adb9cb234e76da5dab4503c59eb19ba6645e56c8
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246724"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092650"
 ---
 # <a name="azure-security-baseline-for-azure-defender-for-iot"></a>Baseline della sicurezza di Azure per Azure Defender per l'it
 
@@ -167,7 +167,7 @@ Usare i ruoli predefiniti per assegnare le autorizzazioni e creare ruoli persona
 
 - [Che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) 
 
-- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md) 
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 

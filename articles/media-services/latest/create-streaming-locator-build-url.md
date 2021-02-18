@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ecbc42237326cb895c47e96eda13bbddcdeb558f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956124"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093466"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Creare un localizzatore di streaming e gli URL di compilazione
 
@@ -27,7 +27,7 @@ Per creare un URL di streaming in servizi multimediali di Azure, è prima di tut
 
 Questo articolo illustra come creare un localizzatore di streaming e creare un URL di streaming usando gli SDK Java e .NET.
 
-## <a name="prerequisite"></a>Prerequisito 
+## <a name="prerequisite"></a>Prerequisito
 
 Anteprima della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md)
 
