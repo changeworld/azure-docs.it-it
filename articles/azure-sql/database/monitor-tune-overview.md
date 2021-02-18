@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b56da68b10bc40304097fbe9eeaf200d422b663
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490568"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592699"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure e di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -99,11 +99,11 @@ Intelligent Insights è una funzionalità unica dell'intelligence integrata di A
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Area di lavoro Log Analytics in monitoraggio di Azure
 
-È possibile trasmettere le metriche e i log delle risorse a un' [area di lavoro log Analytics in monitoraggio di Azure](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). I dati trasmessi qui possono essere usati da [SQL Analytics](../../azure-monitor/insights/azure-sql.md), una soluzione di monitoraggio solo cloud che consente di monitorare in modo intelligente i database che includono report sulle prestazioni, avvisi e raccomandazioni di mitigazione. I dati trasmessi a un'area di lavoro di Log Analytics possono essere analizzati con altri dati di monitoraggio raccolti e consentono anche di sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni.
+È possibile trasmettere le metriche e i log delle risorse a un' [area di lavoro log Analytics in monitoraggio di Azure](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). I dati trasmessi qui possono essere usati da [SQL Analytics](../../azure-monitor/insights/azure-sql.md), una soluzione di monitoraggio solo cloud che consente di monitorare in modo intelligente i database che includono report sulle prestazioni, avvisi e raccomandazioni di mitigazione. I dati trasmessi a un'area di lavoro di Log Analytics possono essere analizzati con altri dati di monitoraggio raccolti e consentono anche di sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni.
 
 ### <a name="azure-event-hubs"></a>Hub eventi di Azure
 
-È possibile trasmettere le metriche e i log delle risorse a [Hub eventi di Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Trasmissione di dati di telemetria diagnostica a hub eventi per fornire le funzionalità seguenti:
+È possibile trasmettere le metriche e i log delle risorse a [Hub eventi di Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs). Trasmissione di dati di telemetria diagnostica a hub eventi per fornire le funzionalità seguenti:
 
 - **Trasmettere i log a sistemi di telemetria e registrazione di terze parti**
 
@@ -117,7 +117,7 @@ Intelligent Insights è una funzionalità unica dell'intelligence integrata di A
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-Trasmettere le metriche e i log delle risorse ad [archiviazione di Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Usare archiviazione di Azure per archiviare grandi quantità di dati di telemetria di diagnostica per una frazione del costo delle due opzioni di streaming precedenti.
+Trasmettere le metriche e i log delle risorse ad [archiviazione di Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Usare archiviazione di Azure per archiviare grandi quantità di dati di telemetria di diagnostica per una frazione del costo delle due opzioni di streaming precedenti.
 
 ## <a name="use-extended-events"></a>USA eventi estesi 
 

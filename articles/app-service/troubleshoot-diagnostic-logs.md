@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5fa729ae68d091d9810430bdc0ea55ce1c876b25
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980610"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586274"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -200,7 +200,7 @@ La tabella seguente illustra i tipi di log e le descrizioni supportati:
 <sup>1</sup> per le app Java se, aggiungere "$website _AZMON_PREVIEW_ENABLED" alle impostazioni dell'app e impostarla su 1 o su true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Passaggi successivi
-* [Eseguire query sui log con Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Eseguire query sui log con Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md)
 * [Come monitorare il Servizio app di Azure](web-sites-monitor.md)
 * [Risoluzione dei problemi del Servizio app di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analizzare i log delle app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

@@ -3,18 +3,18 @@ title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
 ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089419"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593139"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
 Come provider di servizi, è opportuno tenere presente quando le sottoscrizioni dei clienti o i gruppi di risorse vengono delegati al tenant tramite [Azure Lighthouse](../overview.md)o quando le risorse delegate in precedenza vengono rimosse.
 
-Nel tenant di gestione, il [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include tutte le deleghe aggiunte o rimosse da tutti i tenant del cliente.
+Nel tenant di gestione, il [log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md) tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include tutte le deleghe aggiunte o rimosse da tutti i tenant del cliente.
 
 In questo argomento vengono illustrate le autorizzazioni necessarie per monitorare l'attività di delega al tenant (in tutti i clienti). Include anche uno script di esempio che mostra un metodo per l'esecuzione di query e la creazione di report su questi dati.
 
@@ -104,7 +104,7 @@ Quando si eseguono query su questi dati, tenere presente quanto segue:
 - Se più gruppi di risorse vengono delegati in una singola distribuzione, verranno restituite voci separate per ogni gruppo di risorse.
 - Le modifiche apportate a una delega precedente, ad esempio l'aggiornamento della struttura delle autorizzazioni, verranno registrate come delega aggiuntiva.
 - Come indicato in precedenza, per accedere ai dati a livello di tenant, un account deve avere il ruolo predefinito del lettore monitoraggio di Azure nell'ambito radice (/).
-- È possibile usare questi dati nei flussi di lavoro e nella creazione di report personalizzati. Ad esempio, è possibile usare l' [API dell'agente di raccolta dati http (anteprima pubblica)](../../azure-monitor/platform/data-collector-api.md) per registrare i dati in monitoraggio di Azure da un client dell'API REST, quindi usare i [gruppi di azioni](../../azure-monitor/platform/action-groups.md) per creare notifiche o avvisi.
+- È possibile usare questi dati nei flussi di lavoro e nella creazione di report personalizzati. Ad esempio, è possibile usare l' [API dell'agente di raccolta dati http (anteprima pubblica)](../../azure-monitor/logs/data-collector-api.md) per registrare i dati in monitoraggio di Azure da un client dell'API REST, quindi usare i [gruppi di azioni](../../azure-monitor/alerts/action-groups.md) per creare notifiche o avvisi.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -181,5 +181,5 @@ else {
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come caricare i clienti nel [Faro di Azure](../concepts/azure-delegated-resource-management.md).
-- Informazioni su [monitoraggio di Azure](../../azure-monitor/index.yml) e [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Informazioni su [monitoraggio di Azure](../../azure-monitor/index.yml) e [log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 - Esaminare la cartella di lavoro [di esempio log attività per dominio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) per informazioni su come visualizzare i log attività di Azure tra le sottoscrizioni con un'opzione per filtrarli in base al nome di dominio.

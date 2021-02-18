@@ -3,12 +3,12 @@ title: Monitoraggio di Azure Batch
 description: Informazioni su servizi di monitoraggio Azure, metriche, log di diagnostica e altre funzionalità di monitoraggio per Azure Batch.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b926f9c6d173cd0b8d886047eae490e4a151988f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144940"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595434"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
@@ -18,15 +18,15 @@ Per una panoramica dei componenti e dei servizi di Azure disponibili per il moni
 
 ## <a name="subscription-level-monitoring"></a>Monitoraggio a livello di sottoscrizione
 
-Al livello della sottoscrizione, che include gli account Batch, il [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) raccoglie i dati di eventi operativi in [diverse categorie](../azure-monitor/platform/activity-log.md#view-the-activity-log).
+Al livello della sottoscrizione, che include gli account Batch, il [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md) raccoglie i dati di eventi operativi in [diverse categorie](../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
 Per gli account Batch in particolare, il log attività raccoglie gli eventi correlati alla creazione ed eliminazione degli account e alla gestione delle chiavi.
 
-Un modo per recuperare gli eventi dal log attività consiste nell'usare il portale di Azure. Fare clic su **Tutti i servizi** > **Log attività**. In alternativa, eseguire query per recuperare gli eventi tramite l'interfaccia della riga di comando di Azure, cmdlet di PowerShell o l'API REST di Monitoraggio di Azure. È anche possibile esportare il log attività oppure configurare gli [avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
+Un modo per recuperare gli eventi dal log attività consiste nell'usare il portale di Azure. Fare clic su **Tutti i servizi** > **Log attività**. In alternativa, eseguire query per recuperare gli eventi tramite l'interfaccia della riga di comando di Azure, cmdlet di PowerShell o l'API REST di Monitoraggio di Azure. È anche possibile esportare il log attività oppure configurare gli [avvisi del log attività](../azure-monitor/alerts/alerts-activity-log.md).
 
 ## <a name="batch-account-level-monitoring"></a>Monitoraggio a livello di account Batch
 
-Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-platform-metrics.md) e facoltativamente [i log di diagnostica](../azure-monitor/platform/platform-logs-overview.md) per le risorse con ambito a livello di un account Batch, ad esempio, pool, processi e attività. Raccogliere e usare questi dati manualmente o a livello di codice per monitorare le attività nell'account Batch e per diagnosticare eventuali problemi. Per informazioni dettagliate, vedere [Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio](batch-diagnostics.md).
+Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/essentials/data-platform-metrics.md) e facoltativamente [i log di diagnostica](../azure-monitor/essentials/platform-logs-overview.md) per le risorse con ambito a livello di un account Batch, ad esempio, pool, processi e attività. Raccogliere e usare questi dati manualmente o a livello di codice per monitorare le attività nell'account Batch e per diagnosticare eventuali problemi. Per informazioni dettagliate, vedere [Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio](batch-diagnostics.md).
  
 > [!NOTE]
 > Le metriche sono disponibili per impostazione predefinita nell'account Batch senza alcuna configurazione aggiuntiva e hanno una cronologia incrementale di 30 giorni. È necessario abilitare la registrazione diagnostica per un account Batch e si potrebbe incorrere in costi aggiuntivi per archiviare o elaborare i dati dei log di diagnostica. 

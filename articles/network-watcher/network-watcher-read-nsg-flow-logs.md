@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 27f94c43266fe324016a73e2e6d31e8488457416
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898097"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593045"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
@@ -189,6 +189,6 @@ Questo scenario è un esempio di come leggere le voci nei log dei flussi del gru
 
 Visitare [Usare Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usare Grafana](network-watcher-nsg-grafana.md) e [Usare Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) per altre informazioni sui vari modi per visualizzare i log del flusso del gruppo di sicurezza di rete. Un approccio open source di funzioni di Azure per l'utilizzo dei BLOB direttamente e la creazione di diversi consumer di log Analytics è disponibile qui: [connettore azure Network Watcher NSG Flow logs](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-È possibile usare [analisi del traffico di Azure](./traffic-analytics.md) per ottenere informazioni dettagliate sui flussi di traffico. Analisi del traffico USA [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) per rendere il flusso di traffico Queryable.
+È possibile usare [analisi del traffico di Azure](./traffic-analytics.md) per ottenere informazioni dettagliate sui flussi di traffico. Analisi del traffico USA [log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) per rendere il flusso di traffico Queryable.
 
 Per altre informazioni sui BLOB di archiviazione, consultare [Binding dell'archiviazione BLOB di Funzioni di Azure](../azure-functions/functions-bindings-storage-blob.md)

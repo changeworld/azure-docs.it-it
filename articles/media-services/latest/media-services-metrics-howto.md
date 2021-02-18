@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 91e74668224d1cdbbc462bf6c2c0a22c4f0a9837
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ab89c222648a66ad7451f9bb47e254c55b925630
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916576"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590748"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorare le metriche di Servizi multimediali
 
@@ -67,10 +67,10 @@ az monitor metrics list --resource \
 
 Per ottenere altre metriche, sostituire "in uscita" con il nome della metrica a cui si è interessati.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-- [Metriche di Monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
-- [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
+- [Metriche di Monitoraggio di Azure](../../azure-monitor/data-platform.md)
+- [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../../azure-monitor/alerts/alerts-metric.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

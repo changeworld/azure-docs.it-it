@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cd43b6c7b11cde17bc9f9923374baf3416e5b370
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 449fc686fb30cde0d15759036b58fea3bcfc6723
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791863"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596884"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Baseline della sicurezza di Azure per Azure Lighthouse
 
@@ -360,9 +360,9 @@ Con Azure Lighthouse è possibile usare i log di monitoraggio di Azure in modo s
 
 I clienti che hanno sottoscrizioni delegate per Azure Lighthouse possono visualizzare i dati del log attività di Azure per visualizzare tutte le azioni eseguite. In questo modo si offre ai clienti una visibilità completa sulle operazioni eseguite dai provider di servizi, insieme alle operazioni eseguite dagli utenti all'interno del tenant Azure Active Directory (Azure AD) del cliente.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Monitorare le risorse delegate su larga scala](how-to/monitor-at-scale.md)
 
@@ -386,7 +386,7 @@ I clienti che hanno sottoscrizioni delegate per Azure Lighthouse possono visuali
 
 Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usati di frequente e archiviazione di Azure per dati "a freddo" usati con minore frequenza.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Monitorare le risorse delegate su larga scala](how-to/monitor-at-scale.md)
 
@@ -404,7 +404,7 @@ Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usa
 
 In monitoraggio di Azure è possibile impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare archiviazione di Azure, Data Lake o Log Analytics account dell'area di lavoro per l'archiviazione a lungo termine e di archiviazione.
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 

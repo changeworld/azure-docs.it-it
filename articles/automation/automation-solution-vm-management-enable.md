@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f885416c5e9cb656d01a65b9c503f8897d2f9f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83743747"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593902"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Abilitare Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -82,7 +82,7 @@ Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate
   
 4. Usare il campo **Schedule** (Pianificazione) per selezionare una pianificazione per la gestione delle VM da parte della funzionalità. Selezionare una data e un'ora di inizio per creare una pianificazione giornaliera ricorrente a partire dall'ora scelta. Non è possibile selezionare un'altra area. Per configurare la pianificazione per un fuso orario specifico dopo aver configurato la funzionalità, vedere [Modificare le pianificazioni di avvio e arresto](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. Per ricevere notifiche tramite posta elettronica da un [gruppo di azioni](../azure-monitor/platform/action-groups.md), accettare il valore predefinito **Sì** e specificare un indirizzo di posta elettronica valido nel campo **Notifiche di posta elettronica**. Se si seleziona **No** ma in un secondo momento si decide di voler ricevere notifiche tramite posta elettronica, è possibile aggiornare il gruppo di azioni che viene creato con gli indirizzi di posta elettronica validi separati da virgole. 
+5. Per ricevere notifiche tramite posta elettronica da un [gruppo di azioni](../azure-monitor/alerts/action-groups.md), accettare il valore predefinito **Sì** e specificare un indirizzo di posta elettronica valido nel campo **Notifiche di posta elettronica**. Se si seleziona **No** ma in un secondo momento si decide di voler ricevere notifiche tramite posta elettronica, è possibile aggiornare il gruppo di azioni che viene creato con gli indirizzi di posta elettronica validi separati da virgole. 
 
 6. Abilitare le regole di avviso seguenti:
 
@@ -92,7 +92,7 @@ Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate
 
 ## <a name="create-alerts"></a>Creare avvisi
 
-La funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività non include un set predefinito di avvisi. Vedere [Creare avvisi dei log con Monitoraggio di Azure](../azure-monitor/platform/alerts-log.md) per informazioni su come creare avvisi per processi non riusciti per supportare le procedure e i processi operativi o DevOps.
+La funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività non include un set predefinito di avvisi. Vedere [Creare avvisi dei log con Monitoraggio di Azure](../azure-monitor/alerts/alerts-log.md) per informazioni su come creare avvisi per processi non riusciti per supportare le procedure e i processi operativi o DevOps.
 
 ## <a name="deploy-the-feature"></a>Distribuire la funzionalità
 

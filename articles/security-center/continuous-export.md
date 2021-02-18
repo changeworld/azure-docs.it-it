@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 226ca943554ca24f3332f24f5a9baf571b432917
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916786"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590625"
 ---
 # <a name="continuously-export-security-center-data"></a>Esportazione continua dei dati del Centro sicurezza
 
@@ -185,7 +185,7 @@ Per visualizzare gli schemi di eventi dei tipi di dati esportati, visitare gli [
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visualizzare gli avvisi e le raccomandazioni esportati in monitoraggio di Azure
 
-È anche possibile scegliere di visualizzare gli avvisi di sicurezza e/o le raccomandazioni esportati in [monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md). 
+È anche possibile scegliere di visualizzare gli avvisi di sicurezza e/o le raccomandazioni esportati in [monitoraggio di Azure](../azure-monitor/alerts/alerts-overview.md). 
 
 Monitoraggio di Azure offre un'esperienza unificata per gli avvisi per un'ampia gamma di avvisi di Azure, tra cui log di diagnostica, avvisi sulle metriche e avvisi personalizzati basati sulle query Log Analytics area di lavoro.
 
@@ -195,13 +195,13 @@ Per visualizzare gli avvisi e le raccomandazioni dal centro sicurezza in monitor
 
     ![Pagina degli avvisi di monitoraggio di Azure](./media/continuous-export/azure-monitor-alerts.png)
 
-1. Nella pagina Crea regola configurare la nuova regola, nello stesso modo in cui si configura una [regola di avviso del log in monitoraggio di Azure](../azure-monitor/platform/alerts-unified-log.md):
+1. Nella pagina Crea regola configurare la nuova regola, nello stesso modo in cui si configura una [regola di avviso del log in monitoraggio di Azure](../azure-monitor/alerts/alerts-unified-log.md):
 
     * Per **risorsa** selezionare l'area di lavoro log Analytics alla quale sono stati esportati gli avvisi di sicurezza e le raccomandazioni.
 
     * In **condizione** selezionare **Ricerca log personalizzata**. Nella pagina visualizzata configurare la query, il periodo lookback e il periodo di frequenza. Nella query di ricerca è possibile digitare *SecurityAlert* o *SecurityRecommendation* per eseguire una query sui tipi di dati a cui il Centro sicurezza Esporta continuamente quando si Abilita l'esportazione continua in log Analytics funzionalità. 
     
-    * Facoltativamente, configurare il [gruppo di azioni](../azure-monitor/platform/action-groups.md) che si vuole attivare. I gruppi di azioni possono attivare l'invio di posta elettronica, i ticket ITSM, i webhook e altro ancora.
+    * Facoltativamente, configurare il [gruppo di azioni](../azure-monitor/alerts/action-groups.md) che si vuole attivare. I gruppi di azioni possono attivare l'invio di posta elettronica, i ticket ITSM, i webhook e altro ancora.
     ![Regola di avviso di monitoraggio di Azure](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Verranno ora visualizzati nuovi avvisi del Centro sicurezza di Azure o consigli (a seconda delle regole di esportazione continua configurate e della condizione definita nella regola di avviso di monitoraggio di Azure) negli avvisi di monitoraggio di Azure, con attivazione automatica di un gruppo di azioni (se specificato).

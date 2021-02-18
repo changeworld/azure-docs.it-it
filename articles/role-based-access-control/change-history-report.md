@@ -15,16 +15,16 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 3e4d75c59d0e3c97b0900dd72a27d4afbf4015c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 53b72ac22df845f88dc82b14aa5dfaa57973b0d1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492319"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595839"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Visualizzare i log attività per le modifiche RBAC di Azure
 
-A volte sono necessarie informazioni sulle modifiche del controllo degli accessi in base al ruolo di Azure (RBAC di Azure), ad esempio per il controllo o la risoluzione dei problemi. Ogni volta che un utente apporta modifiche alle assegnazioni di ruolo o alle definizioni dei ruoli all'interno delle sottoscrizioni, le modifiche vengono registrate nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). È possibile visualizzare i log attività per visualizzare tutte le modifiche apportate a RBAC di Azure negli ultimi 90 giorni.
+A volte sono necessarie informazioni sulle modifiche del controllo degli accessi in base al ruolo di Azure (RBAC di Azure), ad esempio per il controllo o la risoluzione dei problemi. Ogni volta che un utente apporta modifiche alle assegnazioni di ruolo o alle definizioni dei ruoli all'interno delle sottoscrizioni, le modifiche vengono registrate nel [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md). È possibile visualizzare i log attività per visualizzare tutte le modifiche apportate a RBAC di Azure negli ultimi 90 giorni.
 
 ## <a name="operations-that-are-logged"></a>Operazioni registrate
 
@@ -122,7 +122,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-[Log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) è un altro strumento che è possibile usare per raccogliere e analizzare le modifiche RBAC di Azure per tutte le risorse di Azure. I log di monitoraggio di Azure offrono i vantaggi seguenti:
+[Log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md) è un altro strumento che è possibile usare per raccogliere e analizzare le modifiche RBAC di Azure per tutte le risorse di Azure. I log di monitoraggio di Azure offrono i vantaggi seguenti:
 
 - Possibilità di scrivere query e logica complesse
 - Integrazione con avvisi, Power BI e altri strumenti
@@ -131,15 +131,15 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 Ecco i passaggi di base per iniziare:
 
-1. [Creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+1. [Creare un'area di lavoro log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
-1. [Configurare la soluzione Analisi log attività](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution) per la propria area di lavoro.
+1. [Configurare la soluzione Analisi log attività](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution) per la propria area di lavoro.
 
-1. [Visualizzare i log attività](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). Un modo rapido per accedere alla pagina Panoramica della soluzione Analisi log attività consiste nel fare clic sull'opzione **logs** .
+1. [Visualizzare i log attività](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution). Un modo rapido per accedere alla pagina Panoramica della soluzione Analisi log attività consiste nel fare clic sull'opzione **logs** .
 
    ![Opzione log di monitoraggio di Azure nel portale](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Facoltativamente, usare il [log Analytics di monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md) per eseguire una query e visualizzare i log. Per altre informazioni, vedere [Introduzione alle query di log di monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md).
+1. Facoltativamente, usare il [log Analytics di monitoraggio di Azure](../azure-monitor/logs/log-analytics-tutorial.md) per eseguire una query e visualizzare i log. Per altre informazioni, vedere [Introduzione alle query di log di monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md).
 
 Ecco una query che restituisce le nuove assegnazioni di ruolo organizzate in base al provider di risorse di destinazione:
 
@@ -163,4 +163,4 @@ AzureActivity
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Visualizzare eventi nel log attività](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitorare l'attività di sottoscrizione con il log attività di Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Monitorare l'attività di sottoscrizione con il log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md)

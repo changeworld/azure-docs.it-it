@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169a90c12b30e0d083ce5c53ab7c6dd2495c4c23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935076"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592384"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorare le richieste di query in Azure ricerca cognitiva
 
@@ -42,7 +42,7 @@ In genere, le query vengono eseguite in millisecondi, quindi solo le query che m
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
 | Massimo | Il numero più elevato di query di ricerca al secondo registrate nel corso di un minuto. |
 | Minima | Il numero più basso di query di ricerca al secondo registrate per un minuto.  |
-| SUM | Somma di tutte le query eseguite entro i minuti.  |
+| Sum | Somma di tutte le query eseguite entro i minuti.  |
 
 Ad esempio, all'interno di un minuto è possibile che si disponga di un modello simile al seguente: un secondo di carico elevato, che rappresenta il valore massimo per SearchQueriesPerSecond, seguito da 58 secondi di carico medio e infine da un secondo con una sola query, che corrisponde al valore minimo.
 
@@ -100,7 +100,7 @@ Nello screenshot seguente il primo numero è il conteggio (o il numero di metric
 
 Per esaminare rapidamente i numeri correnti, la scheda **monitoraggio** della pagina Panoramica servizio mostra tre metriche (**latenza di ricerca**, query di **ricerca al secondo (per unità di ricerca)**, **percentuale query di ricerca limitate**) su intervalli fissi misurati in ore, giorni e settimane, con l'opzione di modificare il tipo di aggregazione.
 
-Per un'esplorazione più approfondita, aprire Esplora metriche dal menu **monitoraggio** in modo che sia possibile eseguire il livello, lo zoom avanti e la visualizzazione dei dati per esplorare le tendenze o le anomalie. Per altre informazioni su Esplora metriche, completare questa [esercitazione sulla creazione di un grafico delle metriche](../azure-monitor/learn/tutorial-metrics-explorer.md).
+Per un'esplorazione più approfondita, aprire Esplora metriche dal menu **monitoraggio** in modo che sia possibile eseguire il livello, lo zoom avanti e la visualizzazione dei dati per esplorare le tendenze o le anomalie. Per altre informazioni su Esplora metriche, completare questa [esercitazione sulla creazione di un grafico delle metriche](../azure-monitor/essentials/tutorial-metrics-explorer.md).
 
 1. Nella sezione monitoraggio selezionare **metriche** per aprire Esplora metriche con l'ambito impostato sul servizio di ricerca.
 
@@ -179,7 +179,7 @@ Quando si esegue il push dei limiti di una particolare configurazione della part
 
 1. Infine, specificare i dettagli dell'avviso. Denominare e descrivere l'avviso, assegnare un valore di gravità e specificare se creare la regola in uno stato abilitato o disabilitato.
 
-   ![Dettagli dell'avviso](./media/search-monitor-usage/alert-details.png "Dettagli dell'avviso")
+   ![Dettagli avviso](./media/search-monitor-usage/alert-details.png "Dettagli dell'avviso")
 
 Se è stata specificata una notifica di posta elettronica, si riceverà un messaggio di posta elettronica da "Microsoft Azure" con una riga dell'oggetto "Azure: Activated Severity: 3 `<your rule name>` ".
 

@@ -3,17 +3,17 @@ title: Modello di dati di Azure Application Insights | Microsoft Docs
 description: Descrive le proprietà esportate da esportazione continua in JSON e usate come filtri.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324387"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584218"
 ---
 # <a name="application-insights-export-data-model"></a>Modello di dati di esportazione di Application Insights
 Questa tabella elenca le proprietà di telemetria inviate al portale dagli SDK di [Application Insights](./app-insights-overview.md) .
 Queste proprietà saranno visualizzate nell'output dei dati di [Esportazione continua](export-telemetry.md).
-Sono visibili anche nei filtri delle proprietà in [Esplora metriche](../platform/metrics-charts.md) e [Ricerca diagnostica](./diagnostic-search.md).
+Sono visibili anche nei filtri delle proprietà in [Esplora metriche](../essentials/metrics-charts.md) e [Ricerca diagnostica](./diagnostic-search.md).
 
 Punti da notare:
 
@@ -151,7 +151,7 @@ Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tut
 | internal.data.documentVersion |string | |
 | internal.data.id |string | `Unique id` assegnato quando un elemento viene inserito in Application Insights |
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 Eventi personalizzati generati da [TrackEvent()](./api-custom-events-metrics.md#trackevent).
 
 | Percorso | Type | Note |
@@ -350,7 +350,7 @@ Se è necessario ridurre il volume della telemetria, anziché aggregare in antic
 ### <a name="durations"></a>Durate
 Se non indicato diversamente, le durate vengono espresse in decimi di microsecondo, quindi 10000000,0 corrisponde a 1 secondo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Application Insights](./app-insights-overview.md)
 * [Esportazione continua](export-telemetry.md)
 * [Esempi di codice](export-telemetry.md#code-samples)

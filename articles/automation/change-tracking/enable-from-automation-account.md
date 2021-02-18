@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 64eace72b6ea203d4052c39404bcbd7ce4c4bfa0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 32fb95c88d632cc2c51cd2390f0244e9c1927051
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055162"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585891"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Abilitare Rilevamento modifiche e inventario da un account di Automazione
 
@@ -53,7 +53,7 @@ I computer non in Azure devono essere aggiunti manualmente. Si consiglia di inst
 
 1. Nell'account di Automazione selezionare **Rilevamento modifiche** o **Inventario** in **Gestione della configurazione**.
 
-2. Fare clic su **Aggiungi computer non di Azure**. Questa azione apre una nuova finestra del browser con [istruzioni per installare e configurare l'agente Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md) in modo che il computer possa iniziare a segnalare le operazioni di Rilevamento modifiche e inventario. In caso di abilitazione di un computer attualmente gestito da Operations Manager, non è richiesto un nuovo agente e le informazioni sull'area di lavoro vengono inserite nell'agente esistente.
+2. Fare clic su **Aggiungi computer non di Azure**. Questa azione apre una nuova finestra del browser con [istruzioni per installare e configurare l'agente Log Analytics per Windows](../../azure-monitor/agents/log-analytics-agent.md) in modo che il computer possa iniziare a segnalare le operazioni di Rilevamento modifiche e inventario. In caso di abilitazione di un computer attualmente gestito da Operations Manager, non è richiesto un nuovo agente e le informazioni sull'area di lavoro vengono inserite nell'agente esistente.
 
 ## <a name="enable-machines-in-the-workspace"></a>Abilitare i computer nell'area di lavoro
 

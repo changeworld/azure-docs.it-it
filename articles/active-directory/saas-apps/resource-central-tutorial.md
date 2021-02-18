@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 2430de60b3de5812090496fa66e36b3d7515c6b1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
-ms.translationtype: HT
+ms.openlocfilehash: dbc148fcbcd9c3be86a29df1e08755611a347b07
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327373"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586629"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-resource-central"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Resource Central
 
@@ -41,7 +41,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Resource Central supporta il provisioning utenti **JIT**
 
-## <a name="adding-resource-central-from-the-gallery"></a>Aggiunta di Resource Central dalla raccolta
+## <a name="add-resource-central-from-the-gallery"></a>Aggiungere Resource Central dalla raccolta
 
 Per configurare l'integrazione di Resource Central in Azure AD, è necessario aggiungere Resource Central dalla raccolta all'elenco di app SaaS gestite.
 
@@ -49,9 +49,8 @@ Per configurare l'integrazione di Resource Central in Azure AD, è necessario ag
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
-1. Nella sezione **Aggiungi dalla raccolta** digitare **Resource Central** nella casella di ricerca.
+1. Nella sezione **Aggiungi dalla raccolta** , nella casella di ricerca, immettere **Resource Central**.
 1. Selezionare **Resource Central** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-resource-central"></a>Configurare e testare l'accesso SSO di Azure AD per Resource Central
 
@@ -62,8 +61,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Resource Central, comple
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Resource Central](#configure-resource-central-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Resource Central](#create-resource-central-test-user)** : per avere una controparte di B.Simon in Resource Central collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Resource Central](#configure-resource-central-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -76,24 +75,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
+1. In **configurazione SAML di base** immettere i valori per i seguenti campi:
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<DOMAIN_NAME>/ResourceCentral`
+   1. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<DOMAIN_NAME>/ResourceCentral`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<DOMAIN_NAME>/ResourceCentral`
+   1. Nella casella di testo **identificatore (ID entità)** Digitare un URL usando il modello seguente:  `https://<DOMAIN_NAME>/ResourceCentral`
 
-    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<DOMAIN_NAME>/ResourceCentral/ExAuth/Saml2Authentication/Acs`
+   1. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<DOMAIN_NAME>/ResourceCentral/ExAuth/Saml2Authentication/Acs`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, Aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Resource Central](mailto:st@aod.vn). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Questi valori non sono valori letterali. Aggiornare questi valori con l'URL di accesso, l'identificatore e i valori di URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Resource Central](mailto:st@aod.vn).  È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
+1. Nella pagina **configura Single Sign-on con SAML** , in certificato di **firma SAML**, trova **certificato (base64)** e seleziona **download** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-1. Nella sezione **Configura Resource Central** copiare gli URL appropriati in base alle esigenze.
+1. In **configurare Resource Central**, copiare gli URL appropriati in base ai requisiti.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
@@ -102,7 +102,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
-   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Nel campo **Nome utente** immettere `username@companydomain.extension`. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
@@ -113,30 +113,72 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Resource Central**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
-
-## <a name="configure-resource-central-sso"></a>Configurare l'accesso Single Sign-On di Resource Central
-
-Per configurare l'accesso Single Sign-On sul lato **Resource Central** è necessario inviare il file **certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Resource Central](mailto:rc@aod.vn). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Selezionare **Aggiungi utente**, quindi selezionare **utenti e gruppi** nel riquadro **Aggiungi assegnazione** .
+1. Nel riquadro **utenti e gruppi** selezionare **B. Simon** dall'elenco **utenti** , quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che un ruolo venga assegnato agli utenti, è possibile selezionarlo in **selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, viene visualizzato il ruolo **accesso predefinito** selezionato.
+1. Nel riquadro **Aggiungi assegnazione** fare clic sul pulsante **assegna** .
 
 ### <a name="create-resource-central-test-user"></a>Creare l'utente di test di Resource Central
 
-In questa sezione viene creato un utente di nome Britta Simon in Resource Central. Resource Central supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Resource Central, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente denominato **B. Simon** in **Resource Central**.
+
+1. In Resource Central selezionare **Security**  >  **Persons**  >  **New**.
+  
+    :::image type="content" source="./media/resource-central/new-person.png" alt-text="Screenshot che mostra il riquadro persone in Resource Central, con il pulsante nuovo evidenziato.":::
+
+1. In **Dettagli persona** Digitare l'utente **B. Simon** per **nome visualizzato**. Per **indirizzo SMTP** immettere il nome utente Azure ad utente. Ad esempio, `B.Simon@contoso.com`.
+
+    :::image type="content" source="./media/resource-central/person.png" alt-text="Screenshot che mostra il riquadro dei dettagli della persona in Resource Central.":::
+
+## <a name="configure-resource-central-sso"></a>Configurare l'accesso Single Sign-On di Resource Central
+
+In questa sezione si configurerà Single Sign-On nell' **amministratore di sistema Resource Central**.
+
+1. In Resource Central System Administrator selezionare **External Authentication**.
+1.  Per **Abilita configurazione** selezionare **Sì**.
+
+    ![Screenshot che mostra l'opzione Abilita configurazione selezionata nel riquadro autenticazione esterna in Resource Central.](./media/resource-central/enable.png)
+
+1. In **protocollo di autenticazione** selezionare **Saml2**. 
+
+   :::image type="content" source="./media/resource-central/protocol.png" alt-text="Screenshot che mostra il SAML2 selezionato per il protocollo di autenticazione in Resource Central.":::
+
+1. In **configurazione di Saml2** immettere i valori per i seguenti campi:
+
+    1. Per **identificatore (ID entità)**, **URL di accesso**, **URL di disconnessione** e **identificatore Azure ad**, immettere gli URL pertinenti:
+
+       :::image type="content" source="./media/resource-central/auth.png" alt-text="Screenshot del riquadro di configurazione di SAML2 in Resource Central.":::
+
+        Copiare gli URL dal riquadro **imposta risorsa centrale** :
+
+        :::image type="content" source="./media/resource-central/setup.png" alt-text="Screenshot del riquadro centrale per la configurazione delle risorse in Resource Central.":::
+
+   1. Per **Return URL (URL restituito**) immettere `https://<DOMAIN_NAME>/ResourceCentral/ExAuth/Saml2Authentication/CallbackHandler` .
+  
+1. Per **certificato**, caricare il certificato e immettere la password.
+
+   ![Screenshot della sezione certificate in Resource Central.](./media/resource-central/cert.png)
+   
+1. Selezionare **Salva**.
+
+1. Tornare al **portale di Azure**. In **certificato di firma SAML** caricare il certificato e immettere la password.
+
+   ![Screenshot del riquadro Importa certificato nel portale di Azure.](./media/resource-central/cert2.png).
+
+1. Selezionare **Aggiungi**.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD. Per testare Single Sign-On sono disponibili tre opzioni:
 
-* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di Resource Central, in cui è possibile avviare il flusso di accesso. 
+* Nel portale di Azure selezionare **Test this application** (Testa questa applicazione). Il collegamento reindirizza all'URL di accesso centrale delle risorse, in cui è possibile avviare l'accesso.
 
-* Passare direttamente all'URL di accesso di Resource Central e avviare il flusso di accesso da questa posizione.
+* Passare direttamente all'URL di accesso di Resource Central e avviare l'accesso.
 
-* È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro di Resource Central nel pannello di accesso, si verrà reindirizzati all'URL di accesso di Resource Central. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+   :::image type="content" source="./media/resource-central/test.png" alt-text="Screenshot della pagina Web di test della Single Sign-On centrale delle risorse.":::
 
+* Usare il portale app personali di Microsoft. Nel portale app personali selezionare il riquadro **Resource Central** per eseguire il reindirizzamento all'URL di accesso di Resource Central. Per altre informazioni, vedere [Accedere e avviare app dal portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Resource Central, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato Resource Central per Single Sign-On con Azure AD, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

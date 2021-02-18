@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0f3b36729fb07c6f5ae03a46e199e4cadb44a25e
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737762"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635592"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Cenni preliminari sulle immagini Red Hat Enterprise Linux
 
@@ -65,6 +65,9 @@ Il confronto tra le versioni dell'immagine viene eseguito confrontando i valori 
 
 ## <a name="rhel-6-image-types"></a>Tipi di immagine RHEL 6
 
+>[!NOTE]
+> Al 30 2020 dicembre, RHEL 6,10 ha immesso la fine della vita (EOL). Per il supporto continuo, abilitare ELS come parte della fase di supporto per il ciclo di vita esteso, vedere la [documentazione di Red Hat Els](./redhat-extended-lifecycle-support.md).
+
 Per le immagini RHEL 6. x, i tipi di immagine sono riportati nella tabella seguente.
 
 |Editore | Offerta | Valore SKU | Versione | Dettagli
@@ -106,7 +109,15 @@ Di seguito sono riportati i dettagli relativi ai tipi di immagine RHEL 8.
 |RedHat | RHEL | 8 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 8.0.20191023) | Queste immagini sono immagini con partizionamento in RHEL 8, connesse ai repository standard di Red Hat.
 |RedHat | RHEL | 8-Gen2 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 8.0.20191024) | Queste immagini sono immagini partizionate di Hyper-V di seconda generazione (LVM), che sono connesse ai repository standard di Red Hat. Per altre informazioni sulle macchine virtuali di seconda generazione in Azure, vedere [supporto per le macchine virtuali di seconda generazione in Azure](../../generation-2.md).
 
-## <a name="rhel-longer-support-add-ons"></a>Componenti aggiuntivi supportati da RHEL
+## <a name="rhel-extended-support-add-ons"></a>Componenti aggiuntivi per il supporto Extended RHEL
+
+### <a name="extended-life-cycle-support"></a>Supporto del ciclo di vita esteso
+
+Il componente aggiuntivo del supporto per il ciclo di vita esteso è una sottoscrizione facoltativa che consente correzioni di sicurezza critiche e importanti per le versioni che hanno raggiunto la scadenza (EOL). Altre informazioni su RHEL EUS sono disponibili nella [documentazione di Red Hat](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support).
+
+ELS è attualmente disponibile solo per RHEL 6,10. Per le immagini con pagamento in base al consumo, è possibile abilitare ELS attenendosi alla procedura descritta nella [documentazione di Red Hat Els](./redhat-extended-lifecycle-support.md).
+
+Se si esegue una versione precedente, è necessario un aggiornamento a RHEL 6,10 prima di poter abilitare ELS.
 
 ### <a name="extended-update-support"></a>Supporto per aggiornamenti estesi
 

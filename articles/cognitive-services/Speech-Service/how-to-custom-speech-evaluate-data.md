@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 3f0d191157fbabeab2b6f08a9d0a9b3bf1a35250
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b7e4ea586098ea3eb0dfd684650f798d7988e18b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591892"
+ms.locfileid: "100634584"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
 
@@ -119,7 +119,7 @@ Considerare i seguenti dettagli:
 * Il completamento di un'operazione di training può richiedere diversi giorni. Per migliorare la velocità di training, assicurarsi di creare la sottoscrizione al servizio di riconoscimento vocale in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
 
 > [!NOTE]
-> Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) .
+> Non tutti i modelli di base supportano il training con audio. Se un modello di base non la supporta, il servizio di riconoscimento vocale utilizzerà solo il testo delle trascrizioni e ignorerà l'audio. Per un elenco dei modelli di base che supportano il training con dati audio, vedere Supporto per le [lingue](language-support.md#speech-to-text) . Anche se un modello di base supporta il training con dati audio, il servizio può usare solo parte dell'audio. Continuerà comunque a usare tutte le trascrizioni.
 
 > [!NOTE]
 > Nei casi in cui si modifica il modello di base utilizzato per il training e si dispone di audio nel set di dati di training, verificare *sempre* se il nuovo modello di base selezionato [supporta il training con dati audio](language-support.md#speech-to-text). Se il modello di base usato in precedenza non supporta il training con dati audio e il set di dati di training contiene audio, i tempi di training con il nuovo modello di base aumenteranno **drasticamente** e potranno passare da diverse ore a diversi giorni. Ciò vale soprattutto se la sottoscrizione al servizio vocale **non** si trova in un' [area con l'hardware dedicato per il](custom-speech-overview.md#set-up-your-azure-account) training.
