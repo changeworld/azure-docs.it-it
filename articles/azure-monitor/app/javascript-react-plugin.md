@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4c6d8fabbd236a2653fff8168ad73c0b45f09d64
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98027843"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593643"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Plug-in REACT per Application Insights JavaScript SDK
 
@@ -20,7 +20,7 @@ Plug-in REACT per Application Insights JavaScript SDK, Abilita:
 - Rilevamento delle modifiche della route
 - Statistiche sull'utilizzo dei componenti React
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Installare il pacchetto NPM:
 
@@ -226,4 +226,4 @@ Consultare la [demo Application Insights React](https://github.com/Azure-Samples
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per ulteriori informazioni su JavaScript SDK, vedere la [documentazione di Application Insights JavaScript SDK](javascript.md).
-- Per informazioni sul linguaggio di query kusto e sull'esecuzione di query sui dati in Log Analytics, vedere [Cenni preliminari sulle query di log](../../azure-monitor/log-query/log-query-overview.md).
+- Per informazioni sul linguaggio di query kusto e sull'esecuzione di query sui dati in Log Analytics, vedere [Cenni preliminari sulle query di log](../../azure-monitor/logs/log-query-overview.md).

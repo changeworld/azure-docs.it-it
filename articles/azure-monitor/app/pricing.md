@@ -7,17 +7,17 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384504"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573743"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
 > [!NOTE]
-> Questo articolo descrive come comprendere e controllare i costi per Application Insights.  Un articolo correlato, [Monitoraggio dell'utilizzo e dei costi stimati](../platform/usage-estimated-costs.md), descrive come visualizzare l'utilizzo e i costi stimati relativi a più funzionalità di monitoraggio di Azure per diversi modelli di prezzi.
+> Questo articolo descrive come comprendere e controllare i costi per Application Insights.  Un articolo correlato, [Monitoraggio dell'utilizzo e dei costi stimati](..//usage-estimated-costs.md), descrive come visualizzare l'utilizzo e i costi stimati relativi a più funzionalità di monitoraggio di Azure per diversi modelli di prezzi.
 
 Application Insights è progettato per garantire tutto ciò che serve per monitorare disponibilità, prestazioni e utilizzo delle applicazioni Web, indipendentemente dal fatto che siano ospitate in Azure o in locale. Application Insights supporta i linguaggi e i framework più diffusi, ad esempio .NET, Java e Node.js, e si integra con processi e strumenti DevOps come Azure DevOps, Jira e PagerDuty. È importante capire cosa determina i costi di monitoraggio delle applicazioni. In questo articolo vengono esaminati i costi di monitoraggio delle applicazioni e il modo in cui è possibile monitorarli e controllarli in modo proattivo.
 
@@ -33,7 +33,7 @@ L'opzione Application Insights per [abilitare gli avvisi sulle dimensioni delle 
 
 ### <a name="workspace-based-application-insights"></a>Risorse di Application Insights basate sull'area di lavoro
 
-Per le risorse Application Insights che inviano i dati a un'area di lavoro Log Analytics, denominate [risorse Application Insights basate sull'area di lavoro](create-workspace-resource.md), la fatturazione per l'inserimento e la conservazione dei dati viene effettuata dall'area di lavoro in cui si trovano i dati di Application Insights. In questo modo i clienti possono sfruttare tutte le opzioni del [modello di determinazione dei prezzi](../platform/manage-cost-storage.md#pricing-model) di Log Analytics, che include le prenotazioni della capacità oltre al pagamento in base al consumo. Log Analytics include inoltre più opzioni per la conservazione dei dati, inclusa la [conservazione per tipo di dati](../platform/manage-cost-storage.md#retention-by-data-type). I tipi di dati Application Insights nell'area di lavoro ricevono 90 giorni di conservazione senza addebiti. L'utilizzo dei test Web e l'abilitazione degli avvisi sulle dimensioni della metriche personalizzate vengono comunque segnalati tramite Application Insights. Sono disponibili informazioni su come tenere traccia dei costi di inserimento e conservazione dei dati in Log Analytics mediante [Utilizzo e costi stimati](../platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Gestione dei costi e fatturazione di Azure](../platform/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) e [query Log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
+Per le risorse Application Insights che inviano i dati a un'area di lavoro Log Analytics, denominate [risorse Application Insights basate sull'area di lavoro](create-workspace-resource.md), la fatturazione per l'inserimento e la conservazione dei dati viene effettuata dall'area di lavoro in cui si trovano i dati di Application Insights. In questo modo i clienti possono sfruttare tutte le opzioni del [modello di determinazione dei prezzi](../logs/manage-cost-storage.md#pricing-model) di Log Analytics, che include le prenotazioni della capacità oltre al pagamento in base al consumo. Log Analytics include inoltre più opzioni per la conservazione dei dati, inclusa la [conservazione per tipo di dati](../logs/manage-cost-storage.md#retention-by-data-type). I tipi di dati Application Insights nell'area di lavoro ricevono 90 giorni di conservazione senza addebiti. L'utilizzo dei test Web e l'abilitazione degli avvisi sulle dimensioni della metriche personalizzate vengono comunque segnalati tramite Application Insights. Sono disponibili informazioni su come tenere traccia dei costi di inserimento e conservazione dei dati in Log Analytics mediante [Utilizzo e costi stimati](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Gestione dei costi e fatturazione di Azure](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) e [query Log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Stima dei costi per la gestione dell'applicazione
 
@@ -106,7 +106,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-Si noti che questa query può essere usata in un [avviso log di Azure](../platform/alerts-unified-log.md) per impostare avvisi sui volumi di dati.  
+Si noti che questa query può essere usata in un [avviso log di Azure](../alerts/alerts-unified-log.md) per impostare avvisi sui volumi di dati.  
 
 Per altre informazioni sulle modifiche apportate ai dati di telemetria, è possibile ottenere il conteggio degli eventi in base al tipo usando la query:
 
@@ -224,7 +224,7 @@ Per [modificare il limite di utilizzo giornaliero tramite Azure Resource Manager
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Crea avvisi per il limite di utilizzo giornaliero
 
-Il limite di utilizzo giornaliero di Application Insights crea un evento nel log attività di Azure quando i volumi di dati inseriti raggiungono il livello di avviso o il limite di utilizzo giornaliero.  È possibile [creare un avviso in base a questi eventi del log attività](../platform/alerts-activity-log.md#create-with-the-azure-portal). Le indicazioni per questi eventi sono:
+Il limite di utilizzo giornaliero di Application Insights crea un evento nel log attività di Azure quando i volumi di dati inseriti raggiungono il livello di avviso o il limite di utilizzo giornaliero.  È possibile [creare un avviso in base a questi eventi del log attività](../alerts/alerts-activity-log.md#create-with-the-azure-portal). Le indicazioni per questi eventi sono:
 
 * È stata raggiunta la soglia di avviso del limite giornaliero per il componente Application Insights
 
@@ -248,7 +248,7 @@ Per impostare il campionamento per inserimento, visitare il riquadro **Prezzi**:
 > Il riquadro **Campionamento dei dati** controlla solo il valore del campionamento per inserimento. Non riflette la frequenza di campionamento applicata dall'SDK di Application Insights nell'app. Se i dati di telemetria in ingresso sono già stati campionati nell'SDK, il campionamento per inserimento non verrà applicato.
 >
 
-Per individuare la frequenza di campionamento effettiva indipendentemente dal punto in cui è stata applicata, usare una [query di Analytics](../log-query/log-query-overview.md). La query appare come la seguente:
+Per individuare la frequenza di campionamento effettiva indipendentemente dal punto in cui è stata applicata, usare una [query di Analytics](../logs/log-query-overview.md). La query appare come la seguente:
 
 ```kusto
 requests | where timestamp > ago(1d)
@@ -288,7 +288,7 @@ Per chi ha adottato da tempo Azure Application Insights, sono ancora disponibili
 
 Questi piani tariffari legacy sono stati rinominati. Il piano tariffario Enterprise è ora denominato **Per Node** e il piano tariffario Basic **Per GB**. Questi nuovi nomi vengono usati di seguito e nel portale di Azure.  
 
-Il piano Per Node (in precedenza Enterprise) prevede un addebito per nodo e una determinata quantità di dati giornaliera per ogni nodo. Nel piano tariffario Per Node vengono addebitati i dati inseriti in aggiunta alla quantità inclusa. Se si usa Operations Management Suite, è consigliabile scegliere il piano Per Node. Nel mese di aprile 2018 è stato [introdotto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuovo modello di determinazione dei prezzi per Monitoraggio di Azure. Questo modello adotta un semplice modello di "pagamento in base al consumo" per tutto il portfolio dei servizi di monitoraggio. Scopri di più sul [nuovo modello tariffario](../platform/usage-estimated-costs.md).
+Il piano Per Node (in precedenza Enterprise) prevede un addebito per nodo e una determinata quantità di dati giornaliera per ogni nodo. Nel piano tariffario Per Node vengono addebitati i dati inseriti in aggiunta alla quantità inclusa. Se si usa Operations Management Suite, è consigliabile scegliere il piano Per Node. Nel mese di aprile 2018 è stato [introdotto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuovo modello di determinazione dei prezzi per Monitoraggio di Azure. Questo modello adotta un semplice modello di "pagamento in base al consumo" per tutto il portfolio dei servizi di monitoraggio. Scopri di più sul [nuovo modello tariffario](..//usage-estimated-costs.md).
 
 Per i prezzi correnti nella valuta e nell'area locali, vedere i [prezzi di Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 

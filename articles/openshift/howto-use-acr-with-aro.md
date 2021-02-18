@@ -3,15 +3,15 @@ title: Usare Container Registry di Azure con Azure Red Hat OpenShift
 description: Informazioni su come eseguire il pull e l'esecuzione di un contenitore da Azure Container Registry nel cluster Azure Red Hat OpenShift.
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 01/10/2021
-ms.openlocfilehash: 91b43aa939579f5df8115048cf52b9bcdd7ade3d
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 651b73db084e8090f59faeffa9991c2ac468ca08
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063988"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634414"
 ---
 # <a name="use-azure-container-registry-with-azure-red-hat-openshift-aro"></a>Usare Container Registry di Azure con Azure Red Hat OpenShift (ARO)
 

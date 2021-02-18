@@ -5,12 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400651b240f0518a85b9deb7a7293a77a88b0861
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256493"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591708"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticare gli errori comuni dei pacchetti di codice tramite Service Fabric
 
@@ -58,5 +58,5 @@ Codice di uscita | Valore esadecimale | Breve descrizione | Causa radice | Poten
 
 * Altre informazioni sulla [diagnostica di altri scenari comuni](service-fabric-diagnostics-common-scenarios.md).
 * Per una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere [Panoramica di monitoraggio di Azure](../azure-monitor/overview.md).
-* Altre informazioni sugli [avvisi](../azure-monitor/platform/alerts-overview.md) dei log di monitoraggio di Azure per facilitare il rilevamento e la diagnostica.
-* Acquisire familiarità con le funzionalità di [ricerca e query nei log](../azure-monitor/log-query/log-query-overview.md) disponibili nell'ambito dei log di monitoraggio di Azure.
+* Altre informazioni sugli [avvisi](../azure-monitor/alerts/alerts-overview.md) dei log di monitoraggio di Azure per facilitare il rilevamento e la diagnostica.
+* Acquisire familiarità con le funzionalità di [ricerca e query nei log](../azure-monitor/logs/log-query-overview.md) disponibili nell'ambito dei log di monitoraggio di Azure.

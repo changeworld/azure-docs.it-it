@@ -4,12 +4,12 @@ description: Informazioni su come visualizzare ed eseguire query per i dati di t
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 56af6af6f4204a819c06fd97cda357dca20a19b0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549559"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591186"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizzare la telemetria di funzioni di Azure in Application Insights 
 
@@ -64,12 +64,12 @@ Le aree di Application Insights seguenti possono essere utili durante la valutaz
 | ---- | ----------- |
 | **[Errori](../azure-monitor/app/asp-net-exceptions.md)** |  È possibile creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori nelle dipendenze non vengono mostrati a meno che non si implementino i dati di telemetria personalizzati per le dipendenze. |
 | **[Prestazioni](../azure-monitor/app/performance-counters.md)** | È possibile analizzare i problemi di prestazioni visualizzando l'utilizzo delle risorse e la velocità effettiva per le **Istanze del ruolo del cloud**. Questi dati sulle prestazioni possono essere utili per gli scenari di debug in cui le funzioni complicare le risorse sottostanti. |
-| **[Metriche](../azure-monitor/platform/metrics-charts.md)** | È possibile creare grafici e avvisi basati sulle metriche, che includono il numero di chiamate di funzione, il tempo di esecuzione e le percentuali di riuscita. |
+| **[Metriche](../azure-monitor/essentials/metrics-charts.md)** | È possibile creare grafici e avvisi basati sulle metriche, che includono il numero di chiamate di funzione, il tempo di esecuzione e le percentuali di riuscita. |
 | **[Metriche attive](../azure-monitor/app/live-stream.md)** | Visualizza i dati delle metriche così come vengono creati quasi in tempo reale. |
 
 ## <a name="query-telemetry-data"></a>Query sui dati di telemetria
 
-[Analytics di Application Insights](../azure-monitor/log-query/log-query-overview.md) consente di accedere a tutti i dati di telemetria sotto forma di tabelle in un database. Analytics offre un linguaggio di query per l'estrazione, la manipolazione e la visualizzazione dei dati. 
+[Analytics di Application Insights](../azure-monitor/logs/log-query-overview.md) consente di accedere a tutti i dati di telemetria sotto forma di tabelle in un database. Analytics offre un linguaggio di query per l'estrazione, la manipolazione e la visualizzazione dei dati. 
 
 Scegliere **Log** per esplorare o eseguire una query in merito agli eventi registrati.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006684"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585278"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -35,7 +35,7 @@ Usando un'unica area di lavoro è possibile sfruttare tutti i vantaggi offerti d
 | Proprietà dei dati | I limiti della proprietà dei dati, ad esempio da filiali o società affiliate, sono meglio delineati con aree di lavoro separate. |  |
 | Più tenant di Azure | Azure Sentinel supporta la raccolta di dati da Microsoft e risorse SaaS di Azure solo all'interno del proprio Azure Active Directory (Azure AD) limite del tenant. Ogni tenant di Azure AD richiede pertanto un'area di lavoro separata. |  |
 | Controllo granulare dell'accesso ai dati | Un'organizzazione potrebbe avere la necessità di consentire a gruppi diversi, all'interno o all'esterno dell'organizzazione, di accedere ad alcuni dei dati raccolti da Sentinel di Azure. Ad esempio:<br><ul><li>Accesso dei proprietari delle risorse ai dati relativi alle risorse</li><li>SOC regionale o sussidiario "accesso ai dati relativi alle parti dell'organizzazione</li></ul> | Usare il controllo degli accessi in base al ruolo [di Azure](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) [Resource](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) |
-| Impostazioni di conservazione granulari | In passato, le aree di lavoro erano l'unico modo per impostare periodi di conservazione diversi per tipi di dati diversi. Questa operazione non è più necessaria in molti casi, grazie all'introduzione delle impostazioni di conservazione a livello di tabella. | Usare [le impostazioni di conservazione a livello di tabella](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) o automatizzare l' [eliminazione dei dati](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
+| Impostazioni di conservazione granulari | In passato, le aree di lavoro erano l'unico modo per impostare periodi di conservazione diversi per tipi di dati diversi. Questa operazione non è più necessaria in molti casi, grazie all'introduzione delle impostazioni di conservazione a livello di tabella. | Usare [le impostazioni di conservazione a livello di tabella](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) o automatizzare l' [eliminazione dei dati](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Suddivisione della fatturazione | Inserendo le aree di lavoro in sottoscrizioni separate, è possibile fatturarle a diverse parti. | Report di utilizzo e addebito incrociato |
 | Architettura legacy | L'uso di più aree di lavoro può derivare da una progettazione cronologica che prende in considerazione le limitazioni o le procedure consigliate che non contengono più il vero. Si potrebbe trattare anche di una scelta di progettazione arbitraria che può essere modificata per supportare meglio Azure Sentinel.<br><br>Alcuni esempi:<br><ul><li>Uso di un'area di lavoro predefinita per sottoscrizione quando si distribuisce il Centro sicurezza di Azure</li><li>La necessità di impostazioni di conservazione o controllo degli accessi granulari, le soluzioni per le quali sono relativamente nuove</li></ul> | Riprogettare le aree di lavoro |
 
@@ -81,12 +81,12 @@ Azure Sentinel supporta una [visualizzazione degli eventi imprevisti a più aree
 
 ### <a name="cross-workspace-querying"></a>Esecuzione di query tra aree di lavoro
 
-Azure Sentinel supporta l'esecuzione di query [su più aree di lavoro in una singola query](../azure-monitor/log-query/cross-workspace-query.md), consentendo la ricerca e la correlazione dei dati da più aree di lavoro in una singola query. 
+Azure Sentinel supporta l'esecuzione di query [su più aree di lavoro in una singola query](../azure-monitor/logs/cross-workspace-query.md), consentendo la ricerca e la correlazione dei dati da più aree di lavoro in una singola query. 
 
-- Utilizzare l' [espressione Workspace ()](../azure-monitor/log-query/workspace-expression.md) per fare riferimento a una tabella in un'area di lavoro diversa. 
+- Utilizzare l' [espressione Workspace ()](../azure-monitor/logs/workspace-expression.md) per fare riferimento a una tabella in un'area di lavoro diversa. 
 - Utilizzare l' [operatore Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) insieme all'espressione Workspace () per applicare una query tra tabelle in più aree di lavoro.
 
-È possibile usare le [funzioni](../azure-monitor/log-query/functions.md) salvate per semplificare le query tra aree di lavoro. Se, ad esempio, un riferimento a un'area di lavoro è lungo, potrebbe essere necessario salvare l'espressione `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` come funzione chiamata `SecurityEventCustomerA` . È quindi possibile scrivere query come `SecurityEventCustomerA | where ...` .
+È possibile usare le [funzioni](../azure-monitor/logs/functions.md) salvate per semplificare le query tra aree di lavoro. Se, ad esempio, un riferimento a un'area di lavoro è lungo, potrebbe essere necessario salvare l'espressione `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` come funzione chiamata `SecurityEventCustomerA` . È quindi possibile scrivere query come `SecurityEventCustomerA | where ...` .
 
 Una funzione può anche semplificare un'Unione di uso comune. Ad esempio, è possibile salvare l'espressione seguente come funzione denominata `unionSecurityEvent` :
 

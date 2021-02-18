@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f4d77cc3b2f2182b02d47f047070b819daa5f3c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329577"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589014"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analisi e visualizzazione degli eventi con Application Insights
 
@@ -48,7 +48,7 @@ Se si usa EventFlow per aggregare gli eventi, assicurarsi di importare il pacche
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
     }
 ]
 ```
@@ -65,13 +65,13 @@ Se si sviluppa in .NET e si intende usare alcuni modelli di programmazione di Se
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Passare alla risorsa di Application Insights nel portale di Azure
 
-Dopo aver configurato Application Insights come output per log ed eventi, le informazioni verranno visualizzate nella risorsa di Application Insights in pochi minuti. Passare alla risorsa di Application Insights che consente di accedere al dashboard della risorsa di Application Insights. Selezionare _*Search** nella barra delle applicazioni Application Insights per visualizzare le tracce più recenti ricevute e per poterle filtrare.
+Dopo aver configurato Application Insights come output per log ed eventi, le informazioni verranno visualizzate nella risorsa di Application Insights in pochi minuti. Passare alla risorsa di Application Insights che consente di accedere al dashboard della risorsa di Application Insights. Selezionare **Cerca** nella barra delle applicazioni Application Insights per visualizzare le tracce più recenti ricevute e per poterle filtrare.
 
-*Esplora metriche* è uno strumento utile per la creazione di dashboard personalizzati in base alle metriche che possono essere segnalate da applicazioni, servizi e cluster. Vedere [Esaminare le metriche in Application Insights](../azure-monitor/platform/metrics-charts.md) per configurare alcuni grafici per se stessi in base ai dati raccolti.
+*Esplora metriche* è uno strumento utile per la creazione di dashboard personalizzati in base alle metriche che possono essere segnalate da applicazioni, servizi e cluster. Vedere [Esaminare le metriche in Application Insights](../azure-monitor/essentials/metrics-charts.md) per configurare alcuni grafici per se stessi in base ai dati raccolti.
 
-Facendo clic su **Analisi** si aprirà il portale di Analisi di Application Insights, dove è possibile eseguire query di eventi e tracce con ambito e operazioni facoltative maggiori. Per altre informazioni su questo argomento leggere [Analytics in Application Insights](../azure-monitor/log-query/log-query-overview.md) (Analisi in Application Insights).
+Facendo clic su **Analisi** si aprirà il portale di Analisi di Application Insights, dove è possibile eseguire query di eventi e tracce con ambito e operazioni facoltative maggiori. Per altre informazioni su questo argomento leggere [Analytics in Application Insights](../azure-monitor/logs/log-query-overview.md) (Analisi in Application Insights).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare gli avvisi in AI](../azure-monitor/platform/alerts-log.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
+* [Configurare gli avvisi in AI](../azure-monitor/alerts/alerts-log.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
 * [Rilevamento intelligente in Application Insights](../azure-monitor/app/proactive-diagnostics.md) esegue un'analisi proattiva dei dati di telemetria che vengono inviati ad Application Insights per avvisare l'utente in caso di potenziali problemi di prestazioni

@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 02/14/2021
 ms.author: danis
-ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4fc51c8bb8a07f768da16224b9258bbdbf6d9b4
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096658"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100632935"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Supporto di cloud-init per le macchine virtuali in Azure
 Questo articolo descrive il supporto disponibile per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o i set di scalabilità di macchine virtuali in fase di provisioning in Azure. Queste configurazioni cloud-init vengono eseguite al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -135,6 +135,10 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> cloud-init include più [tipi di input](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init userà la prima riga di CustomData/UserData per indicare come deve elaborare l'input. ad esempio, `#cloud-config` indica che il contenuto deve essere elaborato come una configurazione cloud-init.
+
+
 Premere `ctrl-X` per uscire dal file, digitare `y` per salvare il file e premere `enter` per confermare il nome del file alla chiusura.
 
 Il passaggio finale consiste nel creare una macchina virtuale con il comando [az vm create](/cli/azure/vm). 

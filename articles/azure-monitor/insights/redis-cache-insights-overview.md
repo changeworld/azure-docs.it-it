@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210376"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573457"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Esplora monitoraggio di Azure per cache di Azure per Redis
 
@@ -186,6 +186,6 @@ Per informazioni aggiuntive sulla risoluzione dei problemi, vedere l'articolo de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare gli [avvisi sulle metriche](../platform/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
+* Configurare gli [avvisi sulle metriche](../alerts/alerts-metric.md) e le [notifiche sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md) per impostare avvisi automatici che facilitano il rilevamento dei problemi.
 
-* Per informazioni sugli scenari supportati dalle cartelle di lavoro, su come creare o personalizzare report e su altro ancora, vedere [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
+* Per informazioni sugli scenari supportati dalle cartelle di lavoro, su come creare o personalizzare report e su altro ancora, vedere [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../visualize/workbooks-overview.md).

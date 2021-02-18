@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573365"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593990"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Pianificare e gestire i costi per il servizio app Azure
 
@@ -38,7 +38,7 @@ A seconda della funzionalità usata nel servizio app, è possibile che vengano c
 - **Piano di servizio app**  Obbligatorio per ospitare un'app del servizio app.
 - **Livello isolato**  Per un ambiente del servizio app è necessaria una [rete virtuale](../virtual-network/index.yml) .
 - **Esegui backup**  Per eseguire i backup è necessario un [account di archiviazione](../storage/index.yml) .
-- **Log di diagnostica**  È possibile selezionare [account di archiviazione](../storage/index.yml) come opzione di registrazione o eseguire l'integrazione con [log Analytics di Azure](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Log di diagnostica**  È possibile selezionare [account di archiviazione](../storage/index.yml) come opzione di registrazione o eseguire l'integrazione con [log Analytics di Azure](../azure-monitor/logs/log-analytics-tutorial.md).
 - **Certificati del servizio app**  I certificati acquistati in Azure devono essere conservati in [Azure Key Vault](../key-vault/index.yml).
 
 Altre risorse di costo per il servizio app sono (vedere [prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/) per informazioni dettagliate):
@@ -114,7 +114,7 @@ I carichi di lavoro di produzione sono dotati di indicazioni sul piano tariffari
 > [!NOTE]
 > **Premium V3** supporta i contenitori di Windows e Linux. 
 
-Una volta scelto il piano tariffario desiderato, è necessario ridurre al minimo le istanze inattive. In una distribuzione con scalabilità orizzontale è possibile sprecare denaro per le istanze di calcolo sottoutilizzate. È consigliabile [configurare la scalabilità](../azure-monitor/platform/autoscale-get-started.md)automatica, disponibile nel livello **standard** e versioni successive. Grazie alla creazione di pianificazioni con scalabilità orizzontale e alle regole di scalabilità orizzontale basate su metriche, paghi solo per le istanze effettivamente necessarie in un determinato momento.
+Una volta scelto il piano tariffario desiderato, è necessario ridurre al minimo le istanze inattive. In una distribuzione con scalabilità orizzontale è possibile sprecare denaro per le istanze di calcolo sottoutilizzate. È consigliabile [configurare la scalabilità](../azure-monitor/autoscale/autoscale-get-started.md)automatica, disponibile nel livello **standard** e versioni successive. Grazie alla creazione di pianificazioni con scalabilità orizzontale e alle regole di scalabilità orizzontale basate su metriche, paghi solo per le istanze effettivamente necessarie in un determinato momento.
 
 ### <a name="azure-reservations"></a>Prenotazioni di Azure
 

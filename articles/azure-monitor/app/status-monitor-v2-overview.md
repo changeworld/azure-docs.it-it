@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186219"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583811"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuire l'agente di Application Insights di monitoraggio di Azure per i server locali
 
@@ -67,7 +67,7 @@ Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-moni
   - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) può essere usato per verificare che l'abilitazione sia stata completata.
   - È consigliabile usare le [metriche in tempo reale](./live-stream.md) per determinare rapidamente se l'app invia dati di telemetria.
 
-  - È anche possibile usare [log Analytics](../log-query/log-analytics-tutorial.md) per elencare tutti i ruoli cloud che inviano attualmente i dati di telemetria:
+  - È anche possibile usare [log Analytics](../logs/log-analytics-tutorial.md) per elencare tutti i ruoli cloud che inviano attualmente i dati di telemetria:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,9 +76,9 @@ Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-moni
 
 Visualizzare i dati di telemetria:
 
-* [Esplora le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
+* [Esplora le metriche](../essentials/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
 * Eseguire [ricerche negli eventi e nei log](./diagnostic-search.md) per diagnosticare i problemi.
-* [Usare Analytics](../log-query/log-query-overview.md) per query più avanzate.
+* [Usare Analytics](../logs/log-query-overview.md) per query più avanzate.
 * [Creare dashboard](./overview-dashboard.md).
 
 Aggiungere altri dati di telemetria:

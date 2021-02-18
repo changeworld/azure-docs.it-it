@@ -3,21 +3,21 @@ title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379234"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593114"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
 Come provider di servizi, è possibile che siano stati caricati più tenant del cliente nel [Faro di Azure](../overview.md). Azure Lighthouse consente ai provider di servizi di eseguire operazioni su larga scala tra più tenant contemporaneamente, rendendo più efficienti le attività di gestione.
 
-Questo argomento illustra come usare i [log di monitoraggio di Azure](../../azure-monitor/platform/data-platform-logs.md) in modo scalabile tra i tenant dei clienti gestiti. Per quanto riguarda i provider di servizi e i clienti in questo argomento, queste indicazioni si applicano anche alle [aziende che usano Azure Lighthouse per gestire più tenant](../concepts/enterprise.md).
+Questo argomento illustra come usare i [log di monitoraggio di Azure](../../azure-monitor/logs/data-platform-logs.md) in modo scalabile tra i tenant dei clienti gestiti. Per quanto riguarda i provider di servizi e i clienti in questo argomento, queste indicazioni si applicano anche alle [aziende che usano Azure Lighthouse per gestire più tenant](../concepts/enterprise.md).
 
 > [!NOTE]
-> Assicurarsi che agli utenti nei tenant di gestione siano stati concessi i [ruoli necessari per la gestione delle aree di lavoro log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) nelle sottoscrizioni dei clienti Delegate.
+> Assicurarsi che agli utenti nei tenant di gestione siano stati concessi i [ruoli necessari per la gestione delle aree di lavoro log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) nelle sottoscrizioni dei clienti Delegate.
 
 ## <a name="create-log-analytics-workspaces"></a>Creare aree di lavoro Log Analytics
 
@@ -28,7 +28,7 @@ Si consiglia di creare queste aree di lavoro direttamente nei tenant del cliente
 > [!TIP]
 > Qualsiasi account di automazione usato per accedere ai dati da un'area di lavoro di Log Analytics deve essere creato nello stesso tenant dell'area di lavoro.
 
-È possibile creare un'area di lavoro Log Analytics usando il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md), usando l'interfaccia della riga di comando di [Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)oppure [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+È possibile creare un'area di lavoro Log Analytics usando il [portale di Azure](../../azure-monitor/logs/quick-create-workspace.md), usando l'interfaccia della riga di comando di [Azure](../../azure-monitor/logs/quick-create-workspace-cli.md)oppure [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Anche se tutte le aree di lavoro vengono create nel tenant del cliente, il provider di risorse Microsoft. Insights deve essere registrato anche in una sottoscrizione nel tenant di gestione.
@@ -43,11 +43,11 @@ Una volta determinati i criteri da distribuire, è possibile [distribuirli nelle
 
 ## <a name="analyze-the-gathered-data"></a>Analizzare i dati raccolti
 
-Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro Log Analytics create in ogni tenant del cliente. Per ottenere informazioni approfondite su tutti i clienti gestiti, è possibile usare strumenti come le [cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md) per raccogliere e analizzare le informazioni provenienti da più origini dati.
+Dopo aver distribuito i criteri, i dati verranno registrati nelle aree di lavoro Log Analytics create in ogni tenant del cliente. Per ottenere informazioni approfondite su tutti i clienti gestiti, è possibile usare strumenti come le [cartelle di lavoro di monitoraggio di Azure](../../azure-monitor/visualize/workbooks-overview.md) per raccogliere e analizzare le informazioni provenienti da più origini dati.
 
 ## <a name="view-alerts-across-customers"></a>Visualizza avvisi tra clienti
 
-È possibile visualizzare gli [avvisi](../../azure-monitor/platform/alerts-overview.md) per le sottoscrizioni delegate nei tenant dei clienti gestiti dall'utente.
+È possibile visualizzare gli [avvisi](../../azure-monitor/alerts/alerts-overview.md) per le sottoscrizioni delegate nei tenant dei clienti gestiti dall'utente.
 
 Dal tenant di gestione è possibile [creare, visualizzare e gestire gli avvisi del log attività](../../azure-monitor/platform/alerts-activity-log.md) nell'portale di Azure o tramite le API e gli strumenti di gestione.
 

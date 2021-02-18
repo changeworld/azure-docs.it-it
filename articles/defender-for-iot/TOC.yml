@@ -66,12 +66,12 @@
         - name: Aggregazione di eventi (anteprima)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
-        - name: Avvisi di sicurezza
+        - name: Avvisi predefiniti per l'hub Internet
           displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
           href: concept-security-alerts.md
-        - name: Avvisi di sicurezza personalizzati
+        - name: Avvisi di sicurezza personalizzati per l'hub Internet
           href: concept-customizable-security-alerts.md
-        - name: Suggerimenti per la sicurezza
+        - name: Raccomandazioni sulla sicurezza per l'hub Internet
           href: concept-recommendations.md
         - name: Classic
           items:
@@ -94,6 +94,12 @@
             - name: Aggregazione di eventi classici del modulo di sicurezza
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
+            - name: Avvisi di sicurezza basati su agenti
+              href: agent-based-security-alerts.md
+            - name: Avvisi personalizzati sulla sicurezza basata su agenti
+              href: agent-based-security-custom-alerts.md
+            - name: Raccomandazioni basate su agenti
+              href: agent-based-recommendations.md
 - name: Guide pratiche
   items:
     - name: Soluzione senza agente per le organizzazioni

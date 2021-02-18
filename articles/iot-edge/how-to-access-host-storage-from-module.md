@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24fd42f866cd15f84688318050bc07d5ad235e9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 53d1504b03e3dbe99cbdeac23df2623a5390b3d9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384657"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635422"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Consentire ai moduli di accedere all'archiviazione locale di un dispositivo
 
@@ -85,7 +85,7 @@ Per altre informazioni su come creare opzioni, vedere la [documentazione di Dock
 
 ## <a name="encrypted-data-in-module-storage"></a>Dati crittografati nell'archiviazione moduli
 
-Quando i moduli richiamano l'API del carico di lavoro del daemon di IoT Edge per crittografare i dati, la chiave di crittografia viene derivata usando l'ID modulo e l'ID generazione del modulo. Un ID di generazione viene usato per proteggere i segreti se un modulo viene rimosso dalla distribuzione e un altro modulo con lo stesso ID modulo viene distribuito in un secondo momento nello stesso dispositivo. È possibile visualizzare l'ID generazione di un modulo usando il comando dell'interfaccia della riga di comando di Azure [AZ l'hub Module-Identity Show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+Quando i moduli richiamano l'API del carico di lavoro del daemon di IoT Edge per crittografare i dati, la chiave di crittografia viene derivata usando l'ID modulo e l'ID generazione del modulo. Un ID di generazione viene usato per proteggere i segreti se un modulo viene rimosso dalla distribuzione e un altro modulo con lo stesso ID modulo viene distribuito in un secondo momento nello stesso dispositivo. È possibile visualizzare l'ID generazione di un modulo usando il comando dell'interfaccia della riga di comando di Azure [AZ l'hub Module-Identity Show](/cli/azure/ext/azure-iot/iot/hub/module-identity).
 
 Se si desidera condividere i file tra i moduli tra le generazioni, questi non devono contenere segreti o non verranno decrittografati.
 

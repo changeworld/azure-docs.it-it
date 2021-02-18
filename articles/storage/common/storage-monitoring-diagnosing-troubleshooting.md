@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2f68452bed69e4e174f126d259e8df6d2283e6cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787961"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585226"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -94,7 +94,7 @@ Le "[appendici]" includono informazioni sull'uso di altri strumenti, ad esempio 
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Monitoraggio del servizio di archiviazione
 Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le metriche di archiviazione di Azure corrispondono ai contatori di Windows Performance Monitor. Metriche di archiviazione comprende un set completo di metriche (contatori nella terminologia di Performance Monitor di Windows), tra cui la disponibilità del servizio, il numero totale di richieste al servizio e la percentuale di richieste eseguite correttamente. Per l'elenco completo delle metriche disponibili, vedere [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema). È possibile specificare se si vuole che il servizio di archiviazione raccolga e aggreghi le metriche ogni ora o ogni minuto. Per altre informazioni sulle modalità di abilitazione delle metriche e sul monitoraggio degli account di archiviazione, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](../blobs/monitor-blob-storage.md).
 
-È possibile scegliere quali metriche orarie visualizzare nel [portale di Azure](https://portal.azure.com) e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere [Ricevere notifiche di avviso](../../azure-monitor/platform/alerts-overview.md).
+È possibile scegliere quali metriche orarie visualizzare nel [portale di Azure](https://portal.azure.com) e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere [Ricevere notifiche di avviso](../../azure-monitor/alerts/alerts-overview.md).
 
 È consigliabile consultare [Monitoraggio di Azure per Archiviazione](../../azure-monitor/insights/storage-insights-overview.md) (anteprima). Si tratta di una funzionalità di Monitoraggio di Azure che offre un monitoraggio completo degli account di Archiviazione di Azure offrendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di Archiviazione di Azure. Non è necessario abilitare o configurare elementi ed è possibile visualizzare immediatamente queste metriche dai grafici interattivi predefiniti e da altre visualizzazioni incluse.
 

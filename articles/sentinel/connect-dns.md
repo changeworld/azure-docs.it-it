@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: abecddb6f5469cb4ef463e65d6c74149bf34dca9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655664"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590221"
 ---
 # <a name="connect-your-domain-name-server"></a>Connetti la Domain Name Server
 
@@ -41,12 +41,12 @@ Quando si Abilita la connessione al log DNS, è possibile:
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione:
 
-| **Origine connessa** | **Supporto tecnico** | **Descrizione** |
+| **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
-| [Agenti di Windows](../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
-| [Agenti Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
-| [Gruppo di gestione di System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
-| [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | No | La soluzione non usa le risorse di archiviazione di Azure. |
+| [Agenti di Windows](../azure-monitor/agents/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
+| [Agenti Linux](../azure-monitor/vm/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
+| [Gruppo di gestione di System Center Operations Manager](../azure-monitor/agents/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
+| [Account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | No | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
 

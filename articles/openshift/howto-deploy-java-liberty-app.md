@@ -3,16 +3,16 @@ title: Distribuire un'applicazione Java con Open Liberty/WebSphere Liberty in un
 description: Distribuire un'applicazione Java con Open Liberty/WebSphere Liberty in un cluster Azure Red Hat OpenShift 4.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, jakartaee, JavaEE, microprofile, Open Liberty, WebSphere-Liberty, Aro, OpenShift, Red Hat
-ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: acb448a9662daa58b5d2ff42861e238e23586b33
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493943"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633887"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Distribuire un'applicazione Java con Open Liberty/WebSphere Liberty in un cluster Azure Red Hat OpenShift 4
 
@@ -241,7 +241,7 @@ Poiché si usa l'operatore Open Liberty per gestire le applicazioni Liberty, è 
    ![Contenimento di ARO Java](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Selezionare **Crea OpenLibertyApplication**
 1. Sostituire l'oggetto YAML generato con il proprio, disponibile in `<path-to-repo>/2-simple/openlibertyapplication.yaml` .
-1. Selezionare **Create** (Crea). Verrà restituito l'elenco di OpenLibertyApplications.
+1. Selezionare **Crea**. Verrà restituito l'elenco di OpenLibertyApplications.
 1. Selezionare **JavaEE-Café-Simple**.
 1. Al centro della pagina selezionare **risorse**.
 1. Nella tabella selezionare il collegamento per **JavaEE-Café-Simple** con il **tipo** di **Route**.
