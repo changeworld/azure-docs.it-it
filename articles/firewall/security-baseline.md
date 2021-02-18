@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4fccb0b2e382e56e83fbbe54c0f0afa50a5c9590
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d63150fc1d929b899281cdd0ed7abae5e728b115
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202471"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595270"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Baseline della sicurezza di Azure per il firewall di Azure
 
@@ -92,9 +92,9 @@ Si noti che non è possibile creare un tag di servizio personalizzato né specif
 
 - [Monitorare i log e le metriche di Firewall di Azure](./firewall-diagnostics.md)
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md) 
+- [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -132,7 +132,7 @@ Nota: entrambi i log possono essere salvati in un account di archiviazione, tras
 
 Elenco delle azioni delle risorse nei log attività: Azure Resource Manager operazioni del provider di risorse
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure ](../azure-monitor/platform/diagnostic-settings.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -174,7 +174,7 @@ i log di Monitoraggio di Azure sono ideali per il monitoraggio generale in tempo
 
 - [Log e metriche di Firewall di Azure](logs-and-metrics.md)
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -216,7 +216,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -442,7 +442,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate al firewall di Azure.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

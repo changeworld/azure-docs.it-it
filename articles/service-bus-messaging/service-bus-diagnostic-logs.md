@@ -3,12 +3,12 @@ title: Log di diagnostica del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica di tutti i log operativi e di diagnostica disponibili per il bus di servizio di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064435"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585264"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizio
 
@@ -76,7 +76,7 @@ Le operazioni di gestione seguenti vengono acquisite nei log operativi:
 
 Per impostazione predefinita, i log operativi sono disabilitati. Per abilitare i log di diagnostica, eseguire le operazioni seguenti:
 
-1. Nel [portale di Azure](https://portal.azure.com)passare allo spazio dei nomi del bus di servizio di Azure e quindi selezionare impostazioni di **diagnostica**in **monitoraggio**.
+1. Nel [portale di Azure](https://portal.azure.com)passare allo spazio dei nomi del bus di servizio di Azure e quindi selezionare impostazioni di **diagnostica** in **monitoraggio**.
 
    ![Collegamento "impostazioni di diagnostica"](./media/service-bus-diagnostic-logs/image1.png)
 
@@ -101,7 +101,7 @@ Per impostazione predefinita, i log operativi sono disabilitati. Per abilitare i
 
 Le nuove impostazioni diventano effettive entro 10 minuti circa. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**.
 
-Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
+Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

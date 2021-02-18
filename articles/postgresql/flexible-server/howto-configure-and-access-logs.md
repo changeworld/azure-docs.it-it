@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e52f0f22065d89788d08659476d14af0351cc493
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492353"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590587"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurare e accedere ai log nel database di Azure per PostgreSQL-server flessibile
 
@@ -40,13 +40,13 @@ Per abilitare i log delle risorse usando il portale di Azure:
 
 7. Salvare l’impostazione.
 
-Per abilitare i log delle risorse usando PowerShell, l'interfaccia della riga di comando o l'API REST, vedere l'articolo [impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-settings.md) .
+Per abilitare i log delle risorse usando PowerShell, l'interfaccia della riga di comando o l'API REST, vedere l'articolo [impostazioni di diagnostica](../../azure-monitor/essentials/diagnostic-settings.md) .
 
 ### <a name="access-resource-logs"></a>Accedere ai log delle risorse
 
-Il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+Il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) .
+Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md) .
 
 Di seguito sono riportate le query che è possibile provare a iniziare. È possibile configurare gli avvisi in base alle query.
 
@@ -71,5 +71,5 @@ La query precedente visualizzerà i risultati nelle ultime 6 ore per ogni regist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione alle query di log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introduzione alle query di log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 - Informazioni su [Hub eventi di Azure](../../event-hubs/event-hubs-about.md)

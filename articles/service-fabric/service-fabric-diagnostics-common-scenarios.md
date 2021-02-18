@@ -3,12 +3,12 @@ title: Scenari comuni di diagnosi per Azure Service Fabric
 description: Informazioni sulla risoluzione dei problemi relativi agli scenari di monitoraggio e diagnostica comuni nelle applicazioni Azure Service Fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3083348948ce97ae9d99098896878d79081a15f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257743"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580475"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Scenari comuni di diagnosi con Service Fabric
 
@@ -133,9 +133,9 @@ Fare clic su questi collegamenti per l'elenco completo dei contatori delle prest
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cercare errori comuni di attivazione del pacchetto di codice](./service-fabric-diagnostics-code-package-errors.md)
-* [Configurare gli avvisi in AI](../azure-monitor/platform/alerts-log.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
+* [Configurare gli avvisi in AI](../azure-monitor/alerts/alerts-log.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
 * [Rilevamento intelligente in Application Insights](../azure-monitor/app/proactive-diagnostics.md) esegue un'analisi proattiva dei dati di telemetria che vengono inviati ad AI per avvisare l'utente in caso di potenziali problemi di prestazioni
-* Altre informazioni sugli [avvisi](../azure-monitor/platform/alerts-overview.md) dei log di Monitoraggio di Azure per agevolare il rilevamento e la diagnostica.
-* Per i cluster locali, i log di Monitoraggio di Azure offrono un Gateway, ovvero un proxy di inoltro HTTP, che può essere usato per inviare i dati ai log di Monitoraggio di Azure. Per altre informazioni, vedere [Connettere computer senza accesso a Internet ai log di Monitoraggio di Azure usando il gateway Log Analytics](../azure-monitor/platform/gateway.md)
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure
+* Altre informazioni sugli [avvisi](../azure-monitor/alerts/alerts-overview.md) dei log di Monitoraggio di Azure per agevolare il rilevamento e la diagnostica.
+* Per i cluster locali, i log di Monitoraggio di Azure offrono un Gateway, ovvero un proxy di inoltro HTTP, che può essere usato per inviare i dati ai log di Monitoraggio di Azure. Per altre informazioni, vedere [Connettere computer senza accesso a Internet ai log di Monitoraggio di Azure usando il gateway Log Analytics](../azure-monitor/agents/gateway.md)
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/logs/log-query-overview.md) incluse nei log di Monitoraggio di Azure
 * Per avere una panoramica più dettagliata dei log di Monitoraggio di Azure e dei vantaggi offerti, vedere la pagina che spiega [che cosa sono i log di Monitoraggio di Azure](../azure-monitor/overview.md)

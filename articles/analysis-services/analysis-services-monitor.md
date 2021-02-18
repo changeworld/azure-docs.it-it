@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc517ac3c903930eddb95a4813a8146cae2ec2c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84690377"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582666"
 ---
 # <a name="monitor-server-metrics"></a>Monitorare le metriche dei server
 
-Analysis Services fornisce le metriche in Azure Esplora metriche, uno strumento gratuito nel portale, che consente di monitorare le prestazioni e l'integrità dei server. È possibile, ad esempio, monitorare la memoria e l'utilizzo di CPU, il numero di connessioni client ed eseguire query sull'utilizzo di risorse. Analysis Services usa lo stesso framework di monitoraggio usato dalla maggior parte degli altri servizi Azure. Per altre informazioni, vedere [Introduzione ad Azure Esplora metriche](../azure-monitor/platform/metrics-getting-started.md).
+Analysis Services fornisce le metriche in Azure Esplora metriche, uno strumento gratuito nel portale, che consente di monitorare le prestazioni e l'integrità dei server. È possibile, ad esempio, monitorare la memoria e l'utilizzo di CPU, il numero di connessioni client ed eseguire query sull'utilizzo di risorse. Analysis Services usa lo stesso framework di monitoraggio usato dalla maggior parte degli altri servizi Azure. Per altre informazioni, vedere [Introduzione ad Azure Esplora metriche](../azure-monitor/essentials/metrics-getting-started.md).
 
 Per eseguire una diagnostica più approfondita, tenere traccia delle prestazioni, identificare le tendenze in più risorse del servizio in un gruppo di risorse o una sottoscrizione, usare [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure può generare un servizio fatturabile.
 
@@ -27,7 +27,7 @@ Per eseguire una diagnostica più approfondita, tenere traccia delle prestazioni
 
     ![Monitoraggio nel portale di Azure](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. In **metrica**selezionare le metriche da includere nel grafico. 
+2. In **metrica** selezionare le metriche da includere nel grafico. 
 
     ![Grafico di monitoraggio](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -89,5 +89,5 @@ Usare questa tabella per determinare le metriche più adatte allo scenario di mo
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Panoramica di monitoraggio di Azure](../azure-monitor/overview.md)      
-[Introduzione ad Azure Esplora metriche](../azure-monitor/platform/metrics-getting-started.md)      
+[Introduzione ad Azure Esplora metriche](../azure-monitor/essentials/metrics-getting-started.md)      
 [Metriche nell'API REST di Monitoraggio di Azure](/rest/api/monitor/metrics)

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782995"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580753"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare il database SQL di Azure o eseguire il failover in un database secondario
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ L'operazione di ripristino ha un impatto sull'applicazione. Richiede la modifica
 
 A seconda della tolleranza dell'applicazione ai tempi di inattività e delle eventuali responsabilità aziendali è possibile prendere in considerazione le opzioni di ripristino seguenti.
 
-Usare [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* ), che consente di ottenere l'ultimo punto di ripristino con replica geografica.
+Usare [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*), che consente di ottenere l'ultimo punto di ripristino con replica geografica.
 
 ## <a name="wait-for-service-recovery"></a>Attendere il ripristino del servizio
 
@@ -109,7 +109,7 @@ Verificare che tutti gli account di accesso usati dall'applicazione siano presen
 
 Verificare che le impostazioni della regola di avviso esistenti vengano aggiornate per il mapping al database ripristinato e al nuovo server.
 
-Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere notifiche di avviso](../../azure-monitor/platform/alerts-overview.md) e [Tracciare l’integrità del servizio](../../service-health/service-notifications.md).
+Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere notifiche di avviso](../../azure-monitor/alerts/alerts-overview.md) e [Tracciare l’integrità del servizio](../../service-health/service-notifications.md).
 
 ### <a name="enable-auditing"></a>Attivare il controllo
 

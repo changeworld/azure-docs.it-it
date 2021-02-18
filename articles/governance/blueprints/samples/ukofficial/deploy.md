@@ -3,12 +3,12 @@ title: Distribuire gli esempi di progetti UK OFFICIAL e UK NHS
 description: Procedura di distribuzione degli esempi di progetti UK OFFICIAL e UK NHS, inclusi i dettagli dei parametri degli artefatti dei progetti.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 0c917134e5807283ceb0e7ce693037824794a6ef
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: fc41e7d9d3867123286f970d7c54f5e6fff2d276
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627551"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578042"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi di progetti UK OFFICIAL e UK NHS
 
@@ -93,9 +93,9 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|Iniziativa progetto per UK OFFICIAL o UK NHS|Assegnazione di criteri |Tipi di risorsa per il controllo dei log di diagnostica (criteri: iniziativa progetto per UK OFFICIAL o UK NHS) |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata.  Per informazioni sui valori accettabili, vedere [Servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/resource-logs-schema.md) |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito (Criteri: \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux) |(Facoltativo) Il valore predefinito è _nessuno_. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito (Criteri: \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows) |(Facoltativo) Il valore predefinito è _nessuno_. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Iniziativa progetto per UK OFFICIAL o UK NHS|Assegnazione di criteri |Tipi di risorsa per il controllo dei log di diagnostica (criteri: iniziativa progetto per UK OFFICIAL o UK NHS) |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata.  Per informazioni sui valori accettabili, vedere [Servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/essentials/resource-logs-schema.md) |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito (Criteri: \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux) |(Facoltativo) Il valore predefinito è _nessuno_. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito (Criteri: \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows) |(Facoltativo) Il valore predefinito è _nessuno_. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

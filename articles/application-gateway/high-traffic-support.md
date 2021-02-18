@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: a5f7569fc46d4678ca0c12299e33caa3c78df849
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d8940d791920daca6ef0af186a4bb5e17009637b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182921"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586122"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Supporto del traffico elevato nel gateway applicazione
 
@@ -23,7 +23,7 @@ ms.locfileid: "96182921"
 
 È importante ridimensionare il gateway applicazione in base al traffico e con una quantità di buffer in modo da prepararsi a eventuali picchi di traffico o picchi e ridurre al minimo l'effetto che può avere nel QoS. I suggerimenti seguenti consentono di configurare il gateway applicazione con WAF per gestire il traffico aggiuntivo.
 
-Per l'elenco completo delle metriche offerte dal gateway applicazione, vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) . Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md) per informazioni su come impostare gli avvisi per le metriche.
+Per l'elenco completo delle metriche offerte dal gateway applicazione, vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) . Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](../azure-monitor/alerts/alerts-metric.md) per informazioni su come impostare gli avvisi per le metriche.
 
 ## <a name="scaling-for-application-gateway-v1-sku-standardwaf-sku"></a>Scalabilità per lo SKU del gateway applicazione V1 (SKU standard/WAF)
 
@@ -35,7 +35,7 @@ Se si usa un gateway SKU V1, sarà possibile impostare il gateway applicazione f
 ### <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Usare lo SKU v2 piuttosto che la versione 1 per le funzionalità di scalabilità automatica e i vantaggi a livello di prestazioni
 Lo SKU v2 offre funzionalità di scalabilità automatica per garantire che il gateway applicazione possa aumentare le prestazioni in caso di aumento del traffico. Offre anche altri vantaggi significativi a livello di prestazioni, ad esempio prestazioni di offload TLS 5 volte migliori, tempi di distribuzione e aggiornamento più rapidi, ridondanza della zona e molto altro rispetto alla versione v1. Per ulteriori informazioni, vedere la [documentazione V2](./application-gateway-autoscaling-zone-redundant.md) e vedere la [documentazione relativa alla migrazione](./migrate-v1-v2.md) da V1 a V2 per informazioni su come eseguire la migrazione dei gateway SKU V1 esistenti allo SKU V2. 
 
-## <a name="autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku"></a>Scalabilità automatica per lo SKU del gateway applicazione V2 (SKU Standard_v2/WAF_v2)
+## <a name="autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku"></a>Scalabilità automatica per lo SKU v2 del gateway applicazione (SKU Standard_v2/WAF_v2)
 
 ### <a name="set-maximum-instance-count-to-the-maximum-possible-125"></a>Impostare il numero massimo di istanze sul massimo possibile (125)
  
@@ -65,7 +65,7 @@ Controllare la metrica dell'unità di calcolo per l'ultimo mese. Metrica unità 
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
-Per ricevere notifiche relative a traffico o anomalie di utilizzo, è possibile configurare avvisi per determinate metriche. Vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) per l'elenco completo delle metriche offerte dal gateway applicazione. Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md) per informazioni su come impostare gli avvisi per le metriche.
+Per ricevere notifiche relative a traffico o anomalie di utilizzo, è possibile configurare avvisi per determinate metriche. Vedere la [documentazione relativa alle metriche](./application-gateway-metrics.md) per l'elenco completo delle metriche offerte dal gateway applicazione. Vedere [visualizzare le metriche](./application-gateway-metrics.md#metrics-visualization) nella portale di Azure e la documentazione di [monitoraggio di Azure](../azure-monitor/alerts/alerts-metric.md) per informazioni su come impostare gli avvisi per le metriche.
 
 ## <a name="alerts-for-application-gateway-v1-sku-standardwaf"></a>Avvisi per lo SKU del gateway applicazione V1 (standard/WAF)
 

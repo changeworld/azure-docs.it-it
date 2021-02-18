@@ -2,19 +2,19 @@
 title: Procedure consigliate per il registro contenitori
 description: Informazioni su come usare Registro Azure Container in modo efficace seguendo queste procedure consigliate.
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: fc84fb8cb98f58e28570095370d55a7358ce3a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 01c8c7f547be9dd225022fb3315a4bdecc48c2bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83682693"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578139"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per Registro Azure Container
 
-Seguendo queste procedure consigliate, è possibile contribuire a sfruttare al massimo le prestazioni e la convenienza del Registro contenitori privato Docker in Azure.
+Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e l'uso conveniente del registro privato in Azure per archiviare e distribuire immagini del contenitore e altri artefatti.
 
-Vedere anche [Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md) per le strategie per l'assegnazione di tag e versioni delle immagini nel registro. 
+Per informazioni di base sui concetti del registro di sistema, vedere [informazioni su registri, repository e immagini](container-registry-concepts.md). Vedere anche [Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md) per le strategie per l'assegnazione di tag e versioni delle immagini nel registro. 
 
 ## <a name="network-close-deployment"></a>Distribuzione in reti vicine
 
@@ -25,13 +25,24 @@ In aggiunta, tutti i cloud pubblici, Azure incluso, implementano i corrispettivi
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Eseguire la replica geografica della distribuzione in più aree
 
-Usare la funzione [replica geografica](container-registry-geo-replication.md) di Registro Azure Container se si distribuiscono contenitori a più aree. Se si servono clienti globali da data center locali o il proprio team di sviluppo è in più posizioni, è possibile semplificare la gestione del registro e ridurre al minimo la latenza eseguendo la replica geografica del proprio registro. La replica geografica è disponibile solo con registri [Premium](container-registry-skus.md).
+Usare la funzione [replica geografica](container-registry-geo-replication.md) di Registro Azure Container se si distribuiscono contenitori a più aree. Se si servono clienti globali da data center locali o il proprio team di sviluppo è in più posizioni, è possibile semplificare la gestione del registro e ridurre al minimo la latenza eseguendo la replica geografica del proprio registro. È anche possibile configurare [webhook](container-registry-webhook.md) regionali per notificare gli eventi in repliche specifiche, ad esempio quando viene eseguito il push delle immagini.
 
-Per capire come usare la replica geografica, vedere il tutorial in tre parti [Preparare un'istanza di Registro Azure Container con replica geografica](container-registry-tutorial-prepare-registry.md).
+La replica geografica è disponibile con i registri [Premium](container-registry-skus.md) . Per capire come usare la replica geografica, vedere il tutorial in tre parti [Preparare un'istanza di Registro Azure Container con replica geografica](container-registry-tutorial-prepare-registry.md).
+
+## <a name="maximize-pull-performance"></a>Ottimizzare le prestazioni di pull
+
+Oltre a inserire immagini vicine alle distribuzioni, le caratteristiche delle immagini possono avere un effetto sulle prestazioni di pull.
+
+* **Dimensioni immagine** : ridurre le dimensioni delle immagini rimuovendo i [livelli](container-registry-concepts.md#manifest) non necessari o riducendo le dimensioni dei livelli. Un modo per ridurre le dimensioni dell'immagine consiste nell'usare l'approccio di [compilazione Docker](https://docs.docker.com/develop/develop-images/multistage-build/) a più fasi per includere solo i componenti di runtime necessari. 
+
+  Controllare anche se l'immagine può includere un'immagine del sistema operativo di base più chiara. Se si usa un ambiente di distribuzione, ad esempio istanze di contenitore di Azure in cui vengono memorizzate nella cache determinate immagini di base, controllare se è possibile scambiare un livello immagine per una delle immagini memorizzate nella cache. 
+* **Numero di livelli** : bilanciare il numero di livelli utilizzati. Se si dispone di un numero troppo basso di vantaggi, il riutilizzo dei livelli e la memorizzazione nella cache nell'host non sono sufficienti. Troppe e l'ambiente di distribuzione impiega più tempo per il pull e la decompressione. I livelli di cinque a 10 sono ottimali.
+
+Scegli anche un [livello di servizio](container-registry-skus.md) di container Registry di Azure che soddisfi le tue esigenze di prestazioni. Il livello Premium offre la massima larghezza di banda e la massima frequenza di operazioni simultanee di lettura e scrittura quando si dispone di distribuzioni con volumi elevati.
 
 ## <a name="repository-namespaces"></a>Spazi dei nomi dell'archivio
 
-Con l'uso di spazi dei nomi dell'archivio, è possibile consentire la condivisione di un singolo registro in più gruppi all'interno dell'organizzazione. I registri possono essere condivisi tra le distribuzioni e i team. Registro Azure Container supporta spazi dei nomi annidati, abilitando l'isolamento in gruppo.
+Utilizzando gli spazi dei nomi del repository, è possibile consentire la condivisione di un singolo registro tra più gruppi all'interno dell'organizzazione. I registri possono essere condivisi tra le distribuzioni e i team. Registro Azure Container supporta spazi dei nomi annidati, abilitando l'isolamento in gruppo. Tuttavia, il registro di sistema gestisce tutti i repository in modo indipendente, non come una gerarchia.
 
 Si considerino ad esempio i tag delle immagini del contenitore seguenti: Le immagini che vengono usate a livello aziendale, ad esempio `aspnetcore`, vengono inserite nello spazio dei nomi radice, mentre le immagini del contenitore di proprietà dei gruppi di Prodotti e di Marketing usano spazi dei nomi dedicati.
 
@@ -44,22 +55,24 @@ Si considerino ad esempio i tag delle immagini del contenitore seguenti: Le imma
 
 Poiché i registri contenitori sono risorse usate in più host contenitori, un registro deve trovarsi nel relativo gruppo di risorse.
 
-Anche se è possibile provare con un tipo di host specifico, come le Istanze di Azure Container, probabilmente al termine si vorrà eliminare l'istanza del contenitore. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
+Sebbene sia possibile sperimentare un tipo di host specifico, ad esempio [istanze di contenitore di Azure](../container-instances/container-instances-overview.md), è probabile che si voglia eliminare l'istanza del contenitore al termine dell'operazione. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 
 Quando si esegue l'autenticazione con Registro Azure Container, esistono due scenari principali: autenticazione singola e autenticazione di servizio (o "headless"). La tabella seguente fornisce una breve panoramica di questi scenari e il metodo di autenticazione consigliato per ognuno.
 
 | Type | Scenario di esempio | Metodo consigliato |
 |---|---|---|
-| Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
+| Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr#az-acr-login) |
 | Identità headless/del servizio | Pipeline di compilazione e distribuzione in cui l'utente non è direttamente coinvolto. | [Entità servizio](container-registry-authentication.md#service-principal) |
 
-Per informazioni dettagliate sull'autenticazione a Registro Azure Container, vedere [Eseguire l'autenticazione con un registro contenitori Docker privato](container-registry-authentication.md).
+Per informazioni approfondite su questi e altri scenari di autenticazione di Azure Container Registry, vedere eseguire l'autenticazione [con un registro contenitori di Azure](container-registry-authentication.md).
 
-## <a name="manage-registry-size"></a>Gestire le dimensioni del registro
+Azure Container Registry supporta le procedure di sicurezza dell'organizzazione per la distribuzione di mansioni e privilegi a identità diverse. Utilizzando il [controllo degli accessi in base al ruolo](container-registry-roles.md), assegnare le autorizzazioni appropriate a utenti diversi, entità servizio o altre identità che eseguono diverse operazioni del registro di sistema. Ad esempio, assegnare le autorizzazioni push a un'entità servizio usata in una pipeline di compilazione e assegnare le autorizzazioni pull a un'identità diversa utilizzata per la distribuzione. Creare [token](container-registry-repository-scoped-permissions.md) per un accesso con granularità fine e limitato al tempo a repository specifici.
 
-I vincoli di archiviazione di ogni [livello di servizio del registro contenitori][container-registry-skus] devono allinearsi a uno scenario tipico: **Basic** per operazioni preliminari, **Standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
+## <a name="manage-registry-size"></a>Gestire le dimensioni del registro      
+
+I vincoli di archiviazione di [ogni livello di servizio del registro contenitori][container-registry-skus] hanno lo scopo di allinearsi con uno scenario tipico: **Basic** per iniziare, **standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e la [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
 
 Usare il comando dell'interfaccia della riga di comando di Azure [az acr show-usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro:
 
@@ -86,7 +99,9 @@ Per informazioni dettagliate sull'eliminazione dei dati di immagini dal registro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Registro Azure Container è disponibile in più livelli, chiamati anche SKU, ognuno dei quali fornisce funzionalità diverse. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [Livelli di servizio del Registro Azure Container](container-registry-skus.md).
+Azure Container Registry è disponibile in diversi livelli, denominati anche SKU, che offrono funzionalità diverse. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [Livelli di servizio del Registro Azure Container](container-registry-skus.md).
+
+Per consigli per migliorare il comportamento di sicurezza dei registri contenitori, vedere [Baseline Security di Azure per azure container Registry](security-baseline.md).
 
 <!-- IMAGES -->
 [delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png
