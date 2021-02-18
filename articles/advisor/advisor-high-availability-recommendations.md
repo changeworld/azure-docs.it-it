@@ -3,12 +3,12 @@ title: Migliorare l'affidabilità dell'applicazione con Advisor
 description: USA Azure Advisor per garantire e migliorare l'affidabilità nelle tue distribuzioni di Azure cruciali per l'azienda.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078035"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579976"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Migliorare l'affidabilità dell'applicazione usando Azure Advisor
 
@@ -68,7 +68,7 @@ Per garantire la ridondanza per l'applicazione, è consigliabile raggruppare due
 
 ## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Verificare la tolleranza di errore del set di disponibilità (disabilitata temporaneamente)
 
-Per garantire la ridondanza per l'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Advisor identifica i set di disponibilità che contengono una singola macchina virtuale e consiglia di aggiungere una o più macchine virtuali.Questa configurazione garantisce che, durante la manutenzione pianificata o non pianificata, sia disponibile almeno una macchina virtuale che soddisfi il contratto di contratto con la macchina virtuale di Azure.È possibile scegliere di creare una macchina virtuale o di aggiungerne una esistente al set di disponibilità.  
+Per garantire la ridondanza per l'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Advisor identifica i set di disponibilità che contengono una singola macchina virtuale e consiglia di aggiungere una o più macchine virtuali. Questa configurazione garantisce che, durante la manutenzione pianificata o non pianificata, sia disponibile almeno una macchina virtuale che soddisfi il contratto di contratto con la macchina virtuale di Azure. È possibile scegliere di creare una macchina virtuale o di aggiungerne una esistente al set di disponibilità.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Usare Managed disks per migliorare l'affidabilità dei dati (temporaneamente disabilitato)
 
@@ -76,7 +76,7 @@ Le macchine virtuali che si trovano in un set di disponibilità con dischi che c
 
 ## <a name="repair-invalid-log-alert-rules"></a>Ripristinare le regole di avviso del log non valide
 
-Azure Advisor rileva le regole di avviso del log con query non valide specificate nella relativa sezione di condizione. Le regole di avviso del log di monitoraggio di Azure eseguono query con frequenza specificata e generano avvisi in base ai risultati. Le query possono diventare non valide nel tempo a causa di modifiche apportate alle risorse, alle tabelle o ai comandi a cui si fa riferimento. Advisor consiglia di correggere le query di avviso per impedire che le regole vengano disabilitate automaticamente e garantire il monitoraggio del code coverage. Per ulteriori informazioni, vedere [risoluzione dei problemi relativi alle regole di avviso](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
+Azure Advisor rileva le regole di avviso del log con query non valide specificate nella relativa sezione di condizione. Le regole di avviso del log di monitoraggio di Azure eseguono query con frequenza specificata e generano avvisi in base ai risultati. Le query possono diventare non valide nel tempo a causa di modifiche apportate alle risorse, alle tabelle o ai comandi a cui si fa riferimento. Advisor consiglia di correggere le query di avviso per impedire che le regole vengano disabilitate automaticamente e garantire il monitoraggio del code coverage. Per ulteriori informazioni, vedere [risoluzione dei problemi relativi alle regole di avviso](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurare la modalità di indicizzazione coerente nella raccolta di Azure Cosmos DB
 

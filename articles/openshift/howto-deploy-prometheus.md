@@ -3,16 +3,16 @@ title: Distribuire un'istanza di Prometeo nel cluster Azure Red Hat OpenShift
 description: Creare un'istanza di Prometeo in un cluster Azure Red Hat OpenShift per monitorare le metriche dell'applicazione.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometeo, Aro, OpenShift, metriche, Red Hat
-ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 974096e515401ab5e292dbad4c9beba7f1611a8a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996849"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633445"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuire un'istanza di Prometeo autonoma in un cluster Azure Red Hat OpenShift
 
@@ -206,7 +206,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Le nuove applicazioni dovrebbero essere visualizzate come destinazioni valide nella pagina Individuazione servizio entro 30 secondi dopo la distribuzione.
 
-Per altri dettagli, selezionare **Status**  >  **destinazioni** di stato.
+Per altri dettagli, selezionare   >  **destinazioni** di stato.
 
 > [!NOTE]
 > Per ogni destinazione ricavata correttamente, Prometeo aggiunge un punto dati nella metrica in alto. Selezionare **Prometheus** nell'angolo superiore sinistro **, immettere come** espressione, quindi selezionare **Execute (Esegui**).

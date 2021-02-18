@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c55e2d2d9eaeae441e8a7505d0f391ed0860cedf
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735512"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634194"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -204,7 +204,7 @@ Per altri dettagli, vedere comando [AZ SQL mi Update](/cli/azure/sql/mi#az-sql-m
 
 L'hardware Gen4 viene eliminato e non è più disponibile per [le](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) nuove distribuzioni. Tutti i nuovi database devono essere distribuiti nell'hardware quinta generazione.
 
-Quinta generazione è disponibile nella maggior parte delle aree del mondo.
+Quinta generazione è disponibile in tutte le aree pubbliche in tutto il mondo.
 
 #### <a name="fsv2-series"></a>Serie Fsv2
 
