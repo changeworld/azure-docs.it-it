@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499935"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592465"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
 
@@ -23,9 +23,9 @@ La registrazione diagnostica viene abilitata tramite l'integrazione con [monitor
 
 Quando si configura la registrazione diagnostica, verrà richiesto di specificare un meccanismo di archiviazione. Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazione dei dati.
 
-| Risorsa | Utilizzo |
+| Risorsa | Usato per |
 |----------|----------|
-| [Inviare all'area di lavoro Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](../azure-monitor/log-query/log-analytics-tutorial.md) |
+| [Inviare all'area di lavoro Log Analytics](../azure-monitor/essentials/tutorial-resource-logs.md) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](../azure-monitor/logs/log-analytics-tutorial.md) |
 | [Archivia con archiviazione BLOB](../storage/blobs/storage-blobs-overview.md) | Gli eventi e le metriche vengono archiviati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log non elaborato o Power BI per aggregare e visualizzare i dati di log.|
 | [Flusso a hub eventi](../event-hubs/index.yml) | Gli eventi e le metriche vengono trasmessi a un servizio Hub eventi di Azure. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
@@ -33,7 +33,7 @@ Quando si configura la registrazione diagnostica, verrà richiesto di specificar
 
 Creare le risorse in anticipo in modo che sia possibile selezionarne una o più durante la configurazione della registrazione diagnostica.
 
-+ [Creare un'area di lavoro di log Analytics](../azure-monitor/learn/quick-create-workspace.md)
++ [Creare un'area di lavoro di log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Creare un account di archiviazione](../storage/common/storage-account-create.md)
 

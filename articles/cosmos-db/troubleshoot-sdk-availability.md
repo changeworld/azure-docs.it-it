@@ -8,12 +8,12 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559691"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650984"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticare e risolvere i problemi relativi alla disponibilità di Azure Cosmos SDK in ambienti multiarea
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,17 @@ Se **non si imposta un'area preferita**, l'impostazione predefinita del client S
 | Più aree di scrittura | Area primaria  | Area primaria  |
 
 > [!NOTE]
-> L'area primaria si riferisce alla prima area nell' [elenco delle aree dell'account Azure Cosmos](distribute-data-globally.md)
+> L'area primaria si riferisce alla prima area nell' [elenco dell'area dell'account Azure Cosmos](distribute-data-globally.md).
+> Se i valori specificati come preferenza a livello di area non corrispondono alle aree di Azure esistenti, verranno ignorati. Se corrispondono a un'area esistente ma l'account non viene replicato, il client si connetterà alla successiva area preferita che corrisponde o all'area primaria.
+
+> [!WARNING]
+> La disabilitazione della nuova individuazione dell'endpoint (che lo imposta su false) nella configurazione client comporterà la disabilitazione di tutti i failover e la logica di disponibilità descritti in questo documento.
+> È possibile accedere a questa configurazione con i parametri seguenti in ogni Azure Cosmos SDK:
+>
+> * Proprietà [ConnectionPolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) in .NET v2 SDK.
+> * Metodo [CosmosClientBuilder. endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) in Java v4 SDK.
+> * Il parametro [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) in Python SDK.
+> * Il parametro [CosmosClientOptions. ConnectionPolicy. enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) in JS SDK.
 
 In circostanze normali, il client SDK si connetterà all'area preferita (se è impostata una preferenza a livello di area) o all'area primaria (se non è impostata alcuna preferenza) e le operazioni saranno limitate a tale area, a meno che non si verifichi uno degli scenari seguenti.
 
@@ -59,7 +69,7 @@ Per informazioni dettagliate sulle garanzie dei contratti di contratto durante q
 
 ## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>Rimozione di un'area dall'account
 
-Quando si rimuove un'area da un account Azure Cosmos, qualsiasi client SDK che usa attivamente l'account rileverà la rimozione dell'area tramite un codice di risposta back-end. Il client contrassegna quindi l'endpoint a livello di area come non disponibile. Il client ritenta l'operazione corrente e tutte le operazioni future vengono indirizzate in modo permanente all'area successiva in ordine di preferenza.
+Quando si rimuove un'area da un account Azure Cosmos, qualsiasi client SDK che usa attivamente l'account rileverà la rimozione dell'area tramite un codice di risposta back-end. Il client contrassegna quindi l'endpoint a livello di area come non disponibile. Il client ritenta l'operazione corrente e tutte le operazioni future vengono indirizzate in modo permanente all'area successiva in ordine di preferenza. Nel caso in cui l'elenco di preferenze includa una sola voce (o fosse vuota) ma l'account dispone di altre aree disponibili, viene indirizzato all'area successiva nell'elenco account.
 
 ## <a name="adding-a-region-to-an-account"></a>Aggiunta di un'area a un account
 

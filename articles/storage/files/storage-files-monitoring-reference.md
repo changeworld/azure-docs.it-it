@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592324"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio File di Azure
 
@@ -36,7 +36,7 @@ File di Azure fornisce le metriche di capacità seguenti in monitoraggio di Azur
 
 #### <a name="azure-files"></a>File di Azure
 
-Questa tabella mostra [file di Azure metrica](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+Questa tabella mostra [file di Azure metrica](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
@@ -88,4 +88,4 @@ La tabella seguente elenca le proprietà dei log delle risorse di Archiviazione 
 ## <a name="see-also"></a>Vedi anche
 
 - Per una descrizione del monitoraggio di archiviazione di Azure, vedere [file di Azure di monitoraggio](storage-files-monitoring-reference.md) .
-- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md).
+- Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../../azure-monitor/essentials/monitor-azure-resource.md).

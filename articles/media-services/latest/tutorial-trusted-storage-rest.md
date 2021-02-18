@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
-ms.openlocfilehash: b20da64c135f7e54a7f6bc74beea073140a1e0a9
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101725"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590651"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>Esercitazione: archiviazione attendibile di servizi multimediali
 
@@ -23,6 +23,9 @@ In questa esercitazione si apprenderà come:
 > - Come concedere ai servizi di Azure l'accesso a un account di archiviazione quando si usa il controllo di accesso alla rete, ad esempio un firewall o una VPN
 
 Con l'API 2020-05-01 è possibile abilitare l'archiviazione attendibile associando un'identità gestita a un account di servizi multimediali.
+
+>[!NOTE]
+>L'archiviazione attendibile è disponibile solo nell'API e non è attualmente abilitata nel portale di Azure.
 
 Servizi multimediali può accedere automaticamente all'account di archiviazione usando l'autenticazione di sistema. Servizi multimediali verifica che l'account di servizi multimediali e l'account di archiviazione si trovino nella stessa sottoscrizione. Verifica inoltre che l'utente che aggiunge l'associazione abbia accesso all'account di archiviazione con Azure Resource Manager RBAC.
 

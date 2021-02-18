@@ -2,17 +2,17 @@
 title: Concetti-aggiornamenti e aggiornamenti del cloud privato
 description: Informazioni sui processi e le funzionalità di aggiornamento principali della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 02/16/2021
+ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006702"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634993"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Aggiornamenti e aggiornamenti del cloud privato della soluzione VMware di Azure
 
-Uno dei principali vantaggi dei cloud privati della soluzione VMware di Azure è che la piattaforma viene mantenuta per l'utente. La manutenzione della piattaforma include aggiornamenti automatici a un bundle software VMware convalidato, che consente di assicurarsi di usare la versione più recente del software di cloud privato della soluzione VMware di Azure convalidata.
+Un vantaggio dei cloud privati della soluzione VMware di Azure è la piattaforma gestita. La manutenzione include aggiornamenti automatici a un bundle software VMware convalidato per garantire l'uso della versione più recente del software cloud privato della soluzione VMware di Azure.
 
 In particolare, un cloud privato della soluzione VMware di Azure include:
 
@@ -22,7 +22,7 @@ In particolare, un cloud privato della soluzione VMware di Azure include:
 - Archivio dati VMware rete VSAN per macchine virtuali con carico di lavoro vSphere  
 - HCX VMware per la mobilità del carico di lavoro  
 
-Oltre a questi componenti, una cloud privata della soluzione VMware di Azure include risorse nel sottoinsieme di Azure necessario per la connettività e per il funzionamento del cloud privato. La soluzione VMware di Azure monitora costantemente l'integrità dei componenti sottoposto e VMware. Quando la soluzione VMware di Azure rileva un errore, viene eseguita un'azione per ripristinare i componenti non riusciti. 
+Un cloud privato della soluzione VMware di Azure include anche risorse nel sottoposto di Azure necessario per la connettività e per il funzionamento del cloud privato. La soluzione VMware di Azure monitora costantemente l'integrità dei componenti sottoposto e VMware. Quando la soluzione VMware di Azure rileva un errore, viene eseguita un'azione per ripristinare i componenti non riusciti. 
 
 ## <a name="what-components-get-updated"></a>Quali componenti vengono aggiornati?   
 
@@ -46,12 +46,12 @@ Si riceverà una notifica prima e dopo l'applicazione delle patch ai cloud priva
 
 ## <a name="vmware-appliance-backup"></a>Backup di appliance VMware 
 
-Oltre a eseguire aggiornamenti, la soluzione VMware di Azure esegue un backup della configurazione di questi componenti VMware:
+La soluzione VMware di Azure esegue anche un backup della configurazione dei componenti VMware seguenti:
 
 - Server vCenter 
 - Gestione NSX-T 
 
-In momenti di errore, la soluzione VMware di Azure può ripristinarli dal backup della configurazione. 
+In momenti di errore, la soluzione VMware di Azure può ripristinare questi componenti dal backup della configurazione. 
 
 Per ulteriori informazioni sulle versioni del software VMware, vedere l'articolo relativo al [concetto di cloud e cluster privati](concepts-private-clouds-clusters.md) e le [domande frequenti](faq.yml).
 

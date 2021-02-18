@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 833e2f7808b4b8efa210bc6a903ed30fe9ac53e0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5eb0c7d72896cc9a27907743b1b9c3d5a40614dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222575"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592869"
 ---
 # <a name="query-update-management-logs"></a>Eseguire query sui log di Gestione aggiornamenti
 
@@ -195,7 +195,7 @@ In un computer Windows la connettività degli agenti con i log di Monitoraggio d
 
 1. Aprire il registro eventi di Windows. Passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del **connettore del servizio** di origine. Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro Log Analytics e sta ricevendo la configurazione.
 
-Se l'agente non è in grado di comunicare con i log di Monitoraggio di Azure ed è configurato in modo da comunicare con Internet attraverso un firewall o un server proxy, verificare che il firewall o il server proxy sia configurato correttamente. Per sapere come verificare se il firewall o il server proxy è configurato correttamente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../../azure-monitor/platform/agent-windows.md) oppure [Raccogliere dati dal computer Linux ospitato nell'ambiente in uso](../../azure-monitor/learn/quick-collect-linux-computer.md).
+Se l'agente non è in grado di comunicare con i log di Monitoraggio di Azure ed è configurato in modo da comunicare con Internet attraverso un firewall o un server proxy, verificare che il firewall o il server proxy sia configurato correttamente. Per sapere come verificare se il firewall o il server proxy è configurato correttamente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../../azure-monitor/agents/agent-windows.md) oppure [Raccogliere dati dal computer Linux ospitato nell'ambiente in uso](../../azure-monitor/vm/quick-collect-linux-computer.md).
 
 > [!NOTE]
 > Se i sistemi Linux sono configurati per la comunicazione con un proxy o il gateway di Log Analytics e si sta abilitando Gestione aggiornamenti, aggiornare le autorizzazioni `proxy.conf` per concedere al gruppo omiuser le necessarie autorizzazioni di lettura per il file usando i comandi seguenti:
@@ -205,7 +205,7 @@ Se l'agente non è in grado di comunicare con i log di Monitoraggio di Azure ed 
 
 Gli agenti Linux appena aggiunti visualizzano lo stato **Aggiornato** dopo l'esecuzione di una valutazione. Il processo può richiedere fino a 6 ore.
 
-Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di Monitoraggio di Azure, vedere [Convalidare l'integrazione di Operations Manager con i log di Monitoraggio di Azure](../../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+Per verificare che un gruppo di gestione di Operations Manager comunichi con i log di Monitoraggio di Azure, vedere [Convalidare l'integrazione di Operations Manager con i log di Monitoraggio di Azure](../../azure-monitor/agents/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Singole query di valutazione delle macchine virtuali di Azure (Windows)
 
@@ -410,5 +410,5 @@ Update
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni dettagliate sui log di Monitoraggio di Azure, vedere [log di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+* Per informazioni dettagliate sui log di Monitoraggio di Azure, vedere [log di Monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md).
 * Per informazioni sugli avvisi, vedere [Configurare gli avvisi](configure-alerts.md).

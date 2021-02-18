@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 17ea6716f090144e8dfef16721bfb69dc23e9912
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220389"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589331"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Risolvere i problemi relativi alle prestazioni del database SQL di Azure e di Azure SQL Istanza gestita con Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e del Istanza gestita SQL di Azure rilevati tramite il log delle risorse [Intelligent Insights](intelligent-insights-overview.md) . Le metriche e i log delle risorse possono essere trasmessi a [log di monitoraggio di Azure](../../azure-monitor/insights/azure-sql.md), [Hub eventi](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)di Azure, [archiviazione di Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
+Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e del Istanza gestita SQL di Azure rilevati tramite il log delle risorse [Intelligent Insights](intelligent-insights-overview.md) . Le metriche e i log delle risorse possono essere trasmessi a [log di monitoraggio di Azure](../../azure-monitor/insights/azure-sql.md), [Hub eventi](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)di Azure, [archiviazione di Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
 
 > [!NOTE]
 > Per una guida rapida alla risoluzione dei problemi relativi alle prestazioni con Intelligent Insights, vedere il diagramma di flusso per la [risoluzione dei problemi consigliato](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) in questo documento.
@@ -335,4 +335,4 @@ Intelligent Insights in genere ha bisogno di un'ora di tempo per eseguire l'anal
 - Informazioni [Intelligent Insights](intelligent-insights-overview.md) concetti.
 - Utilizzare il [log di diagnostica delle prestazioni Intelligent Insights](intelligent-insights-use-diagnostics-log.md).
 - Monitoraggio con [analisi SQL di Azure](../../azure-monitor/insights/azure-sql.md).
-- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../../azure-monitor/essentials/platform-logs-overview.md).

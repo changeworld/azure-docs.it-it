@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554728"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650933"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -109,4 +109,4 @@ Si noti che in scenari di gruppo viene usato un flusso audio misto per supportar
 Per altre informazioni, vedere gli articoli seguenti:
 - Acquisire familiarità con i [flussi di chiamate](../call-flows.md) generali 
 - Informazioni sui [tipi di chiamate](../voice-video-calling/about-call-types.md)
-- [Pianificare la soluzione PSTN](../telephony-sms/plan-solution.md)
+- Informazioni sui [tipi di numero di telefono](../telephony-sms/plan-solution.md)
