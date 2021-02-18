@@ -4,12 +4,12 @@ description: Configurare i test Web in Application Insights. Ottenere avvisi se 
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937419"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585945"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorare la disponibilità di qualsiasi sito Web
 
@@ -151,7 +151,7 @@ Fare clic sulla riga dell'eccezione per visualizzare i dettagli dell'eccezione l
 
 ![Diagnostica lato server](./media/monitor-web-app-availability/open-instance-4.png)
 
-Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche di disponibilità chiave in [Esplora metriche](../platform/metrics-getting-started.md):
+Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche di disponibilità chiave in [Esplora metriche](../essentials/metrics-getting-started.md):
 
 1. Disponibilità: percentuale dei test riusciti rispetto a tutte le esecuzioni di test.
 2. Durata test: durata media dei test rispetto a tutte le esecuzioni di test.
@@ -159,7 +159,7 @@ Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche d
 ## <a name="automation"></a>Automazione
 
 * [Usare script di PowerShell per configurare un test di disponibilità](./powershell.md#add-an-availability-test) automaticamente.
-* Configurare un [webhook](../platform/alerts-webhooks.md) che verrà chiamato quando viene generato un avviso.
+* Configurare un [webhook](../alerts/alerts-webhooks.md) che verrà chiamato quando viene generato un avviso.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

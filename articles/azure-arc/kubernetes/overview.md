@@ -2,36 +2,46 @@
 title: Panoramica di Kubernetes con abilitazione di Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: Questo articolo offre una panoramica di Kubernetes con abilitazione di per Azure Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
 ms.custom: references_regions
-ms.openlocfilehash: 54b439d73ed5dfb0709d33dea1f588b8bdf4489f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3d96c8c8764db89501da6fb9c498f0a3d20461af
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560266"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652531"
 ---
-# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Che cos'è Kubernetes con abilitazione di Azure Arc (anteprima)?
+# <a name="what-is-azure-arc-enabled-kubernetes"></a>Che cos'è Kubernetes con abilitazione di Azure Arc?
 
-È possibile collegare e configurare cluster Kubernetes all'interno o all'esterno di Azure con Kubernetes con abilitazione di Azure Arc (anteprima). Quando un cluster Kubernetes viene collegato ad Azure Arc, viene visualizzato nel portale di Azure. Avrà un ID Azure Resource Manager e un'identità gestita. I cluster sono collegati alle sottoscrizioni standard di Azure, si trovano in un gruppo di risorse e possono ricevere tag esattamente come qualsiasi altra risorsa di Azure. 
+Con Azure Arc abilitato Kubernetes, è possibile associare e configurare cluster Kubernetes che si trovano all'interno o all'esterno di Azure. Quando si connette un cluster Kubernetes ad Azure Arc, viene:
+* Vengono visualizzati nel portale di Azure con un ID Azure Resource Manager e un'identità gestita. 
+* Essere collegato alle sottoscrizioni standard di Azure.
+* Essere posizionati in un gruppo di risorse.
+* Ricevere i tag come qualsiasi altra risorsa di Azure. 
 
-Per connettere un cluster Kubernetes ad Azure, l'amministratore del cluster deve distribuire gli agenti. Questi agenti vengono eseguiti in uno spazio dei nomi Kubernetes denominato `azure-arc` e sono distribuzioni Kubernetes standard. Gli agenti sono responsabili della connettività ad Azure, della raccolta di metriche e dei log di Azure Arc e del controllo delle richieste di configurazione. 
+Per connettere un cluster Kubernetes ad Azure, l'amministratore del cluster deve distribuire gli agenti. Questi agenti:
+* Eseguire nello `azure-arc` spazio dei nomi Kubernetes come distribuzioni Kubernetes standard.
+* Gestire la connettività ad Azure.
+* Raccolta di metriche e log di Azure Arc.
+* Controllare le richieste di configurazione. 
 
-Kubernetes con abilitazione di Azure Arc supporta il protocollo SSL standard di settore per proteggere i dati in transito. Inoltre, i dati vengono archiviati crittografati quando sono inattivi in un database di Azure Cosmos DB per garantirne la riservatezza.
+Kubernetes con abilitazione di Azure Arc supporta il protocollo SSL standard di settore per proteggere i dati in transito. Questi dati vengono archiviati crittografati e inattivi in un database di Azure Cosmos DB per garantire la riservatezza dei dati.
  
-> [!NOTE]
-> Kubernetes con abilitazione di Azure Arc è in versione di anteprima. Non è consigliabile usarlo per carichi di lavoro di produzione.
-
 ## <a name="supported-kubernetes-distributions"></a>Distribuzioni di Kubernetes supportate
 
-Kubernetes con abilitazione di Azure Arc è compatibile con qualsiasi cluster Kubernetes con certificazione CNCF (Cloud Native Computing Foundation), ad esempio il motore del servizio Azure Kubernetes in Azure, il motore del servizio Azure Kubernetes nell'hub di Azure Stack, GKE, EKS e il cluster VMware vSphere.
+Azure Arc Enabled Kubernetes funziona con qualsiasi cluster Kubernetes certificato CNCF (cloud native Computing Foundation), ad esempio:
+* Motore AKS in Azure
+* AKS-motore nell'hub Azure Stack
+* GKE
+* EKS
+* VMware vSphere
 
-Le funzionalità di Kubernetes con abilitazione di Azure Arc sono state testate dal team Arc sulle distribuzioni seguenti:
+Le funzionalità Kubernetes di Azure Arc abilitate sono state testate dal team Arc sulle distribuzioni seguenti:
 * RedHat OpenShift 4.3
 * Rancher RKE 1.0.8
 * Canonical Charmed Kubernetes 1.18
@@ -42,15 +52,15 @@ Le funzionalità di Kubernetes con abilitazione di Azure Arc sono state testate 
 
 ## <a name="supported-scenarios"></a>Scenari supportati 
 
-Kubernetes con abilitazione di Azure Arc supporta questi scenari: 
+Kubernetes con abilitazione di Azure Arc supporta gli scenari seguenti: 
 
 * Connessione di Kubernetes in esecuzione all'esterno di Azure per l'inventario, il raggruppamento e l'assegnazione di tag.
 
-* Distribuzione di applicazioni e applicazione della configurazione tramite la gestione della configurazione basata su GitOps. 
+* Distribuire le applicazioni e applicare la configurazione tramite la gestione della configurazione basata su GitOps. 
 
-* Uso di Monitoraggio di Azure per i contenitori per visualizzare e monitorare i cluster. 
+* Visualizza e monitora i cluster con monitoraggio di Azure per i contenitori. 
 
-* Applicazione dei criteri tramite Criteri di Azure per Kubernetes. 
+* Applicare criteri usando criteri di Azure per Kubernetes. 
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

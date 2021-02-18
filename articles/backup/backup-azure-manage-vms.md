@@ -3,12 +3,12 @@ title: Gestire e monitorare i backup delle macchine virtuali di Azure
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96002911"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635078"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -97,7 +97,7 @@ Per gestire i criteri di backup:
 * Il periodo di mantenimento dati per un backup su richiesta è il valore di conservazione specificato quando si attiva il backup.
 
 > [!NOTE]
-> Il servizio backup di Azure supporta fino a nove backup su richiesta al giorno, ma Microsoft consiglia di non avere più di quattro backup su richiesta giornalieri per garantire prestazioni ottimali.
+> Il servizio backup di Azure supporta fino a tre backup su richiesta al giorno e un ulteriore backup pianificato.
 
 Per attivare un backup su richiesta:
 

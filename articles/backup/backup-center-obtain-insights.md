@@ -3,16 +3,16 @@ title: Ottenere informazioni dettagliate con backup Center
 description: Informazioni su come analizzare le tendenze cronologiche e ottenere informazioni più dettagliate sui backup con il centro di backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893694"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592014"
 ---
 # <a name="obtain-insights-using-backup-center-preview"></a>Ottenere informazioni dettagliate usando il centro di backup (anteprima)
 
-Per analizzare le tendenze cronologiche e ottenere informazioni più approfondite sui backup, Backup Center fornisce un'interfaccia per i report di [backup (anteprima)](configure-reports.md), che usa i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md) e le [cartelle di lavoro di Azure](../azure-monitor/platform/workbooks-overview.md). I report di backup offrono le funzionalità seguenti:
+Per analizzare le tendenze cronologiche e ottenere informazioni più approfondite sui backup, Backup Center fornisce un'interfaccia per i report di [backup (anteprima)](configure-reports.md), che usa i [log di monitoraggio di Azure](../azure-monitor/logs/data-platform-logs.md) e le [cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md). I report di backup offrono le funzionalità seguenti:
 
 - Allocazione e previsione dello spazio di archiviazione cloud utilizzato.
 

@@ -3,15 +3,16 @@ title: Pool di host di Desktop virtuale Windows nel portale di Azure - Azure
 description: Come creare un pool di host di Desktop virtuale Windows tramite il portale di Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735182"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651460"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -67,6 +68,9 @@ Per iniziare a creare il nuovo pool di host:
 
      > [!div class="mx-imgBorder"]
      > ![Screenshot del portale di Azure che mostra il campo Località con la località Stati Uniti orientali selezionata. Accanto al campo viene visualizzato il testo "I metadati saranno archiviati in Stati Uniti orientali".](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Se si vuole creare il pool host in [un'area supportata](data-locations.md) al di fuori degli Stati Uniti, è necessario registrare nuovamente il provider di risorse. Dopo la nuova registrazione, verranno visualizzate le altre aree nell'elenco a discesa per selezionare il percorso. Per informazioni su come ripetere la registrazione, vedere l'articolo sulla risoluzione dei problemi di [creazione del pool host](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) .
 
 8. In Tipo di pool di host selezionare se il pool di host sarà **Personale** o **In pool**.
 

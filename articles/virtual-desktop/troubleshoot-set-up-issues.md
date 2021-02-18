@@ -3,15 +3,16 @@ title: Creazione del pool host dell'ambiente desktop virtuale Windows-Azure
 description: Come risolvere i problemi e risolvere i problemi relativi ai pool di tenant e host durante l'installazione di un ambiente desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539636"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652446"
 ---
 # <a name="host-pool-creation"></a>Creazione di pool di host
 
@@ -49,9 +50,21 @@ Se l'operazione supera il limite di quota, è possibile eseguire una delle opera
 
 ### <a name="error-cant-see-user-assignments-in-app-groups"></a>Errore: non è possibile visualizzare le assegnazioni utente nei gruppi di app.
 
-Motivo: questo errore si verifica in genere dopo lo spostamento della sottoscrizione da 1 tenant Azure Active Directory (AD) a un altro. Se le assegnazioni precedenti sono ancora legate al tenant Azure AD precedente, il portale di Azure ne rileverà la perdita.
+**Motivo**: questo errore si verifica in genere dopo lo spostamento della sottoscrizione da 1 tenant Azure Active Directory (ad) a un altro. Se le assegnazioni precedenti sono ancora legate al tenant Azure AD precedente, il portale di Azure ne rileverà la perdita.
 
-Correzione: è necessario riassegnare gli utenti ai gruppi di app.
+**Correzione**: è necessario riassegnare gli utenti ai gruppi di app.
+
+### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Viene visualizzato solo quando si imposta il percorso per gli oggetti servizio
+
+**Motivo**: Azure attualmente non supporta l'area per il servizio desktop virtuale di Windows. Per informazioni sulle aree geografiche supportate, vedere la pagina relativa alle [posizioni dei dati](data-locations.md). Se il desktop virtuale Windows supporta la località ma non viene ancora visualizzato quando si cerca di selezionare una località, significa che il provider di risorse non è ancora stato aggiornato.
+
+**Correzione**: per ottenere l'elenco più recente delle aree, registrare di nuovo il provider di risorse:
+
+1. Passare a **sottoscrizioni** e selezionare la sottoscrizione pertinente.
+2. Selezionare **provider di risorse**.
+3. Selezionare **Microsoft. DesktopVirtualization**, quindi selezionare **Re-Register** dal menu azione.
+
+Quando si registra di nuovo il provider di risorse, non verrà visualizzato alcun feedback specifico dell'interfaccia utente o stato di aggiornamento. Anche il processo di ripetizione della registrazione non interferisce con gli ambienti esistenti.
 
 ## <a name="azure-resource-manager-template-errors"></a>Errori del modello di Azure Resource Manager
 

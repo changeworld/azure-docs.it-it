@@ -4,26 +4,37 @@ description: Come usare Java Message Service (JMS) con il bus di servizio di Azu
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8363011187a4c2ef77681ece4bb8b1de73ec7a63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7e4bf0ad69b6cd183296a7245ad3f720ced76c5
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87801490"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652608"
 ---
-# <a name="use-java-message-service-20-api-with-azure-service-bus-premium-preview"></a>Usare l'API del servizio messaggi Java 2,0 con il bus di servizio Premium di Azure (anteprima)
+# <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Usare l'API Java Message Service 2,0 con Azure Service Bus Premium
 
 Questo articolo illustra come usare la nota API **2,0 di Java Message Service (JMS)** per interagire con il bus di servizio di Azure tramite il protocollo Advanced Message Queueing Protocol (AMQP 1,0).
 
 > [!NOTE]
-> Il supporto per Java Message Service (JMS) 2,0 API è disponibile solo nel **livello Premium del bus di servizio di Azure** ed è attualmente in fase di **Anteprima**.
+> Il supporto per Java Message Service (JMS) 2,0 API è disponibile solo nel **livello Premium del bus di servizio di Azure**.
 >
 
-## <a name="get-started-with-service-bus"></a>Introduzione al bus di servizio
+## <a name="pre-requisites"></a>Prerequisiti
+
+### <a name="get-started-with-service-bus"></a>Introduzione al bus di servizio
 
 Questa guida presuppone che sia già presente uno spazio dei nomi del bus di servizio. In caso contrario, è possibile [creare lo spazio dei nomi e la coda](service-bus-create-namespace-portal.md) usando il [portale di Azure](https://portal.azure.com). 
 
 Per altre informazioni su come creare gli spazi dei nomi e le code del bus di servizio, vedere [Introduzione alle code del bus di servizio tramite il portale di Azure](service-bus-quickstart-portal.md).
+
+### <a name="set-up-a-java-development-environment"></a>Configurare un ambiente di sviluppo Java
+
+Per sviluppare applicazioni Java, è necessario configurare l'ambiente di sviluppo appropriato. 
+   * È installato JDK (Java Development Kit) o JRE (Java Runtime Environment).
+   * Il pacchetto JDK o JRE viene aggiunto al percorso di compilazione e alle variabili di sistema appropriate.
+   * Viene installato un IDE Java per usare JDK o JRE. Ad esempio, Eclipse o IntelliJ.
+
+Per altre informazioni su come preparare l'ambiente di sviluppo per Java in Azure, usare [questa guida](https://docs.microsoft.com/azure/developer/java/fundamentals/).
 
 ## <a name="what-jms-features-are-supported"></a>Quali funzionalità JMS sono supportate?
 
@@ -72,11 +83,19 @@ Per connettersi al bus di servizio di Azure con client JMS, è necessaria la **s
     JMSContext jmsContext = factory.createContext();
     ```
 
+    >[!IMPORTANT]
+    > Sebbene con un nome simile, una sessione di JMS ' Session ' e il bus di servizio ' Session ' sono completamente indipendenti l'uno dall'altro.
+    >
+    > In JMS 1,1, Session è un blocco predefinito essenziale dell'API che consente la creazione di MessageProducer, MessageConsumer e del messaggio stesso. Per altri dettagli, vedere il [modello di programmazione dell'API JMS](https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
+    >
+    > Nel bus di servizio, le [sessioni](message-sessions.md) sono il costrutto lato client e servizio per abilitare l'elaborazione FIFO su code e sottoscrizioni.
+    >
+
 ### <a name="write-the-jms-application"></a>Scrivere l'applicazione JMS
 
 Una volta `Session` creata l'istanza di o `JMSContext` , l'applicazione può utilizzare le API JMS note per eseguire operazioni di gestione e dati.
 
-Vedere l'elenco delle [funzionalità JMS supportate](how-to-use-java-message-service-20.md#what-jms-features-are-supported) per vedere quali API sono supportate come parte di questa versione di anteprima.
+Per informazioni sulle API supportate, vedere l'elenco delle [funzionalità JMS supportate](how-to-use-java-message-service-20.md#what-jms-features-are-supported) .
 
 Di seguito sono riportati alcuni frammenti di codice di esempio per iniziare a usare JMS-
 
@@ -134,7 +153,7 @@ Questa guida ha presentato il modo in cui le applicazioni client Java che usano 
 
 Per ulteriori informazioni sul bus di servizio di Azure e dettagli sulle entità JMS (Java Message Service), consultare i collegamenti seguenti: 
 * [Bus di servizio: code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md)
-* [Bus di servizio-entità del servizio messaggi Java](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities-preview)
+* [Bus di servizio-entità del servizio messaggi Java](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities)
 * [Supporto per il protocollo AMQP 1.0 nel bus di servizio di Azure](service-bus-amqp-overview.md)
 * [Guida per sviluppatori di AMQP 1.0 per il bus di servizio](service-bus-amqp-dotnet.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)

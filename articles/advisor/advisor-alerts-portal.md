@@ -3,18 +3,18 @@ title: Creare avvisi di Azure Advisor per nuove raccomandazioni utilizzando port
 description: Creare avvisi di Azure Advisor per nuove raccomandazioni
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c51479821914ef34edcd13d8708344169f17aae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973654"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590103"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Creare avvisi di Azure Advisor per nuove raccomandazioni usando il portale di Azure 
 
 Questo articolo illustra come configurare un avviso per nuove raccomandazioni da Azure Advisor usando il portale di Azure. 
 
-Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse in uso, viene archiviato un evento nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). È possibile configurare avvisi per questi eventi di Azure Advisor usando un'esperienza di creazione di avvisi specifici delle raccomandazioni. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse per le quali si vogliono ricevere gli avvisi. 
+Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse in uso, viene archiviato un evento nel [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md). È possibile configurare avvisi per questi eventi di Azure Advisor usando un'esperienza di creazione di avvisi specifici delle raccomandazioni. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse per le quali si vogliono ricevere gli avvisi. 
 
 Si possono anche determinare i tipi di raccomandazioni usando queste proprietà:
 
@@ -27,13 +27,13 @@ Si possono anche determinare i tipi di raccomandazioni usando queste proprietà:
 * Selezionando un gruppo di azioni esistente
 * Creando un nuovo gruppo di azioni
 
-Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
+Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE] 
 > Gli avvisi di Azure Advisor sono attualmente disponibili solo per le raccomandazioni di tipo Disponibilità elevata, Prestazioni e Costo. Le raccomandazioni sulla sicurezza non sono supportate. 
 
 ## <a name="create-alert-rule"></a>Creare una regola di avviso
-1. Nel **portale**selezionare **Azure Advisor**.
+1. Nel **portale** selezionare **Azure Advisor**.
 
     ![Azure Advisor nel portale](./media/advisor-alerts/create1.png)
 
@@ -49,7 +49,7 @@ Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di 
 
     ![Ambito avvisi Advisor](./media/advisor-alerts/create4.png)
 
-5. Nella sezione **condizione** selezionare il metodo che si vuole usare per la configurazione dell'avviso. Se si desidera ricevere un avviso per tutte le raccomandazioni per una determinata categoria e/o livello di effetto, selezionare **categoria e livello di**interesse. Se si desidera ricevere un avviso per tutte le raccomandazioni di un determinato tipo, selezionare **tipo di raccomandazione**.
+5. Nella sezione **condizione** selezionare il metodo che si vuole usare per la configurazione dell'avviso. Se si desidera ricevere un avviso per tutte le raccomandazioni per una determinata categoria e/o livello di effetto, selezionare **categoria e livello di** interesse. Se si desidera ricevere un avviso per tutte le raccomandazioni di un determinato tipo, selezionare **tipo di raccomandazione**.
 
     ![Azure Advisor condizione di avviso](./media/advisor-alerts/create5.png)
 
@@ -57,7 +57,7 @@ Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di 
 
     ![Gruppo di azione avvisi di Advisor](./media/advisor-alerts/create6.png)
 
-7. Nella sezione **gruppi di azione** selezionare **Aggiungi esistente** per usare un gruppo di azioni già creato oppure selezionare **Crea nuovo** per configurare un nuovo gruppo di [azioni](../azure-monitor/platform/action-groups.md). 
+7. Nella sezione **gruppi di azione** selezionare **Aggiungi esistente** per usare un gruppo di azioni già creato oppure selezionare **Crea nuovo** per configurare un nuovo gruppo di [azioni](../azure-monitor/alerts/action-groups.md). 
 
     ![Avviso di Advisor Aggiungi esistente](./media/advisor-alerts/create7.png)
 
@@ -185,13 +185,13 @@ Di seguito sono riportate alcune delle altre importanti campi che è possibile u
 
 Da Azure Advisor è possibile modificare, eliminare o disabilitare e abilitare gli avvisi di raccomandazioni. 
 
-1. Nel **portale**selezionare **Azure Advisor**.
+1. Nel **portale** selezionare **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot della sezione Dettagli avviso.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot del menu portale di Azure che mostra Azure Advisor selezionato.":::
 
 2. Nella sezione **monitoraggio** del menu a sinistra selezionare **avvisi**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot della sezione Dettagli avviso.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot del menu portale di Azure che Mostra gli avvisi selezionati.":::
 
 3. Per modificare un avviso, fare clic sul nome dell'avviso per aprire l'avviso e modificare i campi che si desidera modificare.
 
@@ -199,5 +199,5 @@ Da Azure Advisor è possibile modificare, eliminare o disabilitare e abilitare g
  
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Leggere una [panoramica degli avvisi del log attività](../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.
-- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).
+- Leggere una [panoramica degli avvisi del log attività](../azure-monitor/alerts/alerts-overview.md) e informazioni su come ricevere gli avvisi.
+- Altre informazioni sui [gruppi di azione](../azure-monitor/alerts/action-groups.md).

@@ -3,16 +3,16 @@ title: 'Esercitazione: monitorare una macchina virtuale ibrida con Monitoraggio 
 description: Informazioni su come raccogliere e analizzare i dati da una macchina virtuale ibrida in Monitoraggio di Azure.
 ms.topic: tutorial
 ms.date: 09/23/2020
-ms.openlocfilehash: 76565e40a8d85003c5a03be5fa48f83459657f29
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
-ms.translationtype: HT
+ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738085"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587688"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Esercitazione: Monitorare una macchina virtuale ibrida con Monitoraggio di Azure per le macchine virtuali
 
-[Monitoraggio di Azure](../overview.md) può raccogliere dati direttamente dai computer ibridi in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. Questa operazione comporta in genere l'installazione dell'[agente di Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) nella macchina virtuale usando uno script, manualmente o un metodo automatico a seconda degli standard di gestione della configurazione. Nei server abilitati per Arc è stato introdotto di recente il supporto per installare le [estensioni macchina virtuale](../manage-vm-extensions.md) agente di Log Analytics e Dependency Agent per Windows e Linux, per consentire a Monitoraggio di Azure di raccogliere i dati dalle macchine virtuali non di Azure.
+[Monitoraggio di Azure](../overview.md) può raccogliere dati direttamente dai computer ibridi in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. Questa operazione comporta in genere l'installazione dell'[agente di Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) nella macchina virtuale usando uno script, manualmente o un metodo automatico a seconda degli standard di gestione della configurazione. Nei server abilitati per Arc è stato introdotto di recente il supporto per installare le [estensioni macchina virtuale](../manage-vm-extensions.md) agente di Log Analytics e Dependency Agent per Windows e Linux, per consentire a Monitoraggio di Azure di raccogliere i dati dalle macchine virtuali non di Azure.
 
 Questa esercitazione illustra come configurare e raccogliere i dati da computer Linux o Windows abilitando Monitoraggio di Azure per le macchine virtuali tramite una serie di passaggi che semplificano l'esperienza e richiedono meno tempo.  
 
@@ -22,9 +22,9 @@ Questa esercitazione illustra come configurare e raccogliere i dati da computer 
 
 * La funzionalità Estensione macchina virtuale è disponibile solo nell'elenco delle [aree supportate](../overview.md#supported-regions).
 
-* Vedere [Sistemi operativi supportati](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo dei server da abilitare sia supportato da Monitoraggio di Azure per le macchine virtuali.
+* Vedere [Sistemi operativi supportati](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) per assicurarsi che il sistema operativo dei server da abilitare sia supportato da Monitoraggio di Azure per le macchine virtuali.
 
-* Esaminare i requisiti del firewall per l'agente di Log Analytics indicati in [Panoramica dell'agente di Log Analytics](../../../azure-monitor/platform/log-analytics-agent.md#network-requirements). Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali non trasmette dati e non richiede modifiche ai firewall o alle porte.
+* Esaminare i requisiti del firewall per l'agente di Log Analytics indicati in [Panoramica dell'agente di Log Analytics](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). Dependency Agent per la mappa di Monitoraggio di Azure per le macchine virtuali non trasmette dati e non richiede modifiche ai firewall o alle porte.
 
 ## <a name="sign-in-to-azure-portal"></a>Accedere al portale di Azure
 

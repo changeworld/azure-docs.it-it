@@ -4,31 +4,29 @@ description: Scopri come il rilevamento automatico delle anomalie per la fattura
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/17/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d4fb88854359dcd6e383b47d2a8ce4e9c91f867a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989466"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653007"
 ---
 # <a name="anomaly-detection-for-metered-billing"></a>Rilevamento delle anomalie per la fatturazione a consumo
 
-Questo articolo fornisce informazioni dettagliate sul servizio di misurazione del Marketplace e la funzionalità di rilevamento automatico delle anomalie associata per garantire che i clienti vengano fatturati correttamente per l'utilizzo a consumo. L'opzione di fatturazione a consumo è attualmente disponibile per le offerte SaaS ( [software as a Service](plan-saas-offer.md) ) e per [le applicazioni Azure](plan-azure-application-offer.md#types-of-plans) con un piano di applicazione gestito. Questa opzione consente ai partner di creare offerte nel programma commerciale Marketplace addebitate in base alle unità non standard.
+L'opzione di fatturazione a consumo personalizzato è attualmente disponibile per le offerte SaaS ( [software as a Service](plan-saas-offer.md) ) e [le applicazioni Azure](plan-azure-application-offer.md#types-of-plans) con un piano di applicazione gestito.
 
-I partner che dispongono di contatori personalizzati distribuiti per applicazioni SaaS e gestite possono visualizzare la deviazione dal comportamento di utilizzo previsto come anomalie per gli _eventi in eccedenza_ in _contatori personalizzati_ specifici nel centro per i partner. Per attenuare il rischio, il centro per i partner usa un servizio di rilevamento delle anomalie che applica gli algoritmi di machine learning per determinare il normale comportamento di fatturazione a consumo, analizzare l'utilizzo della fatturazione a consumo e individuare le anomalie con l'intervento dell'utente minimo. Usando i _modelli di rilevamento delle anomalie_ nei set di dati di fatturazione a consumo, il centro per i partner mira ad informare l'editore quando l'utilizzo segnalato supera l'utilizzo previsto.
+Se si usa l'opzione di fatturazione a consumo per creare offerte nel programma Marketplace commerciale che consente di addebitare l'utilizzo in base a unità non standard, è necessario capire quando il cliente ha usato più di un servizio del previsto.
 
-## <a name="usability-experience"></a>Esperienza di usabilità
+## <a name="use-the-anomaly-detection-feature"></a>Usare la funzionalità di rilevamento delle anomalie
 
-Microsoft si affida al partner per segnalare l'utilizzo dell'eccedenza dei clienti delle offerte SaaS o dell'applicazione gestita di Azure prima che Microsoft informasse il cliente. Se viene segnalato un utilizzo errato, il cliente potrebbe potenzialmente ricevere una fattura non corretta, sottoporre a overmining sia Microsoft che la credibilità del partner.
+Microsoft si affida all'utente, il partner, per segnalare l'utilizzo in eccedenza dei clienti delle offerte SaaS o di applicazioni gestite di Azure prima che Microsoft informasse il cliente. Se viene segnalato un utilizzo errato, il cliente potrebbe potenzialmente ricevere una fattura non corretta, sottoporre a overmining sia Microsoft che la credibilità del partner.
 
-Per attenuare questo problema, viene fornita una funzionalità di rilevamento automatico delle anomalie per le app SaaS e i piani delle applicazioni gestite di Azure. Questa funzionalità è un modello di apprendimento automatico che monitora in modo proattivo l'utilizzo rispetto alla fatturazione a consumo e stima il valore previsto di utilizzo entro l'intervallo previsto. Se l'utilizzo non rientra nell'intervallo previsto, viene considerato come un'anomalia e viene visualizzata una notifica di avviso per il partner nella pagina della panoramica dell'offerta nel programma commerciale Marketplace del centro per i partner.
+Per garantire la fatturazione corretta per i clienti, usare la funzionalità di **rilevamento delle anomalie** per le app SaaS e i piani delle applicazioni gestite di Azure. Questa funzionalità monitora l'utilizzo rispetto alla fatturazione a consumo e stima il valore previsto di utilizzo entro l'intervallo previsto. Se l'utilizzo non rientra nell'intervallo previsto, viene considerato come imprevisto, ovvero un'anomalia, e si riceverà una notifica di avviso nella pagina della panoramica dell'offerta nel programma Marketplace commerciale del centro per i partner. È possibile tenere traccia dell'utilizzo giornaliero dei clienti per ogni dimensione di misurazione personalizzata impostata.
 
-Il modello di Machine Learning analizza l'utilizzo giornaliero. L'autore può visualizzare tutte le anomalie segnalate in base all'utilizzo in eccedenza dei clienti per le dimensioni di misurazione personalizzate di ogni offerta.
-
-### <a name="view-and-manage-metered-usage-anomalies"></a>Visualizzare e gestire le anomalie di utilizzo a consumo
+## <a name="view-and-manage-metered-usage-anomalies"></a>Visualizzare e gestire le anomalie di utilizzo a consumo
 
 1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/home).
 1. Nel menu di spostamento a sinistra selezionare **Commercial Marketplace**  >  **Analyze**.

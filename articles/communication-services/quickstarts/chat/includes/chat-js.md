@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 4d3781c7a3894429cb5daccb334655543e3eea01
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: af42b83fc005397d4564b7570eedaff0305a8bc8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551958"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653538"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -88,24 +88,7 @@ Creare un file nella directory radice del progetto denominato **client.js** per 
 
 Per creare un client di chat nell'app Web, si userà l' **endpoint** del servizio di comunicazione e il **token di accesso** generato nell'ambito dei passaggi preliminari. 
 
-I token di accesso utente consentono di creare applicazioni client che eseguono l'autenticazione direttamente in Servizi di comunicazione di Azure.
-
-##### <a name="server-vs-client-side"></a>Server e lato client
-
-Si consiglia di generare token di accesso usando un componente lato server che li passa all'applicazione client. In questo scenario il lato server è responsabile della creazione e della gestione degli utenti e dell'emissione dei relativi token. Il lato client può quindi ricevere i token di accesso dal servizio e usarli per autenticare le librerie client dei servizi di comunicazione di Azure.
-
-I token possono essere emessi anche sul lato client usando la libreria di amministrazione della comunicazione di Azure per JavaScript. In questo scenario il lato client deve essere in grado di riconoscere gli utenti per emettere i propri token.
-
-Per informazioni più dettagliate sull'architettura di [client e server,](../../../concepts/client-and-server-architecture.md) vedere la documentazione seguente.
-
-Nel diagramma seguente l'applicazione lato client riceve un token di accesso da un livello di servizio attendibile. L'applicazione usa quindi il token per autenticare le librerie di servizi di comunicazione. Una volta autenticato, l'applicazione può ora usare le librerie lato client di servizi di comunicazione per eseguire operazioni come la chat con altri utenti.
-
-:::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
-
-##### <a name="instructions"></a>Istruzioni
-Questa demo non copre la creazione di un livello di servizio per l'applicazione di chat. 
-
-Se non sono stati generati utenti e i relativi token, seguire le istruzioni riportate qui: [token di accesso utente](../../access-tokens.md). Ricordarsi di impostare l'ambito su "chat" e non su "VoIP".
+I token di accesso utente consentono di creare applicazioni client che eseguono l'autenticazione direttamente in Servizi di comunicazione di Azure. Questa Guida introduttiva non illustra la creazione di un livello di servizio per gestire i token per l'applicazione di chat. Per altre informazioni sui token di accesso, vedere Concetti relativi alla [chat](../../../concepts/chat/concepts.md) per altre informazioni sull'architettura della chat e i [token di accesso dell'utente](../../access-tokens.md) .
 
 All'interno **client.js** usare l'endpoint e il token di accesso nel codice riportato di seguito per aggiungere la funzionalità di chat usando la libreria client di chat Communication di Azure per JavaScript.
 

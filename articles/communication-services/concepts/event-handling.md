@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-ms.translationtype: HT
+ms.openlocfilehash: b4e600581880ccca4f8716db02064e5bb353787c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888726"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653782"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Gestione degli eventi in Servizi di comunicazione di Azure
 
@@ -25,6 +25,9 @@ L'integrazione tra Servizi di comunicazione di Azure e [Griglia di eventi di Azu
 Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi offre supporto incorporato per alcuni servizi di Azure, ad esempio [Funzioni di Azure](../../azure-functions/functions-overview.md) e [App per la logica di Azure](../../azure-functions/functions-overview.md). Può inviare avvisi di eventi a servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagramma che mostra il modello di eventi di Griglia di eventi di Azure.":::
+
+> [!NOTE]
+> Per altre informazioni sul modo in cui la residenza dei dati si riferisce alla gestione degli eventi, vedere la [documentazione concettuale relativa alla residenza dei dati](./privacy.md)
 
 ## <a name="events-types"></a>Tipi di evento
 

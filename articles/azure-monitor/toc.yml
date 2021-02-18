@@ -68,7 +68,7 @@
     - name: Modelli di Gestione risorse
       items:
         - name: Panoramica
-          href: /resource-manager-samples.md
+          href: resource-manager-samples.md
         - name: Agenti
           href: agents/resource-manager-agent.md
         - name: Avvisi
@@ -102,9 +102,9 @@
         - name: Monitoraggio di Azure per le macchine virtuali
           href: vm/resource-manager-vminsights.md
     - name: Interfaccia della riga di comando di Azure
-      href: /cli-samples.md
+      href: cli-samples.md
     - name: Azure PowerShell
-      href: /powershell-samples.md
+      href: powershell-samples.md
 - name: Concetti
   items:
     - name: Elementi monitorabili
@@ -114,7 +114,7 @@
     - name: Origini dati
       href: agents/data-sources.md
     - name: Piattaforma dati
-      href: /data-platform.md
+      href: data-platform.md
     - name: Sicurezza dei dati
       items:
         - name: Dati di log
@@ -142,7 +142,7 @@
     - name: Visualizzare i dati
       href: visualizations.md
     - name: Integrazioni di partner
-      href: /partners.md
+      href: partners.md
     - name: Security
       items:
         - name: Baseline di sicurezza
@@ -169,14 +169,14 @@
     - name: Gestire e configurare
       items:
         - name: Autorizzazioni e sicurezza dei ruoli
-          href: /roles-permissions-security.md
+          href: roles-permissions-security.md
         - name: Indirizzi IP
           href: app/ip-addresses.md
           displayname: 'firewall, firewall exceptions, whitelist'
         - name: Utilizzo e costo
           items:
             - name: Utilizzo e costi stimati
-              href: /usage-estimated-costs.md
+              href: usage-estimated-costs.md
             - name: Utilizzo e costi delle applicazioni
               href: app/pricing.md
             - name: Utilizzo e costi dei dati del log
@@ -1399,7 +1399,7 @@
           href: /azure/templates/microsoft.operationalinsights/allversions
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
-      href: /policy-reference.md
+      href: policy-reference.md
     - name: Ritiro di funzionalità e API
       items:
         - name: API OperationalInsights

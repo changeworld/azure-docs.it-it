@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560508"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653305"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -29,6 +29,33 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="february-2021"></a>2021 febbraio
+
+### <a name="multiple-account-owners"></a>Proprietari di più account 
+
+Il ruolo di proprietario dell'account è stato aggiunto al Video Indexer. È possibile aggiungere, modificare e rimuovere utenti. modificare il ruolo. Per informazioni dettagliate su come condividere un account, vedere [invitare gli utenti](invite-users.md).
+
+### <a name="audio-event-detection-public-preview"></a>Rilevamento di eventi audio (anteprima pubblica)
+
+> [!NOTE]
+> Questa funzionalità è disponibile solo negli account di valutazione. 
+
+Video Indexer ora rileva gli effetti audio seguenti nei segmenti non vocali del contenuto: armato, vetro frantumato, allarme, sirena, esplosione, cane Bark, Screaming, risate, folla (applausi, applausi e fischi) e silenzio. 
+
+La funzionalità effetti audio appena aggiunta è disponibile quando si indicizza il file scegliendo l' **opzione avanzate**  ->  set di impostazioni **audio avanzato** (in video + audio indicizzazione). L'indicizzazione standard includerà solo le reazioni di **silenzio** e **folla**. 
+
+Il tipo di evento di **applauso** incluso nel modello degli effetti audio precedente è ora Estratto parte del tipo di evento di **reazione al pubblico** .
+
+Quando si sceglie di visualizzare gli **insiti** del video nel sito Web [video Indexer](https://www.videoindexer.ai/) , gli effetti audio vengono visualizzati nella pagina.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Rilevamento di eventi audio":::
+
+### <a name="named-entities-enhancement"></a>Miglioramento delle entità denominate  
+
+L'elenco Estratto di persone e località è stato esteso e aggiornato in generale. 
+
+Inoltre, il modello include ora gli utenti e i percorsi in-Context che non sono famosi, ad esempio ' Sam ' o ' Home ' nel video. 
 
 ## <a name="january-2021"></a>Gennaio 2021
 

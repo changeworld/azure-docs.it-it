@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006990"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651358"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
-È possibile usare la funzionalità user Hybrid Runbook Worker di automazione di Azure per eseguire manuali operativi direttamente nel computer Azure o non Azure, inclusi i server registrati con i [server abilitati per Azure Arc](../azure-arc/servers/overview.md). Dal computer o dal server che ospita il ruolo, è possibile eseguire manuali operativi direttamente e in base alle risorse nell'ambiente per gestire tali risorse locali.
+È possibile usare la funzionalità user Hybrid Runbook Worker di automazione di Azure per eseguire manuali operativi direttamente in un computer Azure o non Azure, inclusi i server registrati con i [server abilitati per Azure Arc](../azure-arc/servers/overview.md). Dal computer o dal server che ospita il ruolo, è possibile eseguire manuali operativi direttamente su di esso e sulle risorse nell'ambiente per gestire tali risorse locali.
 
 Automazione di Azure archivia e gestisce manuali operativi e li recapita a uno o più computer designati. Questo articolo descrive come distribuire un ruolo di lavoro ibrido per Runbook utente in un computer Windows, come rimuovere il ruolo di lavoro e come rimuovere un gruppo di ruolo di lavoro ibrido per Runbook.
 
@@ -26,13 +26,13 @@ Prima di iniziare, verificare di disporre di quanto segue.
 
 ### <a name="a-log-analytics-workspace"></a>Area di lavoro Log Analytics
 
-Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoraggio di Azure Log Analytics per installare e configurare il ruolo. È possibile crearlo tramite [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), tramite [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)o nel [portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
+Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoraggio di Azure Log Analytics per installare e configurare il ruolo. È possibile crearlo tramite [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), tramite [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)o nel [portale di Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md) prima di creare l'area di lavoro
+Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/logs/design-logs-deployment.md) prima di creare l'area di lavoro
 
 ### <a name="log-analytics-agent"></a>Agente di Log Analytics
 
-Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md) per il sistema operativo Windows supportato. Per i server o i computer ospitati all'esterno di Azure, è possibile installare l'agente di Log Analytics usando i [server abilitati per Azure Arc](../azure-arc/servers/overview.md).
+Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../azure-monitor/agents/log-analytics-agent.md) per il sistema operativo Windows supportato. Per i server o i computer ospitati all'esterno di Azure, è possibile installare l'agente di Log Analytics usando i [server abilitati per Azure Arc](../azure-arc/servers/overview.md).
 
 ### <a name="supported-windows-operating-system"></a>Sistema operativo Windows supportato
 

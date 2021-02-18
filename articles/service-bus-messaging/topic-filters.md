@@ -2,17 +2,17 @@
 title: Filtri per gli argomenti del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo illustra in che modo i sottoscrittori possono definire i messaggi che vogliono ricevere da un argomento specificando filtri.
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 02/17/2021
+ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742965"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651664"
 ---
 # <a name="topic-filters-and-actions"></a>Filtri e azioni per gli argomenti
 
-I sottoscrittori possono definire i messaggi che vogliono ricevere da un argomento. Per specificare tali messaggi, vengono usate una o più regole di sottoscrizione denominate. Ogni regola è costituita da una condizione di **filtro** che seleziona specifici messaggi e, **facoltativamente** , contiene un' **azione** che annota il messaggio selezionato. 
+I sottoscrittori possono definire i messaggi che vogliono ricevere da un argomento. Per specificare tali messaggi, vengono usate una o più regole di sottoscrizione denominate. Ogni regola è costituita da una **condizione di filtro** che seleziona specifici messaggi e, **facoltativamente** , contiene un' **azione** che annota il messaggio selezionato. 
 
 Tutte le regole **senza azioni** vengono combinate usando una `OR` condizione e generano un **singolo messaggio** nella sottoscrizione anche se sono presenti più regole di corrispondenza. 
 
@@ -32,9 +32,7 @@ Ogni nuova sottoscrizione di argomento creata ha una regola di sottoscrizione pr
 Il bus di servizio supporta tre condizioni di filtro.
 
 -   *Filtri SQL*: un **SqlFilter** contiene un'espressione condizionale di tipo SQL che viene valutata nel broker rispetto alle proprietà di sistema e definite dall'utente dei messaggi in arrivo. Nell'espressione condizionale, tutte le proprietà di sistema devono essere precedute dal prefisso `sys.`. Il [subset di linguaggio SQL per le condizioni di filtro](service-bus-messaging-sql-filter.md) verifica l'esistenza di proprietà ( `EXISTS` ), valori null ( `IS NULL` ), logiche not/and/or, operatori relazionali, semplici aritmetici numerici e semplici criteri di ricerca di testo con `LIKE` .
-
 -   *Filtri booleani*: **TrueFilter** e **FalseFilter** determinano la selezione per la sottoscrizione di tutti i messaggi in arrivo (**true**) o di nessun messaggio in arrivo (**false**). Questi due filtri derivano dal filtro SQL. 
-
 -   *Filtri di correlazione*: un **CorrelationFilter** contiene un set di condizioni che vengono confrontate con una o più proprietà utente e di sistema di un messaggio in arrivo. Un uso comune è la corrispondenza con la proprietà **CorrelationId** , ma l'applicazione può anche scegliere di confrontare le proprietà seguenti:
 
     - **ContentType**
@@ -66,7 +64,8 @@ Il partizionamento usa i filtri per distribuire i messaggi tra le diverse sottos
 
 Il routing usa i filtri per distribuire i messaggi tra le sottoscrizioni dell'argomento in modo prevedibile, ma non necessariamente esclusivo. In combinazione con la funzionalità di [inoltro automatico](service-bus-auto-forwarding.md), i filtri per gli argomenti consentono di creare grafici di routing complessi all'interno di uno spazio dei nomi del bus di servizio per la distribuzione dei messaggi in un'area di Azure. Usando Funzioni di Azure o App per la logica di Azure come collegamento tra gli spazi dei nomi del bus di servizio di Azure, è possibile creare topologie globali complesse con integrazione diretta nelle applicazioni line-of-business.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Esempio
+Per esempi, vedere [esempi di filtro del bus di servizio](service-bus-filter-examples.md).
 
 
 

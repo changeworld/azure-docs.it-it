@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5ea4e4fcce380a3bd9c30312639f7aa10bf0bb90
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572040"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653466"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
 
@@ -23,7 +23,11 @@ I Servizi di comunicazione di Azure consentono di aiutare i clienti a soddisfare
 
 ## <a name="data-residency"></a>Residenza dei dati
 
-Quando si crea una risorsa Servizi di comunicazione, è necessario specificare un'**area geografica**, non un data center di Azure. Tutti i dati inattivi archiviati da Servizi di comunicazione verranno conservati in tale area geografica, in un data center selezionato internamente da Servizi di comunicazione. Tuttavia, i dati possono transitare o essere elaborati in altre aree geografiche. Questi endpoint globali sono necessari per offrire agli utenti finali un'esperienza con prestazioni elevate e bassa latenza indipendentemente dalla loro posizione.
+Quando si crea una risorsa Servizi di comunicazione, è necessario specificare un'**area geografica**, non un data center di Azure. Tutti i dati inattivi archiviati da Servizi di comunicazione verranno conservati in tale area geografica, in un data center selezionato internamente da Servizi di comunicazione. I dati possono transitare o essere elaborati in altre aree geografiche. Questi endpoint globali sono necessari per offrire agli utenti finali un'esperienza a prestazioni elevate e a bassa latenza, indipendentemente dalla loro posizione.
+
+## <a name="data-residency-and-events"></a>Eventi e residenza dei dati
+
+Tutti gli argomenti del sistema di griglia di eventi configurati con i servizi di comunicazione di Azure verranno creati in un percorso globale. Per supportare il recapito affidabile, un argomento di sistema di griglia di eventi globale può archiviare i dati degli eventi in qualsiasi data center Microsoft. Quando si configura griglia di eventi con servizi di comunicazione di Azure, si distribuiscono i dati degli eventi a griglia di eventi, ovvero una risorsa di Azure sotto il proprio controllo. Sebbene i servizi di comunicazione di Azure siano configurati per l'uso di griglia di eventi di Azure, si è responsabili della gestione della risorsa di griglia di eventi e dei dati archiviati al suo interno.
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>Correlazione tra gli utenti e le identità di Servizi di comunicazione di Azure
 

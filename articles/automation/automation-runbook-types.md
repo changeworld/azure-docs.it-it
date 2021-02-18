@@ -3,14 +3,14 @@ title: Tipi di runbook di Automazione di Azure
 description: Questo articolo descrive i tipi di runbook che è possibile usare in Automazione di Azure e fornisce considerazioni per determinare il tipo da usare.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1398d25b6d2540abea0012acd69555e5e53e25c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 067096943cd95913077ada817c94640ff5264520
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050970"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634890"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipi di runbook di Automazione di Azure
 
@@ -101,6 +101,11 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 ## <a name="python-runbooks"></a>Runbook Python
 
 Python manuali operativi compila in Python 2 e Python 3. Python 3 manuali operativi è attualmente in fase di anteprima. È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure. È anche possibile usare un editor di testo offline e [importare il runbook](manage-runbooks.md) in Automazione di Azure.
+
+Python 3 manuali operativi sono supportati nelle seguenti infrastrutture globali di Azure:
+
+* Azure globale
+* Azure Government
 
 ### <a name="advantages"></a>Vantaggi
 

@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 772be332af1476975d91eb270bec24d6d241a616
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8ccc7b641e2bfcb4ea8733b9d4f793229c430bc0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706565"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652874"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 
@@ -43,13 +43,13 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 Per creare un processo di esportazione nel portale di Azure, eseguire le operazioni seguenti.
 
 1. Accedere all'indirizzo <https://portal.azure.com/>.
-2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione**.
+2. Cercare i **processi di importazione/esportazione**.
 
-    ![Passare a Processi di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
+    ![Cerca processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Fare clic su **Crea processo di importazione/esportazione**.
+3. Selezionare **+ Nuovo**.
 
-    ![Fare clic su Processo di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
+    ![Selezionare + nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Nozioni di base**:
 
@@ -60,7 +60,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
     - Selezionare una sottoscrizione.
     - Immettere o selezionare un gruppo di risorse.
 
-        ![Operazioni di base](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Operazioni di base](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
 5. In **Dettagli processo**:
 
@@ -69,17 +69,17 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
     - Specificare i dati BLOB da esportare dall'account di archiviazione in una o più unità vuote.
     - Scegliere **Esporta tutti** per i dati BLOB nell'account di archiviazione.
 
-         ![Esporta tutti](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
+         ![Esporta tutti](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
     - È possibile specificare i contenitori e i BLOB da esportare.
         - **Per specificare un BLOB da esportare**: usare il selettore **Uguale a**. Specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
         - **Per specificare tutti i BLOB che iniziano con un prefisso**: usare il selettore **Inizia con**. Specificare il prefisso, iniziando con una barra '/'. Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB. I percorsi BLOB devono essere specificati in un formato valido per evitare errori durante l'elaborazione, come mostrato in questo screenshot. Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).
 
-           ![Esportare contenitori e BLOB selezionati](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
+           ![Esportare contenitori e BLOB selezionati](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
     - È possibile eseguire l'esportazione dal file elenco di BLOB.
 
-        ![Esportare dal file elenco di BLOB](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
+        ![Esportare dal file elenco di BLOB](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > Se il BLOB da esportare è in uso durante la copia dei dati, il servizio Importazione/Esportazione di Azure acquisisce uno snapshot del BLOB e copia lo snapshot.

@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: a16846b8859f93a2d376691115e4b2dd0a7163b6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3bf0831084b9dd6f16d8208def87033fc0be2900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633319"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645366"
 ---
 ## <a name="download-code"></a>Scarica codice
 
@@ -74,13 +74,13 @@ Si procederà con l'installazione delle librerie di Servizi di comunicazione di 
 
 ### <a name="install-communication-services-libraries"></a>Installare le librerie di Servizi di comunicazione
 
-Per generare `User Access Tokens`, verrà usata la libreria `Administration`.
+Per generare `User Access Tokens`, verrà usata la libreria `Identity`.
 
 Usare il comando `npm install` per installare la libreria client di amministrazione di Servizi di comunicazione di Azure per JavaScript.
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -89,7 +89,7 @@ L'opzione `--save` elenca la libreria come dipendenza nel file **package.json**.
 Nella parte superiore del file `index.js` importare l'interfaccia per `CommunicationIdentityClient`
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 ```
 
 ## <a name="access-token-generation"></a>Generazione del token di accesso
@@ -136,7 +136,7 @@ Aprire l'URL nel browser per visualizzare il corpo della risposta con l'ID utent
 
 Per distribuire la funzione di Azure, è possibile seguire le [istruzioni dettagliate](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure).
 
-In generale, sarà necessario:
+In breve, sarà necessario:
 1. Accedere ad Azure da Visual Studio.
 2. Pubblicare il progetto nell'account Azure. Scegliere una sottoscrizione esistente.
 3. Creare una nuova risorsa della funzione di Azure usando la procedura guidata di Visual Studio o usare una risorsa esistente. Per una nuova risorsa, sarà necessario configurarla per l'area, il runtime e l'identificatore univoco desiderati.

@@ -3,12 +3,12 @@ title: Sintassi del filtro SQL per la regola di sottoscrizione del bus di serviz
 description: Questo articolo fornisce informazioni dettagliate sulla grammatica del filtro SQL. Un filtro SQL supporta un subset dello standard SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 810d17d458de79c851b6f1ada4556a231bfd20eb
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742982"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652942"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Sintassi del filtro SQL per la regola di sottoscrizione
 
@@ -52,7 +52,7 @@ Il bus di servizio Premium supporta anche la [sintassi del selettore dei messagg
   
 -   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del sistema in cui `<property_name>` è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente in cui `<property_name>` è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . `user` l'ambito è l'ambito predefinito se `<scope>` non è specificato.  
   
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 Un tentativo di accedere a una proprietà di sistema inesistente è un errore, mentre un tentativo di accedere a una proprietà utente inesistente non è un errore. Una proprietà utente inesistente viene invece valutata internamente come valore sconosciuto. Un valore sconosciuto viene gestito in modo speciale durante la valutazione degli operatori.  
   
@@ -105,7 +105,7 @@ Un `<regular_identifier>` non può essere una parola chiave riservata.
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
 `<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE.      e può contenere i caratteri jolly seguenti.  
   
@@ -120,7 +120,7 @@ Un `<regular_identifier>` non può essere una parola chiave riservata.
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 `<escape_char>` deve essere un'espressione valutata come stringa di lunghezza 1. Viene usato come carattere di escape per l'operatore LIKE.  
   
@@ -169,7 +169,7 @@ Un `<regular_identifier>` non può essere una parola chiave riservata.
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 Le costanti booleane sono rappresentate dalle parole chiave **TRUE** e **FALSE**. I valori sono archiviati come `System.Boolean`.  
   
@@ -179,7 +179,7 @@ Le costanti booleane sono rappresentate dalle parole chiave **TRUE** e **FALSE**
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qualsiasi carattere Unicode valido. Le virgolette singole incorporate in una costante di tipo stringa sono rappresentate con due virgolette singole.  
   
@@ -191,7 +191,7 @@ Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qu
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
 La `newid()` funzione restituisce un oggetto `System.Guid` generato dal `System.Guid.NewGuid()` metodo.  
   
@@ -269,8 +269,8 @@ Tenere presente la semantica di [SqlFilter](/dotnet/api/microsoft.servicebus.mes
   
 -   Gli operatori aritmetici come `+`, `-`, `*`, `/` e `%` seguono la stessa semantica dell'associazione di operatori C# nelle conversioni implicite e nelle promozioni del tipo di dati.
 
-
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Esempio
+Per esempi, vedere [esempi di filtro del bus di servizio](service-bus-filter-examples.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

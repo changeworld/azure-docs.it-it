@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c4861192c7f2bbfb2a51e19b88daee45b501949b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806192"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634771"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -101,7 +101,7 @@ La protezione dalle minacce di Centro sicurezza consente di rilevare ed evitare 
 
 La protezione dalle minacce di Centro sicurezza include un’analisi unificata della catena di attacco che genera automaticamente avvisi nell’ambiente per comprendere meglio la storia completa di una campagna di attacco, da dove è iniziata e che tipo di impatto ha avuto sulle risorse.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Avvisi di sicurezza":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Elenco degli avvisi di sicurezza del Centro sicurezza di Azure":::
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integrazione con Microsoft Defender per endpoint
 
