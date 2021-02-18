@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732695"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653636"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>I pool elastici consentono di gestire e dimensionare più database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,10 @@ Per i livelli di servizio e i limiti delle risorse in ogni modello di acquisto, 
 I passaggi seguenti consentono di stimare se un pool è più conveniente rispetto ai database singoli:
 
 1. Stimare le eDTU o i vCore necessari per il pool come segue:
-
-Per il modello di acquisto basato su DTU:
-
-MAX (<*numero totale di* database x *utilizzo medio di DTU per database*>, <*numero di database a picco simultaneo* x *utilizzo DTU di picco per database*>)
-
-Per il modello di acquisto basato su vCore:
-
-MAX (<*numero totale di* database x *utilizzo medio di vCore per database*>, <*numero di database a picco simultaneo* x *utilizzo vCore di picco per database*>)
-
+   - Per il modello di acquisto basato su DTU:
+     - Max (<*numero totale di* &times; *database di utilizzo medio di DTU per ogni*> di database, <*numero di database con picco simultaneo di* &times; *picco di utilizzo DTU per database*>)
+   - Per il modello di acquisto basato su vCore:
+     - Max (<*numero totale di* &times; *database di utilizzo medio di vCore per ogni*> di database, <*numero di database con picco simultaneo di* &times; *picco di utilizzo vCore per database*>)
 2. Stimare lo spazio di archiviazione totale necessario per il pool aggiungendo le dimensioni dei dati necessarie per tutti i database nel pool. Per il modello di acquisto DTU, determinare le dimensioni del pool eDTU che forniscono questa quantità di spazio di archiviazione.
 3. Per il modello di acquisto basato su DTU, considerare la stima di eDTU maggiore tra il Passaggio 1 e il Passaggio 2. Per il modello di acquisto basato su vCore, considerare la stima di vCore del Passaggio 1.
 4. Vedere la [pagina sui prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool più piccola, che sia maggiore della stima del Passaggio 3.

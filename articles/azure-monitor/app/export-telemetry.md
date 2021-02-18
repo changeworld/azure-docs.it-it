@@ -3,12 +3,12 @@ title: Esportazione continua dei dati di telemetria da Application Insights | Mi
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674138"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584230"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
@@ -21,7 +21,7 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 
 * Il pulsante Esporta nella parte superiore di una scheda di metriche o di ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel.
 
-* [Dati di analisi](../log-query/log-query-overview.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
+* [Dati di analisi](../logs/log-query-overview.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
 * Se si vogliono [esplorare i dati in Power BI](./export-power-bi.md), non è necessario usare l'esportazione continua.
 * L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice.
 * È anche possibile accedere [all'esportazione continua](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)del programma di installazione tramite PowerShell.

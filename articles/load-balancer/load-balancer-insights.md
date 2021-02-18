@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232761"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589113"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Uso di Insights per monitorare e configurare la Azure Load Balancer
 
@@ -40,7 +40,7 @@ Per i servizi di bilanciamento del carico standard, le risorse del pool back-end
 
 ## <a name="metrics-dashboard"></a>Dashboard delle metriche
 
-Dal pannello Insights del Load Balancer è possibile selezionare metriche più dettagliate per visualizzare una [cartella di lavoro di monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md) preconfigurata contenente gli oggetti visivi delle metriche rilevanti per aspetti specifici del Load Balancer. Questo dashboard mostrerà lo stato del Load Balancer e i collegamenti alla documentazione pertinente nella parte superiore della pagina.
+Dal pannello Insights del Load Balancer è possibile selezionare metriche più dettagliate per visualizzare una [cartella di lavoro di monitoraggio di Azure](../azure-monitor/visualize/workbooks-overview.md) preconfigurata contenente gli oggetti visivi delle metriche rilevanti per aspetti specifici del Load Balancer. Questo dashboard mostrerà lo stato del Load Balancer e i collegamenti alla documentazione pertinente nella parte superiore della pagina.
 
 Inizialmente verrà visualizzata la scheda Panoramica. È possibile spostarsi tra le schede disponibili, ciascuna delle quali contiene oggetti visivi relativi a un aspetto specifico del Load Balancer. Le linee guida esplicite per ogni sono disponibili nel dashboard nella parte inferiore di ogni scheda.
 
@@ -80,4 +80,4 @@ La scheda definizioni metrica contiene tutte le informazioni mostrate nell' [art
 * Esaminare il dashboard e inviare commenti e suggerimenti usando il collegamento seguente se è possibile migliorare
 * [Esaminare la documentazione relativa alle metriche per assicurarsi di comprendere il modo in cui ogni metrica viene calcolata](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Creare monitoraggi connessione per il Load Balancer](../network-watcher/connection-monitor.md)
-* [Creare cartelle di lavoro personalizzate](../azure-monitor/platform/workbooks-overview.md). è possibile fare clic sul pulsante modifica nel dashboard dettagliato della metrica.
+* [Creare cartelle di lavoro personalizzate](../azure-monitor/visualize/workbooks-overview.md). è possibile fare clic sul pulsante modifica nel dashboard dettagliato della metrica.

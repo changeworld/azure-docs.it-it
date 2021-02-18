@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ede1c917bb44dd31aa59855a0b7c83eb478700a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530642"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651723"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configurazione di intelligence per le minacce di Azure firewall
 
@@ -24,21 +24,33 @@ Se è stato configurato il filtro basato su Intelligence per le minacce, le rego
 
 ## <a name="threat-intelligence-mode"></a>Modalità di intelligence per le minacce
 
-È possibile scegliere di registrare solo un avviso quando viene attivata una regola oppure è possibile scegliere la modalità di avviso e di negazione.
+È possibile configurare l'Intelligence per le minacce in una delle tre modalità descritte nella tabella seguente. Per impostazione predefinita, il filtro basato sull'intelligence sulle minacce è abilitato in modalità di avviso.
 
-Per impostazione predefinita, il filtro basato sull'intelligence sulle minacce è abilitato in modalità di avviso.
+|Mode |Descrizione  |
+|---------|---------|
+|`Off`     | La funzionalità di intelligence per le minacce non è abilitata per il firewall. |
+|`Alert only`     | Si riceveranno avvisi con attendibilità elevata per il traffico che passa attraverso il firewall a o da indirizzi IP dannosi noti e domini. |
+|`Alert and deny`     | Il traffico è bloccato e si riceveranno avvisi con attendibilità elevata quando viene rilevato traffico che tenta di passare attraverso il firewall a o da domini e indirizzi IP dannosi noti. |
 
-## <a name="allowed-list-addresses"></a>Indirizzi elenco consentiti
+> [!NOTE]
+> La modalità di intelligence per le minacce viene ereditata dai criteri padre ai criteri figlio. Un criterio figlio deve essere configurato con la stessa modalità o con una modalità più restrittiva rispetto al criterio padre.
 
-È possibile configurare un elenco di indirizzi IP consentiti in modo che Intelligence per le minacce non filtri alcun indirizzo, intervallo o subnet specificato.
+## <a name="allowlist-addresses"></a>Indirizzi consentiti
 
+Intelligence per le minacce potrebbe attivare falsi positivi e bloccare il traffico effettivamente valido. È possibile configurare un elenco di indirizzi IP consentiti in modo che Intelligence per le minacce non filtri alcun indirizzo, intervallo o subnet specificato.  
 
+![Indirizzi consentiti](media/threat-intelligence-settings/allow-list.png)
+
+È possibile aggiornare l'oggetto Consenti con più voci contemporaneamente caricando un file CSV. Il file CSV può contenere solo indirizzi IP e intervalli. Il file non può contenere intestazioni.
+
+> [!NOTE]
+> Gli indirizzi degli elementi consentiti di intelligence per le minacce vengono ereditati dai criteri padre ai criteri figlio. Qualsiasi indirizzo IP o intervallo aggiunto a un criterio padre si applica anche a tutti i criteri figlio.
 
 ## <a name="logs"></a>Log
 
-L'estratto di log seguente mostra una regola attivata:
+L'Estratto di log seguente mostra una regola attivata per il traffico in uscita verso un sito dannoso:
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",

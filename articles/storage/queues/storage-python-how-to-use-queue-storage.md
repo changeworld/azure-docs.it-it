@@ -1,20 +1,20 @@
 ---
-title: Come usare l'archiviazione di Accodamento di Azure da Python-archiviazione di Azure
+title: Come usare l'archiviazione di Accodamento di Azure da Python
 description: Informazioni su come usare l'archiviazione code di Azure da Python per creare ed eliminare code e per inserire, ottenere ed eliminare messaggi.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 01/19/2021
+ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 82d18fd79b10a8500cfd9191f143438d69fda401
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8c30d05cf49162155f84961e1fd8a32361444ba5
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600792"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653262"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Come usare l'archiviazione di Accodamento di Azure da Python
 
@@ -22,9 +22,9 @@ ms.locfileid: "98600792"
 
 ## <a name="overview"></a>Panoramica
 
-Questo articolo illustra scenari comuni con il servizio di archiviazione di Accodamento di Azure. Gli scenari trattati includono inserimento, visualizzazione, recupero ed eliminazione dei messaggi in coda. Viene inoltre analizzato il codice per la creazione e l'eliminazione di code.
+Questo articolo illustra scenari comuni con il servizio di archiviazione di Accodamento di Azure. Gli scenari descritti includono inserimento, visualizzazione, recupero ed eliminazione dei messaggi in coda. Viene inoltre analizzato il codice per la creazione e l'eliminazione di code.
 
-Gli esempi in questo articolo sono scritti in Python e usano la [libreria client di archiviazione code di Azure per Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
+Gli esempi in questo articolo sono scritti in Python e usano la [libreria client di archiviazione code di Azure per Python](https://github.com/azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue). Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -117,6 +117,26 @@ queue_service.create_queue(queue_name)
 
 ---
 
+I messaggi della coda di Azure vengono archiviati come testo. Se si desidera archiviare i dati binari, configurare le funzioni di codifica e decodifica Base64 prima di inserire un messaggio nella coda.
+
+# <a name="python-v12"></a>[Python V12](#tab/python)
+
+Configurare le funzioni di codifica e decodifica Base64 quando si crea l'oggetto client.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
+
+# <a name="python-v2"></a>[Python V2](#tab/python2)
+
+Configurare le funzioni di codifica e decodifica Base64 nell'oggetto di archiviazione di Accodamento.
+
+```python
+# Setup Base64 encoding and decoding functions
+queue_service.encode_function = QueueMessageFormat.binary_base64encode
+queue_service.decode_function = QueueMessageFormat.binary_base64decode
+```
+
+---
+
 ## <a name="insert-a-message-into-a-queue"></a>Inserire un messaggio in una coda
 
 # <a name="python-v12"></a>[Python V12](#tab/python)
@@ -133,26 +153,6 @@ Per inserire un messaggio in una coda, usare il [`put_message`](/azure/developer
 message = u"Hello, World"
 print("Adding message: " + message)
 queue_service.put_message(queue_name, message)
-```
-
----
-
-I messaggi della coda di Azure vengono archiviati come testo. Se si desidera archiviare i dati binari, configurare le funzioni di codifica e decodifica Base64 prima di inserire un messaggio nella coda.
-
-# <a name="python-v12"></a>[Python V12](#tab/python)
-
-Configurare le funzioni di codifica e decodifica Base64 nell'oggetto client della coda.
-
-:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
-
-# <a name="python-v2"></a>[Python V2](#tab/python2)
-
-Configurare le funzioni di codifica e decodifica Base64 nell'oggetto di archiviazione di Accodamento.
-
-```python
-# Setup Base64 encoding and decoding functions
-queue_service.encode_function = QueueMessageFormat.binary_base64encode
-queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
 
 ---

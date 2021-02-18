@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03814766d7bc873855df261a50a40b8d342fa69b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: add2bbb7b8f9eeb72c8c58b8c54b070a6b14d8e6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054247"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586066"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
-È possibile usare [Monitoraggio di Azure](../azure-monitor/overview.md) per monitorare metriche e log di livello base per la maggior parte dei servizi in Azure. È possibile chiamare i runbook di Automazione di Azure tramite [gruppi di azioni](../azure-monitor/platform/action-groups.md) o avvisi classici per automatizzare le attività in base agli avvisi. Questo articolo illustra come configurare ed eseguire un runbook usando gli avvisi.
+È possibile usare [Monitoraggio di Azure](../azure-monitor/overview.md) per monitorare metriche e log di livello base per la maggior parte dei servizi in Azure. È possibile chiamare i runbook di Automazione di Azure tramite [gruppi di azioni](../azure-monitor/alerts/action-groups.md) o avvisi classici per automatizzare le attività in base agli avvisi. Questo articolo illustra come configurare ed eseguire un runbook usando gli avvisi.
 
 ## <a name="alert-types"></a>Tipi di avviso
 
@@ -25,15 +25,15 @@ ms.locfileid: "99054247"
 * Avvisi di metriche quasi in tempo reale
 
 > [!NOTE]
-> Lo schema di avviso comune standardizza attualmente l'esperienza di utilizzo per le notifiche di avviso in Azure. I tre tipi di avviso attualmente disponibili in Azure (metrica, log e log attività) hanno avuto storicamente modelli di posta elettronica, schemi webhook e così via. Per altre informazioni, vedere [Schema di avviso comune](../azure-monitor/platform/alerts-common-schema.md)
+> Lo schema di avviso comune standardizza attualmente l'esperienza di utilizzo per le notifiche di avviso in Azure. I tre tipi di avviso attualmente disponibili in Azure (metrica, log e log attività) hanno avuto storicamente modelli di posta elettronica, schemi webhook e così via. Per altre informazioni, vedere [Schema di avviso comune](../azure-monitor/alerts/alerts-common-schema.md)
 
 Quando un avviso chiama un runbook, la chiamata effettiva è una richiesta HTTP POST al webhook. Il corpo della richiesta POST contiene un oggetto in formato JSON con proprietà utili relative all'avviso. La tabella seguente elenca i collegamenti allo schema del payload per ogni tipo di avviso:
 
 |Avviso  |Descrizione|Schema del payload  |
 |---------|---------|---------|
-|[Avviso comune](../azure-monitor/platform/alerts-common-schema.md)|Lo schema di avviso comune che standardizza attualmente l'esperienza di utilizzo per le notifiche di avviso in Azure.|Schema del payload di avviso comune|
-|[Avviso del log attività](../azure-monitor/platform/activity-log-alerts.md)    |Invia una notifica quando qualsiasi nuovo evento nel log attività di Azure soddisfa condizioni specifiche. Ad esempio, quando si verifica un'operazione `Delete VM` in **myProductionResourceGroup** o quando viene visualizzato un nuovo evento di integrità dei servizi di Azure con uno stato Attivo.| [Schema payload avviso log attività](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Avvisi delle metriche quasi in tempo reale](../azure-monitor/platform/alerts-metric-near-real-time.md)    |Invia una notifica più velocemente rispetto agli avvisi delle metriche quando una o più metriche a livello di piattaforma soddisfano le condizioni specificate. Ad esempio, quando il valore per **% CPU** in una macchina virtuale è maggiore di 90 e il valore per **Rete in ingresso** è maggiore di 500 MB per gli ultimi 5 minuti.| [Schema payload avvisi metriche quasi in tempo reale](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Avviso comune](../azure-monitor/alerts/alerts-common-schema.md)|Lo schema di avviso comune che standardizza attualmente l'esperienza di utilizzo per le notifiche di avviso in Azure.|Schema del payload di avviso comune|
+|[Avviso del log attività](../azure-monitor/alerts/activity-log-alerts.md)    |Invia una notifica quando qualsiasi nuovo evento nel log attività di Azure soddisfa condizioni specifiche. Ad esempio, quando si verifica un'operazione `Delete VM` in **myProductionResourceGroup** o quando viene visualizzato un nuovo evento di integrità dei servizi di Azure con uno stato Attivo.| [Schema payload avviso log attività](../azure-monitor/alerts/activity-log-alerts-webhook.md)        |
+|[Avvisi delle metriche quasi in tempo reale](../azure-monitor/alerts/alerts-metric-near-real-time.md)    |Invia una notifica più velocemente rispetto agli avvisi delle metriche quando una o più metriche a livello di piattaforma soddisfano le condizioni specificate. Ad esempio, quando il valore per **% CPU** in una macchina virtuale è maggiore di 90 e il valore per **Rete in ingresso** è maggiore di 500 MB per gli ultimi 5 minuti.| [Schema payload avvisi metriche quasi in tempo reale](../azure-monitor/alerts/alerts-webhooks.md#payload-schema)          |
 
 Poiché i dati forniti da ogni tipo di avviso sono diversi, ogni tipo di avviso deve essere gestito in modo diverso. Nella sezione seguente viene illustrato come creare un runbook per gestire i diversi tipi di avvisi.
 
@@ -185,7 +185,7 @@ Gli avvisi usano i gruppi di azioni, ovvero raccolte di azioni attivate dall'avv
 
     ![Pagina Aggiungi gruppo di azioni](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-    È possibile usare questo gruppo di azione negli [avvisi dei log attività](../azure-monitor/platform/activity-log-alerts.md) e negli [avvisi quasi in tempo reale](../azure-monitor/platform/alerts-overview.md) che vengono creati.
+    È possibile usare questo gruppo di azione negli [avvisi dei log attività](../azure-monitor/alerts/activity-log-alerts.md) e negli [avvisi quasi in tempo reale](../azure-monitor/alerts/alerts-overview.md) che vengono creati.
 
 1. In **Dettagli avviso** aggiungere un nome e una descrizione della regola di avviso e fare clic su **Crea regola di avviso**.
 
@@ -193,6 +193,6 @@ Gli avvisi usano i gruppi di azioni, ovvero raccolte di azioni attivate dall'avv
 
 * Per avviare un runbook usando un webhook, vedere [Avviare un runbook da un webhook](automation-webhooks.md).
 * Per le diverse modalità di avvio di un runbook, vedere [Avviare un runbook](./start-runbooks.md).
-* Per creare un avviso del log attività, vedere [Creare avvisi del log attività](../azure-monitor/platform/activity-log-alerts.md).
-* Per informazioni su come creare un avviso quasi in tempo reale, vedere [Creare una regola di avviso con il portale di Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Per creare un avviso del log attività, vedere [Creare avvisi del log attività](../azure-monitor/alerts/activity-log-alerts.md).
+* Per informazioni su come creare un avviso quasi in tempo reale, vedere [Creare una regola di avviso con il portale di Azure](../azure-monitor/alerts/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
 * Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation).

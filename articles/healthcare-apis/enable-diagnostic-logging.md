@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 02/03/2021
-ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575441"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581968"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Abilitare la registrazione diagnostica nell'API di Azure per FHIR
 
-In questo articolo si apprenderà come abilitare la registrazione diagnostica nell'API di Azure per FHIR ed essere in grado di esaminare alcune query di esempio per questi log. L'accesso ai log di diagnostica è essenziale per qualsiasi servizio sanitario in cui la conformità ai requisiti normativi (ad esempio HIPAA) è una necessità. La funzionalità dell'API di Azure per FHIR che Abilita i log di diagnostica è rappresentata dalle [**impostazioni di diagnostica**](../azure-monitor/platform/diagnostic-settings.md) del portale di Azure. 
+In questo articolo si apprenderà come abilitare la registrazione diagnostica nell'API di Azure per FHIR ed essere in grado di esaminare alcune query di esempio per questi log. L'accesso ai log di diagnostica è essenziale per qualsiasi servizio sanitario in cui la conformità ai requisiti normativi (ad esempio HIPAA) è una necessità. La funzionalità dell'API di Azure per FHIR che Abilita i log di diagnostica è rappresentata dalle [**impostazioni di diagnostica**](../azure-monitor/essentials/diagnostic-settings.md) del portale di Azure. 
 
 ## <a name="enable-audit-logs"></a>Abilitare i log di controllo
 1. Per abilitare la registrazione diagnostica nell'API di Azure per FHIR, selezionare l'API di Azure per il servizio FHIR nel portale di Azure 
@@ -45,7 +45,7 @@ In questo articolo si apprenderà come abilitare la registrazione diagnostica ne
 > [!Note] 
 > Potrebbero essere necessari fino a 15 minuti prima che il primo log venga visualizzato in Log Analytics.  
  
-Per altre informazioni su come usare i log di diagnostica, vedere la [documentazione relativa al log delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md)
+Per altre informazioni su come usare i log di diagnostica, vedere la [documentazione relativa al log delle risorse di Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="audit-log-details"></a>Dettagli log di controllo
 Al momento, il servizio API di Azure per FHIR restituisce i campi seguenti nel log di controllo: 

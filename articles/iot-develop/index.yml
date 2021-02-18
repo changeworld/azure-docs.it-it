@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentazione sullo sviluppo di applicazioni e dispositivi
+summary: Esplora la documentazione di Azure per lo sviluppo di dispositivi embedded e la creazione di applicazioni cloud abilitate per i dispositivi.
+metadata:
+  title: Sviluppo di applicazioni e dispositivi
+  description: Informazioni su come usare Azure Internet per lo sviluppo di dispositivi embedded e la creazione di applicazioni cloud abilitate per i dispositivi.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100656243"
+landingContent:
+- title: Informazioni sullo sviluppo di applicazioni e dispositivi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è lo sviluppo di applicazioni e dispositivi Azure?
+      url: about-iot-develop.md
+    - text: Quale SDK è necessario usare?
+      url: about-iot-sdks.md
+- title: Introduzione allo sviluppo di applicazioni per dispositivi
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Inviare dati di telemetria del dispositivo a IoT Central
+      url: quickstart-send-telemetry-python.md
+    - text: Inviare dati di telemetria del dispositivo all'hub Internet
+      url: quickstart-send-telemetry-cli-python.md
+- title: Introduzione allo sviluppo di dispositivi embedded
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Introduzione allo sviluppo di dispositivi embedded
+      url: quickstart-device-development.md

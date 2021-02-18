@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.openlocfilehash: a935b34c4fcebe9128d8af0316658072e20ddfbe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596212"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Avvio rapido: Monitoraggio di app Azure Spring Cloud con log, metriche e traccia
 
@@ -32,7 +32,7 @@ Le procedure seguenti illustrano come usare lo streaming di log, l'analisi dei l
 
 ## <a name="logs"></a>Log
 
-È possibile visualizzare i log in Azure Spring Cloud in due modi: con lo **streaming di log** per i log in tempo reale per istanza di app o con l' **analisi dei log** per i log aggregati con funzionalità di query avanzate.
+È possibile visualizzare i log in Azure Spring Cloud in due modi: con lo **streaming di log** per i log in tempo reale per istanza di app o con l'**analisi dei log** per i log aggregati con funzionalità di query avanzate.
 
 ### <a name="log-streaming"></a>Streaming dei log
 
@@ -63,23 +63,23 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Log** nella sezione **Monitoraggio** . Selezionare **Run** (Esegui) in una delle query di esempio per Azure Spring Cloud.
+1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Log** nella sezione **Monitoraggio**. Selezionare **Run** (Esegui) in una delle query di esempio per Azure Spring Cloud.
 
    [ ![Voce di analisi dei log](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
 1. Modificare la query per rimuovere le clausole Where che limitano la visualizzazione ai log degli errori e degli avvisi.
 
-1. Selezionare quindi `Run` per visualizzare i log. Per altre informazioni sulla scrittura di query, vedere la [ documentazione di Azure Log Analytics](../azure-monitor/log-query/get-started-queries.md).
+1. Selezionare quindi `Run` per visualizzare i log. Per altre informazioni sulla scrittura di query, vedere la [ documentazione di Azure Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
    [ ![Query di analisi dei log - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
 ## <a name="metrics"></a>Metriche
 
-1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Metriche** nella sezione **Monitoraggio** . Aggiungere la prima metrica selezionando una delle metriche .NET in **Prestazioni (.NET)** o **Richiesta (.NET)** nell'elenco a discesa **Metrica** e `Avg` per **Aggregazione** per visualizzare la sequenza temporale relativa a tale metrica.
+1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Metriche** nella sezione **Monitoraggio**. Aggiungere la prima metrica selezionando una delle metriche .NET in **Prestazioni (.NET)** o **Richiesta (.NET)** nell'elenco a discesa **Metrica** e `Avg` per **Aggregazione** per visualizzare la sequenza temporale relativa a tale metrica.
 
    [ ![Voce Metriche - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
-1. Fare clic su **Aggiungi filtro** nella barra degli strumenti e selezionare `App=solar-system-weather` per visualizzare l'utilizzo della CPU solo per l'app **solar-system-weather** .
+1. Fare clic su **Aggiungi filtro** nella barra degli strumenti e selezionare `App=solar-system-weather` per visualizzare l'utilizzo della CPU solo per l'app **solar-system-weather**.
 
    [ ![Usare i filtri nelle metriche - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
@@ -89,7 +89,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="distributed-tracing"></a>Analisi distribuita
 
-1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Distributed tracing** (Traccia distribuita) nella sezione **Monitoraggio** . Selezionare quindi la scheda **Visualizza mappa delle applicazioni** a destra.
+1. Nel portale di Azure passare alla pagina **servizio | Panoramica** e selezionare **Distributed tracing** (Traccia distribuita) nella sezione **Monitoraggio**. Selezionare quindi la scheda **Visualizza mappa delle applicazioni** a destra.
 
    [ ![Voce di traccia distribuita Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
@@ -119,7 +119,7 @@ Completare i passaggi precedenti:
 
 ## <a name="logs"></a>Log
 
-È possibile visualizzare i log in Azure Spring Cloud in due modi: con lo **streaming di log** per i log in tempo reale per istanza di app o con l' **analisi dei log** per i log aggregati con funzionalità di query avanzate.
+È possibile visualizzare i log in Azure Spring Cloud in due modi: con lo **streaming di log** per i log in tempo reale per istanza di app o con l'**analisi dei log** per i log aggregati con funzionalità di query avanzate.
 
 ### <a name="log-streaming"></a>Streaming dei log
 
@@ -142,7 +142,7 @@ I log hanno un aspetto simile al seguente:
 
 Per ottenere i log tramite Azure Toolkit for IntelliJ:
 
-1. Selezionare **Azure Explorer** , quindi **Spring Cloud** .
+1. Selezionare **Azure Explorer**, quindi **Spring Cloud**.
 
 1. Fare clic con il pulsante destro del mouse sull'app in esecuzione.
 
@@ -165,7 +165,7 @@ Per ottenere i log tramite Azure Toolkit for IntelliJ:
 
    [ ![Voce di analisi dei log](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. Vengono visualizzati i log filtrati. Per altre informazioni sulla scrittura di query, vedere la [ documentazione di Azure Log Analytics](../azure-monitor/log-query/get-started-queries.md).
+1. Vengono visualizzati i log filtrati. Per altre informazioni sulla scrittura di query, vedere la [ documentazione di Azure Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
    [ ![Query di log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
@@ -175,7 +175,7 @@ Per ottenere i log tramite Azure Toolkit for IntelliJ:
 
    [ ![Voce di metriche](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
     
-1. Fare clic su **Add filter** (Aggiungi filtro) sulla barra degli strumenti e selezionare `App=Gateway` per visualizzare l'utilizzo della CPU solo per l'app **gateway** .
+1. Fare clic su **Add filter** (Aggiungi filtro) sulla barra degli strumenti e selezionare `App=Gateway` per visualizzare l'utilizzo della CPU solo per l'app **gateway**.
 
    [ ![Uso dei filtri nelle metriche](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png#lightbox)
 

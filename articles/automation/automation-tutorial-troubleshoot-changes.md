@@ -7,12 +7,12 @@ keywords: modifica, rilevamento, rilevamento modifiche, inventario, automazione
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
-ms.translationtype: HT
+ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204249"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587937"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Risolvere i problemi delle modifiche in una VM di Azure
 
@@ -54,7 +54,7 @@ Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento mod
 
     ![Abilitare Rilevamento modifiche](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Scegliere l'area di lavoro [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Questa area di lavoro raccoglie i dati generati da funzionalità come Rilevamento modifiche e inventario. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
+3. Scegliere l'area di lavoro [Log Analytics](../azure-monitor/logs/log-query-overview.md). Questa area di lavoro raccoglie i dati generati da funzionalità come Rilevamento modifiche e inventario. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Per altre informazioni sull'esecuzione dei file di log e sulla ricerca al loro interno nei log di Monitoraggio di Azure, vedere [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
+Per altre informazioni sull'esecuzione dei file di log e sulla ricerca al loro interno nei log di Monitoraggio di Azure, vedere [Log di Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurare il rilevamento delle modifiche
 
@@ -198,7 +198,7 @@ La visualizzazione delle modifiche nel portale di Azure può essere utile, ma la
 
     ![Configurare la logica dei segnali](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-10. Selezionare **Crea nuovo** in **Gruppi di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
+10. Selezionare **Crea nuovo** in **Gruppi di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/alerts/action-groups.md).
 
 11. In **Dettagli avviso**, assegnare un nome e una descrizione per l'avviso. 
 

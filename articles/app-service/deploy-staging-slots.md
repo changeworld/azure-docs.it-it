@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150321"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594247"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
 
-Quando si distribuisce l'app Web, l'app Web in Linux, il back-end per dispositivi mobili o l'app per le API nel [servizio app Azure](./overview.md), è possibile usare uno slot di distribuzione separato invece dello slot di produzione predefinito quando si esegue il livello del piano di servizio app **standard**, **Premium**o **isolated** . Gli slot di distribuzione sono app Live con nomi host propri. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. 
+Quando si distribuisce l'app Web, l'app Web in Linux, il back-end per dispositivi mobili o l'app per le API nel [servizio app Azure](./overview.md), è possibile usare uno slot di distribuzione separato invece dello slot di produzione predefinito quando si esegue il livello del piano di servizio app **standard**, **Premium** o **isolated** . Gli slot di distribuzione sono app Live con nomi host propri. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. 
 
 La distribuzione dell'applicazione in uno slot non di produzione presenta i seguenti vantaggi:
 
@@ -30,7 +30,7 @@ Per ridimensionare l'app a un livello diverso, verificare che il livello di dest
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Aggiungi uno slot
-Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione nel livello **standard**, **Premium**o **isolato** .
+Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione nel livello **standard**, **Premium** o **isolato** .
 
 
 1. nella [portale di Azure](https://portal.azure.com/)cercare e selezionare **Servizi app** e selezionare l'app. 
@@ -43,7 +43,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
     ![Aggiungi nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Se l'app non è già nel livello **standard**, **Premium**o **isolato** , viene visualizzato un messaggio che indica i livelli supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto, è possibile selezionare **Aggiorna** e passare alla scheda **scalabilità** dell'app prima di continuare.
+   > Se l'app non è già nel livello **standard**, **Premium** o **isolato** , viene visualizzato un messaggio che indica i livelli supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto, è possibile selezionare **Aggiorna** e passare alla scheda **scalabilità** dell'app prima di continuare.
    > 
 
 3. Nella finestra di dialogo **Aggiungi uno slot** assegnare un nome allo slot e selezionare se clonare una configurazione dell'app da un altro slot di distribuzione. Selezionare **Aggiungi** per continuare.
@@ -183,9 +183,9 @@ Lo scambio automatico semplifica gli scenari DevOps di Azure in cui si vuole dis
 
 Per configurare lo scambio automatico:
 
-1. Passare alla pagina delle risorse dell'app. Selezionare configurazioni degli **slot di distribuzione**  >  *\<desired source slot>*  >  **Configuration**  >  **Impostazioni generali**.
+1. Passare alla pagina delle risorse dell'app. Selezionare configurazioni degli **slot di distribuzione**  >  *\<desired source slot>*  >    >  **Impostazioni generali**.
    
-2. Per **scambio automatico abilitato**selezionare attivato **On**. Selezionare quindi lo slot di destinazione desiderato per lo **slot di distribuzione di scambio automatico**e selezionare **Salva** sulla barra dei comandi. 
+2. Per **scambio automatico abilitato** selezionare attivato . Selezionare quindi lo slot di destinazione desiderato per lo **slot di distribuzione di scambio automatico** e selezionare **Salva** sulla barra dei comandi. 
    
     ![Selezioni per la configurazione dello scambio automatico](./media/web-sites-staged-publishing/AutoSwap02.png)
 
@@ -222,7 +222,7 @@ In caso di problemi, vedere risolvere i problemi di [swap](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Monitorare uno scambio
 
-Se il completamento dell' [operazione di scambio](#AboutConfiguration) richiede molto tempo, è possibile ottenere informazioni sull'operazione di scambio nel [log attività](../azure-monitor/platform/platform-logs-overview.md).
+Se il completamento dell' [operazione di scambio](#AboutConfiguration) richiede molto tempo, è possibile ottenere informazioni sull'operazione di scambio nel [log attività](../azure-monitor/essentials/platform-logs-overview.md).
 
 Nel riquadro sinistro della pagina delle risorse dell'app nel portale selezionare **log attività**.
 
@@ -274,7 +274,7 @@ Per impostazione predefinita, ai nuovi slot viene assegnata una regola di routin
 
 ## <a name="delete-a-slot"></a>Eliminare uno slot
 
-Cercare e selezionare l'app. Selezionare Panoramica degli **slot di distribuzione**  >  *\<slot to delete>*  >  **Overview**. Il tipo di app viene visualizzato come **servizio app (slot)** per ricordare che si sta visualizzando uno slot di distribuzione. Selezionare **Elimina** sulla barra dei comandi.  
+Cercare e selezionare l'app. Selezionare Panoramica degli **slot di distribuzione**  >  *\<slot to delete>*  >  . Il tipo di app viene visualizzato come **servizio app (slot)** per ricordare che si sta visualizzando uno slot di distribuzione. Selezionare **Elimina** sulla barra dei comandi.  
 
 ![Eliminare uno slot di distribuzione](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

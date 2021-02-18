@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7778607b533a836eb5a47a12b73374c2a8299621
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789217"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590576"
 ---
 # <a name="security-alerts-schemas"></a>Schemi degli avvisi di sicurezza
 
@@ -24,8 +24,8 @@ Se Azure Defender è abilitato per la sottoscrizione, si riceveranno avvisi di s
 
 È possibile visualizzare questi avvisi di sicurezza nelle pagine di **protezione dalle minacce** del Centro sicurezza di Azure o tramite strumenti esterni, ad esempio:
 
-- [Azure Sentinel](../sentinel/index.yml) , il sistema Siem nativo di Microsoft. Il connettore Sentinel riceve gli avvisi dal centro sicurezza di Azure e li invia all' [area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md) per Azure Sentinel.
-- SIEM di terze parti-inviare dati a [Hub eventi di Azure](../event-hubs/index.yml). Integrare quindi i dati dell'hub eventi con SIEM di terze parti. Per altre informazioni [, vedere trasmettere avvisi a una soluzione Siem, Soar o IT Service Management](export-to-siem.md).
+- [Azure Sentinel](../sentinel/index.yml) , il sistema Siem nativo di Microsoft. Il connettore Sentinel riceve gli avvisi dal centro sicurezza di Azure e li invia all' [area di lavoro log Analytics](../azure-monitor/logs/quick-create-workspace.md) per Azure Sentinel.
+- SIEM di terze parti-inviare dati a [Hub eventi di Azure](../event-hubs/index.yml). Integrare quindi i dati dell'hub eventi con SIEM di terze parti. Per altre informazioni, vedere [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md).
 - [API REST](/rest/api/securitycenter/) : se si usa l'API REST per accedere agli avvisi, vedere la documentazione dell'API per gli [avvisi online](/rest/api/securitycenter/alerts).
 
 Se si usano metodi a livello di codice per utilizzare gli avvisi, sarà necessario lo schema corretto per trovare i campi pertinenti. Inoltre, se si esporta in un hub eventi o si tenta di attivare l'automazione del flusso di lavoro con connettori HTTP generici, usare gli schemi per analizzare correttamente gli oggetti JSON.
@@ -186,5 +186,5 @@ Per ulteriori informazioni sulle modalità di accesso agli avvisi di sicurezza d
 
 - [Sentinel di Azure](../sentinel/index.yml) -Siem nativo di Microsoft Cloud
 - [Hub eventi di Azure](../event-hubs/index.yml) : servizio di inserimento dati in tempo reale e completamente gestito di Microsoft
-- [Esporta continuamente i dati del Centro sicurezza](continuous-export.md)
-- [Log Analytics aree di lavoro](../azure-monitor/learn/quick-create-workspace.md) : monitoraggio di Azure archivia i dati di log in un'area di lavoro log Analytics, un contenitore che include dati e informazioni di configurazione
+- [Esportazione continua dei dati del Centro sicurezza](continuous-export.md)
+- [Log Analytics aree di lavoro](../azure-monitor/logs/quick-create-workspace.md) : monitoraggio di Azure archivia i dati di log in un'area di lavoro log Analytics, un contenitore che include dati e informazioni di configurazione

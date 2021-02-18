@@ -4,12 +4,12 @@ description: Informazioni su come configurare un avviso per nuove raccomandazion
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91629897"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590052"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Avvio rapido: Creare avvisi di Azure Advisor per nuove raccomandazioni usando un modello di Azure Resource Manager
 
@@ -17,7 +17,7 @@ Questo articolo illustra come configurare un avviso per nuove raccomandazioni di
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse in uso, viene archiviato un evento nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). È possibile configurare avvisi per questi eventi di Azure Advisor usando un'esperienza di creazione di avvisi specifici delle raccomandazioni. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse per le quali si vogliono ricevere gli avvisi.
+Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse in uso, viene archiviato un evento nel [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md). È possibile configurare avvisi per questi eventi di Azure Advisor usando un'esperienza di creazione di avvisi specifici delle raccomandazioni. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse per le quali si vogliono ricevere gli avvisi.
 
 Si possono anche determinare i tipi di raccomandazioni usando queste proprietà:
 
@@ -30,7 +30,7 @@ Si possono anche determinare i tipi di raccomandazioni usando queste proprietà:
 - Selezionando un gruppo di azioni esistente
 - Creando un nuovo gruppo di azioni
 
-Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
+Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
 > Gli avvisi di Azure Advisor sono attualmente disponibili solo per le raccomandazioni di tipo Disponibilità elevata, Prestazioni e Costo. Le raccomandazioni sulla sicurezza non sono supportate.
@@ -203,5 +203,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere una [panoramica degli avvisi del log attività](../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.
-- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).
+- Leggere una [panoramica degli avvisi del log attività](../azure-monitor/alerts/alerts-overview.md) e informazioni su come ricevere gli avvisi.
+- Altre informazioni sui [gruppi di azione](../azure-monitor/alerts/action-groups.md).

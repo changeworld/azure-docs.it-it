@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 124650f4570608efabba3d8002c14ad06c4782ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977256"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571512"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Risolvere i problemi di CPU elevata per le macchine virtuali Windows di Azure
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I problemi di prestazioni si verificano in diversi sistemi operativi o applicazioni. ogni problema richiede un approccio univoco per la risoluzione dei problemi. La maggior parte di questi problemi riguarda CPU, memoria, rete e input/output (I/O) come posizioni chiave in cui si verifica il problema. Ognuna di queste aree genera sintomi diversi (a volte simultaneamente) e richiede una diagnosi e una soluzione diverse.
 
@@ -225,7 +225,7 @@ In PerfMon non sono disponibili report predefiniti per l'utente. Sono disponibil
 
 Per iniziare, selezionare la categoria **Aggiungi contatori** .
 
-1. In **contatori disponibili**selezionare il contatore **% ProcessorTime** nella categoria **informazioni processore** .
+1. In **contatori disponibili** selezionare il contatore **% ProcessorTime** nella categoria **informazioni processore** .
 
 1. Selezionare **_Total**, che fornisce le statistiche di tutti i core combinati.
 
@@ -237,7 +237,7 @@ Dopo il caricamento dei contatori, verranno visualizzati i grafici di tendenza r
 
   ![Impostazioni di performance monitor](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
 
-Ogni contatore avrà valori **medi**, **minimi**e **massimi** . Concentrarsi sui valori **medi** e **massimi** , in quanto il valore medio può variare a seconda della durata della raccolta dei dati. Se l'attività di CPU elevata è stata considerata per 10 minuti mentre la raccolta complessiva era 40 minuti, i valori medi saranno molto inferiori.
+Ogni contatore avrà valori **medi**, **minimi** e **massimi** . Concentrarsi sui valori **medi** e **massimi** , in quanto il valore medio può variare a seconda della durata della raccolta dei dati. Se l'attività di CPU elevata è stata considerata per 10 minuti mentre la raccolta complessiva era 40 minuti, i valori medi saranno molto inferiori.
 
 Il grafico tendenza precedente mostra che il **processore totale** è stato compreso quasi il 80% per circa 15 minuti.
 
@@ -289,7 +289,7 @@ Una volta abilitate le impostazioni, è possibile visualizzare questi contatori 
 
   ![Spazio dei nomi metrica](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Per altre informazioni su come usare monitoraggio di Azure per gestire le VM di Azure, vedere [monitoraggio di macchine virtuali di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-vm-azure.md).
+Per altre informazioni su come usare monitoraggio di Azure per gestire le VM di Azure, vedere [monitoraggio di macchine virtuali di Azure con monitoraggio di Azure](../../azure-monitor/vm/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Risoluzione dei problemi reattivo
 
@@ -303,7 +303,7 @@ PerfInsights non dispone ancora di una funzionalità di **esecuzione pianificata
 
 ### <a name="logman-command"></a>Logman (comando)
 
-Il comando **logman create counter** viene usato per eseguire la raccolta PerfMon attraverso la riga di comando, per pianificarla tramite **Gestione attività**o per eseguirla in modalità remota.
+Il comando **logman create counter** viene usato per eseguire la raccolta PerfMon attraverso la riga di comando, per pianificarla tramite **Gestione attività** o per eseguirla in modalità remota.
 
 **Esempio** (include la modalità di raccolta remota)
 

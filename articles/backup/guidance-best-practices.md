@@ -3,12 +3,12 @@ title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258762"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593331"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -238,9 +238,9 @@ Un utente o un amministratore di backup deve essere in grado di monitorare tutte
   * Identificazione delle tendenze principali a diversi livelli di granularità.
 
 * Inoltre,
-  * È possibile inviare dati (ad esempio, processi, criteri e così via) all'area di lavoro **log Analytics** . In questo modo le funzionalità dei log di monitoraggio di Azure consentono di correlare i dati con altri dati di monitoraggio raccolti da monitoraggio di Azure, consolidare le voci di log da più sottoscrizioni e tenant di Azure in un'unica posizione per l'analisi, usare query di log per eseguire analisi complesse e ottenere informazioni approfondite sulle voci di log. Fare clic [qui](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace) per altre informazioni.
-  * È possibile inviare dati a hub eventi per inviare voci all'esterno di Azure, ad esempio a una soluzione SIEM di terze parti (informazioni di sicurezza e gestione degli eventi) o ad altre soluzioni di log Analytics. Fare clic [qui](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs) per altre informazioni.
-  * È possibile inviare dati a un account di archiviazione di Azure se si desidera conservare i dati di log più lunghi di 90 giorni per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi solo per 90 giorni, non è necessario configurare archivi in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni. [Altre informazioni](../azure-monitor/platform/activity-log.md#send-to--azure-storage)
+  * È possibile inviare dati (ad esempio, processi, criteri e così via) all'area di lavoro **log Analytics** . In questo modo le funzionalità dei log di monitoraggio di Azure consentono di correlare i dati con altri dati di monitoraggio raccolti da monitoraggio di Azure, consolidare le voci di log da più sottoscrizioni e tenant di Azure in un'unica posizione per l'analisi, usare query di log per eseguire analisi complesse e ottenere informazioni approfondite sulle voci di log. Fare clic [qui](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace) per altre informazioni.
+  * È possibile inviare dati a hub eventi per inviare voci all'esterno di Azure, ad esempio a una soluzione SIEM di terze parti (informazioni di sicurezza e gestione degli eventi) o ad altre soluzioni di log Analytics. Fare clic [qui](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs) per altre informazioni.
+  * È possibile inviare dati a un account di archiviazione di Azure se si desidera conservare i dati di log più lunghi di 90 giorni per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi solo per 90 giorni, non è necessario configurare archivi in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni. [Altre informazioni](../azure-monitor/essentials/activity-log.md#send-to--azure-storage)
 
 ### <a name="alerting"></a>Creazione di avvisi
 
