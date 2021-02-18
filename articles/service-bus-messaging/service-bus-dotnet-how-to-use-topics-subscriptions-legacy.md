@@ -1,16 +1,16 @@
 ---
 title: Introduzione agli argomenti e alle sottoscrizioni del bus di servizio di Azure | Microsoft Docs
 description: Scrivere un'applicazione console C# .NET Core che usa gli argomenti e le sottoscrizioni di messaggistica del bus di servizio.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85eb8e6cdaa8636215c5df9d81dbecdca97a2501
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 28e94cdb0df0a18b41f4c8a0ded362b50df6dcac
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819275"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652973"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 Questa esercitazione illustra i passaggi seguenti:
@@ -24,7 +24,7 @@ Questa esercitazione illustra i passaggi seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi della [Guida introduttiva: usare la portale di Azure per creare un argomento e le sottoscrizioni del bus di servizio all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
+2. Seguire la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
     1. Creare uno **spazio dei nomi** del bus di servizio.
     2. Ottenere la **stringa di connessione**.
     3. Creare un **argomento** nello spazio dei nomi.
@@ -201,7 +201,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Sostituire il `Main()` metodo con il seguente **async** `Main` metodo asincrono. Viene chiamato il `RegisterOnMessageHandlerAndReceiveMessages()` metodo che verrà aggiunto nel passaggio successivo. 
+3. Sostituire il metodo `Main()` con il metodo `Main` **asincrono** seguente. Viene chiamato il `RegisterOnMessageHandlerAndReceiveMessages()` metodo che verrà aggiunto nel passaggio successivo. 
 
     ```csharp
     public static async Task Main(string[] args)

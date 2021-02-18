@@ -1,35 +1,27 @@
 ---
 title: Distribuire e configurare la soluzione Azure VMware
-description: Informazioni su come usare le informazioni raccolte nella fase di pianificazione per distribuire il cloud privato della soluzione Azure VMware.
+description: Informazioni su come usare le informazioni raccolte nella fase di pianificazione per distribuire e configurare il cloud privato della soluzione VMware di Azure.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: 4c6929ca59bae022642082e8382203a10bd41309
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382056"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652735"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuire e configurare la soluzione Azure VMware
 
-In questo articolo verranno usate le informazioni raccolte della [sezione di pianificazione](production-ready-deployment-steps.md) per distribuire la soluzione Azure VMware. 
+In questo articolo verranno usate le informazioni della [sezione relativa alla pianificazione](production-ready-deployment-steps.md) per distribuire e configurare la soluzione VMware di Azure. 
 
 >[!IMPORTANT]
 >Se le informazioni non sono ancora state definite, tornare alla [sezione pianificazione](production-ready-deployment-steps.md) prima di continuare.
 
-## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Creare un cloud privato della soluzione Azure VMware
 
-
-## <a name="deploy-azure-vmware-solution"></a>Distribuire la soluzione Azure VMware
-
-Usare le informazioni raccolte nell'articolo [Pianificazione della distribuzione della soluzione Azure VMware](production-ready-deployment-steps.md):
-
->[!NOTE]
->Per distribuire la soluzione Azure VMware, è necessario avere almeno il livello di Collaboratore nella sottoscrizione.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Seguire i prerequisiti e i passaggi illustrati nell'esercitazione [creare una soluzione VMware di Azure per il cloud privato](tutorial-create-private-cloud.md) . Per creare un cloud privato della soluzione Azure VMware, è possibile usare il [portale di Azure](tutorial-create-private-cloud.md#azure-portal) oppure l'[interfaccia della riga di comando di Azure](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >Per una panoramica completa di questo passaggio, guardare il video [Soluzione Azure VMware: Distribuzione](https://www.youtube.com/embed/gng7JjxgayI).
@@ -60,7 +52,7 @@ Se nella fase di distribuzione non è stata definita una rete virtuale e si inte
 
 La Jump box si trova nella rete virtuale in cui la soluzione VMware di Azure si connette tramite il circuito ExpressRoute.  In Azure passare all'interfaccia di rete della jump box e [visualizzare le route valide](../virtual-network/manage-route-table.md#view-effective-routes).
 
-Nell'elenco di route valide dovrebbero essere visualizzate le reti create come parte della distribuzione della soluzione Azure VMware. Verranno visualizzate più reti derivate dalla rete [`/22` definita](production-ready-deployment-steps.md#ip-address-segment) durante il [passaggio di distribuzione](#deploy-azure-vmware-solution) disponibile in precedenza in questo articolo.
+Nell'elenco di route valide dovrebbero essere visualizzate le reti create come parte della distribuzione della soluzione Azure VMware. Verranno visualizzate più reti derivate dalla [ `/22` rete definita](production-ready-deployment-steps.md#ip-address-segment) al momento della [creazione di un cloud privato](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verificare le route di rete annunciate dalla soluzione Azure VMware nella Rete virtuale di Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
