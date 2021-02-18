@@ -7,29 +7,33 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523142"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636561"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Usare i comandi dell'interfaccia della riga di comando di Defender per IoT
 
-Questo articolo descrive i comandi dell'interfaccia della riga di comando per i sensori e le console di gestione locali. I comandi sono accessibili per gli amministratori, gli utenti CyberX e gli utenti di supporto.
+Questo articolo descrive i comandi dell'interfaccia della riga di comando per i sensori e le console di gestione locali. I comandi sono accessibili agli utenti seguenti:
 
-Definire le regole di esclusione quando si pianificano le attività di manutenzione o un'attività che non richiede un avviso.
+- Amministratore
+- CyberX 
+- Supporto
+
+Per iniziare a lavorare nell'interfaccia della riga di comando, connettersi usando un terminale. Ad esempio, il nome del terminale `Putty` e l' `Support` utente. 
 
 ## <a name="create-local-alert-exclusion-rules"></a>Creare regole di esclusione di avvisi locali
 
-È possibile creare una regola di esclusione immettendo il comando seguente nell'interfaccia della riga di comando:
+È possibile creare una regola di esclusione dell'avviso locale immettendo il comando seguente nell'interfaccia della riga di comando:
 
 ```azurecli-interactive
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-Gli attributi che è possibile definire all'interno delle regole di esclusione degli avvisi sono i seguenti:
+Con le regole di esclusione degli avvisi è possibile usare gli attributi seguenti:
 
 | Attributo | Descrizione |
 |--|--|
@@ -42,18 +46,18 @@ Gli attributi che è possibile definire all'interno delle regole di esclusione d
 
 ## <a name="append-local-alert-exclusion-rules"></a>Aggiungere regole di esclusione di avvisi locali
 
-È possibile aggiungere nuove regole alle regole di esclusione degli avvisi correnti immettendo il comando seguente nell'interfaccia della riga di comando:
+È possibile aggiungere regole di esclusione dell'avviso locale immettendo il comando seguente nell'interfaccia della riga di comando:
 
 ```azurecli-interactive
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-Gli attributi usati qui sono simili agli attributi descritti durante la creazione delle regole di esclusione degli avvisi locali. Nell'utilizzo, gli attributi vengono applicati alle regole esistenti.
+Gli attributi usati sono gli stessi descritti nella sezione creare regole di esclusione di avvisi locali. La differenza nell'utilizzo è che qui gli attributi vengono applicati alle regole esistenti.
 
 ## <a name="show-local-alert-exclusion-rules"></a>Mostra regole di esclusione avviso locale
 
-Immettere il comando seguente per visualizzare tutte le regole di esclusione esistenti:
+Immettere il comando seguente per presentare l'elenco esistente di regole di esclusione:
 
 ```azurecli-interactive
 alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
@@ -69,7 +73,7 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-È possibile usare l'attributo seguente con le regole di esclusione degli avvisi:
+L'attributo seguente può essere usato con le regole di esclusione degli avvisi:
 
 | Attributo | Descrizione|
 | --------- | ---------------------------------- |
@@ -77,11 +81,11 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 ## <a name="sync-time-from-the-ntp-server"></a>Tempo di sincronizzazione dal server NTP
 
-È possibile abilitare e disabilitare una sincronizzazione dell'ora da un server NTP.
+È possibile abilitare o disabilitare la sincronizzazione dell'ora da un server NTP specificato.
 
 ### <a name="enable-ntp-sync"></a>Abilitare la sincronizzazione NTP
 
-Immettendo il comando seguente, viene abilitato un recupero periodico dell'ora corrente da un server NTP specificato:
+Immettere il comando seguente per recuperare periodicamente l'ora dal server NTP specificato:
 
 ```azurecli-interactive
 ntp enable IP
@@ -91,7 +95,7 @@ L'attributo che è possibile definire all'interno del comando è l'indirizzo IP 
 
 ### <a name="disable-ntp-sync"></a>Disabilitare la sincronizzazione NTP
 
-Immettendo il comando seguente, la sincronizzazione dell'ora con il server NTP specificato viene disabilitata:
+Immettere il comando seguente per disabilitare la sincronizzazione dell'ora con il server NTP specificato:
 
 ```azurecli-interactive
 ntp disable IP
@@ -99,15 +103,15 @@ ntp disable IP
 
 L'attributo che è possibile definire all'interno del comando è l'indirizzo IP del server NTP.
 
-## <a name="configure-the-network"></a>Configurare la rete
+## <a name="network-configuration"></a>Configurazione di rete
 
 La tabella seguente descrive i comandi disponibili per configurare le opzioni di rete per Azure Defender:
 
 |Nome|Comando|Descrizione|
 |-----------|-------|-----------|
-|Ping|`ping IP `| Effettua il ping degli indirizzi all'esterno del Defender per la piattaforma Internet.|
-|Blink|`network blink`|Consente di modificare i parametri di configurazione di rete.|
-|Riconfigurare la rete |`network edit-settings`| Consente di modificare i parametri di configurazione di rete. |
+|Ping|`ping IP`| Effettuare il ping di un indirizzo all'esterno del Defender per la piattaforma Internet.|
+|Blink|`network blink`| Individuare una connessione facendo lampeggiare le spie dell'interfaccia. |
+|Riconfigurare la rete |`network edit-settings`| Abilitare una modifica nei parametri di configurazione di rete. |
 |Mostra impostazioni di rete |`network list`|Visualizza i parametri della scheda di rete. |
 |Convalidare la configurazione di rete |`network validate` |Visualizza le impostazioni di rete di output. <br /> <br />Ad esempio: <br /> <br />Impostazioni di rete correnti: <br /> interfaccia: eth0 <br /> IP: 10.100.100.1 <br />subnet: 255.255.255.0 <br />gateway predefinito: 10.100.100.254 <br />DNS: 10.100.100.254 <br />interfacce di monitoraggio: eth1|
 |Importazione di un certificato |`certificate import FILE` |Importa il certificato HTTPS. È necessario specificare il percorso completo, che conduce a un \* file. CRT. |
@@ -115,7 +119,7 @@ La tabella seguente descrive i comandi disponibili per configurare le opzioni di
 
 ## <a name="filter-network-configurations"></a>Filtrare le configurazioni di rete
 
-Il `network capture-filter` comando consente agli amministratori di eliminare il traffico di rete che non deve essere analizzato. Filtrare il traffico usando un elenco di inclusione o un elenco di esclusione.
+Il `network capture-filter` comando consente agli amministratori di eliminare il traffico di rete che non deve essere analizzato. È possibile filtrare il traffico usando un elenco di inclusione o un elenco di esclusione.
 
 ```azurecli-interactive
 network capture-filter
@@ -125,7 +129,7 @@ Dopo aver immesso il comando, verrà visualizzata la domanda seguente:
 
 >`Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
 
-Selezionare `Y` questa impostazione per aprire un file nano in cui è possibile aggiungere dispositivi, canali, porte e subset in base alla sintassi seguente:
+Selezionare `Y` per aprire un file nano in cui è possibile aggiungere un dispositivo, un canale, una porta e un subset in base alla sintassi seguente:
 
 | Attributo | Descrizione |
 |--|--|
@@ -137,11 +141,11 @@ Separare gli argomenti eliminando una riga.
 
 Quando si include un dispositivo, un canale o una subnet, il sensore elabora tutto il traffico valido per tale argomento, incluse le porte e il traffico che in genere non vengono elaborati.
 
-Verrà quindi richiesto quanto segue:
+Verrà quindi richiesta la domanda seguente:
 
 >`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
-Selezionare `Y` questa impostazione per aprire un file nano in cui è possibile aggiungere dispositivi, canali, porte e subset in base alla sintassi seguente:
+Selezionare `Y` questa impostazione per aprire un file nano in cui è possibile aggiungere un dispositivo, un canale, una porta e subset in base alla sintassi seguente:
 
 | Attributo | Descrizione |
 |--|--|
@@ -173,7 +177,7 @@ Includere o escludere le porte UDP e TCP per tutto il traffico.
 
 ### <a name="components"></a>Componenti
 
-Vengono richieste le seguenti operazioni:
+Viene richiesta la domanda seguente:
 
 >`In which component do you wish to apply this capture filter?`
 
@@ -232,7 +236,7 @@ sudo cyberx-xsense-capture-filter -p all -m all-connected
 
 ## <a name="define-client-and-server-hosts"></a>Definire host client e server
 
-Se Defender for Internet non rileva automaticamente gli host client e server, immettere il comando seguente per impostare gli host client e server:
+Se Defender for Internet non rileva automaticamente il client e gli host server, immettere il comando seguente per impostare gli host client e server:
 
 ```azurecli-interactive
 directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]  
@@ -256,6 +260,7 @@ La tabella seguente descrive i comandi disponibili per eseguire diverse azioni d
 
 |Nome|Codice|Descrizione|
 |----|----|-----------|
+|Mostra la data|`date`|Restituisce la data corrente nell'host in formato GMT.|
 |Riavviare l'host|`system reboot`|Riavvia il dispositivo host.|
 |Arrestare l'host|`system shutdown`|Arresta l'host.|
 |Eseguire il backup del sistema|`system backup`|Avvia un backup immediato (un backup non pianificato).|
@@ -290,6 +295,6 @@ Quando si usa lo strumento:
 
 - Verificare che il dominio dell'appliance (come appare nel certificato) con il server DNS e l'indirizzo IP corrispondente. 
     
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedi anche
 
 [Defender per le API del sensore API e della console di gestione](references-work-with-defender-for-iot-apis.md)

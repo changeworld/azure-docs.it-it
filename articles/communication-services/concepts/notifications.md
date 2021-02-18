@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2b77708609f61eeb4ce33148f020027d646836b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
-ms.translationtype: HT
+ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813599"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577383"
 ---
 # <a name="communication-services-notifications"></a>Notifiche di Servizi di comunicazione
 
@@ -91,7 +91,7 @@ Se le notifiche push non vengono visualizzate nel dispositivo, le cause possibil
 
 La prima causa di mancato recapito di una notifica (Hub di notifica di Azure non ha accettato la notifica da Servizi di comunicazione di Azure) è illustrata di seguito. Per le altre due cause, vedere [Diagnosticare i problemi relativi alle notifiche non recapitate in Hub di notifica di Azure](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-Un modo per verificare se la risorsa Servizi di comunicazione invia notifiche a Hub di notifica di Azure consiste nell'esaminare la metrica `incoming messages` dalle [metriche dell'hub di notifica di Azure](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) collegate.
+Un modo per verificare se la risorsa Servizi di comunicazione invia notifiche a Hub di notifica di Azure consiste nell'esaminare la metrica `incoming messages` dalle [metriche dell'hub di notifica di Azure](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) collegate.
 
 Di seguito sono descritti alcuni errori di configurazione che potrebbero essere la causa per cui l'hub di notifica di Azure non accetta le notifiche dalla risorsa Servizi di comunicazione.
 

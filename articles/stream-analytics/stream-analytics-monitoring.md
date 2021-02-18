@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5141c7fcfe1128574145930548f41731529c2ad8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012462"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572966"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -48,7 +48,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 È possibile usare queste metriche per [monitorare le prestazioni del processo di Analisi di flusso](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalizzazione del monitoraggio nel portale di Azure
-È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [How to Customize Monitoring](../azure-monitor/platform/data-platform.md) (Come personalizzare il monitoraggio).
+È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [How to Customize Monitoring](../azure-monitor/data-platform.md) (Come personalizzare il monitoraggio).
 
   ![Grafico cronologico del monitoraggio delle query di Analisi di flusso](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 

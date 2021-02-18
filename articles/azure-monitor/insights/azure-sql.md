@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe506dc3f5738f0ef639695ded980a24536993e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397080"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577458"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -33,17 +33,17 @@ Analisi SQL di Azure è una soluzione di monitoraggio solo cloud che supporta la
 
 | Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
-| [Impostazioni di diagnostica](../platform/diagnostic-settings.md) | **Sì** | I dati relativi alle metriche e ai log di Azure vengono inviati ai log di monitoraggio di Azure direttamente da Azure. |
-| [Account di archiviazione di Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Monitoraggio di Azure non legge i dati da un account di archiviazione. |
-| [Agenti di Windows](../platform/agent-windows.md) | No | Gli agenti di Windows diretti non vengono usati da Analisi SQL di Azure. |
-| [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | Gli agenti Linux diretti non vengono usati da Analisi SQL di Azure. |
-| [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | No | Una connessione diretta dall'agente Operations Manager al monitoraggio di Azure non viene utilizzata da Analisi SQL di Azure. |
+| [Impostazioni di diagnostica](../essentials/diagnostic-settings.md) | **Sì** | I dati relativi alle metriche e ai log di Azure vengono inviati ai log di monitoraggio di Azure direttamente da Azure. |
+| [Account di archiviazione di Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Monitoraggio di Azure non legge i dati da un account di archiviazione. |
+| [Agenti di Windows](../agents/agent-windows.md) | No | Gli agenti di Windows diretti non vengono usati da Analisi SQL di Azure. |
+| [Agenti Linux](../vm/quick-collect-linux-computer.md) | No | Gli agenti Linux diretti non vengono usati da Analisi SQL di Azure. |
+| [Gruppo di gestione di System Center Operations Manager](../agents/om-agents.md) | No | Una connessione diretta dall'agente Operations Manager al monitoraggio di Azure non viene utilizzata da Analisi SQL di Azure. |
 
 ## <a name="azure-sql-analytics-options"></a>Opzioni di Analisi SQL di Azure
 
 La tabella seguente descrive le opzioni supportate per due versioni del dashboard di Analisi SQL di Azure, una per il database SQL di Azure e l'altra per i database di Istanza gestita di Azure SQL.
 
-| Opzione Analisi SQL di Azure | Description | Supporto per database SQL | Supporto per Istanza gestita di SQL |
+| Opzione Analisi SQL di Azure | Descrizione | Supporto per database SQL | Supporto per Istanza gestita di SQL |
 | --- | ------- | ----- | ----- |
 | Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Sì | Sì |
 | Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Sì | Sì |
@@ -170,13 +170,13 @@ Dopo aver creato il nuovo ruolo, assegnarlo a ogni utente a cui è necessario co
 
 ## <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
 
-L'analisi dei dati in Analisi SQL di Azure è basata sul [linguaggio di Log Analytics](../log-query/get-started-queries.md) per la creazione di report e di query personalizzati. Per una descrizione dei dati disponibili raccolti dalla risorsa del database per la creazione di query personalizzate, vedere [Le metriche e i log disponibili](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
+L'analisi dei dati in Analisi SQL di Azure è basata sul [linguaggio di Log Analytics](../logs/get-started-queries.md) per la creazione di report e di query personalizzati. Per una descrizione dei dati disponibili raccolti dalla risorsa del database per la creazione di query personalizzate, vedere [Le metriche e i log disponibili](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
 
 Gli avvisi automatici in Analisi SQL di Azure si basano sulla scrittura di una query Log Analytics che attiva un avviso in seguito a una condizione soddisfatta. Di seguito sono riportati alcuni esempi di Log Analytics query su cui è possibile configurare gli avvisi in Analisi SQL di Azure.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Creazione di avvisi per il database SQL di Azure
 
-È possibile [creare avvisi](../platform/alerts-metric.md) facilmente con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportate alcune utili [query su log](../log-query/log-query-overview.md) che è possibile usare con un avviso log:
+È possibile [creare avvisi](../alerts/alerts-metric.md) facilmente con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportate alcune utili [query su log](../logs/log-query-overview.md) che è possibile usare con un avviso log:
 
 #### <a name="high-cpu"></a>CPU elevata
 
@@ -297,7 +297,7 @@ Sebbene Analisi SQL di Azure sia libero da usare, il consumo di dati di telemetr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Usare le [query di log](../log-query/log-query-overview.md) in monitoraggio di Azure per visualizzare dati dettagliati di Azure SQL.
-- [Creare dashboard personalizzati](../learn/tutorial-logs-dashboards.md) che mostrino i dati per Azure SQL.
-- [Creare avvisi](../platform/alerts-overview.md) quando si verificano eventi specifici relativi ad Azure SQL.
+- Usare le [query di log](../logs/log-query-overview.md) in monitoraggio di Azure per visualizzare dati dettagliati di Azure SQL.
+- [Creare dashboard personalizzati](../visualize/tutorial-logs-dashboards.md) che mostrino i dati per Azure SQL.
+- [Creare avvisi](../alerts/alerts-overview.md) quando si verificano eventi specifici relativi ad Azure SQL.
 

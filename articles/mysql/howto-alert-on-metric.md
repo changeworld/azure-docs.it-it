@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 81003be986524b94e9c4487cd0d8606540445d16
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5b9e7938f404a37672fe8d13725b1e64d665bf18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542083"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576260"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MySQL 
 
@@ -25,8 +25,8 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 * Chiamare un webhook
 
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Interfaccia della riga di comando di Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST di Monitoraggio di Azure](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creare una regola di avviso in base a una metrica dal portale di Azure
@@ -48,7 +48,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
    
    :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selezionare una metrica":::
 
-7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale** , **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Over the Last 30 minutes" e **Frequency**.
+7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale**, **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Over the Last 30 minutes" e **Frequency**.
    
    Al termine, selezionare **Chiudi**.
 
@@ -85,5 +85,5 @@ Dopo aver creato un avviso, è possibile selezionarlo ed eseguire queste azioni:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
-* Leggere una [panoramica della raccolta di metriche](../azure-monitor/platform/data-platform.md) per verificare che il servizio sia disponibile e reattivo.
+* Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/alerts/alerts-webhooks.md).
+* Leggere una [panoramica della raccolta di metriche](../azure-monitor/data-platform.md) per verificare che il servizio sia disponibile e reattivo.

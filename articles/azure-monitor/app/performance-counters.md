@@ -4,12 +4,12 @@ description: Sistema di monitoraggio e contatori delle prestazioni .NET personal
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937395"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583882"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
 
@@ -110,7 +110,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contatori delle prestazioni in Analytics
-È possibile cercare e visualizzare report dei contatori delle prestazioni in [Analytics](../log-query/log-query-overview.md).
+È possibile cercare e visualizzare report dei contatori delle prestazioni in [Analytics](../logs/log-query-overview.md).
 
 Lo schema **performanceCounters** espone `category`, il nome `counter` e il nome `instance` per ogni contatore delle prestazioni.  Nei dati di telemetria per ogni applicazione verranno visualizzati solo i contatori per l'applicazione specifica. Ad esempio, per visualizzare quali contatori sono disponibili: 
 
@@ -148,7 +148,7 @@ Il supporto dei contatori delle prestazioni nelle applicazioni ASP.NET Core è l
 * Le versioni di SDK 2.8.0 e successive supportano il contatore della cpu/memoria in Linux. Linux non supporta nessun altro contatore. Per ottenere i contatori di sistema in Linux (e in altri ambienti non Windows), usare [Contatore eventi](eventcounters.md)
 
 ## <a name="alerts"></a>Avvisi
-Come per altre metriche, è possibile [impostare un avviso](../platform/alerts-log.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
+Come per altre metriche, è possibile [impostare un avviso](../alerts/alerts-log.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il riquadro Avvisi e fare clic su Aggiungi avviso.
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 

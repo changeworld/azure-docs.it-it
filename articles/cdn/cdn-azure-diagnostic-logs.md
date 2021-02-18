@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352117"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573229"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Log di diagnostica-rete per la distribuzione di contenuti di Azure
 
@@ -78,7 +78,7 @@ Per usare un account di archiviazione per archiviare i log, seguire questa proce
 Per usare Log Analytics per i log, seguire questa procedura:
 
 >[!NOTE] 
->Per completare questa procedura, è necessaria un'area di lavoro di log Analytics. Per ulteriori informazioni, fare riferimento a: **[creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/learn/quick-create-workspace.md)** .
+>Per completare questa procedura, è necessaria un'area di lavoro di log Analytics. Per ulteriori informazioni, fare riferimento a: **[creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/logs/quick-create-workspace.md)** .
     
 1. Per **nome dell'impostazione di diagnostica**, immettere un nome per le impostazioni del log di diagnostica.
 
@@ -249,7 +249,7 @@ La tabella seguente mostra un elenco di metriche disponibili nei log di analisi 
 Non tutte le metriche sono disponibili da tutti i provider, sebbene le differenze siano minime. La tabella mostra anche se una determinata metrica può essere indicata da un provider. Le metriche sono disponibili solo per gli endpoint della rete CDN in cui vi è traffico.
 
 
-|Metric                     | Descrizione | Microsoft | Verizon | Akamai |
+|Metrica                     | Descrizione | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Numero totale di riscontri della richiesta durante questo periodo. | Sì | Sì |Sì |
 | RequestCountHttpStatus2xx | Numero di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202). | Sì | Sì |Sì |
@@ -369,7 +369,7 @@ Proprietà di esempio:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Log di diagnostica di Azure](../azure-monitor/essentials/platform-logs-overview.md)
 * [Analisi principale tramite il portale supplementare della rete CDN di Azure](./cdn-analyze-usage-patterns.md)
-* [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Log di Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md)
 * [API REST di Azure Log Analytics](/rest/api/loganalytics)

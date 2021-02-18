@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f5557140d77865a6d4c44316cecd512f877736e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026455"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577088"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usare il portale di Azure per configurare gli avvisi sulle metriche per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -26,8 +26,8 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
 * Chiamare un webhook.
 
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Interfaccia della riga di comando di Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST di Monitoraggio di Azure](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creare una regola di avviso in base a una metrica dal portale di Azure
@@ -109,5 +109,5 @@ Quando il disco si avvicina al limite di spazio, provare queste tecniche per ott
 Il monitoraggio dell'utilizzo della CPU è utile per stabilire una linea di base per le prestazioni. Ad esempio, è possibile notare che l'utilizzo della CPU è in genere pari al 40-60%. Se l'utilizzo della CPU inizia improvvisamente al passaggio del 95%, è possibile riconoscere un'anomalia. L'utilizzo della CPU può riflettere la crescita organica, ma potrebbe anche rivelare una query randagia. Quando si crea un avviso CPU, impostare una granularità di aggregazione lunga per rilevare aumenti prolungati e ignorare i picchi momentanei.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
-* Leggere una [panoramica della raccolta di metriche](../azure-monitor/platform/data-platform.md) per verificare che il servizio sia disponibile e reattivo.
+* Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/alerts/alerts-webhooks.md).
+* Leggere una [panoramica della raccolta di metriche](../azure-monitor/data-platform.md) per verificare che il servizio sia disponibile e reattivo.

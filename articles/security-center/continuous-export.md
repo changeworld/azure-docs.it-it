@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 226ca943554ca24f3332f24f5a9baf571b432917
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b8dc635781c96dcbd7aa423c77f60ff0556bd71
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590625"
+ms.locfileid: "100634065"
 ---
 # <a name="continuously-export-security-center-data"></a>Esportazione continua dei dati del Centro sicurezza
 
@@ -210,7 +210,7 @@ Verranno ora visualizzati nuovi avvisi del Centro sicurezza di Azure o consigli 
 
 Per scaricare un report CSV per avvisi o raccomandazioni, aprire la pagina avvisi o **raccomandazioni** di **sicurezza** e selezionare il pulsante **Scarica report CSV** .
 
-[![Scarica i dati degli avvisi come file CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Scarica i dati degli avvisi come file CSV" lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > Questi report contengono avvisi e consigli per le risorse delle sottoscrizioni attualmente selezionate.

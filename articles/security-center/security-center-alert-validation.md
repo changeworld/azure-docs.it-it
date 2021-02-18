@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 3bdc0af2ea581954cb5edd2c7d00d286f814506c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560102"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633598"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Convalida degli avvisi nel centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
@@ -28,7 +28,7 @@ Gli avvisi sono le notifiche generate dal Centro sicurezza quando rileva minacce
 Per altre informazioni, vedere [avvisi di sicurezza nel centro sicurezza](security-center-alerts-overview.md) e [gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
 
 
-## <a name="generate-sample-azure-defender-alerts"></a>Genera gli avvisi di Azure Defender di esempio
+## <a name="generate-sample-azure-defender-alerts"></a>Generare avvisi di Azure Defender di esempio
 
 Se si usa la nuova esperienza di anteprima degli avvisi come descritto in [gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md), è possibile creare avvisi di esempio in pochi clic dalla pagina degli avvisi di sicurezza nella portale di Azure.
 
@@ -36,11 +36,6 @@ Usare gli avvisi di esempio per:
 
 - valutare il valore e le funzionalità di Azure Defender
 - convalidare le configurazioni effettuate per gli avvisi di sicurezza, ad esempio le integrazioni SIEM, l'automazione del flusso di lavoro e le notifiche tramite posta elettronica.
-
-> [!NOTE]
-> Questa procedura richiede la nuova esperienza di avvisi (anteprima) disponibile dal banner nella parte superiore della pagina degli **avvisi di sicurezza** .
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner con collegamento alla nuova esperienza avvisi di anteprima":::
 
 Per creare avvisi di esempio:
 

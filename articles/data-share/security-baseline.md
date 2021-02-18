@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 345748380479d81f1ea0df9ecf327200482a6cd7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58aabd52b8c5493671e0a76d0032a6d7c3081f40
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937177"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582044"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Baseline della sicurezza di Azure per la condivisione di dati di Azure
 
@@ -34,7 +34,7 @@ In alternativa, è possibile abilitare e caricare questi dati in Sentinel di Azu
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
@@ -48,11 +48,11 @@ In alternativa, è possibile abilitare e caricare questi dati in Sentinel di Azu
 
 Abilitare i log di diagnostica per la condivisione di dati di Azure, in particolare i log di diagnostica per MicrosoftDataShareSentShareSnapshotsLog &amp; MicrosoftDataShareReceivedShareSnapshotsLog. Questi log consentiranno di acquisire informazioni chiave, ad esempio l'ora di inizio, l'ora di fine, lo stato e altri dettagli della sincronizzazione. Questi log possono essere fondamentali per analizzare in seguito gli eventi imprevisti della sicurezza ed eseguire esercitazioni forensi.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
+- [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -62,9 +62,9 @@ Abilitare i log di diagnostica per la condivisione di dati di Azure, in particol
 
 **Linee guida**: assicurarsi che gli account di archiviazione o le aree di lavoro di log Analytics usati per archiviare i log di condivisione dati di Azure dispongano del periodo di memorizzazione dei log impostato in base alle normative di conformità dell'organizzazione.
 
-- [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -78,9 +78,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introduzione alle query di Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md) 
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -94,7 +94,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md) 
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -209,7 +209,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi di monitoraggio di Azure per le modifiche apportate alle risorse di Azure critiche.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md) 
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

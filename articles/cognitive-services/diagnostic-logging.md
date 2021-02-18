@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e33e8fe6e626700790a3b62265c6889f06e0861b
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a2005ca7b32136ff0032d27e04035c46b2e4e904
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366605"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595370"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Abilitare la registrazione diagnostica per servizi cognitivi di Azure
 
@@ -24,25 +24,25 @@ Questa guida fornisce istruzioni dettagliate per abilitare la registrazione diag
 
 Per abilitare la registrazione diagnostica, è necessario un punto in cui archiviare i dati di log. Questa esercitazione Usa archiviazione di Azure e Log Analytics.
 
-* [Archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) : conserva i log di diagnostica per il controllo dei criteri, l'analisi statica o il backup. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della risorsa che emette i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC di Azure appropriato a entrambe le sottoscrizioni.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) : strumento di ricerca e analisi dei log flessibile che consente di analizzare i log non elaborati generati da una risorsa di Azure.
+* [Archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) : conserva i log di diagnostica per il controllo dei criteri, l'analisi statica o il backup. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della risorsa che emette i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC di Azure appropriato a entrambe le sottoscrizioni.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) : strumento di ricerca e analisi dei log flessibile che consente di analizzare i log non elaborati generati da una risorsa di Azure.
 
 > [!NOTE]
-> Sono disponibili altre opzioni di configurazione. Per altre informazioni, vedere [raccogliere e utilizzare i dati di log dalle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).
+> Sono disponibili altre opzioni di configurazione. Per altre informazioni, vedere [raccogliere e utilizzare i dati di log dalle risorse di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="enable-diagnostic-log-collection"></a>Abilitare la raccolta di log di diagnostica  
 
 Per iniziare, abilitare la registrazione diagnostica usando il portale di Azure.
 
 > [!NOTE]
-> Per abilitare questa funzionalità usando PowerShell o l'interfaccia della riga di comando di Azure, usare le istruzioni fornite in [raccogliere e utilizzare i dati di log dalle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).
+> Per abilitare questa funzionalità usando PowerShell o l'interfaccia della riga di comando di Azure, usare le istruzioni fornite in [raccogliere e utilizzare i dati di log dalle risorse di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Passare al portale di Azure. Individuare e selezionare una risorsa Servizi cognitivi. Ad esempio, la sottoscrizione Ricerca Web Bing.   
 2. Quindi, nel menu di spostamento a sinistra individuare **monitoraggio** e selezionare impostazioni di **diagnostica**. Questa schermata contiene tutte le impostazioni di diagnostica create in precedenza per questa risorsa.
 3. Se si vuole usare una risorsa creata in precedenza, è possibile selezionarla ora. In caso contrario, selezionare **+ Aggiungi impostazioni di diagnostica**.
 4. Immettere un nome per l'impostazione. Selezionare quindi **archivia in un account di archiviazione** e **Invia a log Analytics**.
-5. Quando viene richiesto di configurare, selezionare l'account di archiviazione e l'area di lavoro OMS che si vuole usare per archiviare i log di diagnostica. **Nota** : se non si ha un account di archiviazione o un'area di lavoro OMS, seguire le istruzioni per crearne uno.
-6. Selezionare **Audit** , **RequestResponse** e **AllMetrics**. Impostare quindi il periodo di conservazione per i dati del log di diagnostica. Se un criterio di conservazione è impostato su zero, gli eventi per tale categoria di log vengono archiviati per un periodo illimitato.
+5. Quando viene richiesto di configurare, selezionare l'account di archiviazione e l'area di lavoro OMS che si vuole usare per archiviare i log di diagnostica. **Nota**: se non si ha un account di archiviazione o un'area di lavoro OMS, seguire le istruzioni per crearne uno.
+6. Selezionare **Audit**, **RequestResponse** e **AllMetrics**. Impostare quindi il periodo di conservazione per i dati del log di diagnostica. Se un criterio di conservazione è impostato su zero, gli eventi per tale categoria di log vengono archiviati per un periodo illimitato.
 7. Fare clic su **Salva**.
 
 Potrebbero essere necessarie fino a due ore prima che i dati di registrazione siano disponibili per eseguire query e analizzare. Quindi, non c'è da preoccuparsi se non vengono visualizzati immediatamente.
@@ -85,7 +85,7 @@ AzureDiagnostics
 | take 10
 ```
 
-Eseguire la query per raggruppare le operazioni per **risorsa** :
+Eseguire la query per raggruppare le operazioni per **risorsa**:
 
 ```kusto
 AzureDiagnostics
@@ -113,9 +113,9 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come abilitare la registrazione e le metriche e le categorie di log supportate dai vari servizi di Azure, vedere la [Panoramica delle metriche](../azure-monitor/platform/data-platform.md) in Microsoft Azure e panoramica degli articoli relativi ai [log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md) .
+* Per informazioni su come abilitare la registrazione e le metriche e le categorie di log supportate dai vari servizi di Azure, vedere la [Panoramica delle metriche](../azure-monitor/data-platform.md) in Microsoft Azure e panoramica degli articoli relativi ai [log di diagnostica di Azure](../azure-monitor/essentials/platform-logs-overview.md) .
 * Per informazioni sugli hub eventi, leggere gli articoli seguenti:
   * [Che cos'è Hub eventi di Azure?](../event-hubs/event-hubs-about.md)
   * [Introduzione all'Hub eventi](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 * Leggere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-* Leggere [informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
+* Leggere [informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md).

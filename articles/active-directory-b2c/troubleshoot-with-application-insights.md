@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d4a68b492bad4ac091b4600c9ec81ac0de27cc05
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746003"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572898"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Raccogliere i log di Azure Active Directory B2C con Application Insights
 
@@ -101,7 +101,7 @@ Di seguito è riportato un elenco di query che è possibile usare per visualizza
 
 Le voci possono essere lunghe. Per visualizzarle meglio è possibile esportarle in formato CSV.
 
-Per altre informazioni sull'esecuzione di query, vedere [Panoramica delle query di log in monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
+Per altre informazioni sull'esecuzione di query, vedere [Panoramica delle query di log in monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-application-insights-in-production"></a>Configurare Application Insights nell'ambiente di produzione
 

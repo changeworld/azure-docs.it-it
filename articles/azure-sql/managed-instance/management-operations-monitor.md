@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589344"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitoraggio delle operazioni di gestione Istanza gestita di Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,13 +37,13 @@ La maggior parte delle operazioni di gestione è a [esecuzione prolungata](manag
 Sono disponibili diversi modi per monitorare le operazioni di gestione di istanze gestite:
 
 - [Distribuzioni di gruppi di risorse](../../azure-resource-manager/templates/deployment-history.md)
-- [Log attività](../../azure-monitor/platform/activity-log.md)
+- [Log attività](../../azure-monitor/essentials/activity-log.md)
 - [API delle operazioni dell'istanza gestita](#managed-instance-operations-api)
 
 
 Nella tabella seguente vengono confrontate le opzioni di monitoraggio delle operazioni di gestione: 
 
-| Opzione | Conservazione | Supporta l'annullamento | Create | Aggiornamento | Delete | Annulla | Passaggi |
+| Opzione | Conservazione | Supporta l'annullamento | Crea | Aggiorna | Delete | Annulla | Passaggi |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Distribuzioni di gruppi di risorse | Infinito<sup>1</sup> | No<sup>2</sup> | Visible | Visible | Non visibile | Visible | Non visibile |
 | Log attività | 90 giorni | No | Visible | Visible | Visible | Visible |  Non visibile |

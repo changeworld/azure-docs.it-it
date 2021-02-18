@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b52b51133f059f028baf470515e886d17077af6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751292"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593942"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurare Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -145,7 +145,7 @@ Per modificare le notifiche tramite posta elettronica dopo la distribuzione di A
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot della pagina posta elettronica/SMS/push/Voice che mostra un esempio di indirizzo di posta elettronica aggiornato.":::
 
-    In alternativa è possibile aggiungere azioni aggiuntive al gruppo di azione, per altre informazioni sui gruppi di azioni, vedere [gruppi di azioni](../azure-monitor/platform/action-groups.md)
+    In alternativa è possibile aggiungere azioni aggiuntive al gruppo di azione, per altre informazioni sui gruppi di azioni, vedere [gruppi di azioni](../azure-monitor/alerts/action-groups.md)
 
 Di seguito è riportato un messaggio di posta elettronica di esempio che viene inviato quando la funzionalità arresta macchine virtuali.
 

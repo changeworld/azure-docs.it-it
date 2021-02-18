@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 6cf082aa33d2063982d85cf0c2fdd68d61072217
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 74e09b4798a648b6a881fb05f1128831ad5f4aff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216939"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586441"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
@@ -57,7 +57,7 @@ Quando si crea una macchina virtuale tramite il portale di Azure, il portale cre
     |Subscription|Sì|Selezionare una delle [sottoscrizioni](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) di Azure. La macchina virtuale a cui viene collegata un'interfaccia di rete e la rete virtuale a cui viene connessa devono esistere nella stessa sottoscrizione.|
     |Indirizzo IP privato (IPv6)|No| Se si seleziona questa casella di controllo, viene assegnato un indirizzo IPv6 all'interfaccia di rete, oltre all'indirizzo IPv4 assegnato all'interfaccia di rete. Consultare la sezione IPv6 di questo articolo per informazioni importanti sull'uso di IPv6 con le interfacce di rete. Non è possibile selezionare un metodo di assegnazione di un indirizzo IPv6. Se si sceglie di assegnare un indirizzo IPv6, questo viene assegnato con il metodo dinamico.
     |Nome IPv6 (viene visualizzata solo quando è selezionata la casella di controllo **Indirizzo IP privato (IPv6)**) |Sì, se la casella di controllo **Indirizzo IP privato (IPv6)** è selezionata.| Questo nome viene assegnato a una configurazione IP secondaria per l'interfaccia di rete. Per altre informazioni sulle configurazioni IP, vedere [Visualizzare le impostazioni dell'interfaccia di rete](#view-network-interface-settings).|
-    |Gruppo di risorse|Sì|Selezionare un [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) esistente o crearne uno. Un'interfaccia di rete può trovarsi nello stesso gruppo di risorse o in un gruppo diverso rispetto alla macchina virtuale alla quale è collegata o alla rete virtuale a cui è connessa.|
+    |Resource group|Sì|Selezionare un [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) esistente o crearne uno. Un'interfaccia di rete può trovarsi nello stesso gruppo di risorse o in un gruppo diverso rispetto alla macchina virtuale alla quale è collegata o alla rete virtuale a cui è connessa.|
     |Posizione|Sì|La macchina virtuale a cui viene collegata un'interfaccia di rete e la rete virtuale a cui viene connessa devono esistere nella stessa [località](https://azure.microsoft.com/regions), denominata anche area.|
 
 Il portale non prevede la possibilità di assegnare un indirizzo IP pubblico all'interfaccia di rete in fase di creazione, anche se il portale crea un indirizzo IP pubblico e lo assegna a un'interfaccia di rete quando si crea una macchina virtuale tramite il portale. Per informazioni su come aggiungere un indirizzo IP pubblico all'interfaccia di rete dopo averla creata, vedere [Gestire gli indirizzi IP](virtual-network-network-interface-addresses.md). Se si desidera creare un'interfaccia di rete con un indirizzo IP pubblico, è necessario usare l'interfaccia della riga di comando o PowerShell per creare l'interfaccia di rete.
@@ -90,7 +90,7 @@ Il portale non offre la possibilità di assegnare l'interfaccia di rete ai grupp
    - **Proprietà**: visualizza le impostazioni chiave relative all'interfaccia di rete, incluso il suo indirizzo MAC (vuoto se l'interfaccia di rete è collegata a una macchina virtuale) e la sottoscrizione in cui si trova.
    - **Regole di sicurezza effettive:** le regole di sicurezza sono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione e un gruppo di sicurezza di rete è associato all'interfaccia, alla subnet cui l'interfaccia è assegnata o a entrambe. Per ulteriori informazioni sul contenuto, vedere [Visualizzare regole di sicurezza valide](#view-effective-security-rules). Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](./network-security-groups-overview.md).
    - **Route valide:** le route vengono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione. Le route sono una combinazione di route predefinite di Azure, route definite dall'utente e route BGP esistenti per la subnet a cui è assegnata l'interfaccia di rete. Per ulteriori informazioni sul contenuto, vedere [Visualizzare route valide](#view-effective-routes). Per altre informazioni sulle route predefinite di Azure e le route definite dall'utente, vedere [Panoramica delle route](virtual-networks-udr-overview.md).
-Impostazioni di Azure Resource Manager comuni: per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [log attività](../azure-monitor/platform/platform-logs-overview.md), [controllo di accesso (IAM)](../role-based-access-control/overview.md), [tag](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [blocchi](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script di automazione](../azure-resource-manager/templates/export-template-portal.md).
+Impostazioni di Azure Resource Manager comuni: per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [log attività](../azure-monitor/essentials/platform-logs-overview.md), [controllo di accesso (IAM)](../role-based-access-control/overview.md), [tag](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [blocchi](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script di automazione](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Comandi**
 

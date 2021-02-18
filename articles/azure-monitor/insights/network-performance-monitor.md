@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530606"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573420"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -76,7 +76,7 @@ L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile n
 
 ### <a name="install-and-configure-agents"></a>Installare e configurare agenti 
 
-Usare i processi di base per installare gli agenti in [connettere i computer Windows a monitoraggio di Azure](../platform/agent-windows.md), [connettere i computer Linux a monitoraggio di Azure (anteprima)](../../virtual-machines/extensions/oms-linux.md) e [connettersi Operations Manager a monitoraggio di Azure](../platform/om-agents.md).
+Usare i processi di base per installare gli agenti in [connettere i computer Windows a monitoraggio di Azure](../agents/agent-windows.md), [connettere i computer Linux a monitoraggio di Azure (anteprima)](../../virtual-machines/extensions/oms-linux.md) e [connettersi Operations Manager a monitoraggio di Azure](../agents/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dove installare gli agenti 
 
@@ -266,13 +266,13 @@ La topologia mostrata sulla mappa è di livello 3 e non contiene connessioni e d
 
 ## <a name="log-queries-in-azure-monitor"></a>Query di log in Monitoraggio di Azure
 
-Tutti i dati esposti graficamente attraverso il dashboard Monitoraggio prestazioni rete e le pagine di drill-down sono disponibili anche in modalità nativa nelle [query di log](../log-query/log-query-overview.md). È possibile eseguire l'analisi interattiva dei dati nel repository e correlare i dati da origini diverse. È anche possibile creare visualizzazioni e avvisi personalizzati ed esportare i dati in Excel, Power BI o un collegamento condivisibile. Nell'area **query comuni** del dashboard sono disponibili alcune query utili che è possibile utilizzare come punto di partenza per creare query e report personalizzati. 
+Tutti i dati esposti graficamente attraverso il dashboard Monitoraggio prestazioni rete e le pagine di drill-down sono disponibili anche in modalità nativa nelle [query di log](../logs/log-query-overview.md). È possibile eseguire l'analisi interattiva dei dati nel repository e correlare i dati da origini diverse. È anche possibile creare visualizzazioni e avvisi personalizzati ed esportare i dati in Excel, Power BI o un collegamento condivisibile. Nell'area **query comuni** del dashboard sono disponibili alcune query utili che è possibile utilizzare come punto di partenza per creare query e report personalizzati. 
 
 ## <a name="alerts"></a>Avvisi
 
-Il Monitoraggio delle prestazioni di rete usa le funzionalità di avviso di [Monitoraggio di Azure](../platform/alerts-overview.md).
+Il Monitoraggio delle prestazioni di rete usa le funzionalità di avviso di [Monitoraggio di Azure](../alerts/alerts-overview.md).
 
-Ciò significa che tutte le notifiche vengono gestite mediante [gruppi di azioni](../platform/action-groups.md).  
+Ciò significa che tutte le notifiche vengono gestite mediante [gruppi di azioni](../alerts/action-groups.md).  
 
 Per gli utenti di NPM che creano un avviso tramite Log Analytics: 
 1. Viene visualizzato un collegamento che consente di reindirizzare a portale di Azure. Fare clic per accedere al portale.
@@ -282,8 +282,8 @@ Per gli utenti di NPM che creano un avviso tramite Log Analytics:
 
 Se si è un utente NPM che crea un avviso tramite portale di Azure:  
 1. È possibile scegliere di immettere direttamente l'indirizzo di posta elettronica o creare avvisi tramite gruppi di azioni.
-2. Se si sceglie di immettere l'indirizzo di posta elettronica direttamente, viene creato un gruppo di azione con il nome **NPM email ActionGroup** e l'ID di posta elettronica viene aggiunto al gruppo di azioni.
-3. Se si sceglie di usare gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. È possibile imparare a creare un gruppo di azioni [qui.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
+2. Se si sceglie di immettere direttamente l'indirizzo di posta elettronica, viene creato un gruppo di azioni denominato **NPM Email ActionGroup** e l'ID di posta elettronica viene aggiunto a tale gruppo di azioni.
+3. Se si sceglie di usare gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. È possibile imparare a creare un gruppo di azioni [qui.](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Una volta creato correttamente l'avviso è possibile usare il collegamento Gestisci avvisi per gestire gli avvisi. 
 
 Ogni volta che si crea un avviso, NPM crea una regola di avviso log basata su query in Monitoraggio di Azure. Questa query viene attivata ogni 5 minuti per impostazione predefinita. Monitoraggio di Azure non prevede addebiti per le prime 250 regole di avviso log create. Superato questo limite, ogni regola di avviso viene addebitata in base ai [prezzi per gli avvisi riportati nella pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).

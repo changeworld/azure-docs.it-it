@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876159"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633179"
 ---
 # <a name="monitor-module-twins"></a>Monitorare i moduli gemelli
 
@@ -100,7 +100,7 @@ Le seguenti proprietà sono importanti da esaminare per la risoluzione dei probl
 
 * **runtimeStatus** può essere uno dei valori seguenti:
 
-    | Valore | Description |
+    | Valore | Descrizione |
     | --- | --- |
     | unknown | Stato predefinito fino alla creazione della distribuzione. |
     | backoff | Il modulo è pianificato per l'avvio, ma non è attualmente in esecuzione. Questo valore è utile per un modulo che sta per essere sottoposto a modifiche di stato nel riavvio. Quando un modulo in errore è in attesa del riavvio durante il periodo di raffreddamento, il modulo si troverà in uno stato backoff. |
@@ -200,7 +200,7 @@ Se viene visualizzato il messaggio "un'identità del modulo non esiste per quest
 Per esaminare e modificare un modulo gemello:
 
 1. Se non è già installato, installare l' [estensione strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) per la Visual Studio Code.
-1. In **Esplora risorse**espandere l' **Hub Azure**Internet e quindi espandere il dispositivo con il modulo che si desidera monitorare.
+1. In **Esplora risorse** espandere l' **Hub Azure** Internet e quindi espandere il dispositivo con il modulo che si desidera monitorare.
 1. Fare clic con il pulsante destro del mouse sul modulo e scegliere **modifica modulo gemello**. Un file temporaneo del modulo gemello viene scaricato nel computer e visualizzato in Visual Studio Code.
 
   ![Ottenere un modulo gemello da modificare in Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
@@ -213,7 +213,7 @@ Se si apportano modifiche, selezionare **Aggiorna modulo gemello** sopra il codi
 
 Per verificare se IoT Edge è in esecuzione, usare il comando [AZ all hub Invoke-Module-Method](how-to-edgeagent-direct-method.md#ping) per eseguire il ping dell'agente IOT Edge.
 
-La struttura [AZ l'hub Module-Twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornisce i comandi seguenti:
+La struttura [AZ l'hub Module-Twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) fornisce i comandi seguenti:
 
 * **AZ all hub Module-Twin Show** -Mostra la definizione di un modulo gemello.
 * **AZ all hub Module-gemelle Update** -aggiorna la definizione di un modulo gemello.

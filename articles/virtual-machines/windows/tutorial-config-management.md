@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b28d7ee5d2eeb1015695e32e5918bd94f9051050
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a478d9c620219a768983570897715f924565a80f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736669"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594305"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
 
@@ -76,7 +76,7 @@ Per abilitare Gestione aggiornamenti per la VM:
 
 Viene eseguita una convalida per determinare se la soluzione Gestione aggiornamenti è abilitata per la VM. La convalida include controlli per un'area di lavoro Log Analytics e per un account di Automazione collegato, oltre a verificare se la soluzione è presente nell'area di lavoro.
 
-L'area di lavoro [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
+L'area di lavoro [Log Analytics](../../azure-monitor/logs/log-query-overview.md) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
 Per eseguire altre azioni nelle macchine virtuali che richiedono aggiornamenti, è possibile usare Automazione di Azure per eseguire runbook sulle VM. Tali azioni includono il download o l'applicazione di aggiornamenti.
 
@@ -86,7 +86,7 @@ Nella finestra **Abilita Gestione aggiornamenti** scegliere l'area di lavoro Log
 
 Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggiunti automaticamente:
 
-* Area di lavoro di [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* Area di lavoro di [Log Analytics](../../azure-monitor/logs/log-query-overview.md)
 * [Automazione](../../automation/index.yml)
 * Un [ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md), abilitato nella macchina virtuale
 
@@ -113,7 +113,7 @@ Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtual
 | **Nome** |immettere un nome univoco per identificare la distribuzione di aggiornamenti. |
 |**Sistema operativo**| Selezionare **Linux** o **Windows**.|
 | **Gruppi da aggiornare** |Per le macchine virtuali ospitate in Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag. Questa query crea un gruppo dinamico di macchine virtuali ospitate in Azure da includere nella distribuzione. </br></br>Per le macchine virtuali non ospitate in Azure, selezionare una ricerca salvata esistente. Con questa ricerca, è possibile selezionare un gruppo di queste VM da includere nella distribuzione. </br></br> Per altre informazioni, vedere [Gruppi dinamici](../../automation/update-management/configure-groups.md).|
-| **Computer da aggiornare** |Selezionare **Ricerca salvata**, **Gruppi importati** o **Computer**.<br/><br/>Se si seleziona **Computer**, è possibile scegliere singoli computer nell'elenco a discesa. L'idoneità di ogni computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE** della tabella.</br></br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md) |
+| **Computer da aggiornare** |Selezionare **Ricerca salvata**, **Gruppi importati** o **Computer**.<br/><br/>Se si seleziona **Computer**, è possibile scegliere singoli computer nell'elenco a discesa. L'idoneità di ogni computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE** della tabella.</br></br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/logs/computer-groups.md) |
 |**Classificazioni aggiornamenti**|Scegliere tutte le classificazioni degli aggiornamenti necessarie.|
 |**Includi/Escludi aggiornamenti**|Selezionare questa opzione per aprire il riquadro **Includi/Escludi**. Gli aggiornamenti da includere e quelli da escludere si trovano in schede separate. Per altre informazioni su come viene gestita l'inclusione, vedere [Pianificare la distribuzione degli aggiornamenti](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Impostazioni pianificazione**|Selezionare l'ora di inizio, quindi selezionare **Una sola volta** o **Ricorrente**.|

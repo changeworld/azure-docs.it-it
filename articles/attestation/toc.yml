@@ -65,3 +65,6 @@
       href: troubleshoot-guide.md
     - name: TPM e protocollo di attestazione VBS
       href: virtualization-based-security-protocol.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

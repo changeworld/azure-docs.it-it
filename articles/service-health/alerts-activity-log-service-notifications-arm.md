@@ -4,12 +4,12 @@ description: Ricevere le notifiche tramite SMS, posta elettronica o webhook nel 
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630220"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594953"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Avvio rapido: Creare gli avvisi del log attività per le notifiche del servizio usando un modello di Resource Manager
 
@@ -17,7 +17,7 @@ Questo articolo descrive come configurare gli avvisi del log attività per le no
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Le notifiche sull'integrità del servizio vengono archiviate nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md). Poiché le informazioni archiviate nel log attività possono raggiungere volumi elevati, è disponibile un'interfaccia utente separata che facilita la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio.
+Le notifiche sull'integrità del servizio vengono archiviate nel [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md). Poiché le informazioni archiviate nel log attività possono raggiungere volumi elevati, è disponibile un'interfaccia utente separata che facilita la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio.
 
 È possibile ricevere un avviso quando Azure invia le notifiche sull'integrità del servizio alla sottoscrizione di Azure. È possibile configurare l'avviso in base a:
 
@@ -34,7 +34,7 @@ Le notifiche sull'integrità del servizio vengono archiviate nel [log attività 
 - Selezionare un gruppo di azione esistente.
 - Creare un nuovo gruppo di azione che può essere usato per avvisi futuri.
 
-Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
+Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/alerts/action-groups.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -199,7 +199,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Informazioni su come [configurare le notifiche push su dispositivi mobili per Integrità dei servizi di Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
 - Informazioni sulle [notifiche per l'integrità del servizio](service-notifications.md).
-- Informazioni sulla [limitazione della frequenza delle notifiche](../azure-monitor/platform/alerts-rate-limiting.md).
-- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Leggere una [panoramica degli avvisi del log attività](../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.
-- Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).
+- Informazioni sulla [limitazione della frequenza delle notifiche](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Leggere una [panoramica degli avvisi del log attività](../azure-monitor/alerts/alerts-overview.md) e informazioni su come ricevere gli avvisi.
+- Altre informazioni sui [gruppi di azione](../azure-monitor/alerts/action-groups.md).

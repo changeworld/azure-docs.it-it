@@ -3,12 +3,12 @@ title: Proteggi le VM della soluzione VMware di Azure con l'integrazione del Cen
 description: Proteggi le VM della soluzione VMware di Azure con gli strumenti di sicurezza nativi di Azure dal dashboard del Centro sicurezza di Azure.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516363"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578248"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure
 
@@ -50,7 +50,7 @@ Una volta raccolti i log dall'area di lavoro Log Analytics, è possibile configu
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
-Per raccogliere dati da diverse origini, è necessaria un'area di lavoro Log Analytics. Per ulteriori informazioni, vedere [la pagina relativa alla creazione di un'area di lavoro log Analytics dalla portale di Azure](../azure-monitor/learn/quick-create-workspace.md). 
+Per raccogliere dati da diverse origini, è necessaria un'area di lavoro Log Analytics. Per ulteriori informazioni, vedere [la pagina relativa alla creazione di un'area di lavoro log Analytics dalla portale di Azure](../azure-monitor/logs/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Distribuire il Centro sicurezza e configurare le macchine virtuali della soluzione VMware di Azure
 
@@ -243,5 +243,5 @@ Dopo il terzo tentativo di accesso a Windows Server, la regola creata attiva un 
 Ora che è stata illustrata la protezione delle macchine virtuali della soluzione VMware di Azure, è possibile ottenere informazioni su:
 
 - Uso del [dashboard di Azure Defender](../security-center/azure-defender-dashboard.md).
-- [Rilevamento avanzato degli attacchi multifase in Sentinel di Azure](../azure-monitor/learn/quick-create-workspace.md).
+- [Rilevamento avanzato degli attacchi multifase in Sentinel di Azure](../azure-monitor/logs/quick-create-workspace.md).
 - [Gestione del ciclo di vita delle macchine virtuali della soluzione VMware di Azure](lifecycle-management-of-azure-vmware-solution-vms.md).

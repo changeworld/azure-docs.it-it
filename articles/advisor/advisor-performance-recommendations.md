@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 69fd86226375073c71903af5704ef3a635eeaffb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735529"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579926"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -88,7 +88,7 @@ Eseguire la migrazione del modello di distribuzione dell'account di archiviazion
 Advisor identifica gli account di archiviazione autonomi che usano il modello di distribuzione classica e consiglia di eseguire la migrazione al modello di distribuzione Gestione risorse.
 
 > [!NOTE]
-> Gli avvisi classici in monitoraggio di Azure sono stati ritirati nel 2019 agosto. È consigliabile aggiornare l'account di archiviazione classico all'uso di Resource Manager in modo da mantenere la funzionalità di avviso con la nuova piattaforma. Per ulteriori informazioni, vedere il [ritiro di avvisi classici](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
+> Gli avvisi classici in monitoraggio di Azure sono stati ritirati nel 2019 agosto. È consigliabile aggiornare l'account di archiviazione classico all'uso di Resource Manager in modo da mantenere la funzionalità di avviso con la nuova piattaforma. Per ulteriori informazioni, vedere il [ritiro di avvisi classici](../azure-monitor/alerts/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Progettare gli account di archiviazione per evitare di raggiungere il limite massimo di sottoscrizioni
 
@@ -163,10 +163,10 @@ Queste condizioni indicano che il cluster è soggetto a latenze di scrittura ele
 Questo consiglio fa emergere le tabelle di Esplora dati di Azure con un numero più elevato di query che si riferiscono al periodo (criteri) configurato per la permanenza nella cache. Verranno visualizzate le 10 tabelle principali per percentuale di cache che accedono ai dati non appartenenti alla cache. Azione consigliata per migliorare le prestazioni del cluster: Limitare le query nella tabella all'intervallo di tempo minimo necessario (entro i criteri definiti). In alternativa, se servono i dati dell'intero intervallo di tempo, aumentare il periodo della cache al valore consigliato.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Migliorare le prestazioni ottimizzando il dimensionamento della tabella temporanea MySQL
-L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Altre informazioni](https://aka.ms/azure_mysql_tmp_table)
+L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Scopri di più](https://aka.ms/azure_mysql_tmp_table)
 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuire i dati nel gruppo di server per la distribuzione del carico di lavoro tra i nodi
-Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2135201) 
+Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Migliorare l'esperienza utente e la connettività distribuendo VM più vicine al percorso di distribuzione di desktop virtuale Windows
 Si è riscontrato che le macchine virtuali si trovano in un'area diversa o lontana da quella da cui si connettono gli utenti, tramite Desktop virtuale Windows. Questo può comportare tempi di risposta della connessione più lunghi e influisce sull'esperienza utente complessiva in Desktop virtuale Windows. Quando si creano macchine virtuali per i pool di host, è consigliabile tentare di usare un'area più vicina all'utente. Una maggiore vicinanza assicura un'affidabilità costante del servizio Desktop virtuale Windows e una migliore qualità complessiva dell'esperienza. [Altre informazioni sulla latenza di connessione](../virtual-desktop/connection-latency.md)sono disponibili qui.

@@ -3,12 +3,12 @@ title: Panoramica di Centro backup
 description: Questo articolo fornisce una panoramica di backup Center per Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 93f9e5dc064d264e0cc111d8ddb093639307c55b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893610"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592027"
 ---
 # <a name="overview-of-backup-center-preview"></a>Panoramica di Centro backup (anteprima)
 
@@ -18,7 +18,7 @@ Di seguito sono riportati alcuni dei principali vantaggi offerti da backup Cente
 
 * **Singolo riquadro di vetro per la gestione dei backup** : il centro di backup è progettato per funzionare correttamente in un ambiente di Azure di grandi dimensioni e distribuito. È possibile usare il centro di backup per gestire in modo efficiente i backup che si estendono su più tipi di carico di lavoro, insiemi di credenziali, sottoscrizioni, aree e tenant del [Faro di Azure](../lighthouse/overview.md) .
 * **Gestione incentrata** sull'origine dati: il centro di backup offre visualizzazioni e filtri centrati sulle origini dati di cui si sta eseguendo il backup, ad esempio macchine virtuali e database. Questo consente a un proprietario di risorse o a un amministratore di backup di monitorare e gestire i backup degli elementi senza dover concentrarsi sull'insieme di credenziali in cui viene eseguito il backup di un elemento. Una funzionalità chiave di questa progettazione è la possibilità di filtrare le visualizzazioni in base alle proprietà specifiche dell'origine dati, ad esempio la sottoscrizione DataSource, il gruppo di risorse DataSource e i tag DataSource. Ad esempio, se l'organizzazione segue una procedura per l'assegnazione di tag diversi alle macchine virtuali appartenenti a reparti diversi, è possibile usare il centro di backup per filtrare le informazioni di backup in base ai tag delle macchine virtuali sottostanti di cui viene eseguito il backup senza dover concentrarsi sul tag dell'insieme di credenziali.
-* **Esperienze connesse** : il centro di backup offre integrazioni native per i servizi di Azure esistenti che consentono la gestione su larga scala. Ad esempio, Backup Center USA l'esperienza dei [criteri di Azure](../governance/policy/overview.md) per gestire i backup. Sfrutta anche le [cartelle di lavoro di Azure](../azure-monitor/platform/workbooks-overview.md) e i log di monitoraggio di [Azure](../azure-monitor/platform/data-platform-logs.md) per semplificare la visualizzazione di report dettagliati sui backup. Non è quindi necessario apprendere i nuovi principi per usare le varie funzionalità offerte dal centro di backup.
+* **Esperienze connesse** : il centro di backup offre integrazioni native per i servizi di Azure esistenti che consentono la gestione su larga scala. Ad esempio, Backup Center USA l'esperienza dei [criteri di Azure](../governance/policy/overview.md) per gestire i backup. Sfrutta anche le [cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md) e i log di monitoraggio di [Azure](../azure-monitor/logs/data-platform-logs.md) per semplificare la visualizzazione di report dettagliati sui backup. Non è quindi necessario apprendere i nuovi principi per usare le varie funzionalità offerte dal centro di backup.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 

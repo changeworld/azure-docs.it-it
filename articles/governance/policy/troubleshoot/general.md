@@ -3,12 +3,12 @@ title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione di definizioni di criteri, ai vari SDK e al componente aggiuntivo per Kubernetes.
 ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917744"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592604"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Risolvere gli errori con l'uso di criteri di Azure
 
@@ -87,7 +87,7 @@ Se si riscontra ancora un problema con la definizione di criteri predefinita dup
 
 #### <a name="issue"></a>Problema
 
-Una risorsa su cui si prevede che i criteri di Azure agisca non viene eseguita e non è presente alcuna voce nel [log attività di Azure](../../../azure-monitor/platform/platform-logs-overview.md).
+Una risorsa su cui si prevede che i criteri di Azure agisca non viene eseguita e non è presente alcuna voce nel [log attività di Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 #### <a name="cause"></a>Causa
 
@@ -123,7 +123,7 @@ Un'assegnazione di criteri all'ambito della risorsa nuova o aggiornata soddisfa 
 
 #### <a name="resolution"></a>Soluzione
 
-Il messaggio di errore di un'assegnazione di criteri Deny include gli ID di definizione dei criteri e di assegnazione dei criteri. Se le informazioni sull'errore nel messaggio vengono perse, sono disponibili anche nel [log attività](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Usare queste informazioni per ottenere altri dettagli per comprendere le restrizioni delle risorse e modificare le proprietà delle risorse nella richiesta in modo che corrispondano ai valori consentiti.
+Il messaggio di errore di un'assegnazione di criteri Deny include gli ID di definizione dei criteri e di assegnazione dei criteri. Se le informazioni sull'errore nel messaggio vengono perse, sono disponibili anche nel [log attività](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Usare queste informazioni per ottenere altri dettagli per comprendere le restrizioni delle risorse e modificare le proprietà delle risorse nella richiesta in modo che corrispondano ai valori consentiti.
 
 ## <a name="template-errors"></a>Errori del modello
 

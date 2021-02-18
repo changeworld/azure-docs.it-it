@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 04a30a2446061df75d133bdbd088b7e71c59cade
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742591"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578225"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per servizi cloud di Azure (versione classica): domande frequenti
 
@@ -240,9 +240,9 @@ La scalabilità automatica in base alle metriche di memoria per i servizi cloud 
 
 Per ovviare a questo problema, è possibile usare Application Insights. La scalabilità automatica supporta Application Insights come origine delle metriche e supporta l'aumento o la riduzione del numero di istanze del ruolo in base a metriche guest come la memoria.  Per implementare questa funzionalità, è necessario configurare Application Insights nel file di pacchetto del progetto del servizio cloud (*.cspkg) e abilitare l'estensione Diagnostica di Azure per il servizio.
 
-Per altri dettagli su come usare una metrica personalizzata tramite Application Insights per configurare la scalabilità automatica per i servizi cloud, vedere [Introduzione alla scalabilità automatica in base a una metrica personalizzata in Azure](../azure-monitor/platform/autoscale-custom-metric.md)
+Per altri dettagli su come usare una metrica personalizzata tramite Application Insights per configurare la scalabilità automatica per i servizi cloud, vedere [Introduzione alla scalabilità automatica in base a una metrica personalizzata in Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
 
-Per altre informazioni su come integrare Diagnostica di Azure con Application Insights per i servizi cloud, vedere [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+Per altre informazioni su come integrare Diagnostica di Azure con Application Insights per i servizi cloud, vedere [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
 
 Per altre informazioni su come abilitare Application Insights per i servizi cloud, vedere [Application Insights per Servizi cloud di Azure](../azure-monitor/app/cloudservices.md)
 
@@ -311,7 +311,7 @@ New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddr
 
 Come descritto [qui](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), $sslFlags potrebbe assumere uno dei valori seguenti:
 
-|valore|Significato|
+|Valore|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
 |1|Indicazione nome server abilitata|

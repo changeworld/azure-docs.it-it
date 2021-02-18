@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184578"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576667"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -347,7 +347,7 @@ Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una p
 
 Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](/rest/api/trafficmanager/) di Gestione traffico, i [cmdlet PowerShell](/powershell/module/az.trafficmanager) e l'[interfaccia della riga di comando multipiattaforma di Azure](/cli/azure/install-classic-cli).
 
-È anche possibile usare Monitoraggio di Azure per monitorare l'integrità degli endpoint e vedere una rappresentazione visiva dei risultati. Per altre informazioni su Monitoraggio di Azure, vedere la [documentazione del Monitoraggio di Azure](../azure-monitor/platform/data-platform.md).
+È anche possibile usare Monitoraggio di Azure per monitorare l'integrità degli endpoint e vedere una rappresentazione visiva dei risultati. Per altre informazioni su Monitoraggio di Azure, vedere la [documentazione del Monitoraggio di Azure](../azure-monitor/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>È possibile monitorare gli endpoint HTTPS?
 
@@ -458,7 +458,7 @@ Il numero di controlli di integrità eseguiti da Gestione traffico sull'endpoint
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Come si possono ricevere notifiche se uno degli endpoint risulta inattivo?
 
-Una delle metriche fornite da Gestione traffico è costituita dallo stato di integrità degli endpoint in un profilo. È possibile visualizzare questo scenario come aggregazione di tutti gli endpoint all'interno di un profilo, ad esempio il 75% degli endpoint è integro, oppure a livello di singolo endpoint. Le metriche di Gestione traffico vengono esposte tramite Monitoraggio di Azure ed è possibile usare le rispettive [funzionalità per gli avvisi](../azure-monitor/platform/alerts-metric.md) per ottenere notifiche in caso di modifica dello stato di integrità dell'endpoint. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).  
+Una delle metriche fornite da Gestione traffico è costituita dallo stato di integrità degli endpoint in un profilo. È possibile visualizzare questo scenario come aggregazione di tutti gli endpoint all'interno di un profilo, ad esempio il 75% degli endpoint è integro, oppure a livello di singolo endpoint. Le metriche di Gestione traffico vengono esposte tramite Monitoraggio di Azure ed è possibile usare le rispettive [funzionalità per gli avvisi](../azure-monitor/alerts/alerts-metric.md) per ottenere notifiche in caso di modifica dello stato di integrità dell'endpoint. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Profili annidati di Gestione traffico
 
