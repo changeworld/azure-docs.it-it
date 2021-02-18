@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f13909d3835bdbd2931277a88244abfae3f80759
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467732"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576627"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Glossario di monitoraggio di Azure per desktop virtuale Windows (anteprima)
 
@@ -24,7 +24,7 @@ Questo articolo elenca e descrive brevemente i termini e i concetti chiave relat
 
 ## <a name="alerts"></a>Avvisi
 
-Qualsiasi avviso di monitoraggio di Azure attivo configurato nella sottoscrizione e classificato come [gravità 1](#severity-1-alerts) verrà visualizzato nella pagina panoramica. Per informazioni su come configurare gli avvisi, vedere [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../azure-monitor/learn/tutorial-response.md).
+Qualsiasi avviso di monitoraggio di Azure attivo configurato nella sottoscrizione e classificato come [gravità 1](#severity-1-alerts) verrà visualizzato nella pagina panoramica. Per informazioni su come configurare gli avvisi, vedere [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="available-sessions"></a>Sessioni disponibili
 
@@ -128,7 +128,7 @@ La tabella seguente elenca i contatori delle prestazioni e gli intervalli di tem
 |\*RTT TCP corrente rete () RemoteFX \\|30 secondi|
 |RemoteFX rete ( \* ) \\ larghezza di banda UDP corrente|30 secondi|
 
-Per altre informazioni su come leggere i contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/platform/data-sources-performance-counters.md).
+Per altre informazioni su come leggere i contatori delle prestazioni, vedere [configurazione dei contatori delle prestazioni](../azure-monitor/agents/data-sources-performance-counters.md).
 
 Per ulteriori informazioni sui contatori delle prestazioni di ritardo di input, vedere [contatori delle prestazioni di ritardo input utente](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
@@ -186,7 +186,7 @@ La tabella seguente elenca gli eventi di Windows necessari per il desktop virtua
 | Microsoft-FSLogix-Apps/operativo|Errore, avviso e informazioni|
 |Microsoft-FSLogix-app/amministratore|Errore, avviso e informazioni|
 
-Per ulteriori informazioni sugli eventi di Windows, vedere [proprietà di record eventi di Windows](../azure-monitor/platform/data-sources-windows-events.md).
+Per ulteriori informazioni sugli eventi di Windows, vedere [proprietà di record eventi di Windows](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

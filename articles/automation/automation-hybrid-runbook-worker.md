@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c95ccb5ea1a23e8173d58bd3a18490e9b8e630e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896953"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581267"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -25,7 +25,7 @@ Esistono due tipi di Runbook Worker: sistema e utente. La tabella seguente descr
 |**Sistema** |Supporta un set di manuali operativi nascoste usato dalla funzionalità Gestione aggiornamenti progettate per installare gli aggiornamenti specificati dall'utente nei computer Windows e Linux.<br> Questo tipo di ruolo di lavoro ibrido per Runbook non è un membro di un gruppo di ruolo di lavoro ibrido per Runbook e pertanto non esegue manuali operativi che hanno come destinazione un gruppo di lavoro Runbook. |
 |**Utente** |Supporta i manuali operativi definiti dall'utente destinati all'esecuzione diretta nel computer Windows e Linux che sono membri di uno o più gruppi di lavoro Runbook. |
 
-Un ruolo di lavoro ibrido per Runbook può essere eseguito nel sistema operativo Windows o Linux e questo ruolo si basa sull' [agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md) che invia report a un' [area di lavoro log Analytics](../azure-monitor/platform/design-logs-deployment.md)di monitoraggio di Azure. L'area di lavoro non solo consente di monitorare il computer per il sistema operativo supportato, ma anche di scaricare i componenti necessari per installare il ruolo di lavoro ibrido per Runbook.
+Un ruolo di lavoro ibrido per Runbook può essere eseguito nel sistema operativo Windows o Linux e questo ruolo si basa sull' [agente di log Analytics](../azure-monitor/agents/log-analytics-agent.md) che invia report a un' [area di lavoro log Analytics](../azure-monitor/logs/design-logs-deployment.md)di monitoraggio di Azure. L'area di lavoro non solo consente di monitorare il computer per il sistema operativo supportato, ma anche di scaricare i componenti necessari per installare il ruolo di lavoro ibrido per Runbook.
 
 Quando [Gestione aggiornamenti](./update-management/overview.md) di automazione di Azure è abilitata, tutti i computer connessi all'area di lavoro log Analytics vengono automaticamente configurati come ruolo di lavoro ibrido per Runbook di sistema. Per configurarlo come utente Windows Hybrid Runbook Worker, vedere distribuire un ruolo di lavoro [ibrido per Runbook Windows](automation-windows-hrw-install.md) e per Linux, vedere distribuire un ruolo di lavoro ibrido per [Runbook Linux](automation-linux-hrw-install.md).
 
@@ -62,7 +62,7 @@ Se si usa un server proxy per la comunicazione tra automazione di Azure e i comp
 
 ### <a name="firewall-use"></a>Uso del firewall
 
-Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso. Se si usa il gateway di Analisi dei log come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi per runbook. Vedere [configurare il gateway log Analytics per i ruoli di lavoro ibridi per Runbook di automazione](../azure-monitor/platform/gateway.md).
+Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso. Se si usa il gateway di Analisi dei log come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi per runbook. Vedere [configurare il gateway log Analytics per i ruoli di lavoro ibridi per Runbook di automazione](../azure-monitor/agents/gateway.md).
 
 ### <a name="service-tags"></a>Tag di servizio
 

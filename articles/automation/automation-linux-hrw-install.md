@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183618"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581196"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -26,13 +26,13 @@ Prima di iniziare, verificare di disporre di quanto segue.
 
 ### <a name="a-log-analytics-workspace"></a>Area di lavoro Log Analytics
 
-Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoraggio di Azure Log Analytics per installare e configurare il ruolo. È possibile crearlo tramite [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), tramite [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)o nel [portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
+Il ruolo di lavoro ibrido per Runbook dipende da un'area di lavoro di monitoraggio di Azure Log Analytics per installare e configurare il ruolo. È possibile crearlo tramite [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), tramite [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)o nel [portale di Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md) prima di creare l'area di lavoro
+Se non si dispone di un'area di lavoro Log Analytics di monitoraggio di Azure, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/logs/design-logs-deployment.md) prima di creare l'area di lavoro
 
 ### <a name="log-analytics-agent"></a>Agente di Log Analytics
 
-Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md) per il sistema operativo Linux supportato. Per i server o i computer ospitati all'esterno di Azure, è possibile installare l'agente di Log Analytics usando i [server abilitati per Azure Arc](../azure-arc/servers/overview.md).
+Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../azure-monitor/agents/log-analytics-agent.md) per il sistema operativo Linux supportato. Per i server o i computer ospitati all'esterno di Azure, è possibile installare l'agente di Log Analytics usando i [server abilitati per Azure Arc](../azure-arc/servers/overview.md).
 
 >[!NOTE]
 >Dopo aver installato l'agente di Log Analytics per Linux, è consigliabile non modificare le autorizzazioni della `sudoers.d` cartella o della relativa proprietà. L'autorizzazione sudo è obbligatoria per l'account **nxautomation** , ovvero il contesto utente in cui è in esecuzione il ruolo di lavoro ibrido per Runbook. Le autorizzazioni non devono essere rimosse. La limitazione di questo problema a determinate cartelle o comandi può comportare una modifica sostanziale.

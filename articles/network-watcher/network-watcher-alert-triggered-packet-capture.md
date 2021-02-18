@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965673"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570971"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -80,7 +80,7 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Sottoscrizione**|[Sottoscrizione]sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
     |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
-    |**Località**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
+    |**Posizione**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
     |**Storage Account**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
 
 3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** >**+**.
@@ -332,7 +332,7 @@ L'esempio seguente è codice PowerShell che può essere usato nella funzione. È
 
     ![Copia dell'URL della funzione][2]
 
-Se sono necessarie proprietà personalizzate nel payload della richiesta POST del webhook, vedere [Configurare un webhook in un avviso relativo alle metriche di Azure](../azure-monitor/platform/alerts-webhooks.md).
+Se sono necessarie proprietà personalizzate nel payload della richiesta POST del webhook, vedere [Configurare un webhook in un avviso relativo alle metriche di Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configurare un avviso in una VM
 
@@ -340,7 +340,7 @@ Si possono configurare avvisi per notificare alle singole persone quando una met
 
 ### <a name="create-the-alert-rule"></a>Creare la regola di avviso
 
-Passare a una macchina virtuale esistente, quindi aggiungere una regola di avviso. Per informazioni più dettagliate sulla configurazione di avvisi, vedere [Creazione di avvisi in Monitoraggio di Azure per i servizi Azure - Portale di Azure](../azure-monitor/platform/alerts-classic-portal.md). Immettere i valori seguenti nel pannello **Regola di avviso** e fare clic su **OK**.
+Passare a una macchina virtuale esistente, quindi aggiungere una regola di avviso. Per informazioni più dettagliate sulla configurazione di avvisi, vedere [Creazione di avvisi in Monitoraggio di Azure per i servizi Azure - Portale di Azure](../azure-monitor/alerts/alerts-classic-portal.md). Immettere i valori seguenti nel pannello **Regola di avviso** e fare clic su **OK**.
 
   |**Impostazione** | **Valore** | **Informazioni dettagliate** |
   |---|---|---|

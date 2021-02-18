@@ -3,12 +3,12 @@ title: Metriche del bus di sevizio di Azure in Monitoraggio di Azure| Microsoft 
 description: Questo articolo illustra come usare Monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1e57def2ee7409ae62cdbe065c36e8a53a140e18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519100"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570569"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in Monitoraggio di Azure
 
@@ -21,9 +21,9 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 ## <a name="access-metrics"></a>Accedere alle metriche
 
-Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e le soluzioni di analisi, ad esempio i log di Monitoraggio di Azure e Hub eventi. Per altre informazioni, vedere [Metriche in Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
+Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e le soluzioni di analisi, ad esempio i log di Monitoraggio di Azure e Hub eventi. Per altre informazioni, vedere [Metriche in Monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati delle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../azure-monitor/platform/diagnostic-settings.md) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati delle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../azure-monitor/essentials/diagnostic-settings.md) in Monitoraggio di Azure.
 
 ## <a name="access-metrics-in-the-portal"></a>Accedere alle metriche nel portale
 
@@ -100,7 +100,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 > [!NOTE] 
 > Le metriche seguenti sono disponibili solo con il livello **Premium**. 
 > 
-> Le metriche importanti da monitorare per eventuali interruzioni per uno spazio dei nomi di livello Premium sono: **Utilizzo CPU per spazio dei nomi** e **Utilizzo dimensioni memoria per spazio dei nomi**. [Configurare gli avvisi](../azure-monitor/platform/alerts-metric.md) per queste metriche usando Monitoraggio di Azure.
+> Le metriche importanti da monitorare per eventuali interruzioni per uno spazio dei nomi di livello Premium sono: **Utilizzo CPU per spazio dei nomi** e **Utilizzo dimensioni memoria per spazio dei nomi**. [Configurare gli avvisi](../azure-monitor/alerts/alerts-metric.md) per queste metriche usando Monitoraggio di Azure.
 > 
 > L'altra metrica che è possibile monitorare è **Richieste limitate**. Non dovrebbe costituire un problema, purché lo spazio dei nomi rimanga entro i limiti della memoria, della CPU e delle connessioni negoziate. Per altre informazioni, vedere [Limitazione delle richieste nel livello Premium del bus di servizio di Azure](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 

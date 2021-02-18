@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b04dacfdedded417e2557d1568e01bc9fa8f5745
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958949"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590119"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in Windows con Azure NetApp Files (SMB) per le applicazioni SAP
 
@@ -81,7 +81,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * [Scenari e architettura di disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Aggiungere la porta probe nella configurazione del cluster ASC](sap-high-availability-installation-wsfc-file-share.md)
 * [Installazione di un'istanza di (A) SCS in un cluster di failover](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Creare un volume SMB per Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
+* [Creare un volume SMB per Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [Applicazioni NetApp SAP su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Panoramica
@@ -114,9 +114,9 @@ Eseguire i passaggi seguenti, come preparazione per l'uso di Azure NetApp Files.
 4. Azure NetApp Files risorse devono trovarsi nella subnet delegata. Seguire le istruzioni in [delegare una subnet per Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) per creare una subnet delegata.  
 
    > [!IMPORTANT]
-   > È necessario creare le connessioni Active Directory prima di creare un volume SMB. Esaminare i [requisiti per le connessioni Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
+   > È necessario creare le connessioni Active Directory prima di creare un volume SMB. Esaminare i [requisiti per le connessioni Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
 
-5. Creare Active Directory connessione, come descritto in [creare una connessione Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)  
+5. Creare Active Directory connessione, come descritto in [creare una connessione Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
 6. Creare un volume SMB Azure NetApp Files SMB seguendo le istruzioni in [aggiungere un volume SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
 7. Montare il volume SMB nella macchina virtuale Windows.
 

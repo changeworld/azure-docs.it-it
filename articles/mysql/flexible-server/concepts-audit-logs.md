@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542219"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591760"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Tenere traccia dell'attività del database con i log di controllo nel database di Azure per MySQL server flessibile
 
@@ -50,7 +50,7 @@ Altri parametri che è possibile modificare per controllare il comportamento del
 
 ## <a name="access-audit-logs"></a>Accedere ai log di controllo
 
-I log di controllo sono integrati con le impostazioni di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server MySQL flessibile, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per ulteriori informazioni sulle impostazioni di diagnostica, vedere la [documentazione relativa ai log di diagnostica](../../azure-monitor/platform/platform-logs-overview.md). Per ulteriori informazioni su come abilitare le impostazioni di diagnostica nella portale di Azure, vedere l' [articolo](how-to-configure-audit-logs-portal.md#set-up-diagnostics)relativo al portale di log di controllo.
+I log di controllo sono integrati con le impostazioni di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server MySQL flessibile, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per ulteriori informazioni sulle impostazioni di diagnostica, vedere la [documentazione relativa ai log di diagnostica](../../azure-monitor/essentials/platform-logs-overview.md). Per ulteriori informazioni su come abilitare le impostazioni di diagnostica nella portale di Azure, vedere l' [articolo](how-to-configure-audit-logs-portal.md#set-up-diagnostics)relativo al portale di log di controllo.
 
 Le sezioni seguenti descrivono l'output dei log di controllo di MySQL in base al tipo di evento. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 

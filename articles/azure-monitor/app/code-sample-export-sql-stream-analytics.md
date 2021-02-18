@@ -3,12 +3,12 @@ title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 5fb7093dd9945893b17f1b8f5e596cfe5181c3b6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 25d28bb0fc35ef76231c085dc1d9d8a1234a264c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942412"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587759"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [applicazione Azure Insights][start] nel database SQL di Azure usando l' [esportazione continua][export] e l' [analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -61,7 +61,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
     ![Scegliere i tipi di eventi](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../platform/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](./diagnostic-search.md). 
+1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../essentials/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](./diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
 2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
@@ -252,7 +252,7 @@ FROM [dbo].[PageViewsTable]
 
 [diagnostic]: ./diagnostic-search.md
 [export]: ./export-telemetry.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
 

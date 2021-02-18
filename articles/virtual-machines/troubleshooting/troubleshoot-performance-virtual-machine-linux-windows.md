@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: cde84a018d307bada6a6b6f3b5467b8addd007b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573310"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571440"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Risolvere i problemi relativi alle prestazioni delle macchine virtuali di Azure in Linux o Windows
 
@@ -30,7 +30,7 @@ In questo articolo viene illustrato come usare il monitoraggio per diagnosticare
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoraggio delle macchine virtuali IAAS di Azure
 
-Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](../../azure-monitor/learn/tutorial-resource-logs.md). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
+Per monitorare la macchina virtuale Guest, usare il monitoraggio delle VM di Azure, che segnalerà l'utente a determinate condizioni di risorse di alto livello. Per verificare se la diagnostica della macchina virtuale è abilitata, vedere [Panoramica dei log delle risorse di Azure](../../azure-monitor/essentials/tutorial-resource-logs.md). Se viene visualizzato quanto segue, probabilmente la diagnostica non è abilitata:
 
 ![Il monitoraggio non è abilitato](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -101,7 +101,7 @@ Per individuare eventuali colli di bottiglia delle risorse, esaminare i dati. Se
 
 ### <a name="cpu-observe-trends"></a>Tendenze di osservazione CPU
 
-Quando si esaminano i problemi di prestazioni, tenere presenti le tendenze e comprendere se influiscono sull'utente. Nelle sezioni successive verranno usati i grafici di monitoraggio del portale per mostrare le tendenze. Possono inoltre essere utili per fare riferimento a differenze tra i comportamenti delle risorse nello stesso periodo di tempo. Per personalizzare i grafici, fare clic su [piattaforma dati di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md).
+Quando si esaminano i problemi di prestazioni, tenere presenti le tendenze e comprendere se influiscono sull'utente. Nelle sezioni successive verranno usati i grafici di monitoraggio del portale per mostrare le tendenze. Possono inoltre essere utili per fare riferimento a differenze tra i comportamenti delle risorse nello stesso periodo di tempo. Per personalizzare i grafici, fare clic su [piattaforma dati di monitoraggio di Azure](../../azure-monitor/data-platform.md).
 
 Spiking: la chiodatura potrebbe essere correlata a un'attività pianificata o a un evento noto. Se è possibile identificare l'attività, determinare se l'attività viene eseguita al livello di prestazioni necessario. Se le prestazioni sono accettabili, potrebbe non essere necessario aumentare le risorse.
 

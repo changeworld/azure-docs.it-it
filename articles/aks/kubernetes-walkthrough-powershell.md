@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41412a4ec95bb9b89df5fded6962965594e823fc
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 131469a955190561d8854aad4a7f77c8ca15a222
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248514"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578779"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes tramite PowerShell
 
@@ -235,7 +235,7 @@ Per vedere in azione l'app Azure Vote, aprire un Web browser all'indirizzo IP es
 
 ![App di voto distribuita nel servizio Azure Kubernetes](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
-Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato [Monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md), in modo da acquisire le metriche di integrità sia per i pod sia per i nodi del cluster. Queste metriche di integrità sono disponibili nel portale di Azure.
+Quando è stato creato il cluster del servizio Azure Kubernetes, è stato abilitato [Monitoraggio di Azure per i contenitori](../azure-monitor/containers/container-insights-overview.md), in modo da acquisire le metriche di integrità sia per i pod sia per i nodi del cluster. Queste metriche di integrità sono disponibili nel portale di Azure.
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 

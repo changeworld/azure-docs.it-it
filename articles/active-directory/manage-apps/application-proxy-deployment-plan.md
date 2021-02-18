@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 213f7d95916555ea32925a5b0af0865d900b0209
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257914"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580054"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione di Azure AD Application Proxy
 
@@ -302,7 +302,7 @@ I connettori e il servizio si occupano di tutte le attività che richiedono disp
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Registri eventi e contatori delle prestazioni di Windows
 
-I connettori hanno sia log di amministratore che di sessione. I log di amministrazione includono gli eventi principali e i relativi errori. I log di sessione includono tutte le transazioni e i relativi dettagli di elaborazione. I log e i contatori si trovano nei registri eventi di Windows per altre informazioni, vedere [comprendere Azure ad connettori del proxy di applicazione](./application-proxy-connectors.md#under-the-hood). Seguire questa [esercitazione per configurare le origini dati del registro eventi in monitoraggio di Azure](../../azure-monitor/platform/data-sources-windows-events.md).
+I connettori hanno sia log di amministratore che di sessione. I log di amministrazione includono gli eventi principali e i relativi errori. I log di sessione includono tutte le transazioni e i relativi dettagli di elaborazione. I log e i contatori si trovano nei registri eventi di Windows per altre informazioni, vedere [comprendere Azure ad connettori del proxy di applicazione](./application-proxy-connectors.md#under-the-hood). Seguire questa [esercitazione per configurare le origini dati del registro eventi in monitoraggio di Azure](../../azure-monitor/agents/data-sources-windows-events.md).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guida alla risoluzione dei problemi e procedure
 

@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 308e1bcf042feb15179d32844d8c569af6166619
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499816"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571676"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
-Questo articolo descrive come monitorare i computer replicati da Azure [Site Recovery](site-recovery-overview.md), usando i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md)e [log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Questo articolo descrive come monitorare i computer replicati da Azure [Site Recovery](site-recovery-overview.md), usando i [log di monitoraggio di Azure](../azure-monitor/logs/data-platform-logs.md)e [log Analytics](../azure-monitor/logs/log-query-overview.md).
 
 I log di monitoraggio di Azure offrono una piattaforma di dati di log che raccoglie le attività e i log delle risorse, insieme ad altri dati di monitoraggio. Nei log di monitoraggio di Azure è possibile usare Log Analytics per scrivere e testare le query di log e per analizzare in modo interattivo i dati di log. È possibile visualizzare ed eseguire query sui risultati del log e configurare gli avvisi per eseguire azioni in base ai dati monitorati.
 
@@ -35,8 +35,8 @@ L'uso dei log di monitoraggio di Azure con Site Recovery è supportato per la re
 Ecco gli elementi necessari:
 
 - Almeno un computer protetto in un insieme di credenziali di servizi di ripristino.
-- Area di lavoro Log Analytics per archiviare i log di Site Recovery. Informazioni sulla configurazione di un'area [di](../azure-monitor/learn/quick-create-workspace.md) lavoro.
-- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/log-query/log-analytics-tutorial.md)
+- Area di lavoro Log Analytics per archiviare i log di Site Recovery. Informazioni sulla configurazione di un'area [di](../azure-monitor/logs/quick-create-workspace.md) lavoro.
+- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/logs/log-analytics-tutorial.md)
 
 Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più comuni](monitoring-common-questions.md) .
 
@@ -62,9 +62,9 @@ I log Site Recovery iniziano a essere inseriti in una tabella (**AzureDiagnostic
 1. Passare all'area di lavoro Log Analytics e fare clic su **Impostazioni avanzate**.
 2. Fare clic sulla pagina **origini connesse** e selezionare **server Windows**.
 3. Scaricare l'agente Windows (64 bit) nel server di elaborazione. 
-4. [Ottenere l'ID e la chiave dell'area di lavoro](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
-5. [Configurare Agent per l'uso di TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Completare l'installazione dell'agente](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) fornendo la chiave e l'ID dell'area di lavoro ottenuti.
+4. [Ottenere l'ID e la chiave dell'area di lavoro](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
+5. [Configurare Agent per l'uso di TLS 1,2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Completare l'installazione dell'agente](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) fornendo la chiave e l'ID dell'area di lavoro ottenuti.
 7. Al termine dell'installazione, passare all'area di lavoro Log Analytics e fare clic su **Impostazioni avanzate**. Passare alla pagina **dati** e fare clic sui **contatori delle prestazioni di Windows**. 
 8. Fare clic su **' +'** per aggiungere i due contatori seguenti con intervallo di campionamento di 300 secondi:
 
@@ -76,7 +76,7 @@ I dati relativi alla varianza e alla velocità di caricamento inizieranno ad acc
 
 ## <a name="query-the-logs---examples"></a>Eseguire una query sui log-esempi
 
-È possibile recuperare i dati dai log usando le query di log scritte con il [linguaggio di query kusto](../azure-monitor/log-query/get-started-queries.md). In questa sezione vengono forniti alcuni esempi di query comuni che è possibile utilizzare per il monitoraggio Site Recovery.
+È possibile recuperare i dati dai log usando le query di log scritte con il [linguaggio di query kusto](../azure-monitor/logs/get-started-queries.md). In questa sezione vengono forniti alcuni esempi di query comuni che è possibile utilizzare per il monitoraggio Site Recovery.
 
 > [!NOTE]
 > Alcuni esempi utilizzano **replicationProviderName_s** impostato su **A2A**. In questo modo vengono recuperate le macchine virtuali di Azure replicate in un'area di Azure secondaria usando Site Recovery. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2** se si vuole recuperare macchine virtuali VMware locali o server fisici replicati in Azure usando Site Recovery.
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurare gli avvisi-esempi
 
-È possibile configurare Site Recovery avvisi in base ai dati di monitoraggio di Azure. [Altre](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) informazioni sulla configurazione degli avvisi del log. 
+È possibile configurare Site Recovery avvisi in base ai dati di monitoraggio di Azure. [Altre](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) informazioni sulla configurazione degli avvisi del log. 
 
 > [!NOTE]
 > Alcuni esempi utilizzano **replicationProviderName_s** impostato su **A2A**. Questo consente di impostare gli avvisi per le macchine virtuali di Azure replicate in un'area di Azure secondaria. In questi esempi, è possibile sostituire **A2A** con **InMageAzureV2** se si vuole impostare avvisi per macchine virtuali VMware locali o server fisici replicati in Azure.

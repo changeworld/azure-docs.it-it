@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0f79402956148c566bc34faa88e10895657883c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546449"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591749"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 
@@ -196,7 +196,7 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 
 - [Recuperare le metriche di monitoraggio di Azure con .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). In questo esempio vengono utilizzati il nome utente e la password. Per usare un certificato, eseguire l'overload del metodo FromServicePrincipal per fornire un certificato, come illustrato in [questo esempio](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Recupero di metriche e log attività per una risorsa](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Procedura dettagliata sull'API REST di Monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Procedura dettagliata sull'API REST di Monitoraggio di Azure](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Le notifiche riuscite significano semplicemente che le notifiche push sono state recapitate al PNS esterno, ad esempio APNs per iOS e macOS o FCM per i dispositivi Android. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
@@ -211,7 +211,7 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 [Modello di sicurezza di Hub di notifica]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Esercitazione sul push sicuro di Hub di notifica]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Risoluzione dei problemi di Hub di notifica]: ./notification-hubs-push-notification-fixer.md
-[Metriche di Hub di notifica]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Metriche di Hub di notifica]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [esportazione/importazione di registrazioni]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

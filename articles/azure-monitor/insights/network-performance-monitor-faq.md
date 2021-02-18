@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: c58f94bcdb659eed67ebf023af473545d8cee1a7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833015"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587266"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -43,7 +43,7 @@ Di seguito sono riportati i requisiti di piattaforma per le varie funzionalità 
 Per eseguire la soluzione Monitoraggio prestazioni rete su VM nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi separati per l'esecuzione di NPM. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione è in grado di arrestare il processo di monitoraggio se utilizza più del 5% di CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Per usare Monitoraggio prestazioni rete è necessario connettersi ai nodi come agente diretto o tramite System Center Operations Manager?
-Le funzionalità di monitoraggio delle prestazioni e della connettività del servizio supportano sia i nodi [connessi come agenti diretti](../platform/agent-windows.md) che quelli [connessi tramite Operations Manager](../platform/om-agents.md).
+Le funzionalità di monitoraggio delle prestazioni e della connettività del servizio supportano sia i nodi [connessi come agenti diretti](../agents/agent-windows.md) che quelli [connessi tramite Operations Manager](../agents/om-agents.md).
 
 Per la funzionalità Monitoraggio di ExpressRoute, i nodi di Azure devono essere connessi solo come agenti diretti. Quelli connessi tramite Operations Manager non sono supportati. Per i nodi locali, i nodi connessi come agenti diretti e tramite Operations Manager sono supportati per il monitoraggio di un circuito ExpressRoute.
 
@@ -98,7 +98,7 @@ Se un hop è rosso, significa che fa parte di almeno un percorso non integro. Mo
 Monitoraggio prestazioni rete adotta un meccanismo probabilistico per assegnare le probabilità di errore a ogni percorso e segmento di rete e agli hop di rete in base al numero di percorsi non integri di cui fanno parte. Quando i segmenti e gli hop di rete diventano parte di un numero maggiore di percorsi non integri, la probabilità di errore associata aumenta. Questo algoritmo funziona in modo ottimale quando sono presenti molti nodi con agente di Monitoraggio prestazioni rete connessi tra loro poiché in questo modo aumenta il numero di punti dati per calcolare le probabilità di errore.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Come è possibile creare avvisi in Monitoraggio prestazioni rete?
-Attualmente la creazione di avvisi dall'interfaccia utente di NPM non riesce a causa di un problema noto. [Creare gli avvisi manualmente](../platform/alerts-log.md).
+Attualmente la creazione di avvisi dall'interfaccia utente di NPM non riesce a causa di un problema noto. [Creare gli avvisi manualmente](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quali sono le query Log Analytics predefinite per gli avvisi
 Query di performance monitor

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: f4da14c1fbdaf71018e62b0f97e288a66edef5c8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677276"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572214"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del log di controllo del database SQL
 
@@ -42,7 +42,7 @@ Gli eventi di controllo vengono scritti nello spazio dei nomi e nell'hub eventi 
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics definita durante la configurazione di controllo, nella `AzureDiagnostics` tabella con la categoria `SQLSecurityAuditEvents` . Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log Analytics, vedere [Guida di riferimento alla ricerca in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics definita durante la configurazione di controllo, nella `AzureDiagnostics` tabella con la categoria `SQLSecurityAuditEvents` . Per altre informazioni utili sul linguaggio di ricerca e i comandi di Log Analytics, vedere [Guida di riferimento alla ricerca in Log Analytics](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Campi del log di controllo
 
@@ -79,7 +79,7 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | server_principal_id | server_principal_id_d | ID del contesto di accesso in cui viene eseguita l'azione | INT | INT |
 | server_principal_name | server_principal_name_s | Account di accesso corrente | sysname | string |
 | server_principal_sid | server_principal_sid_s | SID di accesso corrente | varbinary | string |
-| session_id | session_id_d | ID della sessione in cui si è verificato l'evento | SMALLINT | INT |
+| session_id | session_id_d | ID della sessione in cui si è verificato l'evento | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Entità server per la sessione | sysname | string |
 | istruzione | statement_s | Istruzione T-SQL eseguita (se presente) | nvarchar(4000) | string |
 | riuscito | succeeded_s | Indica se l'azione che ha generato l'evento è riuscita. Per gli eventi diversi da login e batch, questo indica solo se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | string |
@@ -89,7 +89,7 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | target_server_principal_name | target_server_principal_name_s | Account di accesso di destinazione dell'azione. NULL se non applicabile | sysname | string |
 | target_server_principal_sid | target_server_principal_sid_s | SID dell'account di accesso di destinazione. NULL se non applicabile | varbinary | string |
 | transaction_id | transaction_id_d | Solo SQL Server (a partire da 2016)-0 per il database SQL di Azure | bigint | INT |
-| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | SMALLINT | INT |
+| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Informazioni definite dall'utente passate come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
 ## <a name="next-steps"></a>Passaggi successivi

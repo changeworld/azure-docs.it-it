@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935008"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592378"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorare le operazioni e le attività di Azure ricerca cognitiva
 
@@ -59,7 +59,7 @@ Lo screenshot seguente consente di individuare le informazioni di monitoraggio n
 
 ### <a name="activity-logs-and-service-health"></a>Log attività e integrità dei servizi
 
-La pagina [**log attività**](../azure-monitor/platform/activity-log.md#view-the-activity-log) del portale raccoglie informazioni da Azure Resource Manager e segnala le modifiche apportate all'integrità del servizio. È possibile monitorare il log attività per le condizioni critiche, di errore e di avviso correlate all'integrità del servizio.
+La pagina [**log attività**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) del portale raccoglie informazioni da Azure Resource Manager e segnala le modifiche apportate all'integrità del servizio. È possibile monitorare il log attività per le condizioni critiche, di errore e di avviso correlate all'integrità del servizio.
 
 Le voci comuni includono riferimenti a chiavi API: notifiche informative generiche, ad esempio *Ottieni chiave amministratore* e *Ottieni chiavi di query*. Queste attività indicano le richieste effettuate usando la chiave amministratore (crea o Elimina oggetti) o la chiave di query, ma non visualizzano la richiesta. Per informazioni su questa granularità, è necessario configurare la registrazione diagnostica.
 
@@ -90,7 +90,7 @@ Monitoraggio di Azure offre diverse opzioni di archiviazione e la scelta determi
 * Scegliere archiviazione BLOB di Azure se si desidera [visualizzare i dati di log](search-monitor-logs-powerbi.md) in un report Power bi.
 * Scegliere Log Analytics se si desidera esplorare i dati tramite query kusto.
 
-Monitoraggio di Azure ha una propria struttura di fatturazione e i log di diagnostica a cui si fa riferimento in questa sezione hanno un costo associato. Per altre informazioni, vedere [utilizzo e costi stimati in monitoraggio di Azure](../azure-monitor/platform/usage-estimated-costs.md).
+Monitoraggio di Azure ha una propria struttura di fatturazione e i log di diagnostica a cui si fa riferimento in questa sezione hanno un costo associato. Per altre informazioni, vedere [utilizzo e costi stimati in monitoraggio di Azure](../azure-monitor//usage-estimated-costs.md).
 
 ## <a name="monitor-user-access"></a>Monitorare l'accesso utente
 
@@ -107,4 +107,4 @@ Non è possibile registrare queste informazioni separatamente dalla stringa di q
 La fluidità con monitoraggio di Azure è essenziale per la supervisione di qualsiasi servizio di Azure, incluse risorse come Azure ricerca cognitiva. Se non si ha familiarità con monitoraggio di Azure, esaminare gli articoli correlati alle risorse. Oltre alle esercitazioni, l'articolo seguente è un valido punto di partenza.
 
 > [!div class="nextstepaction"]
-> [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md)
+> [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/essentials/monitor-azure-resource.md)

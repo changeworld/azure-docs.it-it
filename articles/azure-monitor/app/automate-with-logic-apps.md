@@ -3,19 +3,19 @@ title: Automatizzare i processi di applicazione Azure Insights usando app per la
 description: Informazioni su come automatizzare in poco tempo i processi ripetibili aggiungendo il connettore di Application Insights all'app per la logica.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7ff75be3cb847235405a740df4a20803cdc87b3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970859"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589926"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizzare i processi di Application Insights con app per la logica
 
 Ci si trova spesso a eseguire ripetutamente le stesse query sui dati di telemetria per verificare il corretto funzionamento del servizio? Si vuole automatizzare queste query per trovare tendenze e anomalie e creare quindi flussi di lavoro basati su queste informazioni? Il connettore applicazione Azure Insights per le app per la logica è lo strumento ideale per questo scopo.
 
 > [!NOTE]
-> Il connettore applicazione Azure Insights è stato sostituito con il [connettore di monitoraggio di Azure](../platform/logicapp-flow-connector.md) integrato con Azure Active Directory anziché richiedere una chiave API e consente inoltre di recuperare dati da un'area di lavoro log Analytics.
+> Il connettore applicazione Azure Insights è stato sostituito con il [connettore di monitoraggio di Azure](../logs/logicapp-flow-connector.md) integrato con Azure Active Directory anziché richiedere una chiave API e consente inoltre di recuperare dati da un'area di lavoro log Analytics.
 
 Con questa integrazione è possibile automatizzare numerosi processi senza dover scrivere una sola riga di codice. È possibile creare un'app per la logica con il connettore di Application Insights per automatizzare rapidamente qualsiasi processo di Application Insights. 
 
@@ -36,7 +36,7 @@ Questa esercitazione illustra come creare un'app per la logica che usa l'algorit
 
     ![Finestra di progettazione di app per la logica](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Nella casella **intervallo** Digitare **1** , quindi selezionare **giorno**nella casella**frequenza** .
+1. Nella casella **intervallo** Digitare **1** , quindi selezionare **giorno** nella casella **frequenza** .
 
     !["Ricorrenza" nella finestra Progettazione app per la logica](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -45,7 +45,7 @@ Questa esercitazione illustra come creare un'app per la logica che usa l'algorit
 
 1. Nella casella di ricerca **Scegliere un'azione** digitare **Azure Application Insights**.
 
-1. In **azioni**fare clic su **applicazione Azure Insights-Visualizza query di analisi**.
+1. In **azioni** fare clic su **applicazione Azure Insights-Visualizza query di analisi**.
 
     !["Scegliere un'azione" nella finestra Progettazione app per la logica](./media/automate-with-logic-apps/4visualize.png)
 
@@ -130,7 +130,7 @@ Quando l'app per la logica è in esecuzione, i destinatari specificati nell'elen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla creazione di [query di Analisi](../log-query/get-started-queries.md).
+- Altre informazioni sulla creazione di [query di Analisi](../logs/get-started-queries.md).
 - Altre informazioni su [App per la logica](../../logic-apps/logic-apps-overview.md).
 
 

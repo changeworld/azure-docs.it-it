@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2278b9d70e888fa546dc64da4743b2bf5b6c45e8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318998"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587520"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Informazioni di riferimento sull'API dell'agente Application Insights di monitoraggio di Azure
 
@@ -38,7 +38,7 @@ Abilitare il motore di strumentazione se:
 - Il monitoraggio è già stato abilitato con il cmdlet Enable ma non è stato abilitato il motore di strumentazione.
 - L'app è stata instrumentata manualmente con gli SDK .NET e si vogliono raccogliere dati di telemetria aggiuntivi.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
@@ -47,7 +47,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="parameters"></a>Parametri
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Opzionale.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
+**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 #### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per restituire i log dettagliati.
@@ -73,7 +73,7 @@ Riavviare IIS per rendere effettive le modifiche.
 
 Dopo aver abilitato il monitoraggio, è consigliabile usare le [metriche in tempo reale](live-stream.md) per verificare rapidamente se l'app sta inviando dati di telemetria.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
 In questo esempio, a tutte le app nel computer corrente viene assegnata una sola chiave di strumentazione.
@@ -83,7 +83,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-Esempio:
+In questo esempio:
 - `MachineFilter` corrisponde al computer corrente usando il `'.*'` carattere jolly.
 - `AppFilter='WebAppExclude'` fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
@@ -127,12 +127,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 
 #### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Opzionale.** Usare questa opzione per consentire al motore di strumentazione di raccogliere gli eventi e i messaggi relativi a ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e testo del comando SQL.
+**Facoltativo.** Usare questa opzione per consentire al motore di strumentazione di raccogliere gli eventi e i messaggi relativi a ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e testo del comando SQL.
 
 Il motore di strumentazione aggiunge un sovraccarico ed è disattivato per impostazione predefinita.
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Opzionale.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
+**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 Quando si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
@@ -186,7 +186,7 @@ Successfully enabled Application Insights Status Monitor
 Disabilita il motore di strumentazione rimuovendo alcune chiavi del registro di sistema.
 Riavviare IIS per rendere effettive le modifiche.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 ```powershell
 PS C:\> Disable-InstrumentationEngine
@@ -215,7 +215,7 @@ Configuring registry for instrumentation engine...
 Disabilita il monitoraggio nel computer di destinazione.
 Questo cmdlet consente di rimuovere le modifiche apportate al applicationHost.config IIS e di rimuovere le chiavi del registro di sistema.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 ```powershell
 PS C:\> Disable-ApplicationInsightsMonitoring
@@ -257,7 +257,7 @@ Successfully disabled Application Insights Status Monitor
 
 Ottiene il file di configurazione e stampa i valori nella console.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 ```powershell
 PS C:\> Get-ApplicationInsightsMonitoringConfig
@@ -286,7 +286,7 @@ Questo cmdlet fornisce informazioni sulla risoluzione dei problemi relativi a St
 Usare questo cmdlet per esaminare lo stato del monitoraggio, la versione del modulo di PowerShell e per esaminare il processo in esecuzione.
 Questo cmdlet consente di segnalare le informazioni sulla versione e le informazioni sui file di chiave necessari per il monitoraggio.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example-application-status"></a>Esempio: stato dell'applicazione
 
@@ -392,7 +392,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 È possibile esaminare il processo nel computer instrumentato per verificare se tutte le dll sono state caricate. Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
 
-Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` :
+Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -465,7 +465,7 @@ Riavviare IIS per rendere effettive le modifiche.
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
 In questo esempio, a tutte le app nel computer corrente verrà assegnata una sola chiave di strumentazione.
@@ -475,7 +475,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-Esempio:
+In questo esempio:
 - `MachineFilter` corrisponde al computer corrente usando il `'.*'` carattere jolly.
 - `AppFilter='WebAppExclude'` fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
@@ -558,7 +558,7 @@ Gli eventi raccolti verranno stampati nella console in tempo reale e salvati in 
 
 Questo cmdlet verrà eseguito fino a quando non raggiungerà la durata del timeout (valore predefinito di 5 minuti) o verrà interrotto manualmente ( `Ctrl + C` ).
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="how-to-collect-events"></a>Come raccogliere gli eventi
 
@@ -585,17 +585,17 @@ Sono disponibili tre opzioni per la raccolta di eventi:
 ### <a name="parameters"></a>Parametri
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Opzionale.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
+**Facoltativo.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
 
 #### <a name="-logdirectory"></a>-LogDirectory
-**Opzionale.** Usare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory dei moduli di PowerShell. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
+**Facoltativo.** Usare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory dei moduli di PowerShell. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Opzionale.** Usare questa opzione per raccogliere gli eventi di Application Insights SDK.
+**Facoltativo.** Usare questa opzione per raccogliere gli eventi di Application Insights SDK.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Opzionale.** Usare questa opzione per raccogliere gli eventi da Status Monitor e dal runtime di Redfield.
+**Facoltativo.** Usare questa opzione per raccogliere gli eventi da Status Monitor e dal runtime di Redfield.
 
 #### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per restituire i log dettagliati.
@@ -637,9 +637,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Passaggi successivi
 
   Visualizzare i dati di telemetria:
- - [Esplora le metriche](../platform/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
+ - [Esplora le metriche](../essentials/metrics-charts.md) per monitorare le prestazioni e l'utilizzo.
 - Eseguire [ricerche negli eventi e nei log](./diagnostic-search.md) per diagnosticare i problemi.
-- Usare [Analytics](../log-query/log-query-overview.md) per query più avanzate.
+- Usare [Analytics](../logs/log-query-overview.md) per query più avanzate.
 - [Creare dashboard](./overview-dashboard.md).
  
  Aggiungere altri dati di telemetria:

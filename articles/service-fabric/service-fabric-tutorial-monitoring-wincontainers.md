@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come configurare i log di Mo
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: b7689d6e259055137a8d1d3c61552790ab9f28d3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840677"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588243"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando i log di Monitoraggio di Azure
 
@@ -230,6 +230,6 @@ In questa esercitazione sono state illustrate le procedure per:
 Ora che è stato configurato il monitoraggio per l'applicazione in contenitori, provare a eseguire quanto segue:
 
 * Configurare i log di Monitoraggio di Azure per un cluster Linux seguendo una procedura simile a quella di questa esercitazione. Fare riferimento a [questo modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) per apportare le modifiche al modello di Resource Manager.
-* Configurare i log di Monitoraggio di Azure per impostare gli [avvisi automatizzati](../azure-monitor/platform/alerts-overview.md) per semplificare il rilevamento e la diagnostica.
+* Configurare i log di Monitoraggio di Azure per impostare gli [avvisi automatizzati](../azure-monitor/alerts/alerts-overview.md) per semplificare il rilevamento e la diagnostica.
 * Esplorare l'elenco di [contatori delle prestazioni consigliati](service-fabric-diagnostics-event-generation-perf.md) in Service Fabric per configurare i cluster.
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure.
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/logs/log-query-overview.md) incluse nei log di Monitoraggio di Azure.
