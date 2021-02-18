@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fee285aa3beb308f5e6b3b233d40597c2a287eb7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392766"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651970"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -195,3 +195,4 @@ Gestire le classificazioni e le raccomandazioni per il database SQL di Azure e I
 
 - Prendere in considerazione la configurazione del [controllo SQL di Azure](../../azure-sql/database/auditing-overview.md) per il monitoraggio e il controllo dell'accesso ai dati riservati classificati.
 - Per una presentazione che includa l'individuazione dei dati & classificazione, vedere [individuazione, classificazione, assegnazione di etichette & protezione dei dati SQL | Dati esposti](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- Per classificare i database SQL di Azure e l'analisi di Azure sinapsi con le etichette di competenza di Azure usando i comandi T-SQL, vedere [classificare i dati SQL di Azure usando le etichette di competenza di Azure](https://docs.microsoft.com/azure/sql-database/scripts/sql-database-import-purview-labels).
