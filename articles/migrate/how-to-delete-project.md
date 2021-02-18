@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754250"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595133"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Eliminare un progetto di Azure Migrate
 
@@ -27,7 +27,7 @@ Prima di eliminare un progetto:
     - L'area di lavoro non viene eliminata automaticamente. Eliminarla manualmente.
     - Verificare l'utilizzo di un'area di lavoro prima di eliminarla. È possibile utilizzare la stessa area di lavoro Log Analytics per più scenari.
     - Prima di eliminare il progetto, è possibile trovare un collegamento all'area di lavoro in **Azure migrate-Servers**  >  **Azure migrate-server Assessment**, nell' **area di lavoro di OMS**.
-    - Per eliminare un'area di lavoro dopo l'eliminazione di un progetto, trovare l'area di lavoro nel gruppo di risorse pertinente e seguire [queste istruzioni](../azure-monitor/platform/delete-workspace.md).
+    - Per eliminare un'area di lavoro dopo l'eliminazione di un progetto, trovare l'area di lavoro nel gruppo di risorse pertinente e seguire [queste istruzioni](../azure-monitor/logs/delete-workspace.md).
 
 
 ## <a name="delete-a-project"></a>Eliminare un progetto

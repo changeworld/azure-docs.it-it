@@ -2,13 +2,13 @@
 title: Livelli Premium e standard del bus di servizio di Azure
 description: Questo articolo descrive i livelli standard e Premium del bus di servizio di Azure. Confronta questi livelli e fornisce le differenze tecniche.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90966790"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636510"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Livelli di messaggistica Standard e Premium del bus di servizio
 
@@ -28,7 +28,7 @@ Nella tabella seguente sono evidenziate alcune differenze generali.
 
 La **messaggistica di livello Premium del bus di servizio** garantisce l'isolamento delle risorse a livello di CPU e di memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse è detto *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2, 4 o 8 unità di messaggistica per ogni spazio dei nomi premium del bus di servizio. Un singolo carico di lavoro o entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in corrispondenza di. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio.
 
-Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci. La messaggistica Premium del bus di servizio si basa sul motore di archiviazione introdotto in [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Con la messaggistica Premium, le prestazioni massime sono più veloci rispetto al livello Standard.
+Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci. Con la messaggistica Premium, le prestazioni massime sono più veloci rispetto al livello Standard.
 
 ## <a name="premium-messaging-technical-differences"></a>Differenze tecniche della messaggistica Premium
 
@@ -40,9 +40,7 @@ Le code e gli argomenti partizionati non sono supportati nella messaggistica Pre
 
 ### <a name="express-entities"></a>Entità Express
 
-Dal momento che la messaggistica Premium viene eseguita in un ambiente di runtime isolato, le entità Express non sono supportate negli spazi dei nomi Premium. Per altre informazioni sulla funzionalità Express, vedere la proprietà [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
-
-Se è presente codice in esecuzione nella messaggistica Standard e si vuole trasferirlo al livello Premium, assicurarsi che la proprietà [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) sia impostata su **false** (valore predefinito).
+Dal momento che la messaggistica Premium viene eseguita in un ambiente di runtime isolato, le entità Express non sono supportate negli spazi dei nomi Premium. Un'entità espressa conserva temporaneamente un messaggio in memoria prima di scriverlo nell'archivio permanente. Se si dispone di codice in esecuzione con la messaggistica standard e si vuole portarlo al livello Premium, assicurarsi che la funzionalità Express Entity sia disabilitata.
 
 ## <a name="premium-messaging-resource-usage"></a>Utilizzo delle risorse di messaggistica Premium
 In generale, qualsiasi operazione su un'entità può causare l'utilizzo della CPU e della memoria. Di seguito sono riportate alcune di queste operazioni: 
@@ -69,8 +67,8 @@ Quando si decide il numero di unità di messaggistica per l'architettura, è nec
 
 - Iniziare con ***1 o 2 unità di messaggistica*** allocate allo spazio dei nomi.
 - Esaminare le metriche di utilizzo della CPU nelle [metriche di utilizzo delle risorse](service-bus-metrics-azure-monitor.md#resource-usage-metrics) per lo spazio dei nomi.
-    - Se l'utilizzo della CPU è ***inferiore al 20%***, potrebbe essere possibile ***ridurre*** il numero di unità di messaggistica allocate allo spazio dei nomi.
-    - Se l'utilizzo della CPU è ***superiore al 70%***, l'applicazione trarrà vantaggio dal ***ridimensionamento*** del numero di unità di messaggistica allocate allo spazio dei nomi.
+    - Se l'utilizzo della CPU è ***inferiore al 20%** _, potrebbe essere possibile *_ridurre_* il numero di unità di messaggistica allocate allo spazio dei nomi.
+    - Se l'utilizzo della CPU è ***superiore al 70%** _, l'applicazione trarrà vantaggio dalla *_scalabilità verticale_** il numero di unità di messaggistica allocate allo spazio dei nomi.
 
 Per informazioni su come configurare uno spazio dei nomi del bus di servizio per la scalabilità automatica (aumento o riduzione delle unità di messaggistica), vedere [aggiornare automaticamente le unità di messaggistica](automate-update-messaging-units.md).
 

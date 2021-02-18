@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b7dc7a9f93d6d70abec57632ffc95aea8a6bc699
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804989"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574435"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Baseline della sicurezza di Azure per Network Watcher
 
@@ -118,9 +118,9 @@ Distribuisci Network Watcher quando vengono create reti virtuali
 
 **Linee guida**: usare il log attività di Azure per monitorare le modifiche apportate al Network Watcher di Azure. È possibile creare avvisi in monitoraggio di Azure che verranno attivati quando si verificano modifiche.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -142,7 +142,7 @@ Distribuisci Network Watcher quando vengono create reti virtuali
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni e rilevare le modifiche per le istanze di Azure Network Watcher. Ad eccezione del piano di controllo (ad esempio portale di Azure), Network Watcher stesso non genera log relativi al traffico di rete. Network Watcher offre strumenti per il monitoraggio, la diagnosi, la visualizzazione delle metriche e l'abilitazione o disabilitazione dei log per le risorse in una rete virtuale di Azure.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Informazioni Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -154,7 +154,7 @@ Distribuisci Network Watcher quando vengono create reti virtuali
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni e rilevare le modifiche per le istanze di Azure Network Watcher. Ad eccezione del piano di controllo (ad esempio portale di Azure), Network Watcher stesso non genera i log di controllo. Network Watcher offre strumenti per il monitoraggio, la diagnosi, la visualizzazione delle metriche e l'abilitazione o disabilitazione dei log per le risorse in una rete virtuale di Azure.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Informazioni Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -174,7 +174,7 @@ Distribuisci Network Watcher quando vengono create reti virtuali
 
 **Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione del log per le aree di lavoro log Analytics associate ad Azure Network Watcher in base alle normative di conformità dell'organizzazione.
 
-* [Come impostare i parametri di conservazione dei log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Come impostare i parametri di conservazione dei log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -184,7 +184,7 @@ Distribuisci Network Watcher quando vengono create reti virtuali
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni e rilevare le modifiche per le istanze di Azure Network Watcher. Ad eccezione del piano di controllo (ad esempio portale di Azure), Network Watcher stesso non genera log relativi al traffico di rete. Network Watcher offre strumenti per il monitoraggio, la diagnosi, la visualizzazione delle metriche e l'abilitazione o disabilitazione dei log per le risorse in una rete virtuale di Azure.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Informazioni Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -479,7 +479,7 @@ Per usare Network Watcher funzionalità, l'account con cui si accede ad Azure, d
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi quando si verificano modifiche in Azure Network Watcher e altre risorse critiche o correlate.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

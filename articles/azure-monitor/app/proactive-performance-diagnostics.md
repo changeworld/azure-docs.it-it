@@ -4,12 +4,12 @@ description: Application Insights esegue un'analisi intelligente dei dati di tel
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: a055a323001e0291d3cb5c1716e640b3c8b21dbf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763775"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573730"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -70,12 +70,12 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 * *Si possono creare regole personalizzate di rilevamento delle anomalie o personalizzare le regole esistenti?*
 
   * Non ancora, ma è possibile:
-    * [Impostare avvisi](../platform/alerts-log.md) per essere informati quando una determinata metrica supera una soglia.
+    * [Impostare avvisi](../alerts/alerts-log.md) per essere informati quando una determinata metrica supera una soglia.
     * [Esportare dati di telemetria](./export-telemetry.md) in un [database](./code-sample-export-sql-stream-analytics.md) o in [Power BI](./export-power-bi.md), in cui è possibile analizzarli personalmente.
 * *Con quale frequenza viene eseguita l'analisi?*
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
-* *Ciò sostituisce [gli avvisi delle metriche](../platform/alerts-log.md)?*
+* *Ciò sostituisce [gli avvisi delle metriche](../alerts/alerts-log.md)?*
   * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
@@ -175,10 +175,10 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 
 * [Profiler](profiler.md) 
 * [debugger snapshot](./snapshot-debugger.md)
-* [Analisi](../log-query/log-analytics-tutorial.md)
-* [Diagnostica intelligenti di Analisi](../log-query/log-query-overview.md)
+* [Analisi](../logs/log-analytics-tutorial.md)
+* [Diagnostica intelligenti di Analisi](../logs/log-query-overview.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
-* [Configurare manualmente gli avvisi relativi alle metriche](../platform/alerts-log.md)
+* [Configurare manualmente gli avvisi relativi alle metriche](../alerts/alerts-log.md)
 * [Test Web di disponibilità](./monitor-web-app-availability.md)

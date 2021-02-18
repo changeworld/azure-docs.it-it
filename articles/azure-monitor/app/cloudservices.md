@@ -4,15 +4,15 @@ description: Monitorare i ruoli Web e di lavoro in modo efficace con Application
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: ccd863db55ef0ff9f4051947321321c8b01430c4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 1f9204534fcdfbf7c393eaafdbae62c4c4321f2f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920680"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573876"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
-[Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](../platform/diagnostics-extension-overview.md) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
+[Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](../agents/diagnostics-extension-overview.md) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
 
 ![Dashboard panoramica](./media/cloudservices/overview-graphs.png)
 
@@ -32,7 +32,7 @@ Questa opzione instrumenta l'app in fase di esecuzione, fornendo tutti i dati di
 
 Se non si hanno altre esigenze, non è necessario eseguire altre operazioni. 
 
-I passaggi successivi sono la [visualizzazione delle metriche dall'app](../platform/metrics-charts.md)e [l'esecuzione di query sui dati con l'analisi](../log-query/log-query-overview.md). 
+I passaggi successivi sono la [visualizzazione delle metriche dall'app](../essentials/metrics-charts.md)e [l'esecuzione di query sui dati con l'analisi](../logs/log-query-overview.md). 
 
 Per monitorare le prestazioni nel browser, potrebbe essere necessario configurare [test di disponibilità](./monitor-web-app-availability.md) e [aggiungere codice alle pagine Web](./javascript.md).
 
@@ -95,7 +95,7 @@ Se si è deciso di usare una risorsa di Application Insights separata per ogni c
 
 Le chiavi di strumentazione di Application Insights verranno così inserite nei file denominati *ServiceConfiguration.\*.cscfg*. Ecco il [codice di esempio](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
-Per variare il livello delle informazioni diagnostiche inviate ad Application Insights, [modificare direttamente i file *CSCFG*](../platform/diagnostics-extension-to-application-insights.md).
+Per variare il livello delle informazioni diagnostiche inviate ad Application Insights, [modificare direttamente i file *CSCFG*](../agents/diagnostics-extension-to-application-insights.md).
 
 ## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Installare l'SDK in ogni progetto
 Con questa opzione è possibile aggiungere dati di telemetria business personalizzati a qualsiasi ruolo. L'opzione fornisce un'analisi più accurata dell'utilizzo e delle prestazioni dell'app.
@@ -167,7 +167,7 @@ Questo passaggio è necessario solo se si desidera acquisire query SQL complete 
 
 1. Aprire le risorse di Application Insights create.
 
-   Verranno visualizzati i singoli punti dati in [Cerca][diagnostic] e i dati aggregati in [Esplora metriche](../platform/metrics-charts.md).
+   Verranno visualizzati i singoli punti dati in [Cerca][diagnostic] e i dati aggregati in [Esplora metriche](../essentials/metrics-charts.md).
 
 1. Aggiungere altri dati di telemetria (vedere le sezioni successive) e quindi pubblicare l'app per ottenere commenti e suggerimenti in diretta sull'utilizzo e la diagnostica. 
 
@@ -180,17 +180,17 @@ Se non sono presenti dati, eseguire le operazioni seguenti:
 Per altre informazioni, vedere [Risoluzione dei problemi][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Visualizzare gli eventi di Diagnostica di Azure
-Le informazioni di [Diagnostica di Azure](../platform/diagnostics-extension-overview.md) sono disponibili in Application Insights nelle posizioni seguenti:
+Le informazioni di [Diagnostica di Azure](../agents/diagnostics-extension-overview.md) sono disponibili in Application Insights nelle posizioni seguenti:
 
 * I contatori delle prestazioni vengono visualizzati come metriche personalizzate. 
 * I log eventi di Windows vengono visualizzati come tracce ed eventi personalizzati.
 * I log applicazioni, i log ETW e gli eventuali log dell'infrastruttura di diagnostica vengono visualizzati come tracce.
 
-Per visualizzare i contatori delle prestazioni e i conteggi degli eventi, aprire [Esplora metriche](../platform/metrics-charts.md) e aggiungere il grafico seguente:
+Per visualizzare i contatori delle prestazioni e i conteggi degli eventi, aprire [Esplora metriche](../essentials/metrics-charts.md) e aggiungere il grafico seguente:
 
 ![Dati di Diagnostica di Azure](./media/cloudservices/23-wad.png)
 
-Per eseguire ricerche nei vari log di traccia inviati da Diagnostica di Azure, usare la [Ricerca](./diagnostic-search.md) o una [Query Analytics](../log-query/log-analytics-tutorial.md). Supponendo, ad esempio, di avere un'eccezione non gestita che ha causato l'arresto e il riciclo di un ruolo, questa informazione verrebbe visualizzata nel canale Applicazione del registro eventi di Windows. È possibile usare la funzionalità di ricerca per visualizzare l'errore del registro eventi di Windows e ottenere l'analisi dello stack completa per l'eccezione. In questo modo sarà possibile trovare la causa radice del problema.
+Per eseguire ricerche nei vari log di traccia inviati da Diagnostica di Azure, usare la [Ricerca](./diagnostic-search.md) o una [Query Analytics](../logs/log-analytics-tutorial.md). Supponendo, ad esempio, di avere un'eccezione non gestita che ha causato l'arresto e il riciclo di un ruolo, questa informazione verrebbe visualizzata nel canale Applicazione del registro eventi di Windows. È possibile usare la funzionalità di ricerca per visualizzare l'errore del registro eventi di Windows e ottenere l'analisi dello stack completa per l'eccezione. In questo modo sarà possibile trovare la causa radice del problema.
 
 ![Ricerca di Diagnostica di Azure](./media/cloudservices/25-wad.png)
 
@@ -261,7 +261,7 @@ Per una panoramica del sistema, è possibile riunire i grafici di monitoraggio p
 
 Se il sistema usa altri servizi di Azure, ad esempio Analisi di flusso, includere anche i relativi grafici di monitoraggio. 
 
-Se si dispone di un'app client per dispositivi mobili, usare [App Center](../learn/mobile-center-quickstart.md). Creare query in [Analytics](../log-query/log-query-overview.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
+Se si dispone di un'app client per dispositivi mobili, usare [App Center](../app/mobile-center-quickstart.md). Creare query in [Analytics](../logs/log-query-overview.md) per visualizzare i conteggi degli eventi e aggiungerli al dashboard.
 
 ## <a name="example"></a>Esempio
 [L'esempio](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora un servizio che ha un ruolo Web e due ruoli di lavoro.
@@ -274,7 +274,7 @@ Se si dispone di un'app client per dispositivi mobili, usare [App Center](../lea
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Configurare l'invio di dati di Diagnostica di Azure ad Application Insights](../platform/diagnostics-extension-to-application-insights.md)
+* [Configurare l'invio di dati di Diagnostica di Azure ad Application Insights](../agents/diagnostics-extension-to-application-insights.md)
 * [Creare automaticamente risorse di Application Insights](./powershell.md)
 * [Automatizzare Diagnostica di Azure](./powershell-azure-diagnostics.md)
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)

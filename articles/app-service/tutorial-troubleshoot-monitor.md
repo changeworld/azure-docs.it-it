@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
-ms.translationtype: HT
+ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183201"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586289"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Esercitazione: Risolvere i problemi di un'app del servizio app con Monitoraggio di Azure
 
@@ -78,7 +78,7 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 Eseguire i comandi seguenti per creare le impostazioni di diagnostica per AppServiceConsoleLogs (output standard/errori) e AppServiceHTTPLogs (log del server Web). Sostituire _\<app-name>_ e _\<workspace-name>_ con i propri valori. 
 
 > [!NOTE]
-> I primi due comandi, `resourceID` e `workspaceID`, sono variabili da usare nel comando `az monitor diagnostic-settings create`. Vedere [Creare le impostazioni di diagnostica usando l'interfaccia della riga di comando di Azure](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) per altre informazioni su questo comando.
+> I primi due comandi, `resourceID` e `workspaceID`, sono variabili da usare nel comando `az monitor diagnostic-settings create`. Vedere [Creare le impostazioni di diagnostica usando l'interfaccia della riga di comando di Azure](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) per altre informazioni su questo comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ Nel portale di Azure selezionare l'area di lavoro Log Analytics.
 
 ### <a name="log-queries"></a>Query di log
 
-Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei log di Monitoraggio di Azure. Le query su log vengono usate per identificare i log sia in AppServiceHTTPLogs che in AppServiceConsoleLogs. Per altre informazioni sulle query su log, vedere [Panoramica delle query su log](../azure-monitor/log-query/log-query-overview.md).
+Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei log di Monitoraggio di Azure. Le query su log vengono usate per identificare i log sia in AppServiceHTTPLogs che in AppServiceConsoleLogs. Per altre informazioni sulle query su log, vedere [Panoramica delle query su log](../azure-monitor/logs/log-query-overview.md).
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visualizzare AppServiceHTTPLogs con una query su log
 
@@ -269,6 +269,6 @@ Contenuto dell'esercitazione:
 > * Uso di query su log per identificare e risolvere i problemi relativi agli errori delle app Web
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Passaggi successivi
-* [Eseguire query sui log con Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Eseguire query sui log con Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md)
 * [Risoluzione dei problemi del Servizio app di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analizzare i log delle app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

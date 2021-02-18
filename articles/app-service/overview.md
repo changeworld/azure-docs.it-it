@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 0bfacc4169de6b30272229283e9aef9a9d69fad5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592331"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586359"
 ---
 # <a name="app-service-overview"></a>Panoramica del Servizio app di Azure
 
@@ -28,7 +28,7 @@ Ecco alcune delle funzionalità principali del servizio app:
 * **Ambiente di produzione gestito**: il servizio app [applica automaticamente le patch e mantiene i framework del sistema operativo e del linguaggio](overview-patch-os-runtime.md). In questo modo è possibile dedicarsi alla scrittura di app senza preoccuparsi della piattaforma.
 * **Containerizzazione e Docker**: consente di ottimizzare l'app per Docker e ospitare un contenitore Windows o Linux personalizzato nel servizio app. Esecuzione di app multi-contenitore con Docker Compose. Migrazione delle competenze Docker direttamente nel servizio app.
 * **Ottimizzazione della metodologia DevOps**: è possibile configurare [l'integrazione continua e la distribuzione continua](deploy-continuous-deployment.md) con Azure DevOps, GitHub, BitBucket, Hub Docker o Registro Azure Container, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](deploy-staging-slots.md), e gestire le app nel servizio app con [Azure PowerShell](/powershell/azure/) o l'[interfaccia della riga di comando multipiattaforma](/cli/azure/install-azure-cli).
-* **Scalabilità globale con disponibilità elevata**: è possibile [aumentare le prestazioni](manage-scale-up.md) o il [numero di istanze](../azure-monitor/platform/autoscale-get-started.md) manualmente o automaticamente. Le app possono essere ospitate ovunque nell'infrastruttura globale di data center Microsoft e il [contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) per il servizio app assicura disponibilità elevata.
+* **Scalabilità globale con disponibilità elevata**: è possibile [aumentare le prestazioni](manage-scale-up.md) o il [numero di istanze](../azure-monitor/autoscale/autoscale-get-started.md) manualmente o automaticamente. Le app possono essere ospitate ovunque nell'infrastruttura globale di data center Microsoft e il [contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) per il servizio app assicura disponibilità elevata.
 * **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP), servizi SaaS (come Salesforce) e servizi Internet (come Facebook), nonché accedere ai dati locali con [connessioni ibride](app-service-hybrid-connections.md) e [reti virtuali di Azure](web-sites-integrate-with-vnet.md).
 * **Sicurezza e conformità** : il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autenticazione degli utenti con [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) o [account Microsoft](configure-authentication-provider-microsoft.md). Creare [restrizioni per gli indirizzi IP](app-service-ip-restrictions.md) e [gestire le identità del servizio](overview-managed-identity.md).
 * **Modelli di applicazione**: in [Azure Marketplace](https://azure.microsoft.com/marketplace/) è possibile scegliere da un esteso elenco di modelli di applicazione, come WordPress, Joomla e Drupal.

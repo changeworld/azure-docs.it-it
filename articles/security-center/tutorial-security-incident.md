@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787160"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635575"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Esercitazione: Valutare, analizzare e rispondere agli avvisi di sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence sulle minacce per segnalare attività potenzialmente dannose nelle risorse cloud. Nel Centro sicurezza è anche possibile integrare gli avvisi di altri prodotti e servizi di sicurezza. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione del potenziale problema di sicurezza. 
@@ -40,9 +40,9 @@ Per esaminare le funzionalità descritte in questa esercitazione, Azure Defender
 ## <a name="triage-security-alerts"></a>Valutare gli avvisi di sicurezza
 Il Centro sicurezza offre una vista centralizzata di tutti gli avvisi di sicurezza. Gli avvisi di sicurezza sono classificati in base alla gravità dell'attività individuata. 
 
-Valutare gli avvisi nella pagina **Avvisi di sicurezza** :
+Valutare gli avvisi nella pagina **Avvisi di sicurezza**:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Pagina Avvisi di sicurezza" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Elenco degli avvisi di sicurezza del Centro sicurezza di Azure":::
 
 Usare questa pagina per esaminare gli avvisi di sicurezza attivi nell'ambiente e decidere quale analizzare per primo.
 

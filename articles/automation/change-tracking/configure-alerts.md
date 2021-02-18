@@ -5,18 +5,18 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 275e57e5dcf173e8d5f30f262641b02698910422
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4faa7837a75bab6dfab651862754cd92394c5137
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210084"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585908"
 ---
 # <a name="how-to-create-alerts-for-change-tracking-and-inventory"></a>Come creare avvisi per Rilevamento modifiche e inventario
 
 Gli avvisi in Azure notificano in modo proattivo i risultati dei processi Runbook, dei problemi di integrità del servizio o di altri scenari correlati all'account di automazione. Automazione di Azure non include regole di avviso preconfigurate, ma è possibile crearne di personalizzate in base ai dati generati. Questo articolo fornisce indicazioni sulla creazione di regole di avviso in base alle modifiche identificate da Rilevamento modifiche e dall'inventario.
 
-Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure prima di](../../azure-monitor/platform/alerts-overview.md) iniziare. Per altre informazioni sugli avvisi che usano le query di log, vedere [avvisi del log in monitoraggio di Azure](../../azure-monitor/platform/alerts-unified-log.md).
+Se non si ha familiarità con gli avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure prima di](../../azure-monitor/alerts/alerts-overview.md) iniziare. Per altre informazioni sugli avvisi che usano le query di log, vedere [avvisi del log in monitoraggio di Azure](../../azure-monitor/alerts/alerts-unified-log.md).
 
 ## <a name="create-alert"></a>Creare un avviso
 
@@ -38,11 +38,11 @@ Si userà questo esempio per illustrare i passaggi per la creazione di avvisi in
 
 5. Dopo aver impostato la logica di avviso, assegnare i gruppi di azioni per eseguire azioni in risposta all'attivazione dell'avviso. In questo caso vengono configurati messaggi di posta elettronica da inviare e un ticket di Gestione dei servizi IT (ITSM) da creare.
 
-Attenersi alla procedura seguente per configurare gli avvisi per indicare lo stato di una distribuzione degli aggiornamenti. Se non si ha familiarità con gli avvisi di Azure, vedere [Panoramica degli avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
+Attenersi alla procedura seguente per configurare gli avvisi per indicare lo stato di una distribuzione degli aggiornamenti. Se non si ha familiarità con gli avvisi di Azure, vedere [Panoramica degli avvisi di Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configurare gruppi di azioni per gli avvisi
 
-Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni da usare in più avvisi. Le azioni possono includere notifiche tramite posta elettronica, manuali operativi, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../../azure-monitor/platform/action-groups.md).
+Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni da usare in più avvisi. Le azioni possono includere notifiche tramite posta elettronica, manuali operativi, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../../azure-monitor/alerts/action-groups.md).
 
 1. Selezionare un avviso e quindi selezionare **Crea nuovo** in **Gruppi di azioni**.
 
@@ -66,8 +66,8 @@ Dopo aver configurato gli avvisi, è possibile configurare un gruppo di azioni d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sugli [avvisi in monitoraggio di Azure](../../azure-monitor/platform/alerts-overview.md).
+* Altre informazioni sugli [avvisi in monitoraggio di Azure](../../azure-monitor/alerts/alerts-overview.md).
 
-* Informazioni sulle [query di log](../../azure-monitor/log-query/log-query-overview.md) per recuperare e analizzare i dati da un'area di lavoro log Analytics.
+* Informazioni sulle [query di log](../../azure-monitor/logs/log-query-overview.md) per recuperare e analizzare i dati da un'area di lavoro log Analytics.
 
-* Gestire l' [utilizzo e i costi con i log di monitoraggio di Azure](../../azure-monitor/platform/manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati e come analizzare e inviare avvisi sull'utilizzo dei dati.
+* Gestire l' [utilizzo e i costi con i log di monitoraggio di Azure](../../azure-monitor/logs/manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati e come analizzare e inviare avvisi sull'utilizzo dei dati.

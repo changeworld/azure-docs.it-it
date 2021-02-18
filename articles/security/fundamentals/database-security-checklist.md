@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: e9845eaf6d84caad3ddb8c7e615cb72f71c91f3b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 80455b442bbfb9c8a7d40799b2ddd5fc25460578
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412834"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595590"
 ---
 # <a name="azure-database-security-checklist"></a>Elenco di controllo per la sicurezza del database di Azure
 
 Per contribuire al miglioramento della sicurezza, il database di Azure include una serie di controlli di sicurezza predefiniti che è possibile usare per limite e controllare l'accesso.
 
-Queste includono:
+Tra queste sono incluse:
 
 -    Un firewall che consente di creare [regole del firewall](../../azure-sql/database/firewall-configure.md) limitando la connettività tramite un indirizzo IP,
 -    Regola del firewall a livello di server accessibile nel portale di Azure
@@ -53,7 +53,7 @@ Si consiglia di leggere l'articolo [Azure Database Security Best Practices](../.
 |<br> Accesso al database | <ul><li>[Autenticazione](../../azure-sql/database/logins-create-manage.md) l'autenticazione AD (Autenticazione di Azure Active Directory) usa identità gestite da Azure Active Directory.</li><li>[Autorizzazione](../../azure-sql/database/logins-create-manage.md) concede agli utenti i privilegi minimi necessari.</li></ul> |
 |<br>Accesso all'applicazione| <ul><li>[Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) (tramite i criteri di sicurezza, al tempo stesso limitando l'accesso a livello di riga in base all'identità dell'utente, al ruolo o al contesto di esecuzione).</li><li>[Dynamic Data Masking](../../azure-sql/database/dynamic-data-masking-overview.md) (tramite Autorizzazione e Politica, limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi)</li></ul>|
 |**Monitoraggio proattivo**||  
-| <br>Monitoraggio e rilevamento| <ul><li>Il [Controllo](../../azure-sql/database/auditing-overview.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo/log di attività nell'[account di Archiviazione di Azure](../../storage/common/storage-account-create.md).</li><li>Tenere traccia dell'integrità del database di Azure tramite i [log attività di Monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [funzionalità di rilevamento delle minacce](../../azure-sql/database/threat-detection-configure.md) individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. </li></ul> |
+| <br>Monitoraggio e rilevamento| <ul><li>Il [Controllo](../../azure-sql/database/auditing-overview.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo/log di attività nell'[account di Archiviazione di Azure](../../storage/common/storage-account-create.md).</li><li>Tenere traccia dell'integrità del database di Azure tramite i [log attività di Monitoraggio di Azure](../../azure-monitor/essentials/platform-logs-overview.md).</li><li>La [funzionalità di rilevamento delle minacce](../../azure-sql/database/threat-detection-configure.md) individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. </li></ul> |
 |<br>Centro sicurezza di Azure| <ul><li>Il [Monitoraggio dati](../../security-center/security-center-remediate-recommendations.md) usa il centro sicurezza di Azure come soluzione di monitoraggio di sicurezza centralizzato per SQL e altri servizi di Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusione

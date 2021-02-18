@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 387c5e70d50e53f922530cfb1fa91494fa7cc624
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab4f92c9723dc98d0b6c32d3a49df8d4f724ebfa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376310"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585465"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Baseline della sicurezza di Azure per Azure Data Factory
 
@@ -175,9 +175,9 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate alle istanze di Azure Data Factory. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -201,7 +201,7 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un evento di sicurezza e gestione degli eventi di terze parti (SIEM). È anche possibile integrare Azure Data Factory con git per sfruttare diversi vantaggi del controllo del codice sorgente, ad esempio la capacità di rilevare/controllare le modifiche e la possibilità di ripristinare le modifiche che introducono bug.
 
-* [Come configurare le impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md)
+* [Come configurare le impostazioni di diagnostica](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -219,7 +219,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 Usare le impostazioni di diagnostica per configurare i log di diagnostica per le risorse non di calcolo in Azure Data Factory, ad esempio le metriche e i dati di esecuzione della pipeline. Azure Data Factory archivia i dati di esecuzione della pipeline per 45 giorni. Per conservare i dati per un periodo di tempo più lungo, salvare i log di diagnostica in un account di archiviazione per il controllo o l'ispezione manuale e specificare il periodo di conservazione in giorni. È anche possibile trasmettere i log a hub eventi di Azure o inviare i log a un'area di lavoro di Log Analytics per l'analisi.
 
-* [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/platform/activity-log.md)
+* [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Informazioni sui log di diagnostica Azure Data Factory](./monitor-using-azure-monitor.md)
 
@@ -233,7 +233,7 @@ Usare le impostazioni di diagnostica per configurare i log di diagnostica per le
 
 Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza, può essere archiviata in un livello di raccolta dati, a questo punto è possibile eseguire query in Log Analytics.
 
-* [Come raccogliere dati da macchine virtuali di Azure in monitoraggio di Azure](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Come raccogliere dati da macchine virtuali di Azure in monitoraggio di Azure](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Abilitazione della raccolta dati nel centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -247,7 +247,7 @@ Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza,
 
 * [Come abilitare i log di diagnostica in Azure Data Factory](./monitor-using-azure-monitor.md)
 
-* [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -263,7 +263,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 * [Schema Log Analytics](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-* [Come raccogliere dati da una macchina virtuale di Azure con monitoraggio di Azure](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Come raccogliere dati da una macchina virtuale di Azure con monitoraggio di Azure](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -281,9 +281,9 @@ Assicurarsi inoltre di abilitare le impostazioni di diagnostica per i servizi co
 
 * [Avvisi in Azure Data Factory](./monitor-visually.md#alerts)
 
-* [Pagina tutte le metriche supportate](../azure-monitor/platform/metrics-supported.md)
+* [Pagina tutte le metriche supportate](../azure-monitor/essentials/metrics-supported.md)
 
-* [Come configurare gli avvisi nell'area di lavoro di Log Analytics](../azure-monitor/platform/alerts-log.md)
+* [Come configurare gli avvisi nell'area di lavoro di Log Analytics](../azure-monitor/alerts/alerts-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -652,9 +652,9 @@ Se si esegue la Integration Runtime in una macchina virtuale di Azure, i dischi 
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi quando si verificano modifiche per Azure Data Factory e le risorse correlate.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Registrazione di Analisi di archiviazione di Azure](../storage/common/storage-analytics-logging.md)
 

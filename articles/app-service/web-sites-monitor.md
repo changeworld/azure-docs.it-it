@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: bf230032afe80680dc392c2a74da2a5aef381983
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509554"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586105"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [App Azure servizio](./overview.md) fornisce funzionalità di monitoraggio predefinite per app Web, per dispositivi mobili e per le app per le API nel [portale di Azure](https://portal.azure.com).
@@ -136,7 +136,7 @@ Le metriche che riflettono l'utilizzo della CPU sono due:
 **Percentuale CPU**: utile per le app ospitate nei piani Basic, standard e Premium, perché possono essere scalate orizzontalmente. La percentuale di CPU è una indicazione corretta dell'utilizzo complessivo in tutte le istanze.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularità delle metriche e criteri di conservazione
-Le metriche per un'app e il piano di servizio app vengono registrate e aggregate dal servizio e [mantenute in base a queste regole](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
+Le metriche per un'app e il piano di servizio app vengono registrate e aggregate dal servizio e [mantenute in base a queste regole](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoraggio di quote e metriche nel portale di Azure
 Per esaminare lo stato delle varie quote e metriche che interessano un'app, accedere al [portale di Azure](https://portal.azure.com).
@@ -153,14 +153,14 @@ Per trovare le quote, selezionare   >  **quote** impostazioni. Nel grafico è po
 
 Facendo clic su uno di questi grafici verrà visualizzata la visualizzazione metriche in cui è possibile creare grafici personalizzati, eseguire query su metriche diverse e molto altro. 
 
-Per altre informazioni sulle metriche, vedere [Monitorare le metriche del servizio](../azure-monitor/platform/data-platform.md).
+Per altre informazioni sulle metriche, vedere [Monitorare le metriche del servizio](../azure-monitor/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Avvisi e scalabilità automatica
-Le metriche per un'app o un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [ricevere notifiche di avviso](../azure-monitor/platform/alerts-classic-portal.md).
+Le metriche per un'app o un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [ricevere notifiche di avviso](../azure-monitor/alerts/alerts-classic-portal.md).
 
 Le app del servizio app ospitate nei piani di servizio App Basic o superiore supportano la scalabilità automatica. Con questa funzionalità è possibile configurare le regole che consentono di monitorare le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per fornire risorse aggiuntive in base alla esigenze. L'uso delle regole consente anche di ridurre i costi quando l'app ha un provisioning eccessivo.
 
-Per altre informazioni sulla scalabilità automatica, vedere [Procedura dettagliata sulla scalabilità automatica](../azure-monitor/platform/autoscale-get-started.md) e [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../azure-monitor/platform/autoscale-best-practices.md).
+Per altre informazioni sulla scalabilità automatica, vedere [Procedura dettagliata sulla scalabilità automatica](../azure-monitor/autoscale/autoscale-get-started.md) e [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

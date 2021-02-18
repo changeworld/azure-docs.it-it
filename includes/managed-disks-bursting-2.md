@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 801f0f03b49d20c84a4531bd0daad7630a0ed01d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061196"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585110"
 ---
 ## <a name="common-scenarios"></a>Scenari comuni
 Gli scenari seguenti possono trarre molto vantaggio dall'espansione:
@@ -37,7 +37,8 @@ Il modo in cui si vogliono usare i 30 minuti di espansione è completamente atti
 - **Costante** : il traffico della risorsa è esattamente in corrispondenza della destinazione delle prestazioni.
 
 ## <a name="examples-of-bursting"></a>Esempi di picchi
-Gli esempi seguenti illustrano il funzionamento del prorompo con varie combinazioni di macchine virtuali e dischi. Per semplificare la procedura, gli esempi si concentrano su MB/s, ma la stessa logica viene applicata indipendentemente a IOPS.
+
+Gli esempi seguenti illustrano il funzionamento di espansione con varie combinazioni di VM e dischi. Per semplificare la procedura, gli esempi si concentrano su MB/s, ma la stessa logica viene applicata indipendentemente a IOPS.
 
 ### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>Macchina virtuale non scaricabile con dischi a scaricamento
 **Combinazione di VM e dischi:** 
@@ -50,17 +51,17 @@ Gli esempi seguenti illustrano il funzionamento del prorompo con varie combinazi
     - MB/s di cui è stato effettuato il provisioning: 100
     - Numero massimo di picchi MB/s: 170
 
- Quando la macchina virtuale viene avviata, recupererà i dati dal disco del sistema operativo. Poiché il disco del sistema operativo fa parte di una macchina virtuale che viene avviata, il disco del sistema operativo sarà pieno di crediti di espansione. Questi crediti consentiranno al disco del sistema operativo di aumentare il suo avvio a 170 MB/s secondo, come illustrato di seguito:
+ Quando la macchina virtuale viene avviata, recupera i dati dal disco del sistema operativo. Poiché il disco del sistema operativo fa parte di una macchina virtuale avviata, il disco del sistema operativo sarà pieno di crediti di espansione. Questi crediti consentiranno al disco del sistema operativo di aumentare il suo avvio a 170 MB/s secondo.
 
-![Avvio del disco con picchi di macchine virtuali non di espansione](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+![La macchina virtuale invia una richiesta per 192 MB/s di velocità effettiva al disco del sistema operativo. il disco del sistema operativo risponde con i dati di 170 MB/s.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
 
-Al termine dell'avvio, un'applicazione viene quindi eseguita nella macchina virtuale e ha un carico di lavoro non critico. Questo carico di lavoro richiede 15 MB/S distribuiti uniformemente tra tutti i dischi:
+Al termine dell'avvio, un'applicazione viene quindi eseguita nella macchina virtuale e ha un carico di lavoro non critico. Questo carico di lavoro richiede 15 MB/S distribuiti in modo uniforme in tutti i dischi.
 
-![Il disco di espansione della macchina virtuale non di espansione è inattivo](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+![L'applicazione invia una richiesta per 15 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale riceve una richiesta e invia ogni disco una richiesta per 5 MB/s, ogni disco restituisce 5 MB/s, la macchina virtuale restituisce 15 MB/s per l'applicazione.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
 
-Quindi, l'applicazione deve elaborare un processo in batch che richiede 192 MB/s. 2 MB/s vengono usati dal disco del sistema operativo e i restanti sono divisi uniformemente tra i dischi dati:
+Quindi, l'applicazione deve elaborare un processo in batch che richiede 192 MB/s. 2 MB/s vengono usati dal disco del sistema operativo e i restanti sono divisi uniformemente tra i dischi dati.
 
-![Espansione del disco con picchi di macchine virtuali non in espansione](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+![L'applicazione invia la richiesta per 192 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale riceve una richiesta e Invia la maggior parte della richiesta ai dischi dati (95 MB/s ciascuno) e 2 MB/s al disco del sistema operativo, i dischi dati sono in grado di soddisfare la richiesta e tutti i dischi restituiscono la velocità effettiva richiesta alla VM, che la restituisce all'applicazione](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
 ### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>Macchina virtuale scaricabile con dischi non a scaricamento
 **Combinazione di VM e dischi:** 
@@ -72,11 +73,12 @@ Quindi, l'applicazione deve elaborare un processo in batch che richiede 192 MB/s
 - 2 dischi dati P10 
     - MB/s di cui è stato effettuato il provisioning: 250
 
- Dopo l'avvio iniziale, un'applicazione viene eseguita nella macchina virtuale e ha un carico di lavoro non critico. Questo carico di lavoro richiede 30 MB/s distribuiti in modo uniforme tra tutti i dischi: espansione del ![ disco non di espansione della macchina virtuale inattiva](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Dopo l'avvio iniziale, un'applicazione viene eseguita nella macchina virtuale e ha un carico di lavoro non critico. Questo carico di lavoro richiede 30 MB/s distribuiti in modo uniforme in tutti i dischi.
+![L'applicazione invia una richiesta per 30 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale riceve una richiesta e invia ogni disco una richiesta per 10 MB/s, ogni disco restituisce 10 MB/s, la macchina virtuale restituisce 30 MB/s per l'applicazione.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
-Quindi, l'applicazione deve elaborare un processo in batch che richiede 600 MB/s. Il Standard_L8s_v2 è in grado di soddisfare questa richiesta e quindi le richieste ai dischi vengono distribuite uniformemente nei dischi P50:
+Quindi, l'applicazione deve elaborare un processo in batch che richiede 600 MB/s. Il Standard_L8s_v2 è in grado di soddisfare questa richiesta e quindi le richieste ai dischi vengono distribuite in modo uniforme nei dischi P50.
 
-![Espansione del disco con picchi di macchina virtuale non in espansione](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+![L'applicazione invia la richiesta per 600 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale impiega picchi per eseguire la richiesta e invia ogni disco una richiesta per 200 MB/s, ogni disco restituisce 200 MB/s, i picchi della macchina virtuale per restituire 600 MB/s per l'applicazione.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
 ### <a name="burstable-virtual-machine-with-burstable-disks"></a>Macchina virtuale scaricabile con dischi a scaricamento
 **Combinazione di VM e dischi:** 
 - Standard_L8s_v2 
@@ -89,14 +91,14 @@ Quindi, l'applicazione deve elaborare un processo in batch che richiede 600 MB/s
     - MB/s di cui è stato effettuato il provisioning: 25
     - Numero massimo di picchi MB/s: 170 
 
-Quando la macchina virtuale viene avviata, il numero di richieste di 1.280 MB/s dal disco del sistema operativo verrà incrementato e il disco del sistema operativo risponderà con le prestazioni di espansione di 170 MB/s:
+Quando la macchina virtuale viene avviata, il numero di picchi di 1.280 MB/s verrà richiesto dal disco del sistema operativo e il disco del sistema operativo risponderà con le prestazioni di espansione di 170 MB/s.
 
-![Avvio del disco con picchi di macchina virtuale in espansione](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
+![All'avvio, la macchina virtuale irrompe per inviare una richiesta di 1.280 MB/s al disco del sistema operativo, il disco del sistema operativo viene incrementato per restituire i 1.280 MB/s.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
 
-Al termine dell'avvio, un'applicazione viene quindi eseguita nella macchina virtuale. L'applicazione ha un carico di lavoro non critico che richiede 15 MB/s che viene distribuito uniformemente in tutti i dischi:
+Al termine dell'avvio, un'applicazione con un carico di lavoro non critico viene avviata. Questa applicazione richiede 15 MB/s che vengono distribuiti in modo uniforme in tutti i dischi.
 
-![Inattività del disco di espansione della macchina virtuale in sequenza](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![L'applicazione invia una richiesta per 15 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale riceve una richiesta e invia ogni disco una richiesta per 5 MB/s, ogni disco restituisce 5 MB/s, la macchina virtuale restituisce 15 MB/s per l'applicazione.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
-Quindi, l'applicazione deve elaborare un processo in batch che richiede 360 MB/s. Il Standard_L8s_v2 si rompe per soddisfare questa richiesta e quindi le richieste. Solo 20 MB/s sono necessari per il disco del sistema operativo. I restanti 340 MB/s vengono gestiti dai dischi dati P4 con picchi:  
+Quindi, l'applicazione deve elaborare un processo in batch che richiede 360 MB/s. Il Standard_L8s_v2 si rompe per soddisfare questa richiesta e quindi le richieste. Solo 20 MB/s sono necessari per il disco del sistema operativo. I restanti 340 MB/s vengono gestiti dai dischi dati P4 con picchi.
 
-![Espansione del disco con picchi di macchina virtuale in espansione](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+![L'applicazione invia la richiesta per 360 MB/s di velocità effettiva alla macchina virtuale, la macchina virtuale accetta picchi per eseguire la richiesta e invia ogni disco dati a una richiesta per 170 MB/s e 20 MB/s dal disco del sistema operativo, ogni disco restituisce il MB/s richiesto, i picchi della macchina virtuale per restituire 360 MB/s per l'applicazione.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)

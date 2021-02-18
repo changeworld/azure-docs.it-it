@@ -3,21 +3,21 @@ title: Configurare i log di diagnostica - Hub eventi in Azure | Microsoft Docs
 description: Informazioni su come configurare log attività e di diagnostica per gli hub eventi in Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131985"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573179"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
 È possibile visualizzare due tipi di log per Hub eventi di Azure:
 
-* **[Log attività](../azure-monitor/platform/platform-logs-overview.md)** : Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati. È possibile visualizzare le voci del log attività selezionando **Log attività** nel riquadro sinistro per lo spazio dei nomi dell'hub eventi nel portale di Azure. Ad esempio: "Creare o aggiornare lo spazio dei nomi", "Creare o aggiornare l'hub eventi".
+* **[Log attività](../azure-monitor/essentials/platform-logs-overview.md)** : Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati. È possibile visualizzare le voci del log attività selezionando **Log attività** nel riquadro sinistro per lo spazio dei nomi dell'hub eventi nel portale di Azure. Ad esempio: "Creare o aggiornare lo spazio dei nomi", "Creare o aggiornare l'hub eventi".
 
     ![Log attività per uno spazio dei nomi di hub eventi](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Log di diagnostica](../azure-monitor/platform/platform-logs-overview.md)** : I log di diagnostica offrono informazioni più dettagliate sulle operazioni e sulle azioni eseguite sullo spazio dei nomi con l'API o tramite client di gestione nell'SDK del linguaggio. 
+* **[Log di diagnostica](../azure-monitor/essentials/platform-logs-overview.md)** : I log di diagnostica offrono informazioni più dettagliate sulle operazioni e sulle azioni eseguite sullo spazio dei nomi con l'API o tramite client di gestione nell'SDK del linguaggio. 
     
     La sezione seguente illustra come abilitare i log di diagnostica per lo spazio dei nomi di un hub eventi.
 
@@ -36,7 +36,7 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
     Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**.
 
-    Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorie dei log di diagnostica
 
@@ -131,7 +131,7 @@ Il nome dell'evento viene popolato come tipo di operazione e tipo di risorsa dal
 
 | Tipo di operazione | Tipo di risorsa | 
 | -------------- | ------------- | 
-| <ul><li>Creazione</li><li>Aggiornamento</li><li>Delete</li><li>Recupero</li><li>Sconosciuto</li></ul> | <ul><li>Spazio dei nomi</li><li>Coda</li><li>Argomento</li><li>Sottoscrizione</li><li>Hub eventi</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regola</li>ConsumerGroup</li> |
+| <ul><li>Crea</li><li>Aggiorna</li><li>Delete</li><li>Recupero</li><li>Sconosciuto</li></ul> | <ul><li>Spazio dei nomi</li><li>Coda</li><li>Argomento</li><li>Subscription</li><li>Hub eventi</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regola</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Schema dei log di scalabilità automatica
 Le stringhe JSON dei log di scalabilità automatica includono gli elementi elencati nella tabella seguente:

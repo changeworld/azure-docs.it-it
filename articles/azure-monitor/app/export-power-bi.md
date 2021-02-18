@@ -3,12 +3,12 @@ title: Esportare dati in Power BI da Azure Application Insights | Microsoft Docs
 description: Le query di Analisi possono essere visualizzate in Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4bdae09d193d5ae9c59fe9352e07b8219a76841d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187001"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584306"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](./app-insights-overview.md).
@@ -31,7 +31,7 @@ Per importare la query di Application Insights, usare la versione desktop di Pow
 Installare [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Esportare una query di Analisi
-1. [Aprire Analisi e scrivere la query](../log-query/log-analytics-tutorial.md).
+1. [Aprire Analisi e scrivere la query](../logs/log-analytics-tutorial.md).
 2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati. Verificare che la query venga eseguita correttamente in Analisi prima di esportarla.
 3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
    
@@ -146,4 +146,4 @@ Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggior
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Power BI - Informazioni](https://www.powerbi.com/learning/)
-* [Esercitazione su Analisi](../log-query/log-analytics-tutorial.md)
+* [Esercitazione su Analisi](../logs/log-analytics-tutorial.md)

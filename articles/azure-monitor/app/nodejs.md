@@ -4,12 +4,12 @@ description: Monitorare le prestazioni e diagnosticare i problemi dei servizi No
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611016"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585749"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -425,7 +425,7 @@ Queste proprietà sono specifiche del client, pertanto è possibile configurare 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitorare i dati di telemetria nel portale](./overview-dashboard.md)
-* [Presentazione dello strumento Analisi in Application Insights](../log-query/log-analytics-tutorial.md)
+* [Presentazione dello strumento Analisi in Application Insights](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 

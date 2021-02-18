@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e048e4c17092c71a5adaf29f342546b9258837c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763809"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586226"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app nel [Servizio app di Azure](./overview.md).
@@ -61,7 +61,7 @@ Le metriche più comunemente monitorate per le app sono
 Per altre informazioni, vedere:
 
 * [Monitorare le app in Servizio app di Azure](web-sites-monitor.md)
-* [Ricevere notifiche di avviso](../azure-monitor/platform/alerts-overview.md)
+* [Ricevere notifiche di avviso](../azure-monitor/alerts/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorare lo stato degli endpoint
 Se si esegue l'app nel piano tariffario **Standard**, il servizio app consente di monitorare due endpoint da tre località geografiche.

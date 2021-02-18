@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f968267d4233c765bfd107d81957cf04edace923
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7380c0d9679fe74bc91eea269f53fea750922b79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408516"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575016"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -108,7 +108,7 @@ Le [soluzioni di gestione](../../azure-monitor/insights/solutions.md) sono set p
 
 ![Soluzioni di gestione](./media/operational-security/azure-operational-security-fig4.png)
 
-Un valido esempio di soluzione che sfrutta più servizi per offrire funzionalità aggiuntive è la [soluzione Gestione aggiornamenti](../../automation/update-management/overview.md). Questa soluzione USA l'agente di [log di monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) per Windows e Linux per raccogliere informazioni sugli aggiornamenti necessari in ogni agente. Scrive questi dati nel repository dei log di monitoraggio di Azure in cui è possibile analizzarli con un dashboard incluso.
+Un valido esempio di soluzione che sfrutta più servizi per offrire funzionalità aggiuntive è la [soluzione Gestione aggiornamenti](../../automation/update-management/overview.md). Questa soluzione USA l'agente di [log di monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md) per Windows e Linux per raccogliere informazioni sugli aggiornamenti necessari in ogni agente. Scrive questi dati nel repository dei log di monitoraggio di Azure in cui è possibile analizzarli con un dashboard incluso.
 
 Quando si crea una distribuzione, vengono usati i runbook dell'[Automazione di Azure](../../automation/automation-intro.md) per installare gli aggiornamenti necessari. L'intero processo viene gestito nel portale, non è necessario preoccuparsi dei dettagli sottostanti.
 
@@ -148,19 +148,19 @@ Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo st
 
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi, file di dump di arresto anomalo del sistema e altro. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
 
--   **Separazione dei dati** : i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'organizzazione. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio.
+-   **Separazione dei dati**: i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'organizzazione. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio.
 
--   **Accesso ai dati** : per offrire consigli sulla sicurezza e analizzare le potenziali minacce, il personale Microsoft può accedere alle informazioni raccolte o analizzate dai servizi di Azure, inclusi file di dump di arresto anomalo del sistema, eventi di creazione di un processo, snapshot del disco della macchina virtuale ed elementi, che potrebbero accidentalmente contenere dati del cliente o dati personali provenienti dalle macchine virtuali. Microsoft rispetta le [condizioni e l'informativa sulla privacy dei Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), in cui è specificato che Microsoft non usa i dati del cliente e non ricava informazioni per scopi pubblicitari o simili finalità commerciali.
+-   **Accesso ai dati**: per offrire consigli sulla sicurezza e analizzare le potenziali minacce, il personale Microsoft può accedere alle informazioni raccolte o analizzate dai servizi di Azure, inclusi file di dump di arresto anomalo del sistema, eventi di creazione di un processo, snapshot del disco della macchina virtuale ed elementi, che potrebbero accidentalmente contenere dati del cliente o dati personali provenienti dalle macchine virtuali. Microsoft rispetta le [condizioni e l'informativa sulla privacy dei Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), in cui è specificato che Microsoft non usa i dati del cliente e non ricava informazioni per scopi pubblicitari o simili finalità commerciali.
 
--   **Uso dei dati** : Microsoft usa modelli e intelligence per le minacce trovati in più tenant per migliorare le funzionalità di prevenzione e rilevamento, in base alle garanzie relative alla privacy descritte nell' [informativa sulla privacy](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Uso dei dati**: Microsoft usa modelli e intelligence per le minacce trovati in più tenant per migliorare le funzionalità di prevenzione e rilevamento, in base alle garanzie relative alla privacy descritte nell'[informativa sulla privacy](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Posizione dei dati
 
 Il Centro sicurezza di Azure raccoglie copie temporanee dei file di dump di arresto anomalo del sistema e le analizza per cercare le prove di tentativi di exploit e compromissioni riuscite. Il Centro sicurezza di Azure esegue questa analisi nella stessa area geografica dell'area di lavoro ed elimina le copie temporanee al termine dell'analisi. Gli elementi del computer vengono archiviati centralmente nella stessa area della VM.
 
--   **Account di archiviazione** : viene specificato un account di archiviazione per ogni area in cui sono in esecuzione macchine virtuali. Questo consente di archiviare i dati nella stessa area della macchina virtuale da cui vengono raccolti i dati.
+-   **Account di archiviazione**: viene specificato un account di archiviazione per ogni area in cui sono in esecuzione macchine virtuali. Questo consente di archiviare i dati nella stessa area della macchina virtuale da cui vengono raccolti i dati.
 
--   **Archiviazione in Centro sicurezza di Azure** : le informazioni sugli avvisi di sicurezza, inclusi gli avvisi dei partner, le raccomandazioni e lo stato integrità della sicurezza, vengono archiviate a livello centrale, attualmente negli Stati Uniti. Queste informazioni possono includere informazioni sulla configurazione correlate ed eventi di sicurezza raccolti dalle macchine virtuali, necessari per conoscere l'avviso di sicurezza, la raccomandazione o lo stato integrità della sicurezza.
+-   **Archiviazione in Centro sicurezza di Azure**: le informazioni sugli avvisi di sicurezza, inclusi gli avvisi dei partner, le raccomandazioni e lo stato integrità della sicurezza, vengono archiviate a livello centrale, attualmente negli Stati Uniti. Queste informazioni possono includere informazioni sulla configurazione correlate ed eventi di sicurezza raccolti dalle macchine virtuali, necessari per conoscere l'avviso di sicurezza, la raccomandazione o lo stato integrità della sicurezza.
 
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
@@ -195,25 +195,25 @@ I log di diagnostica vengono generati da una risorsa e contengono informazioni a
 
 Ad esempio, i log del sistema eventi di Windows sono una categoria di log di diagnostica per le macchine virtuali, i BLOB e le tabelle, mentre i log della coda sono categorie di log di diagnostica per gli account di archiviazione.
 
-I log di diagnostica sono diversi dai [log attività (precedentemente conosciuti come log di controllo o log operativi)](../../azure-monitor/platform/platform-logs-overview.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
+I log di diagnostica sono diversi dai [log attività (precedentemente conosciuti come log di controllo o log operativi)](../../azure-monitor/essentials/platform-logs-overview.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
 
 ### <a name="metrics"></a>Metriche
 
-Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Monitoraggio di Azure offre diversi modi per configurare e utilizzare queste [metriche](../../azure-monitor/platform/data-platform.md) per il monitoraggio e la risoluzione dei problemi. Le metriche sono un'importante fonte di dati di telemetria e consentono di eseguire le attività seguenti:
+Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Monitoraggio di Azure offre diversi modi per configurare e utilizzare queste [metriche](../../azure-monitor/data-platform.md) per il monitoraggio e la risoluzione dei problemi. Le metriche sono un'importante fonte di dati di telemetria e consentono di eseguire le attività seguenti:
 
 -   **Tenere traccia delle prestazioni** della risorsa (ad esempio, una VM, un sito Web o un'app per la logica) tracciandone le metriche in un grafico del portale da aggiungere a un dashboard.
 
 -   **Ricevere la notifica di un problema** che influisce sulle prestazioni della risorsa quando una metrica supera una determinata soglia.
 
--   **Configurare le azioni automatiche** , ad esempio il ridimensionamento automatico di una risorsa o l'esecuzione di un runbook quando una metrica supera una determinata soglia.
+-   **Configurare le azioni automatiche**, ad esempio il ridimensionamento automatico di una risorsa o l'esecuzione di un runbook quando una metrica supera una determinata soglia.
 
 -   **Eseguire analisi avanzate** o creare report relativi alle tendenze delle prestazioni o di uso della risorsa.
 
 -   **Archiviare** la cronologia relativa alle prestazioni o all'integrità della risorsa a scopo di conformità o verifica.
 
-### <a name="azure-diagnostics"></a>Diagnostica Azure
+### <a name="azure-diagnostics"></a>Diagnostica di Azure
 
-È la funzionalità di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](../../virtual-machines/windows/overview.md) che eseguono Microsoft Windows e [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Altri servizi di Azure dispongono di propri strumenti di diagnostica separati.
+È la funzionalità di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](../../virtual-machines/windows/overview.md) che eseguono Microsoft Windows e [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Altri servizi di Azure dispongono di propri strumenti di diagnostica separati.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
@@ -225,7 +225,7 @@ Il controllo della sicurezza della rete è fondamentale per rilevare le vulnerab
 
 Di seguito sono elencate le funzionalità attualmente disponibili in Network Watcher.
 
--   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Log di controllo</a>** - Vengono registrate le operazioni eseguite nell'ambito della configurazione di reti. È possibile visualizzare i relativi log nel portale di Azure o recuperarli usando strumenti Microsoft, come Power BI, o strumenti di terze parti. I log di controllo sono disponibili tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Per altre informazioni sui log di controllo, vedere l'articolo relativo alle operazioni di controllo con Gestione risorse. I log di controllo sono disponibili per le operazioni eseguite su tutte le risorse di rete.
+-   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Log di controllo</a>**- Vengono registrate le operazioni eseguite nell'ambito della configurazione di reti. È possibile visualizzare i relativi log nel portale di Azure o recuperarli usando strumenti Microsoft, come Power BI, o strumenti di terze parti. I log di controllo sono disponibili tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Per altre informazioni sui log di controllo, vedere l'articolo relativo alle operazioni di controllo con Gestione risorse. I log di controllo sono disponibili per le operazioni eseguite su tutte le risorse di rete.
 
 
 -   **<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">Verifica flusso IP</a>** - Controlla se un pacchetto viene accettato o rifiutato in base ai relativi parametri sul flusso di informazioni, costituiti da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo. Se il pacchetto viene rifiutato da un gruppo di sicurezza di rete, vengono restituiti la regola e il gruppo di sicurezza di rete che hanno rifiutato il pacchetto.
@@ -234,7 +234,7 @@ Di seguito sono elencate le funzionalità attualmente disponibili in Network Wat
 
 -   **<a href="/azure/network-watcher/network-watcher-security-group-view-overview">Visualizzazione del gruppo di sicurezza</a>** : ottiene le regole di sicurezza valide e applicate applicate a una macchina virtuale.
 
--   **<a href="/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Registrazione dei flussi dei gruppi di sicurezza di rete</a>** : la registrazione dei flussi dei gruppi di sicurezza di rete permette di acquisire i log relativi al traffico consentito o negato dalle regole di sicurezza nel gruppo. Il flusso è definito da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo.
+-   **<a href="/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Registrazione dei flussi dei gruppi di sicurezza di rete</a>**: la registrazione dei flussi dei gruppi di sicurezza di rete permette di acquisire i log relativi al traffico consentito o negato dalle regole di sicurezza nel gruppo. Il flusso è definito da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo.
 
 ## <a name="azure-storage-analytics"></a>Analisi archiviazione di Azure
 
@@ -265,7 +265,7 @@ Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 
 Vengono registrati i tipi seguenti di richieste autenticate e anonime.
 
-| Autenticata  | Anonimo|
+| Autenticata  | Anonima|
 | :------------- | :-------------|
 | Richieste riuscite | Richieste riuscite |
 |Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo | Richieste tramite una firma di accesso condiviso (SAS), incluse le richieste riuscite e non riuscite |
