@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: 0868c99a29b8da4376b639a54988fc821433e26d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965120"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576973"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che intendono usare il Centro sicurezza di Azure.
@@ -135,7 +135,7 @@ Il Centro sicurezza di Azure usa l'agente di Log Analytics, lo stesso agente usa
 
 ### <a name="agent"></a>Agente
 
-Dopo l'abilitazione del provisioning automatico nei criteri di sicurezza, l'agente di Log Analytics (per [Windows](../azure-monitor/platform/agent-windows.md) o [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) viene installato in tutte le macchine virtuali di Azure supportate e in quelle nuove che vengono create. Se l'agente di Log Analytics è già installato nella macchina virtuale o nel computer, il Centro sicurezza di Azure userà l'agente installato corrente. Il processo dell'agente è progettato per non essere invasivo e ridurre al minimo l'impatto sulle prestazioni delle VM.
+Dopo l'abilitazione del provisioning automatico nei criteri di sicurezza, l'agente di Log Analytics (per [Windows](../azure-monitor/agents/agent-windows.md) o [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) viene installato in tutte le macchine virtuali di Azure supportate e in quelle nuove che vengono create. Se l'agente di Log Analytics è già installato nella macchina virtuale o nel computer, il Centro sicurezza di Azure userà l'agente installato corrente. Il processo dell'agente è progettato per non essere invasivo e ridurre al minimo l'impatto sulle prestazioni delle VM.
 
 L'agente di Log Analytics per Windows richiede l'uso della porta TCP 443. Vedere l'[articolo sulla risoluzione dei problemi](security-center-troubleshooting-guide.md) per altri dettagli.
 

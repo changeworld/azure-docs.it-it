@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 86ad698793d562f93f9972903ca21e50c209c79c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180473"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579999"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installare e usare le viste di analisi dei log per Azure Active Directory
 
@@ -35,7 +35,7 @@ Le viste di analisi dei log per Azure Active Directory consentono di analizzare 
 
 Per usare le viste di analisi dei log, è necessario:
 
-* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 * Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Scaricare le viste dal [repository GitHub](https://aka.ms/AADLogAnalyticsviews) nel computer locale.
 
@@ -67,11 +67,11 @@ Per usare le viste di analisi dei log, è necessario:
 
     ![Creare una regola](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Selezionare il gruppo di azioni per l'avviso. In generale, può trattarsi di un team a cui si vuole inviare notifica tramite posta elettronica o SMS o può essere un'attività automatizzata tramite webhook, runbook, funzioni, app per la logica o soluzioni di gestione dei servizi IT esterne. Informazioni su come [creare e gestire gruppi di azioni nel portale di Azure](../../azure-monitor/platform/action-groups.md).
+6. Selezionare il gruppo di azioni per l'avviso. In generale, può trattarsi di un team a cui si vuole inviare notifica tramite posta elettronica o SMS o può essere un'attività automatizzata tramite webhook, runbook, funzioni, app per la logica o soluzioni di gestione dei servizi IT esterne. Informazioni su come [creare e gestire gruppi di azioni nel portale di Azure](../../azure-monitor/alerts/action-groups.md).
 
 7. Selezionare **Crea regola di avviso** per creare l'avviso. A questo punto si riceverà un avviso ogni volta che si verifica un errore di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come analizzare i log attività con i log di Monitoraggio di Azure](howto-analyze-activity-logs-log-analytics.md)
-* [Introduzione ai log di Monitoraggio di Azure nel portale di Azure](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Introduzione ai log di Monitoraggio di Azure nel portale di Azure](../../azure-monitor/logs/log-analytics-tutorial.md)

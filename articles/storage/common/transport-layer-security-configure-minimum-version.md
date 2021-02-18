@@ -10,12 +10,12 @@ ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e5ab583330b46b8f53223500076aa04780e6deac
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3a44466f04e598080662599e785eb71698265f87
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108722"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592338"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
 
@@ -35,11 +35,11 @@ Quando si applica una versione minima di TLS per l'account di archiviazione, si 
 
 Per registrare le richieste nell'account di archiviazione di Azure e determinare la versione di TLS usata dal client, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](../blobs/monitor-blob-storage.md).
 
-Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e analizzarli con Log Analytics di Azure, è prima necessario creare un'impostazione di diagnostica che indichi quali tipi di richieste e per quali servizi di archiviazione si desidera registrare i dati. I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Questa anteprima Abilita i log per i BLOB (inclusi Azure Data Lake Storage Gen2), file, code e tabelle. Per creare un'impostazione di diagnostica nella portale di Azure, attenersi alla procedura seguente:
 
-1. Creare una nuova area di lavoro Log Analytics nella sottoscrizione che contiene l'account di archiviazione di Azure. Dopo aver configurato la registrazione per l'account di archiviazione, i log saranno disponibili nell'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Creare una nuova area di lavoro Log Analytics nella sottoscrizione che contiene l'account di archiviazione di Azure. Dopo aver configurato la registrazione per l'account di archiviazione, i log saranno disponibili nell'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Passare all'account di archiviazione nel portale di Azure.
 1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)**.
 1. Selezionare il servizio di archiviazione di Azure per cui si vogliono registrare le richieste. Ad esempio, scegliere **BLOB** per registrare le richieste nell'archivio BLOB.
@@ -50,7 +50,7 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
-Dopo aver creato l'impostazione di diagnostica, le richieste all'account di archiviazione vengono registrate successivamente in base a tale impostazione. Per altre informazioni, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Dopo aver creato l'impostazione di diagnostica, le richieste all'account di archiviazione vengono registrate successivamente in base a tale impostazione. Per altre informazioni, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Per informazioni di riferimento sui campi disponibili nei log di archiviazione di Azure in monitoraggio di Azure, vedere [log delle risorse (anteprima)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -344,13 +344,13 @@ La figura seguente mostra l'errore che si verifica se si prova a creare un accou
 
 ## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Autorizzazioni necessarie per richiedere una versione minima di TLS
 
-Per impostare la proprietà **MinimumTlsVersion** per l'account di archiviazione, un utente deve disporre delle autorizzazioni per creare e gestire gli account di archiviazione. I ruoli di controllo degli accessi in base al ruolo di Azure (RBAC) che forniscono queste autorizzazioni includono l'azione **Microsoft. storage/storageAccounts/Write** o **Microsoft. storage/storageAccounts/ \** _. I ruoli predefiniti con questa azione includono:
+Per impostare la proprietà **MinimumTlsVersion** per l'account di archiviazione, un utente deve disporre delle autorizzazioni per creare e gestire gli account di archiviazione. I ruoli di controllo degli accessi in base al ruolo di Azure (RBAC) che forniscono queste autorizzazioni includono **Microsoft. storage/storageAccounts/Write** o **Microsoft. \* storage/storageAccounts/** Action. I ruoli predefiniti con questa azione includono:
 
 - Ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
 - Il ruolo [collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Questi ruoli non forniscono l'accesso ai dati in un account di archiviazione tramite Azure Active Directory (Azure AD). Tuttavia, includono _ * Microsoft. storage/storageAccounts/listkeys/Action * *, che concede l'accesso alle chiavi di accesso dell'account. Con questa autorizzazione, un utente può usare le chiavi di accesso dell'account per accedere a tutti i dati in un account di archiviazione.
+Questi ruoli non forniscono l'accesso ai dati in un account di archiviazione tramite Azure Active Directory (Azure AD). Tuttavia, includono **Microsoft. storage/storageAccounts/listkeys/Action**, che concede l'accesso alle chiavi di accesso dell'account. Con questa autorizzazione, un utente può usare le chiavi di accesso dell'account per accedere a tutti i dati in un account di archiviazione.
 
 Le assegnazioni di ruolo devono avere come ambito il livello dell'account di archiviazione o superiore per consentire a un utente di richiedere una versione minima di TLS per l'account di archiviazione. Per ulteriori informazioni sull'ambito del ruolo, vedere [understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 

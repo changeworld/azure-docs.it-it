@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82b4c127f983f3133326bf7fb538e40713ef9655
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808515"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580404"
 ---
 ![Grafico che mostra le specifiche D s v 3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -117,57 +117,3 @@ In questo caso, l'applicazione in esecuzione in una macchina virtuale Standard_D
 - Poiché i tre dischi che usano la memorizzazione nella cache dell'host sono entro i limiti memorizzati nella cache di 16.000, le richieste vengono completate correttamente. Non si verifica alcuna riduzione delle prestazioni di archiviazione.
 - Poiché i due dischi che non usano la memorizzazione nella cache dell'host si trovano entro i limiti non memorizzati nella cache di 12.800, anche queste richieste vengono completate correttamente. Non si verifica alcuna copertura.
 
-## <a name="disk-performance-metrics"></a>Metriche delle prestazioni del disco
-
-In Azure sono disponibili metriche che forniscono informazioni dettagliate sulle prestazioni delle macchine virtuali e dei dischi. Queste metriche possono essere visualizzate tramite il portale di Azure. Possono anche essere recuperati tramite una chiamata API. Le metriche vengono calcolate in base a intervalli di un minuto. Sono disponibili le metriche seguenti per ottenere informazioni dettagliate sulle operazioni di i/o su disco e VM, oltre che sulle prestazioni della velocità effettiva:
-
-- **Profondità coda del disco del sistema operativo**: numero di richieste di i/o in attesa correnti in attesa di lettura o scrittura nel disco del sistema operativo.
-- **Byte letti da disco del sistema operativo/sec**: numero di byte letti in un secondo dal disco del sistema operativo.
-- **Operazioni di lettura disco del sistema operativo/sec**: numero di operazioni di input lette in un secondo dal disco del sistema operativo.
-- **Byte scritti disco del sistema operativo/sec**: numero di byte scritti in un secondo dal disco del sistema operativo.
-- **Operazioni di scrittura disco del sistema operativo/sec**: numero di operazioni di output scritte in un secondo dal disco del sistema operativo.
-- **Profondità della coda del disco dati**: numero di richieste di i/o in attesa correnti in attesa di lettura o scrittura nei dischi dati.
-- **Byte di lettura disco dati/sec**: numero di byte letti in un secondo dai dischi dati.
-- **Operazioni di lettura disco dati/sec**: numero di operazioni di input lette in un secondo da dischi dati.
-- **Byte scrittura disco dati/sec**: numero di byte scritti in un secondo dai dischi dati.
-- **Operazioni di scrittura disco dati/sec**: numero di operazioni di output scritte in un secondo da dischi dati.
-- **Byte letti da disco/sec**: numero totale di byte letti in un secondo da tutti i dischi collegati a una macchina virtuale.
-- **Operazioni di lettura disco/sec**: numero di operazioni di input lette in un secondo da tutti i dischi collegati a una macchina virtuale.
-- **Byte scritti su disco/sec**: numero di byte scritti in un secondo da tutti i dischi collegati a una macchina virtuale.
-- **Operazioni di scrittura su disco/sec**: numero di operazioni di output scritte in un secondo da tutti i dischi collegati a una macchina virtuale.
-
-## <a name="storage-io-utilization-metrics"></a>Metriche di utilizzo IO di archiviazione
-Le metriche seguenti consentono di diagnosticare il collo di bottiglia nella combinazione di macchina virtuale e disco. Queste metriche sono disponibili solo quando si usa una macchina virtuale abilitata per Premium. Queste metriche sono disponibili per tutti i tipi di disco, ad eccezione di ultra. 
-
-Metriche che consentono di diagnosticare la limitazione di i/o del disco:
-
-- **Percentuale di IOPS del disco dati utilizzata**: la percentuale calcolata dal IOPS del disco dati completata rispetto al IOPS del disco dati di cui è stato effettuato il provisioning. Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite IOPS del disco dati.
-- Percentuale di utilizzo della **larghezza di banda del disco dati**: percentuale calcolata dalla velocità effettiva del disco dati completata sulla velocità effettiva del disco dati sottoposta a provisioning. Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite di larghezza di banda del disco dati.
-- **Percentuale di IOPS del disco del sistema operativo**: la percentuale calcolata dal IOPS del disco del sistema operativo è stata completata sul disco del sistema operativo con provisioning. Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite IOPS del disco del sistema operativo.
-- **Percentuale** di utilizzo della larghezza di banda del disco del sistema operativo: percentuale calcolata dalla velocità effettiva del disco del sistema operativo completata rispetto alla velocità effettiva del disco del sistema operativo Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite di larghezza di banda del disco del sistema operativo.
-
-Metriche che consentono di diagnosticare la limitazione delle operazioni di i/o della macchina virtuale:
-
-- **Percentuale di IOPS utilizzata nella cache della VM**: percentuale calcolata in base al numero totale di IOPS completati nel limite massimo di IOPS della macchina virtuale memorizzato nella cache. Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite di IOPS memorizzati nella cache della VM.
-- Percentuale di utilizzo della **larghezza di banda della VM memorizzata nella** cache: percentuale calcolata in base alla velocità effettiva totale del disco completata sulla velocità effettiva massima della macchina virtuale Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite di larghezza di banda memorizzato nella cache della macchina virtuale.
-- Percentuale di IOPS non **memorizzata nella cache della VM utilizzata**: la percentuale calcolata in base al numero totale di IOPS in una macchina virtuale è stata completata sul limite massimo di IOPS della macchina virtuale non memorizzato nella cache. Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite di IOPS non memorizzato nella cache della macchina virtuale.
-- Percentuale di utilizzo della **larghezza di banda non memorizzata nella cache**: la percentuale calcolata in base alla velocità effettiva totale del disco in una macchina virtuale è stata completata sulla velocità effettiva massima di provisioning della macchina virtuale. Se questa quantità è pari al 100%, l'applicazione in esecuzione è IO limitata dal limite di larghezza di banda non memorizzato nella cache della macchina virtuale.
-
-## <a name="storage-io-utilization-metrics-example"></a>Esempio di metrica di utilizzo IO di archiviazione
-
-Verrà ora illustrato un esempio di come usare queste nuove metriche di utilizzo di i/o di archiviazione per consentire il debug di un collo di bottiglia nel sistema. L'installazione del sistema è identica a quella dell'esempio precedente, ma questa volta il disco del sistema operativo collegato *non* viene memorizzato nella cache.
-
-**Installazione**
-
-- Standard_D8s_v3
-  - IOPS memorizzati nella cache: 16.000
-  - IOPS non memorizzati nella cache: 12.800
-- Disco del sistema operativo P30
-  - IOPS: 5.000
-  - Caching dell'host: **disabilitato**
-- Due dischi dati P30 × 2
-  - IOPS: 5.000
-  - Caching dell'host: **lettura/scrittura**
-- Due dischi dati P30 × 2
-  - IOPS: 5.000
-  - Caching dell'host: **disabilitato**

@@ -7,12 +7,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 5e9f6ecc733eccf317e3013752ee2f5b0586ea78
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d3a89e7733cc033792056b8de5232232b8327025
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540637"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580402"
 ---
 # <a name="virtual-machine-and-disk-performance"></a>Prestazioni di macchine virtuali e dischi
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance.md)]
@@ -22,6 +22,3 @@ Le macchine virtuali abilitate per la memorizzazione nella cache di archiviazion
 
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-2.md)]
 
-Eseguire un test di benchmarking sulla macchina virtuale e sulla combinazione di dischi che crea l'attività di i/o. Per informazioni su come eseguire il benchmarking di i/o di archiviazione in Azure, vedere [benchmark your application on archiviazione su disco di Azure](disks-benchmarks.md). Dallo strumento di benchmarking è possibile vedere che la combinazione di VM e dischi può raggiungere 22.800 IOPS:
-
-[!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-3.md)]

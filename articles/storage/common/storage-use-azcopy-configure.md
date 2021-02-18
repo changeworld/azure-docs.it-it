@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881045"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596938"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -183,7 +183,7 @@ Quando si riprende un processo, AzCopy esamina il file del piano di processo. Il
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Modificare il percorso del piano e dei file di log
 
-Per impostazione predefinita, i file di piano e di log si trovano nella `%USERPROFILE%\.azcopy` directory di Windows o nella `$HOME$\.azcopy` directory in Mac e Linux. È possibile modificare questo percorso.
+Per impostazione predefinita, i file di piano e di log si trovano nella `%USERPROFILE%\.azcopy` directory di Windows o nella `$HOME/.azcopy` directory in Mac e Linux. È possibile modificare questo percorso.
 
 ### <a name="change-the-location-of-plan-files"></a>Modificare il percorso dei file del piano
 

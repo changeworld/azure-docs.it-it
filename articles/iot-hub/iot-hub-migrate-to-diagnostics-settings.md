@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461595"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591849"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Eseguire la migrazione dell'hub Internet delle cose dal monitoraggio delle operazioni ai log delle risorse di monitoraggio
 
-I clienti che usano il [monitoraggio delle operazioni](iot-hub-operations-monitoring.md) per tenere traccia dello stato delle operazioni nell'hub Internet possono eseguire la migrazione del flusso di lavoro ai [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md), una funzionalità di monitoraggio di Azure I log delle risorse forniscono informazioni di diagnostica a livello di risorsa per molti servizi di Azure.
+I clienti che usano il [monitoraggio delle operazioni](iot-hub-operations-monitoring.md) per tenere traccia dello stato delle operazioni nell'hub Internet possono eseguire la migrazione del flusso di lavoro ai [log delle risorse di monitoraggio di Azure](../azure-monitor/essentials/platform-logs-overview.md), una funzionalità di monitoraggio di Azure I log delle risorse forniscono informazioni di diagnostica a livello di risorsa per molti servizi di Azure.
 
 **La funzionalità di monitoraggio delle operazioni dell'hub Internet è deprecata** ed è stata rimossa dal portale. Questo articolo illustra i passaggi per spostare i carichi di lavoro dal monitoraggio delle operazioni ai log delle risorse di monitoraggio di Azure. Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -49,9 +49,9 @@ Per aggiornare l'hub Internet delle cose nel portale di Azure, creare prima di t
 
 1. Selezionare **Salva** per salvare le impostazioni.
 
-Le nuove impostazioni diventano effettive in circa 10 minuti. Successivamente, i log vengono visualizzati nella destinazione configurata. Per altre informazioni sulla configurazione della diagnostica, vedere [raccogliere e utilizzare i dati di log dalle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).
+Le nuove impostazioni diventano effettive in circa 10 minuti. Successivamente, i log vengono visualizzati nella destinazione configurata. Per altre informazioni sulla configurazione della diagnostica, vedere [raccogliere e utilizzare i dati di log dalle risorse di Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
-Per informazioni più dettagliate su come creare le impostazioni di diagnostica, tra cui con PowerShell e l'interfaccia della riga di comando di Azure, vedere [impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) nella documentazione di monitoraggio di Azure.
+Per informazioni più dettagliate su come creare le impostazioni di diagnostica, tra cui con PowerShell e l'interfaccia della riga di comando di Azure, vedere [impostazioni di diagnostica](../azure-monitor/essentials/diagnostic-settings.md) nella documentazione di monitoraggio di Azure.
 
 ### <a name="turn-off-operations-monitoring"></a>Disattivare la funzionalità Monitoraggio operazioni
 

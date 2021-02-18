@@ -4,16 +4,16 @@ description: Informazioni su come ottenere gli eventi delle risorse tramite i lo
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20028a4f84dae9d292cf855a1e164bd69864909
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962299"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574035"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Ottenere gli eventi delle risorse in Servizio app di Azure
 
-Servizio app di Azure fornisce strumenti predefiniti per monitorare lo stato e l'integrità delle risorse. Gli eventi delle risorse consentono di comprendere le modifiche apportate alle risorse dell'app Web sottostanti e di prendere le misure necessarie. Sono esempi di questi eventi il ridimensionamento delle istanze, l'aggiornamento delle impostazioni dell'applicazione, il riavvio dell'app Web e molti altri. In questo articolo si apprenderà come visualizzare i [log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) e abilitare [Griglia di eventi](../event-grid/index.yml) per monitorare gli eventi delle risorse correlati all'app Web del servizio app.
+Servizio app di Azure fornisce strumenti predefiniti per monitorare lo stato e l'integrità delle risorse. Gli eventi delle risorse consentono di comprendere le modifiche apportate alle risorse dell'app Web sottostanti e di prendere le misure necessarie. Sono esempi di questi eventi il ridimensionamento delle istanze, l'aggiornamento delle impostazioni dell'applicazione, il riavvio dell'app Web e molti altri. In questo articolo si apprenderà come visualizzare i [log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) e abilitare [Griglia di eventi](../event-grid/index.yml) per monitorare gli eventi delle risorse correlati all'app Web del servizio app.
 
 > [!NOTE]
 > L'integrazione del servizio app con Griglia di eventi è una funzionalità in **anteprima**. [Per altri dettagli, vedere l'annuncio.](https://aka.ms/app-service-event-grid-announcement)
@@ -33,7 +33,7 @@ I log attività di Azure per il servizio app indicano in dettaglio, ad esempio:
 
 I log attività di Azure possono essere sottoposti a query usando il portale di Azure, PowerShell, l'API REST o l'interfaccia della riga di comando. È possibile inviare i log a un account di archiviazione, a un hub eventi e a Log Analytics. È anche possibile analizzarli in Power BI o creare avvisi per restare aggiornati sugli eventi delle risorse.
 
-[Visualizzare e recuperare gli eventi del log attività di Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+[Visualizzare e recuperare gli eventi del log attività di Azure.](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>Inviare i log di attività a Griglia di eventi
 
@@ -44,7 +44,7 @@ In alternativa è possibile usare Griglia di eventi con App per la logica per el
 [Visualizzare le proprietà e lo schema per gli eventi di Servizio app di Azure.](../event-grid/event-schema-app-service.md)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Passaggi successivi
-* [Eseguire query sui log con Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Eseguire query sui log con Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md)
 * [Come monitorare il Servizio app di Azure](web-sites-monitor.md)
 * [Risoluzione dei problemi del Servizio app di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analizzare i log delle app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

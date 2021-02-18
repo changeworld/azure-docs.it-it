@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 849127ed0846928a77795ac0a1ea3f7a091468b5
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218535"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635949"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
 Rete virtuale di Azure (VNet) è il blocco predefinito fondamentale per la rete privata in Azure. VNet consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. Simile alle reti tradizionali che si eseguono nei data center, VNet offre anche i vantaggi dell'infrastruttura di Azure, tra cui scalabilità, disponibilità e isolamento.
 
 ## <a name="why-use-an-azure-virtual-network"></a>Perché usare una rete virtuale di Azure?
-La rete virtuale di Azure consente alle risorse di Azure di comunicare in modo sicuro tra loro, con Internet e con le reti locali. I principali scenari in cui è possibile realizzare una rete virtuale includono la comunicazione delle risorse di Azure con Internet, la comunicazione tra risorse di Azure, la comunicazione con risorse locali, il filtro del traffico di rete, il routing del traffico di rete e l'integrazione con i servizi di Azure.
+La rete virtuale di Azure consente alle risorse di Azure di comunicare in modo sicuro tra loro, con Internet e con le reti locali. Gli scenari principali che è possibile eseguire con una rete virtuale includono la comunicazione delle risorse di Azure con Internet, la comunicazione tra le risorse di Azure, la comunicazione con risorse locali, il filtraggio del traffico di rete, il routing del traffico di rete e l'integrazione con i servizi di Azure.
 
 ### <a name="communicate-with-the-internet"></a>Comunicare con Internet
 

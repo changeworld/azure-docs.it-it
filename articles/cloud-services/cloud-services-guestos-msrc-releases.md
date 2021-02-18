@@ -3,21 +3,21 @@ title: Elenco di aggiornamenti applicati al sistema operativo guest di Azure | M
 description: Questo articolo elenca gli aggiornamenti di Microsoft Security Response Center applicati a diversi sistemi operativi guest di Azure. Verificare se un aggiornamento si applica al sistema operativo guest in uso.
 services: cloud-services
 documentationcenter: na
-author: yohaddad
+author: gunnarcms
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/9/2021
+ms.date: 2/17/2021
 ms.author: gunnarcms
-ms.openlocfilehash: 63aa13c178acd0b560c2bbd9cbc8873464062488
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a77ab15bc4d1095f47d9d411b5a0fd64bb568de
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580657"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650797"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.

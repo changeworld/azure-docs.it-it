@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017713"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650389"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modello di controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ Questo articolo è incentrato sul controllo degli accessi in base al ruolo e sug
 
 Il controllo degli accessi in base al ruolo di Azure usa assegnazioni di ruolo per applicare i set di autorizzazioni alle [entità](../../role-based-access-control/overview.md#security-principal) Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (AD). Un set di autorizzazioni può concedere a un'entità di sicurezza un livello di accesso a granularità grossolana, ad esempio l'accesso in lettura o scrittura a **tutti** i dati in un account di archiviazione o **tutti** i dati in un contenitore. 
 
-I ruoli seguenti consentono a un'entità di sicurezza di accedere ai dati in un account di archiviazione. 
+I ruoli seguenti consentono a un'entità di sicurezza di accedere ai dati in un account di archiviazione.
 
 |Ruolo|Descrizione|
 |--|--|

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890782"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579742"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -135,7 +135,7 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
 
 1. Eseguire lo strumento di risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), a seconda del sistema operativo.
 
-2. Controllare che il computer invii report all'area di lavoro corretta. Per indicazioni su come verificare questo aspetto, vedere [verificare la connettività dell'agente a monitoraggio di Azure](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Assicurarsi anche che l'area di lavoro sia collegata all'account di Automazione di Azure. Per confermare, passare all'account di Automazione e selezionare **Area di lavoro collegata** in **Risorse correlate**.
+2. Controllare che il computer invii report all'area di lavoro corretta. Per indicazioni su come verificare questo aspetto, vedere [verificare la connettività dell'agente a monitoraggio di Azure](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Assicurarsi anche che l'area di lavoro sia collegata all'account di Automazione di Azure. Per confermare, passare all'account di Automazione e selezionare **Area di lavoro collegata** in **Risorse correlate**.
 
 3. Assicurarsi che i computer siano visualizzati nell'area di lavoro Log Analytics collegata all'account di Automazione. Eseguire la query seguente nell'area di lavoro Log Analytics.
 
@@ -144,7 +144,7 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
    | summarize by Computer, Solutions
    ```
 
-    Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
     Se il computer è elencato nei risultati della query, verificare nella proprietà **Solutions** che **gli aggiornamenti** siano elencati. Questo verifica che sia registrato con Gestione aggiornamenti. In caso contrario, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Per configurare la configurazione dell'ambito per il computer di destinazione, vedere [abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 

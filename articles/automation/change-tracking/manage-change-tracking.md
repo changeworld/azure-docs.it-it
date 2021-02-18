@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093622"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572649"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gestire il rilevamento modifiche e l'inventario
 
@@ -161,13 +161,13 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 
 |Query  |Descrizione  |
 |---------|---------|
-|`ConfigurationData`<br> &#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br> &#124; `where SvcState == "Stopped"`<br> &#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra i record dell'inventario più recenti per i servizi Microsoft che sono stati impostati su Auto (Automatico) ma sono stati segnalati come Stopped (Interrotto). I risultati sono limitati al record più recente per il nome software e il computer specificati.    |
-|`ConfigurationChange`<br> &#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br> &#124; `order by TimeGenerated desc`|Mostra i record di modifica per il software rimosso.|
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra i record dell'inventario più recenti per i servizi Microsoft che sono stati impostati su Auto (Automatico) ma sono stati segnalati come Stopped (Interrotto). I risultati sono limitati al record più recente per il nome software e il computer specificati.    |
+|`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Mostra i record di modifica per il software rimosso.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle configurazioni dell'ambito, vedere [limitare rilevamento modifiche e l'ambito di distribuzione dell'inventario](manage-scope-configurations.md).
-* Se è necessario eseguire ricerche nei log archiviati nei log di monitoraggio di Azure, vedere [ricerche nei log nei log di monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+* Se è necessario eseguire ricerche nei log archiviati nei log di monitoraggio di Azure, vedere [ricerche nei log nei log di monitoraggio di Azure](../../azure-monitor/logs/log-query-overview.md).
 * Se terminato con le distribuzioni, vedere [rimuovere rilevamento modifiche e l'inventario](remove-feature.md).
 * Per eliminare le macchine virtuali da Rilevamento modifiche e dall'inventario, vedere [rimuovere VM da rilevamento modifiche e inventario](remove-vms-from-change-tracking.md).
 * Per risolvere i problemi relativi alla funzionalità, vedere [Risolvere i problemi relativi a Rilevamento modifiche e inventario](../troubleshoot/change-tracking.md).
