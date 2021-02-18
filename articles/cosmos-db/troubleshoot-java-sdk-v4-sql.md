@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683126"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596462"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Risolvere i problemi quando si usa Azure Cosmos DB Java SDK v4 con account dell'API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Iniziamo con un elenco:
 * Leggere la parte restante di questo articolo, se non si trova una soluzione. Registrare poi un [problema in GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Se è disponibile un'opzione che consente di aggiungere tag al problema di GitHub, aggiungere un tag *cosmos:v4-item*.
 
 ### <a name="retry-logic"></a>Logica di ripetizione dei tentativi <a id="retry-logics"></a>
-Cosmos DB SDK in qualsiasi errore di i/o tenterà di ritentare l'operazione non riuscita se è possibile riprovare nell'SDK. Il tentativo di eseguire un nuovo tentativo in caso di errore è una procedura consigliata, ma la gestione/ripetizione degli errori di scrittura è una necessità. È consigliabile usare l'SDK più recente, perché la logica di ripetizione dei tentativi è continuamente migliorata.
+L’SDK Cosmos DB in eventuali errori di I/O tenterà di ripetere l'operazione non riuscita se è possibile fare un nuovo tentativo nell'SDK. Il tentativo di eseguire un nuovo tentativo in caso di errore è una procedura consigliata, ma la gestione/ripetizione degli errori di scrittura è una necessità. È consigliabile usare l'SDK più recente, perché la logica di ripetizione dei tentativi è continuamente migliorata.
 
 1. Gli errori di i/o di lettura e query vengono ritentati dall'SDK senza esporli all'utente finale.
 2. Scritture (create, Upsert, Replace, Delete) sono "not" idempotente e, di conseguenza, SDK non è sempre in grado di ripetere le operazioni di scrittura non riuscite. È necessaria la logica dell'applicazione dell'utente per gestire l'errore e riprovare.
@@ -54,7 +54,7 @@ Cosmos DB SDK in qualsiasi errore di i/o tenterà di ritentare l'operazione non 
 Per prestazioni ottimali:
 * Assicurarsi che l'app sia in esecuzione nella stessa area dell'account Azure Cosmos DB. 
 * Controllare l'utilizzo della CPU nell'host in cui viene eseguita l'app. Se l'utilizzo della CPU è 50% o oltre, eseguire l'app in un host con una configurazione superiore oppure distribuire il carico su più computer.
-    * Se si esegue l'applicazione nel servizio Azure Kubernetes, è possibile [usare Monitoraggio di Azure per monitorare l'utilizzo della CPU](../azure-monitor/insights/container-insights-analyze.md).
+    * Se si esegue l'applicazione nel servizio Azure Kubernetes, è possibile [usare Monitoraggio di Azure per monitorare l'utilizzo della CPU](../azure-monitor/containers/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Limitazione della connessione
 La limitazione delle connessioni può verificarsi a causa di un [limite di connessioni nel computer host] o di un [esaurimento delle porte SNAT (PAT) di Azure].

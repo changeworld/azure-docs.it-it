@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131463"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593397"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
 
 Il controllo dei costi è un componente essenziale per ottimizzare il valore del proprio investimento nel cloud. Esistono diversi scenari in cui la visibilità dei costi, la creazione di report e l'orchestrazione basata sui costi hanno un'importanza fondamentale per la continuità delle attività aziendali. Il set di [API di Gestione costi di Azure](/rest/api/consumption/) offre supporto per ciascuno di questi scenari. Tramite queste API, gli utenti possono visualizzare i dati sull'utilizzo in modo da esaminare i costi in dettaglio a livello di singola istanza.
 
-Come parte dell'attività di controllo dei costi vengono comunemente usati i budget. In Azure è possibile definire l'ambito dei budget, ad esempio limitandone la visualizzazione in base alla sottoscrizione, ai gruppi di risorse o a una raccolta di risorse. Oltre a usare l'API dei budget per ricevere una notifica tramite posta elettronica quando viene raggiunta una soglia, è possibile usare i [gruppi di azioni di Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) per attivare un set orchestrato di azioni risultanti da un evento di budget.
+Come parte dell'attività di controllo dei costi vengono comunemente usati i budget. In Azure è possibile definire l'ambito dei budget, ad esempio limitandone la visualizzazione in base alla sottoscrizione, ai gruppi di risorse o a una raccolta di risorse. Oltre a usare l'API dei budget per ricevere una notifica tramite posta elettronica quando viene raggiunta una soglia, è possibile usare i [gruppi di azioni di Monitoraggio di Azure](../../azure-monitor/alerts/action-groups.md) per attivare un set orchestrato di azioni risultanti da un evento di budget.
 
 Un comune scenario d'uso dei budget per un cliente con un carico di lavoro non critico può verificarsi quando il cliente vuole gestire i costi rispetto a un budget e anche ottenere una previsione dei costi in base all'analisi della fattura mensile. Questo scenario richiede un'orchestrazione basata sui costi delle risorse che fanno parte dell'ambiente di Azure. Nello scenario è definito un budget mensile di € 1000 per la sottoscrizione e sono impostate soglie di notifica per attivare alcune orchestrazioni. Lo scenario prevede una soglia iniziale pari all'80% dei costi, in corrispondenza della quale vengono arrestate tutte le macchine virtuali nel gruppo di risorse **Facoltativo**, e una soglia successiva pari al 100% dei costi, oltre la quale verranno arrestate tutte le istanze delle macchine virtuali.
 

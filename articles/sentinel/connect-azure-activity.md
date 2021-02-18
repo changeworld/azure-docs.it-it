@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0bac363e020826e34df3cb0b4e3d3582990302
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564497"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595444"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Connettere i dati dal log attività di Azure
 
-È possibile eseguire lo streaming dei log da [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) in Sentinel di Azure con un solo clic. Il log attività è un log di sottoscrizione che registra e visualizza gli eventi a livello di sottoscrizione in Azure, da Azure Resource Manager dati operativi agli aggiornamenti sugli eventi di integrità del servizio. Utilizzando il log attività, è possibile determinare le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle risorse nella sottoscrizione, ovvero quali, chi e quando. È anche possibile conoscere lo stato dell'operazione e altre proprietà rilevanti. Il log attività non include operazioni di lettura (GET) o operazioni per le risorse che usano il modello classico/"RDFE". 
+È possibile eseguire lo streaming dei log da [log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md) in Sentinel di Azure con un solo clic. Il log attività è un log di sottoscrizione che registra e visualizza gli eventi a livello di sottoscrizione in Azure, da Azure Resource Manager dati operativi agli aggiornamenti sugli eventi di integrità del servizio. Utilizzando il log attività, è possibile determinare le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle risorse nella sottoscrizione, ovvero quali, chi e quando. È anche possibile conoscere lo stato dell'operazione e altre proprietà rilevanti. Il log attività non include operazioni di lettura (GET) o operazioni per le risorse che usano il modello classico/"RDFE". 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ ms.locfileid: "85564497"
 
 ## <a name="set-up-the-azure-activity-connector"></a>Configurare il connettore attività di Azure
 
-1. Dal menu di navigazione di Azure Sentinel selezionare **connettori dati**. Dall'elenco dei connettori, fare clic su **attività di Azure**e quindi sul pulsante **Apri pagina connettore** in basso a destra.
+1. Dal menu di navigazione di Azure Sentinel selezionare **connettori dati**. Dall'elenco dei connettori, fare clic su **attività di Azure** e quindi sul pulsante **Apri pagina connettore** in basso a destra.
 
 2. Nella scheda **istruzioni** fare clic sul collegamento **configurare i log attività di Azure >** .
 

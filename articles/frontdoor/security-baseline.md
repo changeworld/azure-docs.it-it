@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c922ae19c496d9f377b47ec43d38807f494593bc
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 59eef7654e677ccfef79445f4a9cab26800bdfc5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789129"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589142"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Baseline della sicurezza di Azure per il front-end di Azure
 
@@ -222,9 +222,9 @@ Il front-end di Azure registra tutto il traffico di rete che elabora per l'acces
 
 Abilitare i log delle risorse di Azure per lo sportello anteriore di Azure. È possibile usare il Centro sicurezza di Azure e i criteri di Azure per abilitare i log delle risorse e la raccolta dei dati di log. Questi log possono essere fondamentali per analizzare in seguito gli eventi imprevisti della sicurezza ed eseguire esercitazioni forensi.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Informazioni sulla raccolta dati del Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md)
 

@@ -3,12 +3,12 @@ title: Esportare da Azure Application Insights usando l'analisi di flusso | Docu
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8486d7e5656a7770aec4a50739d3a9160e123e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979173"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584333"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -55,10 +55,10 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     ![Scegliere i tipi di eventi](./media/export-stream-analytics/080.png)
 
-1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../platform/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](./diagnostic-search.md). 
+1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../essentials/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](./diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
-2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
+2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
    
     ![Screenshot che illustra come impostare i tipi di evento che si desidera visualizzare.](./media/export-stream-analytics/04-data.png)
    

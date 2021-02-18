@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto Servizi condivisi ISO 27001
 description: Procedura di distribuzione per l'esempio di progetto Servizi condivisi ISO 27001, inclusi i dettagli dei parametri dell'artefatto del progetto.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 8b28954b6145a9e6c1827107cf11aa85326dcc1f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2eb9ed2199b28ad7cb349e6088c3cc583d8f011d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627800"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577323"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuire l'esempio di progetto Servizi condivisi ISO 27001
 
@@ -110,7 +110,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Tipi di risorse consentiti|Assegnazione di criteri|Tipi di risorse consentiti|Elenco dei tipi di risorse che possono essere distribuiti. Questo elenco è composto da tutti i tipi di risorse distribuiti in Servizi condivisi.|
 |SKU degli account di archiviazione consentiti|Assegnazione di criteri|SKU di archiviazione consentiti|Elenco degli SKU di account di archiviazione dei log di diagnostica consentiti. Il valore predefinito è _["Standard_LRS"]_ .|
 |SKU delle macchine virtuali consentiti|Assegnazione di criteri|Elenco di SKU di macchine virtuali che possono essere distribuiti. Il valore predefinito è _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
-|Iniziativa progetto per ISO 27001|Assegnazione di criteri|Tipi di risorsa per il controllo dei log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Iniziativa progetto per ISO 27001|Assegnazione di criteri|Tipi di risorsa per il controllo dei log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Gruppo di risorse Log Analytics|Resource group|Nome|**Bloccato**: concatena il **nome dell'organizzazione** con `-sharedsvsc-log-rg` per rendere univoco il gruppo di risorse.|
 |Gruppo di risorse Log Analytics|Resource group|Location|**Bloccato**: usa il parametro del progetto.|
 |Modello Log Analytics|Modello di Resource Manager|Livello di servizio|Imposta il livello dell'area di lavoro di Log Analytics. Il valore predefinito è _PerNode_.|

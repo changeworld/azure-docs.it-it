@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62030d1c208fc778476f49e5b3165e46e6aa0d66
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e1569cf4c7e91fd0c90d407846a9165d4b7b3776
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878851"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592950"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
@@ -176,9 +176,9 @@ Materiale sussidiario **: abilitare** la protezione standard DDoS (Distributed D
 
 Usare i criteri di Azure per convalidare e/o correggere le configurazioni per le risorse di rete correlate ai macchine virtuali Linux.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Come creare avvisi in Monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi in Monitoraggio di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -208,7 +208,7 @@ Usare i criteri di Azure per convalidare e/o correggere le configurazioni per le
 
 * [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md)
 
-* [Per acquisire i dati syslog per il monitoraggio, è necessario abilitare l'estensione Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [Per acquisire i dati syslog per il monitoraggio, è necessario abilitare l'estensione Log Analytics](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -224,13 +224,13 @@ Per una visibilità avanzata delle applicazioni e dei servizi supportati dalle m
 
 Inoltre, abilitare monitoraggio di Azure per l'accesso ai log di controllo e attività che includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili.
 
-* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/platform/diagnostic-settings.md)
+* [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Panoramica dell'agente di log Analytics](../../azure-monitor/platform/log-analytics-agent.md)
+* [Panoramica dell'agente di log Analytics](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Estensione macchina virtuale di log Analytics per Linux](../extensions/oms-linux.md)
 
-* [Visualizzare e recuperare gli eventi del log attività di Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualizzare e recuperare gli eventi del log attività di Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Panoramica di Application Insights](../../azure-monitor/app/app-insights-overview.md)
 
@@ -246,7 +246,7 @@ Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza 
 
 * [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md)
 
-* [Per acquisire i dati syslog per il monitoraggio, è necessario abilitare l'estensione Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [Per acquisire i dati syslog per il monitoraggio, è necessario abilitare l'estensione Log Analytics](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -256,9 +256,9 @@ Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza 
 
 **Linee guida**: assicurarsi che gli account di archiviazione o le aree di lavoro di log Analytics usati per archiviare i log delle macchine virtuali dispongano del periodo di memorizzazione dei log impostato in base alle normative di conformità dell'organizzazione.
 
-* [Come monitorare macchine virtuali in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
+* [Come monitorare macchine virtuali in Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
-* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
+* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -272,15 +272,15 @@ Analizza e monitora i log per un comportamento anomalo e verifica regolarmente i
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti per monitorare e controllare i log.
 
-* [Panoramica dell'agente di log Analytics](../../azure-monitor/platform/log-analytics-agent.md)
+* [Panoramica dell'agente di log Analytics](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Estensione macchina virtuale di log Analytics per Linux](../extensions/oms-linux.md)
 
 * [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
+* [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/logs/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -296,7 +296,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Come gestire gli avvisi nel centro sicurezza di Azure](../../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Come inviare un avviso sui dati del log di log Analytics](../../azure-monitor/learn/tutorial-response.md)
+* [Come inviare un avviso sui dati del log di log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -326,9 +326,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: è possibile configurare manualmente la registrazione della console in base ai singoli nodi e usare syslog per archiviare i dati. Usare anche l'area di lavoro Log Analytics di monitoraggio di Azure per esaminare i log ed eseguire query sui dati syslog dalle macchine virtuali di Azure.
 
-* [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
+* [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/logs/get-started-queries.md)
 
-* [Origini dati Syslog in Monitoraggio di Azure](../../azure-monitor/platform/data-sources-syslog.md)
+* [Origini dati Syslog in Monitoraggio di Azure](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -416,7 +416,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Come integrare i log attività di Azure in Monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](../../azure-monitor/platform/action-groups.md)
+* [Come configurare gruppi di azioni per avvisi e notifiche personalizzati](../../azure-monitor/alerts/action-groups.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -458,13 +458,13 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: configurare le impostazioni di diagnostica per Azure Active Directory per inviare i log di controllo e i log di accesso a un'area di lavoro di log Analytics. Usare inoltre monitoraggio di Azure per esaminare i log ed eseguire query sui dati syslog di autenticazione dalle macchine virtuali di Azure.
 
-* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Informazioni sull'area di lavoro Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [Come integrare i log attività di Azure in Monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
+* [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/logs/get-started-queries.md)
 
-* [Origini dati Syslog in Monitoraggio di Azure](../../azure-monitor/platform/data-sources-syslog.md)
+* [Origini dati Syslog in Monitoraggio di Azure](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -598,9 +598,9 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle macchine virtuali e alle risorse correlate.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Registrazione di Analisi di archiviazione di Azure](../../storage/common/storage-analytics-logging.md)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e2f6d8ca1f3911959f396eb1ed77ce8377c0e3c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 9831f70a88aba497eb7d6a759233c3d7d7be62c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807836"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585118"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Baseline della sicurezza di Azure per Azure sinapsi Analytics
 
@@ -167,9 +167,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate al pool SQL dedicato. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -237,7 +237,7 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 * [Gestire il ciclo di vita di Archiviazione BLOB di Azure](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
-* [Come impostare i parametri di conservazione dei log in un'area di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Come impostare i parametri di conservazione dei log in un'area di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Acquisire eventi di streaming in hub eventi](../event-hubs/event-hubs-capture-overview.md)
 
@@ -629,7 +629,7 @@ L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e da
 
 Inoltre, è possibile configurare gli avvisi per i database nel pool SQL sinapsi usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Come creare avvisi per la sinapsi SQL di Azure](../azure-sql/database/alerts-insights-configure-portal.md)
 

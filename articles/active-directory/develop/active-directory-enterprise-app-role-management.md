@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: aab1f99984ed5286692cbf9dae39fb4f7d28599c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104349"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652463"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -27,6 +27,9 @@ Usando Azure Active Directory (Azure AD), è possibile personalizzare il tipo di
 
 - Una sottoscrizione di Azure AD con la directory installata.
 - Sottoscrizione con Single Sign-On (SSO) abilitato. È necessario configurare SSO con l'applicazione.
+
+> [!NOTE]
+> Questo articolo illustra come creare/aggiornare/eliminare i ruoli applicazione nell'entità servizio usando le API in Azure AD. Se si vuole usare la nuova interfaccia utente per i ruoli dell'app, vedere [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)i dettagli.
 
 ## <a name="when-to-use-this-feature"></a>Quando usare questa funzionalità
 

@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 822a4249b6ed054f36605d0367803da68bab090b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524470"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652259"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Visione personalizzata la crittografia dei dati inattivi
 
@@ -24,15 +24,6 @@ Azure Visione personalizzata crittografa automaticamente i dati quando vengono s
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente sono solo risorse disponibili create dopo l'11 maggio 2020. Per usare CMK con Visione personalizzata, sarà necessario creare una nuova risorsa Visione personalizzata. Dopo aver creato la risorsa, è possibile usare Azure Key Vault per configurare l'identità gestita.
-
-## <a name="regional-availability"></a>Disponibilità a livello di area
-
-Le chiavi gestite dal cliente sono attualmente disponibili nelle aree seguenti:
-
-* Stati Uniti centro-meridionali
-* Stati Uniti occidentali 2
-* Stati Uniti orientali
-* US Gov Virginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

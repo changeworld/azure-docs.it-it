@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2773a76ed1166a26ebc12b97550876eaa66bad14
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 12e942e40b7fe4df6bbe8e5b4d683111a2de2a61
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197320"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575323"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Baseline della sicurezza di Azure per Azure Data Box
 
@@ -467,7 +467,7 @@ Azure Data Box implementa la crittografia AES a 256 bit per i dati inattivi. Ino
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi quando si verificano modifiche per Azure Data Box e altre risorse critiche o correlate.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

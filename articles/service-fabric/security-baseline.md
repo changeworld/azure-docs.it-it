@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 175c00440fe9723bbd389db39616f525c2b7f436
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b2d86083077b95312415099f64a13509ed60091b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805479"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582636"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Baseline della sicurezza di Azure per Service Fabric
 
@@ -178,9 +178,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate alle distribuzioni Service fabric di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -224,7 +224,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 * [Come distribuire l'agente di Log Analytics nei nodi](./service-fabric-diagnostics-oms-agent.md)
 
-* [Ricerche log Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [Ricerche log Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -240,7 +240,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 * [Come distribuire l'agente di Log Analytics nei nodi](./service-fabric-diagnostics-oms-agent.md)
 
-* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -256,7 +256,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 * [Come distribuire l'agente di Log Analytics nei nodi](./service-fabric-diagnostics-oms-agent.md)
 
-* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -266,7 +266,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare query dell'area di lavoro di Azure log Analytics per eseguire query nei log di Azure Service Fabric.
 
-* [Ricerche log Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [Ricerche log Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -278,7 +278,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 * [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
+* [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -586,7 +586,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse di Azure critiche.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e7ed4ba181d3730ebbea7725451567c93433afb8
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: edbf29b103a84240299f4a9f389a8c7a90012821
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251098"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572074"
 ---
 # <a name="metrics-overview"></a>Panoramica delle metriche
 
-Servizi di comunicazione di Azure attualmente include le metriche per i servizi Chat e SMS. È possibile usare [Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md) per tracciare i propri grafici, analizzare le anomalie nei valori delle metriche e interpretare il traffico API usando i dati delle metriche generati dalle richieste di Chat e SMS.
+Servizi di comunicazione di Azure attualmente include le metriche per i servizi Chat e SMS. È possibile usare [Esplora metriche di Azure](../../azure-monitor/essentials/metrics-getting-started.md) per tracciare i propri grafici, analizzare le anomalie nei valori delle metriche e interpretare il traffico API usando i dati delle metriche generati dalle richieste di Chat e SMS.
 
 ## <a name="where-to-find-metrics"></a>Dove trovare le metriche
 
@@ -30,7 +30,7 @@ Esistono due tipi di richieste rappresentate nelle metriche di Servizi di comuni
 
 Entrambe le metriche di richieste API contengono tre dimensioni che è possibile usare per filtrare i dati. Queste dimensioni possono essere aggregate usando il tipo di aggregazione `Count` e supportano tutte le serie temporali di aggregazione standard di Azure, tra cui `Sum`, `Average`, `Min` e `Max`.
 
-Altre informazioni sui tipi di aggregazione supportati e sulle aggregazioni di serie temporali sono disponibili in [Funzionalità avanzate di Esplora metriche di Azure](../../azure-monitor/platform/metrics-charts.md#aggregation)
+Altre informazioni sui tipi di aggregazione supportati e sulle aggregazioni di serie temporali sono disponibili in [Funzionalità avanzate di Esplora metriche di Azure](../../azure-monitor/essentials/metrics-charts.md#aggregation)
 
 - **Operazione**: tutte le operazioni o le route che è possibile chiamare nel gateway Chat di Servizi di comunicazione di Azure.
 - **Codice di stato**: la risposta del codice di stato inviata dopo la richiesta.
@@ -90,4 +90,4 @@ Per le metriche delle richieste API di autenticazione sono disponibili le operaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulle [metriche della piattaforma dati](../../azure-monitor/platform/data-platform-metrics.md)
+- Altre informazioni sulle [metriche della piattaforma dati](../../azure-monitor/essentials/data-platform-metrics.md)

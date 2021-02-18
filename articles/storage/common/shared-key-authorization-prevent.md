@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/21/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591545"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -41,7 +41,7 @@ Per ulteriori informazioni sull'interpretazione delle richieste effettuate con u
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Monitorare il numero di richieste autorizzate con la chiave condivisa
 
-Per tenere traccia del modo in cui vengono autorizzate le richieste a un account di archiviazione, usare Azure Esplora metriche nel portale di Azure. Per ulteriori informazioni su Esplora metriche, vedere la pagina relativa all' [Introduzione ad Azure Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md).
+Per tenere traccia del modo in cui vengono autorizzate le richieste a un account di archiviazione, usare Azure Esplora metriche nel portale di Azure. Per ulteriori informazioni su Esplora metriche, vedere la pagina relativa all' [Introduzione ad Azure Esplora metriche](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Seguire questa procedura per creare una metrica per tenere traccia delle richieste effettuate con la chiave condivisa o la firma di accesso condiviso:
 
@@ -67,7 +67,7 @@ Dopo aver configurato la metrica, le richieste all'account di archiviazione iniz
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot che mostra le richieste aggregate autorizzate con la chiave condivisa":::
 
-È anche possibile configurare una regola di avviso per ricevere una notifica quando viene effettuato un determinato numero di richieste autorizzate con chiave condivisa per l'account di archiviazione. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
+È anche possibile configurare una regola di avviso per ricevere una notifica quando viene effettuato un determinato numero di richieste autorizzate con chiave condivisa per l'account di archiviazione. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-clients-that-are-authorizing-requests-with-shared-key-or-sas"></a>Analizzare i log per identificare i client che autorizzano le richieste con chiave condivisa o SAS
 
@@ -75,14 +75,14 @@ I log di archiviazione di Azure acquisiscono informazioni dettagliate sulle rich
 
 Per registrare le richieste nell'account di archiviazione di Azure per valutare il modo in cui sono autorizzate, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](../blobs/monitor-blob-storage.md).
 
-Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Creare un'impostazione di diagnostica nel portale di Azure
 
 Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e analizzarli con Log Analytics di Azure, è prima necessario creare un'impostazione di diagnostica che indichi quali tipi di richieste e per quali servizi di archiviazione si desidera registrare i dati. Per creare un'impostazione di diagnostica nella portale di Azure, attenersi alla procedura seguente:
 
 1. Registrare l' [Anteprima di registrazione di archiviazione di Azure in monitoraggio di Azure](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Creare una nuova area di lavoro Log Analytics nella sottoscrizione che contiene l'account di archiviazione di Azure oppure usare un'area di lavoro Log Analytics esistente. Dopo aver configurato la registrazione per l'account di archiviazione, i log saranno disponibili nell'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Creare una nuova area di lavoro Log Analytics nella sottoscrizione che contiene l'account di archiviazione di Azure oppure usare un'area di lavoro Log Analytics esistente. Dopo aver configurato la registrazione per l'account di archiviazione, i log saranno disponibili nell'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Passare all'account di archiviazione nel portale di Azure.
 1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)**.
 1. Selezionare il servizio di archiviazione di Azure per cui si vogliono registrare le richieste. Ad esempio, scegliere **BLOB** per registrare le richieste nell'archivio BLOB.
@@ -95,7 +95,7 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 
 È possibile creare un'impostazione di diagnostica per ogni tipo di risorsa di archiviazione di Azure nell'account di archiviazione.
 
-Dopo aver creato l'impostazione di diagnostica, le richieste all'account di archiviazione vengono registrate successivamente in base a tale impostazione. Per altre informazioni, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Dopo aver creato l'impostazione di diagnostica, le richieste all'account di archiviazione vengono registrate successivamente in base a tale impostazione. Per altre informazioni, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Per informazioni di riferimento sui campi disponibili nei log di archiviazione di Azure in monitoraggio di Azure, vedere [log delle risorse (anteprima)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -110,7 +110,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-È anche possibile configurare una regola di avviso basata su questa query per notificare all'utente le richieste autorizzate con la chiave condivisa o la firma di accesso condiviso. Per altre informazioni, vedere [creare, visualizzare e gestire gli avvisi dei log con monitoraggio di Azure](../../azure-monitor/platform/alerts-log.md).
+È anche possibile configurare una regola di avviso basata su questa query per notificare all'utente le richieste autorizzate con la chiave condivisa o la firma di accesso condiviso. Per altre informazioni, vedere [creare, visualizzare e gestire gli avvisi dei log con monitoraggio di Azure](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-authorization-via-shared-key"></a>Correggere l'autorizzazione tramite chiave condivisa
 
@@ -193,13 +193,13 @@ resources
 
 ## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Autorizzazioni per consentire o impedire l'accesso con chiave condivisa
 
-Per impostare la proprietà **AllowSharedKeyAccess** per l'account di archiviazione, un utente deve disporre delle autorizzazioni per creare e gestire gli account di archiviazione. I ruoli di controllo degli accessi in base al ruolo di Azure (RBAC) che forniscono queste autorizzazioni includono l'azione **Microsoft. storage/storageAccounts/Write** o **Microsoft. storage/storageAccounts/ \** _. I ruoli predefiniti con questa azione includono:
+Per impostare la proprietà **AllowSharedKeyAccess** per l'account di archiviazione, un utente deve disporre delle autorizzazioni per creare e gestire gli account di archiviazione. I ruoli di controllo degli accessi in base al ruolo di Azure (RBAC) che forniscono queste autorizzazioni includono **Microsoft. storage/storageAccounts/Write** o **Microsoft. \* storage/storageAccounts/** Action. I ruoli predefiniti con questa azione includono:
 
 - Ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
 - Il ruolo [collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Questi ruoli non forniscono l'accesso ai dati in un account di archiviazione tramite Azure Active Directory (Azure AD). Tuttavia, includono _ * Microsoft. storage/storageAccounts/listkeys/Action * *, che concede l'accesso alle chiavi di accesso dell'account. Con questa autorizzazione, un utente può usare le chiavi di accesso dell'account per accedere a tutti i dati in un account di archiviazione.
+Questi ruoli non forniscono l'accesso ai dati in un account di archiviazione tramite Azure Active Directory (Azure AD). Tuttavia, includono **Microsoft. storage/storageAccounts/listkeys/Action**, che concede l'accesso alle chiavi di accesso dell'account. Con questa autorizzazione, un utente può usare le chiavi di accesso dell'account per accedere a tutti i dati in un account di archiviazione.
 
 Le assegnazioni di ruolo devono avere come ambito il livello dell'account di archiviazione o superiore per consentire a un utente di consentire o impedire l'accesso con chiave condivisa per l'account di archiviazione. Per ulteriori informazioni sull'ambito del ruolo, vedere [understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
