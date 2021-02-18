@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c1e2b6abe378df1450967ee0e1df6021ca0d5744
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185904"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650372"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -28,18 +28,20 @@ Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che s
 > [!NOTE]
 > Gli ACL si applicano solo alle entità di sicurezza nello stesso tenant e non si applicano agli utenti che usano l'autenticazione con chiave condivisa o firma di accesso condiviso (SAS). Questo perché nessuna identità è associata al chiamante e pertanto non è possibile eseguire l'autorizzazione basata sulle autorizzazioni dell'entità di sicurezza.  
 
+<a id="set-access-control-lists"></a>
+
 ## <a name="how-to-set-acls"></a>Come impostare gli ACL
 
 Per impostare le autorizzazioni a livello di file e directory, vedere gli articoli seguenti:
 
 | Ambiente | Articolo |
 |--------|-----------|
-|Azure Storage Explorer |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
-|.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
-|PowerShell|[Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
-|Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
+|Azure Storage Explorer |[Usare Azure Storage Explorer per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|.NET |[Usare .NET per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Usare Java per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Usare Python per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|PowerShell|[Usare PowerShell per impostare gli ACL in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|Interfaccia della riga di comando di Azure|[Usare l'interfaccia della riga di comando di Azure per impostare gli elenchi Azure Data Lake Storage Gen2 di](data-lake-storage-acl-cli.md)|
 |API REST |[Percorso-aggiornamento](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -273,7 +275,7 @@ Per informazioni sul modo in cui il sistema valuta gli ACL e il controllo degli 
 
 ### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quali sono i limiti per le assegnazioni di ruolo e le voci ACL di Azure?
 
-La tabella seguente fornisce una panoramica dei limiti da considerare quando si usa il controllo degli accessi in base al ruolo di Azure per gestire le autorizzazioni "grossolane" (autorizzazioni valide per gli account di archiviazione o i contenitori) e l'uso degli ACL per gestire le autorizzazioni con granularità fine (autorizzazioni valide per file e directory). Usare i gruppi di sicurezza per le assegnazioni ACL. Usando i gruppi, è meno probabile che superino il numero massimo di assegnazioni di ruolo per sottoscrizione e il numero massimo di voci ACl per ogni file o directory. 
+La tabella seguente fornisce una panoramica dei limiti da considerare quando si usa il controllo degli accessi in base al ruolo di Azure per gestire le autorizzazioni "grossolane" (autorizzazioni valide per gli account di archiviazione o i contenitori) e l'uso degli ACL per gestire le autorizzazioni con granularità fine (autorizzazioni valide per file e directory). Usare i gruppi di sicurezza per le assegnazioni ACL. Usando i gruppi, è meno probabile che superino il numero massimo di assegnazioni di ruolo per sottoscrizione e il numero massimo di voci ACL per ogni file o directory. 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 

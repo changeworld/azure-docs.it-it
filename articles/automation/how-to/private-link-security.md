@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: 26e7dbf3f5629d4691211b6c9b82446ba4035421
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347626"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579795"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti ad automazione di Azure
 
@@ -34,7 +34,7 @@ Con il collegamento privato è possibile:
 - Connettersi privatamente a monitoraggio di Azure Log Analytics area di lavoro senza aprire alcun accesso alla rete pubblica.
 
     >[!NOTE]
-    >Un endpoint privato separato per l'area di lavoro Log Analytics è necessario se l'account di automazione è collegato a un'area di lavoro Log Analytics per l'invio dei dati del processo e quando sono state abilitate funzionalità quali Gestione aggiornamenti, Rilevamento modifiche e inventario, configurazione stato o Avvio/Arresto di macchine virtuali durante gli orari di minore attività. Per altre informazioni sul collegamento privato per monitoraggio di Azure, vedere [usare il collegamento privato di Azure per connettere in modo sicuro le reti a monitoraggio di Azure](../../azure-monitor/platform/private-link-security.md).
+    >Un endpoint privato separato per l'area di lavoro Log Analytics è necessario se l'account di automazione è collegato a un'area di lavoro Log Analytics per l'invio dei dati del processo e quando sono state abilitate funzionalità quali Gestione aggiornamenti, Rilevamento modifiche e inventario, configurazione stato o Avvio/Arresto di macchine virtuali durante gli orari di minore attività. Per altre informazioni sul collegamento privato per monitoraggio di Azure, vedere [usare il collegamento privato di Azure per connettere in modo sicuro le reti a monitoraggio di Azure](../../azure-monitor/logs/private-link-security.md).
 
 - Assicurarsi che l'accesso ai dati di automazione avvenga solo tramite reti private autorizzate.
 - Prevenire i dati exfiltration dalle reti private definendo la risorsa di automazione di Azure che si connette tramite l'endpoint privato.
@@ -46,8 +46,8 @@ Per altre informazioni, vedere [Vantaggi principali del collegamento privato](..
 ## <a name="limitations"></a>Limitazioni
 
 - Nell'implementazione corrente del collegamento privato, i processi cloud degli account di automazione non possono accedere alle risorse di Azure protette tramite endpoint privato. Ad esempio Azure Key Vault, SQL di Azure, l'account di archiviazione di Azure e così via. Per aggirare questo problema, usare invece un ruolo di [lavoro ibrido per Runbook](../automation-hybrid-runbook-worker.md) .
-- È necessario usare la versione più recente dell' [agente di log Analytics](../../azure-monitor/platform/log-analytics-agent.md) per Windows o Linux.
-- Il [Gateway log Analytics](../../azure-monitor/platform/gateway.md) non supporta il collegamento privato.
+- È necessario usare la versione più recente dell' [agente di log Analytics](../../azure-monitor/agents/log-analytics-agent.md) per Windows o Linux.
+- Il [Gateway log Analytics](../../azure-monitor/agents/gateway.md) non supporta il collegamento privato.
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -76,7 +76,7 @@ Per comprendere & configurare Gestione aggiornamenti esaminare [Gestione aggiorn
 
 Se si desidera che i computer configurati per la gestione degli aggiornamenti si connettano a automazione & Log Analytics area di lavoro in modo sicuro su canale di collegamento privato, è necessario abilitare il collegamento privato per l'area di lavoro Log Analytics collegata all'account di automazione configurato con collegamento privato.
 
-È possibile controllare il modo in cui è possibile raggiungere un'area di lavoro Log Analytics dall'esterno degli ambiti dei collegamenti privati attenendosi alla procedura descritta in [configurare log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro.
+È possibile controllare il modo in cui è possibile raggiungere un'area di lavoro Log Analytics dall'esterno degli ambiti dei collegamenti privati attenendosi alla procedura descritta in [configurare log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro.
 
 Usare la sottorisorsa di destinazione **DSCAndHybridWorker** per abilitare il collegamento privato per i ruoli di lavoro ibridi del sistema & utente.
 
@@ -114,7 +114,7 @@ In questa sezione verrà creato un endpoint privato per l'account di automazione
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome | Immettere il *PrivateEndpoint*. |
-    | Area | Selezionare **YourRegion**. |
+    | Region | Selezionare **YourRegion**. |
     |||
 
 4. Selezionare **Avanti: Risorsa**.

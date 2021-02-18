@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4199c5576662eee1dd6cedc388440a71e21f8b74
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182870"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581209"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Inoltrare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure
 
@@ -72,7 +72,7 @@ Le impostazioni di diagnostica di automazione supportano l'invio dei log di piat
 * DSCNodeStatus
 * Metriche-Totale processi, totale esecuzioni computer distribuzione aggiornamenti, totale esecuzioni di aggiornamenti distribuzione
 
-Per iniziare a inviare i log di automazione ai log di monitoraggio di Azure, vedere [creare le impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) per comprendere la funzionalità e i metodi disponibili per configurare le impostazioni di diagnostica per inviare i log di piattaforma.
+Per iniziare a inviare i log di automazione ai log di monitoraggio di Azure, vedere [creare le impostazioni di diagnostica](../azure-monitor/essentials/diagnostic-settings.md) per comprendere la funzionalità e i metodi disponibili per configurare le impostazioni di diagnostica per inviare i log di piattaforma.
 
 ## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 
@@ -140,7 +140,7 @@ Per creare una regola di avviso è necessario creare prima di tutto una ricerca 
 
    Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione. Si può trovare il nome dell'account di Automazione nel campo `Resource` nella ricerca di `JobLogs`.
 
-3. Per aprire la schermata **Creazione regola** fare clic su **Nuova regola di avviso** nella parte superiore della pagina. Per altre informazioni sulle opzioni per la configurazione dell'avviso, vedere [Avvisi di log in Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. Per aprire la schermata **Creazione regola** fare clic su **Nuova regola di avviso** nella parte superiore della pagina. Per altre informazioni sulle opzioni per la configurazione dell'avviso, vedere [Avvisi di log in Azure](../azure-monitor/alerts/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Trovare tutti i processi completati con errori
 
@@ -192,8 +192,8 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come creare query di ricerca e rivedere i log dei processi di Automazione con i log di Monitoraggio di Azure, vedere [Ricerche nei log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
+* Per informazioni su come creare query di ricerca e rivedere i log dei processi di Automazione con i log di Monitoraggio di Azure, vedere [Ricerche nei log di Monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md).
 * Per informazioni su come creare e recuperare messaggi di errore e di output dai runbook, vedere [Monitorare l'output dei runbook](automation-runbook-output-and-messages.md).
 * Per altre informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md).
-* Per altre informazioni sui log di Monitoraggio di Azure e sulle origini di raccolta dati, vedere [Panoramica della raccolta di dati di archiviazione di Azure nei log di Monitoraggio di Azure](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
-* Per informazioni sulla risoluzione dei problemi di Log Analytics, vedere [Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
+* Per altre informazioni sui log di Monitoraggio di Azure e sulle origini di raccolta dati, vedere [Panoramica della raccolta di dati di archiviazione di Azure nei log di Monitoraggio di Azure](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+* Per informazioni sulla risoluzione dei problemi di Log Analytics, vedere [Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati](../azure-monitor/logs/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

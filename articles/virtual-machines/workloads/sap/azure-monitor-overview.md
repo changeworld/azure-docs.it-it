@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 411a95154c9ca36595dff4472e9ab8e1ae8a767e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693825"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571378"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitoraggio di Azure per soluzioni SAP (anteprima)
 
@@ -35,7 +35,7 @@ Database supportati:
 - Database SAP HANA
 - Microsoft SQL Server
 
-Monitoraggio di Azure per le soluzioni SAP usa la potenza delle funzionalità di [monitoraggio di Azure](../../../azure-monitor/overview.md) esistenti, ad esempio log Analytics e [cartelle di lavoro](../../../azure-monitor/platform/workbooks-overview.md) per offrire più funzionalità di monitoraggio. I clienti possono creare [visualizzazioni personalizzate](../../../azure-monitor/platform/workbooks-overview.md#getting-started) modificando le cartelle di lavoro predefinite fornite da monitoraggio di Azure per le soluzioni SAP, scrivere [query personalizzate](../../../azure-monitor/log-query/log-analytics-tutorial.md) e creare [avvisi personalizzati](../../../azure-monitor/learn/tutorial-response.md) usando l'area di lavoro di Azure log Analytics, sfruttare il [periodo di conservazione flessibile](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) e connettere i dati di monitoraggio con il proprio sistema di ticket.
+Monitoraggio di Azure per le soluzioni SAP usa la potenza delle funzionalità di [monitoraggio di Azure](../../../azure-monitor/overview.md) esistenti, ad esempio log Analytics e [cartelle di lavoro](../../../azure-monitor/visualize/workbooks-overview.md) per offrire più funzionalità di monitoraggio. I clienti possono creare [visualizzazioni personalizzate](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) modificando le cartelle di lavoro predefinite fornite da monitoraggio di Azure per le soluzioni SAP, scrivere [query personalizzate](../../../azure-monitor/logs/log-analytics-tutorial.md) e creare [avvisi personalizzati](../../../azure-monitor/alerts/tutorial-response.md) usando l'area di lavoro di Azure log Analytics, sfruttare il [periodo di conservazione flessibile](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) e connettere i dati di monitoraggio con il proprio sistema di ticket.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Quali dati vengono raccolti da monitoraggio di Azure per le soluzioni SAP?
 
@@ -91,9 +91,9 @@ I componenti principali dell'architettura sono:
    - Macchina virtuale di Azure: nota anche come macchina virtuale dell' *agente di raccolta*. Si tratta di una macchina virtuale Standard_B2ms. Lo scopo principale di questa macchina virtuale è ospitare il *payload di monitoraggio*. Il monitoraggio del payload si riferisce alla logica di raccolta dei dati di telemetria dai sistemi di origine e al trasferimento dei dati raccolti al Framework di monitoraggio. Nel diagramma precedente il payload di monitoraggio contiene la logica per connettersi al database SAP HANA sulla porta SQL.
    - [Azure Key Vault](../../../key-vault/general/basic-concepts.md): questa risorsa viene distribuita per contenere in modo sicuro SAP Hana le credenziali del database e per archiviare le informazioni sui [provider](./azure-monitor-providers.md).
    - Area di lavoro Log Analytics: destinazione in cui risiedono i dati di telemetria.
-      - La visualizzazione è basata sui dati di telemetria in Log Analytics usando le [cartelle di lavoro di Azure](../../../azure-monitor/platform/workbooks-overview.md). I clienti possono personalizzare la visualizzazione. I clienti possono anche aggiungere le proprie cartelle di lavoro o una visualizzazione specifica all'interno delle cartelle di lavoro nel dashboard di Azure per la funzionalità di aggiornamento automatico con una granularità minima di 30 minuti.
+      - La visualizzazione è basata sui dati di telemetria in Log Analytics usando le [cartelle di lavoro di Azure](../../../azure-monitor/visualize/workbooks-overview.md). I clienti possono personalizzare la visualizzazione. I clienti possono anche aggiungere le proprie cartelle di lavoro o una visualizzazione specifica all'interno delle cartelle di lavoro nel dashboard di Azure per la funzionalità di aggiornamento automatico con una granularità minima di 30 minuti.
       - I clienti possono usare l'area di lavoro esistente nella stessa sottoscrizione della risorsa di monitoraggio SAP scegliendo questa opzione al momento della distribuzione.
-      - I clienti possono utilizzare kusto Query Language (KQL) per eseguire [query](../../../azure-monitor/log-query/log-query-overview.md) sulle tabelle non elaborate all'interno log Analytics area di lavoro. Esaminare i *log personalizzati*.
+      - I clienti possono utilizzare kusto Query Language (KQL) per eseguire [query](../../../azure-monitor/logs/log-query-overview.md) sulle tabelle non elaborate all'interno log Analytics area di lavoro. Esaminare i *log personalizzati*.
 
 > [!Note]
 > I clienti sono responsabili dell'applicazione di patch e della gestione della macchina virtuale, distribuita nel gruppo di risorse gestite.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439548"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634719"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Confrontare le baseline con il monitoraggio dell'integrità dei file
 
@@ -62,23 +62,22 @@ Le basi di riferimento FIM iniziano con l'identificazione delle caratteristiche 
 > [!NOTE]
 > Per altre informazioni sulle impostazioni del registro di sistema supportate da diverse versioni del sistema operativo, vedere il foglio di calcolo di riferimento per le [impostazioni criteri di gruppo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Per configurare FIM per il monitoraggio delle linee di base del registro di sistema:*
+Per configurare FIM per il monitoraggio delle linee di base del registro di sistema:
 
-1. Nella finestra di dialogo **Aggiungi registro di sistema di Windows per rilevamento modifiche** , immettere la chiave del registro di sistema nella casella di testo **chiave del registro di sistema di Windows** .
+1. Nella casella di testo **chiave del registro di sistema** di Windows della finestra **Aggiungi registro di sistema di Windows per rilevamento modifiche** immettere la chiave del registro di sistema seguente:
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Abilitare FIM in un registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Abilitare FIM in un registro":::
 
 ## <a name="track-changes-to-windows-files"></a>Tenere traccia delle modifiche apportate ai file di Windows
 
 1. Nella finestra di dialogo **Aggiungi file di Windows per rilevamento modifiche** , nella casella di testo **immettere il percorso** immettere la cartella che contiene i file che si desidera rilevare. Nell'esempio riportato nella figura seguente, l' **app Web di Contoso** risiede nella D:\ unità all'interno della struttura di cartelle **ContosWebApp** .  
 1. Creare una voce di file di Windows personalizzata fornendo un nome della classe di impostazioni, abilitando la ricorsione e specificando la cartella top con un suffisso (*) con carattere jolly.
 
-    ![Abilitare FIM in un file](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Abilitare FIM in un file":::
 
 ## <a name="retrieve-change-data"></a>Recuperare i dati delle modifiche
 

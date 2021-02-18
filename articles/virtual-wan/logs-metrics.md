@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: a5bbcc4c07826a5093da3f51c709f49ceb231753
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127890"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596071"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Metriche e log WAN virtuali di Azure
 
@@ -130,4 +130,4 @@ Le voci del **log attività** vengono raccolte per impostazione predefinita e po
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su come monitorare log e metriche del Firewall di Azure, vedere [Esercitazione: monitorare i log del Firewall di Azure](../firewall/firewall-diagnostics.md).
-* Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
+* Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md).

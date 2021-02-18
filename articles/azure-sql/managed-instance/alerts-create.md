@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d37465223000399aa42895626c48426ddadc0c72
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499272"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592716"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creare avvisi per Istanza gestita di SQL di Azure usando il portale di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Questo articolo illustra come configurare gli avvisi per i database nel database
 * Chiama Azure Runbook
 * Chiamare un sistema compatibile con ITSM con ticket esterno
 
-È possibile configurare e ottenere informazioni sulle regole di avviso usando [il portale di Azure, PowerShell o l'interfaccia della](../../azure-monitor/platform/alerts-classic-portal.md) riga di comando di Azure o l' [API REST di monitoraggio di Azure](/rest/api/monitor/alertrules). 
+È possibile configurare e ottenere informazioni sulle regole di avviso usando [il portale di Azure, PowerShell o l'interfaccia della](../../azure-monitor/alerts/alerts-classic-portal.md) riga di comando di Azure o l' [API REST di monitoraggio di Azure](/rest/api/monitor/alertrules). 
 
 ## <a name="alerting-metrics-available-for-managed-instance"></a>Metriche di avviso disponibili per l'istanza gestita
 
@@ -113,7 +113,7 @@ La nuova regola di avviso diventerà attiva entro pochi minuti e verrà attivata
 ## <a name="verifying-alerts"></a>Verifica degli avvisi
 
 > [!NOTE]
-> Per eliminare gli avvisi fastidiosi, vedere [Supression degli avvisi con le regole di azione](../../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
+> Per eliminare gli avvisi fastidiosi, vedere [Supression degli avvisi con le regole di azione](../../azure-monitor/alerts/alerts-action-rules.md#suppression-of-alerts).
 
 Quando si configura una regola di avviso, verificare che il trigger di avviso e la relativa frequenza siano soddisfatti. Per l'esempio illustrato in questa pagina per la configurazione di un avviso per lo spazio di archiviazione usato, se l'opzione di avviso è stata posta elettronica, è possibile ricevere un messaggio di posta elettronica simile a quello riportato di seguito.
 
@@ -142,8 +142,8 @@ Per visualizzare, sospendere, attivare, modificare ed eliminare gli avvisi esist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sul sistema di avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-* Per altre informazioni sugli avvisi delle metriche, vedere informazioni sul [funzionamento degli avvisi delle metriche in monitoraggio di Azure](../../azure-monitor/platform/alerts-metric-overview.md)
-* Per informazioni sulla configurazione di un webhook negli avvisi, vedere [chiamare un webhook con un avviso di metrica classico](../../azure-monitor/platform/alerts-webhooks.md)
+* Per informazioni sul sistema di avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+* Per altre informazioni sugli avvisi delle metriche, vedere informazioni sul [funzionamento degli avvisi delle metriche in monitoraggio di Azure](../../azure-monitor/alerts/alerts-metric-overview.md)
+* Per informazioni sulla configurazione di un webhook negli avvisi, vedere [chiamare un webhook con un avviso di metrica classico](../../azure-monitor/alerts/alerts-webhooks.md)
 * Per informazioni sulla configurazione e la gestione degli avvisi con PowerShell, vedere [regole di azione](/powershell/module/az.monitor/add-azmetricalertrulev2)
 * Per informazioni sulla configurazione e la gestione degli avvisi, vedere informazioni di [riferimento sull'API REST di monitoraggio di Azure](/rest/api/monitor/)

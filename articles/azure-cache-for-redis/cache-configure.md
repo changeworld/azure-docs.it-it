@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ba021d280f71504ad5c1e1aea0dc1c8c6b507b1e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831774"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581081"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -341,10 +341,10 @@ Fare clic su **Regole di avviso** per configurare gli avvisi in base alle metric
 
 ### <a name="diagnostics"></a>Diagnostica
 
-Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../azure-monitor/platform/data-platform-metrics.md) e quindi vengono eliminate. Per rendere permanenti le metriche relative alla cache per più di 30 giorni, fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#export-cache-metrics) usato per archiviare la diagnostica della cache.
+Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../azure-monitor/essentials/data-platform-metrics.md) e quindi vengono eliminate. Per rendere permanenti le metriche relative alla cache per più di 30 giorni, fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#export-cache-metrics) usato per archiviare la diagnostica della cache.
 
 >[!NOTE]
->Oltre a archiviare le metriche della cache nella risorsa di archiviazione, è anche possibile trasmettere le metriche [a un hub eventi o inviarle ai log di monitoraggio di Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Oltre a archiviare le metriche della cache nella risorsa di archiviazione, è anche possibile trasmettere le metriche [a un hub eventi o inviarle ai log di monitoraggio di Azure](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 >
 >
 

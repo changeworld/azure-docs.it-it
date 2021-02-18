@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693613"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595494"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 
@@ -94,7 +94,7 @@ Centro sicurezza consente di valutare la configurazione delle risorse per identi
 >[!Note]
 >Per altre informazioni sui ruoli e sulle azioni consentite nel Centro sicurezza, vedere [Autorizzazioni nel Centro sicurezza di Azure](../../security-center/security-center-permissions.md).
 
-Centro sicurezza usa Microsoft Monitoring Agent. È lo stesso agente usato dal servizio Monitoraggio di Azure. I dati che vengono raccolti da questo agente vengono archiviati in un'[area di lavoro](../../azure-monitor/platform/manage-access.md) esistente di Log Analytics associata a una sottoscrizione di Azure o in un'area di lavoro nuova, in base alla posizione geografica della VM.
+Centro sicurezza usa Microsoft Monitoring Agent. È lo stesso agente usato dal servizio Monitoraggio di Azure. I dati che vengono raccolti da questo agente vengono archiviati in un'[area di lavoro](../../azure-monitor/logs/manage-access.md) esistente di Log Analytics associata a una sottoscrizione di Azure o in un'area di lavoro nuova, in base alla posizione geografica della VM.
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
@@ -108,23 +108,23 @@ Monitoraggio di Azure include i componenti seguenti:
 
 ### <a name="azure-activity-log"></a>Azure Activity Log
 
-[Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md) offre informazioni approfondite in merito alle operazioni eseguite sulle risorse nella sottoscrizione. Questo servizio è noto nelle versioni precedenti come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni.
+[Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md) offre informazioni approfondite in merito alle operazioni eseguite sulle risorse nella sottoscrizione. Questo servizio è noto nelle versioni precedenti come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni.
 
 ### <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
-I [log di diagnostica di Azure](../../azure-monitor/platform/platform-logs-overview.md) sono generati da una risorsa e offrono dati completi e frequenti sul funzionamento della risorsa stessa. Il contenuto di questi log varia in base al tipo di risorsa.
+I [log di diagnostica di Azure](../../azure-monitor/essentials/platform-logs-overview.md) sono generati da una risorsa e offrono dati completi e frequenti sul funzionamento della risorsa stessa. Il contenuto di questi log varia in base al tipo di risorsa.
 
 I registri di sistema degli eventi di Windows sono una categoria di log di diagnostica per le macchine virtuali. I log di BLOB, tabelle e code sono categorie di log di diagnostica per gli account di archiviazione.
 
-I log di diagnostica differiscono dal [log attività](../../azure-monitor/platform/platform-logs-overview.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
+I log di diagnostica differiscono dal [log attività](../../azure-monitor/essentials/platform-logs-overview.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
 
 ### <a name="metrics"></a>Metriche
 
-Monitoraggio di Azure consente di usare i dati di telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria di Azure più importante è rappresentato dalle [metriche](../../azure-monitor/platform/data-platform.md) (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
+Monitoraggio di Azure consente di usare i dati di telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria di Azure più importante è rappresentato dalle [metriche](../../azure-monitor/data-platform.md) (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
-Diagnostica di Azure consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione Diagnostica da varie origini. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) che eseguono Microsoft Windows e [Microsoft Azure Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md).
+Diagnostica di Azure consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione Diagnostica da varie origini. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) che eseguono Microsoft Windows e [Microsoft Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 

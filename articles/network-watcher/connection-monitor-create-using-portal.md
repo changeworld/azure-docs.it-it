@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833168"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570897"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creare un monitoraggio in Connection Monitor usando il portale di Azure
 
@@ -186,7 +186,7 @@ Nel portale di Azure, per creare avvisi per un monitoraggio della connessione, �
 
 - **Nome della condizione**: l'avviso viene creato sulla `Test Result(preview)` metrica. Quando il risultato del test di monitoraggio della connessione non è riuscito, viene attivata la regola di avviso. 
 
-- **Nome gruppo di azioni**: è possibile immettere direttamente la posta elettronica oppure è possibile creare avvisi tramite gruppi di azioni. Se si immette direttamente il proprio indirizzo di posta elettronica, viene creato un gruppo di azione con il nome **NPM email ActionGroup** . L'ID di posta elettronica viene aggiunto al gruppo di azioni. Se si sceglie di usare i gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. Per informazioni su come creare un gruppo di azione, vedere [creare gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md). Dopo la creazione dell'avviso, è possibile [gestire gli avvisi](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
+- **Nome gruppo di azioni**: è possibile immettere direttamente la posta elettronica oppure è possibile creare avvisi tramite gruppi di azioni. Se si immette direttamente il proprio indirizzo di posta elettronica, viene creato un gruppo di azione con il nome **NPM email ActionGroup** . L'ID di posta elettronica viene aggiunto al gruppo di azioni. Se si sceglie di usare i gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. Per informazioni su come creare un gruppo di azione, vedere [creare gruppi di azioni nella portale di Azure](../azure-monitor/alerts/action-groups.md). Dopo la creazione dell'avviso, è possibile [gestire gli avvisi](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nome regola di avviso**: il nome del monitoraggio connessione.
 

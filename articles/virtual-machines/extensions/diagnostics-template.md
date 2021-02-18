@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a91e21994dda126e14c100bcf1d2a69c36b13e1e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 413ea38b1694a9322742f3a76438e7b752152e24
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202165"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580219"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
 L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Azure Resource Manager. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](../windows/template-description.md#extensions) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
@@ -80,7 +80,7 @@ Il valore della proprietà *name* può essere usato per fare riferimento all'est
 
 Il valore *typeHandlerVersion* specifica la versione dell'estensione da usare. Se si imposta la versione secondaria *autoUpgradeMinorVersion* su **true**, si assicurerà di ottenere la versione secondaria più recente disponibile dell'estensione. È consigliabile impostare sempre *autoUpgradeMinorVersion* su **true** , in modo che venga usata sempre l'estensione Diagnostica più recente disponibile con tutte le nuove funzionalità e correzioni di bug. 
 
-L'elemento *settings* contiene proprietà di configurazione per l'estensione che possono essere impostate e lette dall'estensione e sono spesso definite configurazione pubblica. La proprietà *xmlcfg* contiene configurazione basata su XML per i log di diagnostica e i contatori delle prestazioni che verranno raccolti dall'agente di diagnostica. Per altre informazioni sullo schema XML stesso, vedere [Schema di configurazione di diagnostica](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) . Una procedura comune consiste nell'archiviare la configurazione XML effettiva come variabile nel modello di Gestione risorse di Azure e quindi concatenare le variabili e codificarle in Base 64 per impostare il valore per *xmlcfg*. Per altre informazioni su come archiviare il codice XML nelle variabili, vedere la sezione relativa alle [variabili di configurazione diagnostica](#diagnostics-configuration-variables) . La proprietà *storageAccount* specifica il nome dell'account di archiviazione in cui sono trasferiti i dati di diagnostica. 
+L'elemento *settings* contiene proprietà di configurazione per l'estensione che possono essere impostate e lette dall'estensione e sono spesso definite configurazione pubblica. La proprietà *xmlcfg* contiene configurazione basata su XML per i log di diagnostica e i contatori delle prestazioni che verranno raccolti dall'agente di diagnostica. Per altre informazioni sullo schema XML stesso, vedere [Schema di configurazione di diagnostica](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) . Una procedura comune consiste nell'archiviare la configurazione XML effettiva come variabile nel modello di Gestione risorse di Azure e quindi concatenare le variabili e codificarle in Base 64 per impostare il valore per *xmlcfg*. Per altre informazioni su come archiviare il codice XML nelle variabili, vedere la sezione relativa alle [variabili di configurazione diagnostica](#diagnostics-configuration-variables) . La proprietà *storageAccount* specifica il nome dell'account di archiviazione in cui sono trasferiti i dati di diagnostica. 
 
 Le proprietà in *protectedSettings* , a volte definite configurazione privata, possono essere impostate ma non possono essere lette dopo l'impostazione. La natura di sola scrittura di *protectedSettings* risulta utile per l'archiviazione di segreti quali la chiave dell'account di archiviazione in cui sono scritti i dati di diagnostica.    
 
@@ -118,7 +118,7 @@ Il frammento di codice JSON dell'estensione Diagnostica precedente definisce una
 
 La proprietà *xmlcfg* per l'estensione Diagnostica viene definita mediante più variabili concatenate. I valori di questi variabili sono in XML, quindi è necessario inserire correttamente il carattere di escape durante la configurazione delle variabili JSON.
 
-L'esempio seguente illustra il codice XML di configurazione di diagnostica che raccoglie i contatori delle prestazioni standard a livello di sistema, insieme ad alcuni registri eventi di Windows e log di infrastruttura di diagnostica. I caratteri di escape e la formattazione sono corretti, quindi è possibile incollare la configurazione direttamente nella sezione del modello relativa alle variabili. Per un esempio più facile da leggere del codice XML di configurazione, vedere [Schema di configurazione di diagnostica](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) .
+L'esempio seguente illustra il codice XML di configurazione di diagnostica che raccoglie i contatori delle prestazioni standard a livello di sistema, insieme ad alcuni registri eventi di Windows e log di infrastruttura di diagnostica. I caratteri di escape e la formattazione sono corretti, quindi è possibile incollare la configurazione direttamente nella sezione del modello relativa alle variabili. Per un esempio più facile da leggere del codice XML di configurazione, vedere [Schema di configurazione di diagnostica](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) .
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",

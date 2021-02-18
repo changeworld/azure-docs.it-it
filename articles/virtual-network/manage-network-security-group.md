@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d42e0f5594fdde55f1b4183a806e388658e86dc3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222939"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596667"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
 
@@ -93,7 +93,7 @@ In **monitoraggio** è possibile abilitare o disabilitare **le impostazioni di d
 
 Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli articoli seguenti:
 
-- [Log attività](../azure-monitor/platform/platform-logs-overview.md)
+- [Log attività](../azure-monitor/essentials/platform-logs-overview.md)
 - [Controllo di accesso (IAM)](../role-based-access-control/overview.md)
 - [Tag](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

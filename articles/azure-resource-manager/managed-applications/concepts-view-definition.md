@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55263d3c742d18cf03303f96f08fb9aa370c7af8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371610"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592067"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Visualizzazione dell'elemento di definizione nelle applicazioni gestite di Azure
 
@@ -125,7 +125,7 @@ Quando si fornisce questa visualizzazione in **viewDefinition.json**, viene sost
 }
 ```
 
-|Proprietà|Obbligatoria|Description|
+|Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |header|No|Intestazione della pagina Overview.|
 |description|No|Descrizione dell'applicazione gestita.|
@@ -137,7 +137,7 @@ Quando si fornisce questa visualizzazione in **viewDefinition.json**, viene sost
 
 `"kind": "Metrics"`
 
-La visualizzazione metriche consente di raccogliere e aggregare dati dalle risorse dell'applicazione gestita nelle [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform-metrics.md).
+La visualizzazione metriche consente di raccogliere e aggregare dati dalle risorse dell'applicazione gestita nelle [metriche di monitoraggio di Azure](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -164,7 +164,7 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 }
 ```
 
-|Proprietà|Obbligatoria|Description|
+|Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|No|Titolo visualizzato della visualizzazione.|
 |version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
@@ -172,11 +172,11 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 
 ### <a name="chart"></a>Grafico
 
-|Proprietà|Obbligatoria|Description|
+|Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|Sì|Titolo visualizzato del grafico.|
 |chartType|No|Visualizzazione da utilizzare per il grafico. Per impostazione predefinita, viene utilizzato un grafico a linee. Tipi di grafico supportati: `Bar, Line, Area, Scatter` .|
-|Metriche|Sì|Matrice di metriche da tracciare in questo grafico. Per altre informazioni sulle metriche supportate in portale di Azure, vedere [metriche supportate con monitoraggio di Azure](../../azure-monitor/platform/metrics-supported.md)|
+|Metriche|Sì|Matrice di metriche da tracciare in questo grafico. Per altre informazioni sulle metriche supportate in portale di Azure, vedere [metriche supportate con monitoraggio di Azure](../../azure-monitor/essentials/metrics-supported.md)|
 
 ### <a name="metric"></a>Metrica
 
@@ -224,7 +224,7 @@ In questa visualizzazione è possibile eseguire operazioni GET, PUT, DELETE e PO
 }
 ```
 
-|Proprietà|Obbligatoria|Description|
+|Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione CustomResources nel **viewDefinition.js**.|
 |version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
@@ -253,7 +253,7 @@ Commands è una matrice di pulsanti aggiuntivi della barra degli strumenti che v
 }
 ```
 
-|Proprietà|Obbligatoria|Description|
+|Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|Sì|Nome visualizzato del pulsante di comando.|
 |path|Sì|Nome dell'azione del provider personalizzato. L'azione deve essere definita in **mainTemplate.js**.|
@@ -280,7 +280,7 @@ In questa visualizzazione è possibile estendere le risorse di Azure esistenti i
 }
 ```
 
-|Proprietà|Obbligatoria|Description|
+|Proprietà|Obbligatoria|Descrizione|
 |---------|---------|---------|
 |displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione di associazioni nel **viewDefinition.js**.|
 |version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|

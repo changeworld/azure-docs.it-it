@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250131"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650448"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito VuePress in App Web statiche di Azure (anteprima)
 
@@ -100,7 +100,7 @@ Per connettersi ad App Web statiche di Azure, è necessario un repository in Git
 1. Eseguire il push del repository locale in GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Distribuire l'app Web
@@ -123,11 +123,11 @@ I passaggi seguenti illustrano come creare una nuova applicazione di App Web sta
 
 1. Immettere quindi un nome per l'app nella casella **Nome**. I caratteri validi includono `a-z`, `A-Z`, `0-9` e `-`.
 
-1. In _Area_selezionare un'area disponibile nelle vicinanze.
+1. In _Area_ selezionare un'area disponibile nelle vicinanze.
 
 1. In _SKU_ selezionare **Gratuito**.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Dettagli inseriti":::
 
 1. Fare clic sul pulsante **Accedi con GitHub**.
 
@@ -135,9 +135,9 @@ I passaggi seguenti illustrano come creare una nuova applicazione di App Web sta
 
 1. Selezionare **vuepress-static-app** come valore di _Repository_.
 
-1. In _Ramo_ selezionare **master**.
+1. Per il _ramo_ selezionare **principale**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Informazioni su GitHub inserite":::
 
 ### <a name="build"></a>Compilare
 
@@ -151,7 +151,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 Non è necessario specificare alcun valore per _Percorso API_ perché al momento non viene distribuita alcuna API.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Impostazioni di compilazione":::
 
 ### <a name="review-and-create"></a>Rivedi e crea
 
@@ -163,7 +163,7 @@ Non è necessario specificare alcun valore per _Percorso API_ perché al momento
 
 1. Nella schermata della risorsa fare clic sul collegamento _URL_ per aprire l'applicazione distribuita. Potrebbe essere necessario attendere un paio di minuti il completamento dell'azione di GitHub Actions.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Creare una risorsa di App Web statiche (anteprima) nel portale":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Applicazione distribuita":::
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
 

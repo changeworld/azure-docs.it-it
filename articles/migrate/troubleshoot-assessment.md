@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4eeda2e4e418920522f7a65bef68928963c43ad4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753446"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581798"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
@@ -75,7 +75,7 @@ Azure Migrate server Assessment potrebbe consigliare gli SKU di VM di Azure con 
 
 - La raccomandazione SKU della macchina virtuale dipende dalle proprietà di valutazione.
 - Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *basato sulle prestazioni* o in *locale*.
-- Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Aggiunge inoltre un fattore di comfort nella determinazione dell'utilizzo effettivo.
+- Per le valutazioni basate sulle prestazioni, Server Assessment prende in considerazione i dati relativi all'utilizzo delle macchine virtuali locali (utilizzo di CPU, memoria, rete e disco) per determinare lo SKU della macchina virtuale di destinazione corretto per le macchine virtuali locali. Aggiunge inoltre un fattore di comfort nella determinazione dell'utilizzo effettivo.
 - Per il dimensionamento locale, i dati sulle prestazioni non vengono considerati e lo SKU di destinazione è consigliato in base all'allocazione locale.
 
 Per illustrare il modo in cui questo può influire sulle raccomandazioni, si prenda un esempio:
@@ -160,12 +160,12 @@ Per VM di Windows:
 
     ![Stato MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Per le macchine virtuali Linux, assicurarsi che i comandi di installazione per MMA e Dependency Agent siano riusciti. Per ulteriori informazioni sulla risoluzione dei problemi, vedere [qui](../azure-monitor/insights/service-map.md#post-installation-issues).
+Per le macchine virtuali Linux, assicurarsi che i comandi di installazione per MMA e Dependency Agent siano riusciti. Per ulteriori informazioni sulla risoluzione dei problemi, vedere [qui](../azure-monitor/vm/service-map.md#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-- **Agente MMS**: esaminare i sistemi operativi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) supportati.
-- **Dependency Agent**: sistemi operativi [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) supportati.
+- **Agente MMS**: esaminare i sistemi operativi [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) supportati.
+- **Dependency Agent**: sistemi operativi [Windows e Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) supportati.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizza le dipendenze per > ora
 

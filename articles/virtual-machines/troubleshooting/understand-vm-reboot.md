@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3dcb4a7b92f5aab1336e49a7d299614855b48fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965761"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591160"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informazioni sul riavvio del sistema della macchina virtuale di Azure
 
@@ -64,7 +64,7 @@ Gli aggiornamenti a istanza multipla (per le macchine virtuali in un set di disp
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Azioni di arresto o riavvio avviate dall'utente
 
-Se si esegue un riavvio dalla portale di Azure, Azure PowerShell, dall'interfaccia della riga di comando o dall'API REST, è possibile trovare l'evento nel [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Se si esegue un riavvio dalla portale di Azure, Azure PowerShell, dall'interfaccia della riga di comando o dall'API REST, è possibile trovare l'evento nel [log attività di Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Se si esegue l'azione dal sistema operativo della VM, è possibile trovare l'evento nei log di sistema.
 

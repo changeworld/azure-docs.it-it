@@ -24,9 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Inviare notifiche push a tutte le registrazioni (versione 1.0.0-preview1 dell'SDK)
+            - name: Invia notifiche push a tutte le registrazioni (SDK corrente)
               href: android-sdk.md
-            - name: Inviare notifiche push a tutte le registrazioni (versione 0.6 dell'SDK)
+            - name: Inviare notifiche push a tutte le registrazioni (SDK legacy)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Inviare notifiche push a specifici dispositivi
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
           items:
             - name: Prerequisiti per le esercitazioni su iOS
               href: ios-sdk-get-started.md
-            - name: Objective-C (versione 3.0.0-preview1)
-              href: ios-sdk-300.md
-            - name: Objective-C (versione 2.0.4)
-              href: ios-sdk-204.md
+            - name: Objective-C (SDK corrente)
+              href: ios-sdk-current.md
+            - name: Objective-C (SDK legacy)
+              href: ios-sdk-legacy.md
         - name: Inviare notifiche push a specifici dispositivi
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Inviare notifiche push a specifici utenti
