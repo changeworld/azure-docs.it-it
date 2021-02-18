@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341347"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652107"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
@@ -29,11 +29,19 @@ Nel Centro sicurezza, un evento imprevisto della sicurezza è un'aggregazione di
 
 ## <a name="managing-security-incidents"></a>Gestione degli eventi imprevisti della sicurezza
 
-1. Nella pagina Panoramica del Centro sicurezza selezionare il riquadro **avvisi di sicurezza** . Gli eventi imprevisti e gli avvisi sono elencati. Si noti che gli eventi imprevisti di sicurezza hanno un'icona diversa per gli avvisi di sicurezza.
+1. Nella pagina avvisi del Centro sicurezza, usare il pulsante **Aggiungi filtro** per filtrare in base al nome dell'avviso per l'evento imprevisto di sicurezza del nome dell'avviso **rilevato su più risorse**. 
 
-    ![Visualizzare gli eventi imprevisti della sicurezza](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Individuazione degli eventi imprevisti nella pagina avvisi del Centro sicurezza di Azure":::
 
-1. Per visualizzare i dettagli, selezionare un evento imprevisto. Nella pagina **evento imprevisto di sicurezza** vengono visualizzati altri dettagli. 
+    L'elenco è ora filtrato per visualizzare solo gli eventi imprevisti. Si noti che gli eventi imprevisti di sicurezza hanno un'icona diversa per gli avvisi di sicurezza.
+
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="Elenco degli eventi imprevisti nella pagina avvisi del Centro sicurezza di Azure":::
+
+1. Per visualizzare i dettagli di un evento imprevisto, selezionarne uno dall'elenco. Viene visualizzato un riquadro laterale con altri dettagli sull'evento imprevisto.
+
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="Riquadro laterale che mostra i dettagli dell'evento imprevisto":::
+
+1. Per visualizzare altri dettagli, selezionare **Visualizza dettagli completi**.
 
     [![Rispondere agli eventi imprevisti della sicurezza nel centro sicurezza di Azure](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 

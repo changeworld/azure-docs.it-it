@@ -1,19 +1,19 @@
 ---
-title: Supporto dell'attestazione out-of-process con il DaemonSet helper di citazioni SGX Intel in Azure
+title: Supporto dell'attestazione out-of-process con il Daemonset di supporto Intel SGX quote in Azure (anteprima)
 description: DaemonSet per la generazione di citazioni al di fuori del processo dell'applicazione SGX. Questo articolo illustra il contributo dell'attestazione out-of-process ai carichi di lavoro riservati in esecuzione all'interno di un contenitore.
 ms.service: container-service
 author: agowdamsft
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
-ms.translationtype: HT
+ms.openlocfilehash: 89890740b06a399bad4678ff6ddd9be09c1cda0e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564158"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653330"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Gestione del software di piattaforma con il DaemonSet helper di citazioni SGX
+# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Platform Software Management con SGX quote Helper set daemon (anteprima)
 
 Le [applicazioni enclave](confidential-computing-enclaves.md) che eseguono l'attestazione remota hanno bisogno di una CITAZIONE generata. Questa CITAZIONE fornisce la prova crittografica dell'identità e dello stato dell'applicazione, oltre all'ambiente in cui l'enclave è in esecuzione. Per generare la CITAZIONE sono necessari componenti software attendibili che fanno parte dei componenti software della piattaforma (PSW) di Intel.
 
@@ -27,6 +27,13 @@ Intel supporta due modalità di attestazione per l'esecuzione della generazione 
 Per impostazione predefinita, le applicazioni SGX create con Open Enclave SDK usano la modalità di attestazione in-process. Le applicazioni basate su SGX supportano la modalità out-of-process e richiedono un hosting e un'esposizione aggiuntivi dei componenti necessari, come Architectural Enclave Service Manager (AESM), esterni all'applicazione.
 
 L'uso di questa funzionalità è **altamente consigliato**, in quanto migliora il tempo di attività delle app enclave durante gli aggiornamenti della piattaforma Intel o del driver DCAP.
+
+Per abilitare questa funzionalità nel cluster AKS, modificare il comando Add--Enable-sgxquotehelper nell'interfaccia della riga di comando quando si Abilita il componente aggiuntivo Confidential computing. Istruzioni dell'interfaccia della riga di comando dettagliate sono disponibili [qui](confidential-nodes-aks-get-started.md): 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Perché la modalità out-of-process è efficace e quali vantaggi offre?
 

@@ -4,15 +4,15 @@ description: Informazioni sul supporto di contenitori non modificati nei conteni
 services: container-service
 author: agowdamsft
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 2/11/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: 35518a90ff3db2b951e0310970afd6d78dd25807
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: bf92e7f28d6a5804886d093671f4b7e33878f1ec
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122204"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652675"
 ---
 # <a name="confidential-containers"></a>Contenitori riservati
 
@@ -29,41 +29,24 @@ I contenitori riservati consentono di proteggere:
 - assicurazioni basate su hardware
 - Consenti l'esecuzione di app esistenti
 - Crea radice hardware di attendibilità
+- rimuovere l'amministratore host, l'amministratore di Kubernetes, l'hypervisor dal confine di trust
 
 Un ambiente di esecuzione attendibile basato su hardware è un componente importante usato per fornire garanzie sicure attraverso le misurazioni hardware e software dei componenti TCB (Trusted computing base). Le verifiche di queste misurazioni sono utili per la convalida del calcolo previsto e per verificare eventuali manomissioni delle app contenitore.
 
-I contenitori riservati supportano applicazioni personalizzate sviluppate con **Python, Java, node js e così via o applicazioni software in pacchetto come Nginx, cache Redis, Memcache**e così via, da eseguire senza modifiche su AKS.
+I contenitori riservati supportano applicazioni personalizzate sviluppate con **Python, Java, node js e così via oppure applicazioni contenitore in pacchetto come Nginx, cache Redis, Memcache** e così via, da eseguire senza modifiche su AKS con nodi di elaborazione riservati.
 
-I contenitori riservati rappresentano il percorso più veloce per la riservatezza dei contenitori, inclusa la protezione del contenitore tramite la crittografia, che consente l'uso Lift-and-Shift senza modifiche minime alla logica di business.
+I contenitori riservati rappresentano il percorso più veloce per la riservatezza del contenitore e richiedono solo la creazione di pacchetti delle applicazioni del contenitore Docker esistenti e non richiedono modifiche al codice dell'applicazione. I contenitori riservati sono applicazioni contenitore Docker assemblate per l'esecuzione in un TEE. Alcuni abilitatori di contenitori riservati offrono anche la crittografia del contenitore che può aiutare a proteggere il codice del contenitore durante l'archiviazione e il trasporto e montato nell'host. La crittografia del contenitore consente di proseguire e proteggere il codice o il modello di pacchetto nel contenitore con la relativa chiave di decrittografia collegata al TEE.
 
-![Conversione del contenitore riservato](./media/confidential-containers/conf-con-deploy-process.jpg)
-
+Di seguito è illustrato il processo per i contenitori riservati dallo sviluppo alla distribuzione ![ del contenitore riservato come elaborare.](./media/confidential-containers/how-to-confidential-container.png)
 
 ## <a name="confidential-container-enablers"></a>Abilitatori contenitore riservati
+Per eseguire un contenitore Docker esistente senza modifiche, è necessario un software SGX, in modo che le chiamate all'applicazione possano usare un set di istruzioni della CPU speciale reso disponibile per ridurre la superficie di attacco e non assumere alcuna dipendenza dal sistema operativo guest. Una volta eseguito il wrapped con il software di runtime SGX, i contenitori vengono avviati automaticamente nelle enclavi protette, rimuovendo così il sistema operativo guest, il sistema operativo host o l'hypervisor dal confine di trust. Questa esecuzione isolata in un nodo (macchina virtuale) con crittografia dei dati in memoria supportata dall'hardware riduce le aree di attacco della superficie complessiva e riduce le vulnerabilità con i livelli del sistema operativo o dell'hypervisor.
 
-Per eseguire un contenitore Docker esistente, le applicazioni nei nodi di elaborazione riservati richiedono un livello di astrazione o un software SGX per sfruttare il set di istruzioni della CPU speciale. Il software SGX consente inoltre di proteggere il codice delle applicazioni riservate e di creare un'esecuzione diretta sulla CPU per rimuovere il sistema operativo guest, il sistema operativo host o l'hypervisor. Questa protezione riduce la superficie di attacco globale e le vulnerabilità con i livelli del sistema operativo o dell'hypervisor.
-
-I contenitori riservati sono completamente supportati su AKS e sono abilitati tramite i partner di Azure e i progetti open source software (OSS). Gli sviluppatori possono scegliere i provider di software in base alle funzionalità, all'integrazione con i servizi di Azure e al supporto degli strumenti.
+I contenitori riservati sono completamente supportati su AKS e vengono abilitati tramite i partner di Azure e i progetti di software Open-Source (OSS). Gli sviluppatori possono scegliere i provider di software in base alle funzionalità, all'integrazione con i servizi di Azure e al supporto degli strumenti.
 
 ## <a name="partner-enablers"></a>Abilitatori partner
 > [!NOTE]
 > Le soluzioni seguenti sono offerte tramite partner Azure e possono comportare costi di licenza. Verificare le condizioni del software per i partner in modo indipendente. 
-
-### <a name="fortanix"></a>Fortanix
-
-[Fortanix](https://www.fortanix.com/) offre agli sviluppatori la possibilità di scegliere tra un portale e un'esperienza basata sull'interfaccia della riga di comando per riunire le applicazioni in contenitori e coprirle in contenitori SGX idonei, senza dover modificare o ricompilare l'applicazione. Fortanix offre la flessibilità necessaria per l'esecuzione e la gestione del set più ampio di applicazioni, incluse le applicazioni esistenti, le nuove applicazioni native enclave e le applicazioni pre-incluse nel pacchetto. Gli utenti possono iniziare a usare l'interfaccia utente di [gestione enclave](https://em.fortanix.com/) o le [API REST](https://www.fortanix.com/api/em/) per creare contenitori riservati seguendo la Guida [avvio rapido](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) per il servizio Azure Kubernetes.
-
-![Processo di distribuzione di Fortanix](./media/confidential-containers/fortanix-confidential-containers-flow.png)
-
-### <a name="scone-scontain"></a>Scone (Scontain)
-
-[Scone](https://scontain.com/index.html?lang=en) supporta i criteri di sicurezza che possono generare certificati, chiavi e segreti e garantisce che siano visibili solo ai servizi attestati di un'applicazione. In questo modo, i servizi di un'applicazione si attestano automaticamente reciprocamente tramite TLS, senza la necessità di modificare le applicazioni e TLS. Questa operazione viene illustrata con l'aiuto di una semplice applicazione Flask: https://sconedocs.github.io/flask_demo/  
-
-FOCACCINa può convertire la maggior parte dei file binari esistenti in applicazioni eseguite all'interno di enclave senza dover modificare l'applicazione o ricompilare l'applicazione. SCONE protegge inoltre linguaggi interpretati come Python crittografando sia i file di dati che i file di codice Python. Con l'ausilio di un criterio di sicurezza SCONE, è possibile proteggere i file crittografati da accessi non autorizzati, modifiche e rollback. Come "sconify" un'applicazione Python esistente è illustrata [qui](https://sconedocs.github.io/sconify_image/)
-
-![Flusso Scontain](./media/confidential-containers/scone-workflow.png)
-
-Le distribuzioni di Scone nei nodi di elaborazione riservati con AKS sono completamente supportate e integrate. Inizia a usare un'applicazione di esempio https://sconedocs.github.io/aks/
 
 ### <a name="anjuna"></a>Anjuna
 
@@ -73,9 +56,26 @@ Introduzione a una cache Redis di esempio e a un'applicazione personalizzata Pyt
 
 ![Processo Anjuna](./media/confidential-containers/anjuna-process-flow.png)
 
+### <a name="fortanix"></a>Fortanix
+
+[Fortanix](https://www.fortanix.com/) offre agli sviluppatori la possibilità di scegliere tra un portale e un'esperienza basata sull'interfaccia della riga di comando per riunire le applicazioni in contenitori e coprirle in contenitori SGX idonei, senza dover modificare o ricompilare l'applicazione. Fortanix offre la flessibilità necessaria per l'esecuzione e la gestione del set più ampio di applicazioni, incluse le applicazioni esistenti, le nuove applicazioni native enclave e le applicazioni pre-incluse nel pacchetto. Gli utenti possono iniziare con l'interfaccia utente di [Confidential computing Manager](https://em.fortanix.com/) o con le [API REST](https://www.fortanix.com/api/em/) per creare contenitori riservati seguendo la Guida [avvio rapido](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) per il servizio Azure Kubernetes.
+
+![Processo di distribuzione di Fortanix](./media/confidential-containers/fortanix-confidential-containers-flow.png)
+
+### <a name="scone-scontain"></a>Scone (Scontain)
+
+[Scone](https://scontain.com/index.html?lang=en) supporta i criteri di sicurezza che possono generare certificati, chiavi e segreti e garantisce che siano visibili solo ai servizi attestati di un'applicazione. In questo modo, i servizi di un'applicazione si attestano automaticamente reciprocamente tramite TLS, senza la necessità di modificare le applicazioni e TLS. Questa operazione viene illustrata con l'aiuto di una semplice applicazione Flask: https://sconedocs.github.io/flask_demo/  
+
+FOCACCINa può convertire la maggior parte dei file binari esistenti in applicazioni eseguite all'interno di enclave senza dover modificare l'applicazione o ricompilare l'applicazione. SCONE protegge inoltre linguaggi interpretati come Python **crittografando** sia i file di dati che i file di codice Python. Con l'ausilio di un criterio di sicurezza SCONE, è possibile proteggere i file crittografati da accessi non autorizzati, modifiche e rollback. Come "sconify" un'applicazione Python esistente è illustrata [qui](https://sconedocs.github.io/sconify_image/)
+
+![Flusso Scontain](./media/confidential-containers/scone-workflow.png)
+
+Le distribuzioni di Scone nei nodi di elaborazione riservati con AKS sono completamente supportate e integrate con altri servizi di Azure. Inizia a usare un'applicazione di esempio https://sconedocs.github.io/aks/
+
+
 ## <a name="oss-enablers"></a>Abilitatori OSS 
 > [!NOTE]
-> Le soluzioni seguenti sono offerte tramite progetti open source e non sono direttamente affiliate ad Azure Confidential Computing (ACC) o Microsoft.  
+> Le soluzioni riportate di seguito sono offerte da progetti Open-Source e non sono direttamente affiliate ad Azure Confidential Computing (ACC) o Microsoft.  
 
 ### <a name="graphene"></a>Grafene
 
@@ -90,14 +90,14 @@ Occlum supporta le distribuzioni AKS. Seguire le istruzioni per la distribuzione
 
 
 ## <a name="confidential-containers-demo"></a>Demo sui contenitori riservati
-Visualizza la demo riservata sul settore sanitario con i contenitori riservati. Esempio è disponibile [qui](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
+Visualizza la demo riservata sul settore sanitario con i contenitori riservati. Esempio è disponibile [qui](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference). 
 
 > [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
 
 
 ## <a name="get-in-touch"></a>Entra in contatto
 
-Hai domande con la tua implementazione o vuoi diventare un fattore di abilitazione? Inviare un messaggio di posta elettronica a acconaks@microsoft.com
+Hai domande con la tua implementazione o vuoi diventare un fattore di abilitazione? Invia un messaggio di posta elettronica al team del prodotto **acconaks@microsoft.com**
 
 ## <a name="reference-links"></a>Collegamenti di riferimento
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 077500e0188d1cc20864d436a2e2fd711b180702
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 9b249bddc4cd269933a39b5baf77995aec1e82b3
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560237"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653935"
 ---
 # <a name="chat-concepts"></a>Concetti sulle chat
 
@@ -41,92 +41,79 @@ L'architettura della chat è costituita da due parti principali: 1) servizio att
  - **Servizio attendibile:** per gestire correttamente una sessione di chat, è necessario un servizio che consenta di connettersi a Servizi di comunicazione usando la stringa di connessione della risorsa. Questo servizio è responsabile della creazione di thread di chat, della gestione delle appartenenze ai thread e della distribuzione di token di accesso agli utenti. Per altre informazioni sui token di accesso, vedere l'argomento di avvio rapido relativo [ai token di accesso](../../quickstarts/access-tokens.md).
 
  - **Applicazione client:**  l'applicazione client si connette al servizio attendibile e riceve i token di accesso da usare per connettersi direttamente a Servizi di comunicazione. Una volta stabilita la connessione, l'applicazione client può inviare e ricevere messaggi.
+
+È consigliabile generare token di accesso usando il livello di servizio attendibile. In questo scenario il lato server è responsabile della creazione e della gestione degli utenti e dell'emissione dei relativi token.
     
 ## <a name="message-types"></a>Tipi di messaggio
 
 La chat di Servizi di comunicazione condivide i messaggi generati dall'utente e quelli generati dal sistema, detti **attività del thread**. Le attività del thread vengono generate quando un thread di chat viene aggiornato. Quando si chiama `List Messages` o `Get Messages` su un thread di chat, il risultato conterrà sia i messaggi di testo generati dall'utente che i messaggi di sistema, in ordine cronologico. In questo modo è più facile identificare il momento in cui un membro è stato aggiunto o rimosso o in cui l'argomento del thread di chat è stato aggiornato. I tipi di messaggi supportati sono:  
 
- - `Text`: messaggio di testo normale composto e inviato da un utente nell'ambito di una conversazione di chat. 
+ - `Text`: messaggio di testo normale composto e inviato da un utente nell'ambito di una conversazione di chat.
  - `RichText/HTML`: messaggio di testo formattato. Tenere presente che attualmente gli utenti di Servizi di comunicazione non possono inviare messaggi in formato RTF. Questo tipo di messaggio è supportato per i messaggi inviati da utenti di Teams a utenti di Servizi di comunicazione in scenari di interoperabilità di Teams.
- - `ThreadActivity/AddMember`: messaggio di sistema che indica che uno o più membri sono stati aggiunti al thread di chat. Ad esempio:
 
-```xml
-
-<addmember>
-    <eventtime>1598478187549</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
-        <friendlyName>User 1</friendlyName>
-    </detailedtargetinfo>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</addmember>
-
-```  
-
-- `ThreadActivity/DeleteMember`: messaggio di sistema che indica che un membro è stato rimosso dal thread di chat. Ad esempio:
-
-```xml
-
-<deletemember>
-    <eventtime>1598478187642</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</deletemember>
+ - `ThreadActivity/ParticipantAdded`: Un messaggio di sistema che indica che uno o più partecipanti sono stati aggiunti al thread di chat. Ad esempio:
 
 ```
-
-- `ThreadActivity/MemberJoined`: messaggio di sistema generato quando un utente guest viene aggiunto alla chat della riunione di Teams. Gli utenti di Servizi di comunicazione possono partecipare come utenti guest alle chat delle riunioni di Teams. Ad esempio:  
-```xml
-{ 
-  "id": "1606351443605", 
-  "type": "ThreadActivity/MemberJoined", 
-  "version": "1606347753409", 
-  "priority": "normal", 
-  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
-  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
-  "createdOn": "2020-11-29T00:44:03.6950000Z" 
-} 
+{
+            "id": "1613589626560",
+            "type": "participantAdded",
+            "sequenceId": "7",
+            "version": "1613589626560",
+            "content":
+            {
+                "participants":
+                [
+                    {
+                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",
+                        "displayName": "Jane",
+                        "shareHistoryTime": "1970-01-01T00:00:00Z"
+                    }
+                ],
+                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"
+            },
+            "createdOn": "2021-02-17T19:20:26Z"
+        }
 ```
-- `ThreadActivity/MemberLeft`: messaggio di sistema generato quando un utente guest esce dalla chat della riunione. Gli utenti di Servizi di comunicazione possono partecipare come utenti guest alle chat delle riunioni di Teams. Ad esempio: 
-```xml
-{ 
-  "id": "1606347703429", 
-  "type": "ThreadActivity/MemberLeft", 
-  "version": "1606340753429", 
-  "priority": "normal", 
-  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
-  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
-  "createdOn": "2020-11-29T23:42:33.4290000Z" 
-} 
+
+- `ThreadActivity/ParticipantRemoved`: Messaggio di sistema che indica che un partecipante è stato rimosso dal thread di chat. Ad esempio:
+
 ```
-- `ThreadActivity/TopicUpdate`: messaggio di sistema che indica che l'argomento è stato aggiornato. Ad esempio:
+{
+            "id": "1613589627603",
+            "type": "participantRemoved",
+            "sequenceId": "8",
+            "version": "1613589627603",
+            "content":
+            {
+                "participants":
+                [
+                    {
+                        "id": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4df6-f40f-343a0d003226",
+                        "displayName": "Jane",
+                        "shareHistoryTime": "1970-01-01T00:00:00Z"
+                    }
+                ],
+                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"
+            },
+            "createdOn": "2021-02-17T19:20:27Z"
+        }
+```
 
-```xml
+- `ThreadActivity/TopicUpdate`: Messaggio di sistema che indica che l'argomento thread è stato aggiornato. Ad esempio:
 
-<topicupdate>
-    <eventtime>1598477591811</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <value>New topic</value>
-</topicupdate>
-
+```
+{
+            "id": "1613589623037",
+            "type": "topicUpdated",
+            "sequenceId": "2",
+            "version": "1613589623037",
+            "content":
+            {
+                "topic": "New topic",
+                "initiator": "8:acs:d2a829bc-8523-4404-b727-022345e48ca6_00000008-511c-4ce0-f40f-343a0d003224"
+            },
+            "createdOn": "2021-02-17T19:20:23Z"
+        }
 ```
 
 ## <a name="real-time-signaling"></a>Segnalazione in tempo reale 

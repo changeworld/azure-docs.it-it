@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 46a60642e177a2bfb9e8fb996427ea45f6777468
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655476"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652786"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -68,6 +68,10 @@ Ad esempio, nello scenario di importazione, se si dispone dei dati di origine in
 2. Una volta eseguita la copia dei dati locale nella Data Box, ripristinare il dispositivo nel Data Center di Azure in Canada. I dati presenti nel Data Box vengono quindi caricati nell'account di archiviazione di destinazione nell'area di Azure del Canada scelto durante la creazione dell'ordine.
 
 3. È quindi possibile usare uno strumento come AzCopy per copiare i dati in un account di archiviazione negli Stati Uniti occidentali. Questo passaggio comporta costi di archiviazione e [larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/) [standard](https://azure.microsoft.com/pricing/details/storage/) che non sono inclusi nel data box la fatturazione.
+
+### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>Q. Come è possibile ripristinare i dati in caso di errore di un'intera area?
+
+R. In casi estremi in cui un'area viene persa a causa di un'emergenza significativa, Microsoft può avviare un failover a livello di area. In questo caso non è necessaria alcuna azione da parte dell'utente. L'ordine verrà evaso attraverso l'area di failover se si trova nello stesso paese o limite commerciale. Tuttavia, alcune aree di Azure non hanno un'area abbinata nello stesso confine geografico o commerciale. Se si verifica un'emergenza in una di queste aree, è necessario creare nuovamente l'ordine di Data Box da un'area diversa disponibile e copiare i dati in Azure nella nuova area. Per altre informazioni, vedere [Continuità aziendale e ripristino di emergenza (BCDR): aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
 
 ### <a name="q-who-should-i-contact-if-i-come-across-any-issues-with-data-box"></a>Q. Chi devo contattare se si riscontrano problemi con Data Box?
 R. In caso di problemi con Data Box, [contattare supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md).
@@ -201,7 +205,7 @@ R.  Per velocizzare il processo di copia:
 - Usare più flussi di copia dei dati. Ad esempio, con `Robocopy` usare l'opzione multithreading. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md).
 - Usare più sessioni.
 - Anziché eseguire la copia in una condivisione di rete, in cui le velocità di rete possono limitare la velocità di copia, archiviare i dati localmente nel computer a cui è connessa la Data Box.
-- Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [ `Bluestop` strumento fio](https://ci.appveyor.com/project/axboe/fio) per eseguire il benchmarking delle prestazioni dell'hardware del server. Selezionare la build x86 o x64 più recente, selezionare la scheda **Artefatti** e scaricare il file MSI.
+- Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [ `Bluestop` `FIO` strumento](https://ci.appveyor.com/project/axboe/fio) per eseguire il benchmark delle prestazioni dell'hardware del server. Selezionare la build x86 o x64 più recente, selezionare la scheda **Artefatti** e scaricare il file MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:

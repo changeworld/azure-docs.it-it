@@ -8,19 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/16/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 3205e96bca6ce13afdfe06fede1112e6ddb1ab39
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220701"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653918"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
+
+## <a name="february-2021"></a>2021 febbraio
+
+* I piani tariffari da S0 a S4 verranno ritirati l'8 marzo 2021. Se si dispone di una risorsa Analisi del testo esistente usando il piano tariffario S0-S4, è necessario aggiornarla per usare il piano [tariffario](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)standard.
 
 ## <a name="january-2021"></a>Gennaio 2021
 

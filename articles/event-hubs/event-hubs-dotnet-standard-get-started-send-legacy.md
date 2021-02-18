@@ -1,15 +1,15 @@
 ---
 title: Inviare e ricevere eventi da Hub eventi di Azure usando .NET (obsoleto)
 description: Questo articolo fornisce una procedura dettagliata per la creazione di un'app .NET Core che invia/riceve eventi da e verso hub eventi di Azure usando il vecchio pacchetto Microsoft. Azure. EventHubs.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8819a95364bf41c6f9837c3db31a9800968d096c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7092c3a4c32fe2ad46b71c5a796ac811e4253dbb
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332162"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653092"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Inviare eventi o ricevere eventi da Hub eventi di Azure usando .NET Core (Microsoft. Azure. EventHubs)
 Questa Guida introduttiva illustra come inviare eventi e ricevere eventi da un hub eventi usando la libreria .NET Core **Microsoft. Azure. EventHubs** .

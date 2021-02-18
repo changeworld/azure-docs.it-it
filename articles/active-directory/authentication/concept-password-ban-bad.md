@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743888"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652021"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminare le password non valide usando la protezione Azure Active Directory password
 
@@ -174,7 +174,7 @@ Si consideri l'esempio seguente:
 Il passaggio successivo consiste nell'identificare le eventuali istanze di password escluse presenti nella nuova password normalizzata dell'utente. I punti vengono assegnati in base ai criteri seguenti:
 
 1. A ogni password vietata trovata nella password di un utente viene assegnato un punto.
-1. così come a ogni carattere univoco rimanente.
+1. A ogni carattere rimanente che non fa parte di una password esclusa viene assegnato un punto.
 1. Una password deve essere di almeno cinque (5) punti da accettare.
 
 Per i due scenari di esempio successivi, contoso USA Azure AD la protezione delle password e contiene "contoso" nell'elenco delle password vietate personalizzate. Supponiamo anche che "blank" sia presente nell'elenco globale.

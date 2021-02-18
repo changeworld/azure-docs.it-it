@@ -2,18 +2,18 @@
 title: Domande frequenti su Kubernetes di Azure Arc abilitate
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Questo articolo contiene un elenco di domande frequenti relative ad Azure Arc Enabled Kubernetes
 keywords: Kubernetes, Arc, Azure, contenitori, configurazione, GitOps, domande frequenti
-ms.openlocfilehash: 237b2629b833a63552b172636f46a1ac92e321c0
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561743"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652497"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Domande frequenti-Azure Arc abilitato Kubernetes
 
@@ -35,22 +35,22 @@ Sì, la connessione del cluster AKS-HCI o dei cluster Kubernetes in Azure Stack 
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>Come risolvere le risorse Kubernetes abilitate per Azure Arc scadute?
 
-Il certificato dell'identità del servizio gestito associato al Kuberenetes abilitato per Azure Arc ha una finestra di scadenza di 90 giorni. Una volta scaduto il certificato, la risorsa viene considerata `Expired` e tutte le funzionalità, ad esempio configurazione, monitoraggio e criteri smettono di funzionare in questo cluster. Seguire questa procedura per far funzionare di nuovo il cluster Kubernetes con Azure Arc:
+Il certificato di identità del servizio gestita (MSI) associato al Kubernetes abilitato per Azure Arc ha una finestra di scadenza di 90 giorni. Una volta scaduto il certificato, la risorsa viene considerata `Expired` e tutte le funzionalità, ad esempio la configurazione, il monitoraggio e i criteri, smettono di funzionare in questo cluster. Per far funzionare di nuovo il cluster Kubernetes con Azure Arc:
 
-1. Elimina la risorsa e gli agenti Kubernetes abilitati per Azure Arc nel cluster 
+1. Elimina la risorsa e gli agenti Kubernetes abilitati per Azure Arc nel cluster. 
 
     ```console
     az connectedk8s delete -n <name> -g <resource-group>
     ```
 
-1. Ricreare la risorsa Kubernetes abilitata per Azure Arc distribuendo di nuovo gli agenti nel cluster.
+1. Ricreare la risorsa Kubernetes abilitata per Azure Arc distribuendo gli agenti nel cluster.
     
     ```console
     az connectedk8s connect -n <name> -g <resource-group>
     ```
 
 > [!NOTE]
-> `az connectedk8s delete` eliminerà anche le configurazioni all'inizio del cluster. Dopo `az connectedk8s connect` l'esecuzione, creare nuovamente le configurazioni nel cluster, manualmente o usando criteri di Azure.
+> `az connectedk8s delete` eliminerà anche le configurazioni all'inizio del cluster. Dopo `az connectedk8s connect` l'esecuzione, ricreare le configurazioni nel cluster, manualmente o usando criteri di Azure.
 
 ## <a name="if-i-am-already-using-cicd-pipelines-can-i-still-use-azure-arc-enabled-kubernetes-and-configurations"></a>Se si usano già pipeline di integrazione continua/recapito continuo, è possibile continuare a usare le configurazioni e le Kubernetes abilitate per Azure Arc?
 
@@ -62,9 +62,11 @@ La pipeline CI/CD applica le modifiche solo una volta durante l'esecuzione della
 
 **Applica GitOps su larga scala**
 
-Le pipeline CI/CD sono ideali per le distribuzioni basate su eventi nel cluster Kubernetes, in cui l'evento potrebbe essere un push in un repository git. Tuttavia, la distribuzione della stessa configurazione in tutti i cluster Kubernetes richiede la configurazione manuale della pipeline CI/CD con le credenziali di ognuno di questi cluster Kubernetes. D'altra parte, nel caso di Azure Arc abilitato Kubernetes, dal momento che Azure Resource Manager gestisce le configurazioni, è possibile usare i criteri di Azure per automatizzare l'applicazione della configurazione desiderata in tutti i cluster Kubernetes in un ambito di sottoscrizione o di gruppo di risorse in un'unica azione. Questa funzionalità è applicabile anche alle risorse Kubernetes abilitate per Azure Arc create dopo l'assegnazione dei criteri.
+Le pipeline CI/CD sono utili per le distribuzioni basate su eventi nel cluster Kubernetes (ad esempio, un push in un repository git). Tuttavia, se si vuole distribuire la stessa configurazione in tutti i cluster Kubernetes, è necessario configurare manualmente le credenziali di ogni cluster Kubernetes per la pipeline CI/CD. 
 
-La funzionalità di configurazione viene usata per applicare configurazioni di base come i criteri di rete, le associazioni di ruolo e i criteri di sicurezza pod nell'intero inventario dei cluster Kubernetes per i requisiti di conformità e governance.
+Per Azure Arc Enabled Kubernetes, poiché Azure Resource Manager gestisce le configurazioni, è possibile automatizzare la creazione della stessa configurazione in tutte le risorse Kubernetes abilitate per Azure ARC usando criteri di Azure, nell'ambito di una sottoscrizione o di un gruppo di risorse. Questa funzionalità è applicabile anche alle risorse Kubernetes abilitate per Azure Arc create dopo l'assegnazione dei criteri.
+
+Questa funzionalità applica le configurazioni di base (ad esempio i criteri di rete, le associazioni di ruolo e i criteri di sicurezza Pod) nell'intero inventario cluster Kubernetes per soddisfare i requisiti di conformità e governance.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

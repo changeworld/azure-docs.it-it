@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: da47967b719b5ce601d8049f54597c207ea732c8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d8c6a9cc000d307490745b923a1f1ba6c93abf53
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372035"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652225"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Distribuire modelli di Machine Learning in Azure
 
@@ -325,6 +325,14 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 
 > [!TIP]
 > Quando si distribuiscono, le immagini Docker per le destinazioni di calcolo vengono compilate e caricate da Azure Container Registry (ACR). Per impostazione predefinita, Azure Machine Learning crea un ACR che usa il livello di servizio *Basic* . La modifica dell'ACR per l'area di lavoro nel livello standard o Premium può ridurre il tempo necessario per compilare e distribuire immagini nelle destinazioni di calcolo. Per altre informazioni, vedere [Livelli di servizio di Registro Azure Container](../container-registry/container-registry-skus.md).
+
+> [!NOTE]
+> Se si distribuisce un modello in Azure Kubernetes Service (AKS), si consiglia di abilitare [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) per quel cluster. Ciò consentirà di comprendere l'integrità complessiva del cluster e l'utilizzo delle risorse. È anche possibile trovare le risorse seguenti utili:
+>
+> * [Verificare la presenza di eventi di Integrità risorse che incidono sul cluster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
+> * [Diagnostica del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+>
+> Se si sta provando a distribuire un modello in un cluster non integro o di overload, è previsto che si verifichino problemi. Per informazioni sulla risoluzione dei problemi del cluster AKS, contattare il supporto di AKS.
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferenza batch
 Azure Machine Learning le destinazioni di calcolo vengono create e gestite da Azure Machine Learning. Possono essere usati per la stima in batch da Azure Machine Learning pipeline.

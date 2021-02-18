@@ -3,12 +3,12 @@ title: Sintassi di azione SQL della regola di sottoscrizione del bus di servizio
 description: Questo articolo fornisce un riferimento per la sintassi dell'azione della regola SQL. Le azioni vengono scritte nella sintassi basata sul linguaggio SQL eseguita su un messaggio.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742684"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652837"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintassi di azione SQL della regola di sottoscrizione
 
@@ -55,7 +55,7 @@ Un' *azione SQL* viene utilizzata per modificare i metadati del messaggio dopo c
   
 -   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il valore `sys` indica l'ambito del sistema. In questo caso, `<property_name>` sarà il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente. In questo caso, `<property_name>` sarà una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` l'ambito è l'ambito predefinito se `<scope>` non è specificato.  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 Un tentativo di accedere a una proprietà di sistema inesistente è un errore, mentre un tentativo di accedere a una proprietà utente inesistente non è un errore. Una proprietà utente inesistente viene invece valutata internamente come valore sconosciuto. Un valore sconosciuto viene gestito in modo speciale durante la valutazione degli operatori.  
   
@@ -107,7 +107,7 @@ Un tentativo di accedere a una proprietà di sistema inesistente è un errore, m
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
  `<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE      e può contenere i caratteri jolly seguenti.  
   
@@ -122,7 +122,7 @@ Un tentativo di accedere a una proprietà di sistema inesistente è un errore, m
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
  `<escape_char>` deve essere un'espressione valutata come stringa di lunghezza 1. Viene usato come carattere di escape per l'operatore LIKE.  
   
@@ -171,7 +171,7 @@ Un tentativo di accedere a una proprietà di sistema inesistente è un errore, m
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
 Le costanti booleane sono rappresentate dalle parole chiave `TRUE` e `FALSE`. I valori sono archiviati come `System.Boolean`.  
   
@@ -181,7 +181,7 @@ Le costanti booleane sono rappresentate dalle parole chiave `TRUE` e `FALSE`. I 
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
 Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qualsiasi carattere Unicode valido. Le virgolette singole incorporate in una costante di tipo stringa sono rappresentate con due virgolette singole.  
   
@@ -193,13 +193,14 @@ Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qu
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 La `newid()` funzione restituisce un oggetto `System.Guid` generato dal `System.Guid.NewGuid()` metodo.  
   
 La funzione `property(name)` restituisce il valore della proprietà a cui viene fatto riferimento con `name`. Il valore di `name` può essere qualsiasi espressione valida che restituisce un valore stringa.  
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Esempio
+Per esempi, vedere [esempi di filtro del bus di servizio](service-bus-filter-examples.md).
   
 ## <a name="considerations"></a>Considerazioni
 

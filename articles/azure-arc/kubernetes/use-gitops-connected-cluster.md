@@ -2,22 +2,22 @@
 title: Distribuire le configurazioni usando GitOps nei cluster Kubernetes con abilitazione di Azure Arc (anteprima)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Usare GitOps per configurare un cluster Kubernetes abilitato per Azure Arc (anteprima)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, container
-ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b30ecde0e128a955967638828dcb7bec008205ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560170"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652480"
 ---
 # <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Distribuire le configurazioni con GitOps in un cluster Kubernetes abilitato per l'arco (anteprima)
 
-Questo articolo illustra l'applicazione delle configurazioni in un cluster Kubernetes abilitato per Azure Arc. Una panoramica concettuale dello stesso si trova [qui](./conceptual-configurations.md).
+Questo articolo illustra l'applicazione delle configurazioni in un cluster Kubernetes abilitato per Azure Arc. Per un'operazione concettuale su questo processo, vedere l' [articolo configurazioni e GitOps-Azure Arc Enabled Kubernetes](./conceptual-configurations.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -85,13 +85,13 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
   ```
 
-#### <a name="use-a-public-git-repo"></a>Usare un repository git pubblico
+#### <a name="use-a-public-git-repository"></a>Usare un repository git pubblico
 
 | Parametro | Format |
 | ------------- | ------------- |
 | `--repository-url` | http [s]://server/repo [. git] o git://server/repo [. git]
 
-#### <a name="use-a-private-git-repo-with-ssh-and-flux-created-keys"></a>Usare un repository git privato con chiavi SSH e create da Flux
+#### <a name="use-a-private-git-repository-with-ssh-and-flux-created-keys"></a>Usare un repository git privato con chiavi SSH e create da Flux
 
 | Parametro | Format | Note
 | ------------- | ------------- | ------------- |
@@ -100,7 +100,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > La chiave pubblica generata da Flux deve essere aggiunta all'account utente nel provider di servizi git. Se la chiave viene aggiunta al repository anziché all'account utente, usare al `git@` posto di `user@` nell'URL. Per altri dettagli, passare alla sezione [applicare la configurazione da un repository git privato](#apply-configuration-from-a-private-git-repository) .
 
-#### <a name="use-a-private-git-repo-with-ssh-and-user-provided-keys"></a>Usare un repository git privato con SSH e chiavi fornite dall'utente
+#### <a name="use-a-private-git-repository-with-ssh-and-user-provided-keys"></a>Usare un repository git privato con SSH e chiavi fornite dall'utente
 
 | Parametro | Format | Note |
 | ------------- | ------------- | ------------- |
@@ -122,7 +122,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > Per autenticare il repository git prima di stabilire la connessione SSH, l'operatore Flux gestisce un elenco di host git comuni nel file hosts noto. Se si usa un repository Git non comune o un host git, potrebbe essere necessario specificare la chiave host per assicurarsi che Flux possa identificare il repository. È possibile fornire il contenuto del known_hosts direttamente o in un file. Usare le [specifiche del formato del contenuto known_hosts](https://aka.ms/KnownHostsFormat) insieme a uno degli scenari chiave SSH descritti in precedenza quando si fornisce contenuto personalizzato.
 
-#### <a name="use-a-private-git-repo-with-https"></a>Usare un repository git privato con HTTPS
+#### <a name="use-a-private-git-repository-with-https"></a>Usare un repository git privato con HTTPS
 
 | Parametro | Format | Note |
 | ------------- | ------------- | ------------- |
@@ -152,8 +152,8 @@ Personalizzare la configurazione con i parametri facoltativi seguenti:
 | Opzione | Descrizione |
 | ------------- | ------------- |
 | `--git-branch`  | Ramo del repository git da usare per i manifesti Kubernetes. Il valore predefinito è "master". I repository più recenti hanno un ramo radice denominato `main` , nel qual caso è necessario impostare `--git-branch=main` . |
-| `--git-path`  | Percorso relativo all'interno del repository Git per permettere a Flux di individuare i manifesti Kubernetes. |
-| `--git-readonly` | Il repository Git verrà considerato di sola lettura. Flux non tenterà di scrivervi. |
+| `--git-path`  | Percorso relativo all'interno del repository Git per il flux per individuare i manifesti Kubernetes. |
+| `--git-readonly` | Il repository git verrà considerato di sola lettura. Il flusso non tenterà di scrivervi. |
 | `--manifest-generation`  | Se abilitato, Flux cercherà solo .flux.yaml ed eseguirà Kustomize o altri generatori di manifesti. |
 | `--git-poll-interval`  | Periodo in cui eseguire il polling del repository Git per i nuovi commit. Il valore predefinito è `5m` (5 minuti). |
 | `--sync-garbage-collection`  | Se abilitato, Flux eliminerà le risorse create, che tuttavia non saranno più presenti in Git. |

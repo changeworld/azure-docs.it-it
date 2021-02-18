@@ -1,18 +1,18 @@
 ---
-title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
-description: Informazioni su come distribuire un cluster vSphere con la soluzione Azure VMware
+title: 'Esercitazione: creare e distribuire un cloud privato della soluzione VMware di Azure'
+description: Informazioni su come creare e distribuire un cloud privato della soluzione VMware di Azure
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8383e987e13e43ea9bc9ba5be196538a259aa8c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093948"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653134"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
+# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Esercitazione: Creare un cloud privato della soluzione Azure VMware
 
-La soluzione Azure VMware consente di distribuire un cluster vSphere in Azure. La distribuzione iniziale minima è di tre host. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster. 
+In questa esercitazione si apprenderà come creare e distribuire un cloud privato della soluzione VMware di Azure. La distribuzione iniziale minima degli host è tre. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster. 
 
 Poiché la soluzione Azure VMware non consente di gestire il cloud privato con l'istanza locale di vCenter all'avvio, è necessario definire una configurazione aggiuntiva. Queste procedure e i prerequisiti correlati verranno illustrati in questa esercitazione.
 
@@ -25,13 +25,10 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Diritti amministrativi appropriati e l'autorizzazione per creare un cloud privato.
+- Diritti amministrativi appropriati e l'autorizzazione per creare un cloud privato. È necessario avere un livello minimo di collaboratore nella sottoscrizione.
+- Per distribuire la soluzione VMware di Azure, seguire le informazioni raccolte nell'articolo sulla [pianificazione](production-ready-deployment-steps.md) .
 - Assicurarsi di avere la rete appropriata configurata come descritto in [Esercitazione: Elenco di controllo per la rete](tutorial-network-checklist.md).
-
-## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
-
+- È stato eseguito il provisioning degli host e il provider di risorse Microsoft. AVS è stato registrato come descritto in [richiedere gli host e abilitare il provider di risorse Microsoft. AVS](enable-azure-vmware-solution.md).
 
 ## <a name="create-a-private-cloud"></a>Creare un cloud privato
 

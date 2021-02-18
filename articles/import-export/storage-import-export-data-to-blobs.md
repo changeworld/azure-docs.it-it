@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b014f81354b2f7eb2fb06de540f16b08206d583e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706528"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652956"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -101,13 +101,13 @@ Per preparare le unità, eseguire le operazioni seguenti.
 Per creare un processo di importazione nel portale di Azure, eseguire le operazioni seguenti.
 
 1. Accedere all'indirizzo https://portal.azure.com/.
-2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione**.
+2. Cercare i **processi di importazione/esportazione**.
 
-    ![Passare a Processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Eseguire ricerche nei processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Fare clic su **Crea processo di importazione/esportazione**.
+3. Selezionare **+ Nuovo**.
 
-    ![Fare clic su Crea processo di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Selezionare nuovo per creare un nuovo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Nozioni di base**:
 
@@ -118,7 +118,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
    * Selezionare una sottoscrizione.
    * Immettere o selezionare un gruppo di risorse.
 
-     ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 5. In **Dettagli processo**:
 
@@ -126,7 +126,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
    * Selezionare l'account di archiviazione di destinazione in cui si troveranno i dati.
    * La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
 
-   ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 6. In **Informazioni sul mittente della spedizione**:
 
@@ -137,14 +137,14 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
        > [!TIP]
        > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
 
-     ![Creare il processo di importazione - Passaggio 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Creare il processo di importazione - Passaggio 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 7. In **Riepilogo**:
 
    * Esaminare le informazioni sul processo fornite nel riepilogo. Prendere nota del nome del processo e dell'indirizzo di spedizione del data center di Azure per rispedire i dischi ad Azure. Queste informazioni verranno usate successivamente sull'etichetta indirizzo.
    * Fare clic su **OK** per creare il processo di importazione.
 
-     ![Creare il processo di importazione - Passaggio 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Creare il processo di importazione - Passaggio 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 

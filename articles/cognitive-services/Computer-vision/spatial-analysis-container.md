@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a43a27a8e880c76ba21639437c0c20f583620d50
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737337"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653619"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -249,7 +249,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Configurare Azure IoT Edge nel computer host
 
-Per distribuire il contenitore di analisi spaziale nel computer host, creare un'istanza di un servizio [Hub Azure](../../iot-hub/iot-hub-create-through-portal.md) per l'uso del piano tariffario standard (S1) o gratuito (F0). Se il computer host è un Azure Stack Edge, usare la stessa sottoscrizione e il gruppo di risorse usato dalla risorsa Azure Stack Edge.
+Per distribuire il contenitore di analisi spaziale nel computer host, creare un'istanza di un servizio [Hub Azure](../../iot-hub/iot-hub-create-through-portal.md) per l'uso del piano tariffario standard (S1) o gratuito (F0). 
 
 Usare l'interfaccia della riga di comando di Azure per creare un'istanza dell'hub Azure. Sostituire i parametri laddove appropriato. In alternativa, è possibile creare l'hub Azure per la [portale di Azure](https://portal.azure.com/).
 
@@ -264,7 +264,7 @@ sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test
 sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
+Sarà necessario installare [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
 
 Ubuntu Server 18.04:
 ```bash
@@ -396,7 +396,73 @@ sudo apt-get install -y docker-ce nvidia-docker2
 sudo systemctl restart docker
 ```
 
-Ora che è stata impostata e configurata la VM, attenersi alla procedura seguente per distribuire il contenitore di analisi spaziale. 
+Ora che è stata impostata e configurata la VM, attenersi alla procedura seguente per configurare Azure IoT Edge. 
+
+## <a name="configure-azure-iot-edge-on-the-vm"></a>Configurare Azure IoT Edge nella macchina virtuale
+
+Per distribuire il contenitore di analisi spaziale nella macchina virtuale, creare un'istanza di un servizio [Hub Azure](../../iot-hub/iot-hub-create-through-portal.md) per l'uso del piano tariffario standard (S1) o gratuito (F0).
+
+Usare l'interfaccia della riga di comando di Azure per creare un'istanza dell'hub Azure. Sostituire i parametri laddove appropriato. In alternativa, è possibile creare l'hub Azure per la [portale di Azure](https://portal.azure.com/).
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo az login
+sudo az account set --subscription <name or ID of Azure Subscription>
+sudo az group create --name "test-resource-group" --location "WestUS"
+
+sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
+
+sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+
+Sarà necessario installare [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
+
+Ubuntu Server 18.04:
+```bash
+curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+```
+
+Copiare l'elenco generato.
+```bash
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+```
+
+Installare la chiave pubblica GPG Microsoft.
+
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+Aggiornare gli elenchi di pacchetti nel dispositivo.
+
+```bash
+sudo apt-get update
+```
+
+Installare la versione di 1.0.9:
+
+```bash
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+```
+
+Registrare quindi la macchina virtuale come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una [stringa di connessione](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
+
+È necessario connettere il dispositivo IoT Edge all'hub Azure. È necessario copiare la stringa di connessione dal dispositivo IoT Edge creato in precedenza. In alternativa, è possibile eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
+
+```bash
+sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+```
+
+Nella macchina virtuale aperta  `/etc/iotedge/config.yaml` per la modifica. Sostituire `ADD DEVICE CONNECTION STRING HERE` con la stringa di connessione. Salvare e chiudere il file. Eseguire questo comando per riavviare il servizio IoT Edge nella macchina virtuale.
+
+```bash
+sudo systemctl restart iotedge
+```
+
+Distribuire il contenitore di analisi spaziale come un modulo Internet delle cose nella macchina virtuale, dal [portale di Azure](../../iot-edge/how-to-deploy-modules-portal.md) o dall'interfaccia della riga di comando di [Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows). Se si usa il portale, impostare l'URI dell'immagine sul percorso del Container Registry di Azure. 
+
+Usare i passaggi seguenti per distribuire il contenitore usando l'interfaccia della riga di comando di Azure.
 
 ---
 
@@ -406,7 +472,7 @@ Per semplificare la distribuzione di contenitori in più computer host, è possi
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | valore | Descrizione|
+| Nome dell'impostazione | Valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|

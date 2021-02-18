@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9dfd950303d1cb838d44ae672fed33dd4cd7b5ec
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c49ee2778d3198cc7109c34bceb1591756d82b1c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381903"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653449"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -38,92 +38,92 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Linguaggio                 | Impostazioni locali (BCP-47) | Personalizzazioni  | [Rilevamento della lingua](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
-| Arabo (Bahrein), standard moderno  | `ar-BH` | Modello linguistico                                   | Sì                           | 
-| Arabo (Egitto)                     | `ar-EG` | Modello linguistico                                   | Sì                          |
-| Arabo (Iraq)                      | `ar-IQ` | Modello linguistico                                   |                           |
-| Arabo (Israele)                    | `ar-IL` | Modello linguistico                                   |                           |
-| Arabo (Giordania)                    | `ar-JO` | Modello linguistico                                   |                           |
-| Arabo (Kuwait)                    | `ar-KW` | Modello linguistico                                   |                           |
-| Arabo (Libano)                   | `ar-LB` | Modello linguistico                                   |                           |
-| Arabo (Oman)                      | `ar-OM` | Modello linguistico                                   |                           |
-| Arabo (Qatar)                     | `ar-QA` | Modello linguistico                                   |                           |
-| Arabo (Arabia Saudita)              | `ar-SA` | Modello linguistico                                   | Sì                          |
-| Arabo (stato della Palestina)        | `ar-PS` | Modello linguistico                                   |                           |
-| Arabo (Siria)                     | `ar-SY` | Modello linguistico                                   | Sì                          |
-| Arabo (Emirati Arabi Uniti)      | `ar-AE` | Modello linguistico                                   |                           |
-| Bulgaro (Bulgaria)               | `bg-BG` | Modello linguistico                                   |                           |
-| Catalano (Spagna)                    | `ca-ES` | Modello linguistico                                   | Sì                          |
-| Cinese (cantonese, tradizionale)   | `zh-HK` | Modello acustico (20201015)<br>Modello linguistico                 |        Sì                   |
-| Cinese (mandarino, semplificato)     | `zh-CN` | Modello acustico (20200910)<br>Modello linguistico                 |     Sì                      |
-| Cinese (mandarino taiwanese)       | `zh-TW` | Modello acustico (20190701, 20201015)<br>Modello linguistico                 |           Sì                |
-| Croato (Croazia)                 | `hr-HR` | Modello linguistico                                   |                           |
-| Ceco (Repubblica Ceca)             | `cs-CZ` | Modello linguistico                                   |                           |
-| Danese (Danimarca)                   | `da-DK` | Modello linguistico                                   | Sì                          |
-| Olandese (Paesi Bassi)                | `nl-NL` | Modello acustico (20201015)<br>Modello linguistico                                   |    Sì                       |
-| Inglese (Australia)                | `en-AU` | Modello acustico (20201019)<br>Modello linguistico                 | Sì                          |
-| Inglese (Canada)                   | `en-CA` | Modello acustico (20201019)<br>Modello linguistico                 | Sì                          |
-| Inglese (Hong Kong)                | `en-HK` | Modello linguistico                                   |                           |
-| Inglese (India)                    | `en-IN` | Modello acustico (20200923)<br>Modello linguistico                 | Sì                          |
-| Inglese (Irlanda)                  | `en-IE` | Modello linguistico                                   |                           |
-| Inglese (Nuova Zelanda)              | `en-NZ` | Modello acustico (20201019)<br>Modello linguistico                 |  Sì                         |
-| Inglese (Nigeria)                  | `en-NG` | Modello linguistico                                   |                           |
-| Inglese (Filippine)              | `en-PH` | Modello linguistico                                   |                           |
-| Inglese (Singapore)                | `en-SG` | Modello linguistico                                   |                           |
-| Inglese (Sudafrica)             | `en-ZA` | Modello linguistico                                   |                           |
-| Inglese (Regno Unito)           | `en-GB` | Modello acustico (20201019)<br>Modello linguistico<br>Pronuncia| Sì                          |
-| Inglese (Stati Uniti)            | `en-US` | Modello acustico (20201019)<br>Modello linguistico<br>Pronuncia| Sì                          |
-| Estone (Estonia)                  | `et-EE` | Modello linguistico                                   |                           |
-| Finlandese (Finlandia)                  | `fi-FI` | Modello linguistico                                   |     Sì                      |
-| Francese (Canada)                    | `fr-CA` | Modello acustico (20201015)<br>Modello linguistico                 |     Sì                      |
-| Francese (Francia)                    | `fr-FR` | Modello acustico (20201015)<br>Modello linguistico<br>Pronuncia|      Sì                     |
-| Tedesco (Germania)                   | `de-DE` | Modello acustico (20190701, 20200619, 20201127)<br>Modello linguistico<br>Pronuncia|  Sì                         |
-| Greco (Grecia)                     | `el-GR` | Modello linguistico                                   |                           |
-| Gujarati (India)                  | `gu-IN` | Modello linguistico                                   |                           |
-| Hindi (India)                      | `hi-IN` | Modello acustico (20200701)<br>Modello linguistico                 |     Sì                      |
-| Ungherese (Ungheria)                | `hu-HU` | Modello linguistico                                   |                           |
-| Irlandese (Irlanda)                     | `ga-IE` | Modello linguistico                                   |                           |
-| Italiano (Italia)                    | `it-IT` | Modello acustico (20201016)<br>Modello linguistico<br>Pronuncia|      Sì                     |
-| Giapponese (Giappone)                   | `ja-JP` | Modello linguistico                                   |      Sì                     |
-| Coreano (Corea)                     | `ko-KR` | Modello acustico (20201015)<br>Modello linguistico                 |      Sì                     |
-| Lettone (Lettonia)                   | `lv-LV` | Modello linguistico                                   |                           |
-| Lituano (Lituania)             | `lt-LT` | Modello linguistico                                   |                           |
-| Maltese (Malta)                     | `mt-MT` | Modello linguistico                                   |                           |
-| Marathi (India)                    | `mr-IN` | Modello linguistico                                   |                           |
-| Norvegese (Bokmål, Norvegia)         | `nb-NO` | Modello linguistico                                   |     Sì                      |
-| Polacco (Polonia)                    | `pl-PL` | Modello linguistico                                   |       Sì                    |
-| Portoghese (Brasile)                | `pt-BR` | Modello acustico (20190620, 20201015)<br>Modello linguistico<br>Pronuncia|          Sì                 |
-| Portoghese (Portogallo)              | `pt-PT` | Modello linguistico                                   |             Sì              |
-| Romeno (Romania)                 | `ro-RO` | Modello linguistico                                   |                           |
-| Russo (Russia)                   | `ru-RU` | Modello acustico (20200907)<br>Modello linguistico                 |                Sì           |
-| Slovacco (Slovacchia)                  | `sk-SK` | Modello linguistico                                   |                           |
-| Sloveno (Slovenia)               | `sl-SI` | Modello linguistico                                   |                           |
-| Spagnolo (Argentina)                | `es-AR` | Modello linguistico                                   |                           |
-| Spagnolo (Bolivia)                  | `es-BO` | Modello linguistico                                   |                           |
-| Spagnolo (Cile)                    | `es-CL` | Modello linguistico                                   |                           |
-| Spagnolo (Colombia)                 | `es-CO` | Modello linguistico                                   |                           |
-| Spagnolo (Costa Rica)               | `es-CR` | Modello linguistico                                   |                           |
-| Spagnolo (Cuba)                     | `es-CU` | Modello linguistico                                   |                           |
-| Spagnolo (Repubblica dominicana)       | `es-DO` | Modello linguistico                                   |                           |
-| Spagnolo (Ecuador)                  | `es-EC` | Modello linguistico                                   |                           |
-| Spagnolo (El Salvador)              | `es-SV` | Modello linguistico                                   |                           |
-| Spagnolo (Guinea Equatoriale)        | `es-GQ` | Modello linguistico                                   |                           |
-| Spagnolo (Guatemala)                | `es-GT` | Modello linguistico                                   |                           |
-| Spagnolo (Honduras)                 | `es-HN` | Modello linguistico                                   |                           |
-| Spagnolo (Messico)                   | `es-MX` | Modello acustico (20200907)<br>Modello linguistico                 |    Sì                       |
-| Spagnolo (Nicaragua)                | `es-NI` | Modello linguistico                                   |                           |
-| Spagnolo (Panama)                   | `es-PA` | Modello linguistico                                   |                           |
-| Spagnolo (Paraguay)                 | `es-PY` | Modello linguistico                                   |                           |
-| Spagnolo (Perù)                     | `es-PE` | Modello linguistico                                   |                           |
-| Spagnolo (Puerto Rico)              | `es-PR` | Modello linguistico                                   |                           |
-| Spagnolo (Spagna)                    | `es-ES` | Modello acustico (20201015)<br>Modello linguistico                 |  Sì                         |
-| Spagnolo (Uruguay)                  | `es-UY` | Modello linguistico                                   |                           |
-| Spagnolo (Stati Uniti)                      | `es-US` | Modello linguistico                                   |                           |
-| Spagnolo (Venezuela)                | `es-VE` | Modello linguistico                                   |                           |
-| Svedese (Svezia)                   | `sv-SE` | Modello linguistico                                   |   Sì                        |
-| Tamil (India)                      | `ta-IN` | Modello linguistico                                   |                           |
-| Telugu (India)                     | `te-IN` | Modello linguistico                                   |                           |
-| Thai (Thailandia)                    | `th-TH` | Modello linguistico                                   |      Sì                     |
-| Turco (Turchia)                   | `tr-TR` | Modello linguistico                                   |                           |
+| Arabo (Bahrein), standard moderno  | `ar-BH` | Testo                                   | Sì                           | 
+| Arabo (Egitto)                     | `ar-EG` | Testo                                   | Sì                          |
+| Arabo (Iraq)                      | `ar-IQ` | Testo                                   |                           |
+| Arabo (Israele)                    | `ar-IL` | Testo                                   |                           |
+| Arabo (Giordania)                    | `ar-JO` | Testo                                   |                           |
+| Arabo (Kuwait)                    | `ar-KW` | Testo                                   |                           |
+| Arabo (Libano)                   | `ar-LB` | Testo                                   |                           |
+| Arabo (Oman)                      | `ar-OM` | Testo                                   |                           |
+| Arabo (Qatar)                     | `ar-QA` | Testo                                   |                           |
+| Arabo (Arabia Saudita)              | `ar-SA` | Testo                                   | Sì                          |
+| Arabo (stato della Palestina)        | `ar-PS` | Testo                                   |                           |
+| Arabo (Siria)                     | `ar-SY` | Testo                                   | Sì                          |
+| Arabo (Emirati Arabi Uniti)      | `ar-AE` | Testo                                   |                           |
+| Bulgaro (Bulgaria)               | `bg-BG` | Testo                                   |                           |
+| Catalano (Spagna)                    | `ca-ES` | Testo                                   | Sì                          |
+| Cinese (cantonese, tradizionale)   | `zh-HK` | Audio (20201015)<br>Testo                 |        Sì                   |
+| Cinese (mandarino, semplificato)     | `zh-CN` | Audio (20200910)<br>Testo                 |     Sì                      |
+| Cinese (mandarino taiwanese)       | `zh-TW` | Audio (20190701, 20201015)<br>Testo                 |           Sì                |
+| Croato (Croazia)                 | `hr-HR` | Testo                                   |                           |
+| Ceco (Repubblica Ceca)             | `cs-CZ` | Testo                                   |                           |
+| Danese (Danimarca)                   | `da-DK` | Testo                                   | Sì                          |
+| Olandese (Paesi Bassi)                | `nl-NL` | Audio (20201015)<br>Testo                                   |    Sì                       |
+| Inglese (Australia)                | `en-AU` | Audio (20201019)<br>Testo                 | Sì                          |
+| Inglese (Canada)                   | `en-CA` | Audio (20201019)<br>Testo                 | Sì                          |
+| Inglese (Hong Kong)                | `en-HK` | Testo                                   |                           |
+| Inglese (India)                    | `en-IN` | Audio (20200923)<br>Testo                 | Sì                          |
+| Inglese (Irlanda)                  | `en-IE` | Testo                                   |                           |
+| Inglese (Nuova Zelanda)              | `en-NZ` | Audio (20201019)<br>Testo                 |  Sì                         |
+| Inglese (Nigeria)                  | `en-NG` | Testo                                   |                           |
+| Inglese (Filippine)              | `en-PH` | Testo                                   |                           |
+| Inglese (Singapore)                | `en-SG` | Testo                                   |                           |
+| Inglese (Sudafrica)             | `en-ZA` | Testo                                   |                           |
+| Inglese (Regno Unito)           | `en-GB` | Audio (20201019)<br>Testo<br>Pronuncia| Sì                          |
+| Inglese (Stati Uniti)            | `en-US` | Audio (20201019)<br>Testo<br>Pronuncia| Sì                          |
+| Estone (Estonia)                  | `et-EE` | Testo                                   |                           |
+| Finlandese (Finlandia)                  | `fi-FI` | Testo                                   |     Sì                      |
+| Francese (Canada)                    | `fr-CA` | Audio (20201015)<br>Testo                 |     Sì                      |
+| Francese (Francia)                    | `fr-FR` | Audio (20201015)<br>Testo<br>Pronuncia|      Sì                     |
+| Tedesco (Germania)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Testo<br>Pronuncia|  Sì                         |
+| Greco (Grecia)                     | `el-GR` | Testo                                   |                           |
+| Gujarati (India)                  | `gu-IN` | Testo                                   |                           |
+| Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Testo                 |     Sì                      |
+| Ungherese (Ungheria)                | `hu-HU` | Testo                                   |                           |
+| Irlandese (Irlanda)                     | `ga-IE` | Testo                                   |                           |
+| Italiano (Italia)                    | `it-IT` | Audio (20201016)<br>Testo<br>Pronuncia|      Sì                     |
+| Giapponese (Giappone)                   | `ja-JP` | Testo                                   |      Sì                     |
+| Coreano (Corea)                     | `ko-KR` | Audio (20201015)<br>Testo                 |      Sì                     |
+| Lettone (Lettonia)                   | `lv-LV` | Testo                                   |                           |
+| Lituano (Lituania)             | `lt-LT` | Testo                                   |                           |
+| Maltese (Malta)                     | `mt-MT` | Testo                                   |                           |
+| Marathi (India)                    | `mr-IN` | Testo                                   |                           |
+| Norvegese (Bokmål, Norvegia)         | `nb-NO` | Testo                                   |     Sì                      |
+| Polacco (Polonia)                    | `pl-PL` | Testo                                   |       Sì                    |
+| Portoghese (Brasile)                | `pt-BR` | Audio (20190620, 20201015)<br>Testo<br>Pronuncia|          Sì                 |
+| Portoghese (Portogallo)              | `pt-PT` | Testo                                   |             Sì              |
+| Romeno (Romania)                 | `ro-RO` | Testo                                   |                           |
+| Russo (Russia)                   | `ru-RU` | Audio (20200907)<br>Testo                 |                Sì           |
+| Slovacco (Slovacchia)                  | `sk-SK` | Testo                                   |                           |
+| Sloveno (Slovenia)               | `sl-SI` | Testo                                   |                           |
+| Spagnolo (Argentina)                | `es-AR` | Testo                                   |                           |
+| Spagnolo (Bolivia)                  | `es-BO` | Testo                                   |                           |
+| Spagnolo (Cile)                    | `es-CL` | Testo                                   |                           |
+| Spagnolo (Colombia)                 | `es-CO` | Testo                                   |                           |
+| Spagnolo (Costa Rica)               | `es-CR` | Testo                                   |                           |
+| Spagnolo (Cuba)                     | `es-CU` | Testo                                   |                           |
+| Spagnolo (Repubblica dominicana)       | `es-DO` | Testo                                   |                           |
+| Spagnolo (Ecuador)                  | `es-EC` | Testo                                   |                           |
+| Spagnolo (El Salvador)              | `es-SV` | Testo                                   |                           |
+| Spagnolo (Guinea Equatoriale)        | `es-GQ` | Testo                                   |                           |
+| Spagnolo (Guatemala)                | `es-GT` | Testo                                   |                           |
+| Spagnolo (Honduras)                 | `es-HN` | Testo                                   |                           |
+| Spagnolo (Messico)                   | `es-MX` | Audio (20200907)<br>Testo                 |    Sì                       |
+| Spagnolo (Nicaragua)                | `es-NI` | Testo                                   |                           |
+| Spagnolo (Panama)                   | `es-PA` | Testo                                   |                           |
+| Spagnolo (Paraguay)                 | `es-PY` | Testo                                   |                           |
+| Spagnolo (Perù)                     | `es-PE` | Testo                                   |                           |
+| Spagnolo (Puerto Rico)              | `es-PR` | Testo                                   |                           |
+| Spagnolo (Spagna)                    | `es-ES` | Audio (20201015)<br>Testo                 |  Sì                         |
+| Spagnolo (Uruguay)                  | `es-UY` | Testo                                   |                           |
+| Spagnolo (Stati Uniti)                      | `es-US` | Testo                                   |                           |
+| Spagnolo (Venezuela)                | `es-VE` | Testo                                   |                           |
+| Svedese (Svezia)                   | `sv-SE` | Testo                                   |   Sì                        |
+| Tamil (India)                      | `ta-IN` | Testo                                   |                           |
+| Telugu (India)                     | `te-IN` | Testo                                   |                           |
+| Thai (Thailandia)                    | `th-TH` | Testo                                   |      Sì                     |
+| Turco (Turchia)                   | `tr-TR` | Testo                                   |                           |
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 

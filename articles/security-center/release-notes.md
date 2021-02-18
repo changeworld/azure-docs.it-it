@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379022"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634261"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -35,11 +35,29 @@ Per informazioni sulle modifiche *pianificate* che saranno presto disponibili ne
 
 Gli aggiornamenti in febbraio includono:
 
+- [Nuova pagina degli avvisi di sicurezza nel portale di Azure rilasciato per la disponibilità generale (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Consigli sulla protezione del carico di lavoro Kubernetes rilasciati per la disponibilità generale (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Collegamento diretto ai criteri dalla pagina dei dettagli delle raccomandazioni](#direct-link-to-policy-from-recommendation-details-page)
 - [La raccomandazione per la classificazione dati SQL non influisca più sul punteggio sicuro](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Le automazione dei flussi di lavoro possono essere attivate dalle modifiche apportate alle valutazioni di conformità normative (anteprima)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 - [Miglioramenti della pagina inventario asset](#asset-inventory-page-enhancements)
+
+
+### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nuova pagina degli avvisi di sicurezza nel portale di Azure rilasciato per la disponibilità generale (GA)
+
+La pagina Avvisi di sicurezza del Centro sicurezza di Azure è stata riprogettata per offrire:
+
+- **Miglioramento dell'esperienza di valutazione per gli avvisi** : per ridurre la fatica degli avvisi e concentrarsi sulle minacce più rilevanti, l'elenco include i filtri personalizzabili e le opzioni di raggruppamento.
+- **Altre informazioni nell'elenco degli avvisi** , ad esempio MITRE att&tattiche ACK.
+- **Pulsante per creare avvisi di esempio** : per valutare le funzionalità di Azure Defender e testare gli avvisi. configurazione (per l'integrazione SIEM, le notifiche tramite posta elettronica e le automazione dei flussi di lavoro), è possibile creare avvisi di esempio da tutti i piani di Azure Defender.
+- **Allineamento con l'esperienza dell'evento imprevisto di Sentinel di Azure** : per i clienti che usano entrambi i prodotti, il cambio tra di essi è ora un'esperienza più semplice ed è facile impararne una dall'altra.
+- **Prestazioni migliori** per gli elenchi di avvisi di grandi dimensioni.
+- **Navigazione tramite tastiera** nell'elenco degli avvisi.
+- **Avvisi di Azure Resource Graph**: è possibile eseguire query sugli avvisi in Azure Resource Graph, l'API di tipo Kusto per tutte le risorse. Questa funzionalità è utile anche per creare dashboard di avvisi personalizzati. Vedere [altre informazioni su Azure Resource Graph](../governance/resource-graph/index.yml).
+- **Creazione della funzionalità avvisi di esempio** : per creare avvisi di esempio dalla nuova esperienza avvisi, vedere [generare avvisi di Azure Defender di esempio](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Elenco degli avvisi di sicurezza del Centro sicurezza di Azure":::
+
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Consigli sulla protezione del carico di lavoro Kubernetes rilasciati per la disponibilità generale (GA)
 

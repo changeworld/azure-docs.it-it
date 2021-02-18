@@ -4,16 +4,16 @@ description: I clienti che necessitano di assistenza possono usare il portale di
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745588"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652395"
 ---
 # <a name="create-an-azure-support-request"></a>Creare una richiesta di supporto in Azure
 
-Azure consente di creare e gestire richieste di supporto, note anche come ticket di supporto. È possibile creare e gestire le richieste nel [portale di Azure](https://portal.azure.com), come illustrato in questo articolo. È anche possibile creare e gestire le richieste a livello programmatico, mediante l'[API REST per i ticket di supporto tecnico di Azure](/rest/api/support).
+Azure consente di creare e gestire richieste di supporto, note anche come ticket di supporto. È possibile creare e gestire le richieste nel [portale di Azure](https://portal.azure.com), come illustrato in questo articolo. È anche possibile creare e gestire le richieste a livello di codice, usando l' [API REST del ticket di supporto di Azure](/rest/api/support)o tramite l'interfaccia della riga di comando di [Azure](/cli/azure/azure-cli-support-request).
 
 > [!NOTE]
 > L'URL del portale di Azure è specifico per il cloud di Azure in cui viene distribuita l'organizzazione.

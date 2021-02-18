@@ -1,37 +1,91 @@
 ---
 title: Output nei modelli
-description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager (modello ARM).
+description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager (modello ARM) e un file bicipite.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/17/2021
+ms.openlocfilehash: 0371a5293b302a2eb0febb010fc16caa8355eb18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964015"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653799"
 ---
 # <a name="outputs-in-arm-templates"></a>Output nei modelli ARM
 
-Questo articolo descrive come definire i valori di output nel modello di Azure Resource Manager (modello ARM). Usare `outputs` quando è necessario restituire i valori dalle risorse distribuite.
+Questo articolo descrive come definire i valori di output nel modello di Azure Resource Manager (modello ARM) e nel file bicipite. Gli output vengono usati quando è necessario restituire valori dalle risorse distribuite.
 
-Il formato di ogni valore di output deve corrispondere a uno dei [tipi di dati](template-syntax.md#data-types).
+Il formato di ogni valore di output deve essere risolto in uno dei [tipi di dati](template-syntax.md#data-types).
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="define-output-values"></a>Definire i valori di output
 
-L'esempio seguente illustra come restituire l'ID risorsa per un indirizzo IP pubblico:
+Nell'esempio seguente viene illustrato come restituire una proprietà da una risorsa distribuita.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+Per JSON, aggiungere la `outputs` sezione al modello. Il valore di output ottiene il nome di dominio completo per un indirizzo IP pubblico.
 
 ```json
 "outputs": {
-  "resourceID": {
-    "type": "string",
-    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-  }
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
 }
 ```
 
+Se è necessario restituire una proprietà con un trattino nel nome, usare le parentesi quadre intorno al nome anziché alla notazione del punto. Ad esempio, usare  `['property-name']` anziché `.property-name` .
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "user": {
+            "user-name": "Test Person"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "nameResult": {
+            "type": "string",
+            "value": "[variables('user')['user-name']]"
+        }
+    }
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Per bicipite, usare la `output` parola chiave.
+
+Nell'esempio seguente `publicIP` è il nome simbolico di un indirizzo IP pubblico distribuito nel file bicipite. Il valore di output ottiene il nome di dominio completo per l'indirizzo IP pubblico.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+Se è necessario restituire una proprietà con un trattino nel nome, usare le parentesi quadre intorno al nome anziché alla notazione del punto. Ad esempio, usare  `['property-name']` anziché `.property-name` .
+
+```bicep
+var user = {
+  'user-name': 'Test Person'
+}
+
+output stringOutput string = user['user-name']
+```
+
+---
+
 ## <a name="conditional-output"></a>Output condizionale
 
-Nella `outputs` sezione è possibile restituire un valore in modo condizionale. In genere si usa `condition` in `outputs` quando si [distribuisce](conditional-resource-deployment.md) una risorsa in modo condizionale. Nell'esempio seguente viene illustrato come restituire in modo condizionale l'ID risorsa per un indirizzo IP pubblico a seconda che sia stato distribuito un nuovo:
+È possibile restituire un valore in modo condizionale. In genere si usa un output condizionale quando si [distribuisce](conditional-resource-deployment.md) una risorsa in modo condizionale. Nell'esempio seguente viene illustrato come restituire in modo condizionale l'ID risorsa per un indirizzo IP pubblico a seconda che sia stato distribuito un nuovo:
+
+# <a name="json"></a>[JSON](#tab/json)
+
+In JSON aggiungere l' `condition` elemento per definire se l'output viene restituito.
 
 ```json
 "outputs": {
@@ -43,11 +97,44 @@ Nella `outputs` sezione è possibile restituire un valore in modo condizionale. 
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+L'output condizionale non è attualmente disponibile per il bicipite.
+
+Tuttavia, è possibile usare l' `?` operatore per restituire uno di due valori a seconda di una condizione.
+
+```bicep
+param deployStorage bool = true
+param storageName string
+param location string = resourceGroup().location
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (deployStorage) {
+  name: storageName
+  location: location
+  kind: 'StorageV2'
+  sku:{
+    name:'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+
+output endpoint string = deployStorage ? sa.properties.primaryEndpoints.blob : ''
+```
+
+---
+
 Per un esempio semplice di output condizionale, vedere [modello di output condizionale](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
 ## <a name="dynamic-number-of-outputs"></a>Numero dinamico di output
 
-In alcuni scenari non si conosce il numero di istanze di un valore che è necessario restituire quando si crea il modello. È possibile restituire un numero variabile di valori usando l' `copy` elemento.
+In alcuni scenari non si conosce il numero di istanze di un valore che è necessario restituire quando si crea il modello. È possibile restituire un numero variabile di valori usando l'output iterativo.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+In JSON aggiungere l' `copy` elemento per eseguire l'iterazione di un output.
 
 ```json
 "outputs": {
@@ -61,17 +148,21 @@ In alcuni scenari non si conosce il numero di istanze di un valore che è necess
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+L'output iterativo non è attualmente disponibile per bicipite.
+
+---
+
 Per altre informazioni, vedere [iterazione di output nei modelli ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Modelli collegati
 
-Per recuperare il valore di output da un modello collegato, usare la funzione [Reference](template-functions-resource.md#reference) nel modello padre. La sintassi nel modello padre è la seguente:
+Nei modelli JSON è possibile distribuire modelli correlati usando [modelli collegati](linked-templates.md). Per recuperare il valore di output da un modello collegato, usare la funzione [Reference](template-functions-resource.md#reference) nel modello padre. La sintassi nel modello padre è la seguente:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
-
-Quando si ottiene una proprietà di output da un modello collegato, il nome della proprietà non può includere un trattino.
 
 Nell'esempio seguente viene illustrato come impostare l'indirizzo IP su un servizio di bilanciamento del carico recuperando un valore da un modello collegato.
 
@@ -81,7 +172,49 @@ Nell'esempio seguente viene illustrato come impostare l'indirizzo IP su un servi
 }
 ```
 
+Se il nome della proprietà presenta un trattino, racchiudere il nome tra parentesi quadre anziché la notazione del punto.
+
+```json
+"publicIPAddress": {
+  "id": "[reference('linkedTemplate').outputs['resource-ID'].value]"
+}
+```
+
 Non è possibile usare la funzione `reference` nella sezione outputs di un [modello annidato](linked-templates.md#nested-template). Per restituire i valori per una risorsa distribuita in un modello annidato, convertire il modello annidato in un modello collegato.
+
+Il [modello di indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) crea un indirizzo IP pubblico e restituisce l'ID della risorsa. Il [modello](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) del servizio di bilanciamento del carico si collega al modello precedente. Usa l'ID risorsa nell'output quando si crea il servizio di bilanciamento del carico.
+
+## <a name="modules"></a>Moduli
+
+Nei file Bicipit è possibile distribuire i modelli correlati usando i moduli. Per recuperare un valore di output da un modulo, usare la sintassi seguente:
+
+```bicep
+<module-name>.outputs.<property-name>
+```
+
+Nell'esempio seguente viene illustrato come impostare l'indirizzo IP su un servizio di bilanciamento del carico recuperando un valore da un modulo. Il nome del modulo è `publicIP` .
+
+```bicep
+publicIPAddress: {
+  id: publicIP.outputs.resourceID
+}
+```
+
+## <a name="example-template"></a>Modello di esempio
+
+Il modello seguente non distribuisce alcuna risorsa. Mostra alcuni modi per restituire output di tipi diversi.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/outputs.json":::
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Il bicipite non supporta attualmente i cicli.
+
+:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/outputs.bicep":::
+
+---
 
 ## <a name="get-output-values"></a>Ottenere i valori di output
 
@@ -107,16 +240,6 @@ az deployment group show \
 ```
 
 ---
-
-## <a name="example-templates"></a>Modelli di esempio
-
-Gli esempi seguenti illustrano gli scenari per l'uso degli output.
-
-|Modello  |Description  |
-|---------|---------|
-|[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crea variabili complesse e restituisce i valori. Non distribuisce alcuna risorsa. |
-|[Indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crea un indirizzo IP pubblico e restituisce l'ID risorsa. |
-|[Bilanciamento del carico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | È collegato al modello precedente. Usa l'ID risorsa nell'output durante la creazione del dispositivo di bilanciamento del carico. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280536"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653075"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servizio di rilevamento anomalie per la fatturazione a consumo
 
@@ -50,32 +50,37 @@ Il modello funziona generando intervalli di confidenza retrospettiva. La previsi
 
 ## <a name="anomaly-detection-notification"></a>Notifica di rilevamento anomalie
 
-Si inviano notifiche di rilevamento di anomalie a cadenza settimanale. Sono incluse tutte le anomalie rilevate in settimana per tutti i contatori e i clienti. Questo messaggio di posta elettronica viene inviato ai contatti di **progettazione** e **supporto** tecnico forniti al momento della creazione dell'offerta.
+È possibile valutare, gestire e confermare le anomalie nel centro per i partner. Per informazioni, vedere [rilevamento delle anomalie per la fatturazione a consumo](../anomaly-detection.md).
 
-Si prevede di esaminare se le anomalie rilevate sono problemi reali e, in tal caso, contattare Microsoft per segnalare l'utilizzo non corretto (vedere la sezione supporto riportata di seguito).
+Per assicurarsi che i clienti non vengano sovraccaricati per l'utilizzo a consumo, è necessario verificare se le anomalie rilevate sono problemi reali. In tal caso, è possibile riconoscere l'utilizzo errato nel centro per i partner.
 
-Se si conferma che le anomalie rilevate sono di normale utilizzo, non è necessario alcun intervento da te. Tuttavia, se un'anomalia rappresenta un rischio finanziario potenzialmente elevato, è possibile che si contatti per confermare l'utilizzo.  
+Si consiglia di verificare se le anomalie rilevate sono di utilizzo normale. Questa operazione consentirà di migliorare i dati di anomalia forniti. Se un'anomalia rappresenta un rischio finanziario potenzialmente elevato, è possibile che si contatti per confermare l'utilizzo.
 
 ## <a name="when-and-how-to-get-support"></a>Quando e come ottenere supporto
 
-Se l'utilizzo di Microsoft è stato inviato in modo errato e questo ha comportato un addebito del cliente, Microsoft non avvierà una fattura per il cliente per l'utilizzo sottoposto a segnalazioni oppure il pagamento dell'utilizzo. L'utente dovrà sostenere la perdita dei ricavi dovuta alla segnalazione di valori di utilizzo inferiori.
+Se è stato inviato un utilizzo errato a consumo che ha fatto o comporterà un addebito per il cliente, non si avvierà una fattura per il cliente per l'utilizzo sottoposto a report o si pagherà per tale utilizzo. L'utente dovrà sostenere la perdita dei ricavi dovuta alla segnalazione di valori di utilizzo inferiori.
 
-Se si verifica uno dei casi seguenti, è possibile aprire un ticket di supporto per richiedere il rimborso o la correzione della fatturazione per i clienti:
+Se si verifica uno dei casi seguenti, è possibile modificare la quantità di utilizzo nel centro per i partner che comporterà un rimborso o una modifica della fatturazione per i clienti:
 
-- Si è verificato che una delle anomalie rilevate è un problema reale e l'utilizzo errato comporta un **addebito** del cliente.
-- Si scopre che è stato inviato un utilizzo errato a Microsoft e l'utilizzo errato comporta un **addebito** del cliente.
-- Si desidera richiedere un rimborso per il costo dell'utilizzo della fatturazione a consumo del cliente.
+- Si è verificato che una delle anomalie rilevate è un problema reale e l'utilizzo errato comporta l'Overcharging del cliente.
+- Si scopre che è stato inviato un utilizzo errato a Microsoft e l'utilizzo errato comporta l'Overcharging del cliente.
 
-Per inviare un ticket:
+Per inviare un ticket di supporto correlato alle anomalie di fatturazione a consumo:
 
-1. Andare alla pagina del supporto. Nella **casella informazioni sul problema**immettere "utilizzo errato".
-2. In argomenti del supporto, nell'elenco a discesa dei risultati della ricerca, selezionare una delle opzioni seguenti:
-    - **Marketplace commerciale**  >  **Fatturazione**  >  a consumo **Uso errato inviato per l'offerta di applicazioni Azure**
-    - **Marketplace commerciale**  >  **Fatturazione**  >  a consumo **Uso errato inviato per l'offerta SaaS**
-3. Nel **passaggio successivo**selezionare il pulsante **verifica soluzioni** per accedere al centro per i partner per inviare un ticket di supporto.
+1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con l'account aziendale.
+1. Nel menu in alto a destra nella pagina selezionare l'icona del **supporto** . Il riquadro **Guida e supporto** viene visualizzato sul lato destro della pagina.
+1. Per informazioni sul Marketplace commerciale, selezionare **Marketplace commerciale**.
+   ![Viene illustrato il riquadro supporto.](../media/support/commercial-marketplace-support-pane.png)
+1. Nella casella **Riepilogo problema** immettere **Marketplace commerciale > fatturazione a consumo**.
+1. Nella casella **tipo di problema** selezionare una delle opzioni seguenti:
+    - **Marketplace commerciale > la fatturazione a consumo > utilizzo errato inviato per l'offerta di applicazioni Azure**
+    - **Marketplace commerciale > la fatturazione a consumo > utilizzo errato inviato per l'offerta SaaS**
+1. Nel **passaggio successivo** selezionare **verifica soluzioni**.
+1. Esaminare i documenti consigliati, se presenti oppure selezionare **Fornisci i dettagli del problema** per inviare un ticket di supporto.
 
 Per altre opzioni di supporto per gli editori, vedere [supporto per il programma Commercial Marketplace nel centro per i partner](../support.md).
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sull' [API del servizio di misurazione del Marketplace](marketplace-metering-service-apis.md).
+- [Rilevamento delle anomalie per la fatturazione a consumo](../anomaly-detection.md)

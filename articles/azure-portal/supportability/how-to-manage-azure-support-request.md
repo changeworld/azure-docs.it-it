@@ -5,16 +5,16 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d6c68dd341e0794a690b41b73ecc4be954db7359
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504815"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653850"
 ---
 # <a name="manage-an-azure-support-request"></a>Gestire una richiesta di supporto in Azure
 
-Dopo aver [creato una richiesta di supporto tecnico di Azure](how-to-create-azure-support-request.md), è possibile gestirla nel [portale di Azure](https://portal.azure.com), come spiegato in questo articolo. È anche possibile creare e gestire le richieste a livello programmatico, mediante l'[API REST per i ticket di supporto tecnico di Azure](/rest/api/support).
+Dopo aver [creato una richiesta di supporto tecnico di Azure](how-to-create-azure-support-request.md), è possibile gestirla nel [portale di Azure](https://portal.azure.com), come spiegato in questo articolo. È anche possibile creare e gestire le richieste a livello di codice, usando l' [API REST del ticket di supporto di Azure](/rest/api/support)o tramite l'interfaccia della riga di comando di [Azure](/cli/azure/azure-cli-support-request).
 
 ## <a name="view-support-requests"></a>Visualizzare le richieste di supporto
 
@@ -68,7 +68,7 @@ Quando si crea una richiesta di supporto, per impostazione predefinita viene sel
     
         :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Concedere le autorizzazioni per le informazioni di diagnostica":::
 
-## <a name="upload-files"></a>Caricare i file
+## <a name="upload-files"></a>Caricare file
 
 È possibile usare l'opzione di caricamento dei file per caricare i file di diagnostica o qualsiasi altro file ritenuto pertinente per una richiesta di supporto.
 
@@ -127,7 +127,7 @@ Se è necessario chiudere una richiesta di supporto, [inviare un messaggio](#sen
 
 Se è necessario riaprire una richiesta di supporto chiusa, creare un [nuovo messaggio](#send-a-message)che riapra automaticamente la richiesta.
 
-## <a name="cancel-a-support-plan"></a>Annulla un piano di supporto
+## <a name="cancel-a-support-plan"></a>Annullare un piano di supporto
 
 Se è necessario annullare un piano di supporto, vedere [annullare un piano di supporto](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
