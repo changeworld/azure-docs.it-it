@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/09/2019
-ms.author: sharadag
+ms.date: 02/18/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89411743"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102938"
 ---
 | Risorsa | Limite |
 | --- | --- |
@@ -35,6 +35,31 @@ ms.locfileid: "89411743"
 | Lunghezza dei nomi di cookie di web application firewall | 256 |
 | Dimensioni analizzate del corpo delle richieste HTTP di web application firewall | 128 KB |
 | Lunghezza del corpo delle risposte personalizzate di web application firewall | 2 KB |
+
+### <a name="azure-front-door-standardpremium-preview-service-limits"></a>Limiti dei servizi di Azure front door standard/Premium (anteprima)
+
+*** *Massimo **500** profili standard e Premium totali per sottoscrizione.*
+
+| Risorsa | Limite SKU standard | Limite SKU Premium |
+| --- | --- | --- |
+| Numero massimo di endpoint per profilo  | 10 | 25 |
+| Massimo dominio personalizzato per profilo | 100 | 200 |
+| Gruppo di origine massimo per profilo | 100 | 200 |
+| Numero massimo di segreti per profilo | 100 | 200 |
+| Numero massimo di criteri di sicurezza per profilo | 100 | 200 |
+| Set di regole massimo per profilo | 100 | 200 |
+| Numero massimo di regole per set di regole | 100 | 100 |
+| Numero massimo di origini per gruppo di origine | 50 | 50 |
+| Numero massimo di route per endpoint | 100 | 200 |
+| Condizioni di corrispondenza di web application firewall per regola personalizzata | 10 | 10 |
+| Intervalli di indirizzi IP di web application firewall per condizione di corrispondenza | 600 | 600 |
+| Valori di corrispondenza stringa di web application firewall per condizione di corrispondenza | 10 | 10 |
+| Lunghezza dei valori di corrispondenza stringa di web application firewall | 256 | 256 |
+| Lunghezza dei nomi dei parametri nel corpo POST di web application firewall | 256 | 256 |
+| Lunghezza dei nomi di intestazioni HTTP di web application firewall | 256 | 256 |
+| Lunghezza dei nomi di cookie di web application firewall | 256 | 256|
+| Dimensioni analizzate del corpo delle richieste HTTP di web application firewall | 128 KB | 128 KB |
+| Lunghezza del corpo delle risposte personalizzate di web application firewall | 2 KB | 2 KB |
 
 ### <a name="timeout-values"></a>Valori di timeout
 #### <a name="client-to-front-door"></a>Da client a Frontdoor
