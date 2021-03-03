@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475642"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682380"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ A scopo dimostrativo, per impostazione predefinita in questo esempio viene usato
 Con la configurazione aggiuntiva, questo esempio supporta la connessione a un endpoint protetto **Azure Active Directory** (Azure ad), in modo che l'accesso utente sia necessario per l'app per recuperare un token di servizi di comunicazione di Azure. Vedere i passaggi seguenti:
 
 1. Abilitare l'autenticazione Azure Active Directory nell'app.  
-   - [Registrare l'app in Azure Active Directory (usando le impostazioni della piattaforma iOS/macOS)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Registrare l'app in Azure Active Directory (usando le impostazioni della piattaforma iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD](../../../app-service/configure-authentication-provider-aad.md)
 2. Passare alla pagina di panoramica dell'app registrata in Azure Active Directory registrazioni per l'app. Prendere nota del `Application (client) ID` , `Directory (tenant) ID` , `Application ID URI`
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory configurazione su portale di Azure.":::

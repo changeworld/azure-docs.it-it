@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 61b3b3abace5c7a1cd846c1e3c1e7ac166efd5c7
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475650"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682432"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 L'**esempio hero di chiamata di gruppo** di Servizi di comunicazione di Azure illustra come usare la libreria client Web Chiamate di Servizi di comunicazione per creare un'esperienza di chiamata di gruppo.
 
 Questa guida di avvio rapido illustra il funzionamento dell'esempio prima che venga eseguito nel computer locale. Si passerà quindi alla distribuzione dell'esempio in Azure tramite le risorse dei Servizi di comunicazione di Azure.
@@ -29,7 +27,7 @@ Trovare il codice finalizzato per questa Guida introduttiva su [GitHub](https://
 
 ## <a name="overview"></a>Panoramica
 
-L'esempio include sia un'applicazione lato client che un'applicazione lato server. L'**applicazione lato client** è un'applicazione Web React/Redux che usa il framework Fluent UI di Microsoft. Questa applicazione invia richieste a un'**applicazione lato server** ASP.NET Core tramite la quale l'applicazione lato client si connette ad Azure. 
+L'esempio include sia un'applicazione lato client che un'applicazione lato server. L'**applicazione lato client** è un'applicazione Web React/Redux che usa il framework Fluent UI di Microsoft. Questa applicazione invia richieste a un'**applicazione lato server** ASP.NET Core tramite la quale l'applicazione lato client si connette ad Azure.
 
 L'esempio ha l'aspetto seguente:
 
@@ -91,7 +89,7 @@ Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[È possibile scaricare l'esempio da GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Per altre informazioni, vedere gli articoli seguenti:

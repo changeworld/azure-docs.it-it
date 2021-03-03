@@ -1,0 +1,170 @@
+---
+title: Come importare un nuovo aggiornamento | Microsoft Docs
+description: Guida How-To per importare un nuovo aggiornamento nell'aggiornamento del dispositivo dell'hub Internet per gli hub Internet.
+author: andbrown
+ms.author: andbrown
+ms.date: 2/11/2021
+ms.topic: how-to
+ms.service: iot-hub-device-update
+ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101663292"
+---
+# <a name="import-new-update"></a>Importa nuovo aggiornamento
+Informazioni su come importare un nuovo aggiornamento nell'aggiornamento del dispositivo per l'hub Internet.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Accesso a un hub Internet delle cose con l'aggiornamento del dispositivo per l'hub](create-device-update-account.md)Internet. Si consiglia di usare un livello S1 (standard) o superiore per l'hub Internet. 
+* Viene eseguito il provisioning di un dispositivo o di un simulatore per l'aggiornamento del dispositivo all'interno dell'hub.
+   * Se si usa un dispositivo reale, è necessario un file di immagine di aggiornamento per l'aggiornamento dell'immagine o un [file manifesto apt](device-update-apt-manifest.md) per l'aggiornamento del pacchetto.
+* [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) o versione successiva.
+* Browser supportati:
+  * [Microsoft Edge](https://www.microsoft.com/edge)
+  * Google Chrome
+
+> [!NOTE]
+> Alcuni dati inviati a questo servizio potrebbero essere elaborati in un'area esterna all'area in cui è stata creata questa istanza.
+
+## <a name="create-device-update-import-manifest"></a>Crea manifesto di importazione aggiornamento dispositivo
+
+1. Verificare che il file di immagine dell'aggiornamento o il file manifesto APT si trovi in una directory accessibile da PowerShell.
+
+2. Clonare l' [aggiornamento del dispositivo per il repository dell'hub](https://github.com/azure/iot-hub-device-update)Internet o scaricarlo come file con estensione zip in un percorso accessibile da PowerShell (dopo il download del file zip, fare clic con il pulsante destro del mouse su `Properties`  >  `General` Tab > selezionare `Unblock` la `Security` sezione per evitare le richieste di avviso di sicurezza di PowerShell).
+
+3. In PowerShell passare alla `tools/AduCmdlets` Directory ed eseguire:
+
+    ```powershell
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+    Import-Module .\AduUpdate.psm1
+    ```
+
+4. Eseguire i comandi seguenti sostituendo i valori dei parametri di esempio per generare un manifesto di importazione, un file JSON che descrive l'aggiornamento:
+    ```powershell
+    $compat = New-AduUpdateCompatibility -DeviceManufacturer 'deviceManufacturer' -DeviceModel 'deviceModel'
+
+    $importManifest = New-AduImportManifest -Provider 'updateProvider' -Name 'updateName' -Version 'updateVersion' `
+                                            -UpdateType 'updateType' -InstalledCriteria 'installedCriteria' `
+                                            -Compatibility $compat -Files 'updateFilePath(s)'
+
+    $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
+    ```
+
+    Per riferimento rapido, di seguito sono riportati alcuni valori di esempio per i parametri precedenti. Per la documentazione completa, vedere lo schema completo del manifesto di importazione riportato di seguito.
+
+    | Parametro | Descrizione |
+    | --------- | ----------- |
+    | deviceManufacturer | Produttore del dispositivo con cui è compatibile l'aggiornamento, ad esempio contoso
+    | deviceModel | Modello del dispositivo con cui è compatibile l'aggiornamento, ad esempio, tostapane
+    | updateProvider | Parte del provider dell'identità di aggiornamento, ad esempio fabrikam
+    | aggiornaname | Parte relativa al nome dell'identità di aggiornamento, ad esempio ImageUpdate
+    | updateVersion | Aggiornamento versione, ad esempio 2,0
+    | updateType | <ul><li>Specificare `microsoft/swupdate:1` per l'aggiornamento delle immagini</li><li>Specificare `microsoft/apt:1` per l'aggiornamento del pacchetto</li></ul>
+    | installedCriteria | <ul><li>Specificare il valore di SWVersion per il `microsoft/swupdate:1` tipo di aggiornamento</li><li>Specificare il valore consigliato per il `microsoft/apt:1` tipo di aggiornamento.
+    | updateFilePath | Percorso dei file di aggiornamento nel computer
+
+    Schema manifesto di importazione completa
+
+    | Nome | Tipo | Descrizione | Restrizioni |
+    | --------- | --------- | --------- | --------- |
+    | UpdateId | Oggetto `UpdateId` | Aggiornare l'identità. |
+    | UpdateType | string | Tipo di aggiornamento: <ul><li>Specificare `microsoft/apt:1` quando si esegue un aggiornamento basato su pacchetti utilizzando l'agente di riferimento.</li><li>Specificare `microsoft/swupdate:1` quando si esegue un aggiornamento basato su immagine utilizzando l'agente di riferimento.</li><li>Specificare `microsoft/simulator:1` quando si usa il simulatore dell'agente di esempio.</li><li>Specificare un tipo personalizzato se si sviluppa un agente personalizzato.</li></ul> | <ul><li>Formato: `{provider}/{type}:{typeVersion}`</li><li>Massimo 32 caratteri totali</li></ul> |
+    | InstalledCriteria | string | Stringa interpretata dall'agente per determinare se l'aggiornamento è stato applicato correttamente:  <ul><li>Specificare il **valore** di SWVersion per tipo di aggiornamento `microsoft/swupdate:1` .</li><li>Specificare `{name}-{version}` per il tipo `microsoft/apt:1` di aggiornamento, di cui il nome e la versione vengono ottenuti dal file apt.</li><li>Specificare l'hash del file di aggiornamento per il tipo di aggiornamento `microsoft/simulator:1` .</li><li>Specificare una stringa personalizzata se si sviluppa un agente personalizzato.</li></ul> | Massimo 64 caratteri |
+    | Compatibilità | Matrice di `CompatibilityInfo` oggetti | Informazioni sulla compatibilità del dispositivo compatibile con questo aggiornamento. | Massimo 10 elementi |
+    | CreatedDateTime | Data/ora | Data e ora di creazione dell'aggiornamento. | Formato di data e ora ISO 8601 delimitato, in UTC |
+    | ManifestVersion | string | Importa la versione dello schema del manifesto. Specificare `2.0` , che sarà compatibile con l' `urn:azureiot:AzureDeviceUpdateCore:1` interfaccia e l' `urn:azureiot:AzureDeviceUpdateCore:4` interfaccia.</li></ul> | Deve essere `2.0` |
+    | File | Matrice di `File` oggetti | Aggiornare i file di payload | Massimo 5 file |
+
+Nota: tutti i campi sono obbligatori.
+
+## <a name="review-generated-import-manifest"></a>Verifica manifesto importazione generata
+
+Esempio:
+```json
+{
+  "updateId": {
+    "provider": "Microsoft",
+    "name": "Toaster",
+    "version": "2.0"
+  },
+  "updateType": "microsoft/swupdate:1",
+  "installedCriteria": "5",
+  "compatibility": [
+    {
+      "deviceManufacturer": "Fabrikam",
+      "deviceModel": "Toaster"
+    },
+    {
+      "deviceManufacturer": "Contoso",
+      "deviceModel": "Toaster"
+    }
+  ],
+  "files": [
+    {
+      "filename": "file1.json",
+      "sizeInBytes": 7,
+      "hashes": {
+        "sha256": "K2mn97qWmKSaSaM9SFdhC0QIEJ/wluXV7CoTlM8zMUo="
+      }
+    },
+    {
+      "filename": "file2.zip",
+      "sizeInBytes": 11,
+      "hashes": {
+        "sha256": "gbG9pxCr9RMH2Pv57vBxKjm89uhUstD06wvQSioLMgU="
+      }
+    }
+  ],
+  "createdDateTime": "2020-10-08T03:32:52.477Z",
+  "manifestVersion": "2.0"
+}
+```
+
+## <a name="import-update"></a>Importa aggiornamento
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub Internet con l'aggiornamento del dispositivo.
+
+2. Sul lato sinistro della pagina selezionare "aggiornamenti del dispositivo" in "gestione automatica dispositivi".
+
+   :::image type="content" source="media/import-update/import-updates-3.png" alt-text="Importa aggiornamenti" lightbox="media/import-update/import-updates-3.png":::
+
+3. Nella parte superiore della schermata vengono visualizzate diverse schede. Selezionare la scheda aggiornamenti.
+
+   :::image type="content" source="media/import-update/updates-tab.png" alt-text="Aggiornamenti" lightbox="media/import-update/updates-tab.png":::
+
+4. Selezionare "+ Importa nuovo aggiornamento" sotto l'intestazione "pronto per la distribuzione".
+
+   :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Importa nuovo aggiornamento" lightbox="media/import-update/import-new-update-2.png":::
+
+5. Selezionare l'icona della cartella o la casella di testo in "selezionare un file manifesto di importazione". Viene visualizzata una finestra di dialogo di selezione file. Selezionare il manifesto di importazione creato in precedenza usando il cmdlet di PowerShell. Selezionare quindi l'icona della cartella o la casella di testo in "selezionare uno o più file di aggiornamento". Viene visualizzata una finestra di dialogo di selezione file. Selezionare i file di aggiornamento.
+
+   :::image type="content" source="media/import-update/select-update-files.png" alt-text="Selezionare i file di aggiornamento" lightbox="media/import-update/select-update-files.png":::
+
+6. Selezionare l'icona della cartella o la casella di testo in "selezionare un contenitore di archiviazione". Selezionare quindi l'account di archiviazione appropriato. Il contenitore di archiviazione viene usato per organizzare temporaneamente i file di aggiornamento.
+
+   :::image type="content" source="media/import-update/storage-account.png" alt-text="Storage Account" lightbox="media/import-update/storage-account.png":::
+
+7. Se è già stato creato un contenitore, è possibile riusarlo. In caso contrario, selezionare "+ contenitore" per creare un nuovo contenitore di archiviazione per gli aggiornamenti.  Selezionare il contenitore che si vuole usare e fare clic su "Seleziona".
+
+   :::image type="content" source="media/import-update/container.png" alt-text="Seleziona contenitore" lightbox="media/import-update/container.png":::
+
+8. Selezionare "Invia" per avviare il processo di importazione.
+
+   :::image type="content" source="media/import-update/publish-update.png" alt-text="Pubblica aggiornamento" lightbox="media/import-update/publish-update.png":::
+
+9. Viene avviato il processo di importazione e la schermata passa alla sezione "cronologia di importazione". Selezionare "Aggiorna" per visualizzare lo stato di avanzamento fino al completamento del processo di importazione (a seconda delle dimensioni dell'aggiornamento, l'operazione può essere completata in pochi minuti, ma potrebbe richiedere più tempo).
+
+   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Aggiornare la sequenziazione dell'importazione" lightbox="media/import-update/update-publishing-sequence-2.png":::
+
+10. Quando la colonna stato indica che l'importazione è riuscita, selezionare l'intestazione "pronto per la distribuzione". Nell'elenco verrà visualizzato l'aggiornamento importato.
+
+   :::image type="content" source="media/import-update/update-ready.png" alt-text="Stato processo" lightbox="media/import-update/update-ready.png":::
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Creazione di gruppi](create-update-group.md)
+
+[Informazioni sui concetti di importazione](import-concepts.md)
