@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: bf2ff2fc20d3581a297881fbd9e6db15d825814d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/02/2021
+ms.openlocfilehash: a03707133b384f7717a624e810d0f7a41267969d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518998"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670886"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funzionalità in anteprima in Azure ricerca cognitiva
 
@@ -23,6 +23,9 @@ Le funzionalità di anteprima che passano alla disponibilità generale vengono r
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
+| [**Ricerca semantica**](semantic-search-overview.md) | Pertinenza (Punteggio) | Un algoritmo di classificazione semantico, un tipo di query e una risposta alla query. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) |
+| [**correttore ortografico**](cognitive-search-aml-skill.md) | Query | Correzione ortografica facoltativa sugli input dei termini di query per query semplici, complete e semantiche. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) |
+| Indicizzatore di SharePoint Online | Origine dati dell'indicizzatore | Nuova origine dati per l'indicizzazione basata su indicizzatore del contenuto di SharePoint. | [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**Azure Machine Learning (AML) Skill**](cognitive-search-aml-skill.md) | Arricchimento con intelligenza artificiale| Un nuovo tipo di competenze per integrare un endpoint di inferenza da Azure Machine Learning. Introduzione a [questa esercitazione](cognitive-search-tutorial-aml-custom-skill.md). | Usare l' [API REST di ricerca 2020-06-30-Preview](/rest/api/searchservice/) o 2019-05-06-Preview. Disponibile anche nel portale, in progettazione di competenze, supponendo che ricerca cognitiva e i servizi di Azure ML siano distribuiti nella stessa sottoscrizione. |
 | [**parametro featuresMode**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Pertinenza (Punteggio) | Espansione del Punteggio di pertinenza per includere i dettagli: Punteggio di somiglianza per campo, frequenza del termine per campo e numero di token univoci corrispondenti. È possibile utilizzare questi punti dati nelle soluzioni di assegnazione dei [punteggi personalizzate](https://github.com/Azure-Samples/search-ranking-tutorial). | Aggiungere questo parametro di query usando i [documenti di ricerca (REST)](/rest/api/searchservice/preview-api/search-documents) con API-Version = 2020-06 -30-preview o 2019-05-06-Preview. |
 | [**Sessioni di debug**](cognitive-search-debug-session.md) | Portale, arricchimento AI (competenze) | Editor di competenze in-Session utilizzato per analizzare e risolvere i problemi relativi a un insieme di competenze. Le correzioni applicate durante una sessione di debug possono essere salvate in un skillt nel servizio. | Solo portale, usando i collegamenti a metà pagina nella pagina Panoramica per aprire una sessione di debug. |

@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092143"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652386"
 ---
 # <a name="api-management-soft-delete-preview"></a>Eliminazione temporanea di gestione API (anteprima)
 
 Con l'eliminazione temporanea (anteprima) di gestione API è possibile recuperare e ripristinare le istanze di gestione API (gestione API) eliminate recentemente.
 
 > [!IMPORTANT]
-> Solo le istanze di gestione API eliminate con `2020-01-01-preview` e versioni successive dell'API verranno eliminate temporaneamente e recuperabili usando la procedura descritta in questo articolo. Le istanze di gestione API eliminate con le versioni precedenti dell'API continueranno a essere eliminate definitivamente. Azure PowerShell e l'interfaccia della riga di comando di Azure attualmente non usano la versione e determineranno `2020-06-01-preview` anche un comportamento di eliminazione.
+> Solo le istanze di gestione API eliminate con `2020-06-01-preview` e versioni successive dell'API verranno eliminate temporaneamente e recuperabili usando la procedura descritta in questo articolo. Le istanze di gestione API eliminate con le versioni precedenti dell'API continueranno a essere eliminate definitivamente. Azure PowerShell e l'interfaccia della riga di comando di Azure attualmente non usano la versione e determineranno `2020-06-01-preview` anche un comportamento di eliminazione.
 
 ## <a name="supporting-interfaces"></a>Supporto di interfacce
 
@@ -31,14 +31,14 @@ La funzionalità di eliminazione temporanea è disponibile tramite l' [API REST]
 |--|--|--|--|
 | [Crea o aggiorna](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Crea o aggiorna un servizio gestione API.  | Servizio gestione API | Qualsiasi |
 | [Crea o aggiorna](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) con la `restore` proprietà impostata su **true** | Annulla l'eliminazione del servizio gestione API se è stato precedentemente eliminato temporaneamente. Se `restore` viene specificato e impostato su `true` tutte le altre proprietà verranno ignorate.  | Servizio gestione API |  2020-06-01-anteprima |
-| [Eliminazione](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina un servizio gestione API esistente. | Servizio gestione API | 2020-01-01-anteprima|
+| [Elimina](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina un servizio gestione API esistente. | Servizio gestione API | 2020-06-01-anteprima|
 | [Ottieni per nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Ottenere il servizio gestione API eliminato temporaneamente in base al nome. | Servizi eliminati | 2020-06-01-anteprima |
 | [Elenca per sottoscrizione](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Elenca tutti i servizi eliminati temporaneamente disponibili per l'annullamento dell'eliminazione per la sottoscrizione specificata. | Servizi eliminati | 2020-06-01-anteprima
 | [Ripulisci](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Elimina il servizio gestione API (lo elimina senza alcuna opzione per annullare l'eliminazione). | Servizi eliminati | 2020-06-01-anteprima
 
 ## <a name="soft-delete-behavior"></a>Comportamento della funzione di eliminazione temporanea
 
-È possibile usare qualsiasi versione dell'API per creare l'istanza di gestione API. Tuttavia, è necessario usare `2020-01-01-preview` o versioni successive per eliminare temporaneamente l'istanza di gestione API (ed è possibile recuperarla).
+È possibile usare qualsiasi versione dell'API per creare l'istanza di gestione API. Tuttavia, è necessario usare `2020-06-01-preview` o versioni successive per eliminare temporaneamente l'istanza di gestione API (ed è possibile recuperarla).
 
 Quando si elimina un'istanza di gestione API, il servizio esiste in uno stato eliminato, rendendolo inaccessibile per qualsiasi operazione gestione API. In questo stato, l'istanza di gestione API può essere elencata, ripristinata o eliminata definitivamente (eliminata definitivamente).
 

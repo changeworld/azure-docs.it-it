@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360959"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676470"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Creazione di indicizzatori in Azure ricerca cognitiva
 
@@ -155,7 +155,7 @@ Il modo in cui un indicizzatore supporta il rilevamento delle modifiche varia a 
 
 Per i caricamenti di indicizzazione di grandi dimensioni, un indicizzatore tiene traccia anche dell'ultimo documento elaborato tramite un "limite massimo" interno. Il marcatore non viene mai esposto nell'API, ma internamente l'indicizzatore tiene traccia del punto in cui è stato interrotto. Quando l'indicizzazione riprende, tramite un'esecuzione pianificata o una chiamata su richiesta, l'indicizzatore fa riferimento al limite massimo, in modo che possa scegliere il punto in cui è stato interrotto.
 
-Se è necessario cancellare il limite massimo per la reindicizzazione completa, è possibile usare [Reimposta indicizzatore](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Per una reindicizzazione più selettiva, utilizzare [Reimposta competenze](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) o [Reimposta documenti](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Tramite le API reset è possibile cancellare lo stato interno e scaricare la cache anche se è stata abilitata l' [arricchimento incrementale](search-howto-incremental-index.md). Per ulteriori informazioni su background e confronto di ogni opzione di reimpostazione, vedere [eseguire o reimpostare indicizzatori, competenze e documenti](search-howto-run-reset-indexers.md).
+Se è necessario cancellare il limite massimo per la reindicizzazione completa, è possibile usare [Reimposta indicizzatore](/rest/api/searchservice/reset-indexer). Per una reindicizzazione più selettiva, utilizzare [Reimposta competenze](/rest/api/searchservice/preview-api/reset-skills) o [Reimposta documenti](/rest/api/searchservice/preview-api/reset-documents). Tramite le API reset è possibile cancellare lo stato interno e scaricare la cache anche se è stata abilitata l' [arricchimento incrementale](search-howto-incremental-index.md). Per ulteriori informazioni su background e confronto di ogni opzione di reimpostazione, vedere [eseguire o reimpostare indicizzatori, competenze e documenti](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Informazioni sui dati
 
@@ -165,7 +165,7 @@ Per rendere flat i dati relazionali in un set di righe, è necessario creare una
 
 Oltre ai dati flat, è importante eseguire il pull solo dei dati ricercabili. I dati ricercabili sono alfanumerici. Ricerca cognitiva non è in grado di eseguire ricerche su dati binari in qualsiasi formato, sebbene sia in grado di estrarre e dedurre descrizioni di testo dei file di immagine (vedere [arricchimento intelligenza artificiale](cognitive-search-concept-intro.md)) per creare contenuto ricercabile. Analogamente, usando l'arricchimento di intelligenza artificiale, il testo di grandi dimensioni può essere analizzato dai modelli di linguaggio naturale per trovare la struttura o le informazioni rilevanti, generando nuovo contenuto che è possibile aggiungere a un documento di ricerca.
 
-Dato che gli indicizzatori non correggono i problemi relativi ai dati, potrebbero essere necessarie altre forme di pulizia o manipolazione dei dati. Per ulteriori informazioni, è necessario fare riferimento alla documentazione del prodotto del [database di Azure](/azure/?product=databases).
+Dato che gli indicizzatori non correggono i problemi relativi ai dati, potrebbero essere necessarie altre forme di pulizia o manipolazione dei dati. Per ulteriori informazioni, è necessario fare riferimento alla documentazione del prodotto del [database di Azure](../index.yml?product=databases).
 
 ## <a name="know-your-index"></a>Informazioni sull'indice
 

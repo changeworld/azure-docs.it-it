@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 493f479a09fc7b21bb857ebd98c35824c548b5d0
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 1abdf7ae15753d78ac8728f57e9b0cd5dcd9165e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539787"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672606"
 ---
 # <a name="create-and-manage-virtual-machine-scale-set"></a>Creare e gestire un set di scalabilità di macchine virtuali
 
@@ -66,7 +66,7 @@ az disk update --resource-group MyResourceGroup --name myDataDisk --size-gb 200
 az vmss restart --resource-group MyResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Per utilizzare il disco espanso, espandere la partizione sottostante. Per altre informazioni, vedere [espandere una partizione disco e un file System](/azure/virtual-machines/linux/expand-disks#expand-a-disk-partition-and-filesystem).
+Per utilizzare il disco espanso, espandere la partizione sottostante. Per altre informazioni, vedere [espandere una partizione disco e un file System](../../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
 
 In questo esempio un disco dati è stato ridimensionato. È possibile usare la stessa procedura per aggiornare un disco del sistema operativo. Per ulteriori informazioni su una macchina virtuale Windows, vedere [come espandere l'unità del sistema operativo di una macchina virtuale](../../virtual-machines/windows/expand-os-disk.md). Per altre informazioni sulle macchine virtuali Linux, vedere [espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della](../../virtual-machines/linux/expand-disks.md)riga di comando di Azure.
 

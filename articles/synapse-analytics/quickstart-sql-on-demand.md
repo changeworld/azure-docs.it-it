@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8607355069bbae5983239ddbd3e8752143f31497
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218298"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676346"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Avvio rapido: Usare i pool SQL serverless
 
@@ -153,7 +153,7 @@ I file sono archiviati nella cartella *books* del contenitore *json* e contengon
 
 ### <a name="query-json-files"></a>Eseguire query su file JSON
 
-La query seguente mostra come usare [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per recuperare valori scalari (titolo, editore) da un libro intitolato *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+La query seguente mostra come usare [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) per recuperare valori scalari (titolo, editore) da un libro intitolato *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```sql
 SELECT

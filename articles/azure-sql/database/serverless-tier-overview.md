@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393242"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658589"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,9 +103,9 @@ Si noti che quando l'utilizzo della CPU è basso, l'utilizzo della cache attiva 
 
 La cache SQL cresce man mano che i dati vengono recuperati dal disco nello stesso modo e con la stessa velocità dei database di cui è stato effettuato il provisioning. Quando il database è occupato, è possibile che la cache cresca senza vincoli fino al limite massimo di memoria.
 
-## <a name="auto-pause-and-auto-resume"></a>Sospensione automatica e riavvio automatico
+## <a name="auto-pausing-and-auto-resuming"></a>Sospensione automatica e riavvio automatico
 
-### <a name="auto-pause"></a>Sospensione automatica
+### <a name="auto-pausing"></a>Sospensione automatica
 
 La sospensione automatica viene attivata se tutte le condizioni seguenti sono vere per la durata del ritardo di sospensione automatica:
 

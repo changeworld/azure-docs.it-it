@@ -3,15 +3,15 @@ title: Criteri di integrazione Dapr di gestione API di Azure | Microsoft Docs
 description: Informazioni sui criteri di gestione API di Azure per interagire con le estensioni di microservizi Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 10/23/2020
+ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: b8e253f75f56f961a24a441188b7a8e571622667
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560227"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646810"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Criteri di integrazione Dapr di gestione API
 
@@ -45,21 +45,21 @@ template:
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Inviare una richiesta a un servizio
 
-Questo criterio imposta l'URL di destinazione per la richiesta corrente di `http://localhost:3500/v1.0/invoke/{app-id}/method/{method-name}` sostituzione dei parametri del modello con i valori specificati nell'istruzione dei criteri.
+Questo criterio imposta l'URL di destinazione per la richiesta corrente di `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}` sostituzione dei parametri del modello con i valori specificati nell'istruzione dei criteri.
 
 Il criterio presuppone che Dapr venga eseguito in un contenitore sidecar nello stesso pod del gateway. Al momento della ricezione della richiesta, il runtime di Dapr esegue l'individuazione del servizio e la chiamata effettiva, inclusa la possibile conversione del protocollo tra HTTP e gRPC, tentativi, traccia distribuita e gestione degli errori.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
 ```xml
-<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" />
+<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" dapr-namespace="ns-name" />
 ```
 
 ### <a name="examples"></a>Esempi
 
 #### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene illustrato come richiamare il metodo denominato "back" nel microservizio denominato "echo". Il `set-backend-service` criterio imposta l'URL di destinazione. Il `forward-request` criterio Invia la richiesta al runtime di Dapr, che lo recapita al microservizio.
+Nell'esempio seguente viene illustrato come richiamare il metodo denominato "back" nel microservizio denominato "echo". Il `set-backend-service` criterio imposta l'URL di destinazione su `http://localhost:3500/v1.0/invoke/echo.echo-app/method/back` . Il `forward-request` criterio Invia la richiesta al runtime di Dapr, che lo recapita al microservizio.
 
 `forward-request`Per maggiore chiarezza, il criterio è riportato di seguito. I criteri sono in genere "ereditati" dall'ambito globale tramite la `base` parola chiave.
 
@@ -67,7 +67,7 @@ Nell'esempio seguente viene illustrato come richiamare il metodo denominato "bac
 <policies>
     <inbound>
         <base />
-        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" />
+        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" dapr-namespace="echo-app" />
     </inbound>
     <backend>
         <forward-request />
@@ -92,8 +92,9 @@ Nell'esempio seguente viene illustrato come richiamare il metodo denominato "bac
 | Attributo        | Descrizione                     | Obbligatoria | Predefinito |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Deve essere impostato su "dapr"           | Sì      | N/D     |
-| dapr-App-ID      | Nome del microservizio di destinazione. Esegue il mapping al parametro [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) in Dapr.| Sì | N/D |
+| dapr-App-ID      | Nome del microservizio di destinazione. Utilizzato per formare il parametro [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) in Dapr.| Sì | N/D |
 | dapr-metodo      | Nome del metodo o URL da richiamare nel microservizio di destinazione. Esegue il mapping al parametro del [nome di metodo](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) in Dapr.| Sì | N/D |
+| dapr-spazio dei nomi   | Nome dello spazio dei nomi in cui risiede il microservizio di destinazione. Utilizzato per formare il parametro [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) in Dapr.| No | N/D |
 
 ### <a name="usage"></a>Utilizzo
 

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 41a63d7d0c5844e7837be44b359b6d04a9009eb4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095874"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651826"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -99,7 +99,7 @@ Il ruolo di [amministratore dei criteri di autenticazione](#authentication-polic
 >* Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
 > [!IMPORTANT]
-> Questo ruolo non è attualmente in grado di gestire l'autenticazione a più fattori per utente nel portale di gestione dell'autenticazione a più fattori legacy. Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
+> Questo ruolo non è attualmente in grado di gestire l'autenticazione a più fattori per utente nel portale di gestione dell'autenticazione a più fattori legacy. Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
 
 ### <a name="authentication-policy-administrator"></a>[Amministratore dei criteri di autenticazione](#authentication-policy-administrator-permissions)
 
@@ -406,7 +406,7 @@ Il ruolo di [amministratore dei criteri di autenticazione](#authentication-polic
 
 
 > [!IMPORTANT]
-> Questo ruolo non è attualmente in grado di gestire l'autenticazione a più fattori per utente nel portale di gestione dell'autenticazione a più fattori legacy. Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
+> Questo ruolo non è attualmente in grado di gestire l'autenticazione a più fattori per utente nel portale di gestione dell'autenticazione a più fattori legacy. Le stesse funzioni possono essere eseguite usando il modulo di PowerShell [set-MsolUser](/powershell/module/msonline/set-msoluser) cmdlet Azure ad.
 
 ### <a name="privileged-role-administrator"></a>[Amministratore dei ruoli con privilegi](#privileged-role-administrator-permissions)
 

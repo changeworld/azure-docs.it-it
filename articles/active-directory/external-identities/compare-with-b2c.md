@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 03/02/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 78fd91e2ba7badb1936b8603c8ed089130b29ffb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173074"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644066"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Che cosa sono le identità esterne in Azure Active Directory?
 
@@ -27,7 +27,7 @@ Con le identità esterne in Azure AD, è possibile consentire a persone esterne 
 
 Più che sulla relazione dell'utente con l'organizzazione, la funzionalità Identità esterne di Azure AD è incentrata sul modo in cui l'utente vuole accedere alle app e alle risorse. All'interno di questo framework, Azure AD supporta un'ampia varietà di scenari, dalla collaborazione business-to-business (B2B) alla gestione dell'accesso per applicazioni destinate a consumatori/clienti o cittadini (business-to-consumer o B2C).
 
-- **Condividere app e risorse con utenti esterni (collaborazione B2B)** . Invitare gli utenti esterni nel proprio tenant come utenti "guest" a cui è possibile assegnare autorizzazioni e al tempo stesso consentire loro di usare le credenziali esistenti per l'autenticazione. Per accedere alle risorse condivise, gli utenti usano un semplice processo di invito e riscatto con il proprio account aziendale o dell'istituto di istruzione oppure con un altro account di posta elettronica. È anche possibile usare la [gestione entitlement di Azure AD](../governance/entitlement-management-overview.md) per configurare i criteri che [gestiscono l'accesso per gli utenti esterni](../governance/entitlement-management-external-users.md#how-access-works-for-external-users). Ora, con la disponibilità dei [flussi utente di iscrizione self-service (anteprima)](self-service-sign-up-overview.md), è possibile consentire agli utenti esterni di iscriversi autonomamente alle applicazioni. L'esperienza può essere personalizzata per consentire l'iscrizione con un'identità aziendale, dell'istituto di istruzione o di social network, come Google o Facebook. È anche possibile raccogliere informazioni sull'utente durante il processo di iscrizione. Per altre informazioni, vedere la [documentazione di Azure AD B2B](index.yml).
+- **Condividere app e risorse con utenti esterni (collaborazione B2B)** . Invitare gli utenti esterni nel proprio tenant come utenti "guest" a cui è possibile assegnare autorizzazioni e al tempo stesso consentire loro di usare le credenziali esistenti per l'autenticazione. Per accedere alle risorse condivise, gli utenti usano un semplice processo di invito e riscatto con il proprio account aziendale o dell'istituto di istruzione oppure con un altro account di posta elettronica. È anche possibile usare la [gestione entitlement di Azure AD](../governance/entitlement-management-overview.md) per configurare i criteri che [gestiscono l'accesso per gli utenti esterni](../governance/entitlement-management-external-users.md#how-access-works-for-external-users). Ora, con la disponibilità dei [flussi utente di iscrizione self-service](self-service-sign-up-overview.md), è possibile consentire agli utenti esterni di iscriversi per le applicazioni stesse. L'esperienza può essere personalizzata per consentire l'iscrizione con un'identità aziendale, dell'istituto di istruzione o di social network, come Google o Facebook. È anche possibile raccogliere informazioni sull'utente durante il processo di iscrizione. Per altre informazioni, vedere la [documentazione di Azure AD B2B](index.yml).
 
 - **Creare percorsi utente con una soluzione di gestione delle identità white-label per le app destinate a consumatori e clienti (Azure AD B2C)** . Le organizzazioni o gli sviluppatori che creano app rivolte ai clienti possono estenderle a milioni di consumatori, clienti o cittadini tramite Azure AD B2C. Gli sviluppatori possono usare Azure AD come sistema completo per la gestione delle identità e degli accessi dei clienti per le proprie applicazioni. I clienti possono accedere con un'identità già stabilita, ad esempio Facebook o Gmail. Con Azure AD B2C, è possibile personalizzare e controllare completamente il modo in cui i clienti si iscrivono, accedono e gestiscono i loro profili quando usano le applicazioni rese disponibili. Per altre informazioni, vedere la [documentazione di Azure AD B2C](../../active-directory-b2c/index.yml).
 

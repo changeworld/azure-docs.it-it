@@ -3,7 +3,7 @@ title: Creare & gestire un catalogo di risorse nella gestione dei diritti-Azure 
 description: Informazioni su come creare un nuovo contenitore di risorse e accedere ai pacchetti in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 8ae3ee8cb96453bae1ce581ea92bdb77854c02d8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745964"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644145"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
 
@@ -80,6 +80,14 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 1. Al termine, fare clic su **Aggiungi**.
 
     Queste risorse possono ora essere incluse nei pacchetti di accesso all'interno del catalogo.
+
+### <a name="add-a-multi-geo-sharepoint-site"></a>Aggiungere un sito di SharePoint con più aree geografiche
+
+1. Se si dispone di più aree [geografiche](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) abilitate per SharePoint, selezionare l'ambiente da cui si desidera selezionare i siti.
+    
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Pacchetto di accesso-aggiungere ruoli delle risorse-selezionare i siti di SharePoint multigeo":::
+
+1. Selezionare quindi i siti che si desidera aggiungere al catalogo. 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Aggiunta di una risorsa a un catalogo a livello di codice
 

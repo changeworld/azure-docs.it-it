@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
-ms.translationtype: HT
+ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247574"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646045"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cofense Recipient Sync per il provisioning utenti automatico
 
@@ -117,19 +117,19 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |name.givenName|string|
    |name.familyName|string|
    |name.honorificSuffix|string|
-   |phoneNumbers[type eq"work"].value|string|
-   |phoneNumbers[type eq"home"].value|string|
-   |phoneNumbers[type eq"other"].value|string|
-   |phoneNumbers[type eq"pager"].value|string|
-   |phoneNumbers[type eq"mobile"].value|string|
-   |phoneNumbers[type eq"fax"].value|string|
-   |addresses[type eq"other"].formatted|string|
-   |addresses[type eq"work"].formatted|string|
-   |addresses[type eq"work"].streetAddress|string|
-   |addresses[type eq"work"].locality|string|
-   |addresses[type eq"work"].region|string|
-   |addresses[type eq"work"].postalCode|string|
-   |addresses[type eq"work"].country|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |phoneNumbers[type eq "home"].value|string|
+   |phoneNumbers[type eq "other"].value|string|
+   |phoneNumbers[type eq "pager"].value|string|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |phoneNumbers[type eq "fax"].value|string|
+   |addresses[type eq "other"].formatted|string|
+   |addresses[type eq "work"].formatted|string|
+   |addresses[type eq "work"].streetAddress|string|
+   |addresses[type eq "work"].locality|string|
+   |addresses[type eq "work"].region|string|
+   |addresses[type eq "work"].postalCode|string|
+   |addresses[type eq "work"].country|string|
    |title|string|
    |emails[type eq "work"].value|string|
    |emails[type eq "home"].value|string|

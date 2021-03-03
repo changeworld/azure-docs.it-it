@@ -3,14 +3,14 @@ title: Connettere un computer ibrido con server abilitati per Azure Arc
 description: Informazioni su come connettere e registrare un computer ibrido con server abilitati per Azure Arc.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
-ms.translationtype: HT
+ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516781"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646827"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Avvio rapido: Connettere un computer ibrido con server abilitati per Azure Arc
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Guida introduttiva: connettere macchine ibride con i server abilitati per Azure Arc
 
 I [server abilitati per Azure Arc](../overview.md) consentono di gestire e regolamentare i computer Windows e Linux ospitati in locale, al perimetro e in ambienti multicloud. In questa guida di avvio rapido verrà distribuito e configurato l'agente Connected Machine nel computer Windows o Linux ospitato all'esterno di Azure per la gestione tramite server abilitati per Arc.
 

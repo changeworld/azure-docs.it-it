@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 66687f5954894d962a67767669081de15a30c7c3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966072"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672614"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
@@ -33,7 +33,7 @@ Questo articolo offre una panoramica delle estensioni macchina virtuale, i prere
 Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna con uno specifico caso d'uso. Di seguito sono riportati alcuni esempi:
 
 - Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Linux. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [Come monitorare una macchina virtuale Linux in Azure](../linux/tutorial-monitor.md).
+- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [Come monitorare una macchina virtuale Linux in Azure](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Chef o Datadog. Per altre informazioni, vedere i [documenti di Chef](https://docs.chef.io/azure_portal.html) o il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione dello script personalizzata per Linux consente l'esecuzione di qualsiasi script Bash su una VM. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione di script personalizzata per le VM Linux](custom-script-linux.md).
@@ -404,7 +404,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
 
-| Nome estensione | Descrizione | Altre informazioni |
+| Nome estensione | Descrizione | Ulteriori informazioni |
 | --- | --- | --- |
 | Estensione script personalizzata per Linux |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Linux](custom-script-linux.md) |
 | Estensione dell'accesso alle macchine virtuali |Ripristinare l'accesso a una macchina virtuale di Azure |[Estensione di accesso alla macchina virtuale](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

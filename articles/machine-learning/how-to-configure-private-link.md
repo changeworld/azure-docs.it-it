@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7a6213528f204ac31fbcf8a29625787fc73d5153
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368014"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656806"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
@@ -172,7 +172,12 @@ Per informazioni sulle macchine virtuali di Azure, vedere la [documentazione rel
 
 ## <a name="enable-public-access"></a>Abilitare l'accesso pubblico
 
-Dopo aver configurato un'area di lavoro con un endpoint privato, è possibile abilitare facoltativamente l'accesso pubblico all'area di lavoro. Questa operazione non comporta la rimozione dell'endpoint privato. Consente l'accesso pubblico oltre all'accesso privato. Per abilitare l'accesso pubblico a un'area di lavoro privata abilitata per il collegamento, attenersi alla procedura seguente:
+In alcune situazioni, può essere utile consentire a un utente di connettersi all'area di lavoro protetta tramite un endpoint pubblico, anziché tramite il VNet. Dopo aver configurato un'area di lavoro con un endpoint privato, è possibile abilitare facoltativamente l'accesso pubblico all'area di lavoro. Questa operazione non comporta la rimozione dell'endpoint privato. Tutte le comunicazioni tra i componenti alla base di VNet sono ancora protette. Consente l'accesso pubblico solo all'area di lavoro, oltre all'accesso privato tramite il VNet.
+
+> [!WARNING]
+> Quando ci si connette tramite l'endpoint pubblico, alcune funzionalità di studio non riusciranno ad accedere ai dati. Questo problema si verifica quando i dati vengono archiviati in un servizio protetto dietro la VNet. Ad esempio un account di archiviazione di Azure.
+
+Per abilitare l'accesso pubblico a un'area di lavoro privata abilitata per il collegamento, attenersi alla procedura seguente:
 
 # <a name="python"></a>[Python](#tab/python)
 

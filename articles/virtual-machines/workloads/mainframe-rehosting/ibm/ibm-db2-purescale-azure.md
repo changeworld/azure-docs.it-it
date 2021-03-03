@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 711c1ba49ad0f347d30f2c8c40352ed95c1fd057
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 29150f229f1bd6adbbe6a335fdb91a44f3a2345b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221739"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675675"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale in Azure
 
@@ -96,9 +96,9 @@ Un cluster DB2 pureScale di grandi dimensioni può richiedere uno spazio di arch
 
 In un cluster DB2 pureScale IBM consiglia una rete InfiniBand per tutti i membri. Per le funzionalità CF, DB2 pureScale usa anche l'Accesso diretto a memoria remota (RDMA), ove disponibile.
 
-Durante la configurazione si crea un [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) di Azure che contenga tutte le macchine virtuali. In genere si raggruppano le risorse in base alla loro durata e alle persone che le gestiranno. Le macchine virtuali in questa architettura richiedono la [rete accelerata](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Si tratta di una funzionalità di Azure che garantisce alle macchine virtuali una latenza di rete coerente ed estremamente bassa tramite Single Root I/O Virtualization (SR-IOV).
+Durante la configurazione si crea un [gruppo di risorse](../../../../azure-resource-manager/management/overview.md) di Azure che contenga tutte le macchine virtuali. In genere si raggruppano le risorse in base alla loro durata e alle persone che le gestiranno. Le macchine virtuali in questa architettura richiedono la [rete accelerata](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Si tratta di una funzionalità di Azure che garantisce alle macchine virtuali una latenza di rete coerente ed estremamente bassa tramite Single Root I/O Virtualization (SR-IOV).
 
-Ogni macchina virtuale di Azure viene distribuita in una rete virtuale con le subnet seguenti: principale, GlusterFS front-end (gfsfe), GlusterFS back-end (bfsbe), DB2 pureScale (db2be) e DB2 purescale front-end (db2fe). Lo script di installazione crea anche le [schede di interfaccia di rete](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics) principali nelle macchine virtuali della subnet principale.
+Ogni macchina virtuale di Azure viene distribuita in una rete virtuale con le subnet seguenti: principale, GlusterFS front-end (gfsfe), GlusterFS back-end (bfsbe), DB2 pureScale (db2be) e DB2 purescale front-end (db2fe). Lo script di installazione crea anche le [schede di interfaccia di rete](../../../windows/multiple-nics.md) principali nelle macchine virtuali della subnet principale.
 
 Usare [gruppi di sicurezza di rete](../../../../virtual-network/virtual-network-vnet-plan-design-arm.md) per limitare il traffico di rete nella rete virtuale e per isolare le subnet.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b6273c504edfd96b61fe3fc9ea35baa6f1e08f3
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 477180a6576d52e3386e18b6e2ba12dd33e4d794
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093217"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Esercitazione: Integrazione di Azure Active Directory con SAML 1.1 Token enabled LOB App
 
@@ -133,8 +133,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare a SAML 1,1 token Enabled LOB URL accesso diretto e avviare il flusso di accesso da qui.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro app LOB abilitato per il token SAML 1,1 in app personali, questo verrà reindirizzato all'URL di accesso dell'app LOB abilitato per il token SAML 1,1. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro app LOB abilitato per il token SAML 1,1 in app personali, questo verrà reindirizzato all'URL di accesso dell'app LOB abilitato per il token SAML 1,1. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato l'app LOB abilitata per il token SAML 1,1, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato l'app LOB abilitata per il token SAML 1,1, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

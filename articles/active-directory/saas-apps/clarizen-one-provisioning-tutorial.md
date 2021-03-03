@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3754a56d1520118937a9d4aad406ae657b4dd23b
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.openlocfilehash: f3a19d3c3bf3e4340bb36fd683453541fa15eb6c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673665"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650831"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Esercitazione: Configurare Clarizen One per il provisioning utenti automatico
 
@@ -45,7 +45,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 1. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 1. Determinare quali dati [mappare tra Azure AD e Clarizen One](../app-provisioning/customize-application-attributes.md).
 
@@ -137,8 +137,8 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |externalId|string|
    |nickName|string|
    |locale|string|
-   |roles[primary eq"True".type]|string|
-   |roles[primary eq"True".value]|string|
+   |ruoli [Primary EQ "true". Type]|string|
+   |ruoli [Primary EQ "true". Value]|string|
    |timezone|string|
    |userType|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|

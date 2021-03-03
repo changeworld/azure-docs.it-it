@@ -5,38 +5,62 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53d2369e93052ef28191dd1862034c1aaa488add
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355597"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653321"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
-Impostando la Federazione con Google, è possibile consentire agli utenti invitati di accedere alle app e alle risorse condivise con i propri account Gmail, senza dover creare account Microsoft. 
+Impostando la Federazione con Google, è possibile consentire agli utenti invitati di accedere alle app e alle risorse condivise con i propri account Gmail, senza dover creare account Microsoft.
+
+Dopo aver aggiunto Google come una delle opzioni di accesso dell'applicazione, nella pagina di **accesso** un utente può semplicemente immettere il messaggio di posta elettronica usato per accedere a Google oppure può selezionare le **Opzioni di accesso** e scegliere **Accedi con Google**. In entrambi i casi, verranno reindirizzati alla pagina di accesso di Google per l'autenticazione.
+
+![Opzioni di accesso per gli utenti di Google](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
 > Federazione Google è appositamente progettato per gli utenti di Gmail. Per attuare la Federazione con i domini G Suite, usare [Federazione diretta](direct-federation.md).
 
 > [!IMPORTANT]
-> **A partire dal 4 gennaio 2021**, Google sta [deprecando il supporto per l'accesso a WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se si usa la Federazione di Google o l'iscrizione self-service con Gmail, è necessario [testare le applicazioni native line-of-business per la compatibilità](google-federation.md#deprecation-of-webview-sign-in-support).
+> **A partire dal 4 gennaio 2021**, il [supporto dell'accesso WebView verrà deprecato](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) da Google. Se si usa la federazione Google o l'iscrizione self-service con Gmail, è consigliabile [testare la compatibilità delle applicazioni line-of-business native](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Qual è l'esperienza per l'utente di Google?
-Quando si invia un invito a utenti di Google Gmail, gli utenti Guest devono accedere alle app o alle risorse condivise usando un collegamento che include il contesto del tenant. L'esperienza varia a seconda che sia stato già eseguito o meno l'accesso a Google:
-  - Agli utenti guest che non hanno eseguito l'accesso a Google verrà richiesto di farlo.
-  - Agli utenti Guest a cui è già stato effettuato l'accesso a Google verrà richiesto di scegliere l'account che si desidera utilizzare. L'utente deve scegliere l'account usato nell'invito.
+
+Quando un utente di Google riscatta l'invito, la loro esperienza varia a seconda che l'utente sia già connesso a Google:
+
+- Agli utenti guest che non hanno eseguito l'accesso a Google verrà richiesto di farlo.
+- Agli utenti Guest a cui è già stato effettuato l'accesso a Google verrà richiesto di scegliere l'account che si desidera utilizzare. L'utente deve scegliere l'account usato nell'invito.
 
 Gli utenti guest che visualizzano un errore di "intestazione troppo lungo" possono cancellare i cookie o aprire una finestra privata o in incognito e provare ad accedere di nuovo.
 
 ![Screenshot che mostra la pagina di accesso di Google.](media/google-federation/google-sign-in.png)
+
+## <a name="sign-in-endpoints"></a>Endpoint di accesso
+
+Gli utenti Guest Google possono ora accedere alle app multi-tenant o Microsoft di terze parti usando un [endpoint comune](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in altre parole, un URL dell'app generale che non include il contesto del tenant). Di seguito sono riportati alcuni esempi di endpoint comuni:
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Durante il processo di accesso, l'utente Guest sceglie le **Opzioni di accesso** e quindi seleziona **Accedi a un'organizzazione**. L'utente digita quindi il nome dell'organizzazione e continua ad accedere usando le credenziali di Google.
+
+Gli utenti guest di Google possono usare anche gli endpoint dell'applicazione che includono le informazioni del tenant, ad esempio:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+È anche possibile assegnare agli utenti guest di Google un collegamento diretto a un'applicazione o a una risorsa includendo, ad esempio, le informazioni sul tenant `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
 
 ## <a name="deprecation-of-webview-sign-in-support"></a>Deprecazione del supporto per l'accesso WebView
 
@@ -66,23 +90,13 @@ Stiamo continuando a testare diverse piattaforme e scenari e aggiorniamo questo 
    - Se l'app di Windows usa WebView incorporato o WebAccountManager (WAM) in una versione precedente di Windows, eseguire l'aggiornamento alla versione più recente di Windows.
    - Modificare le app per usare il browser di sistema per l'accesso. Per informazioni dettagliate, vedere [interfaccia utente Web di Visual Studio System incorporato](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) nella documentazione di MSAL.NET.  
 
-## <a name="sign-in-endpoints"></a>Endpoint di accesso
 
-Teams supporta completamente gli utenti guest di Google su tutti i dispositivi. Gli utenti di Google possono accedere a Teams da un endpoint comune come `https://teams.microsoft.com`.
-
-Gli endpoint comuni di altre applicazioni potrebbero non supportare gli utenti di Google. Gli utenti guest di Google devono accedere usando un collegamento che include le informazioni del tenant. Di seguito sono riportati alcuni esempi:
-  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
-  * `https://portal.azure.com/<your tenant ID>`
-  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
-
-   Se gli utenti guest di Google tentano di usare un collegamento come `https://myapps.microsoft.com` o, riceveranno `https://portal.azure.com` un errore.
-
-È anche possibile fornire agli utenti guest di Google un collegamento diretto a un'applicazione o a una risorsa, purché il collegamento includa le informazioni sul tenant. Ad esempio: `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 ## <a name="step-1-configure-a-google-developer-project"></a>Passaggio 1: Configurare un progetto di Google Developers
 Per prima cosa, creare un nuovo progetto nella console di sviluppatori di Google per ottenere un ID client e un segreto client che è possibile aggiungere in un secondo momento al Azure Active Directory (Azure AD). 
 1. Passare alle API di Google all'indirizzo https://console.developers.google.com e accedere con l'account Google. È consigliabile usare l'account condiviso di un team Google.
 2. Se richiesto, accettare le condizioni del servizio.
-3. Creare un nuovo progetto: nel Dashboard selezionare **Crea progetto**, assegnare un nome al progetto, ad esempio **Azure ad B2B**, quindi selezionare **Crea**: 
+3. Creare un nuovo progetto: nell'angolo superiore sinistro della pagina selezionare l'elenco progetto, quindi nella pagina **Selezione progetto** selezionare **nuovo progetto**.
+4. Nella pagina **nuovo progetto** assegnare un nome al progetto, ad esempio **Azure ad B2B**, quindi selezionare **Crea**: 
    
    ![Screenshot che mostra una nuova pagina del progetto.](media/google-federation/google-new-project.png)
 

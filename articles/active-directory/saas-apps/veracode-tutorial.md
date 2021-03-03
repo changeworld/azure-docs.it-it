@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Veracode | Microsoft Docs"
+title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con VeraCode | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Veracode.
 services: active-directory
 author: jeevansd
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 220a575a252bb16cb5ac895a3d4c1ebedfd7c83e
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: f56f2dc974df58575c72c93a0609026cd7bbf88d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431037"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652624"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Veracode
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con VeraCode
 
 Questa esercitazione descrive come integrare Veracode con Azure Active Directory (Azure AD). Integrando Veracode con Azure AD, è possibile:
 
@@ -170,8 +170,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente al VeraCode per il quale si configura l'accesso SSO.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro VeraCode in My Apps (app personali), si dovrebbe accedere automaticamente al VeraCode per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro VeraCode in My Apps (app personali), si dovrebbe accedere automaticamente al VeraCode per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato VeraCode, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato VeraCode, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

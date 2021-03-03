@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fbc4179bcfc36f094b36966c8e5dd0acac66075
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 03144d478be0053ac77709132b08cdf17b062fb0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683024"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666293"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo di risorse di Synapse SQL
 
@@ -38,7 +38,7 @@ Le prestazioni per le unità Data Warehouse sono basate su queste metriche per i
 
 - A quale velocità una query di data warehousing standard può analizzare un numero elevato di righe e quindi eseguire un'aggregazione complessa? Questa è un'operazione con uso intensivo di I/O e CPU.
 - A quale velocità il data warehouse è in grado di inserire dati dai BLOB del servizio di archiviazione di Azure o da Azure Data Lake? Questa è un'operazione con uso intensivo di rete e CPU.
-- A quale velocità il comando T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) può copiare una tabella? Questa operazione comporta la lettura dei dati dall'archiviazione, la relativa distribuzione tra tutti i nodi dell'appliance e la riscrittura nella risorsa di archiviazione. È un'operazione con uso intensivo di CPU, I/O e rete.
+- A quale velocità il comando T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) può copiare una tabella? Questa operazione comporta la lettura dei dati dall'archiviazione, la relativa distribuzione tra tutti i nodi dell'appliance e la riscrittura nella risorsa di archiviazione. È un'operazione con uso intensivo di CPU, I/O e rete.
 
 L'aumento delle DWU:
 
@@ -78,7 +78,7 @@ Aumentando le unità Data Warehouse si aumentano in modo lineare le risorse di c
 
 #### <a name="capacity-limits"></a>Limiti di capacità
 
-Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../azure-sql/database/service-tiers-dtu.md) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Valutare il numero di unità di data warehouse necessarie
 
@@ -98,7 +98,7 @@ Il pool SQL è un sistema con scalabilità orizzontale che supporta il provision
 
 ### <a name="permissions"></a>Autorizzazioni
 
-Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 I ruoli predefiniti di Azure, ad esempio Collaboratore database SQL e Collaboratore SQL Server, possono modificare le impostazioni DWU.
 
@@ -135,7 +135,7 @@ Per cambiare il numero di DWU:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Per cambiare il numero di DWU, usare il cmdlet di PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.
+Per cambiare il numero di DWU, usare il cmdlet di PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
@@ -150,7 +150,7 @@ Con T-SQL è possibile visualizzare le impostazioni correnti per DWU, cambiarle 
 Per modificare le DWU:
 
 1. Connettersi al database master associato al server.
-2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000c per il database MySQLDW.
+2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000c per il database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -160,7 +160,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 #### <a name="rest-apis"></a>API REST
 
-Per modificare le DWU, usare l'API REST descritta in [Create or Update Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (Creare o aggiornare il database). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000c per il database MySQLDW ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
+Per modificare le DWU, usare l'API REST descritta in [Create or Update Database](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) (Creare o aggiornare il database). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000c per il database MySQLDW ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1

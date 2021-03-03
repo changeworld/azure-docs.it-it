@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661086"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652131"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
@@ -80,8 +80,8 @@ L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non
 
 È possibile specificare i dati raccolti quando viene creato un account utente del consumer. Per altre informazioni, vedere [aggiungere attributi utente e personalizzare l'input dell'utente](configure-user-input.md).
 
-Per ulteriori informazioni sulla gestione degli account utente, vedere [manage Azure ad B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+Per ulteriori informazioni sulla gestione degli account utente, vedere [manage Azure ad B2C user accounts with Microsoft Graph](./microsoft-graph-operations.md).
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrare gli account utente consumer
 
-Può essere necessario eseguire la migrazione degli account utente consumer esistenti da qualsiasi provider di identità ad Azure AD B2C. Per altre informazioni, vedere [migrare gli utenti a Azure ad B2C](user-migration.md).
+Può essere necessario eseguire la migrazione degli account utente consumer esistenti da qualsiasi provider di identità ad Azure AD B2C. Per altre informazioni, vedere [Eseguire la migrazione degli utenti ad Azure AD B2C](user-migration.md).

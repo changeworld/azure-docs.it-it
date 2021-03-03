@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 60ea97ea2df271f867febec3fa0f0826a18dbbbf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e812fa47d35889a9cf8c671a4df6034812272a6a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417458"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670632"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Risolvere gli errori di installazione della libreria 
 Per rendere disponibile per le applicazioni di terze parti o codice compilato localmente, è possibile installare una libreria in uno dei pool di Apache Spark senza server. I pacchetti elencati nel file di requirements.txt vengono scaricati da PyPi al momento dell'avvio del pool. Questo file dei requisiti viene usato ogni volta che viene creata un'istanza Spark dal pool Spark. Quando una libreria è installata per un pool Spark, è disponibile per tutte le sessioni che usano lo stesso pool. 
@@ -54,7 +54,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Se viene visualizzato un errore, probabilmente mancano le autorizzazioni necessarie. Per informazioni su come ottenere le autorizzazioni necessarie, vedere questo documento: [assegnare le autorizzazioni di collaboratore dati BLOB di archiviazione o di proprietario di dati BLOB di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-an-azure-built-in-role).
+Se viene visualizzato un errore, probabilmente mancano le autorizzazioni necessarie. Per informazioni su come ottenere le autorizzazioni necessarie, vedere questo documento: [assegnare le autorizzazioni di collaboratore dati BLOB di archiviazione o di proprietario di dati BLOB di archiviazione](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
 
 Inoltre, se si esegue una pipeline, l'identità del servizio gestito dell'area di lavoro deve disporre anche di autorizzazioni per il proprietario dei dati BLOB di archiviazione o per i dati BLOB di archiviazione. Per informazioni su come concedere all'identità dell'area di lavoro questa autorizzazione, vedere: [concedere le autorizzazioni all'identità gestita dell'area di lavoro](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
@@ -98,4 +98,3 @@ Per ricreare l'ambiente e convalidare gli aggiornamenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Visualizzare le librerie predefinite: [supporto della versione Apache Spark](apache-spark-version-support.md)
-

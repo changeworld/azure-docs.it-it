@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90b2cd4521613a7b449598f0d097a7ec1c2958c6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724543"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648518"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Resilienza tramite monitoraggio e analisi
 
@@ -49,7 +49,7 @@ Ad esempio, tenere traccia delle metriche seguenti, poiché un calo improvviso i
 
    - **Periodo precedente**: creare grafici temporali per mostrare le modifiche delle richieste totali e della percentuale di operazioni riuscite (%) per un periodo precedente a scopo di riferimento, ad esempio, la settimana scorsa.
 
-- **Avviso**: l'uso di log Analytics definisce gli [avvisi](../../azure-monitor/platform/alerts-log.md) che vengono attivati quando si verificano modifiche improvvise negli indicatori chiave. Queste modifiche possono influire negativamente sulle SLOs. Gli avvisi usano diverse forme di metodi di notifica, tra cui posta elettronica, SMS e webhook. Per iniziare, definire un criterio che funga da soglia rispetto alla quale verrà attivato l'avviso. Ad esempio:
+- **Avviso**: l'uso di log Analytics definisce gli [avvisi](../../azure-monitor/alerts/alerts-log.md) che vengono attivati quando si verificano modifiche improvvise negli indicatori chiave. Queste modifiche possono influire negativamente sulle SLOs. Gli avvisi usano diverse forme di metodi di notifica, tra cui posta elettronica, SMS e webhook. Per iniziare, definire un criterio che funga da soglia rispetto alla quale verrà attivato l'avviso. Ad esempio:
   - Avviso contro il calo improvviso delle richieste totali: attiva un avviso quando il numero di richieste totali viene eliminato bruscamente. Se, ad esempio, si verifica un calo del 25% del numero totale di richieste rispetto al periodo precedente, generare un avviso.  
   - Avviso contro un calo significativo in caso di esito positivo (%): attiva un avviso quando la percentuale di successo dei criteri selezionati diminuisce significativamente.
   - Alla ricezione di un avviso, risolvere il problema utilizzando [log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), [Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md)e [vs code estensione](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) per Azure ad B2C. Dopo la risoluzione del problema e la distribuzione di un'applicazione o di un criterio aggiornato, continuerà a monitorare gli indicatori chiave fino a tornare all'intervallo normale.
@@ -57,7 +57,7 @@ Ad esempio, tenere traccia delle metriche seguenti, poiché un calo improvviso i
 - **Avvisi del servizio**: usare gli [avvisi del livello di servizio Azure ad B2C](../../service-health/service-health-overview.md) per ricevere notifiche relative a problemi di servizio, manutenzione pianificata, avviso di integrità e avvisi di sicurezza.
 
 - **Creazione** di report: con [log Analytics](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), è possibile creare report che consentono di ottenere informazioni dettagliate sugli utenti, le questioni tecniche e le opportunità di crescita.
-  - **Dashboard di integrità**: creare [dashboard personalizzati usando](../../azure-monitor/learn/tutorial-app-dashboards.md) la funzionalità Dashboard di Azure, che supporta l'aggiunta di grafici con log Analytics query. Ad esempio, identificare il modello di accessi riusciti e non riusciti, i motivi dell'errore e la telemetria sui dispositivi usati per eseguire le richieste.
+  - **Dashboard di integrità**: creare [dashboard personalizzati usando](../../azure-monitor/app/tutorial-app-dashboards.md) la funzionalità Dashboard di Azure, che supporta l'aggiunta di grafici con log Analytics query. Ad esempio, identificare il modello di accessi riusciti e non riusciti, i motivi dell'errore e la telemetria sui dispositivi usati per eseguire le richieste.
   - **Abbandonare i percorsi di Azure ad B2C**: usare la [cartella di lavoro](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) per tenere traccia dell'elenco dei percorsi di Azure ad B2C abbandonati in cui l'utente ha avviato il percorso di accesso o di iscrizione ma non è mai stato terminato. Fornisce informazioni dettagliate sull'ID criteri e la suddivisione dei passaggi eseguiti dall'utente prima di abbandonare il viaggio.
   - **Azure ad B2C le cartelle di lavoro di monitoraggio**: usare le [cartelle di lavoro di monitoraggio](https://github.com/azure-ad-b2c/siem), che includono il dashboard Azure ad B2C, le operazioni di multi-factor authentication, il report di accesso condizionale e i log di ricerca per CorrelationId, per ottenere informazioni più dettagliate sull'integrità dell'ambiente Azure ad B2C.
   

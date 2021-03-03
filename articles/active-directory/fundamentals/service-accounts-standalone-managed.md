@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a919338789a02d50cbb6976ee50b214cb0d612
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417471"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650958"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>Protezione degli account dei servizi gestiti autonomi
 
@@ -44,7 +44,7 @@ sMSAs offrono una maggiore sicurezza rispetto agli account utente usati come acc
 
    * Il nome DNS del computer host è stato modificato.
 
-   * Quando si aggiungono o si rimuovono parametri Sam-AccountName o DNS-hostname aggiuntivi tramite [PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * Quando si aggiungono o si rimuovono parametri Sam-AccountName o DNS-hostname aggiuntivi tramite [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
 
 ## <a name="when-to-use-smsas"></a>Quando usare sMSAs
 
@@ -53,7 +53,7 @@ sMSAs può semplificare le attività di gestione e sicurezza. Utilizzare sMSAs q
 > [!NOTE] 
 > Sebbene sia possibile utilizzare sMSAs per più di un servizio, è consigliabile che ogni servizio disponga di una propria identità a scopo di controllo. 
 
-Se l'autore del software non è in grado di indicare se può utilizzare un MSA, è necessario testare l'applicazione. A tale scopo, creare un ambiente di testing e verificare che possa accedere a tutte le risorse necessarie. Per istruzioni dettagliate, vedere [creare e installare un SMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) .
+Se l'autore del software non è in grado di indicare se può utilizzare un MSA, è necessario testare l'applicazione. A tale scopo, creare un ambiente di testing e verificare che possa accedere a tutte le risorse necessarie. Per istruzioni dettagliate, vedere [creare e installare un SMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) .
 
 ### <a name="assess-security-posture-of-smsas"></a>Valutare il comportamento di sicurezza di sMSAs
 
@@ -112,7 +112,7 @@ Per la gestione di sMSAs è possibile usare i cmdlet di PowerShell seguenti Acti
 
 ## <a name="move-to-smsas"></a>Passa a sMSAs
 
-Se un servizio dell'applicazione supporta sMSA ma non servizi gestiti e attualmente usa un account utente o un account computer per il contesto di sicurezza, [creare e installare un SMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) nel server. 
+Se un servizio dell'applicazione supporta sMSA ma non servizi gestiti e attualmente usa un account utente o un account computer per il contesto di sicurezza, [creare e installare un SMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) nel server. 
 
 Idealmente, spostare le risorse in Azure e usare le identità gestite di Azure o le entità servizio.
 
@@ -133,4 +133,3 @@ Vedere gli articoli seguenti sulla protezione degli account del servizio
 
 * [Governare gli account di servizio locali](service-accounts-govern-on-premises.md)
 
- 

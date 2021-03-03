@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d9a4da6fe65fda07609c7399518fa324017ea44c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052245"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649346"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 
@@ -113,9 +113,9 @@ Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [ques
 
 ## <a name="get-support"></a>Supporto
 
-Per l'integrazione Azure AD, [Microsoft Q&](https://docs.microsoft.com/answers/products/) con la community per fornire supporto.
+Per l'integrazione Azure AD, [Microsoft Q&](/answers/products/) con la community per fornire supporto.
 
-Ti consigliamo vivamente di porre le tue domande su Microsoft Q&un primo ed esaminare i problemi esistenti per vedere se qualcuno ha già posto la domanda. Assicurarsi che le domande o i commenti siano contrassegnati con [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
+Ti consigliamo vivamente di porre le tue domande su Microsoft Q&un primo ed esaminare i problemi esistenti per vedere se qualcuno ha già posto la domanda. Assicurarsi che le domande o i commenti siano contrassegnati con [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) .
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

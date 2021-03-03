@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56d45119fa86ab47e6a625c628d8cb9763db83bd
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: b0f49f39e6bc291c3242fe739866a015ac154a8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520993"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651162"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurare il passaggio di accesso temporaneo in Azure AD per registrare i metodi di autenticazione con password (anteprima)
 
@@ -75,6 +75,9 @@ Per creare un tocco:
 1. Sotto **Scegli metodo** fare clic su **pass di accesso temporaneo (anteprima)**.
 1. Definire una durata o un'ora di attivazione personalizzata e fare clic su **Aggiungi**.
 
+   >[!NOTE]
+   >L'uso di un TAP monouso non viene applicato quando si Abilita l'opzione Mantieni l'accesso (KMSI) nel tenant. Se si sta creando un TAP monouso, assicurarsi di disabilitare KMSI.
+
    ![Screenshot della creazione di un tocco](./media/how-to-authentication-temporary-access-pass/create.png)
 
 1. Una volta aggiunti, vengono visualizzati i dettagli del tocco. Prendere nota del valore TAP effettivo. Questo valore viene fornito all'utente. Non è possibile visualizzare questo valore dopo aver fatto clic su **OK**.
@@ -125,6 +128,7 @@ Tenere presenti queste limitazioni:
 - Gli utenti guest non possono accedere con un tocco.
 - Gli utenti nell'ambito dei criteri di registrazione per la reimpostazione della password self-service (SSPR) saranno necessari per registrare uno dei metodi SSPR dopo aver eseguito l'accesso con TAP. Se l'utente userà solo la chiave FIDO2, escluderli dal criterio SSPR o disabilitare i criteri di registrazione di SSPR. 
 - Non è possibile utilizzare TAP con l'estensione server dei criteri di rete e la scheda Active Directory Federation Services (AD FS).
+- L'uso di un TAP monouso non viene applicato quando KMSI è abilitato nel tenant.
 - Quando l'accesso SSO facile è abilitato nel tenant, agli utenti viene richiesto di immettere una password. Il collegamento **Usa il pass di accesso temporaneo, invece** , sarà disponibile per l'accesso dell'utente con Tap.
 
 ![Screenshot di usare invece un tocco](./media/how-to-authentication-temporary-access-pass/alternative.png)

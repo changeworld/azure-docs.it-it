@@ -12,21 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400727"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648017"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Eseguire il debug di criteri di gestione API di Azure in Visual Studio Code
 
 I [criteri](api-management-policies.md) in gestione API di Azure forniscono potenti funzionalità che consentono agli editori di API di risolvere problemi trasversali, come l'autenticazione, l'autorizzazione, la limitazione, la memorizzazione nella cache e la trasformazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. 
 
 Questo articolo descrive come eseguire il debug dei criteri di gestione API usando l' [estensione gestione API di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
-
-> [!NOTE]
-> Questa funzionalità è disponibile in anteprima pubblica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

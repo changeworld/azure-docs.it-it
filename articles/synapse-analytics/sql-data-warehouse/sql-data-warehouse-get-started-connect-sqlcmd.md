@@ -1,6 +1,6 @@
 ---
 title: Connettersi con sqlcmd
-description: Usare l'utilità della riga di comando sqlcmd per connettersi ed eseguire query in un pool SQL sinapsi.
+description: Usare l'utilità della riga di comando sqlcmd per connettersi ed eseguire query in un pool SQL dedicato in Azure sinapsi Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676230"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675732"
 ---
-# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Connettersi al pool SQL in Azure sinapsi Analytics con sqlcmd
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Connettersi a un pool SQL dedicato in Azure sinapsi Analytics con sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -28,15 +28,15 @@ ms.locfileid: "98676230"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Utilizzare l'utilità della riga di comando [sqlcmd] [sqlcmd] per connettersi a un pool SQL ed eseguire query su di esso.  
+Utilizzare l'utilità della riga di comando [sqlcmd] [sqlcmd] per connettersi ed eseguire query in un pool SQL dedicato.  
 
 ## <a name="1-connect"></a>1. Connessione
 
-Per iniziare a usare [sqlcmd] [sqlcmd], aprire il prompt dei comandi e immettere **SQLCMD** seguito dalla stringa di connessione per il pool SQL. La stringa di connessione richiede i parametri seguenti:
+Per iniziare a usare [sqlcmd] [sqlcmd], aprire il prompt dei comandi e immettere **SQLCMD** seguito dalla stringa di connessione per il pool SQL dedicato. La stringa di connessione richiede i parametri seguenti:
 
 * **Server (-S):** server nel formato `<`Nome server`>`.database.windows.net
-* **Database (-d):** Nome del pool SQL.
-* **Abilita identificatori delimitati (-I):** Gli identificatori delimitati devono essere abilitati per la connessione a un'istanza del pool SQL.
+* **Database (-d):** nome del pool SQL dedicato.
+* **Abilita identificatori delimitati (-I):** Gli identificatori delimitati devono essere abilitati per la connessione a un'istanza del pool SQL dedicata.
 
 Per usare l'autenticazione di SQL Server è necessario aggiungere i parametri nome utente e password:
 

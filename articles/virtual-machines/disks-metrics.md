@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8f5b7f8b5cd563f8b265d7051a57b0ac22598d1c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60486c41ad843cf193ee0648dfcfef66f7668e47
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617377"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674982"
 ---
 # <a name="disk-performance-metrics"></a>Metriche delle prestazioni del disco
 Azure offre metriche nella portale di Azure che forniscono informazioni dettagliate sulle prestazioni delle macchine virtuali e dei dischi. Le metriche possono anche essere recuperate tramite una chiamata API. Questo articolo è suddiviso in 3 sottosezioni:
@@ -129,6 +129,6 @@ Questa metrica indica che i dischi dati collegati in LUN 3 e 2 usano circa il 85
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica delle metriche di monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md)
-- [Spiegazione dell'aggregazione delle metriche](../azure-monitor/platform/metrics-aggregation-explained.md)
-- [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md)
+- [Panoramica delle metriche di monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md)
+- [Spiegazione dell'aggregazione delle metriche](../azure-monitor/essentials/metrics-aggregation-explained.md)
+- [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../azure-monitor/alerts/alerts-metric.md)

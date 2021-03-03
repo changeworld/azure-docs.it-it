@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
+ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307173"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677611"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Esercitazione: Creare una definizione di processo Apache Spark in Synapse Studio
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Prima di iniziare l'esercitazione, verificare che siano soddisfatti i requisiti seguenti:
 
-* Area di lavoro di Azure Synapse Analytics. Per le istruzioni, vedere [Creare un'area di lavoro di Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
+* Area di lavoro di Azure Synapse Analytics. Per le istruzioni, vedere [Creare un'area di lavoro di Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Un pool di Apache Spark serverless.
 * Account di archiviazione Azure Data Lake Storage Gen2. È necessario essere il **proprietario dei dati del BLOB di archiviazione** del file system di ADLS Gen2 che si vuole usare. Se non lo si è, è necessario aggiungere l'autorizzazione manualmente.
 * Se non si vuole usare l'account di archiviazione predefinito dell'area di lavoro, collegare l'account di archiviazione di ADLS Gen2 richiesto in Synapse Studio. 

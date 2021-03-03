@@ -2,18 +2,19 @@
 title: Eseguire il backup e il ripristino di un database di Oracle Database 19C in una VM Linux di Azure con backup di Azure
 description: Informazioni su come eseguire il backup e il ripristino di un Oracle Database database 19C usando il servizio backup di Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806410"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673901"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Eseguire il backup e il ripristino di un database di Oracle Database 19C in una VM Linux di Azure con backup di Azure
 
@@ -199,13 +200,13 @@ Questo passaggio presuppone che si disponga di un'istanza di Oracle (*test*) in 
      RMAN> backup as compressed backupset database plus archivelog;
      ```
 
-## <a name="using-azure-backup"></a>Uso di Backup di Azure
+## <a name="using-azure-backup-preview"></a>Uso di backup di Azure (anteprima)
 
 Il servizio Backup di Azure offre soluzioni semplici, sicure ed economicamente convenienti per eseguire il backup dei dati e ripristinarli dal cloud di Microsoft Azure. Backup di Azure fornisce backup indipendenti e isolati per salvaguardare dalla distruzione accidentale dei dati originali. I backup vengono archiviati in un insieme di credenziali di Servizi di ripristino con la gestione predefinita dei punti di ripristino. La configurazione e la scalabilità sono semplici, i backup sono ottimizzati ed è possibile eseguire il ripristino con facilità secondo necessità.
 
-Il servizio backup di Azure fornisce un [Framework](../../../backup/backup-azure-linux-app-consistent.md) per ottenere la coerenza delle applicazioni durante i backup di macchine virtuali Windows e Linux per varie applicazioni come Oracle, MySQL, Mongo DB, SAP HANA e PostgreSQL. Ciò implica la chiamata di uno script di pre-elaborazione (per mettere in stato le applicazioni) prima di creare uno snapshot dei dischi e la chiamata di post-script (comandi per sbloccare le applicazioni) dopo il completamento dello snapshot, per ripristinare le applicazioni in modalità normale. Sebbene i pre-script di esempio e i post-script siano disponibili su GitHub, la creazione e la manutenzione di questi script è responsabilità dell'utente. 
+Il servizio backup di Azure fornisce un [Framework](../../../backup/backup-azure-linux-app-consistent.md) per ottenere la coerenza delle applicazioni durante i backup di macchine virtuali Windows e Linux per varie applicazioni come Oracle, MySQL, Mongo DB e PostgreSQL. Ciò implica la chiamata di uno script di pre-elaborazione (per mettere in stato le applicazioni) prima di creare uno snapshot dei dischi e la chiamata di post-script (comandi per sbloccare le applicazioni) dopo il completamento dello snapshot, per ripristinare le applicazioni in modalità normale. Sebbene i pre-script di esempio e i post-script siano disponibili su GitHub, la creazione e la manutenzione di questi script è responsabilità dell'utente.
 
-Ora backup di Azure fornisce un Framework avanzato di pre-script e post-backup, in cui il servizio backup di Azure fornirà gli script e i post-script in pacchetto per le applicazioni selezionate. Gli utenti di backup di Azure devono solo assegnare un nome all'applicazione e quindi il backup delle macchine virtuali di Azure richiamerà automaticamente gli script pre-post pertinenti. Gli script e i post-script in pacchetto verranno gestiti dal team di backup di Azure, in modo che gli utenti possano essere certi del supporto, della proprietà e della validità di tali script. Attualmente, le applicazioni supportate per il Framework migliorato sono *Oracle* e *MySQL*.
+Il servizio backup di Azure offre ora un Framework avanzato di pre-script e post-backup (**attualmente disponibile in anteprima**), in cui il servizio backup di Azure fornirà gli script e i post-script in pacchetto per le applicazioni selezionate. Gli utenti di backup di Azure devono solo assegnare un nome all'applicazione e quindi il backup delle macchine virtuali di Azure richiamerà automaticamente gli script pre-post pertinenti. Gli script e i post-script in pacchetto verranno gestiti dal team di backup di Azure, in modo che gli utenti possano essere certi del supporto, della proprietà e della validità di tali script. Attualmente, le applicazioni supportate per il Framework migliorato sono *Oracle* e *MySQL*.
 
 In questa sezione si userà il Framework avanzato di backup di Azure per eseguire snapshot coerenti con l'applicazione della macchina virtuale in esecuzione e del database Oracle. Il database verrà inserito in modalità di backup che consente di eseguire un backup online coerente a livello di transazione mentre backup di Azure esegue uno snapshot dei dischi delle macchine virtuali. Lo snapshot sarà una copia completa dello spazio di archiviazione e non una copia incrementale o di copia nello snapshot di scrittura, pertanto si tratta di un supporto efficace per il ripristino del database da. Il vantaggio dell'uso di snapshot coerenti con l'applicazione di backup di Azure consiste nel fatto che sono estremamente veloci, indipendentemente dalla dimensione del database, ed è possibile usare uno snapshot per le operazioni di ripristino non appena viene eseguita, senza dover attendere che il trasferimento venga trasferito nell'insieme di credenziali di servizi di ripristino.
 
@@ -314,7 +315,7 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    sudo su -
    ```
 
-2. Creare la directory di lavoro per il backup coerente con l'applicazione:
+2. Controllare la cartella "etc/Azure". Se non è presente, creare la directory di lavoro del backup coerente con l'applicazione:
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -322,7 +323,7 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    fi
    ```
 
-3. Creare un file nella directory */etc/Azure* denominato *workload. conf* con il contenuto seguente, che deve iniziare con `[workload]` . Il comando seguente creerà il file e compilerà il contenuto:
+3. Verificare la presenza di "workload. conf" all'interno della cartella. Se non è presente, creare un file nella directory */etc/Azure* denominato *workload. conf* con il contenuto seguente, che deve iniziare con `[workload]` . Se il file è già presente, modificare solo i campi in modo che corrispondano al contenuto seguente. In caso contrario, il comando seguente creerà il file e compilerà il contenuto:
 
    ```bash
    echo "[workload]
@@ -330,14 +331,6 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
-   ```
-
-4. Scaricare gli script preOracleMaster. SQL e postOracleMaster. SQL dal [repository GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) e copiarli nella directory */etc/Azure* .
-
-5. Modificare le autorizzazioni per i file
-
-```bash
-   chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
 ### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Attivare un backup coerente con l'applicazione della macchina virtuale
@@ -970,4 +963,4 @@ az group delete --name rg-oracle
 
 [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
 
-[Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)
+[Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

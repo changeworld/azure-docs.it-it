@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: e8f1bff50c5f163894392a9e5d08cc8451d835fa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6db863f43deb6eb2787cda60650a267a62076aad
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896411"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Business ByDesign
 
@@ -192,8 +192,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 2. Passare direttamente all'URL di accesso di SAP Business ByDesign e avviare il flusso di accesso da qui.
 
-3. È possibile usare App personali Microsoft. Quando si fa clic sul riquadro SAP Business ByDesign in app personali, questo verrà reindirizzato all'URL di accesso a SAP Business ByDesign. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. È possibile usare App personali Microsoft. Quando si fa clic sul riquadro SAP Business ByDesign in app personali, questo verrà reindirizzato all'URL di accesso a SAP Business ByDesign. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo la configurazione di SAP Business ByDesign è possibile applicare i controlli della sessione, che proteggono exfiltration e infiltrano i dati sensibili dell'organizzazione in tempo reale. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo la configurazione di SAP Business ByDesign è possibile applicare i controlli della sessione, che proteggono exfiltration e infiltrano i dati sensibili dell'organizzazione in tempo reale. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

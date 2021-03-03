@@ -3,17 +3,17 @@ title: Panoramica delle VM serie HB-macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sul supporto in anteprima per le dimensioni della macchina virtuale serie HB in Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 1e37f13bc6e819079c63c583a1eeda12af5e213c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b0e8e2e0ee7ce730f6bf00d7e5ef4bd4eae65ce7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965460"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666936"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Panoramica delle macchine virtuali serie HB
 
@@ -40,7 +40,7 @@ Il diagramma seguente illustra la separazione dei core riservati per l'hyperviso
 | Core                            | 60 (SMT disabilitato)                |
 | CPU                              | AMD EPYC 7551                    |
 | Frequenza CPU (non-AVX)          | ~ 2,55 GHz (singolo + tutti i core)   |
-| Memory                           | 4 GB/Core (Totale 240 GB)         |
+| Memoria                           | 4 GB/Core (Totale 240 GB)         |
 | Disco locale                       | SSD 700 GB                       |
 | Infiniband                       | 100 GB EDR Mellanox ConnectX-5 |
 | Rete                          | 50 GB Ethernet (40 GB utilizzabili) Azure Second gen SmartNIC |

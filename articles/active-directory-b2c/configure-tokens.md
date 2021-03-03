@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a4299eff296d9795f8d256ff1236a8e8b4ad3e42
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585208"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654375"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurare i token in Azure Active Directory B2C
 
@@ -43,7 +43,8 @@ Il diagramma seguente illustra il comportamento della durata della finestra temp
 ![Durata del token di aggiornamento](./media/configure-tokens/refresh-token-lifetime.png)
 
 > [!NOTE]
-> Le applicazioni a singola pagina che usano il flusso del codice di autorizzazione con PKCE hanno sempre una durata del token di aggiornamento di 24 ore. [Altre informazioni sulle implicazioni di sicurezza dei token di aggiornamento nel browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+> >Le applicazioni a singola pagina che usano il flusso del codice di autorizzazione con PKCE hanno sempre una durata del token di aggiornamento di 24 ore mentre le app per dispositivi mobili, le app desktop e le app Web non presentano questa limitazione. [Altre informazioni sulle implicazioni di sicurezza dei token di aggiornamento nel browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
 
 ## <a name="configure-token-lifetime"></a>Configurare la durata del token
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500343"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673353"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Applicare la sicurezza e usare criteri in macchine virtuali in Azure
 
@@ -43,7 +43,7 @@ La crittografia non influisca sulle prestazioni dei dischi gestiti. Non sono pre
 
 Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](./disk-encryption.md) o [Linux](./disk-encryption.md).
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 
 Per migliorare la sicurezza e la conformità delle [macchine virtuali Windows](windows/disk-encryption-overview.md) e delle [macchine virtuali Linux](linux/disk-encryption-overview.md), i dischi virtuali in Azure possono essere crittografati. I dischi virtuali delle VM di Windows vengono crittografati a riposo mediante BitLocker. I dischi virtuali delle VM Linux vengono crittografati quando sono inattivi usando dm-crypt. 
 
@@ -73,4 +73,4 @@ Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](..
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Eseguire la procedura per il monitoraggio della sicurezza delle macchine virtuali tramite il Centro sicurezza di Azure per [Linux](../security/fundamentals/overview.md) o [Windows](./tutorial-azure-security.md).
+- Eseguire la procedura per il monitoraggio della sicurezza delle macchine virtuali tramite il Centro sicurezza di Azure per [Linux](../security/fundamentals/overview.md) o [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

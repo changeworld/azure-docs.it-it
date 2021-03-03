@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830720"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645468"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Pianificare Azure Active Directory la configurazione delle app personali
 
@@ -143,7 +143,7 @@ Se è necessario integrare queste applicazioni, è necessario definire un meccan
 
 * [Download e configurazione basati sull'utente per Chrome, Firefox, Microsoft Edge o IE](../user-help/my-apps-portal-end-user-access.md)
 
-* [Configuration Manager per Internet Explorer](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager per Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 L'estensione consente agli utenti di avviare qualsiasi app dalla relativa barra di ricerca, trovare l'accesso alle applicazioni utilizzate di recente e avere un collegamento alla pagina App personali.
 
@@ -271,4 +271,3 @@ Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria 
 
 [Pianificare una distribuzione del proxy dell'applicazione](application-proxy-deployment-plan.md)
 
- 

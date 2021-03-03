@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257271"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650975"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protezione Microsoft 365 da attacchi locali
 
@@ -141,7 +141,7 @@ Si consiglia di usare i metodi di provisioning seguenti:
 
     *   Blocca l'accesso al portale di Azure. È possibile eseguire rare eccezioni necessarie.  Creare un criterio di accesso condizionale che includa tutti i guest e gli utenti esterni. [Implementare quindi un criterio per bloccare l'accesso](../../role-based-access-control/conditional-access-azure-management.md). 
 
-* **Foreste disconnesse**: usare [Azure ad il provisioning cloud](../cloud-provisioning/what-is-cloud-provisioning.md). Questo metodo consente di connettersi a foreste disconnesse, eliminando la necessità di stabilire la connettività o i trust tra foreste, che possono ampliare l'effetto di una violazione locale. 
+* **Foreste disconnesse**: usare [Azure ad il provisioning cloud](../cloud-sync/what-is-cloud-sync.md). Questo metodo consente di connettersi a foreste disconnesse, eliminando la necessità di stabilire la connettività o i trust tra foreste, che possono ampliare l'effetto di una violazione locale. 
  
 ### <a name="limitations-and-tradeoffs"></a>Limitazioni e compromessi
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.author: jeedes
-ms.openlocfilehash: c92295eb3f173d0e050740d0aa38787eff242b39
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8ec834d76692f78d1d7bc60ddbd4c73fe4adaede
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623938"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Esercitazione: integrazione di Azure Active Directory con SAML SSO for Bamboo di resolution GmbH
 
@@ -181,4 +181,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato SAML SSO for Bamboo di Resolution GmbH, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato SAML SSO for Bamboo di Resolution GmbH, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

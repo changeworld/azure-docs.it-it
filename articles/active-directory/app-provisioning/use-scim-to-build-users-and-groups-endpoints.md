@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9fac8db6747d1e081fa884ed794e55b98f44577f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652038"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650159"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Esercitazione: sviluppare un endpoint SCIM di esempio
 
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Distribuire l'endpoint SCIM in Azure
 
-I passaggi qui illustrano come distribuire l'endpoint SCIM a un servizio usando [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) e il [servizio app Azure](https://docs.microsoft.com/azure/app-service/). Il codice di riferimento SCIM può essere eseguito anche localmente, ospitato da un server locale o distribuito a un altro servizio esterno.
+I passaggi qui illustrano come distribuire l'endpoint SCIM a un servizio usando [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) e il [servizio app Azure](../../app-service/index.yml). Il codice di riferimento SCIM può essere eseguito anche localmente, ospitato da un server locale o distribuito a un altro servizio esterno.
 
 1. Passare al [codice di riferimento](https://github.com/AzureAD/SCIMReferenceCode) da GitHub e selezionare **clona o Scarica**.
 

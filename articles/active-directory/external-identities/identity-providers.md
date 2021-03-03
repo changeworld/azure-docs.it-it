@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 42ed42a1fc9a2750cc928b5fd03eb4b32f770276
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355512"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644086"
 ---
 # <a name="identity-providers-for-external-identities"></a>Provider di identità per Identità esterne
 
@@ -26,10 +26,7 @@ Un *provider di identità* crea, mantiene e gestisce le informazioni sulle ident
 
 - **Google**: Federazione Google consente agli utenti esterni di riscattare gli inviti dall'utente accedendo alle app con gli account Gmail personali. Federazione Google può essere usato anche nei flussi utente di iscrizione self-service.
    > [!IMPORTANT]
-   > **A partire dal 4 gennaio 2021**, Google sta [deprecando il supporto per l'accesso a WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se si usa la Federazione di Google o l'iscrizione self-service con Gmail, è necessario [testare le applicazioni native line-of-business per la compatibilità](google-federation.md#deprecation-of-webview-sign-in-support).
-
-   > [!NOTE]
-   > Nell'anteprima corrente di iscrizione self-service, se un flusso utente è associato a un'app e si invia a un utente un invito a tale app, l'utente non sarà in grado di usare un account Gmail per riscattare l'invito. Come soluzione alternativa, l'utente può eseguire il processo di iscrizione self-service. In alternativa, è possibile riscattare l'invito accedendo a un'altra app o usando il portale App personali in https://myapps.microsoft.com.
+   > **A partire dal 4 gennaio 2021**, il [supporto dell'accesso WebView verrà deprecato](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) da Google. Se si usa la federazione Google o l'iscrizione self-service con Gmail, è consigliabile [testare la compatibilità delle applicazioni line-of-business native](google-federation.md#deprecation-of-webview-sign-in-support).
 
 - **Facebook**: Quando si crea un'app, è possibile configurare l'iscrizione self-service e abilitare la Federazione con Facebook in modo che gli utenti possano iscriversi all'app usando i propri account Facebook. Facebook può essere usato solo per i flussi utente di iscrizione self-service e non è disponibile come opzione di accesso quando gli utenti riscattano gli inviti.
 

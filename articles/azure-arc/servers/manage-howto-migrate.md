@@ -3,12 +3,12 @@ title: Come eseguire la migrazione di server abilitati per Azure Arc tra aree
 description: Informazioni su come eseguire la migrazione di un server abilitato per Azure Arc da un'area a un'altra.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417770"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650176"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Come eseguire la migrazione di server abilitati per Azure Arc tra aree
 
@@ -36,4 +36,4 @@ Per eseguire la migrazione di un server abilitato per Azure Arc da un'area di Az
 
 * Le informazioni sulla risoluzione dei problemi sono reperibili nella [Guida alla risoluzione dei problemi relativi all'agente del computer connesso](troubleshoot-agent-onboard.md).
 
-* Informazioni su come gestire il computer usando [criteri di Azure](../../governance/policy/overview.md), come la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md)della VM, verificando che il computer stia segnalando l'area di lavoro log Analytics prevista, abilitare il monitoraggio con [monitoraggio di Azure con](../../azure-monitor/insights/vminsights-enable-policy.md) i criteri di VM e molto altro ancora.
+* Informazioni su come gestire il computer usando [criteri di Azure](../../governance/policy/overview.md), come la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md)della VM, verificando che il computer stia segnalando l'area di lavoro log Analytics prevista, abilitare il monitoraggio con [monitoraggio di Azure con](../../azure-monitor/vm/vminsights-enable-policy.md) i criteri di VM e molto altro ancora.

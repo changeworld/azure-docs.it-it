@@ -5,18 +5,18 @@ services: virtual-machines
 author: vermagit
 tags: azure-resource-manager
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: be66f29881250843f70ba85b8ef7c80ae8b31aa6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6648f77c5eacf40f848bc9b24aa6e257d8adf626
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966939"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674634"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali serie HBv2 
 
@@ -41,7 +41,7 @@ Il blocco dei processi funzionerà sulle macchine virtuali della serie HBv2, per
 | Core                            | 120 (SMT disabilitato)               | 
 | CPU                              | AMD EPYC 7742                    | 
 | Frequenza CPU (non-AVX)          | ~ 3,1 GHz (singolo + tutti i core)    | 
-| Memory                           | 4 GB/Core (Totale 480 GB)         | 
+| Memoria                           | 4 GB/Core (Totale 480 GB)         | 
 | Disco locale                       | 960 GB NVMe (Block), 480 GB SSD (file di paging) | 
 | Infiniband                       | 200 GB/s EDR Mellanox ConnectX-6 | 
 | Rete                          | 50 GB/s Ethernet (40 GB/s utilizzabile) Azure Second gen SmartNIC | 

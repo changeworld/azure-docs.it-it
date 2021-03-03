@@ -33,6 +33,16 @@
           href: database/features-comparison.md
         - name: Funzionalità multimodello
           href: multi-model-features.md
+        - name: Manutenzione pianificata
+          items:
+            - name: Finestra di manutenzione
+              href: database/maintenance-window.md
+            - name: Configura finestra di manutenzione
+              href: database/maintenance-window-configure.md
+            - name: Domande frequenti sulla finestra di manutenzione
+              href: database/maintenance-window-faq.yml
+            - name: Notifiche avanzate
+              href: database/advance-notifications.md
         - name: OLTP in memoria
           href: in-memory-oltp-overview.md
         - name: Tabelle temporali

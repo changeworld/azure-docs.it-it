@@ -8,22 +8,20 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-ms.translationtype: HT
+ms.openlocfilehash: 45ce295ceee9d5bd1c2393eaed854e8f2c5643ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888607"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659240"
 ---
 # <a name="what-is-azure-communication-services"></a>Che cos'è l'offerta Servizi di comunicazione di Azure?
-
-[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 Servizi di comunicazione di Azure consente di aggiungere in modo semplice funzionalità di comunicazione vocale, video e telefonia tramite IP in tempo reale alle applicazioni. Le librerie client di Servizi di comunicazione consentono anche di aggiungere funzionalità di chat e SMS alle soluzioni di comunicazione.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+> [!VIDEO https://www.youtube.com/embed/apBX7ASurgM]
 
 <br>
 <br>
@@ -43,6 +41,7 @@ Se non si ha familiarità con Servizi di comunicazione di Azure, le risorse segu
 
 | Risorsa                               |Descrizione                           |
 |---                                    |---                                   |
+|**[Aggiungere l'app di chiamata a una riunione di Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|È possibile usare Servizi di comunicazione di Azure per creare esperienze personalizzate di riunioni che interagiscono con Microsoft Teams. Gli utenti delle soluzioni per i servizi di comunicazione possono interagire con i team partecipanti attraverso la voce, il video, la chat e la condivisione dello schermo.|
 |**[Creare una risorsa di Servizi di comunicazione](./quickstarts/create-communication-resource.md)**|È possibile iniziare a usare Servizi di comunicazione di Azure tramite il portale di Azure o la libreria client di amministrazione di Servizi di comunicazione per effettuare il provisioning della prima risorsa di Servizi di comunicazione. Dopo aver ottenuto la stringa di connessione della risorsa di Servizi di comunicazione, è possibile effettuare il provisioning dei primi token di accesso utente.|
 |**[Creare i primi token di accesso utente](./quickstarts/access-tokens.md)**|I token di accesso utente vengono usati per autenticare i servizi con la risorsa di Servizi di comunicazione di Azure. Questi token vengono sottoposti a provisioning e rilasciati tramite la libreria client di amministrazione di Servizi di comunicazione.|
 |**[Ottenere un numero di telefono](./quickstarts/telephony-sms/get-phone-number.md)**|È possibile usare Servizi di comunicazione di Azure per effettuare il provisioning e rilasciare i numeri di telefono. Questi numeri di telefono possono essere usati per avviare le chiamate in uscita e creare soluzioni di comunicazione SMS.|

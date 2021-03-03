@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 5/4/2020
+ms.date: 2/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348722"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647422"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione
 
 > Per ricevere notifiche degli aggiornamenti a questa pagina, incollare l'URL nel lettore di feed RSS:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
-Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per migliorare la sicurezza e la conformità agli standard. Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
+Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per migliorare la sicurezza e la conformità agli standard. Per rimanere sempre aggiornati sugli sviluppi più recenti, in questo articolo vengono fornite informazioni sui dettagli seguenti:
 
 - Funzionalità più recenti
 - Problemi noti
@@ -35,7 +35,28 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 
-Nessun aggiornamento pianificato in questo momento.  Vedere di seguito per le modifiche apportate o destinate alla produzione.
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>L'accesso condizionale viene attivato solo per gli ambiti richiesti in modo esplicito
+
+**Data di validità**: 2021 marzo
+
+**Endpoint interessati**: v 2.0
+
+**Influisce sul protocollo**: tutti i flussi che usano il [consenso dinamico](v2-permissions-and-consent.md#requesting-individual-user-consent)
+
+Alle applicazioni che usano il consenso dinamico vengono concesse tutte le autorizzazioni di cui dispongono per il consenso, anche se non sono state richieste nel `scope` parametro in base al nome.  Questa operazione può causare la richiesta di un'app, ad esempio solo `user.read` , ma con il consenso a `files.read` , per forzare il passaggio dell'accesso condizionale assegnato per l' `files.read` autorizzazione. 
+
+Per ridurre il numero di richieste di accesso condizionale non necessarie, Azure AD sta cambiando il modo in cui vengono forniti gli ambiti non richiesti alle applicazioni, in modo che solo gli ambiti richiesti in modo esplicito attivino l'accesso condizionale. Questa modifica può causare l'indisponibilità di app che dipendono dal comportamento precedente di Azure AD (ossia, fornendo tutte le autorizzazioni anche quando non sono state richieste), perché i token richiesti saranno privi di autorizzazioni.
+
+Le app riceveranno ora i token di accesso con una combinazione di autorizzazioni in questo, quelli richiesti, oltre a quelli per i quali non sono richieste richieste di accesso condizionale.  L'ambito del token di accesso viene riflesso nel parametro della risposta del token `scope` . 
+
+**esempi**
+
+Un'app ha il consenso per `user.read` , `files.readwrite` e `tasks.read` . `files.readwrite` sono stati applicati criteri di accesso condizionale, mentre gli altri due no. Se un'app esegue una richiesta di token per `scope=user.read` e l'utente attualmente connesso non ha superato i criteri di accesso condizionale, il token risultante sarà per le `user.read` autorizzazioni e `tasks.read` . `tasks.read` è incluso perché l'app ne ha il consenso e non richiede l'applicazione di un criterio di accesso condizionale. 
+
+Se l'app richiede `scope=files.readwrite` , l'accesso condizionale richiesto dal tenant verrà attivato, forzando l'app a visualizzare una richiesta di autenticazione interattiva in cui è possibile soddisfare i criteri di accesso condizionale.  Il token restituito avrà tutti e tre gli ambiti. 
+
+Se l'app esegue quindi un'ultima richiesta per uno dei tre ambiti (ad indicare `scope=tasks.read` ), Azure ad noterà che l'utente ha già completato i criteri di accesso condizionale necessari per `files.readwrite` e di nuovo rilascia un token con tutte e tre le autorizzazioni. 
+
 
 ## <a name="may-2020"></a>Maggio 2020
 

@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c2e1ddbfb87df40a0e3683e7bca7539c26191a7b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321445"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671313"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opzioni GROUP BY in sinapsi SQL
 
@@ -24,7 +24,7 @@ Sinapsi SQL consente lo sviluppo di soluzioni implementando opzioni GROUP BY div
 
 ## <a name="what-group-by-does"></a>Che cosa fa GROUP BY
 
-La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) viene usata per aggregare i dati in un set di righe di riepilogo.
+La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest&preserve-view=true) viene usata per aggregare i dati in un set di righe di riepilogo.
 
 Il pool SQL senza server supporta l'intera gamma di opzioni GROUP BY. Il pool SQL dedicato supporta un numero limitato di opzioni di raggruppamento.
 
@@ -125,7 +125,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-La figura seguente mostra i risultati di [create table come SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+La figura seguente mostra i risultati di [create table come SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true):
 
 ![Raggruppare per cubo](./media/develop-group-by-options/develop-group-by-cube.png)
 

@@ -1,20 +1,20 @@
 ---
-title: Funzionalità supportate da Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
+title: Funzionalità supportate da Collegamento ad Azure Synapse per Azure Cosmos DB
 description: Informazioni sull'elenco corrente di azioni supportate da Collegamento ad Azure Synapse per Azure Cosmos DB
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 09/15/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: b58474758ac4d26b347dc72d84be401d15a3846b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: cb2cadadacd914bfa5473b512255c1ab0f856150
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119816"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666304"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Funzionalità supportate da Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -33,7 +33,7 @@ In Azure Cosmos DB sono disponibili due tipi di contenitori:
 
 | Category              | Descrizione |[Pool di Apache Spark](../sql/on-demand-workspace-overview.md) | [Pool SQL serverless](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Supporto di runtime** |Runtime di Azure sinapsi supportato per accedere a Azure Cosmos DB| ✓ | Anteprima |
+| **Supporto di runtime** |Runtime di Azure sinapsi supportato per accedere a Azure Cosmos DB| ✓ | ✓ |
 | **Supporto dell'API di Azure Cosmos DB** | Tipo di API Azure Cosmos DB supportato | SQL/MongoDB | SQL/MongoDB |
 | **Object**  |Oggetti, ad esempio una tabella che è possibile creare, che puntano direttamente al contenitore Azure Cosmos DB| Dataframe, vista, tabella | Visualizzazione |
 | **Lettura**    | Tipo di contenitore di Azure Cosmos DB che è possibile leggere | OLTP/HTAP | HTAP  |
@@ -51,7 +51,6 @@ In Azure Cosmos DB sono disponibili due tipi di contenitori:
 | **Scrittura di dataframe in un contenitore** |Scrittura di dati in un contenitore|✓| ✓ |
 | **Caricamento di dataframe in streaming da un contenitore** |Streaming dei dati con il feed di modifiche di Azure Cosmos DB|✓| ✓ |
 | **Scrittura di un dataframe in streaming in un contenitore** |Streaming dei dati con il feed di modifiche di Azure Cosmos DB|✓| ✓ |
-
 
 ## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>Azioni generate dal codice supportate per il pool SQL senza server
 

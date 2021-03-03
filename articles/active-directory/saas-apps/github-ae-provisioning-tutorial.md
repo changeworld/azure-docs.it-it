@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4e43ebba9f5f3d0c52d1d03bbf6baca92d5b87a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178722"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651579"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Esercitazione: configurare GitHub AE per il provisioning utenti automatico
 
@@ -43,7 +43,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * GitHub AE, completamente [inizializzato](https://docs.github.com/github-ae@latest/admin/configuration/initializing-github-ae) e configurato per l'accesso con [SAML SSO](https://docs.github.com/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad) tramite il tenant di Azure ad.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e GITHUB AE](../app-provisioning/customize-application-attributes.md). 
 
@@ -111,17 +111,27 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |name.formatted|string|
    |displayName|string|
 
-10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to GitHub AE**.
 
-11. Per abilitare il servizio di provisioning Azure AD per GitHub AE, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a GitHub AE nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in GitHub AE per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+
+      |Attributo|Type|
+      |---|---|
+      |displayName|string|
+      |externalId|string|
+      |Membri di|Informazioni di riferimento|
+
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Per abilitare il servizio di provisioning Azure AD per GitHub AE, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in GitHub AE selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in GitHub AE selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-13. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
@@ -133,6 +143,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 1. Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
 2. Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 02/18/2021-è stato aggiunto il supporto per il provisioning dei gruppi.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentazione del server di route di Azure
+summary: Informazioni su come usare il server di routing di Azure per semplificare il routing dinamico tra le appliance virtuali di rete e la rete virtuale.
+metadata:
+  title: Documentazione del server di route di Azure
+  description: Informazioni sul server di route di Azure
+  services: route-server
+  ms.service: route-server
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 03/02/2021
+  ms.openlocfilehash: f235d7118ce207d793c4ba03d357e2db09662c1f
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101680678"
+landingContent:
+- title: Informazioni sul server di route di Azure (anteprima)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il server di route di Azure (anteprima)?
+      url: overview.md
+- title: Introduzione
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creare e configurare un server di route-PowerShell
+      url: quickstart-configure-route-server-powershell.md
+    - text: Creare e configurare un server di route-CLI
+      url: quickstart-configure-route-server-cli.md
+- title: Pianificazione
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Supporto per ExpressRoute e gateway VPN
+      url: expressroute-vpn-support.md
+    - text: Domande frequenti su Route server
+      url: route-server-faq.md

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c67b0bab554f363b8389c5557eadeac6e4c577a2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f94134b2a06155b1b1f390175578e501a840038b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625232"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669415"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Supporto self-help per il pool SQL serverless
 
@@ -30,7 +30,7 @@ Se Synapse Studio non riesce a stabilire una connessione con il pool SQL serverl
 ## <a name="query-fails-because-file-cannot-be-opened"></a>La query non riesce perché non è possibile aprire il file
 
 Se la query non riesce con un messaggio di errore che indica che non è possibile aprire il file perché non esiste o è in uso da un altro processo e si è certi che il file esista e che non sia in uso da un altro processo, significa che il pool SQL serverless non può accedere al file. Questo problema si verifica in genere perché l'identità di Azure Active Directory non ha i diritti per accedere al file. Per impostazione predefinita, il pool SQL serverless prova ad accedere al file con l'identità di Azure Active Directory. Per risolvere questo problema, è necessario avere i diritti appropriati per l'accesso al file. Il modo più semplice consiste nel concedere a se stessi il ruolo 'Collaboratore ai dati dei BLOB di archiviazione' nell'account di archiviazione su cui si prova a eseguire query. 
-- [Per altre informazioni, vedere la guida completa sul controllo di accesso di Azure Active Directory per l'archiviazione](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+- [Per altre informazioni, vedere la guida completa sul controllo di accesso di Azure Active Directory per l'archiviazione](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Vedere controllare l'accesso all'account di archiviazione per il pool SQL senza server in Azure sinapsi Analytics](develop-storage-files-storage-access-control.md)
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>La query non riesce perché non può essere eseguita a causa di vincoli di risorse correnti 

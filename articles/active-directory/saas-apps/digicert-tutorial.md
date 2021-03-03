@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 1c7befc0b42cfa3460a1c9b375a95b97e3e65746
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 1b4bf5b9d9b0341609d4caf0647c849ba92b073f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558434"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Esercitazione: Integrazione di Azure Active Directory con DigiCert
 
@@ -156,8 +156,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente al DigiCert per il quale si configura l'accesso SSO.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro DigiCert in My Apps (app personali), si dovrebbe accedere automaticamente al DigiCert per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro DigiCert in My Apps (app personali), si dovrebbe accedere automaticamente al DigiCert per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato DigiCert, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato DigiCert, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

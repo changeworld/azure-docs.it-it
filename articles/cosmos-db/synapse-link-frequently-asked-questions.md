@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627777"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658470"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -67,6 +67,12 @@ Sì, l'archivio analitico può essere abilitato nei contenitori con velocità ef
 ### <a name="is-there-any-effect-on-azure-cosmos-db-transactional-store-provisioned-rus"></a>Si verificano effetti sulle unità richiesta con provisioning dell'archivio transazionale di Azure Cosmos DB?
 
 Azure Cosmos DB garantisce l'isolamento delle prestazioni tra carichi di lavoro transazionali e analitici. L'abilitazione dell'archivio analitico in un contenitore non influirà sulle UR/s con provisioning nell'archivio transazionale di Azure Cosmos DB. I costi delle transazioni (lettura e scrittura) e dell'archiviazione per l'archivio analitico verranno addebitati separatamente. Per altri dettagli, vedere i [prezzi dell'archivio analitico di Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing).
+
+### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>È possibile limitare l'accesso a Azure Cosmos DB archivio analitico?
+
+Sì, è possibile configurare un [endpoint privato gestito](analytical-store-private-endpoints.md) e limitare l'accesso di rete dell'archivio analitico alla rete virtuale gestita da sinapsi di Azure. Gli endpoint privati gestiti stabiliscono un collegamento privato all'archivio analitico. Questo endpoint privato limiterà anche l'accesso in scrittura all'archivio transazionale, tra gli altri servizi dati di Azure.
+
+È possibile aggiungere endpoint privati sia per l'archivio transazionale che per quelli analitici allo stesso account Azure Cosmos DB in un'area di lavoro di Azure sinapsi Analytics. Se si vuole solo eseguire query analitiche, è possibile eseguire solo il mapping dell'endpoint privato analitico.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>Le operazioni di eliminazione e aggiornamento eseguite nell'archivio transazionale si riflettono nell'archivio analitico?
 

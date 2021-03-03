@@ -1,24 +1,24 @@
 ---
 title: Problemi noti e risoluzione dei problemi per le chiavi di sicurezza ibrido per FIDO2-Azure Active Directory
-description: Informazioni su alcuni problemi noti e su come risolvere i problemi di accesso alle chiavi di sicurezza ibrido senza password con Azure Active Directory (anteprima)
+description: Informazioni su alcuni problemi noti e sui modi per risolvere i problemi di accesso alle chiavi di sicurezza ibrido FIDO2 senza password con Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743276"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648781"
 ---
-# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Risoluzione dei problemi per le distribuzioni ibride di chiavi di sicurezza FIDO2 in Azure AD (anteprima)
+# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Risoluzione dei problemi per le distribuzioni ibride di chiavi di sicurezza FIDO2 in Azure AD 
 
 Questo articolo illustra le domande frequenti per i dispositivi ibridi Azure AD aggiunti e l'accesso senza password alle risorse locali. Con questa funzionalità senza password, è possibile abilitare l'autenticazione Azure AD nei dispositivi Windows 10 per i dispositivi ibridi Azure AD aggiunti usando le chiavi di sicurezza FIDO2. Gli utenti possono accedere a Windows sui propri dispositivi con credenziali moderne come le chiavi di FIDO2 e accedere alle risorse basate su Active Directory Domain Services tradizionali (AD DS) con un'esperienza di Single Sign-On semplice (SSO) alle risorse locali.
 
@@ -29,12 +29,9 @@ Sono supportati gli scenari seguenti per gli utenti in un ambiente ibrido:
 
 Per iniziare a usare le chiavi di sicurezza di FIDO2 e l'accesso ibrido alle risorse locali, vedere gli articoli seguenti:
 
-* [Chiavi di sicurezza non password](howto-authentication-passwordless-security-key.md)
+* [Chiavi di sicurezza senza password](howto-authentication-passwordless-security-key.md)
 * [Accesso senza password in Windows 10](howto-authentication-passwordless-security-key-windows.md)
-* [Password in locale](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* [Accesso senza password in locale](howto-authentication-passwordless-security-key-on-premises.md)
 
 ## <a name="known-issues"></a>Problemi noti
 

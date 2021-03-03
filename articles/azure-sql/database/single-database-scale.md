@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 09/16/2020
-ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/22/2021
+ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493407"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658555"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -112,6 +112,7 @@ else {
 - Quando si effettua il downgrade di un database con la [replica geografica](active-geo-replication-configure-portal.md) abilitata, eseguire il downgrade dei database primari al livello di servizio e alle dimensioni di calcolo desiderati prima del downgrade del database secondario (indicazione generale per ottenere prestazioni ottimali). Quando si effettua il downgrade a un'edizione diversa, è necessario eseguire prima il downgrade del database primario.
 - Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si esegue il downgrade al livello **Basic** , si verifica un periodo di conservazione dei backup inferiore. Vedere l'articolo relativo ai [backup del database SQL di Azure](automated-backups-overview.md).
 - Le nuove proprietà del database non verranno applicate finché le modifiche non vengono completate.
+- Quando la copia dei dati è necessaria per ridimensionare un database (vedere [latenza](#latency)) quando si modifica il livello di servizio, l'utilizzo elevato delle risorse simultaneo all'operazione di ridimensionamento può causare tempi di ridimensionamento più lunghi. Con il [recupero accelerato del database (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts.md), il rollback delle transazioni a esecuzione prolungata non è un'origine significativa del ritardo, ma l'utilizzo di risorse simultanee elevate può lasciare meno risorse di calcolo, archiviazione e larghezza di banda di rete per la scalabilità, in particolare per le dimensioni di calcolo più piccole.
 
 ## <a name="billing"></a>Fatturazione
 

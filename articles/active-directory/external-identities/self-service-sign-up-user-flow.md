@@ -5,22 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586024"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647337"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)
-> [!NOTE]
-> L'iscrizione self-service è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Aggiungere un flusso utente di iscrizione self-service a un'app
 
 È possibile creare flussi utente per le app create dall'organizzazione. L'associazione del flusso utente a un'applicazione consente di abilitare l'iscrizione in tale app. È possibile scegliere più di un'applicazione da associare al flusso utente. Dopo aver associato il flusso utente a una o più applicazioni, gli utenti che visitano l'app potranno iscriversi e ottenere un account guest usando le opzioni configurate nel flusso utente.
 
@@ -36,9 +34,6 @@ Azure AD è il provider di identità predefinito per l'iscrizione self-service. 
 - [Aggiungere Facebook all'elenco di provider di identità basati su social network](facebook-federation.md)
 - [Aggiungere Google all'elenco di provider di identità basati su social network](google-federation.md)
 
-> [!NOTE]
-> Nell'anteprima corrente, se un flusso utente di iscrizione self-service è associato a un'app e si invia a un utente un invito a tale app, l'utente non sarà in grado di usare un account Gmail per riscattare l'invito. Come soluzione alternativa, l'utente può eseguire il processo di iscrizione self-service. In alternativa, è possibile riscattare l'invito accedendo a un'altra app o usando il portale App personali in https://myapps.microsoft.com.
-
 ### <a name="define-custom-attributes-optional"></a>Definire attributi personalizzati (facoltativo)
 
 Gli attributi utente sono valori raccolti dall'utente durante l'iscrizione self-service. Azure AD include un set predefinito di attributi, ma è possibile creare attributi personalizzati da usare nel flusso utente. Questi attributi supportano anche le operazioni di lettura e scrittura usando l'API Microsoft Graph. Vedere [Definire attributi personalizzati per i flussi utente](user-flow-add-custom-attributes.md).
@@ -50,7 +45,7 @@ Prima di poter aggiungere un flusso utente di iscrizione self-service alle appli
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Selezionare **Impostazioni utente**, quindi in **Utenti esterni** selezionare **Gestisci le impostazioni di collaborazione esterna**.
-4. Impostare l'opzione **Abilita l'iscrizione self-service per guest tramite flussi utente (anteprima)** su **Sì**.
+4. Impostare l'opzione **Abilita i flussi di accesso self-service con i flussi utente** su **Sì**.
 
    ![Abilitare l'iscrizione self-service per utenti guest](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. Selezionare **Salva**.
@@ -61,7 +56,7 @@ Verrà creato il flusso utente per l'iscrizione self-service e lo si aggiungerà
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Nel menu a sinistra selezionare **Identità esterne**.
-4. Selezionare **Flussi utente (anteprima)** e quindi **Nuovo flusso utente**.
+4. Selezionare **flussi utente**, quindi selezionare **nuovo flusso utente**.
 
    ![Pulsante per l'aggiunta di un nuovo flusso utente](media/self-service-sign-up-user-flow/new-user-flow.png)
 
@@ -74,15 +69,15 @@ Verrà creato il flusso utente per l'iscrizione self-service e lo si aggiungerà
 > [!NOTE]
 > È possibile raccogliere gli attributi solo quando un utente si iscrive per la prima volta. Quando un utente si iscrive, non verrà più richiesto di raccogliere informazioni sugli attributi, anche se si modifica il flusso utente.
 
-8. Selezionare **Create** (Crea).
-9. Il nuovo flusso utente verrà visualizzato nell'elenco **Flussi utente (anteprima)** . Se necessario, aggiornare la pagina.
+8. Selezionare **Crea**.
+9. Il nuovo flusso utente viene visualizzato nell'elenco **flussi utente** . Se necessario, aggiornare la pagina.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>Selezionare il layout del modulo di raccolta degli attributi
 
 È possibile scegliere l'ordine in cui gli attributi vengono visualizzati nella pagina di iscrizione. 
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory**.
-2. Selezionare **Identità esterne** e quindi **Flussi utente (anteprima)** .
+2. Selezionare **identità esterne**, selezionare **flussi utente**.
 3. Selezionare il flusso utente di iscrizione self-service dall'elenco.
 4. In **Personalizza**, selezionare **Layout di pagina**.
 5. Vengono elencati gli attributi scelti per la raccolta. Per modificare l'ordine di visualizzazione, selezionare un attributo, quindi selezionare **Sposta su**, **Sposta giù**, **Sposta all'inizio** o **Sposta alla fine**.
@@ -95,7 +90,7 @@ A questo punto è possibile associare le applicazioni al flusso utente.
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Nel menu a sinistra selezionare **Identità esterne**.
-4. In **Iscrizione self-service** selezionare **Flussi utente (anteprima)** .
+4. In **iscrizione self-service** selezionare **flussi utente**.
 5. Selezionare il flusso utente di iscrizione self-service dall'elenco.
 6. Nel menu a sinistra selezionare **Applicazioni** in **Usa**.
 7. Selezionare **Aggiungi applicazione**.

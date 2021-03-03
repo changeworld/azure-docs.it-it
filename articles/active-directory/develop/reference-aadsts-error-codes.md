@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 78f844295c16d15be65f345881ec92fa15a9734a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428032"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649224"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure AD
 
@@ -95,7 +95,7 @@ Se, ad esempio, è stato ricevuto il codice di errore "AADSTS50058", eseguire un
 | AADSTS50000 | TokenIssuanceError: si è verificato un problema relativo al servizio di accesso. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per risolvere il problema. |
 | AADSTS50001 | InvalidResource: la risorsa è disabilitata o non esiste. Controllare il codice dell'app per verificare di avere specificato l'URL della risorsa esatta cui si sta tentando di accedere.  |
 | AADSTS50002 | NotAllowedTenant: accesso non riuscito a causa di limitazioni di accesso al proxy nel tenant. Se questo errore è dovuto ai propri criteri per il tenant, è possibile modificare le impostazioni di limitazione per il tenant per correggerlo. |
-| AADSTS500021 | L'accesso al tenant ' {tenant}' è stato negato. AADSTS500021 indica che la funzionalità di restrizione tenant è configurata e che l'utente sta tentando di accedere a un tenant non presente nell'elenco di tenant consentiti specificato nell'intestazione `Restrict-Access-To-Tenant` . Per altre informazioni, vedere [usare le restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
+| AADSTS500021 | L'accesso al tenant ' {tenant}' è stato negato. AADSTS500021 indica che la funzionalità di restrizione tenant è configurata e che l'utente sta tentando di accedere a un tenant non presente nell'elenco di tenant consentiti specificato nell'intestazione `Restrict-Access-To-Tenant` . Per altre informazioni, vedere [usare le restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS](../manage-apps/tenant-restrictions.md).|
 | AADSTS50003 | MissingSigningKey: accesso non riuscito a causa di una chiave o un certificato di firma mancante. Questo errore può essere dovuto al fatto che non è stata configurata alcuna chiave di firma nell'app. Vedere le soluzioni descritte in [. /Manage-apps/application-Sign-in-problem-Federated-SSO-Gallery.MD # certificate-or-Key-non configurata](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se il problema persiste, contattare il proprietario o l'amministratore dell'app. |
 | AADSTS50005 | DevicePolicyError-l'utente ha tentato di accedere a un dispositivo da una piattaforma che attualmente non è supportata tramite i criteri di accesso condizionale. |
 | AADSTS50006 | InvalidSignature: la verifica della firma non è riuscita a causa di una firma non valida. |
@@ -168,6 +168,7 @@ Se, ad esempio, è stato ricevuto il codice di errore "AADSTS50058", eseguire un
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired: il client è in grado di ottenere un token SSO tramite l'estensione per gli account Windows 10, ma il token non è stato trovato nella richiesta o il token specificato è scaduto. |
 | AADSTS50169 | InvalidRequestBadRealm: l'area di autenticazione non è un'area di autenticazione configurata dello spazio dei nomi del servizio corrente. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping: il mapping dei controlli esterni è mancante. |
+| AADSTS50173 | FreshTokenNeeded: la concessione fornita è scaduta perché è stata revocata ed è necessario un nuovo token di autenticazione. Un amministratore o un utente ha revocato i token per questo utente, causando l'esito negativo degli aggiornamenti del token successivi e la richiesta di riautenticazione. Chiedere all'utente di eseguire di nuovo l'accesso. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers: la richiesta di verifica esterna non è supportata per gli utenti pass-through. |
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers: il controllo della sessione non è supportato per gli utenti pass-through. |
 | AADSTS50180 | WindowsIntegratedAuthMissing: è necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO. |

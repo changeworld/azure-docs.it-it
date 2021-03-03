@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2027f713baf2b8039187e933ffc7bb0b68b5cc5f
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b6ef122cd36c3d4e9135876647075f22158df0d1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631962"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653236"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -51,7 +51,7 @@ L'endpoint API Microsoft Graph per i log di controllo è `https://graph.microsof
 
 È possibile usare l' [API rilevamento dei rischi di Identity Protection](/graph/api/resources/identityriskevent?view=graph-rest-beta) per ottenere l'accesso a livello di codice ai rilevamenti di sicurezza usando Microsoft Graph. Per altre informazioni, vedere [Introduzione a Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
-È anche possibile usare l' [API dei log di provisioning](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) per ottenere l'accesso programmatico agli eventi di provisioning nel tenant. 
+È anche possibile usare l' [API dei log di provisioning](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) per ottenere l'accesso programmatico agli eventi di provisioning nel tenant. 
 
 ## <a name="apis-with-microsoft-graph-explorer"></a>API con Microsoft Graph Explorer
 

@@ -5,23 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 547b455dc776b7304e413b3b6f1330e7cedcf2a2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d68f83bd042af6612b91807f2adeed54d24bfe01
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441998"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648620"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Aggiungere Facebook come provider di identità per le identità esterne
 
-È possibile aggiungere Facebook ai flussi utente di iscrizione self-service (anteprima) per consentire agli utenti di accedere alle applicazioni usando i propri account Facebook. Per consentire agli utenti di accedere con Facebook, è prima necessario [abilitare l'iscrizione self-service](self-service-sign-up-user-flow.md) per il tenant. Dopo aver aggiunto Facebook come provider di identità, configurare un flusso utente per l'applicazione e selezionare Facebook come una delle opzioni di accesso.
+È possibile aggiungere Facebook ai flussi utente di iscrizione self-service in modo che gli utenti possano accedere alle applicazioni usando i propri account Facebook. Per consentire agli utenti di accedere con Facebook, è prima necessario [abilitare l'iscrizione self-service](self-service-sign-up-user-flow.md) per il tenant. Dopo aver aggiunto Facebook come provider di identità, configurare un flusso utente per l'applicazione e selezionare Facebook come una delle opzioni di accesso.
+
+Dopo aver aggiunto Facebook come una delle opzioni di accesso dell'applicazione, nella pagina di **accesso** un utente può semplicemente immettere il messaggio di posta elettronica usato per accedere a Facebook oppure può selezionare le **Opzioni di accesso** e scegliere **Accedi con Facebook**. In entrambi i casi, verranno reindirizzati alla pagina di accesso di Facebook per l'autenticazione.
+
+![Opzioni di accesso per gli utenti di Facebook](media/facebook-federation/sign-in-with-facebook-overview.png)
 
 > [!NOTE]
 > Gli utenti possono usare i propri account Facebook solo per iscriversi alle app usando l'iscrizione self-service e i flussi utente. Gli utenti non possono essere inviati e riscattare l'invito usando un account Facebook.

@@ -4,16 +4,17 @@ description: Procedura dettagliata per la migrazione delle risorse supportata da
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 69eae2bd2e2db27c6cc9d0a0c1eb29576e96179a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879411"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669313"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica a Azure Resource Manager in Linux
 

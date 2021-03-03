@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097541"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656823"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -107,12 +107,9 @@ Se si prevede di aggiungere nuove immagini al set di dati, usare l'aggiornamento
 
 Per aggiungere altre immagini al progetto, usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per eseguire il caricamento nella cartella appropriata dell'archivio BLOB. 
 
-Selezionare la casella **Abilita aggiornamento incrementale** se si vuole che il progetto monitori continuamente la presenza di nuovi dati nell'archivio dati. Questi dati verranno inseriti nel progetto una volta al giorno, se la funzionalità è abilitata.
+Selezionare la casella **Abilita aggiornamento incrementale** se si vuole che il progetto monitori continuamente la presenza di nuovi dati nell'archivio dati. Questi dati vengono inseriti nel progetto una volta al giorno quando sono abilitati, quindi è necessario attendere che vengano aggiunti nuovi dati all'archivio dati prima che vengano visualizzati nel progetto.  È possibile visualizzare un timestamp per l'ultimo aggiornamento dei dati nella sezione **aggiornamento incrementale** della scheda **Dettagli** per il progetto.
 
 Deselezionare questa casella di controllo se non si vuole che le nuove immagini visualizzate nell'archivio dati vengano aggiunte al progetto.
-
-Il timestamp dell'ultimo aggiornamento è disponibile nella sezione **Aggiornamento incrementale** della scheda **Dettagli** del progetto.
-
 
 ## <a name="specify-label-classes"></a>Specificare le classi di etichetta
 

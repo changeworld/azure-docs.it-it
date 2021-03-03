@@ -6,19 +6,18 @@ documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 277ed8ad5f9888daa911cb3b5c7dcf00fd285bf4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a98fd5785174d681b333cdaa29fe53ae06f137e1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489157"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675377"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux
 
@@ -583,7 +582,7 @@ clone clone-max=2 clone-node-max=1 interleave=true
 Creare poi le risorse HANA.
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 Se si compila un cluster in **RHEL 7. x**, usare i comandi seguenti:  
 
@@ -724,7 +723,7 @@ Resource Group: g_ip_HN1_03
 ### <a name="test-the-azure-fencing-agent"></a>Testare l'agente di isolamento di Azure
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.  
+> Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.  
 
 Stato delle risorse prima dell'avvio del test:
 

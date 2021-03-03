@@ -6,16 +6,16 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: rongzhang
-ms.openlocfilehash: d41dcb939f981ce9cb6d3eae328cb2eb9adc20c2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: d8ec04227316088983977f5b487abfa81fb5c525
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654273"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652403"
 ---
 # <a name="azure-api-management-diagnostics-overview"></a>Panoramica di diagnostica di gestione API di Azure
 
-Quando è stata creata e gestita un'API in gestione API di Azure, si desidera prepararsi a eventuali problemi che possono verificarsi, da 404 errori non trovati a 502 Errore del gateway errato. La diagnostica di gestione API è un'esperienza intelligente e interattiva che consente di risolvere i problemi relativi all'API pubblicata in gestione API senza che sia necessaria alcuna configurazione. Quando si verificano problemi con le API pubblicate, la diagnostica di gestione API rileva gli errori e fornisce le informazioni appropriate per risolvere rapidamente i problemi e risolvere il problema.
+Quando si compila e si gestisce un'API in gestione API di Azure, si desidera prepararsi a eventuali problemi che possono verificarsi, da 404 errori non trovati a 502 Errore del gateway errato. La diagnostica di gestione API è un'esperienza intelligente e interattiva che consente di risolvere i problemi relativi all'API pubblicata in gestione API senza che sia necessaria alcuna configurazione. Quando si verificano problemi con le API pubblicate, la diagnostica di gestione API rileva gli errori e fornisce le informazioni appropriate per risolvere rapidamente i problemi e risolvere il problema.
 
 Anche se questa esperienza è particolarmente utile quando si riscontrano problemi con l'API nelle ultime 24 ore, tutti i grafici di diagnostica sono sempre disponibili per l'analisi.
 

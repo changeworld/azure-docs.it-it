@@ -2,18 +2,19 @@
 title: Eseguire il backup di un database di Oracle Database 19C in una macchina virtuale Linux di Azure con RMAN e archiviazione di Azure
 description: Informazioni su come eseguire il backup di un database di Oracle Database 19C nell'archiviazione cloud di Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806274"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670024"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Eseguire il backup e il ripristino di un database di Oracle Database 19C in una VM Linux di Azure con archiviazione di Azure
 
@@ -405,4 +406,4 @@ az group delete --name rg-oracle
 
 [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
 
-[Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)
+[Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

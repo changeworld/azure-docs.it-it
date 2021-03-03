@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5265b875769e6a1b8f1728c9c41c0bee00619956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807021"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647388"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Aggiungere un connettore API a un flusso utente
 
@@ -30,7 +30,7 @@ Per usare un [connettore API](api-connectors-overview.md), è necessario innanzi
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Nel menu a sinistra selezionare **Identità esterne**.
-4. Selezionare **tutti i connettori API (anteprima)** e quindi selezionare **nuovo connettore API**.
+4. Selezionare **tutti i connettori API**, quindi selezionare **nuovo connettore API**.
 
    ![Aggiungere un nuovo connettore API](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -97,7 +97,7 @@ Seguire questi passaggi per aggiungere un connettore API a un flusso utente di i
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Nel menu a sinistra selezionare **Identità esterne**.
-4. Selezionare **flussi utente (anteprima)** e quindi selezionare il flusso utente a cui si vuole aggiungere il connettore API.
+4. Selezionare **flussi utente** e quindi selezionare il flusso utente a cui si vuole aggiungere il connettore API.
 5. Selezionare **connettori API** e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
 
    - **Dopo aver eseguito l'accesso con un provider di identità**

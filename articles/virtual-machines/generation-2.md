@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: dcc599daaa8d124c7188165ff5e024767a5e3cd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759739"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672639"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -79,11 +79,13 @@ Azure attualmente non supporta alcune funzionalità supportate da Hyper-V in loc
 
 | Funzionalità di seconda generazione                | Hyper-V in locale | Azure |
 |-------------------------------------|---------------------|-------|
-| Avvio protetto                         | :heavy_check_mark:  | :x:   |
+| Avvio protetto                         | :heavy_check_mark:  | Con avvio attendibile (anteprima)   |
 | Macchina virtuale schermata                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Sicurezza basata sulla virtualizzazione (VBS) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | Con avvio attendibile (anteprima)  |
+| Sicurezza basata sulla virtualizzazione (VBS) | :heavy_check_mark:  | Con avvio attendibile (anteprima)   |
 | Formato VHDX                         | :heavy_check_mark:  | :x:   |
+
+Per altre informazioni, vedere [avvio attendibile (anteprima)](trusted-launch.md).
 
 ## <a name="features-and-capabilities"></a>Funzionalità e caratteristiche
 
@@ -105,7 +107,7 @@ Azure attualmente non supporta alcune funzionalità supportate da Hyper-V in loc
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/ripristino                    | :heavy_check_mark: | :heavy_check_mark: |
 | Raccolta di immagini condivise              | :heavy_check_mark: | :heavy_check_mark: |
-| [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Modello di crittografia lato server](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Creazione di una macchina virtuale di seconda generazione
@@ -206,7 +208,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
     Sì. Per altre informazioni, vedere [Creare una VM con rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Le macchine virtuali di seconda generazione supportano l'avvio protetto o vTPM in Azure?**
-    Le macchine virtuali di prima e seconda generazione in Azure non supportano l'avvio protetto o vTPM. 
+    Sia vTPM che avvio protetto sono funzionalità di avvio attendibile (anteprima) per le macchine virtuali di seconda generazione. Per altre informazioni, vedere [avvio attendibile](trusted-launch.md).
     
 * **VHDX è supportato nelle macchine virtuali di seconda generazione?**  
     No, le macchine virtuali di seconda generazione supportano solo VHD.
@@ -225,5 +227,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
     1. Assicurarsi di cercare [dimensioni della macchina virtuale che supportano le macchine virtuali di seconda generazione](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Scopri di più sul [lancio attendibile (anteprima)](trusted-launch-portal.md) con le VM di generazione 2.
 
 Informazioni sulle [macchine virtuali di seconda generazione in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

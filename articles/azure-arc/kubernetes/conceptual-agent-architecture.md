@@ -2,18 +2,18 @@
 title: Architettura dell'agente Kubernetes abilitato per Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Questo articolo fornisce una panoramica dell'architettura degli agenti Kubernetes abilitati per Azure Arc
 keywords: Kubernetes, Arc, Azure, contenitori
-ms.openlocfilehash: 287ffdd40dc9ffdb91abb58b305d8b35b0bc3674
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652565"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650533"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Architettura dell'agente Kubernetes abilitato per Azure Arc
 
@@ -42,7 +42,7 @@ La maggior parte dei data center locali applica regole di rete rigide che impedi
 
         | Agente | Descrizione |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | Azure Arc Enabled Kubernetes supporta attualmente solo le [identità assegnate dal sistema](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). `clusteridentityoperator` avvia la prima comunicazione in uscita. Questa prima comunicazione Recupera il certificato di identità del servizio gestita (MSI) usato da altri agenti per la comunicazione con Azure. |
+        | `deployment.apps/clusteridentityoperator` | Azure Arc Enabled Kubernetes supporta attualmente solo le [identità assegnate dal sistema](../../active-directory/managed-identities-azure-resources/overview.md). `clusteridentityoperator` avvia la prima comunicazione in uscita. Questa prima comunicazione Recupera il certificato di identità del servizio gestita (MSI) usato da altri agenti per la comunicazione con Azure. |
         | `deployment.apps/config-agent` | Controlla il cluster connesso per le risorse di configurazione del controllo del codice sorgente applicate al cluster. Aggiorna lo stato di conformità. |
         | `deployment.apps/controller-manager` | Operatore di operatori che orchestra le interazioni tra i componenti di Azure Arc. |    
         | `deployment.apps/metrics-agent` | Raccoglie le metriche di altri agenti di arco per verificare le prestazioni ottimali. |
@@ -93,5 +93,5 @@ La maggior parte dei data center locali applica regole di rete rigide che impedi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Connettere un cluster ad Azure Arc](./connect-cluster.md)
+* [Connettere un cluster ad Azure Arc](./quickstart-connect-cluster.md)
 * [Panoramica concettuale delle configurazioni](./conceptual-configurations.md)

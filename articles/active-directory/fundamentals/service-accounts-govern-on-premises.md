@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417491"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649207"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Governare gli account di servizio locali
 
@@ -60,11 +60,11 @@ Utilizzare i criteri seguenti durante la creazione di un nuovo account del servi
 
 Usare le impostazioni seguenti con gli account utente usati come account del servizio:
 
-* [**Scadenza dell'account**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): impostare l'account del servizio in modo che scada automaticamente un set di tempo dopo il periodo di verifica, a meno che non sia stato determinato che dovrebbe continuare
+* [**Scadenza dell'account**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): impostare l'account del servizio in modo che scada automaticamente un set di tempo dopo il periodo di verifica, a meno che non sia stato determinato che dovrebbe continuare
 
 *  **LogonWorkstations**: limitare le autorizzazioni per la posizione in cui l'account del servizio può accedere. Se viene eseguito localmente in un computer e accede solo a risorse in tale computer, limitarlo alla registrazione in qualsiasi altra posizione.
 
-* [**Impossibile modificare la password**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): evitare che l'account del servizio modifichi la propria password impostando il parametro su false.
+* [**Impossibile modificare la password**](/powershell/module/addsadministration/set-aduser?view=win10-ps): evitare che l'account del servizio modifichi la propria password impostando il parametro su false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Creazione di un processo di gestione del ciclo di vita
@@ -149,17 +149,17 @@ La valutazione dei rischi, una volta eseguita e documentata, potrebbe avere un i
 
 Creare un account del servizio solo dopo aver documentato le informazioni rilevanti nella CMDB ed eseguire una valutazione dei rischi. Le restrizioni degli account devono essere allineate alla valutazione del rischio. Quando pertinente per la valutazione, tenere presenti le restrizioni seguenti:
 
-* [Scadenza dell'account](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Scadenza dell'account](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * Per tutti gli account utente usati come account del servizio, definire una data di fine realistica e definita da usare. Impostare questa opzione con il flag "scadenza account". Per ulteriori informazioni, vedere[ set-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Per tutti gli account utente usati come account del servizio, definire una data di fine realistica e definita da usare. Impostare questa opzione con il flag "scadenza account". Per ulteriori informazioni, vedere[ set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
 
-* Accedi a ([LogonWorkstation](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Accedi a ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
 
-* Requisiti dei [criteri password](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)
+* Requisiti dei [criteri password](../../active-directory-domain-services/password-policy.md)
 
-* Creazione in un [percorso dell'unità organizzativa](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) che garantisce la gestione solo per gli utenti con privilegi
+* Creazione in un [percorso dell'unità organizzativa](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) che garantisce la gestione solo per gli utenti con privilegi
 
-* Configurare e raccogliere il controllo per [rilevare le modifiche apportate](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) all'account del servizio e [usare l'account del servizio](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
+* Configurare e raccogliere il controllo per [rilevare le modifiche apportate](/windows/security/threat-protection/auditing/audit-directory-service-changes) all'account del servizio e [usare l'account del servizio](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
 Quando si è pronti per l'immissione in produzione, concedere l'accesso all'account del servizio in modo sicuro. 
 
@@ -193,7 +193,7 @@ Dopo aver rimosso tutte le autorizzazioni, usare questo processo per rimuovere l
 
 3. Eliminare l'account del servizio dopo che il criterio resta disabilitato viene completato. 
 
-   * Per MSAs, è possibile [disinstallarlo](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) usando PowerShell o eliminarlo manualmente dal contenitore account del servizio gestito.
+   * Per MSAs, è possibile [disinstallarlo](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) usando PowerShell o eliminarlo manualmente dal contenitore account del servizio gestito.
 
    * Per gli account computer o utente, è possibile eliminare manualmente l'account da in Active Directory.
 

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4beef9383b8e51e1295639c18e745fd0fdf8588
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 8a56b325dd5e1180b1229465965167241fab76a8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796943"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676465"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Avvio rapido: Creare un'area di lavoro di Azure Synapse con l'interfaccia della riga di comando di Azure
 
@@ -27,7 +27,7 @@ Questa guida di avvio rapido illustra come creare un'area di lavoro di Synapse c
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Scaricare e installare [jq](https://stedolan.github.io/jq/download/), un processore JSON da riga di comando leggero e flessibile
-- [Account di archiviazione di Azure Data Lake Storage Gen2 ](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Account di archiviazione di Azure Data Lake Storage Gen2 ](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > L'area di lavoro di Azure Synapse deve essere in grado di leggere e scrivere nell'account di ADLS Gen2 selezionato. Per qualsiasi account di archiviazione collegato come account di archiviazione primario, inoltre, è necessario aver abilitato lo **spazio dei nomi gerarchico** durante la creazione dell'account di archiviazione, come descritto nella pagina [Creare un account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). 

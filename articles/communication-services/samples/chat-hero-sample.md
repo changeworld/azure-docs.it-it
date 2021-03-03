@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1a28ca967404bf6a5329f8d590a8f1f4f8715407
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760795"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657027"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introduzione al banner della chat di gruppo di esempio
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 <!----
 > [!WARNING]
@@ -36,13 +34,13 @@ In questo avvio rapido viene illustrato il funzionamento dell'esempio prima dell
 
 ## <a name="overview"></a>Panoramica
 
-Nell'esempio sono presenti sia un'applicazione lato client che un'applicazione lato server. L'**applicazione lato client** è un'applicazione Web React/Redux che usa il framework dell'interfaccia utente Fluent di Microsoft. Questa applicazione invia richieste a un'**applicazione lato server** ASP.NET Core che consente all'applicazione lato client di connettersi ad Azure. 
+L'esempio include sia un'applicazione lato client che un'applicazione lato server. L'**applicazione lato client** è un'applicazione Web React/Redux che usa il framework Fluent UI di Microsoft. Questa applicazione invia richieste a un'**applicazione lato server** ASP.NET Core tramite la quale l'applicazione lato client si connette ad Azure.
 
 L'esempio ha l'aspetto seguente:
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.":::
 
-Quando si preme il pulsante "Avvia una chat", l'applicazione Web recupera un token di accesso dell'utente dall'applicazione lato server. Questo token viene quindi usato per connettere l'applicazione client ai Servizi di comunicazione di Azure. Dopo aver recuperato il token, verrà chiesto all'utente di specificare il proprio nome e un'emoji che lo rappresenterà nella chat. 
+Quando si preme il pulsante "Avvia una chat", l'applicazione Web recupera un token di accesso dell'utente dall'applicazione lato server. Questo token viene quindi usato per connettere l'applicazione client ai Servizi di comunicazione di Azure. Dopo aver recuperato il token, verrà chiesto all'utente di specificare il proprio nome e un'emoji che lo rappresenterà nella chat.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot che mostra la schermata precedente alla chat dell'applicazione.":::
 
@@ -54,7 +52,7 @@ Componenti della schermata principale della chat:
 
 - **Area di chat principale**: si tratta dell'esperienza principale di chat, dove gli utenti possono inviare e ricevere messaggi. Per inviare messaggi, è possibile usare l'area di input e premere Invio (oppure il pulsante Invia). I messaggi di chat ricevuti vengono suddivisi in categorie in base al mittente con il nome e l'emoji corretti. Nell'area della chat vengono visualizzati due tipi di notifiche: 1) notifiche di digitazione quando un utente sta digitando un messaggio e 2) notifiche di invio e lettura dei messaggi.
 - **Intestazione**: qui l'utente visualizza il titolo del thread di chat, i controlli per l'attivazione/disattivazione delle barre laterali dei partecipanti e delle impostazioni e il pulsante per uscire dalla sessione di chat.
-- **Barra laterale**: qui sono visualizzate le informazioni sui partecipanti e le impostazioni quando vengono attivate tramite i controlli nell'intestazione. Nella barra laterale dei partecipanti è possibile visualizzare un elenco dei partecipanti alla chat e un collegamento per invitare i partecipanti alla sessione di chat. Tramite la barra laterale delle impostazioni è possibile configurare il titolo del thread della chat. 
+- **Barra laterale**: qui sono visualizzate le informazioni sui partecipanti e le impostazioni quando vengono attivate tramite i controlli nell'intestazione. Nella barra laterale dei partecipanti è possibile visualizzare un elenco dei partecipanti alla chat e un collegamento per invitare i partecipanti alla sessione di chat. Tramite la barra laterale delle impostazioni è possibile configurare il titolo del thread della chat.
 
 Di seguito sono disponibili ulteriori informazioni sui prerequisiti e i passaggi da seguire per configurare l'esempio.
 
@@ -64,7 +62,7 @@ Di seguito sono disponibili ulteriori informazioni sui prerequisiti e i passaggi
 - [Node.js (8.11.2 e versioni successive)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 e versioni successive)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (assicurarsi di installare la versione corrispondente all'istanza di Visual Studio in uso, a 32 o a 64 bit)
-- Creare una risorsa di Servizi di comunicazione di Azure. Per informazioni dettagliate vedere [Creare una risorsa di comunicazione di Azure](../quickstarts/create-communication-resource.md). Per questo avvio rapido è necessario registrare la **stringa di connessione** della risorsa.
+- Creare una risorsa di Servizi di comunicazione di Azure. Per informazioni dettagliate, vedere [Creare una risorsa di Servizi di comunicazione di Azure](../quickstarts/create-communication-resource.md). Per questo avvio rapido è necessario registrare la **stringa di connessione** della risorsa.
 
 ## <a name="locally-deploying-the-service--client-app"></a>Distribuzione in locale dell'applicazione client e del servizio
 
@@ -76,7 +74,7 @@ Aprire Visual Studio in chat.csproj ed eseguirlo in modalità di debug per avvia
 
 ## <a name="before-running-the-sample-for-the-first-time"></a>Prima di eseguire l'esempio per la prima volta
 
-1. Aprire un'istanza di PowerShell, un Terminale Windows, un prompt dei comandi o un equivalente e passare alla directory in cui si desidera clonare l'esempio.
+1. Aprire un'istanza di PowerShell, Terminale Windows, prompt dei comandi o equivalente e passare alla directory in cui clonare l'esempio.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Ottenere la `Connection String` dal portale di Azure. Per altre informazioni sulle stringhe di connessione, vedere [Creare risorse di comunicazione di Azure](../quickstarts/create-communication-resource.md)
 4. Dopo aver ottenuto la `Connection String`, aggiungere la stringa di connessione al file **Chat/appsettings.json** nella cartella Chat. Immettere la stringa di connessione nella variabile: `ResourceConnectionString`.
@@ -104,7 +102,7 @@ Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[È possibile scaricare l'esempio da GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Per altre informazioni, vedere gli articoli seguenti:

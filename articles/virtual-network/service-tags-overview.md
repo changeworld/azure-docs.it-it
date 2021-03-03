@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1186715003abef387343bb2b6cb71d56490c519d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389740"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667845"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureActiveDirectory** | Azure Active Directory. | In uscita | No | Sì |
 | **AzureActiveDirectoryDomainServices** | Traffico di gestione per le distribuzioni dedicate in Azure Active Directory Domain Services. | Entrambe | No | Sì |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | In uscita | No | No |
+| **AzureAPIForFHIR** | API di Azure per FHIR (risorse di interoperabilità sanitaria veloce).<br/><br/> *Nota: questo tag non è attualmente configurabile tramite il portale di Azure.*| In uscita | No | No |
 | **AzureArcInfrastructure** | Server abilitati per Azure Arc, Azure Arc abilitato Kubernetes e traffico di configurazione Guest.<br/><br/>*Nota:* Questo tag presenta una dipendenza dai tag **AzureActiveDirectory**,**AzureTrafficManager** e **AzureResourceManager** . *Questo tag non è attualmente configurabile tramite il portale di Azure*.| In uscita | No | Sì |
 | **AzureBackup** |Backup di Azure.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **Storage** e **AzureActiveDirectory**. | In uscita | No | Sì |
 | **AzureBotService** | Servizio Azure Bot. | In uscita | No | No |

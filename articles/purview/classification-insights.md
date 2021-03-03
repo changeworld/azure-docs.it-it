@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196538"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666515"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Informazioni dettagliate sulla classificazione dei dati di Azure
 
 Questa guida dettagliata descrive come accedere, visualizzare e filtrare i report di analisi della classificazione di competenze per i dati.
 
-Le origini dati supportate includono: archiviazione BLOB di Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure sinapsi Analytics (in precedenza SQL DW), database SQL di Azure, Azure SQL Istanza gestita, SQL Server
+Le origini dati supportate includono: archiviazione BLOB di Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure sinapsi Analytics (in precedenza SQL DW), database SQL di Azure, Azure SQL Istanza gestita, SQL Server, bucket Amazon S3
 
 In questa guida dettagliata si apprenderà come:
 
@@ -33,7 +33,7 @@ Prima di iniziare a usare informazioni dettagliate, assicurarsi di aver completa
 
 - Configurare le risorse di Azure e popolare gli account pertinenti con i dati di test
 
-- Configurare e completare un'analisi sui dati di test in ogni origine dati
+- Configurare e completare un'analisi sui dati di test in ogni origine dati. Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](manage-data-sources.md) e [creare un set di regole di analisi](create-a-scan-rule-set.md).
 
 - Accesso a competenza con un [ruolo di lettore di dati o di data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38b8cf38d2d75493ef50c4f206758c6289be079
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259588"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643763"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
 
@@ -123,7 +123,7 @@ La tabella seguente descrive gli scenari e i valori di controllo disponibili per
 |Amministratore che Abilita il flusso di lavoro della richiesta di consenso        |Verifiche di accesso           |UserManagement           |Crea modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente            |
 |Amministratore che disabilita il flusso di lavoro della richiesta di consenso       |Verifiche di accesso           |UserManagement           |Elimina modello criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Amministratore che aggiorna le configurazioni del flusso di lavoro di consenso        |Verifiche di accesso           |UserManagement           |Aggiornare il modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
-|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Policy         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
+|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Criteri         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Revisori che approvano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente o l'ID app a cui è stato concesso il consenso dell'amministratore.           |
 |Revisori che negano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            | Attualmente non è possibile trovare il contesto utente dell'attore che ha negato una richiesta di consenso dell'amministratore          |
 
@@ -159,4 +159,4 @@ Per altre informazioni sul consenso alle applicazioni, vedere [framework di cons
 
 [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
-[Azure AD su Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure AD su Microsoft Q&A](/answers/topics/azure-active-directory.html)

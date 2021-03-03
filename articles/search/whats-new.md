@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590544"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676389"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
-Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio. Vedere l' [elenco delle funzionalità di anteprima](search-api-preview.md) per visualizzare le funzionalità disponibili in anteprima pubblica.
+Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio. Vedere l' [elenco delle funzionalità di anteprima](search-api-preview.md) per visualizzare un elenco completo delle funzionalità che non sono ancora disponibili a livello generale.
+
+## <a name="march-2021"></a>Marzo 2021
+
+|Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrizione | Disponibilità  |
+|------------------------------|---------------|---------------|
+| [Ricerca semantica](semantic-search-overview.md) | Raccolta di funzionalità correlate alle query che modificano i risultati della ricerca per produrre risultati più rilevanti. Con piccole modifiche a una richiesta di ricerca, è possibile provare queste funzionalità sugli indici esistenti.</br></br>La [query semantica](semantic-how-to-query-request.md) è un nuovo tipo di query che sfrutta i miglioramenti apportati all'elaborazione del linguaggio naturale per migliorare la classificazione, oltre a comprendere le finalità delle query per fornire risposte, didascalie e evidenziazioni semantiche.</br></br>La [classificazione e le risposte semantiche (risposte, didascalie e evidenziazioni)](semantic-how-to-query-response.md) fanno riferimento all'algoritmo che definisce una query semantica e alla struttura della risposta. | Anteprima pubblica ([per richiesta](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Usare [Cerca documenti (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30-Preview e [esplora ricerche](search-explorer.md) in portale di Azure. </br></br>Si applicano le restrizioni relative a aree e livelli. |
+| [Termini di query del controllo ortografico](speller-how-to-add.md) | Prima che i termini di query raggiungano il motore di ricerca, è possibile verificare la presenza di errori di ortografia. L' `speller` opzione funziona con qualsiasi tipo di query (semplice, completo o semantico). |  Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview|
+| [Indicizzatore di SharePoint Online](search-howto-index-sharepoint-online.md) | Questo indicizzatore si connette a un sito di SharePoint online in modo che sia possibile indicizzare il contenuto da una raccolta documenti. | Anteprima pubblica, solo REST, API-Version = 2020-06 -30-Preview |
 
 ## <a name="february-2021"></a>2021 febbraio
 

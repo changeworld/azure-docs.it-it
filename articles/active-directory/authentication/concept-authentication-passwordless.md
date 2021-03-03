@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory l'accesso senza password (anteprima)
+title: Azure Active Directory l'accesso senza password
 description: Informazioni sulle opzioni per l'accesso senza password per Azure Active Directory usando le chiavi di sicurezza FIDO2 o l'app Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013006"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647558"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
@@ -62,8 +62,6 @@ La [Guida alla pianificazione](/windows/security/identity-protection/hello-for-b
 
 L'app Authenticator converte qualsiasi telefono iOS o Android in una credenziale complessa senza password. Gli utenti possono accedere a qualsiasi piattaforma o browser inviando una notifica al telefono, associando un numero visualizzato sullo schermo a quello sul telefono e quindi usando la relativa biometrica (tocco o viso) o PIN per confermare. Per informazioni dettagliate [sull'installazione, vedere scaricare e installare l'app Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) .
 
-L'accesso senza password con l'app Microsoft Authenticator Azure AD è attualmente in anteprima. L'uso dell'app Microsoft Authenticator per l'autenticazione secondaria per Azure AD Multi-Factor Authentication, la reimpostazione della password self-service (SSPR) o i token software per il GIURAmento sono GA. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 L'autenticazione con password con l'app Authenticator segue lo stesso modello di base di Windows Hello for business. È un po' più complicato perché l'utente deve essere identificato in modo che Azure AD possa trovare la versione dell'app Microsoft Authenticator usata:
 
 ![Diagramma che descrive i passaggi necessari per l'accesso utente con l'app Microsoft Authenticator](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -91,8 +89,6 @@ Le chiavi di sicurezza di FIDO2 sono un metodo di autenticazione senza password 
 Gli utenti possono registrarsi e quindi selezionare una chiave di sicurezza FIDO2 nell'interfaccia di accesso come mezzo di autenticazione principale. Le chiavi di sicurezza di FIDO2 sono in genere dispositivi USB, ma possono anche usare il Bluetooth o l'NFC. Grazie a un dispositivo hardware che gestisce l'autenticazione, la sicurezza di un account viene aumentata poiché non vi è una password che può essere esposta o individuata.
 
 Le chiavi di sicurezza di FIDO2 possono essere usate per accedere ai dispositivi Azure AD o ibridi Azure AD aggiunti a dispositivi Windows 10 e ottenere l'accesso Single Sign-on alle risorse cloud e locali. Gli utenti possono anche accedere ai browser supportati. Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno una sicurezza molto sensibile o hanno scenari o dipendenti che non sono disposti o in grado di usare il telefono come secondo fattore.
-
-L'accesso con chiavi di sicurezza FIDO2 per Azure AD è attualmente in fase di anteprima. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Accedere a Microsoft Edge con una chiave di sicurezza](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -152,15 +148,15 @@ Per iniziare a usare le chiavi di sicurezza di FIDO2, completare le procedure se
 > [!div class="nextstepaction"]
 > [Abilita il segno senza password con le chiavi di sicurezza FIDO2](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>Quali scenari funzionano con l'anteprima?
+## <a name="supported-scenarios"></a>Scenari supportati
 
-Azure AD funzionalità di accesso senza password sono attualmente in anteprima. Si applicano le considerazioni seguenti:
+Si applicano le considerazioni seguenti:
 
 - Gli amministratori possono abilitare i metodi di autenticazione con password per il tenant
 - Gli amministratori possono fare riferimento a tutti gli utenti o selezionare utenti/gruppi nel tenant per ogni metodo
 - Gli utenti finali possono registrare e gestire questi metodi di autenticazione con password nel portale per gli account
-- Gli utenti finali possono accedere con questi metodi di autenticazione senza password
-   - App Microsoft Authenticator: funziona in scenari in cui viene usata l'autenticazione Azure AD, incluso in tutti i browser, durante l'installazione di Windows 10 (configurazione guidata) e con app per dispositivi mobili integrate in qualsiasi sistema operativo.
+- Gli utenti finali possono accedere con questi metodi di autenticazione senza password:
+   - App Microsoft Authenticator: funziona in scenari in cui viene usata l'autenticazione Azure AD, incluso in tutti i browser, durante l'installazione di Windows 10 e con app per dispositivi mobili integrate in qualsiasi sistema operativo.
    - Chiavi di sicurezza: usare la schermata di blocco per Windows 10 e il Web in browser supportati come Microsoft Edge (sia legacy che New Edge).
 
 ## <a name="choose-a-passwordless-method"></a>Scegliere un metodo con password

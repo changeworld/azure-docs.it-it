@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eef58f6e84fb3b4dec947fa3614b6ec1043ff89e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591175"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644647"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -32,6 +32,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 - Microsoft 365 client Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730. xxxx e successive sono supportati usando un flusso non interattivo. Altre versioni non sono supportate. In tali versioni, per effettuare l'accesso gli utenti immetteranno i nomi utente, ma non le password. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
 - L'accesso Single Sign-On facile non funziona in Internet Explorer quando è attiva la modalità di protezione avanzata.
+- L'accesso SSO facile non funziona in modalità di esplorazione privata in Microsoft Edge (legacy).
 - L'accesso Single Sign-On facile non funziona nei browser per dispositivi mobili basati su iOS e Android.
 - Se un utente fa parte di troppi gruppi in Active Directory, il ticket Kerberos dell'utente sarà probabilmente troppo grande per l'elaborazione e ciò causerà l'esito negativo dell'accesso Single Sign-On facile. Le richieste HTTPS di Azure AD possono avere intestazioni con una dimensione massima di 50 KB. I ticket Kerberos devono essere più piccoli rispetto a tale dimensione per contenere altri elementi di Azure AD (in genere, 2 - 5 KB), come i cookie. Si consiglia di ridurre le appartenenze a gruppi dell'utente e riprovare.
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-the-feature) la funzionalità nel tenant in uso.

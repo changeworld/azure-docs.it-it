@@ -11,18 +11,37 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd9b07f1f7aed479e94e77a5641130cb784dd69e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 32ad7199360ca0acc8674f7a4e34bd206f8b335f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741967"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648766"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Cronologia delle versioni dell'agente di Protezione password di Azure AD
 
+## <a name="121720"></a>1.2.172.0
+
+Data di rilascio: 22 febbraio 2021
+
+Sono trascorsi quasi due anni dal rilascio delle versioni GA dei Azure AD agenti di protezione delle password locali. È ora disponibile un nuovo aggiornamento. vedere le descrizioni delle modifiche riportate di seguito. Grazie a tutti coloro che hanno inviato commenti e suggerimenti sul prodotto. 
+
+* L'agente controller di dominio e il software dell'agente proxy richiedono ora l'installazione di .NET 4.7.2.
+  * Se .NET 4.7.2 non è ancora installato, scaricare ed eseguire il programma di installazione disponibile nel [programma di installazione di .NET Framework 4.7.2 offline per Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+* Il modulo AzureADPasswordProtection di PowerShell viene ora installato anche dal software dell'agente di controller di dominio.
+* Sono stati aggiunti due nuovi cmdlet di PowerShell correlati all'integrità: Test-AzureADPasswordProtectionDCAgent e test-AzureADPasswordProtectionProxy.
+* La dll del filtro password dell'agente DC AzureADPasswordProtection verrà caricata ed eseguita in computer in cui lsass.exe è configurato per l'esecuzione in modalità PPL.
+* Correzione di bug nell'algoritmo password che consentiva di non accettare erroneamente le password con una lunghezza inferiore a cinque caratteri.
+  * Questo bug è applicabile solo se i criteri di lunghezza minima della password di AD locali sono stati configurati in modo da consentire meno di cinque password di caratteri.
+* Altre correzioni di bug secondari.
+
+I nuovi programmi di installazione aggiorneranno automaticamente le versioni precedenti del software. Se sono stati installati sia l'agente del controller di dominio che il software proxy in un singolo computer (consigliato solo per gli ambienti di test), è necessario eseguire l'aggiornamento contemporaneamente.
+
+È supportata l'esecuzione di versioni precedenti e più recenti dell'agente DC e del software proxy all'interno di un dominio o di una foresta, sebbene sia consigliabile aggiornare tutti gli agenti alla versione più recente come procedura consigliata. Sono supportati gli ordini degli aggiornamenti degli agenti. i nuovi agenti di controller di dominio possono comunicare tramite agenti proxy precedenti e gli agenti del controller di dominio meno recenti possono comunicare tramite agenti proxy più recenti.
+
 ## <a name="121250"></a>1.2.125.0
 
-Data di rilascio: 3/22/2019
+Data di rilascio: 22 marzo 2019
 
 * Correzione di errori di digitazione secondari nei messaggi del registro eventi
 * Aggiornare il contratto EULA alla versione finale di disponibilità generale
@@ -38,8 +57,8 @@ Data di rilascio: 3/13/2019
   * La versione del software e i dati del tenant di Azure sono disponibili solo per gli agenti DC e i proxy che eseguono la versione 1.2.116.0 o successiva.
   * I dati del tenant di Azure potrebbero non essere segnalati fino a quando non si è verificata una nuova registrazione (o rinnovo) del proxy o della foresta.
 * Il servizio proxy richiede ora l'installazione di .NET 4,7.
-  * .NET 4,7 dovrebbe essere già installato in un server Windows completamente aggiornato. In caso contrario, scaricare ed eseguire il programma di installazione disponibile nel [programma di installazione di .NET Framework 4,7 offline per Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-  * Nei sistemi Server Core può essere necessario passare il flag/q al programma di installazione di .NET 4,7 per ottenere un esito positivo.
+  * Se .NET 4,7 non è ancora installato, scaricare ed eseguire il programma di installazione disponibile nel [programma di installazione offline di .NET Framework 4,7 per Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * Nei sistemi server core, potrebbe essere necessario passare il flag/q al programma di installazione di .NET 4,7 per ottenere un esito positivo.
 * Il servizio proxy supporta ora l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è on per impostazione predefinita.
 * L'aggiornamento automatico può essere abilitato o disabilitato usando il cmdlet Set-AzureADPasswordProtectionProxyConfiguration. È possibile eseguire query sull'impostazione corrente usando il cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
 * Il file binario del servizio per il servizio agente di controller di dominio è stato rinominato in AzureADPasswordProtectionDCAgent.exe.
@@ -50,15 +69,15 @@ Data di rilascio: 3/13/2019
 
 ## <a name="12650"></a>1.2.65.0
 
-Data di rilascio: 2/1/2019
+Data di rilascio: 1 ° febbraio 2019
 
 Modifiche:
 
 * L'agente del controller di dominio e il servizio proxy sono ora supportati in Server Core. I requisiti del sistema operativo Mininimum sono rimasti invariati rispetto alle precedenti: Windows Server 2012 per gli agenti DC e Windows Server 2012 R2 per proxy.
 * I cmdlet Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest ora supportano le modalità di autenticazione di Azure basate sul codice del dispositivo.
-* Il cmdlet Get-AzureADPasswordProtectionDCAgent ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug a causa del quale talvolta i controller di dominio venivano visualizzati più volte nell'output.
-* Il cmdlet Get-AzureADPasswordProtectionSummaryReport ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug a causa del quale talvolta i controller di dominio venivano visualizzati più volte nell'output.
-* Il modulo Proxy di PowerShell viene ora registrato da %ProgramFiles%\WindowsPowerShell\Modules. La variabile di ambiente PSModulePath del computer non viene più modificata.
+* Il cmdlet Get-AzureADPasswordProtectionDCAgent ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug in cui i controller di dominio vengono talvolta visualizzati più volte nell'output.
+* Il cmdlet Get-AzureADPasswordProtectionSummaryReport ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug in cui i controller di dominio vengono talvolta visualizzati più volte nell'output.
+* Il modulo di PowerShell proxy è ora registrato da%ProgramFiles%\WindowsPowerShell\Modules. La variabile di ambiente PSModulePath del computer non viene più modificata.
 * È stato aggiunto un nuovo cmdlet Get-AzureADPasswordProtectionProxy per facilitare l'individuazione dei proxy registrati in una foresta o un dominio.
 * L'agente del controller di dominio usa una nuova cartella nella condivisione SYSVOL per replicare i criteri per le password e altri file.
 
@@ -79,7 +98,7 @@ Modifiche:
 * Ogni agente del controller di dominio eliminerà periodicamente i punti di connessione del servizio modificati e non aggiornati nel proprio dominio, sia per l'agente stesso che per il proxy. I punti di connessione del servizio dell'agente e del proxy vengono entrambi considerati non aggiornati se il relativo timestamp di heartbeat è più vecchio di sette giorni.
 * L'agente del controller di dominio rinnoverà ora il certificato della foresta quando necessario.
 * Il servizio proxy rinnoverà ora il certificato del proxy quando necessario.
-* Aggiornamenti all'algoritmo di convalida delle password: l'elenco globale delle password escluse e quello specifico del cliente (se configurato) vengono uniti prima di eseguire la convalida delle password. Ora una determinata password può essere rifiutata (non riuscita o riuscita solo a livello di controllo) se contiene token sia dell'elenco globale che di quello specifico del cliente. La documentazione del log eventi è stata aggiornata per includere questa modifica. Vedere [Monitoraggio e registrazione in Protezione password di Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+* Aggiornamenti all'algoritmo di convalida delle password: l'elenco globale delle password escluse e quello specifico del cliente (se configurato) vengono uniti prima di eseguire la convalida delle password. Ora una determinata password può essere rifiutata (non riuscita o riuscita solo a livello di controllo) se contiene token sia dell'elenco globale che di quello specifico del cliente. La documentazione del registro eventi è stata aggiornata per riflettere questo problema; vedere [monitorare Azure ad la protezione delle password](howto-password-ban-bad-on-premises-monitor.md).
 * Correzioni per prestazioni e affidabilità
 * Registrazione migliorata
 
@@ -88,12 +107,12 @@ Modifiche:
 
 ## <a name="12250"></a>1.2.25.0
 
-Data di rilascio: 01/11/2018
+Data di rilascio: 1 ° novembre 2018
 
 Correzioni:
 
 * Il servizio agente del controller di dominio e il servizio proxy non devono più fallire a causa di errori di attendibilità del certificato.
-* Il servizio agente del controller di dominio e il servizio proxy dispongono di correzioni aggiuntive per i computer conformi a FIPS.
+* Per i computer conformi a FIPS sono disponibili correzioni per l'agente DC e il servizio proxy.
 * Il servizio proxy funzionerà ora correttamente solo in un ambiente di rete TLS 1.2.
 * Correzioni minori per prestazioni e affidabilità
 * Registrazione migliorata
@@ -102,11 +121,11 @@ Modifiche:
 
 * Il requisito minimo relativo al sistema operativo per il servizio proxy è ora Windows Server 2012 R2. Il requisito minimo relativo al sistema operativo per il servizio agente del controller di dominio rimane Windows Server 2012.
 * Il servizio Proxy richiede ora .NET versione 4.6.2.
-* L'algoritmo di convalida delle password usa una tabella di normalizzazione dei caratteri espansa. Ciò potrebbe comportare il rifiuto delle password accettate nelle versioni precedenti.
+* L'algoritmo di convalida delle password usa una tabella di normalizzazione dei caratteri espansa. Questa modifica può causare il rifiuto delle password accettate nelle versioni precedenti.
 
 ## <a name="12100"></a>1.2.10.0
 
-Data di rilascio: 17/08/2018
+Data di rilascio: 17 agosto 2018
 
 Correzioni:
 
@@ -130,7 +149,7 @@ Correzioni:
 
 ## <a name="11103"></a>1.1.10.3
 
-Data di rilascio: 15/06/2018
+Data di rilascio: 15 giugno 2018
 
 Versione di anteprima pubblica iniziale
 

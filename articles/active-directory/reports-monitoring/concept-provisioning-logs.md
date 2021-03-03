@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091933"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651938"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Panoramica dei log di provisioning nel portale di Azure (anteprima)
 
@@ -60,8 +60,8 @@ Per visualizzare il report delle attività di provisioning, è necessario che al
 I clienti possono interagire con i log di provisioning in quattro modi:
 
 - Accesso ai log dalla portale di Azure, come descritto nella sezione successiva.
-- Streaming dei log di provisioning in [monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). Questo metodo consente la conservazione estesa dei dati e la creazione di dashboard, avvisi e query personalizzati.
-- Esecuzione di query sull' [API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) per i log di provisioning.
+- Streaming dei log di provisioning in [monitoraggio di Azure](../app-provisioning/application-provisioning-log-analytics.md). Questo metodo consente la conservazione estesa dei dati e la creazione di dashboard, avvisi e query personalizzati.
+- Esecuzione di query sull' [API Microsoft Graph](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) per i log di provisioning.
 - Download dei log di provisioning come file CSV o JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Accedere ai log dalla portale di Azure
@@ -207,7 +207,7 @@ Il file JSON viene scaricato nel formato minimizzati per ridurre le dimensioni d
 
 Di seguito sono riportati alcuni comandi di esempio per lavorare con il file JSON usando PowerShell. È possibile usare qualsiasi linguaggio di programmazione con cui si ha familiarità.  
 
-Per prima cosa, [leggere il file JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) eseguendo questo comando:
+Per prima cosa, [leggere il file JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) eseguendo questo comando:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

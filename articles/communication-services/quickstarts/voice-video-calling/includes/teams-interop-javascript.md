@@ -1,20 +1,23 @@
 ---
-title: 'Avvio rapido: Partecipare a una riunione di Teams'
+title: "Guida introduttiva: aggiungere una riunione ai team da un'app Web"
+description: In questa esercitazione si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano la libreria client per JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: fa7f279e13e5dbb59af7eb3a7939be1edf0f7d5d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d022d90aa4558ef5a4973668d4966a30f477a1da
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551386"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660058"
 ---
+In questa Guida introduttiva si apprenderà come partecipare a una riunione di Team usando i servizi di comunicazione di Azure che chiamano la libreria client per JavaScript.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'[app per le chiamate di Servizi di comunicazione](../getting-started-with-calling.md) funzionante.
+- Un servizio di comunicazione funzionante che [chiama l'app Web](../getting-started-with-calling.md).
 - Una [distribuzione di Teams](/deployoffice/teams-install).
 
 
@@ -35,6 +38,7 @@ La casella di testo verrà usata per accedere al contesto della riunione di Team
     <input id="teams-link-input" type="text" placeholder="Teams meeting link"
         style="margin-bottom:1em; width: 300px;" />
         <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
+        <p><span style="font-weight: bold" id="recording-state"></span></p>
     <div>
         <button id="join-meeting-button" type="button" disabled="false">
             Join Teams Meeting
@@ -55,6 +59,7 @@ Sostituire il contenuto del file client.js con il frammento di codice seguente.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
+import { Features } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
@@ -63,6 +68,7 @@ const meetingLinkInput = document.getElementById('teams-link-input');
 const hangUpButton = document.getElementById('hang-up-button');
 const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
 const callStateElement = document.getElementById('call-state');
+const recordingStateElement = document.getElementById('recording-state');
 
 async function init() {
     const callClient = new CallClient();
@@ -86,9 +92,18 @@ teamsMeetingJoinButton.addEventListener("click", () => {
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
-    call.on('callStateChanged', () => {
+    call.on('stateChanged', () => {
         callStateElement.innerText = call.state;
     })
+
+    call.api(Features.Recording).on('isRecordingActiveChanged', () => {
+        if (call.api(Features.Recording).isRecordingActive) {
+            recordingStateElement.innerText = "This call is being recorded";
+        }
+        else {
+            recordingStateElement.innerText = "";
+        }
+    });
     // toggle button states
     hangUpButton.disabled = false;
     teamsMeetingJoinButton.disabled = true;

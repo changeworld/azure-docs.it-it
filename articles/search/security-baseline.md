@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0618e4445629893fbe623df4bc937698bd307c7c
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4f54eab9616aa014e6f3a59b5c79e268450ecfce
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096571"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668351"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Baseline della sicurezza di Azure per Azure ricerca cognitiva
 
@@ -207,7 +207,7 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 - [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

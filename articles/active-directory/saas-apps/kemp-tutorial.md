@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/28/2020
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 7ac50acbf9b1b4371ac17f997828f9b8818e53b0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.openlocfilehash: aa36d8522f548101ef3354237d93128b0f041eac
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459117"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648958"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Kemp LoadMaster - Azure AD Integration
 
@@ -25,8 +25,6 @@ Questa esercitazione descrive come integrare Kemp LoadMaster - Azure AD Integrat
 * Controllare in Azure AD chi può accedere a Kemp LoadMaster - Azure AD Integration.
 * Abilitare gli utenti per l'accesso automatico a Kemp LoadMaster - Azure AD Integration con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,27 +38,26 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Kemp LoadMaster - Azure AD Integration supporta l'accesso SSO avviato da **IDP**
-* Dopo aver configurato l'integrazione di Azure AD per Kemp LoadMaster, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Aggiunta di Kemp LoadMaster - Azure AD Integration dalla raccolta
+## <a name="add-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Aggiungere KEMP LoadMaster Azure AD Integration dalla raccolta
 
 Per configurare l'integrazione di Kemp LoadMaster - Azure AD Integration in Azure AD, è necessario aggiungere Kemp LoadMaster - Azure AD Integration dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Kemp LoadMaster - Azure AD Integration** nella casella di ricerca.
 1. Selezionare **Kemp LoadMaster - Azure AD Integration** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-sso-for-kemp-loadmaster-azure-ad-integration"></a>Configurare e testare l'accesso Single Sign-On (SSO) di Azure AD per Kemp LoadMaster - Azure AD Integration
 
-Configurare e testare l'accesso SSO di Azure AD con Kemp LoadMaster - Azure AD Integration usando un utente di test con il nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kemp LoadMaster - Azure AD Integration.
+Configurare e testare l'accesso SSO di Azure AD con Kemp LoadMaster - Azure AD Integration usando un utente di test con il nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kemp LoadMaster - Azure AD Integration.
 
-Per configurare e testare l'accesso SSO di Azure AD con Kemp LoadMaster - Azure AD Integration, completare le procedure di base seguenti:
+Per configurare e testare Azure AD SSO con KEMP LoadMaster Azure AD Integration, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Kemp LoadMaster - Azure AD Integration](#configure-kemp-loadmaster-azure-ad-integration-sso)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
 
@@ -80,9 +77,9 @@ Per configurare e testare l'accesso SSO di Azure AD con Kemp LoadMaster - Azure 
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Kemp LoadMaster - Azure AD Integration** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina di integrazione dell'applicazione **KEMP LoadMaster Azure ad Integration** del portale di Azure trovare la sezione **Gestisci** e selezionare **Single Sign-on**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -95,7 +92,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Kemp LoadMaster - Azure AD Integration](mailto:support@kemp.ax). È anche possibile fare riferimento ai modelli mostrati nella sezione Configurazione SAML di base del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base 64)** e il file **XML dei metadati della federazione** , quindi selezionare **Scarica** per scaricare il file del certificato e il file XML dei metadati della federazione e salvarli nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base 64)** e il file **XML dei metadati della federazione**, quindi selezionare **Scarica** per scaricare il file del certificato e il file XML dei metadati della federazione e salvarli nel computer.
 
     ![Collegamento di download del certificato](./media/kemp-tutorial/certificate-base-64.png)
 
@@ -107,31 +104,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Kemp LoadMaster - Azure AD Integration.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **Kemp LoadMaster - Azure AD Integration** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **Kemp LoadMaster - Azure AD Integration**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-kemp-loadmaster-azure-ad-integration-sso"></a>Configurare l'accesso Single Sign-On per Kemp LoadMaster - Azure AD Integration
 
@@ -254,7 +245,7 @@ Passare a Manage SSO (Gestisci SSO) in Virtual Services (Servizi virtuali).
 
    g. Selezionare il certificato intermedio dal certificato IdP.
 
-   h. In SP Entity ID (ID entità provider di servizi) impostare un valore corrispondente all'identità creata nel portale di Azure 
+   h. Impostare l'ID entità SP che deve corrispondere all'identità creata in portale di Azure. 
 
    i. Fare clic su Set SP Entity ID (Imposta entità provider di servizi).
 
@@ -376,20 +367,12 @@ In questa sezione viene creato un utente di nome B.Simon in Kemp LoadMaster - Az
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti.
 
-Quando si fa clic sul riquadro Kemp LoadMaster - Azure AD Integration nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Kemp LoadMaster - Azure AD Integration per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente all'integrazione di KEMP LoadMaster Azure AD per la quale si configura l'accesso SSO.
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di integrazione di KEMP LoadMaster Azure AD in app personali, si dovrebbe accedere automaticamente all'integrazione di KEMP LoadMaster Azure AD per la quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Provare Kemp LoadMaster - Azure AD Integration con Azure AD](https://aad.portal.azure.com/)
-
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
-
-- [Come proteggere Kemp LoadMaster - Azure AD Integration con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)
+Dopo aver configurato l'integrazione di Azure AD per Kemp LoadMaster, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

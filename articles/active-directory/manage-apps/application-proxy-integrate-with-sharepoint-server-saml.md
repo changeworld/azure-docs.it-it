@@ -16,19 +16,19 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bca7331722640547218ecb6aff7c3c5651efdfd0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 7cadf5b7d92e26e561e570f824295e69ca421e16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099331"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644519"
 ---
 # <a name="integrate-with-sharepoint-saml"></a>Integrazione con SharePoint (SAML)
 
-Questa guida dettagliata illustra come proteggere l'accesso al [Azure Active Directory SharePoint locale integrato (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial) con Azure ad proxy di applicazione, in cui gli utenti dell'organizzazione (Azure ad, B2B) si connettono a SharePoint tramite Internet.
+Questa guida dettagliata illustra come proteggere l'accesso al [Azure Active Directory SharePoint locale integrato (SAML)](../saas-apps/sharepoint-on-premises-tutorial.md) con Azure ad proxy di applicazione, in cui gli utenti dell'organizzazione (Azure ad, B2B) si connettono a SharePoint tramite Internet.
 
 > [!NOTE] 
-> Se non si ha familiarità con Azure AD proxy di applicazione e si desidera ottenere altre informazioni, vedere [accesso remoto alle applicazioni locali tramite Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+> Se non si ha familiarità con Azure AD proxy di applicazione e si desidera ottenere altre informazioni, vedere [accesso remoto alle applicazioni locali tramite Azure ad proxy di applicazione](./application-proxy.md).
 
 Questa configurazione presenta tre vantaggi principali:
 
@@ -41,18 +41,18 @@ Questo processo richiede due applicazioni aziendali. Una è un'istanza locale di
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa configurazione, sono necessarie le risorse seguenti:
- - Farm di SharePoint 2013 o versioni successive. La farm di SharePoint deve essere [integrata con Azure ad](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
+ - Farm di SharePoint 2013 o versioni successive. La farm di SharePoint deve essere [integrata con Azure ad](../saas-apps/sharepoint-on-premises-tutorial.md).
  - Un tenant di Azure AD con un piano che include il proxy di applicazione. Scopri di più sui [piani di Azure ad e sui prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
- - Un [dominio personalizzato e verificato](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain) nel tenant del Azure ad. Il dominio verificato deve corrispondere al suffisso dell'URL di SharePoint.
- - È necessario un certificato SSL. Vedere i dettagli nella [pubblicazione di domini personalizzati](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
- - Gli utenti Active Directory locali devono essere sincronizzati con Azure AD Connect e devono essere configurati per [accedere ad Azure](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin). 
- - Per gli utenti guest solo cloud e B2B, è necessario [concedere l'accesso a un account Guest a SharePoint locale nella portale di Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
+ - Un [dominio personalizzato e verificato](../fundamentals/add-custom-domain.md) nel tenant del Azure ad. Il dominio verificato deve corrispondere al suffisso dell'URL di SharePoint.
+ - È necessario un certificato SSL. Vedere i dettagli nella [pubblicazione di domini personalizzati](./application-proxy-configure-custom-domain.md).
+ - Gli utenti Active Directory locali devono essere sincronizzati con Azure AD Connect e devono essere configurati per [accedere ad Azure](../hybrid/plan-connect-user-signin.md). 
+ - Per gli utenti guest solo cloud e B2B, è necessario [concedere l'accesso a un account Guest a SharePoint locale nella portale di Azure](../saas-apps/sharepoint-on-premises-tutorial.md#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal).
  - Un connettore del proxy di applicazione installato e in esecuzione in un computer all'interno del dominio aziendale.
 
 
 ## <a name="step-1-integrate-sharepoint-on-premises-with-azure-ad"></a>Passaggio 1: integrare SharePoint locale con Azure AD 
 
-1. Configurare l'app locale di SharePoint. Per ulteriori informazioni, vedere [esercitazione: Azure Active Directory Single Sign-on l'integrazione con SharePoint locale](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial).
+1. Configurare l'app locale di SharePoint. Per ulteriori informazioni, vedere [esercitazione: Azure Active Directory Single Sign-on l'integrazione con SharePoint locale](../saas-apps/sharepoint-on-premises-tutorial.md).
 2. Convalidare la configurazione prima di passare al passaggio successivo. Per convalidare, provare ad accedere a SharePoint locale dalla rete interna e verificare che sia accessibile internamente. 
 
 
@@ -66,7 +66,7 @@ In questo passaggio viene creata un'applicazione nel tenant di Azure AD che usa 
    ![Screenshot che mostra il valore dell'URL di accesso.](./media/application-proxy-integrate-with-sharepoint-server/sso-url-saml.png)
 
 
- 1. Creare una nuova applicazione proxy di applicazione Azure AD con dominio personalizzato. Per istruzioni dettagliate, vedere [domini personalizzati nel proxy di applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
+ 1. Creare una nuova applicazione proxy di applicazione Azure AD con dominio personalizzato. Per istruzioni dettagliate, vedere [domini personalizzati nel proxy di applicazione Azure ad](./application-proxy-configure-custom-domain.md).
 
     - URL interno: https://portal.contoso.com/
     - URL esterno: https://portal.contoso.com/
@@ -76,7 +76,7 @@ In questo passaggio viene creata un'applicazione nel tenant di Azure AD che usa 
 
         ![Screenshot che mostra le opzioni usate per creare l'app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
-2. Assegnare gli [stessi gruppi](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) assegnati all'applicazione raccolta di SharePoint locale.
+2. Assegnare gli [stessi gruppi](../saas-apps/sharepoint-on-premises-tutorial.md#create-an-azure-ad-security-group-in-the-azure-portal) assegnati all'applicazione raccolta di SharePoint locale.
 
 3. Infine, passare alla sezione **Proprietà** e impostare **visibile per gli utenti** su **No**. Questa opzione garantisce che venga visualizzata solo l'icona della prima applicazione nel portale app personali ( https://myapplications.microsoft.com) .
 
@@ -85,4 +85,3 @@ In questo passaggio viene creata un'applicazione nel tenant di Azure AD che usa 
 ## <a name="step-3-test-your-application"></a>Passaggio 3: testare l'applicazione
 
 Utilizzando un browser da un computer in una rete esterna, passare all'URL ( https://portal.contoso.com/) configurato durante il passaggio di pubblicazione. Verificare che sia possibile accedere con l'account di test configurato.
-

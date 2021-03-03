@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b3c3d4d474c61cbe472b4122ac2f80f218bf8d
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797279"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646283"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di collaborazione B2B
 
@@ -42,7 +42,7 @@ Il diagramma seguente illustra il flusso: ![ immagine che mostra il flusso di au
 | Passaggio | Descrizione |
 |--------------|-----------------------|
 | 1. |L'utente richiede l'accesso a una risorsa in un altro tenant. La risorsa reindirizza l'utente al tenant delle risorse, un IdP attendibile.|
-| 2. | Il tenant della risorsa identifica l'utente come utente del codice di accesso monouso [(OTP) di posta elettronica esterno](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) e invia all'utente un messaggio di posta elettronica con l'OTP.|
+| 2. | Il tenant della risorsa identifica l'utente come utente del codice di accesso monouso [(OTP) di posta elettronica esterno](./one-time-passcode.md) e invia all'utente un messaggio di posta elettronica con l'OTP.|
 | 3. | L'utente recupera l'OTP e invia il codice. Il tenant della risorsa valuta l'utente in base ai criteri della CA.
 | 4. | Una volta soddisfatti tutti i criteri della CA, il tenant di risorse rilascia un token e reindirizza l'utente alla relativa risorsa. |
 
@@ -64,7 +64,7 @@ Il tenant di risorse è sempre responsabile della Azure AD Multi-Factor Authenti
 
 5. Questo scenario funziona per qualsiasi identità, Azure AD o account Microsoft personale (MSA). Ad esempio, se l'utente in Contoso esegue l'autenticazione usando l'ID social.
 
-6. Fabrikam deve disporre di licenze Azure AD Premium sufficienti che supportano Azure AD Multi-Factor Authentication. L'utente di Contoso usa quindi questa licenza da Fabrikam. Per informazioni sulle licenze B2B, vedere [modello di fatturazione per Azure ad identità esterne](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) .
+6. Fabrikam deve disporre di licenze Azure AD Premium sufficienti che supportano Azure AD Multi-Factor Authentication. L'utente di Contoso usa quindi questa licenza da Fabrikam. Per informazioni sulle licenze B2B, vedere [modello di fatturazione per Azure ad identità esterne](./external-identities-pricing.md) .
 
 >[!NOTE]
 >Azure AD Multi-Factor Authentication viene eseguita a livello di tenant delle risorse per garantire la prevedibilità.
@@ -115,44 +115,43 @@ Esistono diversi fattori che influenzano i criteri della CA per gli utenti Guest
 
 ### <a name="device-based-conditional-access"></a>Accesso condizionale basato sul dispositivo
 
-Nell'autorità di certificazione è disponibile un'opzione per richiedere che un [dispositivo dell'utente sia conforme o Azure ad ibrido Unito in join](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview). Gli utenti Guest B2B possono soddisfare solo la conformità se il tenant di risorse è in grado di gestire il dispositivo. I dispositivi non possono essere gestiti da più di un'organizzazione alla volta. Gli utenti Guest B2B non possono soddisfare il Azure AD ibrido join perché non hanno un account AD locale. Solo se il dispositivo dell'utente Guest non è gestito, può registrare o registrare il dispositivo nel tenant delle risorse e quindi rendere il dispositivo conforme. L'utente può quindi soddisfare il controllo di concessione.
+Nell'autorità di certificazione è disponibile un'opzione per richiedere che un [dispositivo dell'utente sia conforme o Azure ad ibrido Unito in join](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Gli utenti Guest B2B possono soddisfare solo la conformità se il tenant di risorse è in grado di gestire il dispositivo. I dispositivi non possono essere gestiti da più di un'organizzazione alla volta. Gli utenti Guest B2B non possono soddisfare il Azure AD ibrido join perché non hanno un account AD locale. Solo se il dispositivo dell'utente Guest non è gestito, può registrare o registrare il dispositivo nel tenant delle risorse e quindi rendere il dispositivo conforme. L'utente può quindi soddisfare il controllo di concessione.
 
 >[!Note]
 >Non è consigliabile richiedere un dispositivo gestito per gli utenti esterni.
 
 ### <a name="mobile-application-management-policies"></a>Criteri di gestione delle applicazioni mobili
 
-I controlli di concessione CA, ad esempio **Richiedi app client approvate** e **richiedono criteri di protezione delle app** , devono essere registrati nel tenant. Questi controlli possono essere applicati solo a [dispositivi iOS e Android](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms). Tuttavia, nessuno di questi controlli può essere applicato agli utenti Guest B2B se il dispositivo dell'utente è già gestito da un'altra organizzazione. Un dispositivo mobile non può essere registrato in più di un tenant alla volta. Se il dispositivo mobile è gestito da un'altra organizzazione, l'utente verrà bloccato. Solo se il dispositivo dell'utente Guest è non gestito, è possibile registrare il dispositivo nel tenant delle risorse. L'utente può quindi soddisfare il controllo di concessione.  
+I controlli di concessione CA, ad esempio **Richiedi app client approvate** e **richiedono criteri di protezione delle app** , devono essere registrati nel tenant. Questi controlli possono essere applicati solo a [dispositivi iOS e Android](../conditional-access/concept-conditional-access-conditions.md#device-platforms). Tuttavia, nessuno di questi controlli può essere applicato agli utenti Guest B2B se il dispositivo dell'utente è già gestito da un'altra organizzazione. Un dispositivo mobile non può essere registrato in più di un tenant alla volta. Se il dispositivo mobile è gestito da un'altra organizzazione, l'utente verrà bloccato. Solo se il dispositivo dell'utente Guest è non gestito, è possibile registrare il dispositivo nel tenant delle risorse. L'utente può quindi soddisfare il controllo di concessione.  
 
 >[!NOTE]
 >Non è consigliabile richiedere un criterio di protezione delle app per gli utenti esterni.
 
 ### <a name="location-based-conditional-access"></a>Accesso condizionale basato sulla posizione
 
-I [criteri basati sulla posizione](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) basati sugli intervalli IP possono essere applicati se l'organizzazione che invia l'invito può creare un intervallo di indirizzi IP attendibili che definisce le organizzazioni partner.
+I [criteri basati sulla posizione](../conditional-access/concept-conditional-access-conditions.md#locations) basati sugli intervalli IP possono essere applicati se l'organizzazione che invia l'invito può creare un intervallo di indirizzi IP attendibili che definisce le organizzazioni partner.
 
 I criteri possono essere applicati anche in base a **posizioni geografiche**.
 
 ### <a name="risk-based-conditional-access"></a>Accesso condizionale basato sul rischio
 
-Il [criterio di rischio di accesso](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) viene applicato se l'utente Guest B2B soddisfa il controllo di concessione. Ad esempio, un'organizzazione potrebbe richiedere Azure AD Multi-Factor Authentication per il rischio di accesso medio o elevato. Tuttavia, se un utente non è stato registrato in precedenza per Azure AD Multi-Factor Authentication nel tenant di risorse, l'utente verrà bloccato. Questa operazione viene eseguita per impedire agli utenti malintenzionati di registrare i propri Azure AD Multi-Factor Authentication le credenziali nel caso in cui compromettono la password di un utente legittimo.
+Il [criterio di rischio di accesso](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) viene applicato se l'utente Guest B2B soddisfa il controllo di concessione. Ad esempio, un'organizzazione potrebbe richiedere Azure AD Multi-Factor Authentication per il rischio di accesso medio o elevato. Tuttavia, se un utente non è stato registrato in precedenza per Azure AD Multi-Factor Authentication nel tenant di risorse, l'utente verrà bloccato. Questa operazione viene eseguita per impedire agli utenti malintenzionati di registrare i propri Azure AD Multi-Factor Authentication le credenziali nel caso in cui compromettono la password di un utente legittimo.
 
-I [criteri di rischio utente, tuttavia,](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) non possono essere risolti nel tenant della risorsa. Ad esempio, se è necessaria una modifica della password per gli utenti guest ad alto rischio, verranno bloccati a causa dell'impossibilità di reimpostare le password nella directory delle risorse.
+I [criteri di rischio utente, tuttavia,](../conditional-access/concept-conditional-access-conditions.md#user-risk) non possono essere risolti nel tenant della risorsa. Ad esempio, se è necessaria una modifica della password per gli utenti guest ad alto rischio, verranno bloccati a causa dell'impossibilità di reimpostare le password nella directory delle risorse.
 
 ### <a name="conditional-access-client-apps-condition"></a>Condizione per le app client con accesso condizionale
 
-Le [condizioni delle app client](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) si comportano per gli utenti Guest B2B come per qualsiasi altro tipo di utente. Ad esempio, è possibile impedire agli utenti guest di usare protocolli di autenticazione legacy.
+Le [condizioni delle app client](../conditional-access/concept-conditional-access-conditions.md#client-apps) si comportano per gli utenti Guest B2B come per qualsiasi altro tipo di utente. Ad esempio, è possibile impedire agli utenti guest di usare protocolli di autenticazione legacy.
 
 ### <a name="conditional-access-session-controls"></a>Controlli della sessione di accesso condizionale
 
-I [controlli della sessione](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) si comportano per gli utenti Guest B2B come per qualsiasi altro tipo di utente.
+I [controlli della sessione](../conditional-access/concept-conditional-access-session.md) si comportano per gli utenti Guest B2B come per qualsiasi altro tipo di utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni, vedere gli articoli seguenti su Azure AD collaborazione B2B:
 
-- [Che cos'è Azure AD B2B Collaboration?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
-- [Identity Protection e utenti B2B](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
+- [Che cos'è Azure AD B2B Collaboration?](./what-is-b2b.md)
+- [Identity Protection e utenti B2B](../identity-protection/concept-identity-protection-b2b.md)
 - [Prezzi delle identità esterne](https://azure.microsoft.com/pricing/details/active-directory/)
-- [Domande frequenti (FAQ)](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
-
+- [Domande frequenti (FAQ)](./faq.md)

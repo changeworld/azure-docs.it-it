@@ -10,21 +10,19 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: d861f6bfbe38ad73715ef521a36cc097b8538c9b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 036df8d4c65ebd6288a526b3af7201e6f2131cd4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820006"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656576"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Avvio rapido: Creare e gestire le risorse di Servizi di comunicazione
- 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile effettuare il provisioning delle risorse di Servizi di comunicazione tramite il portale di Azure o con la libreria client di gestione .NET. La libreria client di gestione consente di creare, configurare, aggiornare ed eliminare la risorsa e le interfacce con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili nelle librerie client sono presenti nel portale di Azure. 
+Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioning della prima risorsa di Servizi di comunicazione. È possibile eseguire il provisioning delle risorse dei servizi di comunicazione tramite il [portale di Azure](https://portal.azure.com) o con la libreria client di gestione .NET. La libreria client di gestione e la portale di Azure consentono di creare, configurare, aggiornare ed eliminare le risorse e l'interfaccia con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), il servizio di distribuzione e gestione di Azure. Tutte le funzionalità disponibili nelle librerie client sono presenti nel portale di Azure.
 
 > [!WARNING]
-> Si noti che durante l'anteprima pubblica la disponibilità di Servizi di comunicazione è limitata all'area geografica degli Stati Uniti. Si noti anche che durante l'anteprima pubblica non è possibile trasferire le risorse di comunicazione a una sottoscrizione diversa.
+> Si noti che mentre i servizi di comunicazione sono disponibili in più aree geografiche, per ottenere un numero di telefono, la risorsa deve avere un percorso dati impostato su "US". Si noti anche che durante l'anteprima pubblica non è possibile trasferire le risorse di comunicazione a una sottoscrizione diversa.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
@@ -40,7 +38,7 @@ Per iniziare a usare Servizi di comunicazione di Azure, effettuare il provisioni
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Accedere alle stringhe di connessione e agli endpoint di servizio
 
-Le stringhe di connessione consentono alle librerie client di Servizi di comunicazione di eseguire la connessione e l'autenticazione ad Azure. È possibile accedere alle stringhe di connessione e agli endpoint di servizio di Servizi di comunicazione dal portale di Azure o a livello di codice con le API di Azure Resource Manager. 
+Le stringhe di connessione consentono alle librerie client di Servizi di comunicazione di eseguire la connessione e l'autenticazione ad Azure. È possibile accedere alle stringhe di connessione e agli endpoint di servizio di Servizi di comunicazione dal portale di Azure o a livello di codice con le API di Azure Resource Manager.
 
 Dopo aver eseguito l'accesso alla risorsa di Servizi di comunicazione, selezionare **Chiavi** dal menu di spostamento e copiare i valori di **Stringa di connessione** o **Endpoint** per l'utilizzo da parte delle librerie client di Servizi di comunicazione. Si noti che è possibile accedere alle chiavi primaria e secondaria. Questo può essere utile negli scenari in cui si vuole fornire l'accesso temporaneo alle risorse di Servizi di comunicazione a un ambiente di terze parti o di gestione temporanea.
 
@@ -49,7 +47,7 @@ Dopo aver eseguito l'accesso alla risorsa di Servizi di comunicazione, seleziona
 È anche possibile accedere alle informazioni chiave usando l'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az communication list --resource-group "<resourceGroup>"    
+az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
@@ -103,7 +101,7 @@ Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bash_profile` 
 
 Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate.
 
-Se sono presenti numeri di telefono assegnati alla risorsa al momento dell'eliminazione delle risorse, tali numeri verranno rilasciati automaticamente dalla risorsa nello stesso momento. 
+Se sono presenti numeri di telefono assegnati alla risorsa al momento dell'eliminazione delle risorse, tali numeri verranno rilasciati automaticamente dalla risorsa nello stesso momento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

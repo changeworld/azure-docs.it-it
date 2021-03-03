@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4711401172c4a2b224c231db4a773e0c4219d3a7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599345"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659835"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -113,7 +113,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 Restituisce un valore booleano a seconda se una stringa di caratteri specifica corrisponde a un modello specificato. Il modello può contenere caratteri specifici e caratteri jolly. È possibile scrivere query logicamente equivalenti usando la `LIKE` parola chiave o la funzione di sistema [RegexMatch](sql-query-regexmatch.md) . Si osserverà lo stesso utilizzo di indici indipendentemente da quello scelto. Pertanto, è consigliabile utilizzare `LIKE` se si preferisce la sintassi più che le espressioni regolari.
 
 > [!NOTE]
-> Poiché `LIKE` può utilizzare un indice, è necessario [creare un indice di intervallo](indexing-policy.md) per le proprietà che si desidera confrontare utilizzando `LIKE` .
+> Poiché `LIKE` può utilizzare un indice, è necessario [creare un indice di intervallo](./index-policy.md) per le proprietà che si desidera confrontare utilizzando `LIKE` .
 
 È possibile usare i caratteri jolly seguenti con LIKE:
 

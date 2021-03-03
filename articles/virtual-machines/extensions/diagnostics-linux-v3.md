@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 88f8d62a6321deae8a46d32441625c5960547694
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 6b03d4fb51021019da4c7d31fccf28b0ee157f32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982104"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670542"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Usare l'estensione di diagnostica Linux 3,0 per monitorare le metriche e i log
 
@@ -825,6 +825,6 @@ Vedere la relativa [documentazione di EventHubs](../../event-hubs/event-hubs-abo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Creare avvisi sulle metriche in [Monitoraggio di Azure](../../azure-monitor/platform/alerts-classic-portal.md) per le metriche raccolte.
-* Creare [grafici di monitoraggio](../../azure-monitor/platform/data-platform.md) per le metriche.
+* Creare avvisi sulle metriche in [Monitoraggio di Azure](../../azure-monitor/alerts/alerts-classic-portal.md) per le metriche raccolte.
+* Creare [grafici di monitoraggio](../../azure-monitor/data-platform.md) per le metriche.
 * Informazioni su come [creare un set di scalabilità di macchine virtuali](../linux/tutorial-create-vmss.md) con le metriche per controllare la scalabilità automatica.

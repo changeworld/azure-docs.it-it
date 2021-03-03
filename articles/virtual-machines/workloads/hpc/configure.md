@@ -3,17 +3,17 @@ title: Configurazione e ottimizzazione delle macchine virtuali di Azure di serie
 description: Informazioni sulla configurazione e l'ottimizzazione delle macchine virtuali serie H e serie N abilitate per InfiniBand per HPC.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b1686b08608e4f1c49cd918e86e8149f0fe2a21c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 94334e54865b3a3b603cbd0b3943899a375d894e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963369"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675659"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurare e ottimizzare le macchine virtuali
 

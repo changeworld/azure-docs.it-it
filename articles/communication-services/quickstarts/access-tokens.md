@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Creare e gestire i token di accesso'
 titleSuffix: An Azure Communication Services quickstart
-description: Informazioni su come gestire le identità e i token di accesso usando la libreria client di amministrazione di Servizi di comunicazione di Azure.
+description: Informazioni su come gestire le identità e i token di accesso usando la libreria client di identità dei servizi di comunicazione di Azure.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -10,18 +10,16 @@ ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 246b8041e7e12ea1a1391cb4690d02892bc31b63
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
-ms.translationtype: HT
+ms.openlocfilehash: 8937210b366981d9768e5329989a8ad14f5e8f35
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325300"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657060"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Avvio rapido: Creare e gestire i token di accesso
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-Introduzione a Servizi di comunicazione di Azure con l'uso della libreria client Amministrazione di Servizi di comunicazione. Consente di creare identità e di gestire i token di accesso. L'identità rappresenta l'entità dell'applicazione nel servizio di comunicazione di Azure, ad esempio utente o dispositivo. I token di accesso consentono alle librerie client per le chat e le chiamate di eseguire l'autenticazione direttamente in Servizi di comunicazione di Azure. È consigliabile generare token di accesso in un servizio lato server. I token di accesso vengono quindi usati per inizializzare le librerie client di Servizi di comunicazione nei dispositivi client.
+Introduzione ai servizi di comunicazione di Azure tramite la libreria client di identità dei servizi di comunicazione. Consente di creare identità e di gestire i token di accesso. L'identità rappresenta l'entità dell'applicazione nel servizio di comunicazione di Azure, ad esempio utente o dispositivo. I token di accesso consentono alle librerie client per le chat e le chiamate di eseguire l'autenticazione direttamente in Servizi di comunicazione di Azure. È consigliabile generare token di accesso in un servizio lato server. I token di accesso vengono quindi usati per inizializzare le librerie client di Servizi di comunicazione nei dispositivi client.
 
 Tutti i prezzi visualizzati nelle immagini di questa esercitazione sono riportati unicamente a scopo dimostrativo.
 
@@ -69,7 +67,7 @@ In questo argomento di avvio rapido si è appreso come:
 > [!div class="checklist"]
 > * Gestire le identità
 > * Risolvere i problemi dei token di accesso
-> * Usare la libreria client di amministrazione di Servizi di comunicazione
+> * Usare la libreria client di identità dei servizi di comunicazione
 
 
 > [!div class="nextstepaction"]
@@ -80,4 +78,3 @@ Può essere utile vedere anche gli articoli seguenti:
  - [Informazioni sull'autenticazione](../concepts/authentication.md)
  - [Aggiungere una chat all'app](./chat/get-started.md)
  - [Informazioni sull'architettura client e server](../concepts/client-and-server-architecture.md)
- 

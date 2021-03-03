@@ -5,15 +5,15 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 03/02/2021
 ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: deba6696eb71287902fa3970ed2d83d0b09ac08d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359647"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658487"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,11 +24,11 @@ Usando l'API Azure Cosmos DB per MongoDB, è possibile usufruire dei vantaggi Co
 
 ## <a name="mongodb-protocol-support"></a>Supporto del protocollo MongoDB
 
-L'API di Azure Cosmos DB per MongoDB è compatibile con il server MongoDB versione 3,2 e 3,6. Per altri dettagli, vedere [funzionalità e sintassi supportate](mongodb-feature-support.md) . 
+L'API di Azure Cosmos DB per MongoDB è compatibile con il server MongoDB versione 4,0, 3,6 e 3,2. Per altri dettagli, vedere la sintassi e le funzionalità supportate negli articoli [4,0](mongodb-feature-support-40.md), [3,6](mongodb-feature-support-36.md)e [3,2](mongodb-feature-support.md) . 
 
 I seguenti comandi di estensione consentono di creare e modificare risorse specifiche di Azure Cosmos DB tramite richieste di database:
 
-* [Creazione del database](#create-database)
+* [Crea database](#create-database)
 * [Aggiorna database](#update-database)
 * [Ottieni database](#get-database)
 * [Crea raccolta](#create-collection)
@@ -42,7 +42,7 @@ Il comando create database Extension crea un nuovo database MongoDB. Il nome del
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
 | `customAction`   |  `string`  |   Nome del comando personalizzato, deve essere "CreateDatabase".      |
-| `offerThroughput` | `int`  | Velocità effettiva con provisioning impostata nel database. Questo parametro è facoltativo e, |
+| `offerThroughput` | `int`  | Velocità effettiva con provisioning impostata nel database. Questo parametro è facoltativo. |
 | `autoScaleSettings` | `Object` | Obbligatorio per la [modalità di ridimensionamento automatico](provision-throughput-autoscale.md). Questo oggetto contiene le impostazioni associate alla modalità di capacità di scalabilità automatica. È possibile impostare il `maxThroughput` valore, che descrive la quantità più elevata di unità richiesta che la raccolta verrà aumentata in modo dinamico. |
 
 ### <a name="output"></a>Output
@@ -55,7 +55,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="create-a-database"></a>Creazione di un database
 
@@ -90,7 +90,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 ## <a name="update-database"></a><a id="update-database"></a> Aggiorna database
 
-Il comando Update database Extension aggiorna le proprietà associate al database specificato. Nella tabella seguente vengono descritti i parametri all'interno del comando:
+Il comando Update database Extension aggiorna le proprietà associate al database specificato. La modifica del database dalla velocità effettiva con provisioning a scalabilità automatica e viceversa è supportata solo nel portale di Azure. Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 |**Campo**|**Tipo** |**Descrizione** |
 |---------|---------|---------|
@@ -110,7 +110,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-database"></a>Aggiornare la velocità effettiva con provisioning associata a un database
 
@@ -161,7 +161,7 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="get-the-database"></a>Ottenere il database
 
@@ -206,8 +206,8 @@ Il comando create Collection Extension crea una nuova raccolta MongoDB. Il nome 
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  offerThroughput: (int), // Amount of throughput allocated to a specific collection
-
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -225,7 +225,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="create-a-collection-with-the-minimum-configuration"></a>Creare una raccolta con la configurazione minima
 
@@ -292,13 +292,14 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 ## <a name="update-collection"></a><a id="update-collection"></a> Aggiorna raccolta
 
-Il comando Update Collection Extension aggiorna le proprietà associate alla raccolta specificata.
+Il comando Update Collection Extension aggiorna le proprietà associate alla raccolta specificata. La modifica della raccolta dalla velocità effettiva con provisioning a scalabilità automatica e viceversa è supportata solo nel portale di Azure.
 
 ```javascript
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  offerThroughput: (int) // New throughput that will be set to the collection
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -315,7 +316,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-collection"></a>Aggiornare la velocità effettiva con provisioning associata a una raccolta
 
@@ -361,7 +362,7 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="get-the-collection"></a>Ottenere la raccolta
 

@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
-ms.translationtype: HT
+ms.date: 02/22/2020
+ms.openlocfilehash: 5285d5b2c7cbe6845fb6043fa1096f94254602e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693345"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677832"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Esercitazione: Esplorare la home page di Azure Purview (anteprima) e cercare un asset
 
@@ -45,7 +45,7 @@ I passaggi seguenti illustrano la home page di Azure Purview.
 
 1. Passare alla risorsa Azure Purview nel portale di Azure e selezionare **Apri in Purview Studio**. Si viene automaticamente reindirizzati nella home page di Purview Studio.
 
-   Nella parte superiore della home page vengono visualizzati il nome del catalogo e una serie di analisi dello stesso. Sono inclusi il numero di utenti, il numero di asset di dati e il numero di termini di glossario. Nel riepilogo è possibile vedere che sono presenti più di 200 asset in totale e 113 termini di glossario. Questi numeri vengono aggiornati via via che l'organizzazione analizza e aggiunge altri termini in Azure Purview.
+   Nella parte superiore della home page vengono visualizzati il nome del catalogo e una serie di analisi dello stesso. Sono inclusi il numero di origini, gli asset di dati e i termini di glossario. Nel riepilogo è possibile vedere che sono presenti più di 200 asset in totale e 113 termini di glossario. Questi numeri vengono aggiornati via via che l'organizzazione analizza e aggiunge altri termini in Azure Purview.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Screenshot che mostra la home page di Azure Purview.":::
 

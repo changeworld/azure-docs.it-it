@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 ms.author: baselden
 author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530349"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651128"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
 
@@ -149,7 +149,7 @@ Sono disponibili tre tipi di distribuzioni di accesso senza password con chiavi 
 
 -    Azure Active Directory app Web in un browser supportato
 -    Dispositivi Azure Active Directory aggiunti a Windows 10
--    Dispositivi Windows 10 aggiunti a Azure Active Directory ibrido (anteprima)
+-    Dispositivi Windows 10 ibridi Azure Active Directory aggiunti
      -    Fornisce l'accesso alle risorse basate su cloud e locali. Per altre informazioni sull'accesso alle risorse locali, vedere [SSO to locale resources using FIDO2 Keys](./howto-authentication-passwordless-security-key-on-premises.md) .
 
 È necessario abilitare le **chiavi di sicurezza FIDO2 compatibili**. Microsoft ha annunciato una [partnership chiave con i fornitori di chiavi di FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
@@ -193,7 +193,7 @@ Per abilitare l'accesso a Windows 10 con le chiavi di sicurezza di FIDO2, è nec
 
 #### <a name="enable-on-premises-integration"></a>Abilitare l'integrazione locale
 
-Per abilitare l'accesso alle risorse locali, seguire i passaggi per [abilitare la chiave di sicurezza senza password accedi alle risorse locali (anteprima)](howto-authentication-passwordless-security-key-on-premises.md).
+Per abilitare l'accesso alle risorse locali, seguire i passaggi per [abilitare la chiave di sicurezza senza password accedi alle risorse locali](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > Questi passaggi devono essere completati anche per i dispositivi ibridi Azure AD aggiunti per usare le chiavi di sicurezza FIDO2 per l'accesso a Windows 10.

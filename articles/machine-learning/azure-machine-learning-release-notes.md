@@ -8,17 +8,48 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/10/2020
-ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375562"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661104"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+__Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggiornata copiando e incollando l'URL seguente nel lettore di feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-16"></a>2021-02-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1230"></a>SDK di Azure Machine Learning per Python v 1.23.0
++ **Nuove funzionalità**
+  + **azureml-core**
+    + [Funzionalità sperimentale] Aggiungere il supporto per collegare l'area di lavoro sinapsi in AML come servizio collegato
+    + [Funzionalità sperimentale] Aggiungere il supporto per alleghi il pool di Spark di sinapsi in AML come calcolo
+    + [Funzionalità sperimentale] Aggiunta del supporto per l'accesso ai dati basato su identità. Gli utenti possono registrare i set di dati o i DataSet senza fornire le credenziali. In tal caso, per l'autenticazione verrà usato il token AAD dell'utente o l'identità gestita della destinazione di calcolo. Fare clic [qui](https://aka.ms/data-access) per altre informazioni.
+  + **azureml-pipeline-steps**
+    + [Funzionalità sperimentale] Aggiungere il supporto per [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?preserve-view=true&view=azure-ml-py)
+  + **azureml-synapse**
+    + [Funzionalità sperimentale] Aggiungere il supporto di Spark Magic per eseguire una sessione interattiva nel pool di Spark di sinapsi.
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-runtime**
+    + In questo aggiornamento è stato aggiunto Holt Winters esponenzial smoothing alla casella degli strumenti di previsione di AutoML SDK. Data una serie temporale, il modello migliore viene selezionato da [AICc (criterio delle informazioni di Akaike corretto)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) e restituito.
+    + AutoML genera ora due file di log invece di uno. Le istruzioni log passeranno a una o l'altra a seconda del processo in cui è stata generata l'istruzione log.
+    + Rimuovere la stima in-Sample non necessaria durante il training del modello con convalide incrociate. Questo può ridurre i tempi di training del modello in alcuni casi, in particolare per i modelli di previsione delle serie temporali.
+  + **azureml-contrib-fairness**
+    + Aggiungere uno schema JSON per i caricamenti dashboardDictionary.
+  + **azureml-contrib-interpret**
+    + azureml-contrib-l'interpretazione del file Leggimi è stata aggiornata per riflettere che il pacchetto verrà rimosso nell'aggiornamento successivo dopo essere stato deprecato a partire da ottobre, usare invece azureml-interpretate Package
+  + **azureml-core**
+    + In precedenza era possibile creare una configurazione di provisioning con il numero minimo di nodi inferiore al numero massimo di nodi. A questo punto è stato risolto. Se ora si tenta di creare una configurazione di provisioning con `min_nodes < max_nodes` l'SDK genererà `ComputeTargetException` .
+    +  Corregge il bug in wait_for_completion in AmlCompute che ha causato la restituzione del flusso di controllo prima che l'operazione sia stata effettivamente completata
+    + Run. Fail () è ora deprecato. usare Run. Tag () per contrassegnare l'esecuzione come non riuscita o usare Run. Cancel () per contrassegnare l'esecuzione come annullata.
+    + Mostra messaggio di errore ' nome ambiente previsto Str, {} trovato ' quando il nome dell'ambiente specificato non è una stringa.
+  + **azureml-train-automl-client**
+    + Correzione di un bug che impediva l'annullamento degli esperimenti AutoML eseguiti sui cluster Azure Databricks.
 
 
 ## <a name="2021-02-09"></a>2021-02-09
@@ -54,11 +85,11 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di gennaio)
 + **Nuove funzionalità**
   + Editor Markdown nativo in AzureML. Gli utenti possono ora eseguire il rendering e modificare i file Markdown in modo nativo in AzureML Studio.
-  + [Pulsante Esegui per gli script (. py,. R e. sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Gli utenti possono ora eseguire facilmente script Python, R e bash in AzureML
-  + [Esplora variabili](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Esplorare il contenuto di variabili e frame di dati in un pannello popup. Gli utenti possono controllare facilmente il tipo di dati, le dimensioni e il contenuto.
-  + [Tabella di contenuto](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Passare alle sezioni del notebook, indicate dalle intestazioni Markdown.
+  + [Pulsante Esegui per gli script (. py,. R e. sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Gli utenti possono ora eseguire facilmente script Python, R e bash in AzureML
+  + [Esplora variabili](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Esplorare il contenuto di variabili e frame di dati in un pannello popup. Gli utenti possono controllare facilmente il tipo di dati, le dimensioni e il contenuto.
+  + [Tabella di contenuto](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Passare alle sezioni del notebook, indicate dalle intestazioni Markdown.
   + Esporta il notebook come Latex/HTML/py. Creare file di notebook facili da condividere esportando in LaTex, HTML o py
-  + Intellicode. I risultati basati su ML offrono un' [esperienza di completamento automatico intelligente](https://docs.microsoft.com/visualstudio/intellicode/overview)avanzata.
+  + Intellicode. I risultati basati su ML offrono un' [esperienza di completamento automatico intelligente](/visualstudio/intellicode/overview)avanzata.
 
 + **Correzioni di bug e miglioramenti**
   + Tempi di caricamento delle pagine migliorati

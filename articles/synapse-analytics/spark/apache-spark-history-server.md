@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995387"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670705"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il server di cronologia Apache Spark esteso per eseguire il debug e la diagnosi delle applicazioni Apache Spark
 
@@ -22,7 +22,7 @@ Questo articolo fornisce indicazioni su come usare il server di cronologia di Ap
 
 L'estensione include una scheda dati, una scheda grafico e una scheda diagnosi. Usare la scheda **dati** per controllare i dati di input e di output del processo Spark. La scheda **grafico** Mostra il flusso di dati e la riproduzione del grafico del processo. La scheda **diagnosi** Mostra l'  **asimmetria dei dati**, lo **sfasamento dell'ora** e l'analisi dell'utilizzo dell' **Executor**.
 
-## <a name="access-the-apache-spark-history-server"></a>Accedere al server di cronologia Apache Spark
+## <a name="access-the-apache-spark-history-server"></a>Accedere al server della cronologia di Apache Spark
 
 Apache Spark server di cronologia è l'interfaccia utente Web per le applicazioni Spark completate ed eseguite. È possibile aprire l'interfaccia Web del server di cronologia di Apache Spark da Azure sinapsi Analytics.
 
@@ -106,7 +106,7 @@ Selezionare l'ID processo per il processo che si desidera visualizzare. Selezion
 
 ![ID del processo dell'applicazione Spark e del grafico del processo](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-### <a name="display"></a>Schermo
+### <a name="display"></a>Visualizza
 
 Per impostazione predefinita, è selezionata la visualizzazione **stato** . È possibile controllare il flusso di dati selezionando **Leggi** o **scritto** nell'elenco a discesa **Visualizza** .
 
@@ -125,8 +125,8 @@ Per riprodurre il processo, selezionare **riproduzione**. È possibile seleziona
 |Green|Succeeded: il processo è stato completato correttamente.|
 |Orange|Tentativi: istanze delle attività non riuscite, ma non influiscono sul risultato finale del processo. Per queste attività sono presenti istanze duplicate o nuovi tentativi che potrebbero riuscire in un secondo momento.|
 |Blu|Running: l'attività è in esecuzione.|
-|bianco|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
-|Rosso|Non riuscito: l'attività non è riuscita.|
+|White|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
+|Red|Non riuscito: l'attività non è riuscita.|
 
 La figura seguente mostra i colori di stato verde, arancione e blu.
 
@@ -182,7 +182,7 @@ Nel nodo del grafico del processo vengono visualizzate le informazioni seguenti 
     >  
     > Le dimensioni dei dati di lettura e scrittura sono pari a 1 MB = 1000 KB = 1000 * 1000 byte.
 
-### <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+### <a name="provide-feedback"></a>Fornire il feedback
 
 Inviare commenti e suggerimenti con problemi selezionando Invia **commenti e suggerimenti**.
 
@@ -239,5 +239,5 @@ I dati di input/output che usano RDD (Resilient Distributed DataSet) non vengono
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Documentazione di .NET per Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentazione di .NET per Apache Spark](/dotnet/spark)
 

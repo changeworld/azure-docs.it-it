@@ -5,15 +5,15 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 941fe8929b75fdebf187186ca7078b0ae1dd261c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359235"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658521"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flussi di modifiche nell'API di Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "97359235"
 Il supporto del [feed di modifiche](change-feed.md) nell'API di Azure Cosmos DB per MongoDB è disponibile tramite l'API dei flussi di modifiche. Con l'API dei flussi di modifiche, le applicazioni possono ottenere le modifiche apportate alla raccolta o agli elementi in una singola partizione. In seguito sarà possibile eseguire altre azioni in base ai risultati. Le modifiche apportate agli elementi nella raccolta vengono acquisite in base all'ora della modifica e l'ordinamento è garantito per ogni chiave di partizione.
 
 > [!NOTE]
-> Per usare i flussi di modifiche, creare l'account con la versione 3.6 dell'API di Azure Cosmos DB per MongoDB o una versione successiva. Se gli esempi dei flussi di modifiche vengono eseguiti con una versione precedente, potrebbe essere visualizzato l'errore `Unrecognized pipeline stage name: $changeStream`.
+> Per usare i flussi delle modifiche, creare l'account dell'API Azure Cosmos DB per MongoDB con Server versione 3,6 o successiva. Se si eseguono gli esempi del flusso di modifiche rispetto a una versione precedente, è possibile che venga visualizzato il *nome della fase della pipeline non riconosciuta: $changeStream* errore.
 
 ## <a name="examples"></a>Esempi
 

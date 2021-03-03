@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199377"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676566"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informazioni approfondite sull'etichetta di riservatezza sui dati in Azure
 
 Questa guida dettagliata descrive come accedere, visualizzare e filtrare le informazioni di sicurezza fornite dalle etichette di riservatezza applicate ai dati.
 
-Le origini dati supportate includono: archiviazione BLOB di Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, database SQL di Azure, Azure SQL Istanza gestita
+Le origini dati supportate includono: archiviazione BLOB di Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, database SQL di Azure, Istanza gestita di Azure SQL, bucket di Amazon S3
 
 In questa guida dettagliata si apprenderà come:
 
@@ -40,7 +40,7 @@ Prima di iniziare a usare informazioni dettagliate, assicurarsi di aver completa
 
 - [Estendendo Microsoft 365 le etichette di riservatezza agli asset in Azure](create-sensitivity-label.md)e creando o selezionando le etichette che si vuole applicare ai dati.
 
-- Configurare e completare un'analisi sui dati di test in ogni origine dati
+- Configurare e completare un'analisi sui dati di test in ogni origine dati. Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](manage-data-sources.md) e [creare un set di regole di analisi](create-a-scan-rule-set.md).
 
 - Accesso a competenza con un [ruolo di lettore di dati o di data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

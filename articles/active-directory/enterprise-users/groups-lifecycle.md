@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d71c44ebaba5b0cbcb03afa41ad15237dceaef
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1e40ad90910f7b2244401386fb01a4e4fefe03ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547475"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647405"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Microsoft 365
 
@@ -42,7 +42,7 @@ Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell,
 
 ## <a name="activity-based-automatic-renewal"></a>Rinnovo automatico basato sulle attività
 
-Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi in Microsoft 365 servizi come Outlook, SharePoint o teams. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
+Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi in Microsoft 365 servizi come Outlook, SharePoint o teams. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale di teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente circa 35 giorni prima della scadenza del gruppo e il proprietario non riceve alcuna notifica di rinnovo.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Attività che rinnovano automaticamente la scadenza del gruppo
 
@@ -65,7 +65,7 @@ Di seguito sono riportati i ruoli che consentono di configurare e utilizzare la 
 Ruolo | Autorizzazioni
 -------- | --------
 Amministratore globale, amministratore del gruppo o amministratore utente | Consente di creare, leggere, aggiornare o eliminare le impostazioni dei criteri di scadenza dei gruppi di Microsoft 365<br>Può rinnovare qualsiasi gruppo di Microsoft 365
-Utente | Può rinnovare un gruppo di Microsoft 365 di cui è proprietario<br>Può ripristinare un gruppo di Microsoft 365 di cui è proprietario<br>Questo ruolo consente di leggere le impostazioni dei criteri di scadenza
+User | Può rinnovare un gruppo di Microsoft 365 di cui è proprietario<br>Può ripristinare un gruppo di Microsoft 365 di cui è proprietario<br>Questo ruolo consente di leggere le impostazioni dei criteri di scadenza
 
 Per ulteriori informazioni sulle autorizzazioni per ripristinare un gruppo eliminato, vedere [ripristinare un gruppo di Microsoft 365 eliminato in Azure Active Directory](groups-restore-deleted.md).
 

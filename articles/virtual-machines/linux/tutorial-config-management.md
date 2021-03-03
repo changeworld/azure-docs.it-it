@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c4dc7e4d3c19a341daaf8e75844e175451a91f03
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: de038fe087e479ef1e9212c21197fbe1844d5e3b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592977"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670375"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
 
@@ -201,4 +201,4 @@ In questa esercitazione sono state configurate e verificate le funzionalità Ril
 Passare all'esercitazione successiva per informazioni sul monitoraggio delle macchine virtuali.
 
 > [!div class="nextstepaction"]
-> [Monitorare le macchine virtuali](tutorial-monitor.md)
+> [Monitorare le macchine virtuali](/previous-versions/azure/virtual-machines/linux/tutorial-monitor)

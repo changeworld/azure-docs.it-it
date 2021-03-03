@@ -1,33 +1,33 @@
 ---
 title: Proprietà dei metadati del contenuto
 titleSuffix: Azure Cognitive Search
-description: Le proprietà dei metadati dei BLOB possono fornire contenuti ai campi in un indice di ricerca o informazioni che informano il comportamento di indicizzazione in fase di esecuzione. Questo articolo elenca le proprietà dei metadati supportate in Azure ricerca cognitiva.
+description: Le proprietà dei metadati dei documenti possono fornire contenuti ai campi in un indice di ricerca o informazioni che informano il comportamento di indicizzazione in fase di esecuzione. Questo articolo elenca le proprietà dei metadati supportate in Azure ricerca cognitiva.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 79443785dbd8619e22358631c9c36a3da4ef2e84
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.date: 02/22/2021
+ms.openlocfilehash: cbb35f596a1d32816d1a73b462bf590d9dde0d52
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99477301"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668419"
 ---
-# <a name="content-metadata-properties-used-in-blob-indexing-in-azure-cognitive-search"></a>Proprietà dei metadati del contenuto usate nell'indicizzazione BLOB in Azure ricerca cognitiva
+# <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Proprietà dei metadati del contenuto usate in Azure ricerca cognitiva
 
-I BLOB possono contenere vari contenuti e molti di questi tipi di contenuto hanno proprietà dei metadati che possono essere utili nell'indicizzazione di BLOB. Così come è possibile creare campi di ricerca per proprietà BLOB standard **`metadata_storage_name`** , ad esempio, è possibile creare campi per le proprietà dei metadati specifiche del formato di un documento.
+SharePoint Online e l'archiviazione BLOB di Azure possono contenere vari contenuti e molti di questi tipi di contenuto hanno proprietà dei metadati che possono essere utili per indicizzare. Così come è possibile creare campi di ricerca per proprietà BLOB standard **`metadata_storage_name`** , ad esempio, è possibile creare campi per le proprietà dei metadati specifiche del formato di un documento.
 
 ## <a name="supported-document-formats"></a>Formati di documento supportati
 
-Ricerca cognitiva supporta l'indicizzazione BLOB per i formati di documento seguenti:
+Ricerca cognitiva supporta l'indicizzazione BLOB e l'indicizzazione dei documenti di SharePoint Online per i formati di documento seguenti:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="properties-by-document-format"></a>Proprietà in base al formato del documento
 
-La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di documento e descrive le proprietà dei metadati estratte da un indicizzatore BLOB.
+La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di documento e descrive le proprietà dei metadati estratte da un indicizzatore BLOB e dall'indicizzatore di SharePoint Online.
 
 | Formato documento/tipo di contenuto | Metadati estratti | Dettagli elaborazione |
 | --- | --- | --- |
@@ -62,3 +62,4 @@ La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di docume
 * [Indicizzatori in Ricerca cognitiva di Azure](search-indexer-overview.md)
 * [Informazioni sui BLOB con intelligenza artificiale](search-blob-ai-integration.md)
 * [Panoramica dell'indicizzazione BLOB](search-blob-storage-integration.md)
+* [Indicizzazione di SharePoint Online](search-howto-index-sharepoint-online.md)

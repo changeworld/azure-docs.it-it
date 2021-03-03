@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340890"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659903"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Risolvere i problemi di query quando si usa l'API Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ Se si riduce il costo delle UR di una query, in genere si diminuisce anche la la
 Questo articolo fornisce esempi che è possibile ricreare usando il set di [dati nutrizionale](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> Questo articolo presuppone che si usi la versione 3,6 dell'API Azure Cosmos DB "s per MongoDB. Alcune query con prestazioni scarse nella versione 3,2 presentano miglioramenti significativi nella versione 3,6. Eseguire l'aggiornamento alla versione 3,6 inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Questo articolo presuppone l'uso dell'API Azure Cosmos DB per gli account MongoDB con la versione 3,6 e successive. Alcune query con prestazioni scarse nella versione 3,2 presentano miglioramenti significativi nelle versioni 3.6 +. Eseguire l'aggiornamento alla versione 3,6 inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="use-explain-command-to-get-metrics"></a>Usare $explain comando per ottenere le metriche
 
@@ -264,7 +264,7 @@ Gli [indici jolly](mongodb-indexing.md#wildcard-indexes) possono semplificare l'
 
 Nella maggior parte dei casi, le operazioni di aggregazione nell'API Azure Cosmos DB per MongoDB utilizzeranno parzialmente gli indici. Il motore di query, in genere, applica prima i filtri di uguaglianza e di intervallo e usa gli indici. Dopo aver applicato questi filtri, il motore di query può valutare filtri aggiuntivi e ricorrere al caricamento dei documenti rimanenti per calcolare l'aggregazione, se necessario. 
 
-Ad esempio:
+Ecco un esempio:
 
 ```
 db.coll.aggregate( [
@@ -348,4 +348,4 @@ Il valore `estimatedDelayFromRateLimitingInMilliseconds` offre un'idea dei vanta
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Risolvere i problemi relativi alle prestazioni delle query (API SQL)](troubleshoot-query-performance.md)
-* [Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB](mongodb-indexing.md)
+* [Gestire l'indicizzazione nell'API di Azure Cosmos DB per MongoDB](mongodb-indexing.md)

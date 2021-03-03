@@ -1,29 +1,26 @@
 ---
-title: Accesso alla chiave di sicurezza senza password per le risorse locali (anteprima)-Azure Active Directory
-description: Informazioni su come abilitare la chiave di sicurezza senza password accesso alle risorse locali usando Azure Active Directory (anteprima)
+title: Accesso alla chiave di sicurezza senza password per le risorse locali-Azure Active Directory
+description: Informazioni su come abilitare la chiave di sicurezza senza password accesso alle risorse locali usando Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743480"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647473"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso alle risorse locali con Azure Active Directory (anteprima)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Abilitare la chiave di sicurezza senza password accesso alle risorse locali con Azure Active Directory 
 
 Questo documento è incentrato sull'abilitazione dell'autenticazione senza password per le risorse locali per ambienti con **Azure ad aggiunti** e **ibridi Azure ad** dispositivi Windows 10. Questa funzionalità offre un Single Sign-On semplice (SSO) alle risorse locali usando chiavi di sicurezza compatibili con Microsoft.
-
-> [!NOTE]
-> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Da SSO a risorse locali con chiavi di FIDO2
 
@@ -42,7 +39,7 @@ Nel Active Directory locale viene creato un Azure AD oggetto server Kerberos, ch
 
 ## <a name="requirements"></a>Requisiti
 
-Prima di completare la procedura descritta in questo articolo, le organizzazioni devono completare i passaggi per [abilitare la firma della chiave di sicurezza senza password nei dispositivi Windows 10 (anteprima)](howto-authentication-passwordless-security-key.md) .
+Prima di completare i passaggi descritti in questo articolo, le organizzazioni devono completare i passaggi per [abilitare la firma della chiave di sicurezza senza password nei dispositivi Windows 10](howto-authentication-passwordless-security-key.md) .
 
 Le organizzazioni devono inoltre soddisfare i requisiti software seguenti.
 
@@ -156,13 +153,13 @@ L'accesso con FIDO viene bloccato se la password è scaduta. Si prevede che l'ut
 
 ## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e feedback
 
-Per condividere commenti e suggerimenti o riscontrare problemi durante l'anteprima di questa funzionalità, condividere tramite l'app Windows Feedback hub usando la procedura seguente:
+Per condividere commenti e suggerimenti o riscontrare problemi con questa funzionalità, condividere tramite l'app hub di feedback di Windows seguendo questa procedura:
 
 1. Avviare **feedback Hub** e assicurarsi di aver eseguito l'accesso.
 1. Inviare commenti e suggerimenti nella categorizzazione seguente:
    - Categoria: sicurezza e privacy
    - Sottocategoria: FIDO
-1. Per acquisire i log, utilizzare l'opzione per **ricreare il problema**
+1. Per acquisire i log, utilizzare l'opzione per **ricreare il problema**.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

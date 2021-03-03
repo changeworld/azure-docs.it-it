@@ -6,15 +6,15 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558665"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675012"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Macchine virtuali Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -46,19 +46,38 @@ Sono attualmente supportati i [tipi di offerta](https://azure.microsoft.com/supp
 -   Enterprise Agreement
 -   Codice dell'offerta con pagamento in base al consumo 003P
 -   Sponsorizzato
-- Per il provider di servizi cloud (CSP), contattare il proprio partner
+- Per il provider di servizi cloud (CSP), vedere il centro per i [partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) oppure contattare direttamente il partner.
 
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
-Quando si creano set di scalabilità di macchine virtuali di Azure, è possibile impostare i criteri di rimozione per *deallocare* (impostazione predefinita) o *eliminare*. 
+Quando si crea un set di scalabilità con macchine virtuali di Azure spot, è possibile impostare i criteri di rimozione per *deallocare* (impostazione predefinita) o *eliminare*. 
 
 Il criterio *deallocate* sposta le istanze eliminate nello stato arrestato-deallocato, consentendo di ridistribuire le istanze eliminate. Tuttavia, non è garantito che l'allocazione avrà esito positivo. Le macchine virtuali deallocate verranno incluse nel conteggio per la quota delle istanze del set di scalabilità e verranno addebitati i costi dei dischi sottostanti. 
 
-Se si desidera che le istanze nel set di scalabilità di macchine virtuali Azure spot vengano eliminate al momento della rimozione, è possibile impostare i criteri di rimozione da *eliminare*. Con i criteri di rimozione impostati per l'eliminazione è quindi possibile creare nuove macchine virtuali aumentando il valore della proprietà del numero di istanze di set di scalabilità. Le macchine virtuali rimosse vengono eliminate insieme ai relativi dischi sottostanti, quindi non verrà addebitato alcun costo per l'archiviazione. Si può anche usare la funzionalità di ridimensionamento automatico dei set di scalabilità per cercare di compensare automaticamente le macchine virtuali rimosse, tuttavia non esiste alcuna garanzia di successo dell'allocazione. Si consiglia di usare la funzionalità di scalabilità automatica nei set di scalabilità di macchine virtuali Azure spot quando si impostano i criteri di rimozione da eliminare per evitare il costo dei dischi e raggiungere i limiti di quota. 
+Se si desidera che le istanze vengano eliminate al momento della rimozione, è possibile impostare i criteri di rimozione da *eliminare*. Con i criteri di rimozione impostati per l'eliminazione è quindi possibile creare nuove macchine virtuali aumentando il valore della proprietà del numero di istanze di set di scalabilità. Le macchine virtuali rimosse vengono eliminate insieme ai relativi dischi sottostanti, quindi non verrà addebitato alcun costo per l'archiviazione. Si può anche usare la funzionalità di ridimensionamento automatico dei set di scalabilità per cercare di compensare automaticamente le macchine virtuali rimosse, tuttavia non esiste alcuna garanzia di successo dell'allocazione. Si consiglia di usare la funzionalità di scalabilità automatica nei set di scalabilità di macchine virtuali Azure spot quando si impostano i criteri di rimozione da eliminare per evitare il costo dei dischi e raggiungere i limiti di quota. 
 
 Gli utenti possono acconsentire esplicitamente a ricevere notifiche in-VM tramite [Azure eventi pianificati](../virtual-machines/linux/scheduled-events.md). In questo modo riceveranno una notifica se le macchine virtuali vengono eliminate e avranno a disposizione 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
 
+<a name="bkmk_try"></a>
+## <a name="try--restore-preview"></a>Prova & ripristino (anteprima)
+
+Questa nuova funzionalità a livello di piattaforma userà l'intelligenza artificiale per provare automaticamente a ripristinare le istanze di macchine virtuali di Azure spot eliminate all'interno di un set di scalabilità per gestire il numero di istanze di destinazione. 
+
+> [!IMPORTANT]
+> Prova & il ripristino è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Prova & ripristinare i vantaggi:
+- Abilitata per impostazione predefinita quando si distribuisce una macchina virtuale Azure spot in un set di scalabilità.
+- Tenta di ripristinare le macchine virtuali di Azure spot eliminate a causa della capacità.
+- Le macchine virtuali di Azure spot ripristinate dovrebbero essere eseguite per un periodo di tempo più lungo con una minore probabilità di una capacità attivata per la rimozione.
+- Migliora la durata di una macchina virtuale Azure spot, quindi i carichi di lavoro vengono eseguiti per un periodo di tempo più lungo.
+- Consente ai set di scalabilità di macchine virtuali di gestire il numero di destinazioni per le macchine virtuali Azure spot, in modo analogo alla funzionalità di conteggio destinazione già esistente per le VM con pagamento in base al consumo.
+
+Provare & il ripristino è disabilitato nei set di scalabilità che usano la [scalabilità](virtual-machine-scale-sets-autoscale-overview.md)automatica. Il numero di macchine virtuali nel set di scalabilità è determinato dalle regole di scalabilità automatica.
+
 ## <a name="placement-groups"></a>Gruppi di posizionamento
+
 Il gruppo di posizionamento è un costrutto simile a un set di disponibilità di Azure, con domini di errore e domini di aggiornamento propri. Per impostazione predefinita, un set di scalabilità è costituito da un singolo gruppo di posizionamento con una dimensione massima di 100 VM. Se la proprietà del set di scalabilità denominata `singlePlacementGroup` è impostata su *false*, il set di scalabilità può essere composto da più gruppi di posizionamento e presenta un intervallo di 0-1000 VM. 
 
 > [!IMPORTANT]
@@ -136,6 +155,24 @@ Aggiungere le `priority` `evictionPolicy` proprietà, e `billingProfile` alla se
 ```
 
 Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy` parametro su `Delete` .
+
+
+## <a name="simulate-an-eviction"></a>Simulare un'eliminazione
+
+È possibile [simulare un'eliminazione](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) di una macchina virtuale di Azure spot per verificare il grado di risposta dell'applicazione a una rimozione improvvisa. 
+
+Sostituire quanto segue con le informazioni: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+`Response Code: 204` indica che l'eliminazione simulata è stata completata. 
 
 ## <a name="faq"></a>Domande frequenti
 

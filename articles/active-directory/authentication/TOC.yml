@@ -158,6 +158,8 @@
       href: howto-authentication-temporary-access-pass.md
     - name: Usa autenticazione basata su SMS
       href: howto-authentication-sms-signin.md
+    - name: SMS bidirezionale non supportato
+      href: how-to-authentication-two-way-sms-unsupported.md
     - name: Usare l'accesso all'indirizzo di posta elettronica
       href: howto-authentication-use-email-signin.md
     - name: Blocco intelligente di Azure AD
@@ -173,7 +175,7 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: Report
       items:
-        - name: Utilizzo e informazioni dettagliate
+        - name: Attività metodi di autenticazione
           href: howto-authentication-methods-usage-insights.md
         - name: Report della reimpostazione della password self-service
           href: howto-sspr-reporting.md

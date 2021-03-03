@@ -10,24 +10,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: cdd86984e5594d330f0080ee5f4cf0e9a8374652
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8ffa7ef7b3539e3cefc4e2f8621d7c67cd3b56b0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223544"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672951"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configurare le preferenze di routing per una macchina virtuale con Azure PowerShell
 
-Questo articolo illustra come configurare le preferenze di routing per una macchina virtuale. Quando si sceglie **Internet** come preferenza di routing, il traffico associato a Internet dalla macchina virtuale viene instradato tramite la rete ISP. L'opzione di routing predefinita è la rete globale Microsoft.
+Questo articolo illustra come configurare le preferenze di routing per una macchina virtuale. Quando si sceglie **Internet** come preferenza di routing, il traffico associato a Internet proveniente dalla macchina virtuale viene instradato tramite la rete dell'ISP. L'opzione di routing predefinita è la rete globale Microsoft.
 
 Questo articolo spiega come creare una macchina virtuale con un indirizzo IP pubblico impostato per instradare il traffico tramite la rete ISP con Azure PowerShell.
-
-> [!IMPORTANT]
-> La preferenza di routing è attualmente Anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 1. Se si usa Cloud Shell, andare al passaggio 2. Aprire una sessione di comando e accedere ad Azure con `Connect-AzAccount`.

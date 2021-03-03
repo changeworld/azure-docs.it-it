@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a3cca7740adb6fa44b162e8c8740d1be1c7aa6b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9e315812f7e281cf281cad9e052ab4546bde05f9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953887"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645843"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
@@ -90,7 +90,7 @@ Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD
 
 1. Per **ID client**, immettere l'ID applicazione registrato in precedenza.
 1. In **Segreto client** immettere il segreto client registrato in precedenza.
-1. In **Ambito**, immettere il `openid profile`.
+1. Per l' **ambito**, immettere `openid profile` .
 1. Lasciare i valori predefiniti per **Tipo di risposta** e **Modalità di risposta**.
 1. (Opzionale) Per l'**hint di dominio**, immettere `contoso.com`. Per altre informazioni, vedere [Configurare l'accesso diretto tramite Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. In **Mapping delle attestazioni del provider di identità** selezionare le attestazioni seguenti:

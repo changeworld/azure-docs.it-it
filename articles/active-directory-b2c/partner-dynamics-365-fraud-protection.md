@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 629daa968d548c06d176e6349382ad51349a37a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417411"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646555"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Esercitazione: configurare Microsoft Dynamics 365 Fraud Protection con Azure Active Directory B2C
 
-In questa esercitazione di esempio vengono fornite informazioni aggiuntive su come integrare [Microsoft Dynamics 365 Fraud Protection](https://docs.microsoft.com/dynamics365/fraud-protection/overview) (DFP) con la Azure Active Directory (ad) B2C.
+In questa esercitazione di esempio vengono fornite informazioni aggiuntive su come integrare [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) (DFP) con la Azure Active Directory (ad) B2C.
 
 Microsoft DFP fornisce ai client la possibilità di valutare se il rischio di tentativi di creazione di nuovi account e tentativi di accesso all'ecosistema del client sono fraudolenti. Microsoft DFP assessment può essere usato dal cliente per bloccare o sfidare tentativi sospetti di creare nuovi account falsi o compromettere gli account esistenti. La protezione degli account include l'intelligenza artificiale basata sull'impronta digitale dei dispositivi, le API per la valutazione dei rischi in tempo reale, l'esperienza di regole e elenchi per ottimizzare la strategia di rischio in base alle esigenze aziendali del cliente e una scorecard per monitorare l'efficacia e le tendenze della protezione da frodi nell'ecosistema del client.
 
@@ -32,7 +32,7 @@ Per iniziare, è necessario:
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-- [Tenant Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Il tenant è collegato alla sottoscrizione di Azure.
+- [Tenant Azure ad B2C](./tutorial-create-tenant.md). Il tenant è collegato alla sottoscrizione di Azure.
 
 - Ottenere una [sottoscrizione](https://dynamics.microsoft.com/pricing/#Sales)di Microsoft DFP. È anche possibile configurare una [versione del client di valutazione](https://dynamics.microsoft.com/ai/fraud-protection/signin/?RU=https%3A%2F%2Fdfp.microsoft.com%2Fsignin) .
 
@@ -67,36 +67,36 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
 ## <a name="set-up-the-solution"></a>Configurare la soluzione
 
-1. [Creare un'applicazione Facebook](https://docs.microsoft.com/azure/active-directory-b2c/identity-provider-facebook#create-a-facebook-application) configurata per consentire la Azure ad B2C della Federazione.
-2. [Aggiungere il segreto di Facebook](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#create-the-facebook-key) creato come chiave dei criteri del Framework dell'esperienza di identità.
+1. [Creare un'applicazione Facebook](./identity-provider-facebook.md#create-a-facebook-application) configurata per consentire la Azure ad B2C della Federazione.
+2. [Aggiungere il segreto di Facebook](./custom-policy-get-started.md#create-the-facebook-key) creato come chiave dei criteri del Framework dell'esperienza di identità.
 
 ## <a name="configure-your-application-under-microsoft-dfp"></a>Configurare l'applicazione in Microsoft DFP
 
-[Configurare il tenant di Azure ad per l'](https://docs.microsoft.com/dynamics365/fraud-protection/integrate-real-time-api) uso di Microsoft DFP.
+[Configurare il tenant di Azure ad per l'](/dynamics365/fraud-protection/integrate-real-time-api) uso di Microsoft DFP.
 
 ## <a name="deploy-to-the-web-application"></a>Eseguire la distribuzione nell'applicazione Web
 
 ### <a name="implement-microsoft-dfp-service-fingerprinting"></a>Implementare l'impronta digitale del servizio Microsoft DFP
 
-L' [impronta digitale dei dispositivi Microsoft DFP](https://docs.microsoft.com/dynamics365/fraud-protection/device-fingerprinting) è un requisito per la protezione degli account Microsoft DFP.
+L' [impronta digitale dei dispositivi Microsoft DFP](/dynamics365/fraud-protection/device-fingerprinting) è un requisito per la protezione degli account Microsoft DFP.
 
 >[!NOTE]
 >Oltre a Azure AD B2C pagine dell'interfaccia utente, il cliente può implementare anche il servizio di impronta digitale all'interno del codice dell'app per la profilatura dei dispositivi più completa. Il servizio di impronta digitale nel codice dell'app non è incluso in questo esempio.
 
 ### <a name="deploy-the-azure-ad-b2c-api-code"></a>Distribuire il codice dell'API Azure AD B2C
 
-Distribuire il [codice API fornito](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) a un servizio di Azure. Il codice può essere [pubblicato da Visual Studio](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuire il [codice API fornito](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) a un servizio di Azure. Il codice può essere [pubblicato da Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 Configurare CORS, aggiungere l' **origine consentita**`https://{your_tenant_name}.b2clogin.com`
 
 >[!NOTE]
 >In seguito sarà necessario l'URL del servizio distribuito per configurare Azure AD con le impostazioni necessarie.
 
-Per altre informazioni, vedere la [documentazione del servizio app](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api) .
+Per altre informazioni, vedere la [documentazione del servizio app](../app-service/app-service-web-tutorial-rest-api.md) .
 
 ### <a name="add-context-dependent-configuration-settings"></a>Aggiungere impostazioni di configurazione dipendenti dal contesto
 
-Configurare le impostazioni dell'applicazione nel [servizio app in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Questo consente di configurare in modo sicuro le impostazioni senza archiviarle in un repository. Per l'API REST sono necessarie le impostazioni seguenti:
+Configurare le impostazioni dell'applicazione nel [servizio app in Azure](../app-service/configure-common.md#configure-app-settings). Questo consente di configurare in modo sicuro le impostazioni senza archiviarle in un repository. Per l'API REST sono necessarie le impostazioni seguenti:
 
 | Impostazioni applicazione | Source (Sorgente) | Note |
 | :-------- | :------------| :-----------|
@@ -135,7 +135,7 @@ Nei [criteri personalizzati](https://github.com/azure-ad-b2c/partner-integration
 
 ### <a name="call-microsoft-dfp-label-api"></a>Chiama API Microsoft DFP label
 
-I clienti devono [implementare l'API delle etichette](https://docs.microsoft.com/dynamics365/fraud-protection/integrate-ap-api). Per altre informazioni, vedere l' [API di Microsoft DFP](https://apidocs.microsoft.com/services/dynamics365fraudprotection#/AccountProtection/v1.0) .
+I clienti devono [implementare l'API delle etichette](/dynamics365/fraud-protection/integrate-ap-api). Per altre informazioni, vedere l' [API di Microsoft DFP](https://apidocs.microsoft.com/services/dynamics365fraudprotection#/AccountProtection/v1.0) .
 
 `URI: < API Endpoint >/v1.0/label/account/create/<userId>`
 
@@ -148,7 +148,7 @@ Il valore dell'ID utente deve corrispondere a quello del valore di configurazion
 
 1. Passare al [criterio Azure ad B2C](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies) nella cartella criteri.
 
-2. Segui questo [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Segui questo [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configurare i criteri per il tenant Azure AD B2C.
 
@@ -174,7 +174,7 @@ Il valore dell'ID utente deve corrispondere a quello del valore di configurazion
 5. Il servizio Microsoft DFP verrà chiamato durante il flusso, dopo la creazione dell'attributo utente. Se il flusso è incompleto, controllare che l'utente non sia salvato nella directory.
 
 >[!NOTE]
->Aggiornare le regole direttamente nel portale di Microsoft DFP se si usa il [motore regole di Microsoft DFP](https://docs.microsoft.com/dynamics365/fraud-protection/rules).
+>Aggiornare le regole direttamente nel portale di Microsoft DFP se si usa il [motore regole di Microsoft DFP](/dynamics365/fraud-protection/rules).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -182,6 +182,6 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Esempi di Microsoft DFP](https://github.com/Microsoft/Dynamics-365-Fraud-Protection-Samples)
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

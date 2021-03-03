@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ed136d06f18190124abe4598d580f40e41bf8592
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704221"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644698"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Esercitazione: integrare Azure Active Directory Single Sign-On (SSO) con splan Visitor
 
@@ -120,8 +120,8 @@ Creare un utente di test di nome **Britta Simon** in splan Visitor. Collaborare 
 Testare la configurazione di Azure AD Single Sign-On con una delle opzioni seguenti:
 
 * **Portale di Azure**: selezionare **test questa applicazione** per accedere automaticamente al visitatore di splan per il quale si configura SSO.
-* **Portale di Microsoft My Apps**: selezionare il riquadro **Visitor splan** per accedere automaticamente al visitatore di splan per il quale si configura SSO. Per altre informazioni sul portale App personali, vedere [Accedere e avviare app dal portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* **Portale di Microsoft My Apps**: selezionare il riquadro **Visitor splan** per accedere automaticamente al visitatore di splan per il quale si configura SSO. Per altre informazioni sul portale App personali, vedere [Accedere e avviare app dal portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato il visitatore di splan, è possibile [apprendere come applicare i controlli della sessione in Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). I controlli della sessione consentono di proteggere exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. I controlli sessione costituiscono un'estensione dell'accesso condizionale.
+Dopo aver configurato il visitatore di splan, è possibile [apprendere come applicare i controlli della sessione in Microsoft cloud app Security](/cloud-app-security/proxy-deployment-any-app). I controlli della sessione consentono di proteggere exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. I controlli sessione costituiscono un'estensione dell'accesso condizionale.

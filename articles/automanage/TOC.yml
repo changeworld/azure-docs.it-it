@@ -8,10 +8,13 @@
 - name: Concetti
   expanded: true
   items:
-    - name: Macchine virtuali
-      href: automanage-virtual-machines.md
-    - name: Procedure consigliate per le VM
-      href: virtual-machines-best-practices.md
+    - name: Gestione autogestita per Linux
+      href: automanage-linux.md
+    - name: Gestione autogestita per Windows Server
+      href: automanage-windows-server.md
+      items:
+        - name: Danneggiata per le nuove macchine virtuali
+          href: automanage-hotpatch.md
 - name: Procedura
   expanded: true
   items:

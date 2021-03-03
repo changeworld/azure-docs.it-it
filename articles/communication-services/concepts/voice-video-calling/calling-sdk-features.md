@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ed56d0cf69710173d41c5262e7a3121a0cad1304
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650933"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660141"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Sono disponibili due famiglie separate di librerie client per le chiamate: per i *client* e per i *servizi*. Le librerie client attualmente disponibili sono destinate all'esperienza degli utenti finali: siti Web e app native.
 
@@ -28,35 +26,35 @@ Le librerie client del servizio non sono ancora disponibili e forniscono l'acces
 
 L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle librerie client per le chiamate di Servizi di comunicazione di Azure.
 
-| Gruppo di funzionalità | Funzionalità                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Gruppo di funzionalità | Funzionalità                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Funzionalità principali | Inserire una chiamata uno-a-uno tra due utenti                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Inserire una chiamata di gruppo con più di due utenti (fino a 350 utenti)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Alzare di livello una chiamata uno-a-uno con due utenti in una chiamata di gruppo con più di due utenti                                 | ✔️   | ✔️            | ✔️ 
-|                   | Partecipare a una chiamata di gruppo dopo che è stata avviata                                                                              | ✔️   | ✔️            | ✔️ 
+| Funzionalità principali | Inserire una chiamata uno-a-uno tra due utenti                                                                           | ✔️   | ✔️            | ✔️
+|                   | Inserire una chiamata di gruppo con più di due utenti (fino a 350 utenti)                                                       | ✔️   | ✔️            | ✔️
+|                   | Alzare di livello una chiamata uno-a-uno con due utenti in una chiamata di gruppo con più di due utenti                                 | ✔️   | ✔️            | ✔️
+|                   | Partecipare a una chiamata di gruppo dopo che è stata avviata                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invitare un altro utente VoIP a partecipare a una chiamata di gruppo in corso                                                       | ✔️   | ✔️            | ✔️
-|                   | Attivare/Disattivare il video                                                         | ✔️   | ✔️            | ✔️ 
-|                   | Attivare/Disattivare il microfono                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Passare da una fotocamera all'altra                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Bloccare/Sbloccare chiamata locale                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Altoparlante attivo                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Scegliere l'altoparlante per le chiamate                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Scegliere il microfono per le chiamate                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Mostrare lo stato di un partecipante<br/>*Inattivo, Contenuto multimediale anticipato, Connessione in corso, Connesso, In attesa, In sala di attesa, Disconnesso*         | ✔️   | ✔️            | ✔️           
-|                   | Mostrare lo stato di una chiamata<br/>*Contenuto multimediale anticipato, In arrivo, Connessione in corso, Chiamata in corso, Connesso, In attesa, Disconnessione in corso, Disconnesso* | ✔️   | ✔️            | ✔️           
-|                   | Mostrare se un partecipante ha l'audio disattivato                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Mostrare il motivo per cui un partecipante ha abbandonato una chiamata                                                                       | ✔️   | ✔️            | ✔️     
-| Condivisione schermo    | Condividere l'intero schermo dall'applicazione                                                                 | ✔️   | ❌            | ❌           
-|                   | Condividere un'applicazione specifica (dall'elenco delle applicazioni in esecuzione)                                                | ✔️   | ❌            | ❌           
-|                   | Condividere una scheda del Web browser dall'elenco delle schede aperte                                                                  | ✔️   | ❌            | ❌           
-|                   | Il partecipante può visualizzare la condivisione dello schermo remoto                                                                            | ✔️   | ✔️            | ✔️         
-| Registro            | Elencare i partecipanti                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Rimuovere un partecipante                                                                                                | ✔️   | ✔️            | ✔️         
-| PSTN              | Inserire una chiamata uno-a-uno con un partecipante PSTN                                                                     | ✔️   | ✔️            | ✔️   
+|                   | Attivare/Disattivare il video                                                         | ✔️   | ✔️            | ✔️
+|                   | Attivare/Disattivare il microfono                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Passare da una fotocamera all'altra                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Bloccare/Sbloccare chiamata locale                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Altoparlante attivo                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Scegliere l'altoparlante per le chiamate                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Scegliere il microfono per le chiamate                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Mostrare lo stato di un partecipante<br/>*Inattivo, Contenuto multimediale anticipato, Connessione in corso, Connesso, In attesa, In sala di attesa, Disconnesso*         | ✔️   | ✔️            | ✔️
+|                   | Mostrare lo stato di una chiamata<br/>*Contenuto multimediale anticipato, In arrivo, Connessione in corso, Chiamata in corso, Connesso, In attesa, Disconnessione in corso, Disconnesso* | ✔️   | ✔️            | ✔️
+|                   | Mostrare se un partecipante ha l'audio disattivato                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Mostrare il motivo per cui un partecipante ha abbandonato una chiamata                                                                       | ✔️   | ✔️            | ✔️
+| Condivisione schermo    | Condividere l'intero schermo dall'applicazione                                                                 | ✔️   | ❌            | ❌
+|                   | Condividere un'applicazione specifica (dall'elenco delle applicazioni in esecuzione)                                                | ✔️   | ❌            | ❌
+|                   | Condividere una scheda del Web browser dall'elenco delle schede aperte                                                                  | ✔️   | ❌            | ❌
+|                   | Il partecipante può visualizzare la condivisione dello schermo remoto                                                                            | ✔️   | ✔️            | ✔️
+| Registro            | Elencare i partecipanti                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Rimuovere un partecipante                                                                                                | ✔️   | ✔️            | ✔️
+| PSTN              | Inserire una chiamata uno-a-uno con un partecipante PSTN                                                                     | ✔️   | ✔️            | ✔️
 |                   | Inserire una chiamata di gruppo con partecipanti PSTN                                                                           | ✔️   | ✔️            | ✔️
 |                   | Alzare di livello una chiamata uno-a-uno con un partecipante PSTN in una chiamata di gruppo                                                 | ✔️   | ✔️            | ✔️
-|                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️   
-| Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   |  ✔️  | ✔️            | ✔️   
+|                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️
+| Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   |  ✔️  | ✔️            | ✔️
 
 ## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Browser e sistemi operativi supportati dalla libreria client per le chiamate JavaScript
 
@@ -96,7 +94,7 @@ La libreria client per le chiamate di Servizi di comunicazione supporta le confi
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 audio/video o 1 condivisione audio/schermo | 1 audio/video | 
+|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 audio/video o 1 condivisione audio/schermo | 1 audio/video |
 |**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 audio/video o 1 condivisione audio/schermo| 6 condivisione audio/video o 1 schermata |
 
 Si noti che in scenari di gruppo viene usato un flusso audio misto per supportare tutti i partecipanti audio.
@@ -107,6 +105,6 @@ Si noti che in scenari di gruppo viene usato un flusso audio misto per supportar
 > [Introduzione alle chiamate](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Per altre informazioni, vedere gli articoli seguenti:
-- Acquisire familiarità con i [flussi di chiamate](../call-flows.md) generali 
+- Acquisire familiarità con i [flussi di chiamate](../call-flows.md) generali
 - Informazioni sui [tipi di chiamate](../voice-video-calling/about-call-types.md)
 - Informazioni sui [tipi di numero di telefono](../telephony-sms/plan-solution.md)

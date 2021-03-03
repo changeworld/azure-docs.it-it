@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d029f033a3c452587dbeeadf69c46cc99f604031
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053865"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646128"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Esercitazione: Configurare BlueJeans per il provisioning utenti automatico
 
@@ -27,7 +27,7 @@ Questa esercitazione descrive i passaggi da eseguire sia in BlueJeans che in Azu
 > * Creare utenti in BlueJeans
 > * Rimuovere gli utenti in BlueJeans quando non richiedono più l'accesso
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e BlueJeans
-> * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/bluejeans-tutorial) per BlueJeans (scelta consigliata)
+> * [Single Sign-on](./bluejeans-tutorial.md) per BlueJeans (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -141,7 +141,7 @@ L'operazione avvia la sincronizzazione iniziale di tutti gli utenti definiti in 
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 6a89d225b747f116ed75bbe2e6928ec2a74f9c5e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515989"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655956"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteggere un ambiente di training Azure Machine Learning con reti virtuali
 
@@ -74,7 +74,7 @@ Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](co
 > * Un bilanciamento del carico
 > 
 > Nel caso dei cluster queste risorse vengono eliminate e ricreate ogni volta che il cluster si ridimensiona fino a 0 nodi, tuttavia, per un'istanza le risorse vengono mantenute finché l'istanza viene eliminata completamente (l'arresto non comporta la rimozione delle risorse). 
-> Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Se il gruppo di risorse della rete virtuale è bloccato, l'eliminazione dell'istanza o del cluster di calcolo avrà esito negativo. Il servizio di bilanciamento del carico non può essere eliminato fino a quando non viene eliminato il cluster o l'istanza di calcolo.
+> Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Se il gruppo di risorse della rete virtuale è bloccato, l'eliminazione dell'istanza o del cluster di calcolo avrà esito negativo. Il servizio di bilanciamento del carico non può essere eliminato fino a quando non viene eliminato il cluster o l'istanza di calcolo. Assicurarsi inoltre che non esistano criteri di Azure che impediscano la creazione di gruppi di sicurezza di rete.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Porte richieste
@@ -83,7 +83,7 @@ Se si prevede di proteggere la rete virtuale limitando il traffico di rete da e 
 
 Il servizio Batch aggiunge gruppi di sicurezza di rete a livello di interfacce di rete collegate alle macchine virtuali. Questi gruppi di sicurezza di rete configurano automaticamente le regole in ingresso e in uscita per consentire il traffico seguente:
 
-- Traffico TCP in ingresso sulle porte 29876 e 29877 da un __tag del servizio__ di __BatchNodeManagement__.
+- Traffico TCP in ingresso sulle porte 29876 e 29877 da un __tag del servizio__ di __BatchNodeManagement__. Il traffico su queste porte è crittografato e viene usato da Azure Batch per la comunicazione tra l'utilità di pianificazione e il nodo.
 
     ![Una regola in ingresso che usa il tag del servizio BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -93,7 +93,7 @@ Il servizio Batch aggiunge gruppi di sicurezza di rete a livello di interfacce d
 
 - Traffico in uscita su qualsiasi porta verso Internet.
 
-- Per il traffico TCP in ingresso dell'istanza di calcolo sulla porta 44224 da un __tag del servizio__ di __AzureMachineLearning__.
+- Per il traffico TCP in ingresso dell'istanza di calcolo sulla porta 44224 da un __tag del servizio__ di __AzureMachineLearning__. Il traffico su questa porta è crittografato e viene usato da Azure Machine Learning per la comunicazione con le applicazioni in esecuzione in istanze di calcolo.
 
 > [!IMPORTANT]
 > Prestare attenzione se si modificano o aggiungono regole in ingresso o in uscita nei gruppi di sicurezza di rete configurati per Batch. Se un gruppo di sicurezza di rete blocca la comunicazione con i nodi di calcolo, il servizio dell'ambiente di calcolo imposta i nodi di calcolo come non utilizzabili.

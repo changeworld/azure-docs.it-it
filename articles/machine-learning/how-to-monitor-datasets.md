@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: 1bf7856e807b04e35d28a3e262ae89ea9c298f3c
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: b62ed4c0b661ebc725bd4cd3737249d91e48c43e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763592"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656840"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rileva Drift dei dati (anteprima) nei set di dati
 
@@ -237,7 +237,7 @@ monitor = monitor.enable_schedule()
     | Nome | Nome del monitoraggio del set di dati. | | No |
     | Funzionalità | Elenco di funzionalità che verranno analizzate per la deviazione dei dati nel tempo. | Impostare sulle funzionalità di output di un modello per misurare la tendenza del concetto. Non includere funzioni che si spostano naturalmente nel tempo (mese, anno, indice e così via). Dopo aver modificato l'elenco di funzionalità, è possibile indicizzazione e monitoraggio della deviazione dati esistente. | Sì | 
     | Destinazione del calcolo | Azure Machine Learning la destinazione di calcolo per eseguire i processi di monitoraggio del set di dati. | | Sì | 
-    | Abilitare | Abilitare o disabilitare la pianificazione nella pipeline di monitoraggio del set di dati | Disabilitare la pianificazione per analizzare i dati cronologici con l'impostazione di recupero dati. Può essere abilitata dopo la creazione del monitor del set di dati. | Sì | 
+    | Abilita | Abilitare o disabilitare la pianificazione nella pipeline di monitoraggio del set di dati | Disabilitare la pianificazione per analizzare i dati cronologici con l'impostazione di recupero dati. Può essere abilitata dopo la creazione del monitor del set di dati. | Sì | 
     | Frequenza | Frequenza che verrà usata per pianificare il processo della pipeline e analizzare i dati cronologici se si esegue un recupero dati. Le opzioni includono giornaliera, settimanale o mensile. | Ogni esecuzione Confronta i dati nel set di dati di destinazione in base alla frequenza: <li>Giornaliero: confrontare il giorno completo più recente nel set di dati di destinazione con la linea di base <li>Settimanale: confrontare la settimana completa più recente (lunedì-domenica) nel set di dati di destinazione con la linea di base <li>Mensile: confrontare il mese completo più recente nel set di dati di destinazione con la linea di base | No | 
     | Latenza | Tempo, in ore, necessario per l'arrivo dei dati nel set di dati. Se, ad esempio, sono necessari tre giorni per l'arrivo dei dati nel database SQL incapsulato dal set di dati, impostare la latenza su 72. | Non può essere modificato dopo la creazione del monitor del set di dati | No | 
     | Indirizzi di posta elettronica | Indirizzi di posta elettronica per gli avvisi in base alla violazione della soglia percentuale di drifting dei dati. | I messaggi di posta elettronica vengono inviati tramite monitoraggio di Azure. | Sì | 
@@ -363,7 +363,7 @@ Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
           service_principal_id=app_id,
           service_principal_password=client_secret
           )
-   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group="xxx")
    compute = ws.compute_targets.get("xxx")
    ```
 

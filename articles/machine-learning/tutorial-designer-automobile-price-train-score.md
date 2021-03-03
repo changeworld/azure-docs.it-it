@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879798"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660985"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione
 
@@ -176,7 +176,7 @@ Dopo la rimozione della colonna **normalized-losses**, il set di dati contiene a
 
     La pipeline avrà ora un aspetto analogo al seguente:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Select-column":::
 
 ## <a name="train-a-machine-learning-model"></a>Eseguire il training di un modello di Machine Learning
 
@@ -224,7 +224,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
     > [!IMPORTANT]
     > Assicurarsi che la porta di output sinistra di **Split Data** (Dividi i dati) si connetta a **Train Model** (Training modello). La porta sinistra contiene il set di training. La porta destra contiene il set di test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot della configurazione corretta del modulo Train Model. Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Screenshot della configurazione corretta del modulo Train Model. Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model.":::
 
 1. Selezionare il modulo **Train Model**.
 
@@ -239,7 +239,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
     La pipeline dovrebbe avere un aspetto simile al seguente:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot della configurazione corretta della pipeline dopo l'aggiunta del modulo Train Model.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Screenshot della configurazione corretta della pipeline dopo l'aggiunta del modulo Train Model.":::
 
 ### <a name="add-the-score-model-module"></a>Aggiungere il modulo Score Model (Punteggio modello)
 
@@ -259,7 +259,7 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
     La pipeline finale avrà un aspetto analogo al seguente:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot della configurazione corretta della pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="Screenshot della configurazione corretta della pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
@@ -288,7 +288,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot della visualizzazione di output con la colonna Scored Label evidenziata":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Screenshot della visualizzazione di output con la colonna Scored Label evidenziata":::
 
 ### <a name="evaluate-models"></a>Valutare i modelli
 

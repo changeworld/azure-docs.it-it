@@ -9,28 +9,28 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 75db62b4f8a5c6512ca5fc84d149513fe81f6019
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349096"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658232"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Guida di avvio rapido: Creare un'app Xamarin.Forms con .NET SDK e l'API di Azure Cosmos DB per MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: creare un'app Novell. Forms con .NET SDK e l'API di Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB.
 
-Questa guida di avvio rapido illustra come creare un [account Cosmos configurato con l'API di Azure Cosmos DB per MongoDB](mongodb-introduction.md), un database di documenti e una raccolta usando il portale di Azure. Si creerà quindi un'app Xamarin.Forms Todo usando il [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Questa guida introduttiva illustra come creare un [account Cosmos configurato con l'API di Azure Cosmos DB per MongoDB](mongodb-introduction.md), un database di documenti e una raccolta usando il portale di Azure. Si creerà quindi un'app todo app Novell. Forms usando il [Driver MongoDB .NET](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Prerequisiti per eseguire l'app di esempio
 
@@ -58,7 +58,7 @@ Prima di tutto, scaricare l'app di esempio da GitHub. L'app implementa un'app To
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-1. In Windows aprire un prompt dei comandi oppure in Mac aprire il terminale, creare una nuova cartella denominata git-samples e quindi chiudere la finestra.
+1. In Windows aprire un prompt dei comandi o in Mac aprire il terminale, creare una nuova cartella denominata git-Samples, quindi chiudere la finestra.
 
     ```batch
     md "C:\git-samples"
@@ -80,7 +80,7 @@ Prima di tutto, scaricare l'app di esempio da GitHub. L'app implementa un'app To
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started.git
     ```
 
-Se non si vuole usare Git, è anche possibile [scaricare il progetto come file ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
+Se non si vuole usare git, è anche possibile [scaricare il progetto come file zip](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
@@ -170,10 +170,10 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 3. Copia il valore della **stringa di connessione primaria** dal portale (usando il pulsante di copia) e impostarlo come valore del campo **ConnectionString** nel file **APIKeys.cs**.
 
-4. Rimuovere `&replicaSet=globaldb` dalla stringa di connessione. Se non si rimuove il valore dalla stringa di query, verrà restituito un errore di runtime.
+4. Rimuovere `&replicaSet=globaldb` dalla stringa di connessione. Se il valore non viene rimosso dalla stringa di query, si otterrà un errore di Runtime.
 
 > [!IMPORTANT]
-> È necessario rimuovere la coppia chiave-valore `&replicaSet=globaldb` dalla stringa di query della stringa di connessione per evitare un errore di runtime.
+> È necessario rimuovere la `&replicaSet=globaldb` coppia chiave/valore dalla stringa di query della stringa di connessione per evitare un errore di Runtime.
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB.
 
@@ -204,7 +204,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB ed eseguire un'app Xamarin.Forms con l'API per MongoDB. È ora possibile importare dati aggiuntivi nell'account Cosmos DB.
+In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB ed eseguire un'app Xamarin.Forms con l'API per MongoDB. È ora possibile importare dati aggiuntivi nell'account Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Importare i dati in Azure Cosmos DB configurato con l'API di Azure Cosmos DB per MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

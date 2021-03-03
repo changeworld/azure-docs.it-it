@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493218"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658572"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Risolvere i problemi comuni in Azure Cosmos DB API Cassandra
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ Di seguito sono riportate alcune delle cause e delle soluzioni più diffuse:
 È possibile che venga visualizzato questo errore: `Cannot connect to any host, scheduling retry in 600000 milliseconds` . 
 
 ### <a name="solution"></a>Soluzione
-Potrebbe trattarsi di un esaurimento SNAT sul lato client. Attenersi alla procedura descritta in [SNAT per le connessioni in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) per escludere questo problema. Potrebbe trattarsi di un problema di timeout di inattività in cui il servizio di bilanciamento del carico di Azure ha 4 minuti di timeout di inattività per impostazione predefinita. Vedere la documentazione al [timeout di inattività](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal)del servizio di bilanciamento del carico. Abilitare TCP: Mantieni attivo dalle impostazioni del driver (vedere di [seguito](#enable-keep-alive-for-java-driver)) e impostare l' `keepAlive` intervallo del sistema operativo su un numero inferiore a 4 minuti.
+Potrebbe trattarsi di un esaurimento SNAT sul lato client. Attenersi alla procedura descritta in [SNAT per le connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md) per escludere questo problema. Potrebbe trattarsi di un problema di timeout di inattività in cui il servizio di bilanciamento del carico di Azure ha 4 minuti di timeout di inattività per impostazione predefinita. Vedere la documentazione al [timeout di inattività](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal)del servizio di bilanciamento del carico. Abilitare TCP: Mantieni attivo dalle impostazioni del driver (vedere di [seguito](#enable-keep-alive-for-java-driver)) e impostare l' `keepAlive` intervallo del sistema operativo su un numero inferiore a 4 minuti.
 
  
 

@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b439c5f084c762d3a256806d2e45dab96832bb78
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322266"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661087"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>Che cos'è Azure Machine Learning Designer? 
+# <a name="what-is-azure-machine-learning-designer"></a>Definizione di finestra di progettazione di Azure Machine Learning 
 
 
 La finestra di progettazione di Azure Machine Learning consente di connettere in modo visivo [set di dati](#datasets) e [moduli](#module) in un pannello Canvas interattivo per creare modelli di Machine Learning. Per informazioni su come iniziare a usare la finestra di progettazione, vedere [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
@@ -81,7 +81,7 @@ Un modulo è un algoritmo che è possibile applicare ai dati. La finestra di pro
 
 Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nel pannello Canvas, i parametri del modulo sono visualizzati nel riquadro Proprietà a destra del pannello Canvas. È possibile modificare i parametri in questo riquadro per ottimizzare il modello. È possibile impostare le risorse di calcolo per i singoli moduli nella finestra di progettazione. 
 
-:::image type="content" source="./media/concept-designer/properties.png"alt-text="Proprietà del modulo":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Proprietà del modulo":::
 
 
 Per informazioni su come spostarsi nella libreria di algoritmi di Machine Learning disponibili, vedere la [panoramica di riferimento agli algoritmi e ai moduli](algorithm-module-reference/module-reference.md). Per informazioni sulla scelta di un algoritmo, vedere la [scheda di riferimento rapido sugli algoritmi di Azure Machine Learning](algorithm-cheat-sheet.md).

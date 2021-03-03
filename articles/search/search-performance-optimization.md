@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5e8b873e0e4e89979769183cfbf0ad473069e897
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096428"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670709"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Scalabilità per le prestazioni in Azure ricerca cognitiva
 
@@ -91,7 +91,7 @@ Poiché le repliche sono copie dei dati, la presenza di più repliche consente a
 
 ### <a name="availability-zones"></a>Zone di disponibilità
 
-[Zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview) dividere i Data Center di un'area in gruppi di percorsi fisici distinti per fornire disponibilità elevata, all'interno della stessa area. Per ricerca cognitiva, le singole repliche sono le unità per l'assegnazione di zona. Un servizio di ricerca viene eseguito all'interno di un'area; le repliche vengono eseguite in zone diverse.
+[Zone di disponibilità](../availability-zones/az-overview.md) dividere i Data Center di un'area in gruppi di percorsi fisici distinti per fornire disponibilità elevata, all'interno della stessa area. Per ricerca cognitiva, le singole repliche sono le unità per l'assegnazione di zona. Un servizio di ricerca viene eseguito all'interno di un'area; le repliche vengono eseguite in zone diverse.
 
 È possibile usare zone di disponibilità con ricerca cognitiva di Azure aggiungendo due o più repliche al servizio di ricerca. Ogni replica verrà posizionata in una zona di disponibilità diversa all'interno dell'area. Se si dispone di più repliche rispetto a zone di disponibilità, le repliche verranno distribuite tra zone di disponibilità nel modo più uniforme possibile.
 

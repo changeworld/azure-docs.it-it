@@ -2,18 +2,17 @@
 title: Configurare IBM DB2 HADR in macchine virtuali (VM) di Azure | Microsoft Docs
 description: Stabilire la disponibilità elevata di IBM DB2 LUW in macchine virtuali (VM) di Azure.
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621383"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671891"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker
 
@@ -171,7 +170,7 @@ Per configurare l'istanza primaria del database IBM DB2 LUW:
 
 Per configurare il server di database di standby usando la procedura di copia di sistema omogenea di SAP, eseguire questi passaggi:
 
-1. Selezionare l'opzione **copia di sistema** > **Target systems**  >  **Distributed**  >  **istanza database** distribuito di sistemi di destinazione.
+1. Selezionare l'opzione **copia di sistema** >   >    >  **istanza database** distribuito di sistemi di destinazione.
 1. Come metodo di copia, selezionare **sistema omogeneo** in modo da poter utilizzare il backup per ripristinare un backup nell'istanza del server di standby.
 1. Quando si raggiunge il passaggio di uscita per ripristinare il database per la copia di sistema omogenea, uscire dal programma di installazione. Ripristinare il database da un backup dell'host primario. Tutte le fasi di installazione successive sono già state eseguite sul server di database primario.
 1. Configurare HADR per IBM DB2.

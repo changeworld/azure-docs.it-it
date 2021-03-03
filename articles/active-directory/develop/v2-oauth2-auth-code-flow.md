@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 02/23/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2687141ea870b0af0a4405ebef2261c5a303c767
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: aeed031025b9c494b35886861c273e2a7f9d2ac4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584113"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653729"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Flusso del codice di autorizzazione OAuth 2.0 e Microsoft Identity Platform
 
@@ -73,14 +73,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`    | obbligatorio    | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | obbligatorio    | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).  |
 | `response_type` | obbligatorio    | Deve includere `code` per il flusso del codice di autorizzazione. Può anche includere `id_token` o `token` se si usa il [flusso ibrido](#request-an-id-token-as-well-hybrid-flow). |
-| `redirect_uri`  | necessarie | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `redirect_uri`  | necessarie | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native & per dispositivi mobili, è necessario usare uno dei valori consigliati  `https://login.microsoftonline.com/common/oauth2/nativeclient` (per le app che usano browser incorporati) o `http://localhost` (per le app che usano i browser di sistema). |
 | `scope`  | obbligatorio    | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  Per la parte `/authorize` della richiesta, può coprire più risorse, consentendo all'app di ottenere il consenso per più API Web che si vuole chiamare. |
 | `response_mode`   | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere uno dei valori seguenti:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento. Se si sta richiedendo un token ID usando il flusso implicito, non è possibile usare `query` come indicato nella [specifica OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se si sta richiedendo solo il codice, è possibile usare `query`, `fragment` o `form_post`. `form_post` esegue un POST contenente il codice all'URI di reindirizzamento. |
 | `state`                 | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Questo valore può essere usato anche per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 | `prompt`  | facoltativo    | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono `login`, `none` e `consent`.<br/><br/>- `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On.<br/>- `prompt=none` è l'opposto: garantisce che all'utente non venga presentata alcuna richiesta interattiva. Se la richiesta non può essere completata in modo invisibile all'utente tramite Single Sign-on, la piattaforma di identità Microsoft restituirà un `interaction_required` errore.<br/>- `prompt=consent` attiva la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app.<br/>- `prompt=select_account` interromperà Single Sign-On fornendo l'esperienza di selezione dell'account elencando tutti gli account nella sessione o qualsiasi account memorizzato o un'opzione per scegliere di usare un account diverso.<br/> |
 | `login_hint`  | facoltativo    | Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`.   |
 | `domain_hint`  | facoltativo    | Se incluso, non verrà eseguito il processo di individuazione basato sulla posta elettronica a cui viene sottoposto l'utente nella pagina di accesso. Questo comporta un'esperienza utente leggermente semplificata, ad esempio inviando quest'ultimo al provider di identità federato. Le app usano spesso questo parametro durante la riautenticazione, estraendo `tid` da un accesso precedente. Se il valore dell'attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad`, usare `domain_hint=consumers`. In caso contrario, usare `domain_hint=organizations`.  |
-| `code_challenge`  | consigliato / obbligatorio | Usato per proteggere i privilegi concessi sui codici di autorizzazione tramite la chiave di prova per Code Exchange (PKCE). Obbligatorio con `code_challenge_method` incluso. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). Questa operazione è ora consigliata per tutti i tipi di applicazioni: app native, applicazione a pagina singola e client riservati come le app Web. |
+| `code_challenge`  | consigliato / obbligatorio | Usato per proteggere i privilegi concessi sui codici di autorizzazione tramite la chiave di prova per Code Exchange (PKCE). Obbligatorio con `code_challenge_method` incluso. Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). Questa operazione è consigliata per tutti i tipi di applicazioni, sia client pubblici che riservati, e richiesta dalla piattaforma di identità Microsoft per le [app a pagina singola che usano il flusso del codice di autorizzazione](reference-third-party-cookies-spas.md). |
 | `code_challenge_method` | consigliato / obbligatorio | Metodo usato per codificare `code_verifier` per il parametro `code_challenge`. Questo *dovrebbe* essere `S256` , ma la specifica consente l'uso di `plain` se per qualche motivo il client non è in grado di supportare SHA256. <br/><br/>Se escluso, `code_challenge` viene considerato testo non crittografato se `code_challenge` è incluso. La piattaforma Microsoft Identity supporta sia `plain` che `S256` . Per altre informazioni, vedere il [PKCE RFC](https://tools.ietf.org/html/rfc7636). Questa operazione è obbligatoria per [app a pagina singola che usano il flusso del codice di autorizzazione](reference-third-party-cookies-spas.md).|
 
 
@@ -93,7 +93,7 @@ Una volta che l'utente esegue l'autenticazione e concede il consenso, la piattaf
 Una risposta con esito positivo che usa `response_mode=query` ha un aspetto simile al seguente:
 
 ```HTTP
-GET https://login.microsoftonline.com/common/oauth2/nativeclient?
+GET http://localhost?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
@@ -110,7 +110,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 Le risposte di errore possono essere inviate anche a `redirect_uri` , in modo che l'app possa gestirle adeguatamente:
 
 ```HTTP
-GET https://login.microsoftonline.com/common/oauth2/nativeclient?
+GET http://localhost?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
@@ -162,9 +162,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |`response_type`| Obbligatoria | L'aggiunta di `id_token` indica al server che l'applicazione desidera un token ID nella risposta dall' `/authorize` endpoint.  |
 |`scope`| Necessario | Per i token ID, è necessario aggiornare per includere gli ambiti del token ID `openid` e, facoltativamente, `profile` e `email` . |
 |`nonce`| Necessario|     Valore incluso nella richiesta, generato dall'app, che verrà incluso come attestazione nel parametro id_token risultante. L'app può quindi verificare questo valore per l'attenuazione degli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
-|`response_mode`| Consigliato | Specifica il metodo da usare per inviare il token risultante a un'app. Il valore predefinito è `query` solo per un codice di autorizzazione, ma `fragment` se la richiesta include un id_token `response_type` .|
+|`response_mode`| Consigliato | Specifica il metodo da usare per inviare il token risultante a un'app. Il valore predefinito è `query` solo per un codice di autorizzazione, ma `fragment` se la richiesta include un id_token `response_type` .  Tuttavia, è consigliabile usare le app `form_post` , soprattutto quando si usa `http:/localhost` come URI di reindirizzamento. |
 
-L'uso di `fragment` come modalità di risposta può causare problemi per le app Web che leggono il codice dal reindirizzamento, perché i browser non passano il frammento al server Web.  In queste situazioni è consigliabile usare la `form_post` modalità di risposta per assicurarsi che tutti i dati vengano inviati al server. 
+L'uso di `fragment` come modalità di risposta causa problemi per le app Web che leggono il codice dal reindirizzamento, perché i browser non passano il frammento al server Web.  In queste situazioni, le app devono usare la `form_post` modalità di risposta per garantire che tutti i dati vengano inviati al server. 
 
 #### <a name="successful-response"></a>Risposta con esito positivo
 

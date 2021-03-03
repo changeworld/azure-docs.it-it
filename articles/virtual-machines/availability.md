@@ -5,13 +5,13 @@ author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/18/2021
+ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628765"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668300"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opzioni di disponibilità per le macchine virtuali in Azure
 
@@ -52,6 +52,10 @@ I set di scalabilità di macchine virtuali di Azure consentono di creare e gesti
 **Domini di errore e domini di aggiornamento**
 
 I set di scalabilità di macchine virtuali semplificano la progettazione per la disponibilità elevata allineando domini di errore e domini di aggiornamento. È necessario definire solo il numero di domini di errore per il set di scalabilità. Il numero di domini di errore disponibili per i set di scalabilità può variare in base all'area. Vedere [gestire la disponibilità delle macchine virtuali in Azure](./manage-availability.md).
+
+**Modalità di orchestrazione per i set di scalabilità**
+
+I set di scalabilità di macchine virtuali consentono di avere un maggiore controllo sulle modalità di gestione delle istanze di macchine virtuali da parte del set di scalabilità. È possibile abilitare una modalità di orchestrazione uniforme o flessibile nel set di scalabilità. L'orchestrazione uniforme è ottimizzata per carichi di lavoro senza stato su larga scala con istanze identiche. L'orchestrazione flessibile (anteprima) è destinata alla disponibilità elevata su larga scala con tipi di macchina virtuale identici o multipli. Altre informazioni su queste [modalità di orchestrazione](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e su come abilitarle.
 
 
 ## <a name="availability-sets"></a>Set di disponibilità

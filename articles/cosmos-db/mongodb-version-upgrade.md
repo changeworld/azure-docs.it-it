@@ -4,25 +4,35 @@ description: Come aggiornare facilmente la versione del protocollo di rete Mongo
 author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: guide
-ms.date: 09/22/2020
+ms.topic: how-to
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 9ce444e41d19ece984071d0f62e705a09d5f23c9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1818838a68c2712336a3515b2a82b5fdd518d237
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356468"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661172"
 ---
-# <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Aggiornare la versione del protocollo wire di MongoDB dell'API del Azure Cosmos DB per l'account MongoDB
+# <a name="upgrade-the-api-version-of-your-azure-cosmos-db-api-for-mongodb-account"></a>Aggiornare la versione dell'API dell'API Azure Cosmos DB per l'account MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-Questo articolo descrive come aggiornare la versione del protocollo Wire dell'API Azure Cosmos DB per l'account MongoDB. Dopo aver aggiornato la versione del protocollo wire, è possibile usare le funzionalità più recenti nell'API Azure Cosmos DB per MongoDB. Il processo di aggiornamento non interrompe la disponibilità dell'account e non utilizza ur/s né diminuisce la capacità del database in qualsiasi momento. Questo processo non influirà sui dati o sugli indici esistenti.
+Questo articolo descrive come aggiornare la versione dell'API dell'API del Azure Cosmos DB per l'account MongoDB. Dopo l'aggiornamento, è possibile usare le funzionalità più recenti nell'API Azure Cosmos DB per MongoDB. Il processo di aggiornamento non interrompe la disponibilità dell'account e non utilizza ur/s né diminuisce la capacità del database in qualsiasi momento. Questo processo non influirà sui dati o sugli indici esistenti. 
+
+Quando si esegue l'aggiornamento a una nuova versione dell'API, iniziare con carichi di lavoro di sviluppo/test prima di aggiornare i carichi di lavoro di produzione. È importante aggiornare i client a una versione compatibile con la versione dell'API a cui si sta eseguendo l'aggiornamento prima di aggiornare il Azure Cosmos DB API per l'account MongoDB.
 
 >[!Note]
-> Attualmente, solo gli account validi che usano la versione 3,2 del server possono essere aggiornati alla versione 3,6. Se l'account non Visualizza l'opzione di aggiornamento, inviare [un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Al momento, solo gli account validi che usano la versione 3,2 del server possono essere aggiornati alla versione 3,6 o 4,0. Se l'account non Visualizza l'opzione di aggiornamento, inviare [un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="upgrading-from-version-32-to-36"></a>Aggiornamento dalla versione 3,2 alla versione 3,6
+## <a name="upgrading-to-40-or-36"></a>Aggiornamento a 4,0 o 3,6
+
+### <a name="benefits-of-upgrading-to-version-40"></a>Vantaggi dell'aggiornamento alla versione 4,0
+
+Di seguito sono riportate le nuove funzionalità incluse nella versione 4,0:
+- Supporto per le transazioni a più documenti all'interno di raccolte non partizionate.
+- Nuovi operatori di aggregazione
+- Prestazioni digitalizzazione migliorata
+- Archiviazione più veloce ed efficiente
 
 ### <a name="benefits-of-upgrading-to-version-36"></a>Vantaggi dell'aggiornamento alla versione 3.6
 
@@ -30,34 +40,34 @@ Di seguito sono riportate le nuove funzionalità incluse nella versione 3,6:
 - Prestazioni e stabilità migliorate
 - Supporto per i nuovi comandi di database
 - Supporto per la pipeline di aggregazione per impostazione predefinita e le nuove fasi di aggregazione
-- Supporto per flussi di modifiche
-- Supporto per indici composti
-- Supporto tra partizioni per le operazioni seguenti: Update, DELETE, Count e Sort
-- Miglioramento delle prestazioni per le operazioni di aggregazione seguenti: $count, $skip, $limit e $group
+- Supporto per la modifica dei flussi
+- Supporto per gli indici composti
+- Supporto tra partizioni per le operazioni seguenti: aggiornamento, eliminazione, calcolo e ordinamento
+- Miglioramento delle prestazioni per le operazioni di aggregazione seguenti: $count, $skip, $limit and $group
 - L'indicizzazione con caratteri jolly è ora supportata
 
 ### <a name="changes-from-version-32"></a>Modifiche dalla versione 3,2
 
-- Gli **errori di RequestRateIsLarge sono stati rimossi**. Le richieste provenienti dall'applicazione client non restituiranno più 16500 errori. Al contrario, le richieste verranno riavviate fino al completamento o al timeout.
-- Il timeout per richiesta è impostato su 60 secondi.
-- Per le raccolte MongoDB create nella nuova versione del protocollo wire la `_id` proprietà viene indicizzata per impostazione predefinita.
+- Per impostazione predefinita, la funzionalità di [ripetizione del lato server (SSR)](prevent-rate-limiting-errors.md) è abilitata, in modo che le richieste provenienti dall'applicazione client non restituiscano errori 16500. Al contrario, le richieste verranno riavviate fino a quando non verranno completate o raggiungeranno il 60 secondo
+- Il timeout configurato per richiesta è di 60 secondi.
+- Per impostazione predefinita, nelle nuove raccolte MongoDB create nella nuova versione del protocollo di trasmissione sarà indicizzata solo la proprietà `_id`.
 
-### <a name="action-required"></a>Azione richiesta
+### <a name="action-required-when-upgrading-from-32"></a>Azione necessaria quando si esegue l'aggiornamento da 3,2
 
-Per l'aggiornamento alla versione 3,6, il suffisso dell'endpoint dell'account del database verrà aggiornato nel formato seguente:
+Quando si esegue l'aggiornamento da 3,2, il suffisso dell'endpoint dell'account del database verrà aggiornato nel formato seguente:
 
 ```
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-È necessario sostituire l'endpoint esistente nelle applicazioni e i driver che si connettono a questo account del database. **Solo le connessioni che usano il nuovo endpoint avranno accesso alle funzionalità della versione 3,6 di MongoDB**. Il suffisso dell'endpoint precedente deve essere `.documents.azure.com` .
+Se si esegue l'aggiornamento dalla versione 3,2, è necessario sostituire l'endpoint esistente nelle applicazioni e nei driver che si connettono a questo account di database. **Solo le connessioni che usano il nuovo endpoint avranno accesso alle funzionalità nella nuova versione dell'API**. Il suffisso dell'endpoint 3,2 precedente deve essere `.documents.azure.com` .
 
 >[!Note]
 > Questo endpoint potrebbe avere piccole differenze se l'account è stato creato in un cloud di Azure sovrano, governativo o limitato.
 
-### <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento
+## <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento
 
-1. Per prima cosa, passare alla portale di Azure e passare al pannello di panoramica dell'API Azure Cosmos DB per MongoDB. Verificare che la versione del server sia `3.2` . 
+1. Passare alla portale di Azure e passare al pannello di panoramica dell'API Azure Cosmos DB per l'account MongoDB. Verificare che la versione corrente del server sia quella prevista.
 
     :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
@@ -65,11 +75,11 @@ Per l'aggiornamento alla versione 3,6, il suffisso dell'endpoint dell'account de
 
     :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Panoramica di portale di Azure con l'account MongoDB con il pannello funzionalità evidenziato" border="false":::
 
-3. Fare clic sulla `Upgrade to Mongo server version 3.6` riga. Se questa opzione non viene visualizzata, è possibile che l'account non sia idoneo per l'aggiornamento. Se questo è il caso, inviare [un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
+3. Fare clic sulla `Upgrade Mongo server version` riga. Se questa opzione non viene visualizzata, è possibile che l'account non sia idoneo per l'aggiornamento. Se questo è il caso, inviare [un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
     :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Pannello funzionalità con opzioni." border="false":::
 
-4. Esaminare le informazioni visualizzate sull'aggiornamento specifico. Si noti che l'aggiornamento verrà completato solo se le applicazioni usano l'endpoint aggiornato, come evidenziato in questa sezione. Fare clic su on appena `Enable` si è pronti per avviare il processo.
+4. Esaminare le informazioni visualizzate sull'aggiornamento. Fare clic su on appena `Enable` si è pronti per avviare il processo.
 
     :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Linee guida per l'aggiornamento espanse." border="false":::
 
@@ -81,11 +91,21 @@ Per l'aggiornamento alla versione 3,6, il suffisso dell'endpoint dell'account de
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Stato dell'account aggiornato." border="false":::
 
-7. **Per iniziare a usare la versione aggiornata dell'account del database** , tornare al pannello `Overview` e copiare la nuova stringa di connessione da usare nell'applicazione. Le applicazioni inizieranno a usare la versione aggiornata non appena si connetteranno al nuovo endpoint. Le connessioni esistenti non verranno interrotte e potranno essere aggiornate in praticità. Per garantire un'esperienza coerente, è necessario che tutte le applicazioni usino il nuovo endpoint.
+7. 
+    1. Se è stato eseguito l'aggiornamento da 3,2, tornare al pannello `Overview` e copiare la nuova stringa di connessione da usare nell'applicazione. La stringa di connessione precedente che esegue 3,2 non verrà interrotta. Per garantire un'esperienza coerente, è necessario che tutte le applicazioni usino il nuovo endpoint.
+    2. Se è stato eseguito l'aggiornamento da 3,6, la stringa di connessione esistente verrà aggiornata alla versione specificata e continuerà a essere utilizzata.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nuovo pannello panoramica." border="false":::
 
+
+## <a name="how-to-downgrade"></a>Come effettuare il downgrade
+È anche possibile effettuare il downgrade dell'account da 4,0 a 3,6 usando la stessa procedura descritta nella sezione "come eseguire l'aggiornamento". 
+
+Se è stato eseguito l'aggiornamento da 3,2 a (4,0 o 3,6) e si vuole eseguire il downgrade a 3,2, è sufficiente tornare a usare la stringa di connessione precedente (3,2) con l'host `accountname.documents.azure.com` che rimane attivo dopo l'aggiornamento che esegue la versione 3,2.
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Informazioni sulle funzionalità supportate e non supportate [della versione 4,0 di MongoDB](mongodb-feature-support-40.md).
 - Informazioni sulle funzionalità supportate e non supportate [della versione 3,6 di MongoDB](mongodb-feature-support-36.md).
 - Per altre informazioni, vedere le [funzionalità della versione Mongo 3.6](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)

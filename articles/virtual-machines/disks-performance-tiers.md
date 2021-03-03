@@ -4,16 +4,16 @@ description: Informazioni su come modificare i livelli di prestazioni per i disc
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: f67113b2e2afa16456321b0ee2a94ce80fab4d81
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 161aafce1c04e5d09cf08529bcbf1baf6b8a86b1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900961"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674926"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Modificare il livello di prestazioni usando il modulo Azure PowerShell o l'interfaccia della riga di comando di Azure
 
@@ -114,6 +114,36 @@ $disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
 $disk.Tier
 ```
 ---
+
+## <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Modificare il livello di prestazioni di un disco senza tempi di inattività (anteprima)
+
+È anche possibile modificare il livello di prestazioni senza tempi di inattività, quindi non è necessario deallocare la VM o scollegare il disco per modificare il livello. Per ulteriori informazioni e il collegamento per l'iscrizione per l'anteprima, vedere la sezione [modifica del livello di prestazioni senza tempi di inattività (anteprima)](#changing-performance-tier-without-downtime-preview) .
+
+
+Lo script seguente aggiornerà il livello di un disco in un livello superiore rispetto al livello Baseline usando il modello di esempio [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Sostituire `<yourSubScriptionID>` ,,, `<yourResourceGroupName>` `<yourDiskName>` `<yourDiskSize>` , `<yourDesiredPerformanceTier>` quindi eseguire lo script:
+
+ ```cli
+subscriptionId=<yourSubscriptionID>
+resourceGroupName=<yourResourceGroupName>
+diskName=<yourDiskName>
+diskSize=<yourDiskSize>
+performanceTier=<yourDesiredPerformanceTier>
+region=EastUS2EUAP
+
+ az login
+
+ az account set --subscription $subscriptionId
+
+ az group deployment create -g $resourceGroupName \
+--template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
+--parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
+```
+
+Per il completamento di una modifica del livello di prestazioni possono essere necessari fino a 15 minuti. Per verificare che i livelli del disco siano stati modificati, usare il comando seguente:
+
+```cli
+az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-12-01 --query [properties.tier] -o tsv
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

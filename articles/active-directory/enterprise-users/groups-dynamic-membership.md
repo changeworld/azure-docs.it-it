@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: 8ca000e105f70f1a4940e7fc9a0292061e94b5ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860814"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648646"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -277,6 +277,14 @@ L'espressione seguente seleziona tutti gli utenti che hanno un piano di servizio
 
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+#### <a name="example-3"></a>Esempio 3
+
+Nell'espressione seguente vengono selezionati tutti gli utenti che non dispongono di un piano di servizio asigned:
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
 ```
 
 ### <a name="using-the-underscore-_-syntax"></a>Usando la sintassi del carattere di sottolineatura (\_)

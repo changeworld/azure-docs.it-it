@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fda4ec810d0b410dcd75ac9c6be69bd54b16d9
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d976cd924644828f5861e4c54460a8b4e4f81444
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092650"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643865"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Risoluzione degli problemi durante la sincronizzazione
 Gli errori potrebbero verificarsi durante la sincronizzazione dei dati dell'identità da Windows Server Active Directory (AD DS) ad Azure Active Directory (Azure AD). L'articolo offre una panoramica delle diverse tipologie di errori di sincronizzazione, di alcuni scenari possibili che causano tali errori e delle possibili soluzioni per correggere questi errori. In questo articolo vengono descritti soltanto gli errori più comuni.
@@ -201,7 +201,7 @@ Se il suffisso UserPrincipalName di un utente è stato aggiornato da bob@**conto
 2. Consentire al ciclo di sincronizzazione successivo di eseguire un nuovo tentativo di sincronizzazione. Questa volta la sincronizzazione andrà a buon fine e permetterà di aggiornare l'attributo UserPrincipalName di Bob su bob@fabrikam.com, come previsto.
 
 #### <a name="related-articles"></a>Articoli correlati
-* [Le modifiche non vengono sincronizzate dallo strumento di sincronizzazione Azure Active Directory dopo la modifica dell'UPN di un account utente per l'utilizzo di un dominio federato diverso](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
+* [Le modifiche non vengono sincronizzate dallo strumento di sincronizzazione Azure Active Directory dopo la modifica dell'UPN di un account utente per l'utilizzo di un dominio federato diverso](./howto-troubleshoot-upn-changes.md)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Descrizione

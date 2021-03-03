@@ -10,22 +10,22 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4901d73235778a3194fe75b95df9cb81aeeb093b
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3839dd27d4ae380b268694a93e5910b323411847
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651681"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657282"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Risoluzione dei problemi di distribuzione del modello remoto 
 
 Informazioni su come risolvere gli errori comuni che possono verificarsi durante la distribuzione di un modello in istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) con Azure Machine Learning.
 
 > [!NOTE]
-> Se si distribuisce un modello in Azure Kubernetes Service (AKS), si consiglia di abilitare [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) per quel cluster. Ciò consentirà di comprendere l'integrità complessiva del cluster e l'utilizzo delle risorse. È anche possibile trovare le risorse seguenti utili:
+> Se si distribuisce un modello in Azure Kubernetes Service (AKS), si consiglia di abilitare [monitoraggio di Azure](../azure-monitor/containers/container-insights-enable-existing-clusters.md) per quel cluster. Ciò consentirà di comprendere l'integrità complessiva del cluster e l'utilizzo delle risorse. È anche possibile trovare le risorse seguenti utili:
 >
-> * [Verificare la presenza di eventi di Integrità risorse che incidono sul cluster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Diagnostica del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [Verificare la presenza di eventi di Integrità risorse che incidono sul cluster AKS](../aks/aks-resource-health.md)
+> * [Diagnostica del servizio Azure Kubernetes](../aks/concepts-diagnostics.md)
 >
 > Se si sta provando a distribuire un modello in un cluster non integro o di overload, è previsto che si verifichino problemi. Per informazioni sulla risoluzione dei problemi del cluster AKS, contattare il supporto di AKS.
 

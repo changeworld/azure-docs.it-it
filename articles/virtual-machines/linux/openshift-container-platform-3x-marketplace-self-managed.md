@@ -3,19 +3,20 @@ title: Distribuire OpenShift container Platform 3,11 Self-Managed offerta Market
 description: Distribuire OpenShift container Platform 3,11 Self-Managed offerta Marketplace in Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374100"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670439"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
 
@@ -93,7 +94,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 
 **Modifica dimensioni**
 
-Per selezionare dimensioni diverse per la macchina virtuale, fare clic su ***modifica dimensioni***.  Viene visualizzata la finestra di selezione della macchina virtuale.  Selezionare le dimensioni della macchina virtuale desiderate e fare clic su **Seleziona**.
+Per selezionare dimensioni diverse per la macchina virtuale, fare clic su ***modifica dimensioni** _.  Viene visualizzata la finestra di selezione della macchina virtuale.  Selezionare le dimensioni della macchina virtuale desiderate e fare clic su _ * Select * * (* *).
 
    ![Selezionare le dimensioni della macchina virtuale](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>

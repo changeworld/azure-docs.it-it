@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 517b07eecdbc63754f46fcf1051bf5b987dbc20e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654446"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668436"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Creare regole di configurazione di set di risorse con ambito
 
@@ -43,7 +43,7 @@ Attenersi alla procedura seguente per creare una nuova configurazione del set di
 
 Quando si creano regole di set di risorse con ambito, usare la sintassi seguente per specificare le regole di asset da applicare a.
 
-### <a name="static-replacers-single-brackets"></a>Sostituzioni statiche (parentesi quadre)
+### <a name="dynamic-replacers-single-brackets"></a>Sostituzioni dinamiche (parentesi quadre)
 
 Le singole parentesi quadre vengono usate come **sostituzioni dinamiche** in una regola di set di risorse con ambito. Specificare un sostituto dinamico nel nome completo utilizzando Format `{<replacerName:<replacerType>}` . Se corrisponde, i sostituitori dinamici vengono usati come condizione di raggruppamento che indica che gli asset devono essere rappresentati come set di risorse. Se gli asset sono raggruppati in un set di risorse, il percorso qualificato del set di risorse conterrà `{replacerName}` la posizione in cui è stato specificato il sostituto.
 
@@ -92,7 +92,7 @@ Di seguito è riportato l'ordine delle operazioni per applicare le regole del se
 
 Estrazione dei dati SAP in carichi completi e Delta
 
-*Input*
+#### <a name="inputs"></a>Input
 
 File:
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
@@ -102,7 +102,7 @@ File:
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
 
-*Regola set di risorse con ambito*
+#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito 
 
 **Ambito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -112,7 +112,7 @@ File:
 
 **Set di risorse:** true
 
-*Output*
+#### <a name="output"></a>Output 
 
 Un asset del set di risorse
 
@@ -124,7 +124,7 @@ Un asset del set di risorse
 
 Dati relativi alle cose nel formato avro
 
-*Input*
+#### <a name="inputs"></a>Input 
 
 File:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -132,7 +132,7 @@ File:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Regole set di risorse con ambito*
+#### <a name="scoped-resource-set-rules"></a>Regole set di risorse con ambito 
 
 **Ambito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -150,9 +150,9 @@ Regola 2
 
 **Nome completo:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-**Set di risorse: true**
+#### <a name="resource-set-true"></a>*Set di risorse: true* 
 
-*Output*
+#### <a name="outputs"></a>Output 
 
 2 set di risorse 
 
@@ -172,7 +172,7 @@ Set di risorse 2
 
 Dati relativi alle cose nel formato avro
 
-*Input*
+#### <a name="inputs"></a>Input 
 
 File:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -180,7 +180,7 @@ File:
 -   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Regola set di risorse con ambito*
+#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito 
 
 **Ambito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -190,7 +190,7 @@ File:
 
 **Set di risorse:** true
 
-*Output*
+#### <a name="outputs"></a>Output 
 
 Set di risorse 1
 
@@ -208,7 +208,7 @@ Set di risorse 2
 
 Non raggruppare in set di risorse
 
-*Input*
+#### <a name="inputs"></a>Input 
 
 File:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -216,7 +216,7 @@ File:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Regola set di risorse con ambito*
+#### <a name="scoped-resource-set-rule"></a>Regola set di risorse con ambito 
 
 **Ambito:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -226,7 +226,7 @@ File:
 
 **Set di risorse:** false
 
-*Output*
+#### <a name="outputs"></a>Output 
 
 4 Asset singoli
 

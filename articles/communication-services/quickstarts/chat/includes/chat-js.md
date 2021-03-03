@@ -10,19 +10,19 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: af42b83fc005397d4564b7570eedaff0305a8bc8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653538"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661639"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
 
-- Creare un account Azure con una sottoscrizione attiva. Per informazioni dettagliate, vedere [Creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Creare un account Azure con una sottoscrizione attiva. Per informazioni dettagliate, vedere [Creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installare [Node.js](https://nodejs.org/en/download/), versioni Active LTS e Maintenance LTS (8.11.1 e 10.14.1 consigliate).
-- Creare una risorsa di Servizi di comunicazione di Azure. Per informazioni dettagliate, vedere [Creare una risorsa di comunicazione di Azure](../../create-communication-resource.md). Per questa Guida introduttiva è necessario **registrare l'endpoint della risorsa** .
+- Creare una risorsa di Servizi di comunicazione di Azure. Per informazioni dettagliate, vedere [Creare una risorsa di Servizi di comunicazione di Azure](../../create-communication-resource.md). Per questa Guida introduttiva è necessario **registrare l'endpoint della risorsa** .
 - Creare *tre* utenti ACS ed emettere un token di [accesso utente](../../access-tokens.md)per il token di accesso utente. Assicurarsi di impostare l'ambito su **chat** e **Annotare la stringa del token, nonché la stringa UserID**. La demo completa crea un thread con due partecipanti iniziali e quindi aggiunge un terzo partecipante al thread.
 
 ## <a name="setting-up"></a>Configurazione
@@ -34,7 +34,7 @@ Aprire prima di tutto il terminale o la finestra di comando per creare una nuova
 ```console
 mkdir chat-quickstart && cd chat-quickstart
 ```
-   
+
 Eseguire `npm init -y` per creare un file **package.json** con le impostazioni predefinite.
 
 ```console
@@ -48,7 +48,7 @@ Usare il comando `npm install` per installare le librerie client di Servizi di c
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -86,7 +86,7 @@ Creare un file nella directory radice del progetto denominato **client.js** per 
 
 ### <a name="create-a-chat-client"></a>Creare un client di chat
 
-Per creare un client di chat nell'app Web, si userà l' **endpoint** del servizio di comunicazione e il **token di accesso** generato nell'ambito dei passaggi preliminari. 
+Per creare un client di chat nell'app Web, si userà l' **endpoint** del servizio di comunicazione e il **token di accesso** generato come parte dei passaggi prerequisiti.
 
 I token di accesso utente consentono di creare applicazioni client che eseguono l'autenticazione direttamente in Servizi di comunicazione di Azure. Questa Guida introduttiva non illustra la creazione di un livello di servizio per gestire i token per l'applicazione di chat. Per altre informazioni sui token di accesso, vedere Concetti relativi alla [chat](../../../concepts/chat/concepts.md) per altre informazioni sull'architettura della chat e i [token di accesso dell'utente](../../access-tokens.md) .
 
@@ -122,7 +122,7 @@ Nella console degli strumenti di sviluppo nel browser dovrebbe essere visualizza
 Azure Communication Chat client created!
 ```
 
-## <a name="object-model"></a>Modello a oggetti 
+## <a name="object-model"></a>Modello a oggetti
 Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità della libreria client di chat di Servizi di comunicazione di Azure per JavaScript.
 
 | Nome                                   | Descrizione                                                                                                                                                                           |
@@ -137,7 +137,7 @@ Usare il metodo `createThread` per creare un thread di chat.
 
 `createThreadRequest` viene usato per descrivere la richiesta di thread:
 
-- Usare `topic` per specificare un argomento per questa chat. L'argomento può essere aggiornato dopo la creazione del thread di chat usando la funzione `UpdateThread`. 
+- Usare `topic` per fornire un argomento a questa chat. Gli argomenti possono essere aggiornati dopo la creazione del thread di chat mediante la `UpdateThread` funzione.
 - Consente `participants` di elencare i partecipanti da aggiungere al thread di chat.
 
 Quando viene risolto, `createChatThread` il metodo restituisce `CreateChatThreadResponse` . Questo modello contiene una `chatThread` Proprietà in cui è possibile accedere al `id` del thread appena creato. È quindi possibile usare `id` per ottenere un'istanza di un oggetto `ChatThreadClient` . `ChatThreadClient`Può quindi essere usato per eseguire l'operazione all'interno del thread, ad esempio l'invio di messaggi o l'elenco dei partecipanti.
@@ -203,7 +203,7 @@ Usare il metodo `sendMessage` per inviare un messaggio di chat al thread appena 
 
 `sendMessageOptions` descrive i campi facoltativi della richiesta di messaggio di chat:
 
-- Usare `priority` per specificare il livello di priorità del messaggio di chat, ad esempio 'Normal' o 'High'. Questa proprietà può essere usata per avere un indicatore dell'interfaccia utente per l'utente destinatario nell'app, per attirare l'attenzione sul messaggio o eseguire logica di business personalizzata.   
+- Utilizzare `priority` per specificare il livello di priorità del messaggio di chat, ad esempio ' Normal ' o ' High '. Questa proprietà può essere usata per visualizzare un indicatore dell'interfaccia utente per l'utente del destinatario nell'app per attirare l'attenzione sul messaggio o eseguire la logica di business personalizzata.
 - Usare `senderDisplayName` per specificare il nome visualizzato del mittente.
 
 La risposta `sendChatMessageResult` contiene un ID, che corrisponde all'ID univoco del messaggio.
@@ -246,7 +246,7 @@ chatClient.on("chatMessageReceived", (e) => {
 Aggiungere questo codice al posto del commento `<RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>` in **client.js**.
 Aggiornare la scheda del browser. Nella console verrà visualizzato un messaggio `Notification chatMessageReceived`.
 
-In alternativa, è possibile recuperare i messaggi di chat eseguendo il polling del metodo `listMessages` a intervalli specificati. 
+In alternativa, è possibile recuperare i messaggi di chat eseguendo il polling del metodo `listMessages` a intervalli specificati.
 
 ```JavaScript
 

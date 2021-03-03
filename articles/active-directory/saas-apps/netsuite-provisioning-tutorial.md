@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b1c03bafd6d97dd6a60defee00d4efe854315631
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696490"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648085"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di NetSuite per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in NetSuite OneWorld e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a NetSuite.
 
 > [!WARNING]
-> L'integrazione del provisioning smetterà di funzionare nel 2020 febbraio a causa di una modifica alle API NetSuite usate da Microsoft per eseguire il provisioning degli utenti in NetSuite. Di conseguenza, la funzionalità di provisioning dell'applicazione NetSuite nella raccolta di app di Azure Active Directory Enterprise verrà rimossa a breve. La funzionalità SSO dell'applicazione rimarrà intatta. Microsoft collabora con NetSuite per creare una nuova integrazione di provisioning modernizzata, ma al momento non esiste alcun valore di ETA.
+> Questa integrazione del provisioning smette di funzionare con il rilascio dell'aggiornamento Spring 2021 di NetSuite a causa di una modifica apportata alle API NetSuite usate da Microsoft per il provisioning degli utenti in NetSuite.  Questo aggiornamento raggiungerà i clienti di NetSuite tra febbraio e aprile 2021. Di conseguenza, la funzionalità di provisioning dell'applicazione NetSuite nella raccolta di app di Azure Active Directory Enterprise verrà rimossa a breve. La funzionalità SSO dell'applicazione rimarrà intatta. Microsoft collabora con NetSuite per creare una nuova integrazione di provisioning modernizzata, ma al momento non esiste alcun valore di ETA.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

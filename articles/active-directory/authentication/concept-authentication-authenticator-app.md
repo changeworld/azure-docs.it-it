@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744364"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648799"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metodi di autenticazione nell'app Azure Active Directory Microsoft Authenticator
 
@@ -23,7 +23,7 @@ L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo per l'acc
 
 Gli utenti possono ricevere una notifica tramite l'app per dispositivi mobili da approvare o rifiutare, oppure possono usare l'app Authenticator per generare un codice di verifica OATH che può essere inserito in un'interfaccia di accesso. Se si abilitano sia la notifica che il codice di verifica, gli utenti che registrano l'app Authenticator possono usare uno dei due metodi per verificare la propria identità.
 
-Per usare l'app Authenticator in un prompt di accesso invece di una combinazione di nome utente e password, vedere [Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)](howto-authentication-passwordless-phone.md).
+Per usare l'app Authenticator a una richiesta di accesso anziché una combinazione di nome utente e password, vedere [abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Gli utenti non possono registrare l'app per dispositivi mobili quando abilitano la reimpostazione della password self-service. Possono invece registrarla all'indirizzo [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o come parte della registrazione delle informazioni di sicurezza combinate alla pagina [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -34,7 +34,7 @@ Anziché visualizzare la richiesta di una password dopo l'immissione di un nome 
 
 ![Esempio di accesso del browser che richiede all'utente di approvare l'accesso](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Questo metodo di autenticazione offre un elevato livello di sicurezza e rimuove la necessità per l'utente di fornire una password al momento dell'accesso. L'accesso senza password con l'app Microsoft Authenticator è attualmente in anteprima.
+Questo metodo di autenticazione offre un elevato livello di sicurezza e rimuove la necessità per l'utente di fornire una password al momento dell'accesso. 
 
 Per iniziare a usare l'accesso senza password, vedere [abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

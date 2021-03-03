@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879732"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677756"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrare e analizzare Database SQL di Azure
 
@@ -149,9 +149,7 @@ Per registrare una nuova istanza di Database SQL di Azure nel catalogo, procedur
 Nella schermata **Register sources (Azure SQL Database)** (Registra origini - Database SQL di Azure) seguire questa procedura:
 
 1. Immettere un **Nome** con il quale l'origine dati sarà elencata nel catalogo.
-1. Scegliere come puntare all'account di archiviazione desiderato:
-   1. Selezionare **Dalla sottoscrizione di Azure**, quindi selezionare la sottoscrizione appropriata nell'elenco a discesa **Sottoscrizione di Azure** e il server appropriato nell'elenco a discesa **Nome del server**.
-   1. In alternativa, è possibile selezionare **Immetti manualmente** e immettere un **nome del server**.
+1. Selezionare **Dalla sottoscrizione di Azure**, quindi selezionare la sottoscrizione appropriata nell'elenco a discesa **Sottoscrizione di Azure** e il server appropriato nell'elenco a discesa **Nome del server**.
 1. Selezionare **Fine** per completare la registrazione dell'origine dati.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="Opzioni di registrazione delle origini" border="true":::

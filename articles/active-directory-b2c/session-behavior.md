@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/23/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ad9bd8dec94660d94cf3a106d31dafdad06f47a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 85d00b393ad169764a2f26e324295308ef49d3ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584511"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646580"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ La sessione dell'applicazione può essere una sessione basata su cookie archivia
 
 - **Durata della sessione dell'app Web (minuti)** : periodo di tempo durante il quale il cookie della sessione di Azure ad B2C viene archiviato nel browser dell'utente dopo l'autenticazione. È possibile impostare la durata della sessione su un valore compreso tra 15 e 720 minuti.
 
-- **Timeout della sessione dell'app Web** : indica il modo in cui una sessione viene estesa dall'impostazione della durata della sessione o dall'impostazione Mantieni l'accesso.
+- **Timeout della sessione dell'app Web** : indica il modo in cui una sessione viene estesa dall'impostazione della durata della sessione o l'impostazione Mantieni l'accesso (KMSI).
   - **Rolling** : indica che la sessione viene estesa ogni volta che l'utente esegue un'autenticazione basata su cookie (impostazione predefinita).
   - **Absolute** : indica che l'utente deve eseguire di nuovo l'autenticazione dopo il periodo di tempo specificato.
 
@@ -82,9 +82,7 @@ La sessione dell'applicazione può essere una sessione basata su cookie archivia
   - **Applicazione**: questa impostazione consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, è possibile usare questa impostazione se si vuole che l'utente possa accedere a Contoso Pharmacy indipendentemente dal fatto che l'utente abbia già eseguito l'accesso a Contoso Grocers.
   - **Criterio**: questa impostazione consente di mantenere una sessione utente esclusivamente per un flusso utente, indipendentemente dalle applicazioni che lo usano. Se, ad esempio, l'utente ha già effettuato l'accesso e ha completato un passaggio di multi-factor authentication, l'utente può accedere a parti con sicurezza più elevata di più applicazioni, purché la sessione associata al flusso utente non scada.
   - **Disabilitato** : questa impostazione impone all'utente di eseguire il flusso dell'intero utente a ogni esecuzione del criterio.
-::: zone pivot="b2c-custom-policy"
-- **Mantieni l'accesso** : consente di estendere la durata della sessione tramite un cookie permanente. La sessione rimane attiva dopo la chiusura e la riapertura del browser da parte dell'utente. La sessione viene revocata solo quando un utente si disconnette. La funzionalità Mantieni l'accesso si applica solo all'accesso con account locali. La funzionalità Mantieni l'accesso ha la precedenza sul tempo di vita della sessione. Se la funzionalità Mantieni l'accesso è abilitata e l'utente le seleziona, questa funzionalità impone la scadenza della sessione. 
-::: zone-end
+- **Mantieni l'accesso (KMSI)** : estende la durata della sessione tramite l'uso di un cookie permanente. Se questa funzionalità è abilitata e l'utente la seleziona, la sessione rimane attiva anche dopo che l'utente ha chiuso e riaperto il browser. La sessione viene revocata solo quando l'utente si disconnette. La funzionalità KMSI si applica solo all'accesso con account locali. La funzionalità KMSI ha la precedenza sulla durata della sessione.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -112,12 +110,43 @@ Per modificare le configurazioni del comportamento della sessione e dell'accesso
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Abilita Mantieni l'accesso (KMSI)
 
-È possibile abilitare la funzionalità Mantieni l'accesso per gli utenti delle applicazioni Web e native che dispongono di account locali nella directory Azure Active Directory B2C (Azure AD B2C). Questa funzionalità concede l'accesso agli utenti che tornano all'applicazione senza chiedere di immettere nuovamente il nome utente e la password. Quando l'utente si scollega, l'accesso viene revocato.
+È possibile abilitare la funzionalità KMSI per gli utenti delle applicazioni Web e native che dispongono di account locali nella directory Azure AD B2C. Quando si Abilita la funzionalità, gli utenti possono scegliere di rimanere connessi in modo che la sessione rimanga attiva dopo la chiusura del browser. Possono quindi riaprire il browser senza che venga richiesto di immettere nuovamente il nome utente e la password. Quando l'utente si scollega, l'accesso viene revocato.
 
 ![Pagina di accesso di esempio che mostra una casella di controllo Mantieni l'accesso](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+KMSI è configurabile a livello di flusso utente singolo. Prima di abilitare KMSI per i flussi utente, tenere presente quanto segue:
+
+- KMSI è supportato solo per le versioni **consigliate** dei flussi utente di iscrizione e accesso (Susi), di accesso e di modifica del profilo. Se si dispone attualmente di versioni di anteprima **standard** o **legacy-V2** di questi flussi utente e si vuole abilitare KMSI, è necessario creare nuove versioni **consigliate** di questi flussi utente.
+- KMSI non è supportato con la reimpostazione della password o i flussi utente di iscrizione.
+- Se si vuole abilitare KMSI per tutte le applicazioni nel tenant, è consigliabile abilitare KMSI per tutti i flussi utente nel tenant. Poiché un utente può presentare più criteri durante una sessione, è possibile che si verifichi un errore che non dispone di KMSI abilitato, il che rimuove il cookie KMSI dalla sessione.
+- KMSI non deve essere abilitato nei computer pubblici.
+
+### <a name="configure-kmsi-for-a-user-flow"></a>Configurare KMSI per un flusso utente
+
+Per abilitare KMSI per il flusso utente:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il filtro **directory + sottoscrizione**   nel menu in alto e scegliere la directory che contiene il tenant Azure ad B2C.
+3. Scegliere **tutti i servizi**   nell'angolo superiore sinistro del portale di Azure, quindi cercare e selezionare **Azure ad B2C**.
+4. Selezionare **flussi utente (criteri)**.
+5. Aprire il flusso utente creato in precedenza.
+6. Selezionare **Proprietà**.
+
+7. In  **comportamento sessione** selezionare **Abilita sessione di accesso continuo**. Accanto a **Mantieni la sessione di accesso (giorni)** immettere un valore compreso tra 1 e 90 per specificare il numero di giorni per cui una sessione può rimanere aperta.
+
+
+   ![Abilita la sessione Mantieni l'accesso](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubblico.
 

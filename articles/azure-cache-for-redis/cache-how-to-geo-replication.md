@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 27ccc81ddf0a771de9fb15f60820dfd3efa6146e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a04ffbcec8eda6663a12a8a08a81e00c5d0b5c7f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386874"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646966"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurare la replica geografica per la cache di Azure Premium per le istanze di redis
 
@@ -199,3 +199,4 @@ Sì, è possibile configurare un [Firewall](./cache-configure.md#firewall) con l
 Altre informazioni sulle funzionalità di cache di Azure per Redis.
 
 * [Cache di Azure per i livelli di servizio Redis](cache-overview.md#service-tiers)
+* [Disponibilità elevata per cache di Azure per Redis](cache-high-availability.md)

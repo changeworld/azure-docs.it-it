@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt
-ms.openlocfilehash: 744f265251e9f58ce91085f0e5dd5d1ad13eec69
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6e6f6ced1cdba429abd914354a5eba861ab127ec
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625112"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670046"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Come distribuire Windows 10 in Azure con Multitenant Hosting Rights 
 Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Desktop Access per utente (licenze di sottoscrizione utente o licenze di sottoscrizione utente per i componenti aggiuntivi) Multitenant Hosting Rights per Windows 10 consente di trasferire le licenze di Windows 10 nel cloud ed eseguire macchine virtuali di Windows 10 in Azure senza sostenere i costi di un'altra licenza. I diritti di hosting multi-tenant sono disponibili solo per Windows 10 (versione 1703 o successiva).
@@ -26,7 +26,7 @@ Per altre informazioni, vedere [hosting multi-tenant per Windows 10](https://www
 
 ## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>Licenze di sottoscrizione che sono idonee per i diritti di hosting multi-tenant
 
-Usando l'interfaccia di [amministrazione di Microsoft](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true), è possibile verificare se a un utente è stata assegnata una licenza supportata da Windows 10.
+Usando l'interfaccia di [amministrazione di Microsoft](/microsoft-365/admin/admin-overview/about-the-admin-center?preserve-view=true&view=o365-worldwide), è possibile verificare se a un utente è stata assegnata una licenza supportata da Windows 10.
 
 > [!IMPORTANT]
 > Per usare le immagini di Windows 10 in Azure, gli utenti devono avere una delle licenze di sottoscrizione seguenti. Se non si ha una di queste licenze di sottoscrizione, è possibile acquistarle tramite il [partner del servizio cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) o direttamente tramite [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).

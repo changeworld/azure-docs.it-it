@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 72e89a67f2d767c8a104982dbe9eb9e47aec015a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574647"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656959"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di pre-migrazione per la migrazione dei dati da MongoDB all'API di Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -80,7 +80,7 @@ In modo analogo, la funzionalità di partizionamento aggiunge automaticamente ca
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indicizzare i dati
 
-L'API Azure Cosmos DB per MongoDB Server versione 3,6 indicizza automaticamente solo il `_id` campo. Questo campo non può essere eliminato. Viene automaticamente applicata l'univocità del `_id` campo per ogni chiave di partizione. Per indicizzare campi aggiuntivi, applicare i comandi di gestione dell'indice MongoDB. Questo criterio di indicizzazione predefinito differisce dall'API di Azure Cosmos DB SQL, che indicizza tutti i campi per impostazione predefinita.
+L'API Azure Cosmos DB per MongoDB Server versione 3,6 e successive indicizza automaticamente solo il `_id` campo. Questo campo non può essere eliminato. Viene automaticamente applicata l'univocità del `_id` campo per ogni chiave di partizione. Per indicizzare campi aggiuntivi, applicare i [comandi di gestione degli indici MongoDB](mongodb-indexing.md). Questo criterio di indicizzazione predefinito differisce dall'API di Azure Cosmos DB SQL, che indicizza tutti i campi per impostazione predefinita.
 
 Le funzionalità di indicizzazione fornite da Azure Cosmos DB includono l'aggiunta di indici composti, indici univoci e indici TTL (time-to-Live). Viene eseguito il mapping dell'interfaccia di gestione degli indici al comando `createIndex()`. Per altre informazioni, vedere l'articolo sull' [indicizzazione nell'API Azure Cosmos DB per MongoDB](mongodb-indexing.md).
 

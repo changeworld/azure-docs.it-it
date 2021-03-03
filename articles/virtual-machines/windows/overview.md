@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d0973682a62b17a21557727a8d5eb8fcb7ec7ef1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9113abe14af942700a073626c5aad19dc2ebcd06
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203372"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101665964"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Macchine virtuali Windows in Azure
 
@@ -51,10 +51,6 @@ Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenc
 | Azure PowerShell |Usare il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API REST |Usare l'operazione [List locations](/rest/api/resources/subscriptions). |
 | Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](/cli/azure/account). |
-
-### <a name="singapore-data-residency"></a>Residenza dei dati per Singapore
-
-In Azure la funzionalità per abilitare l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica Asia Pacifico. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo. Per altre informazioni, visitare il [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="availability"></a>Disponibilità
 È stato annunciato un contratto di servizio leader del settore pari al 99,9% per una macchina virtuale a istanza singola, purché distribuita con Archiviazione Premium per tutti i dischi.  Perché la distribuzione si qualifichi per il contratto di servizio standard del 99,95% per le macchine virtuali, è comunque necessario distribuire due o più macchine virtuali che eseguono il carico di lavoro in un set di disponibilità. Un set di disponibilità assicura che le macchine virtuali vengano distribuite tra più domini di errore nei centri dati Azure e anche in host con finestre di manutenzione diverse. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
@@ -108,7 +104,7 @@ Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o e
 
 ## <a name="data-residency"></a>Residenza dei dati
 
-In Azure la funzionalità per abilitare l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica Asia Pacifico e nell'area Brasile meridionale (stato di San Paolo) dell'area geografica Brasile. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo. Per altre informazioni, visitare il [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
+In Azure la funzionalità per abilitare l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica Asia Pacifico e nell'area Brasile meridionale (stato di San Paolo) dell'area geografica Brasile. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo. Per altre informazioni, visitare il [Centro protezione](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

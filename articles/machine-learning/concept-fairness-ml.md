@@ -10,18 +10,18 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 01/26/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871503"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659682"
 ---
 # <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Attenuare l'ingiustizia nei modelli di Machine Learning (anteprima)
 
 Informazioni sull'equità nell'apprendimento automatico e sul modo in cui il pacchetto python Open Source [Fairlearn](https://fairlearn.github.io/) consente di attenuare i problemi di non correttezza nei modelli di machine learning. Se non si sta tentando di comprendere i problemi di equità e di valutare l'equità quando si creano modelli di apprendimento automatico, è possibile creare modelli che producono risultati non corretti.
 
-Il seguente riepilogo del [manuale dell'utente](https://fairlearn.github.io/master/user_guide/index.html) per il pacchetto open source Fairlearn descrive come usarlo per valutare l'equità dei sistemi di intelligenza artificiale che si stanno compilando.  Il pacchetto open source di Fairlearn può anche offrire opzioni che consentono di attenuare o ridurre i problemi di equità osservati.  Vedere le [procedure](how-to-machine-learning-fairness-aml.md) e i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) per abilitare la valutazione dell'equità dei sistemi di intelligenza artificiale durante il training in Azure Machine Learning.
+Il seguente riepilogo del [manuale dell'utente](https://fairlearn.github.io/main/user_guide/index.html) per il pacchetto open source Fairlearn descrive come usarlo per valutare l'equità dei sistemi di intelligenza artificiale che si stanno compilando.  Il pacchetto open source di Fairlearn può anche offrire opzioni che consentono di attenuare o ridurre i problemi di equità osservati.  Vedere le [procedure](how-to-machine-learning-fairness-aml.md) e i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) per abilitare la valutazione dell'equità dei sistemi di intelligenza artificiale durante il training in Azure Machine Learning.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>Che cosa è l'equità nei modelli di apprendimento automatico?
@@ -109,6 +109,6 @@ Il pacchetto open source Fairlearn fornisce algoritmi di mitigazione della riela
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come usare i diversi componenti, vedere la pagina relativa a [GitHub](https://github.com/fairlearn/fairlearn/), [Guida dell'utente](https://fairlearn.github.io/master/user_guide/index.html), [esempi](https://fairlearn.github.io/master/auto_examples/)e [notebook di esempio](https://github.com/fairlearn/fairlearn/tree/master/notebooks)di Fairlearn.
+- Per informazioni su come usare i diversi componenti, vedere la pagina relativa a [GitHub](https://github.com/fairlearn/fairlearn/), [Guida dell'utente](https://fairlearn.github.io/main/user_guide/index.html), [esempi](https://fairlearn.github.io/main/auto_examples/index.html)e [notebook di esempio](https://github.com/fairlearn/fairlearn/tree/master/notebooks)di Fairlearn.
 - Informazioni [su come abilitare la](how-to-machine-learning-fairness-aml.md) valutazione dell'equità dei modelli di machine learning in Azure Machine Learning.
 - Vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) per altri scenari di valutazione dell'equità in Azure Machine Learning. 

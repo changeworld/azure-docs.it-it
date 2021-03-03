@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 329e09221467c2602355e091876c95f305db3578
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500998"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673733"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -82,9 +81,9 @@ Prima di entrare nei dettagli, verranno presentati il riepilogo e le raccomandaz
 | Volume di log DBMS SAP HANA famiglie di VM M/Mv2 | non supportato | non supportato | consigliato<sup>1</sup> | Consigliato | consigliato<sup>2</sup> | 
 | Volume di dati DBMS SAP HANA famiglie di macchine virtuali Esv3/Edsv4 | non supportato | non supportato | Consigliato | Consigliato | consigliato<sup>2</sup> |
 | Volume di log DBMS SAP HANA famiglie di macchine virtuali Esv3/Edsv4 | non supportato | non supportato | non supportato | Consigliato | consigliato<sup>2</sup> | 
-| Volume di dati DBMS non HANA | Non supportato | adatto limitato (non prod) | Consigliato | Consigliato | Non supportato |
-| Volume di log DBMS non-HANA M/Mv2 VM famiglie | Non supportato | adatto limitato (non prod) | consigliato<sup>1</sup> | Consigliato | Non supportato |
-| Volume di log DBMS non-HANA famiglie di VM non M/Mv2 | Non supportato | adatto limitato (non prod) | adatto per carichi di lavoro fino a medium | Consigliato | Non supportato |
+| Volume di dati DBMS non HANA | non supportato | adatto limitato (non prod) | Consigliato | Consigliato | non supportato |
+| Volume di log DBMS non-HANA M/Mv2 VM famiglie | non supportato | adatto limitato (non prod) | consigliato<sup>1</sup> | Consigliato | non supportato |
+| Volume di log DBMS non-HANA famiglie di VM non M/Mv2 | non supportato | adatto limitato (non prod) | adatto per carichi di lavoro fino a medium | Consigliato | non supportato |
 
 
 <sup>1</sup> con l'uso di [acceleratore di scrittura di Azure](../../how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward <sup>2</sup> con e è necessario/Hana/data e/Hana/log in e 
@@ -93,15 +92,15 @@ Caratteristiche che è possibile prevedere dall'elenco dei diversi tipi di archi
 
 | Scenario di utilizzo | HDD Standard | SSD Standard | Archiviazione Premium | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA velocità effettiva/IOPS | No | No | sì | sì | sì |
+| SLA velocità effettiva/IOPS | no | no | sì | sì | sì |
 | Letture latenza | high | da medio a alto | low | millisecondi | millisecondi |
 | Scritture latenza | high | da medio a alto  | bassa (sub-millisecond<sup>1</sup>) | millisecondi | millisecondi |
-| HANA supportato | No | No | Sì<sup>1</sup> | sì | sì |
-| Snapshot del disco possibili | sì | sì | sì | No | sì |
+| HANA supportato | no | no | Sì<sup>1</sup> | sì | sì |
+| Snapshot del disco possibili | sì | sì | sì | no | sì |
 | Allocazione di dischi in cluster di archiviazione diversi quando si usano i set di disponibilità | tramite Managed Disks | tramite Managed Disks | tramite Managed Disks | tipo di disco non supportato con le macchine virtuali distribuite tramite i set di disponibilità | n.<sup>3</sup> |
 | Allineato con zone di disponibilità | sì | sì | sì | sì | richiede il coinvolgimento di Microsoft |
-| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | No | No |
-| Ridondanza geografica | non per Managed Disks | non per Managed Disks | No | No | No |
+| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | no | no |
+| Ridondanza geografica | non per Managed Disks | non per Managed Disks | no | no | no |
 
 
 <sup>1</sup> con utilizzo del [acceleratore di scrittura di Azure](../../how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward
@@ -140,7 +139,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | --- | --- | --- | 
 | VHD di base del sistema operativo | adatto | tutti i sistemi |
 | Disco dati | adatto | tutti i sistemi, [specialmente per SAP Hana](../../how-to-enable-write-accelerator.md) |
-| Directory di trasporto globale SAP | YES | [Supporto](https://launchpad.support.sap.com/#/notes/2015553) |
+| Directory di trasporto globale SAP | YES | [Supportato](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | adatto | tutti i sistemi |
 | Archiviazione di backup | adatto | per l'archiviazione a breve termine dei backup |
 | Condivisioni/disco condiviso | non disponibile | Necessita di file Premium di Azure o di terze parti |
@@ -198,7 +197,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non funziona | - |
 | Disco dati | adatto | tutti i sistemi  |
-| Directory di trasporto globale SAP | YES | [Supporto](https://launchpad.support.sap.com/#/notes/2015553) |
+| Directory di trasporto globale SAP | YES | [Supportato](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | adatto | tutti i sistemi |
 | Archiviazione di backup | adatto | per l'archiviazione a breve termine dei backup |
 | Condivisioni/disco condiviso | non disponibile | Necessita di terze parti |

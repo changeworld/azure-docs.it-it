@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f98d00477b7dc8fbbbe7d17705e398a708ce2af
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 18350dc39fceaf6f4c50f8e1053a2972bbce7f44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120938"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676628"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Massimizza la qualità rowgroup per le prestazioni degli indici columnstore
 
@@ -26,7 +26,7 @@ La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo.
 
 Poiché un indice columnstore analizza una tabella eseguendo la scansione di segmenti di colonna di singoli gruppi di righe, accrescendo al massimo il numero di righe in ogni gruppo di righe le prestazioni delle query migliorano. Quando i gruppi di righe hanno un numero elevato di righe, la compressione dei dati migliora, il che significa meno dati da leggere dal disco.
 
-Per altre informazioni sui gruppi di righe, vedere [Descrizione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Per altre informazioni sui gruppi di righe, vedere [Descrizione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Dimensioni di destinazione per i gruppi di righe
 
@@ -38,11 +38,11 @@ Durante un caricamento bulk o la ricompilazione di un indice columnstore, a volt
 
 Quando la memoria disponibile non è sufficiente per comprimere almeno 10.000 righe in ogni rowgroup, viene generato un errore.
 
-Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
+Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?view=azure-sqldw-latest#bulk&preserve-view=true).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Come monitorare la qualità di un gruppo di righe
 
-Il sys.dm_pdw_nodes_db_column_store_row_group_physical_stats DMV ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contiene la definizione della vista che corrisponde al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
+Il sys.dm_pdw_nodes_db_column_store_row_group_physical_stats DMV ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) contiene la definizione della vista che corrisponde al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -142,5 +142,5 @@ La dimensione delle DWU e la classe della risorsa utente insieme determinano la 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri modi per migliorare le prestazioni in sinapsi SQL, vedere [Panoramica delle prestazioni](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
+Per altri modi per migliorare le prestazioni in sinapsi SQL, vedere [Panoramica delle prestazioni](../overview-terminology.md).
 

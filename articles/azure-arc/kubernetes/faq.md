@@ -2,18 +2,18 @@
 title: Domande frequenti su Kubernetes di Azure Arc abilitate
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Questo articolo contiene un elenco di domande frequenti relative ad Azure Arc Enabled Kubernetes
 keywords: Kubernetes, Arc, Azure, contenitori, configurazione, GitOps, domande frequenti
-ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dc12294b5d53372be5f2e1dd71436973fefbb194
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652497"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647864"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Domande frequenti-Azure Arc abilitato Kubernetes
 
@@ -32,6 +32,8 @@ No. Tutte le funzionalità Kubernetes di Azure Arc abilitate, tra cui monitoragg
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>È necessario connettere il cluster AKS-HCI e I cluster Kubernetes nell'hub Azure Stack e Azure Stack Edge ad Azure Arc?
 
 Sì, la connessione del cluster AKS-HCI o dei cluster Kubernetes in Azure Stack Edge o nell'hub Azure Stack ad Azure Arc fornisce cluster con rappresentazione di risorse in Azure Resource Manager. Questa rappresentazione della risorsa estende funzionalità come la configurazione del cluster, monitoraggio di Azure e criteri di Azure (Gatekeeper) per i cluster Kubernetes connessi.
+
+Se il cluster Kubernetes abilitato per Azure Arc si trova su Azure Stack Edge, AKS in Azure Stack HCI (>= aggiornamento di aprile 2021) o AKS in Windows Server 2019 datacenter (>= aggiornamento di aprile 2021), la configurazione di Kubernetes è inclusa gratuitamente.
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>Come risolvere le risorse Kubernetes abilitate per Azure Arc scadute?
 
@@ -70,6 +72,6 @@ Questa funzionalità applica le configurazioni di base (ad esempio i criteri di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Connettere un cluster ad Azure Arc](./connect-cluster.md)
+* [Connettere un cluster ad Azure Arc](./quickstart-connect-cluster.md)
 * [Creare configurazioni nel cluster Kubernetes abilitato per l'arco](./use-gitops-connected-cluster.md)
 * [Usare i criteri di Azure per applicare configurazioni su larga scala](./use-azure-policy.md)

@@ -2,18 +2,18 @@
 title: Panoramica dei server con abilitazione di Azure Arc
 description: Informazioni su come usare i server con abilitazione di Azure Arc per gestire server ospitati all'esterno di Azure come una risorsa di Azure.
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
-ms.date: 11/12/2020
+ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: be5955e9bf02e591fdbba3f080d034c126379c2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 615835e5a11fac0b09a56e10084249ea493d794d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584792"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651111"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
-I server con abilitazione di Azure Arc consentono di gestire le macchine virtuali Windows e Linux ospitate all'esterno di Azure, nella rete aziendale o in un altro provider di servizi cloud, in modo analogo a come si gestiscono le macchine virtuali native di Azure. Quando una macchina virtuale ibrida viene connessa ad Azure, diventa una macchina virtuale connessa e viene considerata come una risorsa in Azure. Ogni macchina virtuale connessa ha un ID risorsa, è inclusa in un gruppo di risorse e usufruisce dei vantaggi derivanti dai costrutti di Azure standard, ad esempio Criteri di Azure e applicazione di tag. I provider di servizi che gestiscono l'infrastruttura locale di un cliente possono gestire le proprie macchine virtuali ibride in più ambienti di clienti, proprio come avviene oggi con le risorse native di Azure, usando [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
+Azure Arc Enabled Server consente di gestire i server fisici Windows e Linux e le macchine virtuali ospitate *all'esterno* di Azure, nella rete aziendale o in un altro provider di servizi cloud. Questa esperienza di gestione è progettata per essere coerente con la modalità di gestione delle macchine virtuali native di Azure. Quando una macchina virtuale ibrida viene connessa ad Azure, diventa una macchina virtuale connessa e viene considerata come una risorsa in Azure. Ogni macchina virtuale connessa ha un ID risorsa, è inclusa in un gruppo di risorse e usufruisce dei vantaggi derivanti dai costrutti di Azure standard, ad esempio Criteri di Azure e applicazione di tag. I provider di servizi che gestiscono l'infrastruttura locale di un cliente possono gestire le proprie macchine virtuali ibride in più ambienti di clienti, proprio come avviene oggi con le risorse native di Azure, usando [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
 
 Per offrire questa esperienza con le macchine virtuali ibride ospitate all'esterno di Azure, è necessario installare l'agente Azure Connected Machine in ogni macchina virtuale che si prevede di connettere ad Azure. Questo agente non fornisce altre funzionalità e non sostituisce l'[agente di Azure Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
 
@@ -44,7 +44,7 @@ I dati di log raccolti e archiviati in un'area di lavoro Log Analytics dalla mac
 
 Per un elenco definitivo delle aree supportate con i server con abilitazione di Azure Arc, vedere la pagina [Prodotti Azure in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
-Nella maggior parte dei casi, la posizione selezionata durante la creazione dello script di installazione deve essere l'area di Azure geograficamente più vicina alla posizione del computer. I dati inattivi vengono archiviati all'interno dell'area geografica di Azure contenente l'area specificata, il che potrebbe influire anche sulla scelta dell'area in caso di requisiti di residenza dei dati. Se l'area di Azure a cui è connesso il computer è interessata da un'interruzione del servizio, il computer connesso non sarà interessato, ma le operazioni di gestione che usano Azure potrebbero non venire completate. In caso di interruzione di servizio a livello di area, se sono presenti più località che supportano un servizio con ridondanza geografica, è consigliabile connettere le macchine virtuali in ogni località a un'area di Azure diversa.
+Nella maggior parte dei casi, la posizione selezionata durante la creazione dello script di installazione deve essere l'area di Azure geograficamente più vicina alla posizione del computer. I dati inattivi vengono archiviati all'interno dell'area geografica di Azure contenente l'area specificata, il che potrebbe influire anche sulla scelta dell'area in caso di requisiti di residenza dei dati. Se l'area di Azure a cui è connesso il computer è interessata da un'interruzione del servizio, il computer connesso non sarà interessato, ma le operazioni di gestione che usano Azure potrebbero non venire completate. Se si verifica un'interruzione a livello di area e si dispone di più posizioni che supportano un servizio con ridondanza geografica, è consigliabile connettere i computer in ogni posizione a un'area di Azure diversa.
 
 Le informazioni dei metadati seguenti sul computer connesso vengono raccolte e archiviate nell'area in cui è configurata la risorsa computer Azure Arc:
 
@@ -54,6 +54,13 @@ Le informazioni dei metadati seguenti sul computer connesso vengono raccolte e a
 - Versione dell'agente Connected Machine
 
 Se ad esempio il computer è registrato con Azure Arc nell'area Stati Uniti orientali, questi dati vengono archiviati nell'area Stati Uniti.
+
+### <a name="supported-environments"></a>Ambienti supportati
+
+I server abilitati per Arc supportano la gestione di server fisici e macchine virtuali ospitati *all'esterno* di Azure. Per dettagli specifici sugli ambienti cloud ibridi che ospitano macchine virtuali, vedere [Agent-Overview. MD # supported-environments].
+
+> [!NOTE]
+> I server abilitati per Arc non sono progettati o supportati per consentire la gestione delle macchine virtuali in esecuzione in Azure.
 
 ### <a name="agent-status"></a>Stato dell'agente
 

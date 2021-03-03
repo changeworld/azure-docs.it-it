@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5ea4e4fcce380a3bd9c30312639f7aa10bf0bb90
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653466"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656194"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilità a livello di area e residenza dei dati
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 I Servizi di comunicazione di Azure consentono di aiutare i clienti a soddisfare i requisiti in materia di privacy e dati personali. Gli sviluppatori che usano Servizi di comunicazione con una relazione diretta con gli utenti che usano l'applicazione sono potenzialmente il titolare del trattamento dei dati. Poiché i Servizi di comunicazione di Azure archiviano questi dati per conto dell'utente, è probabile che Azure sia il responsabile del trattamento dei dati. In questa pagina viene riepilogato il modo in cui il servizio conserva i dati e come è possibile identificare, esportare ed eliminare i dati.
 
@@ -65,7 +63,7 @@ I thread e i messaggi delle chat vengono conservati fino a quando non vengono el
 
 ### <a name="sms"></a>sms
 
-I messaggi SMS inviati e ricevuti sono temporaneamente elaborati dal servizio e non vengono conservati. 
+I messaggi SMS inviati e ricevuti sono temporaneamente elaborati dal servizio e non vengono conservati.
 
 ### <a name="pstn-voice-calling"></a>Chiamata vocale PSTN
 

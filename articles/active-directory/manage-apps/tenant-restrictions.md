@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 611dd5e53ae96e06677b1c4a6a6f009e582b33af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252475"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646266"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -27,7 +27,9 @@ La soluzione offerta da Azure Active Directory (Azure AD) per risolvere questo p
 
 Con Restrizioni del tenant le organizzazioni possono specificare l'elenco dei tenant ai quali i loro utenti possono accedere. Azure AD consente quindi l'accesso solo ai tenant autorizzati.
 
-Questo articolo è incentrato sulle restrizioni dei tenant per Microsoft 365, ma la funzionalità dovrebbe funzionare con qualsiasi app Cloud SaaS che usa protocolli di autenticazione moderni con Azure AD per Single Sign-On. Se si usano app SaaS con un tenant di Azure AD diverso dal tenant usato da Microsoft 365, assicurarsi che siano consentiti tutti i tenant richiesti. Per ulteriori informazioni sulle app cloud SaaS, vedere il [Marketplace di Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Questo articolo è incentrato sulle restrizioni dei tenant per Microsoft 365, ma la funzionalità protegge tutte le app che inviano l'utente a Azure AD per Single Sign-On. Se si usano app SaaS con un tenant di Azure AD diverso dal tenant usato dall'Microsoft 365, assicurarsi che tutti i tenant richiesti siano consentiti, ad esempio negli scenari di collaborazione B2B. Per ulteriori informazioni sulle app cloud SaaS, vedere il [Marketplace di Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps).
+
+Inoltre, la funzionalità restrizioni tenant supporta ora [il blocco dell'utilizzo di tutte le applicazioni Microsoft Consumer](#blocking-consumer-applications) (app MSA), ad esempio OneDrive, Hotmail e Xbox.com.  Questa operazione usa un'intestazione separata per l' `login.live.com` endpoint ed è descritta in dettaglio alla fine del documento.
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -39,7 +41,7 @@ La soluzione globale è composta dai seguenti elementi:
 
 3. **Software client**: per supportare Restrizioni del tenant, il software client deve richiedere i token direttamente da Azure AD in modo che l'infrastruttura proxy possa intercettare il traffico. Le applicazioni Microsoft 365 basate su browser attualmente supportano le restrizioni dei tenant, ad esempio i client di Office che usano l'autenticazione moderna (ad esempio OAuth 2,0).
 
-4. **Tecniche di autenticazione moderne**: i servizi cloud devono usare tecniche di autenticazione moderne per Restrizioni del tenant e per bloccare l'accesso a tutti i tenant non consentiti. Per impostazione predefinita, è necessario configurare Microsoft 365 servizi cloud per l'uso di protocolli di autenticazione moderni. Per le informazioni più aggiornate sul supporto Microsoft 365 per l'autenticazione moderna, leggere [aggiornamento dell'autenticazione moderna di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Tecniche di autenticazione moderne**: i servizi cloud devono usare tecniche di autenticazione moderne per Restrizioni del tenant e per bloccare l'accesso a tutti i tenant non consentiti. Per impostazione predefinita, è necessario configurare Microsoft 365 servizi cloud per l'uso di protocolli di autenticazione moderni. Per le informazioni più aggiornate sul supporto Microsoft 365 per l'autenticazione moderna, leggere [aggiornamento dell'autenticazione moderna di Office 365](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Il diagramma seguente illustra il flusso di traffico di alto livello. Per le restrizioni dei tenant è richiesta l'ispezione TLS solo sul traffico da Azure AD, non ai servizi cloud Microsoft 365. Questa distinzione è importante perché il volume di traffico per l'autenticazione in Azure AD è in genere molto inferiore rispetto a quello verso applicazioni SaaS come Exchange Online e SharePoint Online.
 
@@ -63,22 +65,20 @@ Per abilitare Restrizioni del tenant nell'infrastruttura proxy è necessaria la 
 
 - I client devono considerare attendibile la catena di certificati presentata dal proxy per le comunicazioni TLS. Ad esempio, se vengono usati certificati da un'[infrastruttura a chiave pubblica (PKI) interna](/windows/desktop/seccertenroll/public-key-infrastructure), deve essere considerato attendibile il certificato interno dell'autorità di certificazione interna.
 
-- Per l'uso delle restrizioni dei tenant sono necessarie licenze Azure AD Premium 1. 
+- Per l'uso delle restrizioni dei tenant sono necessarie licenze Azure AD Premium 1.
 
 #### <a name="configuration"></a>Configurazione
 
-Per ogni richiesta in ingresso a login.microsoftonline.com, login.microsoft.com e login.windows.net, inserire due intestazioni HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context*.
+Per ogni richiesta in uscita a login.microsoftonline.com, login.microsoft.com e login.windows.net, inserire due intestazioni HTTP: *Restrict-Access-to-Tenants* e *Restrict-Access-context*.
 
 > [!NOTE]
-> Quando si configurano l'intercettazione e l'inserimento di intestazioni SSL, assicurarsi che il traffico a https://device.login.microsoftonline.com venga escluso. Questo URL viene usato per l'autenticazione del dispositivo e l'esecuzione di interruzioni e ispezione TLS può interferire con l'autenticazione del certificato client, che può causare problemi di registrazione del dispositivo e di accesso condizionale basato su dispositivo.
-
-
+> Non includere sottodomini `*.login.microsoftonline.com` in nella configurazione del proxy. In questo modo verrà incluso device.login.microsoftonline.com e interferirà con l'autenticazione del certificato client, che viene usata negli scenari di registrazione dei dispositivi e di accesso condizionale basato su dispositivo. Configurare il server proxy in modo da escludere device.login.microsoftonline.com da TLS break-and-ispezionate e l'inserimento di intestazioni.
 
 Le intestazioni devono includere gli elementi seguenti:
 
 - Per *Restrict-Access-to-Tenants*, usare un valore di \<permitted tenant list\> , ovvero un elenco delimitato da virgole di tenant a cui si vuole consentire agli utenti di accedere. Qualsiasi dominio registrato con un tenant può essere usato per identificare il tenant in questo elenco, nonché l'ID directory stesso. Per un esempio di tutti e tre i modi per descrivere un tenant, la coppia nome/valore per consentire contoso, Fabrikam e Microsoft è simile alla seguente: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Per *Restrict-Access-Context*, usare un valore ID di directory singola, dichiarando quale tenant imposta Restrizioni del tenant. Per dichiarare Contoso come tenant che ha impostato i criteri di restrizione dei tenant, ad esempio, la coppia nome/valore è simile alla seguente: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  In questo punto è **necessario** usare il proprio ID directory.
+- Per *Restrict-Access-Context*, usare un valore ID di directory singola, dichiarando quale tenant imposta Restrizioni del tenant. Per dichiarare Contoso come tenant che ha impostato i criteri di restrizione dei tenant, ad esempio, la coppia nome/valore è simile alla seguente: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  È **necessario** usare l'ID di directory in questo spot per ottenere i log per queste autenticazioni.
 
 > [!TIP]
 > L'ID della directory si trova nel [Portale di Azure Active Directory](https://aad.portal.azure.com/). Accedere come amministratore, selezionare **Azure Active Directory**, quindi selezionare **Proprietà**. 
@@ -88,9 +88,6 @@ Le intestazioni devono includere gli elementi seguenti:
 Per impedire agli utenti di inserire le proprie intestazioni HTTP con tenant non approvati, il proxy deve sostituire l'intestazione *Restrict-Access-To-Tenants* se questa è già presente nella richiesta in ingresso.
 
 È necessario forzare l'uso del proxy nei client per tutte le richieste a login.microsoftonline.com, login.microsoft.com e login.windows.net. Ad esempio, se vengono usati file PAC per reindirizzare i client all'uso del proxy, gli utenti finali non devono poter modificare o disabilitare tali file.
-
-> [!NOTE]
-> Non includere sottodomini in *. login.microsoftonline.com nella configurazione del proxy. Questa operazione includerà device.login.microsoftonline.com e potrebbe interferire con l'autenticazione del certificato client, che viene usata negli scenari di registrazione dei dispositivi e di accesso condizionale basato su dispositivo. Configurare il server proxy in modo da escludere device.login.microsoftonline.com da TLS break-and-ispezionate e l'inserimento di intestazioni.
 
 ## <a name="the-user-experience"></a>Esperienza utente
 
@@ -122,9 +119,6 @@ Come per gli altri report nel portale di Azure, è possibile usare i filtri per 
 - **Status**
 - **Data**
 - **Data (UTC)** (UTC corrisponde a Coordinated Universal Time)
-- **Metodo autenticazione MFA** (metodo di autenticazione a più fattori)
-- **Dettaglio autenticazione MFA** (dettaglio di autenticazione a più fattori)
-- **Risultato autenticazione MFA**
 - **Indirizzo IP**
 - **Client**
 - **Nome utente**
@@ -162,21 +156,30 @@ Fiddler è un proxy di debug Web gratuito, utilizzabile per acquisire e modifica
 
    1. Nello strumento Fiddler Web Debugger, selezionare il menu **Rules** (Regole) e selezionare **Customize Rules…** (Personalizza regole…) per aprire il file CustomRules.
 
-   2. Aggiungere le righe seguenti all'inizio della funzione `OnBeforeRequest`. Sostituire \<tenant domain\> con un dominio registrato con il tenant (ad esempio, `contoso.onmicrosoft.com` ). Sostituire \<directory ID\> con l'identificatore GUID Azure ad del tenant.
+   2. Aggiungere le righe seguenti all'inizio della funzione `OnBeforeRequest`. Sostituire \<List of tenant identifiers\> con un dominio registrato con il tenant (ad esempio, `contoso.onmicrosoft.com` ). Sostituire \<directory ID\> con l'identificatore GUID Azure ad del tenant.  Per visualizzare i log nel tenant, è **necessario** includere l'identificatore GUID corretto. 
 
-      ```JScript.NET
+   ```JScript.NET
+    // Allows access to the listed tenants.
       if (
           oSession.HostnameIs("login.microsoftonline.com") ||
           oSession.HostnameIs("login.microsoft.com") ||
           oSession.HostnameIs("login.windows.net")
       )
       {
-          oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-          oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
+          oSession.oRequest["Restrict-Access-To-Tenants"] = "<List of tenant identifiers>";
+          oSession.oRequest["Restrict-Access-Context"] = "<Your directory ID>";
       }
-      ```
 
-      Se è necessario consentire più tenant, separare i vari nomi di tenant con le virgole. Ad esempio:
+    // Blocks access to consumer apps
+      if (
+          oSession.HostnameIs("login.live.com")
+      )
+      {
+          oSession.oRequest["sec-Restrict-Tenant-Access-Policy"] = "restrict-msa";
+      }
+   ```
+
+Se è necessario consentire più tenant, separare i vari nomi di tenant con le virgole. Ad esempio:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
@@ -193,7 +196,33 @@ A seconda delle funzionalità dell'infrastruttura di proxy, è possibile eseguir
 
 Per informazioni dettagliate, consultare la documentazione del proprio server proxy.
 
+## <a name="blocking-consumer-applications"></a>Blocco di applicazioni consumer
+
+A volte, le applicazioni di Microsoft che supportano sia gli account utente che gli account aziendali, ad esempio [OneDrive](https://onedrive.live.com/) o [Microsoft Learn](https://docs.microsoft.com/learn/), possono essere ospitate in uno stesso URL.  Questo significa che gli utenti che devono accedere a tale URL per finalità lavorative possono anche accedervi per uso personale, che potrebbe non essere consentito in base alle linee guida operative.
+
+Alcune organizzazioni tentano di risolvere il problema bloccando il `login.live.com` blocco per impedire l'autenticazione degli account personali.  Questa operazione presenta diversi svantaggi:
+
+1. Blocca `login.live.com` l'uso di account personali negli scenari Guest B2B, che possono intralciare i visitatori e la collaborazione.
+1. [Autopilot richiede l'uso di `login.live.com` ](https://docs.microsoft.com/mem/autopilot/networking-requirements) per la distribuzione di. Gli scenari di Intune e Autopilot possono avere esito negativo quando `login.live.com` è bloccato.
+1. I dati di telemetria dell'organizzazione e gli aggiornamenti di Windows che si basano sul servizio MSA per gli ID dispositivo [smetteranno di funzionare](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+
+### <a name="configuration-for-consumer-apps"></a>Configurazione per le app consumer
+
+Sebbene l' `Restrict-Access-To-Tenants` intestazione funzioni come un elenco di consentiti, il blocco MSA funziona come un segnale Deny, indicando alla piattaforma account Microsoft di non consentire agli utenti di accedere alle applicazioni consumer. Per inviare questo segnale, un' `sec-Restrict-Tenant-Access-Policy` intestazione viene inserita nel traffico che visita `login.live.com` usando lo stesso proxy o firewall aziendale come [descritto in precedenza](#proxy-configuration-and-requirements). Il valore dell'intestazione deve essere `restrict-msa` . Quando l'intestazione è presente e un'app consumer tenta di accedere direttamente a un utente, l'accesso verrà bloccato.
+
+A questo punto, l'autenticazione per le applicazioni consumer non viene visualizzata nei [log di amministrazione](#admin-experience), perché login.Live.com è ospitato separatamente da Azure ad.
+
+### <a name="what-the-header-does-and-does-not-block"></a>Cosa fa l'intestazione e non blocca
+
+Il `restrict-msa` criterio blocca l'uso delle applicazioni consumer, ma consente di eseguire diversi altri tipi di traffico e autenticazione:
+
+1. Traffico senza utente per i dispositivi.  Questo include il traffico per la telemetria di Autopilot, Windows Update e dell'organizzazione.
+1. Autenticazione B2B degli account utente. Gli utenti con account Microsoft [invitati a collaborare con un tenant](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) eseguono l'autenticazione a login.Live.com per poter accedere a un tenant di risorse.
+    1. Questo accesso viene controllato usando l' `Restrict-Access-To-Tenants` intestazione per consentire o negare l'accesso al tenant della risorsa.
+1. Autenticazione pass-through, usata da molte app di Azure e Office.com, in cui le app usano Azure AD per l'accesso degli utenti consumer in un contesto utente.
+    1. Questo accesso viene controllato anche usando l' `Restrict-Access-To-Tenants` intestazione per consentire o negare l'accesso al tenant "passthrough" speciale ( `f8cdef31-a31e-4b4a-93e4-5f571e91255a` ).  Se il tenant non viene visualizzato nell' `Restrict-Access-To-Tenants` elenco dei domini consentiti, gli account utente verranno bloccati da Azure ad l'accesso a queste app.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sull'[autenticazione moderna aggiornata di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+- Informazioni sull'[autenticazione moderna aggiornata di Office 365](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

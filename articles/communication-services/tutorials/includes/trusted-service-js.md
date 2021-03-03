@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 3bf0831084b9dd6f16d8208def87033fc0be2900
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6790335e5aa63f515cd125f31a8ccd7877132c10
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645366"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661334"
 ---
 ## <a name="download-code"></a>Scarica codice
 
@@ -23,8 +23,8 @@ Trovare il codice finalizzato per questa Guida introduttiva su [GitHub](https://
 
 - Un account Azure con una sottoscrizione attiva. Per informazioni dettagliate, vedere [Creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/) in una delle [piattaforme supportate](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), versioni Active LTS e Maintenance LTS (10.14.1 consigliata). Usare il comando `node --version` per controllare la versione in uso. 
-- [Estensione Funzioni di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) per Visual Studio Code. 
+- [Node.js](https://nodejs.org/), versioni Active LTS e Maintenance LTS (10.14.1 consigliata). Usare il comando `node --version` per controllare la versione in uso.
+- [Estensione Funzioni di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) per Visual Studio Code.
 - Una stringa di connessione e una risorsa attiva di Servizi di comunicazione. [Creare una risorsa di Servizi di comunicazione](../../quickstarts/create-communication-resource.md).
 
 ## <a name="overview"></a>Panoramica
@@ -76,7 +76,7 @@ Si procederà con l'installazione delle librerie di Servizi di comunicazione di 
 
 Per generare `User Access Tokens`, verrà usata la libreria `Identity`.
 
-Usare il comando `npm install` per installare la libreria client di amministrazione di Servizi di comunicazione di Azure per JavaScript.
+Usare il `npm install` comando per installare la libreria client di identità dei servizi di comunicazione di Azure per JavaScript.
 
 ```console
 
@@ -102,7 +102,7 @@ Per altre informazioni sul recupero della stringa di connessione, vedere la [gui
 const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 ```
 
-Successivamente, la funzione originale verrà modificata per generare `User Access Tokens`. 
+Successivamente, la funzione originale verrà modificata per generare `User Access Tokens`.
 
 `User Access Tokens` vengono generati creando un utente dal metodo `createUser`. Una volta creato l'utente, è possibile usare il metodo `issueToken` per generare un token per l'utente restituito dalla funzione di Azure.
 

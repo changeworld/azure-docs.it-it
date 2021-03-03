@@ -10,16 +10,14 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python-swift-android
-ms.openlocfilehash: 6f4a4bc34705a67bd91bd05dca9e6786477be6d5
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: d8b2edff432bdcbd21afdf81ffea2617b22b0452
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653523"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661630"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Avvio rapido: Aggiungere una chat all'app
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Iniziare a usare Servizi di comunicazione di Azure usando la libreria client di chat di Servizi di comunicazione per aggiungere una chat in tempo reale all'applicazione. In questa guida di avvio rapido verrà usata la libreria client di chat per creare thread di chat che consentono agli utenti di avere conversazioni tra loro. Per altre informazioni sui concetti relativi alle chat, vedere la [documentazione concettuale per le chat](../../concepts/chat/concepts.md).
 

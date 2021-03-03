@@ -3,18 +3,18 @@ title: 'Informazioni di riferimento: Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni dettagliate sugli strumenti inclusi in Ubuntu Data Science Virtual Machine
 author: gvashishtha
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e9a55f72718d6ed5991f3d0f16323409bb0f699f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013854"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661070"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Informazioni di riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -253,7 +253,7 @@ Dopo aver effettuato l'accesso a Azure Machine Learning Studio, è possibile usa
 
 ## <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 
-La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Queste includono:
+La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Tra queste sono incluse:
 
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
 * **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.

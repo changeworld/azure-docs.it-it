@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: Documentazione sull'aggiornamento del dispositivo per l'hub Internet
+summary: L'aggiornamento del dispositivo per l'hub Internet è un servizio che consente di distribuire gli aggiornamenti in modalità wireless nei dispositivi Internet delle cose.
+metadata:
+  title: Documentazione sull'aggiornamento del dispositivo per l'hub Internet
+  description: L'aggiornamento del dispositivo per l'hub Internet è un servizio che consente di distribuire gli aggiornamenti in modalità wireless nei dispositivi Internet delle cose.
+  services: iot-hub
+  ms.service: iot-hub
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  manager: philmea
+  ms.date: 2/17/2021
+  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101665784"
+landingContent:
+- title: Informazioni sull'aggiornamento del dispositivo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'aggiornamento dei dispositivi per l'hub Internet?
+      url: understand-device-update.md
+  - linkListType: concept
+    links:
+    - text: Modalità di utilizzo dell'aggiornamento dispositivo Plug and Play
+      url: device-update-plug-and-play.md
+    - text: Informazioni sull'autenticazione e sull'autorizzazione degli aggiornamenti dei dispositivi
+      url: device-update-control-access.md
+    - text: Informazioni sull'agente di aggiornamento del dispositivo
+      url: device-update-agent-overview.md
+    - text: Informazioni sull'importazione degli aggiornamenti del dispositivo
+      url: import-concepts.md
+    - text: Informazioni sui gruppi di aggiornamento del dispositivo
+      url: device-update-groups.md
+- title: Esplora con le esercitazioni
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Aggiornamento del dispositivo in Raspberry Pi
+      url: device-update-raspberry-pi.md
+  - linkListType: tutorial
+    links:
+    - text: Aggiornamento del dispositivo in un simulatore
+      url: device-update-simulator.md
+  - linkListType: tutorial
+    links:
+    - text: Aggiornamento del dispositivo nell'agente di pacchetti di Ubuntu server 18,04 x64
+      url: device-update-ubuntu-agent.md
+- title: Informazioni su come aggiornare i dispositivi
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creazione di un account di aggiornamento del dispositivo
+      url: create-device-update-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: Importazione di un aggiornamento
+      url: import-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creazione di un gruppo di aggiornamento
+      url: create-update-group.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuire un aggiornamento
+      url: deploy-update.md
+- title: Guida per sviluppatori
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Compila, Esegui e modifica agente di aggiornamento dispositivi
+      url: device-update-agent-provisioning.md

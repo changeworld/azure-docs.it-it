@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b78c2d5c03c95249c7f708f2d660d32c834f123e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7d6675f9584f90b67d8520091dcd4b04dd89e462
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676096"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667579"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Connettersi a Synapse SQL con sqlcmd
 
@@ -25,10 +25,10 @@ ms.locfileid: "98676096"
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-È possibile usare l'utilità da riga di comando [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per connettersi al pool SQL serverless e al pool SQL dedicato ed eseguire query all'interno di Synapse SQL.  
+È possibile usare l'utilità da riga di comando [sqlcmd](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true) per connettersi al pool SQL serverless e al pool SQL dedicato ed eseguire query all'interno di Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Connessione
-Per iniziare a usare [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di Synapse SQL. La stringa di connessione richiede i parametri seguenti:
+Per iniziare a usare [sqlcmd](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true), aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di Synapse SQL. La stringa di connessione richiede i parametri seguenti:
 
 * **Server (-S):** server nel formato `<`Nome server`>`.database.windows.net
 * **Database (-d):** Nome database
@@ -78,7 +78,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ### <a name="use-dedicated-sql-pool"></a>Usare il pool SQL dedicato
 
-Dopo la connessione sarà possibile eseguire sull'istanza qualsiasi istruzione [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (T-SQL) supportata. In questo esempio le query vengono inviate in modalità interattiva:
+Dopo la connessione sarà possibile eseguire sull'istanza qualsiasi istruzione [Transact-SQL](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) (T-SQL) supportata. In questo esempio le query vengono inviate in modalità interattiva:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -99,7 +99,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ### <a name="use-serverless-sql-pool"></a>Usare i pool SQL serverless
 
-Dopo aver stabilito la connessione, è possibile eseguire qualsiasi istruzione [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (T-SQL) supportata nell'istanza.  Nell'esempio seguente le query vengono inviate in modalità interattiva:
+Dopo aver stabilito la connessione, è possibile eseguire qualsiasi istruzione [Transact-SQL](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) (T-SQL) supportata nell'istanza.  Nell'esempio seguente le query vengono inviate in modalità interattiva:
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -120,4 +120,4 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle opzioni di sqlcmd, vedere la [relativa documentazione](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Per altre informazioni sulle opzioni di sqlcmd, vedere la [relativa documentazione](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true).

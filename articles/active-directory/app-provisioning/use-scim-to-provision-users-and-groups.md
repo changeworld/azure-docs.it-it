@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 35efcd4059ab654178fb87c133a6f64721caf7d2
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989061"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652097"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: sviluppare e pianificare il provisioning per un endpoint SCIM
 
@@ -882,7 +882,7 @@ Nel codice di esempio, le richieste vengono autenticate usando il pacchetto Micr
 
 È necessario un token di connessione anche per usare i [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) forniti ed eseguire il debug locale con localhost. Il codice di esempio usa ambienti ASP.NET Core per modificare le opzioni di autenticazione durante la fase di sviluppo e abilitare l'uso di un token autofirmato.
 
-Per altre informazioni su più ambienti in ASP.NET Core, vedere [usare più ambienti in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+Per altre informazioni su più ambienti in ASP.NET Core, vedere [usare più ambienti in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 Il codice seguente impone l'autenticazione delle richieste per qualsiasi endpoint del servizio con un token di connessione firmato con una chiave personalizzata:
 

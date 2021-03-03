@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365447"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649317"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -28,21 +28,19 @@ Quando si aggiunge un utente guest alla directory, l'account utente guest presen
    > - **A partire dal 4 gennaio 2021**, il [supporto dell'accesso WebView verrà deprecato](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) da Google. Se si usa la federazione Google o l'iscrizione self-service con Gmail, è consigliabile [testare la compatibilità delle applicazioni line-of-business native](google-federation.md#deprecation-of-webview-sign-in-support).
    > - **A partire dall'ottobre 2021**, Microsoft non supporterà più il riscatto degli inviti creando account Azure ad non gestiti e tenant per gli scenari di collaborazione B2B. Nel frattempo, i clienti sono invitati ad acconsentire esplicitamente all'[autenticazione con passcode monouso tramite posta elettronica](one-time-passcode.md). Saremo lieti di ricevere feedback su questa funzionalità di anteprima pubblica e di creare ancora altri modi per collaborare.
 
-## <a name="redemption-through-the-invitation-email"></a>Riscatto con il messaggio di posta elettronica di invito
+## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Riscatto e accesso tramite un endpoint comune
 
-Quando si aggiunge un utente guest alla directory [usando il portale di Azure](./b2b-quickstart-add-guest-users-portal.md), nel processo viene inviato un messaggio di posta elettronica di invito all'utente guest. È anche possibile scegliere di inviare messaggi di posta elettronica di invito quando si [usa PowerShell](./b2b-quickstart-invite-powershell.md) per aggiungere utenti guest alla directory. Ecco una descrizione dell'esperienza dell'utente guest quando riscatta il collegamento nel messaggio di posta elettronica.
+Gli utenti guest possono ora accedere alle app multi-tenant o Microsoft di terze parti tramite un endpoint comune (URL), ad esempio `https://myapps.microsoft.com` . In precedenza, un URL comune reindirizza un utente Guest al tenant principale anziché al tenant della risorsa per l'autenticazione, quindi è necessario un collegamento specifico per il tenant (ad esempio `https://myapps.microsoft.com/?tenantid=<tenant id>` ). A questo punto l'utente Guest può accedere all'URL comune dell'applicazione, scegliere **Opzioni di accesso** e quindi selezionare **Accedi a un'organizzazione**. L'utente digita quindi il nome dell'organizzazione.
 
-1. L'utente guest riceve un [messaggio di posta elettronica di invito](./invitation-email-elements.md) inviato da **Microsoft Invitations**.
-2. L'utente guest seleziona **Accetta l'invito** nel messaggio di posta elettronica.
-3. L'utente guest userà le proprie credenziali per accedere alla directory. Se l'utente guest non dispone di un account che può essere federato alla directory e la funzionalità [passcode monouso tramite posta elettronica](./one-time-passcode.md) non è abilitata, all'utente guest viene richiesto di creare un [account del servizio gestito](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale o un [account self-service Azure AD](../enterprise-users/directory-self-service-signup.md). Per informazioni dettagliate, vedere il [flusso di riscatto dell'invito](#invitation-redemption-flow).
-4. L'utente guest viene guidato attraverso l'[esperienza di consenso](#consent-experience-for-the-guest) descritta di seguito.
+![Accesso endpoint comune](media/redemption-experience/common-endpoint-flow-small.png)
 
+L'utente viene quindi reindirizzato all'endpoint con tenant, in cui è possibile accedere con il proprio indirizzo di posta elettronica o selezionare un provider di identità configurato.
 ## <a name="redemption-through-a-direct-link"></a>Riscatto attraverso un collegamento diretto
 
-In alternativa al messaggio di posta elettronica di invito, è possibile assegnare a un utente guest un collegamento diretto all'app o al portale. È prima necessario aggiungere l'utente guest alla directory tramite il [portale di Azure](./b2b-quickstart-add-guest-users-portal.md) o [PowerShell](./b2b-quickstart-invite-powershell.md). Quindi è possibile usare uno dei [modi personalizzabili per distribuire le applicazioni agli utenti](../manage-apps/end-user-experiences.md), inclusi i collegamenti di accesso diretto. Quando un utente guest usa un collegamento diretto anziché un messaggio di posta elettronica di invito, viene comunque guidato attraverso la prima esperienza di consenso.
+In alternativa al messaggio di posta elettronica di invito o all'URL comune di un'applicazione, è possibile assegnare a un guest un collegamento diretto all'app o al portale. È prima necessario aggiungere l'utente guest alla directory tramite il [portale di Azure](./b2b-quickstart-add-guest-users-portal.md) o [PowerShell](./b2b-quickstart-invite-powershell.md). Quindi è possibile usare uno dei [modi personalizzabili per distribuire le applicazioni agli utenti](../manage-apps/end-user-experiences.md), inclusi i collegamenti di accesso diretto. Quando un utente guest usa un collegamento diretto anziché un messaggio di posta elettronica di invito, viene comunque guidato attraverso la prima esperienza di consenso.
 
-> [!IMPORTANT]
-> Il collegamento diretto deve essere specifico del tenant. In altre parole, deve includere un ID tenant o un dominio verificato, in modo che l'utente guest possa essere autenticato nel tenant in cui si trova l'app condivisa. Un URL comune come https://myapps.microsoft.com non funzionerà per un utente guest perché verrà reindirizzato al tenant principale per l'autenticazione. Di seguito sono riportati alcuni esempi di collegamenti diretti con il contesto del tenant:
+> [!NOTE]
+> Un collegamento diretto è specifico del tenant. In altre parole, include un ID tenant o un dominio verificato, in modo che il Guest possa essere autenticato nel tenant, in cui si trova l'app condivisa. Di seguito sono riportati alcuni esempi di collegamenti diretti con il contesto del tenant:
  > - Pannello di accesso per le app: `https://myapps.microsoft.com/?tenantid=<tenant id>`
  > - Pannello di accesso per le app per un dominio verificato: `https://myapps.microsoft.com/<;verified domain>`
  > - Portale di Azure: `https://portal.azure.com/<tenant id>`
@@ -53,6 +51,14 @@ In alcuni casi, è consigliabile usare il messaggio di posta elettronica di invi
  - È a volte possibile che l'oggetto utente invitato non abbia un indirizzo di posta elettronica a causa di un conflitto con un oggetto contatto (ad esempio, un oggetto contatto di Outlook). In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
  - L'utente può accedere con un alias dell'indirizzo di posta elettronica invitato. Un alias è un indirizzo di posta elettronica aggiuntivo associato a un account di posta elettronica. In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
 
+## <a name="redemption-through-the-invitation-email"></a>Riscatto con il messaggio di posta elettronica di invito
+
+Quando si aggiunge un utente guest alla directory [usando il portale di Azure](./b2b-quickstart-add-guest-users-portal.md), nel processo viene inviato un messaggio di posta elettronica di invito all'utente guest. È anche possibile scegliere di inviare messaggi di posta elettronica di invito quando si [usa PowerShell](./b2b-quickstart-invite-powershell.md) per aggiungere utenti guest alla directory. Ecco una descrizione dell'esperienza dell'utente guest quando riscatta il collegamento nel messaggio di posta elettronica.
+
+1. L'utente guest riceve un [messaggio di posta elettronica di invito](./invitation-email-elements.md) inviato da **Microsoft Invitations**.
+2. L'utente guest seleziona **Accetta l'invito** nel messaggio di posta elettronica.
+3. L'utente guest userà le proprie credenziali per accedere alla directory. Se l'utente guest non dispone di un account che può essere federato alla directory e la funzionalità [passcode monouso tramite posta elettronica](./one-time-passcode.md) non è abilitata, all'utente guest viene richiesto di creare un [account del servizio gestito](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personale o un [account self-service Azure AD](../enterprise-users/directory-self-service-signup.md). Per informazioni dettagliate, vedere il [flusso di riscatto dell'invito](#invitation-redemption-flow).
+4. L'utente guest viene guidato attraverso l'[esperienza di consenso](#consent-experience-for-the-guest) descritta di seguito.
 ## <a name="invitation-redemption-flow"></a>Flusso di riscatto dell'invito
 
 Quando un utente fa clic sul collegamento **Accetta l'invito** in un [messaggio di posta elettronica di invito](invitation-email-elements.md), Azure AD riscatta automaticamente l'invito in base al flusso di riscatto, come illustrato di seguito:

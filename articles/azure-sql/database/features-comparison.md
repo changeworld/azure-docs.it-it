@@ -8,16 +8,16 @@ ms.subservice: features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 12/25/2020
-ms.openlocfilehash: 7bdde57c1d33118fd7d3c8e04a2507d8997c36d0
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/21/2021
+ms.openlocfilehash: 7acb891cc887fb118a338cc837c5c5c4c98a63d8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809514"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655939"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -77,7 +77,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [Elementi del linguaggio](/sql/t-sql/language-elements/language-elements-transact-sql) | Supportati per la maggior parte. Vedere i singoli elementi |  Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Server collegati](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No. Vedere [Query elastica](elastic-query-horizontal-partitioning.md) | Sì. Solo per [SQL Server e database SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) senza transazioni distribuite. |
 | [Server collegati](/sql/relational-databases/linked-servers/linked-servers-database-engine) che leggono da file (CSV, Excel)| No. Utilizzare [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) come alternativa per il formato CSV. | No. Utilizzare [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) come alternativa per il formato CSV. Rileva queste richieste sull' [elemento feedback di SQL istanza gestita](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
-| [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | La [disponibilità elevata](high-availability-sla.md) è inclusa in ogni database. Il ripristino di emergenza viene illustrato in [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Incorporato in modo nativo come parte del processo di migrazione del servizio migrazione dei dati di Azure. Non disponibile come soluzione a disponibilità elevata, poiché altri metodi di [disponibilità elevata](high-availability-sla.md) sono inclusi in ogni database e non è consigliabile utilizzare il log shipping come alternativa a disponibilità elevata. Il ripristino di emergenza viene illustrato in [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md). Non disponibile come meccanismo di replica tra i database: usare le repliche secondarie nel [livello business critical](service-tier-business-critical.md), i [gruppi di failover automatico](auto-failover-group-overview.md)o la [replica transazionale](../managed-instance/replication-transactional-overview.md) come alternative. |
+| [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server) | La [disponibilità elevata](high-availability-sla.md) è inclusa in ogni database. Il ripristino di emergenza viene illustrato in [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Incorporato in modo nativo come parte del processo di migrazione del [servizio di migrazione dei dati di Azure (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md) . Compilato in modo nativo per progetti di migrazione di dati personalizzati come [servizio di riesecuzione del log esterno (con ridondanza locale)](../managed-instance/log-replay-service-migrate.md).<br /> Non disponibile come soluzione a disponibilità elevata, poiché altri metodi di [disponibilità elevata](high-availability-sla.md) sono inclusi in ogni database e non è consigliabile utilizzare il log shipping come alternativa a disponibilità elevata. Il ripristino di emergenza viene illustrato in [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md). Non disponibile come meccanismo di replica tra i database: usare le repliche secondarie nel [livello business critical](service-tier-business-critical.md), i [gruppi di failover automatico](auto-failover-group-overview.md)o la [replica transazionale](../managed-instance/replication-transactional-overview.md) come alternative. |
 | [Account di accesso e utenti](/sql/relational-databases/security/authentication-access/principals-database-engine) | Sì, ma `CREATE` le `ALTER` istruzioni login e non offrono tutte le opzioni (nessun account di accesso di Windows e a livello di server Azure Active Directory). `EXECUTE AS LOGIN` non è supportato. in `EXECUTE AS USER` alternativa, usare.  | Sì, con alcune [differenze](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users). Gli account di accesso di Windows non sono supportati e devono essere sostituiti con Azure Active Directory account di accesso. |
 | [Registrazione minima nell'importazione bulk](/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No, è supportato solo il modello di recupero con supporto completo. | No, è supportato solo il modello di recupero con supporto completo. |
 | [Modifica dei dati di sistema](/sql/relational-databases/databases/system-databases) | No | Sì |
@@ -159,7 +159,7 @@ Il database SQL di Azure e Azure SQL Istanza gestita supportano diversi strument
 | Portale di Azure | Sì | Sì |
 | Interfaccia della riga di comando di Azure | Sì | Sì|
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Sì | Sì |
-| Azure Powershell | Sì | Sì |
+| Azure PowerShell | Sì | Sì |
 | [File BACPAC (esportazione)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sì. Vedere [Esportazione di un database SQL](database-export.md) | Sì. vedere [esportazione istanza gestita SQL](database-export.md) |
 | [File BACPAC (importazione)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sì. Vedere [Importazione di un database SQL](database-import.md) | Sì. vedere [importazione SQL istanza gestita](database-import.md) |
 | [Data Quality Services (DQS)](/sql/data-quality-services/data-quality-services) | No | No |
@@ -169,7 +169,7 @@ Il database SQL di Azure e Azure SQL Istanza gestita supportano diversi strument
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Sì | Sì [versione 18,0 e successive](/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Sì | Sì |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](xevent-db-diff-from-svr.md) | Sì |
-| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Sì](https://www.microsoft.com/download/details.aspx?id=38829) | Sì, [in anteprima](https://www.microsoft.com/download/details.aspx?id=38829) |
+| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Sì](https://www.microsoft.com/download/details.aspx?id=38829) | [Sì](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## <a name="migration-methods"></a>Metodi di migrazione
 

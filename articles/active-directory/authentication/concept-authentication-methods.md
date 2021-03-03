@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0bbaf5fa4f3404b0e4fdb4dc016b703c58910457
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725672"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652080"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -42,10 +42,10 @@ Nella tabella seguente vengono descritte le considerazioni sulla sicurezza per i
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | Alto     | Alto      | Alto         |
 | App Microsoft Authenticator    | Alto     | Alto      | Alto         |
-| Chiave di sicurezza FIDO2 (anteprima)   | Alto     | Alto      | Alto         |
-| Token hardware OATH (anteprima) | Livello medio   | Livello medio    | Alto         |
+| Chiave di sicurezza FIDO2             | Alto     | Alto      | Alto         |
+| Token hardware OATH           | Livello medio   | Livello medio    | Alto         |
 | Token software OATH           | Livello medio   | Livello medio    | Alto         |
-| SMS                            | Media   | Alto      | Medio       |
+| SMS                            | Medio   | Alto      | Medio       |
 | Chiamata vocale                          | Livello medio   | Livello medio    | Livello medio       |
 | Password                       | Basso      | Alto      | Alto         |
 
@@ -66,9 +66,9 @@ La tabella seguente illustra quando è possibile usare un metodo di autenticazio
 | Metodo                         | Autenticazione primaria | Autenticazione secondaria  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello for Business     | Sì                    | MFA                       |
-| App Microsoft Authenticator    | Sì (anteprima)          | Autenticazione a più fattori e SSPR              |
-| Chiave di sicurezza FIDO2 (anteprima)   | Sì                    | MFA                       |
-| Token hardware OATH (anteprima) | No                     | MFA                       |
+| App Microsoft Authenticator    | Sì                    | Autenticazione a più fattori e SSPR              |
+| Chiave di sicurezza FIDO2             | Sì                    | MFA                       |
+| Token hardware OATH           | No                     | MFA                       |
 | Token software OATH           | No                     | MFA                       |
 | SMS                            | Sì                    | Autenticazione a più fattori e SSPR              |
 | Chiamata vocale                     | No                     | Autenticazione a più fattori e SSPR              |
@@ -80,8 +80,8 @@ Per altre informazioni sul funzionamento di ogni metodo di autenticazione, veder
 
 * [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [App Microsoft Authenticator](concept-authentication-authenticator-app.md)
-* [Chiave di sicurezza FIDO2 (anteprima)](concept-authentication-passwordless.md#fido2-security-keys)
-* [Token hardware OATH (anteprima)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
+* [Chiave di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+* [Token hardware OATH](concept-authentication-oath-tokens.md#oath-hardware-tokens)
 * [Token software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [Accesso](howto-authentication-sms-signin.md) e [Verifica](concept-authentication-phone-options.md#mobile-phone-verification) tramite SMS
 * [Verifica della chiamata vocale](concept-authentication-phone-options.md)

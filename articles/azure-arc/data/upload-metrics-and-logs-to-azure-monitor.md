@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 61ac4c979445ef48b5986ec3793a9880cedc837a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: a522a650413be056ff64d26e90b6c15cf88d9a7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650253"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643491"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Caricare i dati di utilizzo, le metriche e i log in monitoraggio di Azure
 
@@ -65,11 +65,11 @@ Seguire questi comandi per creare le metriche di caricamento dell'entità serviz
 > [!NOTE]
 > Per la creazione di un'entità servizio sono necessarie [determinate autorizzazioni in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-Per creare un'entità servizio, aggiornare l'esempio seguente. Sostituire `<ServicePrincipalName>` con il nome dell'entità servizio ed eseguire il comando:
+Per creare un'entità servizio, aggiornare l'esempio seguente. Sostituire `<ServicePrincipalName>` `SubscriptionId` e `resourcegroup` con i valori ed eseguire il comando:
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName>
-``` 
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
+```
 
 Se l'entità servizio è stata creata in precedenza ed è sufficiente ottenere le credenziali correnti, eseguire il comando seguente per reimpostare le credenziali.
 
@@ -79,8 +79,8 @@ az ad sp credential reset --name <ServicePrincipalName>
 
 Ad esempio, per creare un'entità servizio denominata `azure-arc-metrics` , eseguire il comando seguente
 
-```
-az ad sp create-for-rbac --name azure-arc-metrics
+```azurecli
+az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/a345c178a-845a-6a5g-56a9-ff1b456123z2/resourceGroups/myresourcegroup
 ```
 
 Output di esempio:
@@ -137,16 +137,15 @@ Eseguire questo comando per assegnare l'entità servizio al `Monitoring Metrics 
 > Quando si esegue da un ambiente Windows, è necessario utilizzare le virgolette doppie per i nomi dei ruoli.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+
 ```
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end
@@ -154,8 +153,7 @@ az role assignment create --assignee <appId> --role 'Contributor' --scope subscr
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end

@@ -11,12 +11,12 @@ ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 937041bbb48f112e2c8ed7d222dc7c7ef7ea8d81
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e5168d5e5e3935da267fb26f38735a88bdfd7837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631394"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654477"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Richiedere un token di accesso in Azure Active Directory B2C
 
@@ -71,7 +71,7 @@ Nell'esempio seguente, sostituire questi valori:
 - `<tenant-name>`: il nome del tenant di Azure AD B2C.
 - `<policy-name>`: il nome del flusso utente o dei criteri personalizzati.
 - `<application-ID>`: l'identificatore applicazione dell'applicazione Web registrata per supportare il flusso utente.
-- `<redirect-uri>`: l' **URI di reindirizzamento** immesso al momento della registrazione dell'applicazione client.
+- `<redirect-uri>`: l'**URI di reindirizzamento** immesso al momento della registrazione dell'applicazione client.
 
 ```http
 GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
@@ -91,7 +91,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 Dopo aver ricevuto correttamente il codice di autorizzazione, è possibile usarlo per richiedere un token di accesso:
 
 ```http
-POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
+POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

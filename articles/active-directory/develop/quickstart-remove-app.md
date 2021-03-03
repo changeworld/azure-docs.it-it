@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 4afffb558b9cbf53a762b1b2bb1ce544e554feaf
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103890"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645892"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Come rimuovere un'applicazione registrata con Microsoft Identity Platform
 
@@ -36,6 +36,9 @@ Nelle sezioni seguenti si apprenderà come:
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Rimuovere un'applicazione creata dall'utente o dalla relativa organizzazione
 
 Le applicazioni registrate dall'utente o dalla relativa organizzazione vengono rappresentate nel tenant sia da un oggetto applicazione che da un oggetto entità servizio. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](./app-objects-and-service-principals.md).
+
+> [!NOTE]
+> L'eliminazione di un'applicazione eliminerà anche l'oggetto entità servizio nella directory principale dell'applicazione. Per le applicazioni multi-tenant, gli oggetti entità servizio in altre directory non verranno eliminati.
 
 Per eliminare un'applicazione, è possibile elencarla come proprietario dell'applicazione o disporre di privilegi di amministratore.
 

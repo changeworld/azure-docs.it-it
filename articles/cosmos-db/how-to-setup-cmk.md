@@ -4,17 +4,20 @@ description: Informazioni su come configurare le chiavi gestite dal cliente per 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 02/19/2021
 ms.author: thweiss
-ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338271"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656517"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurare le chiavi gestite dal cliente per l'account Azure Cosmos con Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> L'uso delle chiavi gestite dal cliente con l' [Archivio analitico](analytical-store-introduction.md) Azure Cosmos DB attualmente richiede una configurazione aggiuntiva per l'account. [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)Per informazioni dettagliate, contattare.
 
 I dati archiviati nell'account Azure Cosmos vengono crittografati automaticamente e facilmente con le chiavi gestite da Microsoft (**chiavi gestite dal servizio**). Facoltativamente, è possibile scegliere di aggiungere un secondo livello di crittografia con **chiavi gestite dal cliente**.
 
@@ -291,6 +294,10 @@ Con le chiavi gestite dal cliente vengono crittografati tutti i dati archiviati 
 ### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>Le chiavi gestite dal cliente sono supportate per gli account Azure Cosmos esistenti?
 
 Questa funzionalità è attualmente disponibile solo per i nuovi account.
+
+### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>È possibile usare chiavi gestite dal cliente insieme all' [Archivio analitico](analytical-store-introduction.md)Azure Cosmos DB?
+
+Sì, ma attualmente è necessaria una configurazione aggiuntiva per l'account. [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)Per informazioni dettagliate, contattare.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>È previsto un piano per supportare una maggiore granularità rispetto alle chiavi a livello di account?
 

@@ -6,22 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: a16d22a49e42408271c91d961bcdb004536e3980
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247013"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659750"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Usare Power BI e il pool SQL sinapsi senza server (anteprima) per analizzare i dati Azure Cosmos DB con il collegamento sinapsi 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Usare Power BI e il pool SQL sinapsi senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 In questo articolo si apprenderà come creare un database del pool SQL senza server e le visualizzazioni sul collegamento sinapsi per Azure Cosmos DB. Si eseguirà una query sui contenitori di Azure Cosmos DB e quindi si compilerà un modello con Power BI su tali viste per riflettere tale query.
 
 In questo scenario si utilizzeranno dati fittizi sulle vendite di prodotti Surface in un negozio di vendita al dettaglio partner. Si analizzeranno i ricavi per ogni negozio in base alla vicinanza a famiglie di grandi dimensioni e all'effetto della pubblicità per una settimana specifica. In questo articolo vengono create due visualizzazioni denominate **RetailSales** e **StoreDemographics** e una query tra di esse. È possibile ottenere i dati del prodotto di esempio da questo repository [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
-
-> [!IMPORTANT]
-> Il supporto del pool SQL senza server di sinapsi per il collegamento a sinapsi di Azure per Azure Cosmos DB è attualmente in fase di anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

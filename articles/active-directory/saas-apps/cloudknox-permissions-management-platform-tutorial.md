@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 724bb91b4295162b32822d36d82958638d976e09
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 8c1b45d78d4fb61d239fef178cbcb9fa6efd9539
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055448"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645687"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudknox-permissions-management-platform"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con la piattaforma di gestione delle autorizzazioni di CloudKnox
 
@@ -143,11 +143,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente alla piattaforma di gestione delle autorizzazioni CloudKnox per la quale si configura l'accesso SSO
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro CloudKnox Permissions Management Platform (app personali), si dovrebbe accedere automaticamente alla piattaforma di gestione delle autorizzazioni di CloudKnox per la quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro CloudKnox Permissions Management Platform (app personali), si dovrebbe accedere automaticamente alla piattaforma di gestione delle autorizzazioni di CloudKnox per la quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta configurata la piattaforma di gestione delle autorizzazioni di CloudKnox, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una volta configurata la piattaforma di gestione delle autorizzazioni di CloudKnox, è possibile applicare il controllo della sessione, che protegge exfiltration e l'infiltrazione dei dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

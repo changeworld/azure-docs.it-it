@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383892"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677922"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Origini dati e tipi di file supportati in Azure
 
@@ -43,9 +43,12 @@ Azure competenza supporta le origini seguenti:
 
 I tipi di file seguenti sono supportati per l'analisi, per l'estrazione e la classificazione dello schema, ove applicabile:
 
-- Formati di file strutturati supportati dall'estensione: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- Formati di file strutturati supportati dall'estensione: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
 - Formati di file di documenti supportati dall'estensione: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - La competenza supporta inoltre estensioni di file personalizzate e parser personalizzati.
+ 
+> [!Note]
+> Ogni file gzip deve essere mappato a un singolo file CSV all'interno di. I file gzip sono soggetti a regole di classificazione personalizzate e di sistema. Attualmente non è supportata la scansione di un file gzip mappato a più file all'interno di o di qualsiasi tipo di file diverso da CSV. 
 
 ## <a name="sampling-within-a-file"></a>Campionamento all'interno di un file
 

@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3021e9155e229fcaf52166fd0e9dc908f9b7cfb6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373675"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650074"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -176,7 +176,7 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 Vedere l'elenco seguente per configurare l'identità gestita per i dispositivi gemelli digitali di Azure (nelle aree in cui sono disponibili):
 
-- [Azure portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Azure portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### <a name="azure-event-grid"></a>Griglia di eventi di Azure
 

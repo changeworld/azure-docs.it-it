@@ -2,18 +2,18 @@
 title: Creare un database Oracle in una VM di Azure | Microsoft Docs
 description: Ottenere rapidamente un database Oracle 12c operativo nell'ambiente Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: a202c8d176d6b9a8893a7bc5aaad6771942dda04
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: ec6a8382e2c0ce2cb359a62dd3f80fc977c4b1c2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063063"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674662"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creare un database Oracle in una VM di Azure
 
@@ -188,16 +188,16 @@ In questa attività è necessario configurare alcuni endpoint esterni per il lis
    echo "/dev/sdc1               /u02                    ext4    defaults        0 0" >> /etc/fstab
    ```
    
-10. Aggiornare il file ***Hosted** _ con l'indirizzo IP pubblico e il nome host.
+10. Aggiornare il file ***hosts*** con l'indirizzo IP pubblico e il nome host.
 
-    Modificare l' _*_IP pubblico e VMName_*_ in modo che corrispondano ai valori effettivi:
+    Modificare l' ***IP pubblico e VMName*** in modo che corrispondano ai valori effettivi:
   
     ```bash
     echo "<Public IP> <VMname>.eastus.cloudapp.azure.com <VMname>" >> /etc/hosts
     ```
 11. Aggiornare il file hostname
     
-    Usare il comando seguente per aggiungere il nome di dominio della macchina virtuale al file _ */etc/hostname**. Si presuppone che siano stati creati il gruppo di risorse e la VM nell'area **eastus** :
+    Usare il comando seguente per aggiungere il nome di dominio della macchina virtuale al file **/etc/hostname** . Si presuppone che siano stati creati il gruppo di risorse e la VM nell'area **eastus** :
     
     ```bash
     sed -i 's/$/\.eastus\.cloudapp\.azure\.com &/' /etc/hostname

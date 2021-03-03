@@ -11,31 +11,33 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: bb63ac6de6c48bb3853bd235d908ee745ff5279d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0bc247e473ea96f2f9301eeaebb543b3317c84c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032848"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659665"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Connettersi ai servizi di archiviazione in Azure
 
-Questo articolo illustra come **connettersi ai servizi di archiviazione in Azure tramite Azure Machine Learning archivi dati**. Gli archivi dati si connettono in modo sicuro al servizio di archiviazione di Azure senza inserire le credenziali di autenticazione e l'integrità dell'origine dati originale a rischio. Le informazioni di connessione vengono archiviate, ad esempio l'ID sottoscrizione e l'autorizzazione token nell' [Key Vault](https://azure.microsoft.com/services/key-vault/) associata all'area di lavoro, in modo da poter accedere in modo sicuro alla risorsa di archiviazione senza che sia necessario codificarli negli script. Per creare e registrare archivi dati, è possibile usare [Azure Machine Learning Python SDK](#python) o [Azure Machine Learning Studio](how-to-connect-data-ui.md) .
+Questo articolo illustra come connettersi ai servizi di archiviazione dati in Azure con Azure Machine Learning archivi dati e l' [SDK Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-Se si preferisce creare e gestire archivi dati utilizzando l'estensione Azure Machine Learning VS Code; per altre informazioni, vedere la Guida alle procedure per la [gestione delle risorse vs code](how-to-manage-resources-vscode.md#datastores) .
-
-È possibile creare archivi dati da [queste soluzioni di archiviazione di Azure](#matrix). **Per le soluzioni di archiviazione non supportate** e per risparmiare i costi di uscita durante gli esperimenti di ml, [spostare i dati](#move) in una soluzione di archiviazione di Azure supportata.  
+Gli archivi dati si connettono in modo sicuro al servizio di archiviazione in Azure senza inserire le credenziali di autenticazione e l'integrità dell'origine dati originale a rischio. Archiviano le informazioni di connessione, ad esempio l'ID sottoscrizione e l'autorizzazione del token nel [Key Vault](https://azure.microsoft.com/services/key-vault/) associato all'area di lavoro, in modo da poter accedere in modo sicuro alla risorsa di archiviazione senza che sia necessario codificarli negli script. È possibile creare archivi dati che si connettono a [queste soluzioni di archiviazione di Azure](#matrix).
 
 Per informazioni sul ruolo degli archivi dati nel flusso di lavoro generale di accesso ai dati di Azure Machine Learning, vedere l'articolo [Proteggere l'accesso ai dati](concept-data.md#data-workflow).
 
+Per un'esperienza di basso livello di codice, vedere come usare il [Azure Machine Learning Studio per creare e registrare archivi dati](how-to-connect-data-ui.md#create-datastores).
+
+>[!TIP]
+> Questo articolo presuppone che si voglia connettersi al servizio di archiviazione con credenziali di autenticazione basate sulle credenziali, ad esempio un'entità servizio o un token di firma di accesso condiviso (SAS). Tenere presente che, se le credenziali sono registrate con gli archivi dati, tutti gli utenti con il ruolo di *lettore* dell'area di lavoro sono in grado di recuperare le credenziali. [Ulteriori informazioni sul ruolo *lettore* area di lavoro.](how-to-assign-roles.md#default-roles) <br><br>Se si tratta di un problema, informazioni su come [connettersi ai servizi di archiviazione con accesso basato sull'identità](how-to-identity-based-data-access.md). <br><br>Questa funzionalità è una funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e può cambiare in qualsiasi momento. 
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Sono necessari gli elementi seguenti:
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Un account di archiviazione di Azure con un [tipo di archiviazione supportato](#matrix).
 
-- [Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) o accesso a [Azure Machine Learning Studio](https://ml.azure.com/).
+- [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 - Un'area di lavoro di Azure Machine Learning.
   
@@ -59,7 +61,10 @@ Sono necessari gli elementi seguenti:
 
 ## <a name="supported-data-storage-service-types"></a>Tipi di servizi di archiviazione dati supportati
 
-Gli archivi dati attualmente supportano l'archiviazione delle informazioni di connessione nei servizi di archiviazione elencati nella matrice seguente.
+Gli archivi dati attualmente supportano l'archiviazione delle informazioni di connessione nei servizi di archiviazione elencati nella matrice seguente. 
+
+> [!TIP]
+> **Per le soluzioni di archiviazione non supportate** e per risparmiare i costi di uscita durante gli esperimenti di ml, [spostare i dati](#move) in una soluzione di archiviazione di Azure supportata. 
 
 | Tipo di&nbsp;archiviazione | Tipo di&nbsp;autenticazione | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [Interfaccia della riga di comando di Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [API REST di&nbsp;Azure&nbsp;Machine&nbsp;Learning](/rest/api/azureml/) | Visual Studio Code
 ---|---|---|---|---|---|---
@@ -88,7 +93,16 @@ Per garantire la connessione sicura al servizio di archiviazione di Azure, Azure
 
 ### <a name="virtual-network"></a>Rete virtuale 
 
-Se l'account di archiviazione dati si trova in una **rete virtuale**, sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
+Per impostazione predefinita, Azure Machine Learning non è in grado di comunicare con un account di archiviazione che si trova dietro un firewall o in una rete virtuale. Se l'account di archiviazione dati si trova in una **rete virtuale**, sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. 
+
+> [!NOTE]
+> Queste linee guida si applicano anche agli [archivi dati creati con l'accesso ai dati basato sull'identità (anteprima)](how-to-identity-based-data-access.md). 
+
+**Per gli utenti di Python SDK**, per accedere ai dati tramite lo script di training in una destinazione di calcolo, la destinazione di calcolo deve trovarsi all'interno della stessa rete virtuale e della stessa subnet dello spazio di archiviazione.  
+
+**Per gli utenti di Azure Machine Learning Studio**, diverse funzionalità si basano sulla possibilità di leggere i dati da un set di dati; quali anteprime del set di dati, profili e Machine Learning automatizzati. Per usare le funzionalità di archiviazione dietro le reti virtuali, usare un' [identità gestita dell'area di lavoro in studio](how-to-enable-studio-virtual-network.md) per consentire Azure Machine Learning di accedere all'account di archiviazione dall'esterno della rete virtuale. 
+
+Azure Machine Learning può ricevere richieste da client esterni alla rete virtuale. Per assicurarsi che l'entità che richiede i dati dal servizio sia sicura, [configurare il collegamento privato di Azure per l'area di lavoro](how-to-configure-private-link.md).
 
 ### <a name="access-validation"></a>Convalida dell'accesso
 
@@ -204,18 +218,27 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_secret=client_secret) # the secret of service principal
 ```
 
-<a name="arm"></a>
 
-## <a name="create-datastores-using-azure-resource-manager"></a>Creare archivi dati usando Azure Resource Manager
+
+## <a name="create-datastores-with-other-azure-tools"></a>Creare archivi dati con altri strumenti di Azure
+Oltre a creare archivi dati con Python SDK e studio, è anche possibile usare modelli di Azure Resource Manager o l'estensione Azure Machine Learning VS Code. 
+
+<a name="arm"></a>
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Sono disponibili diversi modelli in [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) che possono essere usati per creare archivi dati.
 
 Per informazioni sull'uso di questi modelli, vedere [usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning](how-to-create-workspace-template.md).
 
+### <a name="vs-code-extension"></a>Estensione di Visual Studio Code
+
+Se si preferisce creare e gestire archivi dati usando l'estensione Azure Machine Learning VS Code, vedere la Guida alle [procedure per la gestione delle risorse vs code](how-to-manage-resources-vscode.md#datastores) per altre informazioni.
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Usare i dati negli archivi dati
 
-Dopo aver creato un archivio dati, [creare un set](how-to-create-register-datasets.md) di dati Azure Machine Learning per interagire con i dati. I set di dati impacchettano i dati in un oggetto utilizzabile differito per le attività di Machine Learning, ad esempio il training. Offrono inoltre la possibilità di [scaricare o montare](how-to-train-with-datasets.md#mount-vs-download) file di qualsiasi formato da servizi di archiviazione di Azure, ad esempio archiviazione BLOB di Azure e ADLS generazione 2. È anche possibile usarli per caricare dati tabulari in un frame di dati Pandas o Spark.
+Dopo aver creato un archivio dati, [creare un set](how-to-create-register-datasets.md) di dati Azure Machine Learning per interagire con i dati. I set di dati impacchettano i dati in un oggetto utilizzabile differito per le attività di Machine Learning, ad esempio il training. 
+
+Con i set di dati è possibile [scaricare o montare](how-to-train-with-datasets.md#mount-vs-download) file di qualsiasi formato da servizi di archiviazione di Azure per il training del modello in una destinazione di calcolo. [Altre informazioni su come eseguire il training di modelli ml con i set di impostazioni](how-to-train-with-datasets.md).
 
 <a name="get"></a>
 

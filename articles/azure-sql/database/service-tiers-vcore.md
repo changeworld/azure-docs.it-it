@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: c55e2d2d9eaeae441e8a7505d0f391ed0860cedf
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 499e0aa1ee451969923dbdf5f84be1c844a9aab4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634194"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659335"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Le opzioni del livello di servizio nel modello vCore includono per utilizzo gene
 |Archiviazione|Usa l'archiviazione remota.<br/>**Calcolo con provisioning del database SQL**:<br/>5 GB - 4 TB<br/>**Calcolo senza server**:<br/>5 GB-3 TB<br/>**Istanza gestita SQL**: 32 GB-8 TB |Usa l'archiviazione SSD locale.<br/>**Calcolo con provisioning del database SQL**:<br/>5 GB - 4 TB<br/>**Istanza gestita SQL**:<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
 |IOPS e velocità effettiva (approssimativa)|**Database SQL**: vedere i limiti delle risorse per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).<br/>**Istanza gestita SQL**: vedere [Panoramica dei limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](read-scale-out.md)|
-|Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
+|Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 1-35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
 |In memoria|Non supportato|Supportato|Non supportato|
 |||
 

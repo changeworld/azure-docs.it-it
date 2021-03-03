@@ -9,26 +9,24 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 5b1d24dc6056de0b8dd19d0d0e52c85055596a1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559441"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664142"
 ---
 # <a name="call-flow-basics"></a>Nozioni di base sul flusso di chiamate
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 La sezione seguente offre una panoramica dei flussi di chiamate in Servizi di comunicazione di Azure. I flussi multimediali e di segnalazione dipendono dai tipi di chiamate effettuate dagli utenti. Esempi di tipi di chiamate sono le chiamate VoIP uno-a-uno, PSTN uno-a-uno e di gruppo che contengono una combinazione di partecipanti VoIP e connessi a PSTN. Esaminare i [tipi di chiamate](./voice-video-calling/about-call-types.md).
 
 ## <a name="about-signaling-and-media-protocols"></a>Informazioni sui protocolli multimediali e di segnalazione
 
-Quando si stabilisce una chiamata peer-to-peer o di gruppo, vengono usati due protocolli: HTTP (REST) per la segnalazione e SRTP per i file multimediali. 
+Quando si stabilisce una chiamata peer-to-peer o di gruppo, vengono usati due protocolli: HTTP (REST) per la segnalazione e SRTP per i file multimediali.
 
-La segnalazione tra le librerie client o tra le librerie client e i controller di segnalazione di Servizi di comunicazione viene gestita con il protocollo HTTP REST (TLS). Per il traffico multimediale in tempo reale (RTP), è preferibile il protocollo UDP (User Datagram Protocol). Se l'uso del protocollo UDP è impedito dal firewall, la libreria client userà il protocollo TCP (Transmission Control Protocol) per i file multimediali. 
+La segnalazione tra le librerie client o tra le librerie client e i controller di segnalazione di Servizi di comunicazione viene gestita con il protocollo HTTP REST (TLS). Per il traffico multimediale in tempo reale (RTP), è preferibile il protocollo UDP (User Datagram Protocol). Se l'uso del protocollo UDP è impedito dal firewall, la libreria client userà il protocollo TCP (Transmission Control Protocol) per i file multimediali.
 
-Di seguito vengono descritti i protocolli multimediali e di segnalazione in diversi scenari. 
+Di seguito vengono descritti i protocolli multimediali e di segnalazione in diversi scenari.
 
 ## <a name="call-flow-cases"></a>Casi di flussi di chiamate
 
@@ -40,7 +38,7 @@ Nelle chiamate video o VoIP uno-a-uno, il traffico preferisce il percorso più d
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Caso 2: VoIP in cui non è possibile una connessione diretta tra i dispositivi, ma è possibile una connessione tra dispositivi NAT
 
-Se due dispositivi si trovano in subnet che non possono raggiungersi reciprocamente (ad esempio, Giorgia lavora da un bar e Davide lavora dal proprio ufficio), ma la connessione tra i dispositivi NAT è possibile, le librerie client sul lato client stabiliranno la connettività tramite dispositivi NAT. 
+Se due dispositivi si trovano in subnet che non possono raggiungersi reciprocamente (ad esempio, Giorgia lavora da un bar e Davide lavora dal proprio ufficio), ma la connessione tra i dispositivi NAT è possibile, le librerie client sul lato client stabiliranno la connettività tramite dispositivi NAT.
 
 Per Giorgia, sarà il NAT del bar e per Davide sarà il NAT dell'ufficio. Il dispositivo di Giorgia invierà l'indirizzo esterno del NAT e il dispositivo di Davide eseguirà la stessa operazione. Le librerie client apprendono gli indirizzi esterni da un servizio STUN (Session Traversal Utilities for NAT) che Servizi di comunicazione di Azure fornisce gratuitamente. La logica che gestisce l'handshake tra Giorgia e Davide è integrata nelle librerie client fornite da Servizi di comunicazione di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
@@ -51,7 +49,7 @@ Per Giorgia, sarà il NAT del bar e per Davide sarà il NAT dell'ufficio. Il dis
 Se uno o entrambi i dispositivi client sono protetti da un NAT simmetrico, è necessario un servizio cloud separato per inoltrare il file multimediale tra le due librerie client. Questo servizio viene chiamato TURN (Traversal Using Relays around NAT) e viene fornito da Servizi di comunicazione. La libreria client per le chiamate di Servizi di comunicazione usa automaticamente i servizi TURN in base alle condizioni di rete rilevate. L'uso del servizio TURN di Microsoft viene addebitato separatamente.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagramma che illustra una chiamata VoIP che usa una connessione TURN.":::
- 
+
 ### <a name="case-4-group-calls-with-pstn"></a>Caso 4: Chiamate di gruppo con PSTN
 
 Sia la segnalazione che i file multimediali per le chiamate PSTN usano la risorsa di telefonia di Servizi di comunicazione di Azure. Questa risorsa è interconnessa con altri gestori telefonici.
@@ -78,7 +76,7 @@ Se la libreria client non può usare UDP per i file multimediali a causa di rest
 
 ### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: libreria client dei servizi di comunicazione e team Microsoft in una riunione di Team pianificati
 
-Segnalazione dei flussi attraverso il controller di segnalazione. Flussi multimediali tramite il processore di contenuti multimediali. Il controller di segnalazione e il processore di contenuti multimediali sono condivisi tra i servizi di comunicazione e i team Microsoft. 
+Segnalazione dei flussi attraverso il controller di segnalazione. Flussi multimediali tramite il processore di contenuti multimediali. Il controller di segnalazione e il processore di contenuti multimediali sono condivisi tra i servizi di comunicazione e i team Microsoft.
 
 :::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagramma che illustra la libreria client dei servizi di comunicazione e il client teams in una riunione di team pianificata.":::
 

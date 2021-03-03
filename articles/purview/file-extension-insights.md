@@ -6,23 +6,23 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202624"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668570"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Approfondimenti sui dati di Azure per l'estensione di file 
 
 Questa guida dettagliata descrive come accedere, visualizzare e filtrare informazioni dettagliate sulle estensioni di file o sui tipi di file trovati nei dati.
 
-Le origini dati supportate includono: archiviazione BLOB di Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
+Le origini dati supportate includono: archiviazione BLOB di Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, bucket Amazon S3
 
 In questa guida dettagliata si apprenderà come:
 > [!div class="checklist"]
-> * Avviare il proprio account di competenza da Azure. 
+> * Avvia il tuo account di competenza da Azure 
 > - Visualizzare informazioni dettagliate sull'estensione di file sui dati
 > - Eseguire il drill-down per ulteriori dettagli sull'estensione di file sui dati
 
@@ -32,7 +32,7 @@ Prima di iniziare a usare informazioni dettagliate, assicurarsi di aver completa
 
 - Configurare le risorse di Azure e popolare gli account pertinenti con i dati di test
 
-- Configurare e completare un'analisi sui dati di test in ogni origine dati
+- Configurare e completare un'analisi sui dati di test in ogni origine dati. Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](manage-data-sources.md) e [creare un set di regole di analisi](create-a-scan-rule-set.md).
 
 - Accesso a competenza con un [ruolo di lettore di dati o di data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

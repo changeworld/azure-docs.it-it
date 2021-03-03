@@ -1,0 +1,94 @@
+- name: Documentazione sull'aggiornamento del dispositivo per l'hub Internet
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è l'aggiornamento dei dispositivi per l'hub Internet?
+      href: understand-device-update.md
+- name: Esercitazioni
+  items:
+    - name: Aggiornamento dell'immagine in Raspberry Pi
+      href: device-update-raspberry-pi.md
+    - name: Usare l'aggiornamento del dispositivo in un simulatore
+      href: device-update-simulator.md
+    - name: 'Aggiornamento del pacchetto in Ubuntu server 18,04 x64'
+      href: device-update-ubuntu-agent.md
+- name: Concetti
+  items:
+    - name: Istanza e account di aggiornamento del dispositivo
+      href: device-update-resources.md
+    - name: Accesso e ruoli utente per l'aggiornamento del dispositivo
+      href: device-update-control-access.md
+    - name: Manifesto apt aggiornamento dispositivo
+      href: device-update-apt-manifest.md
+    - name: Conformità degli aggiornamenti del dispositivo
+      href: device-update-compliance.md
+    - name: Gruppi di aggiornamento del dispositivo
+      href: device-update-groups.md
+    - name: Modalità di utilizzo dell'aggiornamento dispositivo Plug and Play
+      href: device-update-plug-and-play.md
+    - name: Requisiti di rete per l'aggiornamento del dispositivo
+      href: device-update-networking.md
+    - name: Agente di aggiornamento dispositivo
+      href: device-update-agent-overview.md
+    - name: File di configurazione dell'aggiornamento del dispositivo
+      href: device-update-configuration-file.md
+    - name: Manifesto di aggiornamento del dispositivo
+      href: update-manifest.md
+    - name: Modalità di protezione dell'aggiornamento del dispositivo
+      href: device-update-security.md
+    - name: Supporto per i dispositivi disconnessi
+      href: connected-cache-disconnected-device-update.md
+    - name: Configurare la cache connessa Microsoft per l'aggiornamento del dispositivo per l'hub Internet
+      href: connected-cache-configure.md
+- name: Guide pratiche
+  items:
+    - name: Creazione di un account di aggiornamento del dispositivo
+      href: create-device-update-account.md
+    - name: Agente di aggiornamento dispositivo di provisioning
+      href: device-update-agent-provisioning.md
+    - name: Importazione di un aggiornamento
+      href: import-update.md
+    - name: Creare un gruppo di aggiornamento del dispositivo
+      href: create-update-group.md
+    - name: Distribuire un aggiornamento del dispositivo
+      href: deploy-update.md
+    - name: Distribuire un aggiornamento del dispositivo
+      href: deploy-update.md
+    - name: Cache connessa Microsoft a livello singolo
+      href: connected-cache-single-level.md
+    - name: Cache connessa Microsoft a livello annidato
+      href: connected-cache-nested-level.md
+    - name: Microsoft Connected cache per l'it industriale (IIOT)
+      href: connected-cache-industrial-iot-nested.md
+    - name: Risolvere problemi
+      items:
+        - name: Risolvere i problemi relativi agli aggiornamenti del dispositivo
+          href: troubleshoot-device-update.md
+- name: Riferimento
+  items:
+    - name: Codici di errore client di aggiornamento dispositivo
+      href: device-update-error-codes.md
+- name: Risorse
+  items:
+    - name: Opzioni di supporto tecnico e assistenza
+      href: ../iot-fundamentals/iot-support-help.md
+    - name: Servizi di Azure IoT
+      items:
+        - name: Hub IoT
+          href: ./index.yml
+        - name: Servizio Device Provisioning in hub IoT
+          href: ../iot-dps/index.yml
+        - name: IoT Central
+          href: /microsoft-iot-central/
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Acceleratori di soluzioni IoT
+          href: ../iot-accelerators/index.yml
+        - name: Plug and Play IoT
+          href: ../iot-pnp/index.yml
+        - name: Mappe di Azure
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: Ottimizzazione recapito
+      href: 'https://github.com/microsoft/do-client'

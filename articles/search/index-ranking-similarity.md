@@ -1,5 +1,5 @@
 ---
-title: Algoritmo di somiglianza di rango
+title: Configurare l'algoritmo di somiglianza di rango
 titleSuffix: Azure Cognitive Search
 description: Come impostare l'algoritmo di somiglianza per provare il nuovo algoritmo di somiglianza per la classificazione
 manager: nitinme
@@ -7,36 +7,47 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.openlocfilehash: e2caa09d41abb1842100ed8259e82ec411390ccb
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/02/2021
+ms.openlocfilehash: 9f806b512ae8e118fca8f32115c8be3b493fd681
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520630"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677794"
 ---
-# <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo di classificazione in Azure ricerca cognitiva
+# <a name="configure-ranking-algorithms-in-azure-cognitive-search"></a>Configurare gli algoritmi di classificazione in Azure ricerca cognitiva
 
-> [!IMPORTANT]
-> A partire dal 15 luglio 2020, i servizi di ricerca appena creati utilizzeranno automaticamente la funzione di classificazione BM25, che si è dimostrata nella maggior parte dei casi per fornire classificazioni di ricerca che si allineano meglio con le aspettative dell'utente rispetto alla classificazione predefinita corrente. Oltre alla classificazione superiore, BM25 Abilita anche le opzioni di configurazione per l'ottimizzazione dei risultati in base a fattori quali le dimensioni del documento.  
->
-> Con questa modifica, probabilmente si noterà un lieve cambiamento nell'ordinamento dei risultati della ricerca. Per chi desidera testare l'effetto di questa modifica, l'algoritmo BM25 è disponibile in API-Version 2019-05-06-Preview e in 2020-06-30.  
+Azure ricerca cognitiva supporta due algoritmi di classificazione di somiglianza:
 
-Questo articolo descrive come usare il nuovo algoritmo di classificazione BM25 nei servizi di ricerca esistenti per i nuovi indici creati e sottoposti a query usando l'API di anteprima.
++ Algoritmo di *somiglianza classico* , usato da tutti i servizi di ricerca fino al 15 luglio 2020.
++ Implementazione dell'algoritmo *BM25 di Okapi* , usata in tutti i servizi di ricerca creati dopo il 15 luglio.
 
-Azure ricerca cognitiva è in corso di adozione dell'implementazione ufficiale di Lucene dell'algoritmo OKAPI BM25, *BM25Similarity*, che sostituisce l'implementazione di *ClassicSimilarity* usata in precedenza. Analogamente all'algoritmo ClassicSimilarity precedente, BM25Similarity è una funzione di recupero di tipo TF-IDF che usa la frequenza del termine (TF) e la frequenza del documento inverso (IDF) come variabili per calcolare i punteggi di pertinenza per ogni coppia di query documento, che viene quindi usata per la classificazione. 
+BM25 ranking è il nuovo valore predefinito perché tende a produrre classificazioni di ricerca che si allineano meglio con le aspettative degli utenti. Abilita anche le opzioni di configurazione per l'ottimizzazione dei risultati in base a fattori quali le dimensioni del documento. Per i nuovi servizi creati dopo il 15 luglio 2020, BM25 viene usato automaticamente ed è l'unico algoritmo di somiglianza. Se si tenta di impostare la somiglianza su ClassicSimilarity in un nuovo servizio, verrà restituito un errore HTTP 400 poiché tale algoritmo non è supportato dal servizio.
 
-Sebbene concettualmente simile all'algoritmo di somiglianza classico precedente, BM25 acquisisce la radice del recupero di informazioni probabilistiche per migliorarlo. BM25 offre anche opzioni di personalizzazione avanzate, ad esempio consentendo all'utente di decidere in che modo il Punteggio di pertinenza viene ridimensionato con il termine frequenza dei termini corrispondenti.
+Per i servizi meno recenti creati prima del 15 luglio 2020, la somiglianza classica rimane l'algoritmo predefinito. I servizi meno recenti possono impostare le proprietà in un indice di ricerca per richiamare BM25, come illustrato di seguito. Se si passa dal modello classico a BM25, è possibile che si verifichino alcune differenze nel modo in cui vengono ordinati i risultati della ricerca.
 
-## <a name="how-to-test-bm25-today"></a>Come testare BM25 oggi stesso
+> [!NOTE]
+> La ricerca semantica è un algoritmo di riclassificazione semantico aggiuntivo che restringe ulteriormente il gap tra le aspettative e i risultati. Diversamente dagli altri algoritmi, si tratta di una funzionalità di componente aggiuntivo che consente di scorrere un set di risultati esistente. Per utilizzare l'algoritmo di ricerca semantica di anteprima, è necessario creare un nuovo servizio ed è necessario specificare un [tipo di query semantico](semantic-how-to-query-request.md). Per altre informazioni, vedere [Cenni preliminari sulla ricerca semantica](semantic-search-overview.md).
 
-Quando si crea un nuovo indice, è possibile impostare una proprietà di **somiglianza** per specificare l'algoritmo. È possibile usare `api-version=2019-05-06-Preview` , come illustrato di seguito, o `api-version=2020-06-30` .
+## <a name="create-a-search-index-for-bm25-scoring"></a>Creare un indice di ricerca per il Punteggio di BM25
+
+Se si esegue un servizio di ricerca creato prima del 15 luglio 2020, è possibile impostare la proprietà di somiglianza su BM25Similarity o ClassicSimilarity nella definizione dell'indice. Se la proprietà di somiglianza viene omessa o impostata su null, l'indice utilizzerà l'algoritmo classico.
+
+L'algoritmo di somiglianza può essere impostato solo in fase di creazione dell'indice. Tuttavia, una volta creato un indice con BM25, è possibile aggiornare l'indice esistente per impostare o modificare i parametri di BM25.
+
+| Libreria client | Proprietà somiglianza |
+|----------------|---------------------|
+| .NET  | [SearchIndex. somiglianza](/dotnet/api/azure.search.documents.indexes.models.searchindex.similarity) |
+| Java | [SearchIndex. sesimilarity](/java/api/com.azure.search.documents.indexes.models.searchindex.setsimilarity) |
+| JavaScript | [SearchIndex. somiglianza](/javascript/api/@azure/search-documents/searchindex#similarity) |
+| Python | [Proprietà di somiglianza in SearchIndex](/python/api/azure-search-documents/azure.search.documents.indexes.models.searchindex) |
+
+### <a name="rest-example"></a>Esempio REST
+
+È anche possibile usare l' [API REST](/rest/api/searchservice/create-index), come illustrato nell'esempio seguente:
 
 ```http
-PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
-```
-
-```json  
+PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2020-06-30
 {
     "name": "indexName",
     "fields": [
@@ -59,48 +70,28 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-La proprietà di **somiglianza** è utile durante questo periodo di tempo, quando entrambi gli algoritmi sono disponibili, solo per i servizi esistenti. 
-
-| Proprietà | Descrizione |
-|----------|-------------|
-| somiglianza | facoltativo. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
-
-Per i nuovi servizi creati dopo il 15 luglio 2020, BM25 viene usato automaticamente ed è l'unico algoritmo di somiglianza. Se si tenta di impostare la **somiglianza** `ClassicSimilarity` su in un nuovo servizio, verrà restituito un errore 400 poiché tale algoritmo non è supportato in un nuovo servizio.
-
-Per i servizi esistenti creati prima del 15 luglio 2020, la somiglianza classica rimane l'algoritmo predefinito. Se la proprietà di **somiglianza** viene omessa o impostata su null, l'indice utilizzerà l'algoritmo classico. Se si vuole usare il nuovo algoritmo, sarà necessario impostare la **somiglianza** come descritto in precedenza.
-
 ## <a name="bm25-similarity-parameters"></a>Parametri di somiglianza di BM25
 
-La somiglianza di BM25 aggiunge due parametri personalizzabili dall'utente per controllare il Punteggio di pertinenza calcolato.
+La somiglianza di BM25 aggiunge due parametri personalizzabili dall'utente per controllare il Punteggio di pertinenza calcolato. È possibile impostare i parametri BM25 durante la creazione dell'indice o come aggiornamento dell'indice se l'algoritmo BM25 è stato specificato durante la creazione dell'indice.
 
-### <a name="k1"></a>k1
-
-Il parametro *K1* controlla la funzione di ridimensionamento tra la frequenza dei termini di ogni termine corrispondente e il Punteggio di pertinenza finale di una coppia di query documento.
-
-Un valore pari a zero rappresenta un "modello binario", in cui il contributo di un singolo termine corrispondente è lo stesso per tutti i documenti corrispondenti, indipendentemente dal numero di volte in cui il termine viene visualizzato nel testo, mentre un valore K1 maggiore consente al Punteggio di continuare ad aumentare man seconda che nel documento siano presenti più istanze dello stesso termine. Per impostazione predefinita, Azure ricerca cognitiva usa un valore di 1,2 per il parametro K1. L'uso di un valore K1 superiore può essere importante nei casi in cui ci si aspetta che più termini facciano parte di una query di ricerca. In questi casi, è consigliabile preferire i documenti che corrispondono a molti dei diversi termini di query in cui viene eseguita la ricerca sui documenti che corrispondono solo a una singola, più volte. Ad esempio, quando si esegue una query sull'indice per i documenti che contengono i termini "Apollo spaziale", potrebbe essere necessario ridurre il Punteggio di un articolo sulla mitologia greca che contiene il termine "Apollo" alcune dozzine di volte, senza menzione di "volo", rispetto a un altro articolo che indica esplicitamente "Apollo" e "volo" solo alcune volte. 
- 
-### <a name="b"></a>b
-
-Il parametro *b* controlla il modo in cui la lunghezza di un documento influiscono sul punteggio di pertinenza.
-
-Il valore 0,0 indica che la lunghezza del documento non influenzerà il punteggio, mentre il valore 1,0 indica che l'impatto della frequenza dei termini sul punteggio di pertinenza verrà normalizzato in base alla lunghezza del documento. Il valore predefinito usato in ricerca cognitiva di Azure per il parametro b è 0,75. La normalizzazione della frequenza dei termini in base alla lunghezza del documento è utile nei casi in cui si vuole penalizzare i documenti più lunghi. In alcuni casi, è più probabile che documenti più lunghi, ad esempio un romanzo completo, contengano molti termini irrilevanti rispetto a documenti molto più brevi.
+| Proprietà | Type | Descrizione |
+|----------|------|-------------|
+| k1 | d'acquisto | Controlla la funzione di ridimensionamento tra la frequenza dei termini di ogni termine corrispondente e il Punteggio di pertinenza finale di una coppia di query documento. I valori sono in genere compresi tra 0,0 e 3,0 e 1,2 come valore predefinito. </br></br>Il valore 0,0 rappresenta un "modello binario", in cui il contributo di un singolo termine corrispondente è lo stesso per tutti i documenti corrispondenti, indipendentemente dal numero di volte in cui il termine viene visualizzato nel testo, mentre un valore K1 maggiore consente al Punteggio di continuare ad aumentare quando nel documento sono presenti più istanze dello stesso termine. </br></br>L'uso di un valore K1 superiore può essere importante nei casi in cui ci si aspetta che più termini facciano parte di una query di ricerca. In questi casi, è consigliabile preferire i documenti che corrispondono a molti dei diversi termini di query in cui viene eseguita la ricerca sui documenti che corrispondono solo a una singola, più volte. Ad esempio, quando si esegue una query sull'indice per i documenti che contengono i termini "Apollo spaziale", potrebbe essere necessario ridurre il Punteggio di un articolo sulla mitologia greca che contiene il termine "Apollo" alcune dozzine di volte, senza menzionare il "volo", rispetto a un altro articolo che indica in modo esplicito sia "Apollo" che "volo" solo alcune volte. |
+| b | d'acquisto | Controlla il modo in cui la lunghezza di un documento influiscono sul punteggio di pertinenza. I valori sono compresi tra 0 e 1, con 0,75 come valore predefinito. </br></br>Il valore 0,0 indica che la lunghezza del documento non influenzerà il punteggio, mentre il valore 1,0 indica che l'impatto della frequenza dei termini sul punteggio di pertinenza verrà normalizzato in base alla lunghezza del documento. </br></br>La normalizzazione della frequenza dei termini in base alla lunghezza del documento è utile nei casi in cui si vuole penalizzare i documenti più lunghi. In alcuni casi, è più probabile che documenti più lunghi, ad esempio un romanzo completo, contengano molti termini irrilevanti rispetto a documenti molto più brevi. |
 
 ### <a name="setting-k1-and-b-parameters"></a>Impostazione dei parametri K1 e b
 
-Per personalizzare i valori b o K1, è sufficiente aggiungerli come proprietà all'oggetto di somiglianza quando si usa BM25:
+Per impostare o modificare i valori b o K1, aggiungerli all'oggetto somiglianza BM25. Se si imposta o si modificano questi valori in un indice esistente, l'indice verrà portato offline per almeno alcuni secondi, causando un errore di indicizzazione e richieste di query attive. Di conseguenza, è necessario impostare il parametro "allowIndexDowntime = true" della richiesta di aggiornamento:
 
-```json
+```http
+PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2020-06-30&allowIndexDowntime=true
+{
     "similarity": {
         "@odata.type": "#Microsoft.Azure.Search.BM25Similarity",
         "b" : 0.5,
         "k1" : 1.3
     }
-```
-
-L'algoritmo di somiglianza può essere impostato solo in fase di creazione dell'indice. Ciò significa che l'algoritmo di somiglianza utilizzato non può essere modificato per gli indici esistenti. Quando si aggiorna una definizione di indice esistente che usa BM25, è possibile modificare i parametri *"b"* e *"K1"* . Se si modificano tali valori in un indice esistente, l'indice verrà portato offline per almeno alcuni secondi, causando un errore di indicizzazione e richieste di query. Per questo motivo, è necessario impostare il parametro "allowIndexDowntime = true" nella stringa di query della richiesta di aggiornamento:
-
-```http
-PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
+}
 ```
 
 ## <a name="see-also"></a>Vedi anche  

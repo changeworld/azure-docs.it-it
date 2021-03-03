@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c73bcd8fb4c6b594633abd1ac268bd8dfd78202
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bd4c1adddbf4b13f8e299bd656443c9aaab1d55b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417488"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644828"
 ---
 # <a name="securing-group-managed-service-accounts"></a>Protezione degli account del servizio gestiti del gruppo
 
@@ -41,7 +41,7 @@ Servizi gestiti offrono una soluzione di gestione delle identità unica con magg
 Usare servizi gestiti come tipo di account preferito per i servizi locali a meno che un servizio, ad esempio il clustering di failover, non lo supporti.
 
 > [!IMPORTANT]
-> È necessario testare il servizio con servizi gestiti prima della distribuzione nell'ambiente di produzione. A tale scopo, configurare un ambiente di testing e assicurarsi che l'applicazione possa usare il gMSA e accedere alle risorse necessarie per l'accesso. Per ulteriori informazioni, vedere [supporto per gli account del servizio gestiti del gruppo](https://docs.microsoft.com/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019).
+> È necessario testare il servizio con servizi gestiti prima della distribuzione nell'ambiente di produzione. A tale scopo, configurare un ambiente di testing e assicurarsi che l'applicazione possa usare il gMSA e accedere alle risorse necessarie per l'accesso. Per ulteriori informazioni, vedere [supporto per gli account del servizio gestiti del gruppo](/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019).
 
 
 Se un servizio non supporta l'uso di servizi gestiti, l'opzione migliore successiva consiste nell'usare un account del servizio gestito autonomo (sMSA). sMSAs offrono le stesse funzionalità di un gMSA, ma sono destinate alla distribuzione solo in un singolo server.
@@ -108,18 +108,18 @@ Per la gestione di servizi gestiti è possibile usare i cmdlet di PowerShell seg
 `Uninstall-ADServiceAccount`
 
 > [!NOTE]
-> A partire da Windows Server 2012, i cmdlet *-ADServiceAccount funzionano con servizi gestiti per impostazione predefinita. Per ulteriori informazioni sull'utilizzo dei cmdlet precedenti, vedere [**Introduzione con gli account del servizio gestiti del gruppo**](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+> A partire da Windows Server 2012, i cmdlet *-ADServiceAccount funzionano con servizi gestiti per impostazione predefinita. Per ulteriori informazioni sull'utilizzo dei cmdlet precedenti, vedere [**Introduzione con gli account del servizio gestiti del gruppo**](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 ## <a name="move-to-a-gmsa"></a>Passare a un gMSA
 Servizi gestiti sono il tipo di account del servizio più sicuro per le esigenze locali. Se è possibile passare a uno, è necessario. Inoltre, è consigliabile trasferire i servizi in Azure e gli account di servizio in Azure Active Directory.
 
-1.  Verificare che la [chiave radice KDS sia distribuita nella foresta](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key). Si tratta di un'operazione una tantum.
+1.  Verificare che la [chiave radice KDS sia distribuita nella foresta](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key). Si tratta di un'operazione una tantum.
 
-2. [Creare un nuovo gMSA](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+2. [Creare un nuovo gMSA](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 3. Installare il nuovo gMSA in ogni host che esegue il servizio.
    > [!NOTE] 
-   > Per altre informazioni sulla creazione e l'installazione di gMSA in un host, prima di configurare il servizio per l'uso di gMSA, vedere [Introduzione con gli account del servizio gestiti del gruppo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11))
+   > Per altre informazioni sulla creazione e l'installazione di gMSA in un host, prima di configurare il servizio per l'uso di gMSA, vedere [Introduzione con gli account del servizio gestiti del gruppo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11))
 
  
 4. Modificare l'identità del servizio in gMSA e specificare una password vuota.

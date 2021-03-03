@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 98c1ce9367e9bf2aa1a381a772b3cbc73f96b519
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 515921c4e69b7c2cff8e1055182503b5ce89971c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650950"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657146"
 ---
 # <a name="voice-and-video-concepts"></a>Concetti relativi alle chiamate vocali e video
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 È possibile usare Servizi di comunicazione di Azure per effettuare e ricevere chiamate uno-a-uno, oltre che chiamate vocali e videochiamate di gruppo. Le chiamate possono essere effettuate verso altri dispositivi connessi a Internet e verso telefoni tradizionali. È possibile usare le librerie client JavaScript, Android o iOS di Servizi di comunicazione per creare applicazioni che consentano agli utenti di comunicare tra loro in conversazioni private o di gruppo. Servizi di comunicazione di Azure supporta le chiamate da e verso servizi o bot.
 
@@ -26,7 +24,7 @@ ms.locfileid: "100650950"
 
 In Servizi di comunicazione di Azure è possibile effettuare più tipi di chiamate. Il tipo di chiamate effettuate determina lo schema di segnalazione, i flussi di traffico multimediale e il modello di determinazione prezzi.
 
-### <a name="voice-over-ip-voip"></a>VoIP (Voice Over IP) 
+### <a name="voice-over-ip-voip"></a>VoIP (Voice Over IP)
 
 Quando un utente dell'applicazione chiama un altro utente dell'applicazione tramite una connessione Internet o dati, la chiamata viene effettuata tramite VoIP (Voice over IP). In questo caso, sia la segnalazione sia i flussi multimediali passano su Internet.
 
@@ -43,14 +41,14 @@ Una chiamata uno-a-uno in Servizi di comunicazione di Azure avviene quando uno d
 Una chiamata di gruppo in Servizi di comunicazione di Azure avviene quando tre o più partecipanti si connettono tra loro. In una chiamata di gruppo può essere presente una qualsiasi combinazione di utenti connessi tramite VoIP e PSTN. È possibile convertire una chiamata uno-a-uno in una di gruppo aggiungendo alla chiamata altri partecipanti. Uno dei partecipanti può essere costituito da un bot.
 
 ### <a name="supported-video-standards"></a>Standard video supportati
-È supportato lo standard H.264 (MPEG-4) 
+È supportato lo standard H.264 (MPEG-4)
 
 ### <a name="video-quality"></a>Qualità video
-Per gli SDK nativi (iOS, Android) è supportato il formato fino a Full HD 1080p. Per l'SDK Web (JS) è supportato il formato Standard HD 720p. La qualità dipende dalla larghezza di banda disponibile.  
+Per gli SDK nativi (iOS, Android) è supportato il formato fino a Full HD 1080p. Per l'SDK Web (JS) è supportato il formato Standard HD 720p. La qualità dipende dalla larghezza di banda disponibile.
 
 ### <a name="rooms-concept"></a>Concetto di sale
 Le sale costituiscono un set di API e SDK che consentono di aggiungere facilmente elementi audio, video, condivisione dello schermo, interazioni PSTN e SMS nel sito Web o nell'applicazione nativa.
-Durante l'anteprima è possibile usare l'ID di gruppo per partecipare alla stessa conversazione. È possibile creare tutti gli ID gruppo necessari e separare gli utenti in base alle "sale". Con il tempo vengono introdotti altri controlli attorno alle "sale". 
+Durante l'anteprima è possibile usare l'ID di gruppo per partecipare alla stessa conversazione. È possibile creare tutti gli ID gruppo necessari e separare gli utenti in base alle "sale". Con il tempo vengono introdotti altri controlli attorno alle "sale".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

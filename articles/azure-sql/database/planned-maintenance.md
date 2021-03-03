@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 08/25/2020
-ms.openlocfilehash: 3f87f47f652f71a57796d1cacd047b0448b49b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/21/2021
+ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333036"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664118"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Per ogni database, il database SQL di Azure e Azure SQL Istanza gestita gestisco
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Esecuzione di un evento di manutenzione pianificata
 
-L'evento di manutenzione può produrre failover singoli o multipli, a seconda della costellazione delle repliche primarie e secondarie all'inizio dell'evento di manutenzione. In media, si verificano i failover 1,7 per ogni evento di manutenzione pianificata. Le riconfigurazioni e i failover vengono in genere completati entro 30 secondi. La media è di 8 secondi. Se è già connesso, l'applicazione deve riconnettersi alla nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia online, viene ricevuto l'errore 40613 (database non disponibile): *"il database ' {DatabaseName}' nel server ' {ServerName}' non è attualmente disponibile. Ripetere la connessione in un secondo momento. "* Se nel database è presente una query con esecuzione prolungata, la query verrà interrotta durante una riconfigurazione e sarà necessario riavviarla.
+L'evento di manutenzione può produrre failover singoli o multipli, a seconda della costellazione delle repliche primarie e secondarie all'inizio dell'evento di manutenzione. In media, si verificano i failover 1,7 per ogni evento di manutenzione pianificata. Le riconfigurazioni e i failover vengono in genere completati entro 30 secondi. La media è di otto secondi. Se è già connesso, l'applicazione deve riconnettersi alla nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia online, viene ricevuto l'errore 40613 (database non disponibile): *"il database ' {DatabaseName}' nel server ' {ServerName}' non è attualmente disponibile. Ripetere la connessione in un secondo momento. "* Se nel database è presente una query con esecuzione prolungata, la query verrà interrotta durante una riconfigurazione e sarà necessario riavviarla.
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Come simulare un evento di manutenzione pianificata
 
@@ -45,7 +45,12 @@ Qualsiasi applicazione di produzione client che si connette a un servizio di dat
 
 Se nel database si verificano errori di accesso, controllare la finestra di [integrità risorse](../../service-health/resource-health-overview.md#get-started) nel [portale di Azure](https://portal.azure.com) per lo stato corrente. La sezione Cronologia integrità indica il motivo dei tempi di inattività per ogni evento (se disponibile).
 
+## <a name="maintenance-window-feature"></a>Funzionalità finestra di manutenzione
+
+La funzionalità finestra di manutenzione consente la configurazione di pianificazioni della finestra di manutenzione stimabili per i database SQL di Azure idonei e per le istanze gestite di SQL. Per ulteriori informazioni, vedere la [finestra di manutenzione](maintenance-window.md) .
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri di più su [integrità risorse](resource-health-to-troubleshoot-connectivity.md) per il database SQL di azure e istanza gestita SQL di Azure.
 - Per altre informazioni sulla logica di ripetizione dei tentativi, vedere [logica di ripetizione dei tentativi per gli errori temporanei](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- Configurare le pianificazioni della finestra di manutenzione con la funzionalità [finestra di manutenzione](maintenance-window.md) .

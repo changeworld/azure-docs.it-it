@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627383"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656551"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 
 * Durante un'interruzione dell'area di lettura, gli account Azure Cosmos che usano un livello di coerenza o una coerenza assoluta con tre o più aree di lettura rimarranno a disponibilità elevata per operazioni di lettura e scrittura.
 
-* Gli account Azure Cosmos che usano la coerenza assoluta con tre o meno aree totali (una scrittura, due letture) perderanno la disponibilità di scrittura durante un'interruzione dell'area di lettura. Tuttavia, i clienti con quattro o più aree totali possono acconsentire esplicitamente all'uso di quorum di lettura dinamici inviando un ticket di supporto. Gli account che gestiscono almeno due aree di lettura in questa configurazione manterranno la disponibilità di scrittura.
+* Gli account Azure Cosmos che usano la coerenza assoluta con tre aree (una scrittura, due letture) manterranno la disponibilità di scrittura durante un'interruzione dell'area di lettura. Per gli account con due aree e il failover automatico abilitato, l'account smetterà di accettare le Scritture fino a quando l'area non viene contrassegnata come non riuscita e si verifica il failover automatico.
 
 * L'area interessata viene disconnessa automaticamente e verrà contrassegnata come offline. Il [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) reindirizza le chiamate di lettura all'area successiva disponibile nell'elenco delle aree preferite.
 
@@ -110,7 +110,7 @@ Nella tabella seguente sono riepilogate le funzionalità di disponibilità eleva
 |SLA per la disponibilità di lettura  | 99,99% | 99,995% | 99,995% | 99,999% |
 |Errori zona-perdita di dati | Perdita di dati | Senza perdita di dati | Senza perdita di dati | Senza perdita di dati |
 |Errori zona-disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità |
-|Interruzione a livello di area-perdita di dati | Perdita di dati |  Perdita di dati | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](consistency-levels-tradeoffs.md) . | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](consistency-levels-tradeoffs.md) .
+|Interruzione a livello di area-perdita di dati | Perdita di dati |  Perdita di dati | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](./consistency-levels.md) . | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](./consistency-levels.md) .
 |Interruzione a livello di area: disponibilità | Perdita di disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità per l'area di lettura non riuscita, temporanea per l'area di scrittura non riuscita | Nessuna perdita di disponibilità |
 |Prezzo (***1** _) | N/D | Frequenza di provisioning di Ur/s x 1,25 | Frequenza di provisioning di Ur/s x 1,25 (_ *_2_* *) | Velocità di scrittura in più aree |
 

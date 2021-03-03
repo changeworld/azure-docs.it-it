@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 06ae46eb96db39f44cd052e6e9b0d1a19f898007
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18ccadcf43d41c677a665ed068d093f51389b576
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091523"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657333"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Eseguire Jupyter notebook nell'area di lavoro
 
@@ -190,10 +190,10 @@ I dettagli sulle istanze di calcolo sono disponibili nella pagina **Compute** (C
 
 * Se non è possibile connettersi a un notebook, assicurarsi che la comunicazione del socket Web **non** sia disabilitata. Per il funzionamento della funzionalità Jupyter dell'istanza di calcolo, è necessario abilitare la comunicazione WebSocket. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms. 
 
-* Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile accedervi solo dall'interno della rete virtuale. Se si usa un file host o DNS personalizzato, aggiungere una voce per <nome istanza <region>>. instances.azureml.ms con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) .
+* Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile accedervi solo dall'interno della rete virtuale. Se si usa un file host o DNS personalizzato, aggiungere una voce per <nome istanza <region>>. instances.azureml.ms con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](./how-to-custom-dns.md?tabs=azure-cli) .
     
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Eseguire il primo esperimento](tutorial-1st-experiment-sdk-train.md)
 * [Eseguire il backup dell'archiviazione file con gli snapshot](../storage/files/storage-snapshots-files.md)
-* [Lavorare in ambienti protetti](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)
+* [Lavorare in ambienti protetti](./how-to-secure-training-vnet.md#compute-instance)

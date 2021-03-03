@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de24975dadf27293f305611c6ba07522e8aa90
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417481"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645617"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Introduzione agli account del servizio Active Directory
 
@@ -34,7 +34,7 @@ In base al caso d'uso, è possibile usare un account del servizio gestito (MSA),
 
 ### <a name="group-msa-accounts"></a>Account MSA del gruppo
 
-Usare gli [account del servizio gestito del gruppo](service-accounts-group-managed.md) (servizi gestiti) laddove possibile per i servizi in esecuzione nell'ambiente locale. Servizi gestiti offrono una singola soluzione di identità per un servizio in esecuzione in un server farm o dietro un servizio di bilanciamento del carico di rete. Possono essere usati anche per un servizio in esecuzione su un singolo server. [Servizi gestiti requisiti specifici che devono essere soddisfatti](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+Usare gli [account del servizio gestito del gruppo](service-accounts-group-managed.md) (servizi gestiti) laddove possibile per i servizi in esecuzione nell'ambiente locale. Servizi gestiti offrono una singola soluzione di identità per un servizio in esecuzione in un server farm o dietro un servizio di bilanciamento del carico di rete. Possono essere usati anche per un servizio in esecuzione su un singolo server. [Servizi gestiti requisiti specifici che devono essere soddisfatti](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 ### <a name="standalone-msa-accounts"></a>Account MSA autonomi
 
@@ -138,4 +138,3 @@ Vedere gli articoli seguenti sulla protezione degli account del servizio
 
 * [Governare gli account di servizio locali](service-accounts-govern-on-premises.md)
 
- 

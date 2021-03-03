@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni su come eseguire l'aggiornamento da CentOS e Ubuntu 16,04 alla versione più recente di Ubuntu 18,04 Data Science Virtual Machine.
 keywords: Deep Learning, intelligenza artificiale, strumenti di data science, data science macchina virtuale, processo team data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b897ff7527d2d60234162ccbdeb08a00260bb1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320982"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659461"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Aggiornare la Data Science Virtual Machine a Ubuntu 18.04
 
@@ -38,7 +37,7 @@ Nella portale di Azure usare la barra di ricerca per trovare la funzionalità **
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot che Mostra portale di Azure e barra di ricerca con * * snapshot * * evidenziato":::
 
-1. Selezionare **Aggiungi** , che consente di passare alla pagina **Crea snapshot** . Selezionare la sottoscrizione e il gruppo di risorse della macchina virtuale. Per **area** selezionare la stessa area in cui è presente l'archivio di destinazione. Selezionare il disco di archiviazione DSVM e altre opzioni di backup. **HDD standard** è un tipo di archiviazione appropriato per questo scenario di backup.
+1. Selezionare **Aggiungi**, che consente di passare alla pagina **Crea snapshot** . Selezionare la sottoscrizione e il gruppo di risorse della macchina virtuale. Per **area** selezionare la stessa area in cui è presente l'archivio di destinazione. Selezionare il disco di archiviazione DSVM e altre opzioni di backup. **HDD standard** è un tipo di archiviazione appropriato per questo scenario di backup.
 
 :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot che mostra le opzioni di ' Crea snapshot '":::
 
@@ -65,7 +64,7 @@ Il completamento del processo di aggiornamento potrebbe richiedere del tempo. Al
 
 Dopo che la macchina virtuale è stata aggiornata e riavviata, provare ad accedere di nuovo tramite SSH. È possibile che l'indirizzo IP sia stato modificato durante il riavvio, quindi confermarlo prima di provare a connettersi.
 
-Se viene visualizzato l'errore l' **identificazione dell'host remoto è cambiata** , sarà necessario rigenerare le credenziali SSH.
+Se viene visualizzato l'errore l' **identificazione dell'host remoto è cambiata**, sarà necessario rigenerare le credenziali SSH.
 
 :::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Schermata di PowerShell che mostra l'avviso di identificazione dell'host remoto modificato":::
 
@@ -107,7 +106,7 @@ Se non è già stato creato uno snapshot della macchina virtuale come descritto 
 
 :::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot della portale di Azure visualizzazione della pagina Cerca dischi e del pulsante Aggiungi":::
 
-2. Impostare la **sottoscrizione** , il **gruppo di risorse** e l' **area** sui valori dello snapshot della VM. Scegliere un **nome** per il disco da creare.
+2. Impostare la **sottoscrizione**, il **gruppo di risorse** e l' **area** sui valori dello snapshot della VM. Scegliere un **nome** per il disco da creare.
 
 3. Selezionare il **tipo di origine** come **snapshot** e selezionare lo snapshot della macchina virtuale come snapshot di **origine**. Esaminare e creare il disco. 
 

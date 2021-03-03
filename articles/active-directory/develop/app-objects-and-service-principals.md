@@ -13,12 +13,12 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f0a9298b6d8ee011052a20dc34d314adbc5a0b1e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557833"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646402"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
@@ -65,10 +65,9 @@ L'oggetto applicazione funge da modello da cui *derivano* le proprietà comuni e
 
 In ogni tenant in cui viene usata l'applicazione è necessario creare un'entità servizio per poter stabilire un'identità per l'iscrizione e/o l'accesso alle risorse che venga protetta da un tenant. Un'applicazione single-tenant ha una sola entità servizio (nel relativo tenant principale), creata e autorizzata per essere usata durante la registrazione dell'applicazione. Un'applicazione Web/API multi-tenant ha anche un'entità servizio creata in ogni tenant in cui l'utente ha dato il consenso all'uso.
 
-> [!NOTE]
-> Tutte le modifiche apportate all'oggetto applicazione vengono riflesse anche nel relativo oggetto entità servizio nel tenant Home dell'applicazione (il tenant in cui è stato registrato). Per le applicazioni multi-tenant, le modifiche apportate all'oggetto applicazione non vengono riflesse negli oggetti entità servizio dei tenant consumer fino a quando non viene rimosso l'accesso tramite il [Pannello di accesso all'applicazione](https://myapps.microsoft.com) e poi concesso nuovamente.
->
-> Si noti anche che le applicazioni native sono registrate come multi-tenant per impostazione predefinita.
+Tutte le modifiche apportate all'oggetto applicazione, inclusa l'eliminazione, vengono riflesse nell'oggetto entità servizio nel tenant Home dell'applicazione (il tenant in cui è stato registrato). Per le applicazioni multi-tenant, le modifiche apportate all'oggetto applicazione non vengono riflesse negli oggetti entità servizio dei tenant consumer fino a quando non viene rimosso l'accesso tramite il [Pannello di accesso all'applicazione](https://myapps.microsoft.com) e poi concesso nuovamente.
+
+Per impostazione predefinita, le applicazioni native vengono registrate come multi-tenant.
 
 ## <a name="example"></a>Esempio
 

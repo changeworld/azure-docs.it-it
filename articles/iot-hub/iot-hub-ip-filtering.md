@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/19/2020
 ms.author: jlian
-ms.openlocfilehash: c6544e8ac00744602476207a89567aea5afe5b1d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6f83421d4ee56d56875e13ffbdd8ac9dbbf4b6bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632366"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656364"
 ---
 # <a name="use-ip-filters"></a>Usare i filtri IP
 
@@ -20,7 +20,7 @@ La sicurezza è un aspetto importante di qualsiasi soluzione IoT basata su un hu
 
 ## <a name="when-to-use"></a>Utilizzo
 
-Usare il filtro IP per ricevere traffico solo da un intervallo di indirizzi IP specificato e rifiutare tutto il resto. Ad esempio, si usa l'hub Internet delle cose con [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) per creare connessioni private tra un hub Internet e l'infrastruttura locale.
+Usare il filtro IP per ricevere traffico solo da un intervallo di indirizzi IP specificato e rifiutare tutto il resto. Ad esempio, si usa l'hub Internet delle cose con [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) per creare connessioni private tra un hub Internet e l'infrastruttura locale.
 
 ## <a name="default-setting"></a>Impostazione predefinita
 
@@ -164,7 +164,7 @@ $iothubResource | Set-AzResource -Force
 ## <a name="update-ip-filter-rules-using-rest"></a>Aggiornare le regole di filtro IP tramite REST
 
 
-È possibile recuperare e modificare il filtro IP dell'hub IoT anche usando l'endpoint REST del provider di risorse di Azure. Vedere `properties.networkRuleSets` nel [metodo createorupdate](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+È possibile recuperare e modificare il filtro IP dell'hub IoT anche usando l'endpoint REST del provider di risorse di Azure. Vedere `properties.networkRuleSets` nel [metodo createorupdate](/rest/api/iothub/iothubresource/createorupdate).
 
 ## <a name="ip-filter-classic-retirement"></a>Il ritiro del filtro IP (classico)
 
@@ -174,7 +174,7 @@ Il filtro IP classico è stato ritirato. Per altre informazioni, vedere [il filt
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Metriche di hub IoT](iot-hub-metrics.md)
+* [Metriche di hub IoT](./monitor-iot-hub.md)
 * [Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita](virtual-network-support.md)
 * [Gestione dell'accesso alla rete pubblica per l'hub Internet delle cose](iot-hub-public-network-access.md)
 * [Monitorare l'hub IoT](monitor-iot-hub.md)

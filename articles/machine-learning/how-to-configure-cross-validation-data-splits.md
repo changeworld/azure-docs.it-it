@@ -10,13 +10,13 @@ ms.custom: how-to, automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 06/16/2020
-ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/23/2021
+ms.openlocfilehash: add84c2cb53a362fc78fc50a6df13b4976e3868d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599058"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661036"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurare la suddivisione dei dati e la convalida trasversale in Machine Learning automatizzato
 
@@ -26,7 +26,7 @@ In Azure Machine Learning, quando si usa Machine Learning Machine Learning per c
 
 Gli esperimenti di Machine Learning automatici eseguono automaticamente la convalida del modello. Le sezioni seguenti descrivono come è possibile personalizzare ulteriormente le impostazioni di convalida con [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
-Per un'esperienza di basso livello o senza codice, vedere [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
+Per un'esperienza di basso livello o senza codice, vedere [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment). 
 
 > [!NOTE]
 > Lo Studio supporta attualmente la suddivisione dei dati di training e convalida, nonché le opzioni di convalida incrociata, ma non supporta la specifica di singoli file di dati per il set di convalida. 
@@ -73,6 +73,9 @@ Se non si specifica in modo esplicito un `validation_data` parametro o, Machine 
 
 In questo caso, è possibile iniziare con un singolo file di dati e suddividerlo in set di dati di training e di dati di convalida oppure è possibile fornire un file di dati separato per il set di convalida. In entrambi i casi, il `validation_data` parametro nell' `AutoMLConfig` oggetto assegna i dati da utilizzare come set di convalida. Questo parametro accetta solo i set di dati sotto forma di un set di dati [Azure Machine Learning](how-to-create-register-datasets.md) o di un dataframe Pandas.   
 
+> [!NOTE]
+> Il `validation_size` parametro non è supportato in scenari di previsione.
+
 Nell'esempio di codice seguente viene definita in modo esplicito la parte dei dati forniti in `dataset` da utilizzare per il training e la convalida.
 
 ```python
@@ -93,7 +96,12 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Specificare le dimensioni del set di convalida
 
-In questo caso, per l'esperimento viene fornito solo un singolo set di dati. Ovvero il `validation_data` parametro **non** viene specificato e il set di dati fornito viene assegnato al  `training_data` parametro.  Nell' `AutoMLConfig` oggetto è possibile impostare il parametro in `validation_size` modo da mantenere una parte dei dati di training per la convalida. Ciò significa che il set di convalida verrà suddiviso da AutoML dall'oggetto `training_data` fornito inizialmente. Questo valore deve essere compreso tra 0,0 e 1,0 non inclusivo (ad esempio, 0,2 significa che il 20% dei dati viene mantenuto per i dati di convalida).
+In questo caso, per l'esperimento viene fornito solo un singolo set di dati. Ovvero il `validation_data` parametro **non** viene specificato e il set di dati fornito viene assegnato al  `training_data` parametro.  
+
+Nell' `AutoMLConfig` oggetto è possibile impostare il parametro in `validation_size` modo da mantenere una parte dei dati di training per la convalida. Ciò significa che il set di convalida verrà suddiviso in base a ML automatizzato dall'iniziale `training_data` fornito. Questo valore deve essere compreso tra 0,0 e 1,0 non inclusivo (ad esempio, 0,2 significa che il 20% dei dati viene mantenuto per i dati di convalida).
+
+> [!NOTE]
+> Il `validation_size` parametro non è supportato in scenari di previsione. 
 
 Vedere l'esempio di codice seguente:
 
@@ -111,10 +119,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-## <a name="set-the-number-of-cross-validations"></a>Impostare il numero di convalide incrociate
+## <a name="k-fold-cross-validation"></a>Convalida incrociata in k parti
 
-Per eseguire la convalida incrociata, includere il `n_cross_validations` parametro e impostarlo su un valore. Questo parametro consente di impostare il numero di convalide incrociate da eseguire, in base allo stesso numero di riduzioni.
+Per eseguire la convalida incrociata k-fold, includere il `n_cross_validations` parametro e impostarlo su un valore. Questo parametro consente di impostare il numero di convalide incrociate da eseguire, in base allo stesso numero di riduzioni.
 
+> [!NOTE]
+> Il `n_cross_validations` parametro non è supportato negli scenari di classificazione che usano reti neurali profonde.
+ 
 Nel codice seguente sono definite cinque riduzioni per la convalida incrociata. Di conseguenza, cinque corsi di formazione diversi, ogni training che usa 4/5 dei dati e ogni convalida che usa 1/5 dei dati con una piegatura diversa per ogni volta.
 
 Di conseguenza, le metriche vengono calcolate con la media delle cinque metriche di convalida.
@@ -129,6 +140,31 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                              primary_metric = 'AUC_weighted',
                              training_data = dataset,
                              n_cross_validations = 5
+                             label_column_name = 'Class'
+                            )
+```
+## <a name="monte-carlo-cross-validation"></a>Convalida incrociata Monte Carlo
+
+Per eseguire la convalida incrociata Monte Carlo, includere i `validation_size` `n_cross_validations` parametri e nell' `AutoMLConfig` oggetto. 
+
+Per la convalida incrociata Monte Carlo, la ML automatizzata riserva la parte dei dati di training specificata dal `validation_size` parametro per la convalida, quindi assegna il resto dei dati per il training. Questo processo viene quindi ripetuto in base al valore specificato nel `n_cross_validations` parametro, che genera ogni volta nuove divisioni di training e convalida, in modo casuale.
+
+> [!NOTE]
+> La convalida incrociata Monte Carlo non è supportata negli scenari di previsione.
+
+Il codice seguente definisce, 7 riduzioni per la convalida incrociata e il 20% dei dati di training deve essere usato per la convalida. Di conseguenza, 7 corsi di formazione diversi, ogni training usa il 80% dei dati e ogni convalida usa il 20% dei dati con una sezione di dati di attesa diversa ogni volta.
+
+```python
+data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
+
+dataset = Dataset.Tabular.from_delimited_files(data)
+
+automl_config = AutoMLConfig(compute_target = aml_remote_compute,
+                             task = 'classification',
+                             primary_metric = 'AUC_weighted',
+                             training_data = dataset,
+                             n_cross_validations = 7
+                             validation_size = 0.2,
                              label_column_name = 'Class'
                             )
 ```

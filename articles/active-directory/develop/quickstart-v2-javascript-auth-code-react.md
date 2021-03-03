@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: fe85fd314ba631a26ece4164e317b0977e7cf749
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: ae31265aee7b0919daf0fec9efbe4d5c6aa7cd91
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103669"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653457"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Guida introduttiva: accedere e ottenere un token di accesso in una SPA React usando il flusso del codice di autenticazione
 
@@ -141,7 +141,7 @@ Questa Guida introduttiva usa MSAL React con il flusso del codice di autorizzazi
 >
 > Scorrere verso il basso nello stesso file e aggiornare `graphMeEndpoint` . 
 > - Sostituire la stringa `Enter_the_Graph_Endpoint_Herev1.0/me` con `https://graph.microsoft.com/v1.0/me`
-> - `Enter_the_Graph_Endpoint_Herev1.0/me` è l'endpoint a cui verranno eseguite le chiamate API. Per il servizio API Microsoft Graph principale (globale), immettere `https://graph.microsoft.com/` (includere la barra finale). Per altre informazioni, vedere la [documentazione](https://docs.microsoft.com/graph/deployments).
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` è l'endpoint a cui verranno eseguite le chiamate API. Per il servizio API Microsoft Graph principale (globale), immettere `https://graph.microsoft.com/` (includere la barra finale). Per altre informazioni, vedere la [documentazione](/graph/deployments).
 >
 >
 >

@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092667"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644732"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -201,7 +201,7 @@ A seconda delle dimensioni dell'ambiente, il processo può richiedere circa due 
 **D: Un messaggio di posta elettronica informa che l'aggiornamento automatico non funziona più ed è necessario installare una nuova versione. Perché è necessario eseguire questa operazione?**  
 Lo scorso anno è stata rilasciata una versione di Azure AD Connect che, in determinate circostanze, può aver disabilitato la funzionalità di aggiornamento automatico nel server. Il problema è stato risolto in Azure AD Connect versione 1.1.750.0. Gli utenti interessati dal problema possono attenuarlo eseguendo uno script di PowerShell o eseguire manualmente l'aggiornamento alla versione più recente di Azure AD Connect. 
 
-Per eseguire lo script di PowerShell, [scaricarlo](https://aka.ms/repairaadconnect) ed eseguirlo nel server Azure AD Connect in una finestra amministrativa di PowerShell. Per informazioni su come eseguire lo script, [guardare questo breve video](https://aka.ms/repairaadcau).
+Per eseguire lo script di PowerShell, [scaricarlo](/samples/browse/?redirectedfrom=TechNet-Gallery) ed eseguirlo nel server Azure AD Connect in una finestra amministrativa di PowerShell. Per informazioni su come eseguire lo script, [guardare questo breve video](https://aka.ms/repairaadcau).
 
 Per eseguire l'aggiornamento manuale, è sufficiente scaricare ed eseguire la versione più recente del file AADConnect.msi.
  

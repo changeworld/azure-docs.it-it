@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Cosmos DB
-summary: Azure Cosmos DB, un database NoSQL con velocità e disponibilità elevate supportate da contratto di servizio, scalabilità automatica e istantanea e API open source per MongoDB e Cassandra.
+summary: Database NoSQL rapido per la Azure Cosmos DB con velocità e disponibilità basate sul contratto di contratto, scalabilità automatica e immediata e API Open Source per MongoDB e Cassandra.
 metadata:
   title: Azure Cosmos DB
-  description: Azure Cosmos DB, un database NoSQL con velocità e disponibilità elevate supportate da contratto di servizio, scalabilità automatica e istantanea e API open source per MongoDB e Cassandra.
+  description: Database NoSQL rapido per la Azure Cosmos DB con velocità e disponibilità basate sul contratto di contratto, scalabilità automatica e immediata e API Open Source per MongoDB e Cassandra.
   services: service
   ms.service: cosmos-db
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 7ee6db07facb1464428c6d1d8562fdd54216b883
-  ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
-  ms.translationtype: HT
+  ms.openlocfilehash: 0dda9cb110592c9fd9325f607b455d16c32da7f3
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92485767"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101658013"
 landingContent:
 - title: Informazioni su Azure Cosmos DB
   linkLists:
@@ -91,7 +91,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Compatibilità del protocollo di collegamento con MongoDB
-      url: mongodb-feature-support-36.md
+      url: mongodb-feature-support-40.md
     - text: Comandi dell'estensione MongoDB
       url: mongodb-custom-commands.md
     - text: Flussi di modifiche

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: de04be2495c6e81e9c5f8d32f9d876b49482c5fe
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9f52c3fd1284ce7e55680d051c5292361067fad9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678373"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673988"
 ---
 # <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Viste T-SQL con pool SQL dedicato e pool SQL senza server in Azure sinapsi Analytics
 
@@ -27,11 +27,11 @@ Le viste risultano utili in molti modi diversi per migliorare la qualità della 
 ### <a name="sql-pool---create-view"></a>Pool SQL-Crea vista
 
 > [!NOTE]
-> La sintassi per CREATE VIEW non viene illustrata in questo articolo. Per altre informazioni, vedere la documentazione per [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+> La sintassi per CREATE VIEW non viene illustrata in questo articolo. Per altre informazioni, vedere la documentazione per [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="architectural-abstraction"></a>Astrazione dell'architettura
 
-Un modello di applicazione comune consiste nel ricreare le tabelle usando [create table come SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAs), seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.
+Un modello di applicazione comune consiste nel ricreare le tabelle usando [create table come SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) (CTAs), seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.
 
 L'esempio seguente aggiunge nuovi record di data a una dimensione data. Si noti come viene creata prima di tutto una nuova tabella, DimDate_New, che viene poi rinominata per sostituire la versione originale della tabella.
 

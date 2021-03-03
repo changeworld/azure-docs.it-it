@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: c992693bfb278ac559feb6fa82fa947086ceafbb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 111424ab3a3bd6020e70a08ddf2c494996f6f0ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381138"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676689"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gestire il servizio ricerca cognitiva di Azure con PowerShell
 > [!div class="op_single_selector"]
 > * [Portale](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [Interfaccia della riga di comando di Azure](search-manage-azure-cli.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
@@ -316,7 +317,7 @@ New-AzPrivateDnsZoneGroup `
     -PrivateDnsZoneConfig $config
 ```
 
-Per altri dettagli sulla creazione di endpoint privati in PowerShell, vedere questa [Guida introduttiva al collegamento privato](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)
+Per altri dettagli sulla creazione di endpoint privati in PowerShell, vedere questa [Guida introduttiva al collegamento privato](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="manage-private-endpoint-connections"></a>Gestire le connessioni endpoint privato
 
@@ -410,7 +411,7 @@ Un elenco completo delle risorse di Azure per cui è possibile creare endpoint p
 [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) viene usato per creare la risorsa di collegamento privato condivisa. Tenere presente che alcune configurazioni potrebbero essere necessarie per l'origine dati prima di eseguire questo comando.
 
 ```azurepowershell-interactive
-New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
+New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
 ```
 
 [Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource) consente di recuperare le risorse di collegamento privato condivise e di visualizzarne lo stato.

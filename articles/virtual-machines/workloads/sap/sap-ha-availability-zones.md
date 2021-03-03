@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 842c56ef1fb6f68c3d8b82e2633d9a604db9fde2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871316"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671637"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure
 Inoltre, per la distribuzione dei diversi livelli di architettura SAP nei set di disponibilità di Azure, la [zone di disponibilità di Azure](../../../availability-zones/az-overview.md) introdotta più di recente può essere usata anche per le distribuzioni del carico di lavoro SAP. Una zona di disponibilità di Azure è definita come: "percorsi fisici univoci all'interno di un'area. Ogni zona è costituita da uno o più data center dotati di alimentazione, raffreddamento e rete indipendenti. Zone di disponibilità di Azure non sono disponibili in tutte le aree geografiche. Per le aree di Azure che forniscono zone di disponibilità, controllare la [mappa dell'area di Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Questa mappa mostrerà le aree che forniscono o sono annunciate per fornire zone di disponibilità. 

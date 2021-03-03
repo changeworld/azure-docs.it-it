@@ -1,20 +1,20 @@
 ---
-title: Connettersi a Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
+title: Connettersi a Collegamento ad Azure Synapse per Azure Cosmos DB
 description: Come connettere un database Azure Cosmos DB a un'area di lavoro di Azure Synapse con Collegamento ad Azure Synapse.
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 04/21/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5316f74ee38f597592ae4582aef31837f0f05fda
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: 5850644aac9c3324d9ffb17817195cbaaa6020ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119833"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667560"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Connettersi a Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -26,9 +26,6 @@ Prima di connettere un database Azure Cosmos DB all'area di lavoro, è necessari
 
 * Un database Azure Cosmos DB esistente oppure creare un nuovo account seguendo i passaggi descritti in [Avvio rapido: Gestire un account di Azure Cosmos DB](../../cosmos-db/how-to-manage-database-account.md).
 * Un'area di lavoro di Azure Synapse oppure crearne una nuova seguendo i passaggi descritti in [Avvio rapido: Creare un'area di lavoro di Synapse](../quickstart-create-workspace.md).
-
-> [!IMPORTANT]
-> Collegamento ad Azure Synapse per Azure Cosmos DB è attualmente supportato per le aree di lavoro in cui non è abilitata una rete virtuale gestita.
 
 ## <a name="enable-synapse-link-on-an-azure-cosmos-db-database-account"></a>Abilitare Collegamento a Synapse in un account di database Azure Cosmos DB
 
@@ -70,4 +67,5 @@ Facendo clic con il pulsante destro del mouse in un contenitore, viene visualizz
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sulle funzionalità supportate tra Azure Synapse e Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
+* [Configurare endpoint privati per Azure Cosmos DB archivio analitico](../cosmos-db/analytical-store-private-endpoints.md)
 * [Informazioni su come eseguire query sull'archivio analitico con Spark](./how-to-query-analytical-store-spark.md)

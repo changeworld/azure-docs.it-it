@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101379"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650992"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitoraggio dello stato di accesso dell'applicazione per la resilienza
 
@@ -51,7 +51,7 @@ Questo articolo illustra in dettaglio come configurare la cartella di lavoro per
 
 * Un'area di lavoro Log Analytics nella sottoscrizione di Azure per inviare i log ai log di monitoraggio di Azure. 
 
-   * Informazioni su come [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Informazioni su come [creare un'area di lavoro log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Log di Azure AD integrati con i log di monitoraggio di Azure
 
@@ -94,7 +94,7 @@ Usare le istruzioni seguenti per creare avvisi di posta elettronica in base alle
 
  Per configurare la query sottostante e impostare gli avvisi, completare i passaggi seguenti. La query di esempio verrà utilizzata come base per la configurazione. Una spiegazione della struttura della query viene visualizzata alla fine di questa sezione.
 
-Per altre informazioni su come creare, visualizzare e gestire gli avvisi del log con monitoraggio di Azure, vedere [gestire gli avvisi del log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Per altre informazioni su come creare, visualizzare e gestire gli avvisi del log con monitoraggio di Azure, vedere [gestire gli avvisi del log](../../azure-monitor/alerts/alerts-log.md).
 
  
 1. Nella cartella di lavoro selezionare **modifica**, quindi selezionare l' **icona della query** appena sopra il lato destro del grafico.   
@@ -280,10 +280,9 @@ Dopo aver impostato la query e gli avvisi, creare processi aziendali per gestire
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni sulle cartelle di lavoro](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[Altre informazioni sulle cartelle di lavoro](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

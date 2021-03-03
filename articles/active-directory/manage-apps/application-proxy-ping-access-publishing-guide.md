@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258168"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643797"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -175,7 +175,8 @@ Per raccogliere queste informazioni:
 Attestazioni facoltative consente di aggiungere attestazioni standard, ma non incluse, per impostazione predefinita, per ogni utente e tenant. È possibile configurare attestazioni facoltative per l'applicazione modificando il manifesto dell'applicazione. Per altre informazioni, vedere l' [articolo informazioni sul manifesto dell'applicazione Azure ad](../develop/reference-app-manifest.md)
 
 Esempio per includere l'indirizzo di posta elettronica nel access_token che PingAccess utilizzerà:
-```
+
+```json
     "optionalClaims": {
         "idToken": [],
         "accessToken": [

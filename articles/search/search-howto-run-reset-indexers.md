@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 06f9d336bb04aa26cea4ebcdae1cfd045e1c2a1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361248"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667661"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Come eseguire o reimpostare gli indicizzatori, le competenze o i documenti
 
@@ -101,7 +101,7 @@ Se non vengono specificate competenze, viene eseguito l'intero insieme di compet
 > [!IMPORTANT] 
 > La [reimpostazione dei documenti](/rest/api/searchservice/preview-api/reset-documents) è in anteprima pubblica, disponibile solo tramite l'API REST di anteprima. Le funzionalità di anteprima sono offerte così come sono, in condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-L' [API Reimposta documenti](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) accetta un elenco di chiavi del documento, in modo che sia possibile aggiornare documenti specifici. Se specificato, i parametri Reset diventano l'unico fattore determinante di ciò che viene elaborato, indipendentemente dalle altre modifiche nei dati sottostanti. Ad esempio, se 20 BLOB sono stati aggiunti o aggiornati dopo l'ultima esecuzione dell'indicizzatore, ma si reimposta solo un documento, verrà elaborato solo un documento.
+L' [API Reimposta documenti](/rest/api/searchservice/preview-api/reset-documents) accetta un elenco di chiavi del documento, in modo che sia possibile aggiornare documenti specifici. Se specificato, i parametri Reset diventano l'unico fattore determinante di ciò che viene elaborato, indipendentemente dalle altre modifiche nei dati sottostanti. Ad esempio, se 20 BLOB sono stati aggiunti o aggiornati dopo l'ultima esecuzione dell'indicizzatore, ma si reimposta solo un documento, verrà elaborato solo un documento.
 
 Per ogni documento, tutti i campi del documento di ricerca vengono aggiornati con i valori dell'origine dati. Non è possibile selezionare i campi da aggiornare. 
 

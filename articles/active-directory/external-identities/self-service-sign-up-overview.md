@@ -5,23 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b08e2e530843dd98c87e424812706247388228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13023ef93cabcf46924cc2cc76dc2d868c4a1ddd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909052"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653567"
 ---
-# <a name="self-service-sign-up-preview"></a>Iscrizione self-service (anteprima)
-
-> [!NOTE]
-> L'iscrizione self-service è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="self-service-sign-up"></a>Iscrizione self-service
 
 Durante la condivisione di un'applicazione con utenti esterni, è possibile sapere sempre in anticipo chi dovrà accedere all'applicazione. In alternativa all'invio di inviti direttamente a singoli utenti, è possibile consentire agli utenti esterni di iscriversi in autonomia ad applicazioni specifiche abilitando l'iscrizione self-service. È possibile creare un'esperienza di iscrizione dedicata personalizzando il flusso utente di iscrizione self-service. È ad esempio possibile fornire opzioni per la registrazione a Azure AD o provider di identità basati su social network e raccogliere informazioni sull'utente durante la procedura di iscrizione.
 

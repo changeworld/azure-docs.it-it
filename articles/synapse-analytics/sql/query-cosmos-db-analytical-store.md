@@ -1,35 +1,31 @@
 ---
-title: Eseguire query sui dati Azure Cosmos DB usando un pool SQL senza server in Azure sinapsi link Preview
-description: Questo articolo illustra come eseguire query Azure Cosmos DB usando un pool SQL senza server nell'anteprima del collegamento di sinapsi di Azure.
+title: Eseguire query sui dati Azure Cosmos DB usando un pool SQL senza server nel collegamento sinapsi di Azure
+description: Questo articolo illustra come eseguire query Azure Cosmos DB usando un pool SQL senza server nel collegamento sinapsi di Azure.
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 12/04/2020
+ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2059608faa8ce148e5823e48eff6abf9e71c9b01
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4337d8935c10ce17ad5d3747468d55b2fe6daa21
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735434"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677524"
 ---
-# <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query Azure Cosmos DB dati con un pool SQL senza server nell'anteprima di Azure sinapsi link
+# <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Eseguire query sui dati di Azure Cosmos DB con un pool SQL senza server nel collegamento sinapsi di Azure
 
-> [!IMPORTANT]
-> Il supporto del pool SQL senza server per il collegamento a sinapsi di Azure per Azure Cosmos DB è attualmente in fase di anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-Un pool SQL senza server consente di analizzare i dati nei contenitori Azure Cosmos DB abilitati con il [collegamento sinapsi di Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in tempo quasi reale senza influire sulle prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall' [Archivio analitico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e la connettività integrata a un'ampia gamma di strumenti di query di Business Intelligence (BI) ed ad hoc tramite l'interfaccia t-SQL.
+Un pool SQL senza server consente di analizzare i dati nei contenitori Azure Cosmos DB abilitati con il [collegamento sinapsi di Azure](../../cosmos-db/synapse-link.md) in tempo quasi reale senza influire sulle prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall' [Archivio analitico](../../cosmos-db/analytical-store-introduction.md) e la connettività integrata a un'ampia gamma di strumenti di query di Business Intelligence (BI) ed ad hoc tramite l'interfaccia t-SQL.
 
 Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa è supportata tramite la funzione [OPENROWSET](develop-openrowset.md) , che include la maggior parte degli [operatori e delle funzioni SQL](overview-features.md). È anche possibile archiviare i risultati della query che legge i dati da Azure Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage usando [Create external table As Select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Attualmente non è possibile archiviare i risultati di query del pool SQL senza server per Azure Cosmos DB usando CETAS.
 
 Questo articolo illustra come scrivere una query con un pool SQL senza server che eseguirà query sui dati da contenitori di Azure Cosmos DB abilitati con il collegamento sinapsi di Azure. È quindi possibile ottenere altre informazioni sulla creazione di viste del pool SQL senza server su Azure Cosmos DB contenitori e sulla connessione ai modelli di Power BI in [questa esercitazione](./tutorial-data-analyst.md).
 
 > [!IMPORTANT]
-> Questa esercitazione usa un contenitore con uno [schema Azure Cosmos DB ben definito](../../cosmos-db/analytical-store-introduction.md#schema-representation). L'esperienza di query fornita dal pool SQL senza server per un [Azure Cosmos DB schema di fedeltà completa](#full-fidelity-schema) è un comportamento temporaneo che cambierà in base ai commenti in anteprima. Non fare affidamento sullo schema del set di risultati della `OPENROWSET` funzione senza la `WITH` clausola che legge i dati da un contenitore con uno schema di fedeltà completa perché l'esperienza di query potrebbe essere allineata con e modificare in base allo schema ben definito. È possibile inviare commenti e suggerimenti nel [Forum di commenti e suggerimenti su Azure sinapsi Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics). È anche possibile contattare il [team del prodotto di collegamento di Azure sinapsi](mailto:cosmosdbsynapselink@microsoft.com) per fornire commenti e suggerimenti.
+> Questa esercitazione usa un contenitore con uno [schema Azure Cosmos DB ben definito](../../cosmos-db/analytical-store-introduction.md#schema-representation).  Non fare affidamento sullo schema del set di risultati della `OPENROWSET` funzione senza la `WITH` clausola che legge i dati da un contenitore con uno schema di fedeltà completa perché l'esperienza di query potrebbe essere allineata con e modificare in base allo schema ben definito. È possibile inviare commenti e suggerimenti nel [Forum di commenti e suggerimenti su Azure sinapsi Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics). È anche possibile contattare il [team del prodotto di collegamento di Azure sinapsi](mailto:cosmosdbsynapselink@microsoft.com) per fornire commenti e suggerimenti.
 
 ## <a name="overview"></a>Panoramica
 
@@ -377,11 +373,11 @@ Il numero di case è costituito da informazioni archiviate come `int32` valore, 
 > [!IMPORTANT]
 > La `OPENROWSET` funzione senza una `WITH` clausola espone entrambi i valori con i tipi previsti e i valori con tipi immessi in modo errato. Questa funzione è progettata per l'esplorazione dei dati e non per la creazione di report. Non analizzare i valori JSON restituiti da questa funzione per compilare i report. Usare una [clausola with](#query-items-with-full-fidelity-schema) esplicita per creare i report. È necessario eseguire la pulizia dei valori con tipi non corretti nel contenitore Azure Cosmos DB per applicare correzioni nell'archivio analitico Full Fidelity.
 
-Se è necessario eseguire query Azure Cosmos DB account del tipo di API Mongo DB, è possibile ottenere altre informazioni sulla rappresentazione dello schema con fedeltà completa nell'archivio analitico e i nomi di proprietà estese da usare in informazioni su [Azure Cosmos DB archivio analitico (anteprima)](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+Se è necessario eseguire una query Azure Cosmos DB account del tipo di API Mongo DB, è possibile ottenere altre informazioni sulla rappresentazione dello schema con fedeltà completa nell'archivio analitico e i nomi di proprietà estese da usare in informazioni [Azure Cosmos DB archivio analitico](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
 
 ### <a name="query-items-with-full-fidelity-schema"></a>Eseguire query su elementi con schema con fedeltà completa
 
-Quando si esegue una query sullo schema di fedeltà completa, è necessario specificare in modo esplicito il tipo SQL e il tipo di proprietà Azure Cosmos DB previsto nella `WITH` clausola. Non utilizzare `OPENROWSET` senza una `WITH` clausola nei report poiché il formato del set di risultati può essere modificato nell'anteprima in base ai commenti e suggerimenti.
+Quando si esegue una query sullo schema di fedeltà completa, è necessario specificare in modo esplicito il tipo SQL e il tipo di proprietà Azure Cosmos DB previsto nella `WITH` clausola. Non utilizzare `OPENROWSET` senza una `WITH` clausola nei report poiché il formato del set di risultati può essere modificato in base ai commenti e suggerimenti.
 
 Nell'esempio seguente si presuppone che `string` sia il tipo corretto per la `geo_id` proprietà ed `int32` è il tipo corretto per la `cases` proprietà:
 
@@ -419,7 +415,7 @@ In questo esempio il numero di case viene archiviato come `int32` `int64` valori
 
 ## <a name="known-issues"></a>Problemi noti
 
-- L'esperienza di query fornita da un pool SQL senza server per [Azure Cosmos DB lo schema di fedeltà completa](#full-fidelity-schema) è un comportamento temporaneo che verrà modificato in base al feedback dell'anteprima. Non fare affidamento sullo schema che la `OPENROWSET` funzione senza la `WITH` clausola fornisce durante l'anteprima pubblica perché l'esperienza di query potrebbe essere allineata con uno schema ben definito in base ai commenti dei clienti. Per inviare commenti e suggerimenti, contattare il [team del prodotto collegamento di sinapsi di Azure](mailto:cosmosdbsynapselink@microsoft.com).
+- Non fare affidamento sullo schema `OPENROWSET` fornito dalla funzione senza la `WITH` clausola perché l'esperienza di query potrebbe essere allineata con uno schema ben definito in base ai commenti dei clienti. Per inviare commenti e suggerimenti, contattare il [team del prodotto collegamento di sinapsi di Azure](mailto:cosmosdbsynapselink@microsoft.com).
 - Un pool SQL senza server restituirà un avviso in fase di compilazione se le `OPENROWSET` regole di confronto della colonna non includono la codifica UTF-8. È possibile modificare facilmente le regole di confronto predefinite per tutte le `OPENROWSET` funzioni in esecuzione nel database corrente usando l'istruzione T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 Nella tabella seguente sono elencati i possibili errori e le azioni per la risoluzione dei problemi.

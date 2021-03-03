@@ -1,36 +1,33 @@
 ---
 title: 'Windows accesso con chiave di sicurezza senza password: Azure Active Directory'
-description: Informazioni su come abilitare l'accesso con chiave di sicurezza senza password per Azure Active Directory usando le chiavi di sicurezza FIDO2 (anteprima)
+description: Informazioni su come abilitare l'accesso con chiave di sicurezza senza password per Azure Active Directory usando le chiavi di sicurezza FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 190e9c857f1ec9d19eb89493dc4b4a9fb68fac87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743463"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653508"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory (anteprima)
+# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory 
 
 Questo documento è incentrato sull'abilitazione dell'autenticazione senza password basata sulla chiave di sicurezza FIDO2 con i dispositivi Windows 10. Alla fine di questo articolo, sarà possibile accedere ai dispositivi Azure AD e ibridi Azure AD aggiunti a Windows 10 con l'account Azure AD usando una chiave di sicurezza FIDO2.
-
-> [!NOTE]
-> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle  [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisiti
 
 | Tipo di dispositivo | Aggiunta ad Azure AD | Aggiunta a Azure AD ibrido |
 | --- | --- | --- |
 | [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [Anteprima di registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Registrazione di informazioni di sicurezza combinate](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Chiavi di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibili | X | X |
 | Webauthn richiede Windows 10 versione 1903 o successiva | X | X |
 | [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1909 o successiva | X |   |
@@ -54,9 +51,9 @@ Gli scenari seguenti non sono supportati:
 - Accesso o sblocco di un dispositivo Windows 10 con una chiave di sicurezza contenente più account Azure AD. Questo scenario utilizza l'ultimo account aggiunto alla chiave di sicurezza. Webauthn consente agli utenti di scegliere l'account che si desidera utilizzare.
 - Sbloccare un dispositivo che esegue Windows 10 versione 1809. Per un'esperienza ottimale, usare Windows 10 versione 1903 o successiva.
 
-## <a name="prepare-devices-for-preview"></a>Preparare i dispositivi per l'anteprima
+## <a name="prepare-devices"></a>Preparare i dispositivi
 
-Azure AD i dispositivi aggiunti in fase di pilota durante l'anteprima delle funzionalità con devono eseguire Windows 10 versione 1909 o successiva.
+Azure AD dispositivi aggiunti devono eseguire Windows 10 versione 1909 o successiva.
 
 Azure AD ibrido dispositivi aggiunti devono eseguire Windows 10 versione 2004 o successiva.
 
@@ -79,7 +76,7 @@ Le organizzazioni possono scegliere di usare uno o più dei metodi seguenti per 
 Per abilitare l'uso delle chiavi di sicurezza con Intune, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Microsoft Intune**  >  **registrazione del dispositivo registrazione**  >  **Windows**  >  **Proprietà Windows Hello for business**  >  **Properties**.
+1. Passare a **Microsoft Intune**  >  **registrazione del dispositivo registrazione**  >  **Windows**  >  **Proprietà Windows Hello for business**  >  .
 1. In **Impostazioni** impostare **Usa chiavi di sicurezza per l'accesso** su **abilitato**.
 
 La configurazione delle chiavi di sicurezza per l'accesso non dipende dalla configurazione di Windows Hello for business.
@@ -145,18 +142,18 @@ Nell'esempio seguente, un utente denominato Bala Sandhu ha già eseguito il prov
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Gestire la chiave di sicurezza biometria, PIN o reimpostare la chiave di sicurezza
 
 * Windows 10 versione 1903 o successiva
-   * Gli utenti possono aprire **le impostazioni di Windows** nella **Accounts**  >  **chiave di sicurezza** degli account del dispositivo >
+   * Gli utenti possono aprire **le impostazioni di Windows** nella   >  **chiave di sicurezza** degli account del dispositivo >
    * Gli utenti possono modificare il PIN, aggiornare i dati biometrici o reimpostare la chiave di sicurezza
 
 ## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e feedback
 
-Per condividere commenti e suggerimenti o riscontrare problemi durante l'anteprima di questa funzionalità, condividere tramite l'app Windows Feedback hub usando la procedura seguente:
+Per condividere commenti e suggerimenti o riscontrare problemi relativi a questa funzionalità, condividere tramite l'app Windows Feedback hub usando la procedura seguente:
 
 1. Avviare **feedback Hub** e assicurarsi di aver eseguito l'accesso.
 1. Inviare commenti e suggerimenti nella categorizzazione seguente:
    - Categoria: sicurezza e privacy
    - Sottocategoria: FIDO
-1. Per acquisire i log, utilizzare l'opzione per **ricreare il problema**
+1. Per acquisire i log, utilizzare l'opzione per **ricreare il problema**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

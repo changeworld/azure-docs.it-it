@@ -11,16 +11,16 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872010"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659716"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
-Azure Machine Learning semplifica la connessione ai dati nel cloud.  Fornisce un livello di astrazione sul servizio di archiviazione sottostante, quindi è possibile accedere in modo sicuro ai dati e utilizzarli senza dover scrivere codice specifico per il tipo di archiviazione. Azure Machine Learning fornisce anche le funzionalità dei dati seguenti:
+Azure Machine Learning semplifica la connessione ai dati nel cloud. Fornisce un livello di astrazione sul servizio di archiviazione sottostante, quindi è possibile accedere in modo sicuro ai dati e utilizzarli senza dover scrivere codice specifico per il tipo di archiviazione. Azure Machine Learning fornisce anche le funzionalità dei dati seguenti:
 
 *    Interoperabilità con Pandas e dataframe di Spark
 *    Controllo delle versioni e rilevamento della derivazione dei dati
@@ -53,7 +53,7 @@ Il diagramma seguente fornisce una dimostrazione visiva di questo flusso di lavo
 <a name="datastores"></a>
 ## <a name="connect-to-storage-with-datastores"></a>Connettersi all'archiviazione con archivi dati
 
-Azure Machine Learning archivi dati conservano in modo sicuro le informazioni di connessione per l'archiviazione di Azure, quindi non è necessario codificarle negli script. [Registrare e creare un archivio](how-to-access-data.md) dati per connettersi facilmente all'account di archiviazione e accedere ai dati nel servizio di archiviazione di Azure sottostante. 
+Azure Machine Learning archivi dati conservano in modo sicuro le informazioni di connessione all'archivio dati in Azure, quindi non è necessario codificarlo negli script. [Registrare e creare un archivio](how-to-access-data.md) dati per connettersi facilmente all'account di archiviazione e accedere ai dati nel servizio di archiviazione sottostante. 
 
 Servizi di archiviazione basati su cloud supportati in Azure che possono essere registrati come archivi dati:
 
@@ -65,6 +65,9 @@ Servizi di archiviazione basati su cloud supportati in Azure che possono essere 
 + Database di Azure per PostgreSQL
 + File system di Databricks
 + Database di Azure per MySQL
+
+>[!TIP]
+> La funzionalità disponibile a livello generale per la creazione di archivi dati richiede l'autenticazione basata su credenziali per l'accesso ai servizi di archiviazione, ad esempio un'entità servizio o un token di firma di accesso condiviso (SAS). È possibile accedere a queste credenziali da utenti che dispongono dell'accesso in *lettura* all'area di lavoro. <br><br>Se si tratta di un problema,  [creare un archivio dati che usa l'accesso ai dati basato su identità ai servizi di archiviazione (anteprima)](how-to-identity-based-data-access.md). Questa funzionalità è una funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e può cambiare in qualsiasi momento.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Riferimenti ai dati nell'archiviazione con DataSet
@@ -100,7 +103,7 @@ Con i set di elementi, è possibile eseguire numerose attività di machine learn
 + Eseguire il training di modelli di Machine Learning:
      + [esperimenti di Machine Learning automatici](how-to-use-automated-ml-for-ml-models.md)
      + [finestra di progettazione](tutorial-designer-automobile-price-train-score.md#import-data)
-     + [Notebook](how-to-train-with-datasets.md)
+     + [Notebooks](how-to-train-with-datasets.md)
      + [Pipeline di Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 + Accedere ai set di impostazioni per l'assegnazione dei punteggi con l' [inferenza batch](./tutorial-pipeline-batch-scoring-classification.md) nelle [pipeline di Machine Learning](./how-to-create-machine-learning-pipelines.md).
 + Configurare un monitoraggio del set di [dati](#drift) per il rilevamento della deriva.

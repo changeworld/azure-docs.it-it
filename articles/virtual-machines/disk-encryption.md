@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9ed811f96e08e8ebab2e6fd090a4322d9f7827fb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681622"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677446"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Crittografia lato server di archiviazione su disco di Azure
 
@@ -51,6 +51,17 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
 #### <a name="supported-regions"></a>Aree supportate
 
 Le chiavi gestite dal cliente sono disponibili in tutte le aree in cui sono disponibili i dischi gestiti.
+
+La rotazione automatica delle chiavi è in anteprima e disponibile solo nelle aree geografiche seguenti:
+
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti centro-meridionali
+- Stati Uniti occidentali
+- Stati Uniti occidentali 2
+- Europa settentrionale
+- Europa occidentale
+- Francia centrale
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Quando si configurano le chiavi gestite dal cliente, un'identità gestita viene assegnata automaticamente alle risorse dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o il disco gestito da una directory Azure AD a un'altra, l'identità gestita associata a Managed Disks non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere [Trasferimento di una sottoscrizione tra directory di Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

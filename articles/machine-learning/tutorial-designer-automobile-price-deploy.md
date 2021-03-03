@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576059"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659526"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione
 
@@ -42,7 +42,7 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
 
 1. Sopra il canvas della pipeline selezionare **Create inference pipeline** > **Real-time inference pipeline** (Crea pipeline di inferenza > Pipeline di inferenza in tempo reale).
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Screenshot che mostra dove trovare il pulsante per creare la pipeline":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Screenshot che mostra dove trovare il pulsante per creare la pipeline":::
 
     La pipeline dovrebbe ora avere un aspetto simile al seguente: 
 
@@ -97,13 +97,13 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 
 1. Selezionare il cluster del servizio Azure Kubernetes creato.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot che mostra come configurare un nuovo endpoint in tempo reale":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Screenshot che mostra come configurare un nuovo endpoint in tempo reale":::
 
     È anche possibile modificare l'impostazione **avanzata** per l'endpoint in tempo reale.
     
     |Impostazione avanzata|Descrizione|
     |---|---|
-    |Abilitare la diagnostica Application Insights e la raccolta dati| Indica se abilitare applicazione Azure Ingishts per la raccolta di dati dagli endpoint distribuiti. </br> Per impostazione predefinita: false |
+    |Abilitare la diagnostica Application Insights e la raccolta dati| Indica se abilitare applicazione Azure Insights per la raccolta di dati dagli endpoint distribuiti. </br> Per impostazione predefinita: false |
     |Timeout Punteggio| Timeout in millisecondi da applicare per la valutazione delle chiamate al servizio Web.</br>Per impostazione predefinita: 60000|
     |Scalabilità automatica abilitata|   Indica se abilitare o meno la scalabilità automatica per il servizio Web.</br>Per impostazione predefinita: true|
     |Repliche minime| Il numero minimo di contenitori da usare per la scalabilità automatica di questo servizio Web.</br>Per impostazione predefinita: 1|
@@ -137,6 +137,22 @@ Una volta completata la distribuzione, è possibile visualizzare l'endpoint in t
 1. Per testare l'endpoint, passare alla scheda **test** . Da qui è possibile immettere i dati di test e selezionare **test** Verify the output of the endpoint.
 
 Per altre informazioni sull'utilizzo del servizio Web, vedere [Usare un modello di Azure Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
+
+## <a name="limitations"></a>Limitazioni
+
+Se si apportano modifiche alla pipeline di training, è necessario inviare di nuovo la pipeline di training, **aggiornare** la pipeline di inferenza ed eseguire nuovamente la pipeline di inferenza.
+
+Si noti che solo i modelli sottoposti a training verranno aggiornati nella pipeline di inferenza, mentre la trasformazione dei dati non verrà aggiornata.
+
+Per usare la trasformazione aggiornata nella pipeline di inferenza, è necessario registrare l'output della trasformazione del modulo di trasformazione come DataSet.
+
+![Screenshot che illustra come registrare un set di dati di trasformazione](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Sostituire quindi manualmente il modulo **TD-** Module nella pipeline di inferenza con il set di dati registrato.
+
+![Screenshot che illustra come sostituire il modulo di trasformazione](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+È quindi possibile inviare la pipeline di inferenza con il modello e la trasformazione aggiornati e distribuire.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

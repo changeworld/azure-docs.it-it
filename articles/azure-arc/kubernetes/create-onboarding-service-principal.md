@@ -1,5 +1,5 @@
 ---
-title: Creare un'entità servizio di onboarding abilitata per Arc di Azure (anteprima)
+title: Creare un'entità servizio di onboarding per Azure Arc Enabled Kubernetes
 services: azure-arc
 ms.service: azure-arc
 ms.date: 02/09/2021
@@ -8,20 +8,20 @@ author: mlearned
 ms.author: mlearned
 description: "Creare un'entità servizio di onboarding abilitata per Azure Arc "
 keywords: Kubernetes, Arc, Azure, contenitori
-ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bda088bdae5c866493718db94c9a2da89cada8c9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390488"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650347"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Creare un'entità servizio di onboarding abilitata per Arc di Azure (anteprima)
+# <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Creare un'entità servizio di onboarding per Azure Arc Enabled Kubernetes
 
 ## <a name="overview"></a>Panoramica
 
-È possibile caricare cluster Kubernetes in Azure ARC usando entità servizio con assegnazioni di ruolo con privilegi limitati. Questa funzionalità è utile nelle pipeline di integrazione continua e distribuzione continua (CI/CD), come le azioni Azure Pipelines e GitHub.
+È possibile connettere i cluster Kubernetes ad Azure ARC usando entità servizio con assegnazioni di ruolo con privilegi limitati. Questa funzionalità è utile nelle pipeline di integrazione continua e distribuzione continua (CI/CD), come le azioni Azure Pipelines e GitHub.
 
-Eseguire i passaggi seguenti per informazioni su come usare le entità servizio per l'onboarding di cluster Kubernetes in Azure Arc.
+Esaminare i passaggi seguenti per informazioni su come usare le entità servizio per la connessione di cluster Kubernetes ad Azure Arc.
 
 ## <a name="create-a-new-service-principal"></a>Creare una nuova entità servizio
 
@@ -49,11 +49,11 @@ Assegnare il ruolo "cluster Kubernetes-Azure Arc onboarding" all'entità servizi
 
 Considerate le capacità limitate, i clienti possono riutilizzare facilmente questa entità per l'onboarding di più cluster.
 
-È possibile limitare ulteriormente le autorizzazioni passando l'argomento appropriato `--scope` durante l'assegnazione del ruolo. In questo modo i clienti possono limitare la registrazione del cluster. Gli scenari seguenti sono supportati dai diversi parametri di `--scope`:
+È possibile limitare ulteriormente le autorizzazioni passando l'argomento appropriato `--scope` durante l'assegnazione del ruolo. Ciò consente agli amministratori di limitare la registrazione del cluster alla sottoscrizione o all'ambito del gruppo di risorse. Gli scenari seguenti sono supportati dai diversi parametri di `--scope`:
 
 | Risorsa  | Argomento di `scope`| Effetto |
 | ------------- | ------------- | ------------- |
-| Sottoscrizione | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | L'entità servizio può registrare qualsiasi cluster in un gruppo di risorse esistente nella sottoscrizione specificata. |
+| Sottoscrizione | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | L'entità servizio può registrare il cluster in qualsiasi gruppo di risorse in tale sottoscrizione. |
 | Gruppo di risorse | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | L'entità servizio può registrare __solo__ cluster nel gruppo di risorse `myGroup` . |
 
 ```console

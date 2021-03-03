@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Kubernetes con abilitazione di Azure Arc (anteprima)
+title: Kubernetes con abilitazione di Azure Arc
 summary: Informazioni su come gestire i cluster Kubernetes con Azure Arc
 metadata:
   title: Kubernetes con abilitazione di Azure Arc
@@ -7,14 +7,14 @@ metadata:
   author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 02/15/2021
+  ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: 97343e8c23e202e70ec30bb0a522105889ea08b3
-  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+  ms.openlocfilehash: f97b1560e062d1849f726baff8cd66d8e75f8b7f
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100560245"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101647847"
 landingContent:
 - title: Connettere i cluster Kubernetes ad Azure con Azure Arc
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: Che cos'è Kubernetes con abilitazione di Azure Arc?
       url: overview.md
+    - text: Programma di convalida di Azure Arc
+      url: validation-program.md
   - linkListType: concept
     links:
     - text: Architettura degli agenti
@@ -34,14 +36,18 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Connettere il cluster
-      url: connect-cluster.md
+    - text: Connettere un cluster ad Azure Arc
+      url: quickstart-connect-cluster.md
+- title: Distribuire configurazioni con GitOps
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuire configurazioni con GitOps
+      url: tutorial-use-gitops-connected-cluster.md
 - title: Configurare, gestire e monitorare i cluster
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Distribuire configurazioni con GitOps
-      url: use-gitops-connected-cluster.md
     - text: Distribuire grafici Helm con GitOps
       url: use-gitops-with-helm.md
     - text: Applicare GitOps con Criteri di Azure

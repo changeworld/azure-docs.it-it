@@ -10,19 +10,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: d45535f11568fddd10130d506af3329dcdfb0484
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580274"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667306"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Usare l'estensione di diagnostica Linux 4,0 per monitorare le metriche e i log
 
 Questo documento descrive la versione 4,0 e successive dell'estensione di diagnostica Linux.
 
 > [!IMPORTANT]
-> Per informazioni sulla versione 3. *, vedere  [questo documento](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Per informazioni sulla versione 2.3 e precedenti, vedere [questo documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Per informazioni sulla versione 3. *, vedere  [questo documento](./diagnostics-linux-v3.md). Per informazioni sulla versione 2.3 e precedenti, vedere [questo documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduzione
 
@@ -108,7 +108,7 @@ L'eseguibile di python2 deve avere un alias per *Python*. Di seguito è riportat
 La configurazione di esempio scaricata in questi esempi raccoglie un set di dati standard e li invia all'archiviazione tabelle. L'URL per la configurazione di esempio e il relativo contenuto sono soggetti a modifiche. Nella maggior parte dei casi è consigliabile scaricare una copia del file JSON delle impostazioni del portale e personalizzarla in base alle proprie esigenze, quindi fare in modo che tutti i modelli o le automazioni create usino la versione personalizzata del file di configurazione anziché scaricare l'URL ogni volta.
 
 > [!NOTE]
-> Per abilitare il nuovo sink di monitoraggio di Azure, le macchine virtuali devono avere l'identità assegnata dal sistema abilitata per la generazione del token di autenticazione MSI. Questa operazione può essere eseguita durante la creazione della macchina virtuale o dopo la creazione della macchina virtuale. Procedura per abilitare l'identità assegnata dal sistema tramite il portale, l'interfaccia della riga di comando, PowerShell e Resource Manager.  sono elencate in dettaglio [qui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> Per abilitare il nuovo sink di monitoraggio di Azure, le macchine virtuali devono avere l'identità assegnata dal sistema abilitata per la generazione del token di autenticazione MSI. Questa operazione può essere eseguita durante la creazione della macchina virtuale o dopo la creazione della macchina virtuale. Procedura per abilitare l'identità assegnata dal sistema tramite il portale, l'interfaccia della riga di comando, PowerShell e Resource Manager.  sono elencate in dettaglio [qui](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
 #### <a name="azure-cli-sample"></a>Esempio di interfaccia della riga di comando Azure
 
@@ -490,7 +490,7 @@ Gli esempi includono `LinuxSyslog20170410` e `LinuxSyslog20170609`.
 Questa sezione facoltativa controlla l'abilitazione dell'invio di metriche al sink di monitoraggio di Azure, oltre all'account di archiviazione e al pannello delle metriche Guest predefinito.
 
 > [!NOTE]
-> È necessario che l'identità assegnata dal sistema sia abilitata nelle VM/VMSS. Questa operazione può essere eseguita tramite il portale, l'interfaccia della riga di comando, PowerShell e Resource Manager. I passaggi sono elencati in dettaglio [qui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). I passaggi per abilitare questa operazione sono elencati anche negli esempi di installazione per AZ CLI, PowerShell e così via. 
+> È necessario che l'identità assegnata dal sistema sia abilitata nelle VM/VMSS. Questa operazione può essere eseguita tramite il portale, l'interfaccia della riga di comando, PowerShell e Resource Manager. I passaggi sono elencati in dettaglio [qui](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). I passaggi per abilitare questa operazione sono elencati anche negli esempi di installazione per AZ CLI, PowerShell e così via. 
 
 ```json
   "sinksConfig": {

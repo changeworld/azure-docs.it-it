@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526698"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673518"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenziali per l'autenticazione dell'origine in Azure
 
@@ -85,8 +85,9 @@ Questi tipi di credenziali sono supportati in ambito:
 - Entità servizio: aggiungere la **chiave dell'entità servizio** come segreto in Key Vault.
 - Autenticazione SQL: è possibile aggiungere la **password** come segreto in Key Vault.
 - Chiave dell'account: aggiungere la **chiave dell'account** come segreto in Key Vault.
+- Ruolo ARN: per un'origine dati Amazon S3, aggiungere il **ruolo ARN** in AWS. 
 
-Per altre informazioni, vedere [aggiungere un segreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+Per altre informazioni, vedere [aggiungere un segreto per Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) e [creare un nuovo ruolo AWS per la competenza](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
 Dopo l'archiviazione dei segreti nell'insieme di credenziali delle chiavi:
 

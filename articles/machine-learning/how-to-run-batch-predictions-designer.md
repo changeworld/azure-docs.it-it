@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553947"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657381"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning
 
@@ -144,6 +144,22 @@ Quando si pubblica una pipeline, è possibile scegliere di impostarla come nuova
 È anche possibile impostare una nuova pipeline predefinita nella scheda **Published pipelines** (Pipeline pubblicate) dell'endpoint.
 
 ![Imposta pipeline predefinita nella pagina della pipeline pubblicata](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+
+## <a name="limitations"></a>Limitazioni
+
+Se si apportano modifiche alla pipeline di training, è necessario inviare nuovamente la pipeline di training, **aggiornare**  la pipeline di inferenza ed eseguire di nuovo la pipeline di inferenza.
+
+Si noti che solo i modelli verranno aggiornati nella pipeline di inferenza, mentre la trasformazione dei dati non verrà aggiornata.
+
+Per usare la trasformazione aggiornata nella pipeline di inferenza, è necessario registrare l'output della trasformazione del modulo di trasformazione come DataSet.
+
+![Screenshot che illustra come registrare un set di dati di trasformazione](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Sostituire quindi manualmente il modulo **TD-** Module nella pipeline di inferenza con il set di dati registrato.
+
+![Screenshot che illustra come sostituire il modulo di trasformazione](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+È quindi possibile inviare la pipeline di inferenza con il modello e la trasformazione aggiornati e pubblicare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

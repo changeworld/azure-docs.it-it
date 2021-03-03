@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: cfdcc39966e58a845be0096474cb8a3366f3dd7a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: HT
+ms.openlocfilehash: cf1e71d67424258ccae6794f28d37399cd68996e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503590"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654324"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con VMware Horizon - Unified Access Gateway
 
@@ -39,7 +39,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * VMware Horizon - Unified Access Gateway supporta l'accesso SSO avviato da **SP e IDP**
 
-## <a name="adding-vmware-horizon---unified-access-gateway-from-the-gallery"></a>Aggiunta di VMware Horizon - Unified Access Gateway dalla raccolta
+## <a name="add-vmware-horizon---unified-access-gateway-from-the-gallery"></a>Aggiungere VMware Horizon-Unified Access Gateway dalla raccolta
 
 Per configurare l'integrazione di VMware Horizon - Unified Access Gateway in Azure AD, è necessario aggiungere VMware Horizon - Unified Access Gateway dalla raccolta all'elenco di app SaaS gestite.
 
@@ -70,17 +70,17 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **VMware Horizon - Unified Access Gateway** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<HORIZON_UAG_FQDN>/portal`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<HORIZON_UAG_FQDN>/portal/samlsso`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<HORIZON_UAG_FQDN>`
 
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -121,7 +121,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Configurare l'accesso Single Sign-On di VMware Horizon - Unified Access Gateway
 
-Per configurare l'accesso Single Sign-On sul lato **VMware Horizon - Unified Access Gateway** , è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di VMware Horizon - Unified Access Gateway](mailto:support@vmware.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **VMware Horizon - Unified Access Gateway**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di VMware Horizon - Unified Access Gateway](mailto:support@vmware.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Creare l'utente di test di VMware Horizon - Unified Access Gateway
 
@@ -145,4 +145,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato VMware Horizon - Unified Access Gateway, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato VMware Horizon - Unified Access Gateway, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

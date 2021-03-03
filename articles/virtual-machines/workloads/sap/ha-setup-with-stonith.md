@@ -6,20 +6,19 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b34a7665770308b45732711f5d8328eb1d0a785f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83bf6b6123cf7e0d57296f1f344a264c8a18ed77
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965069"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671060"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
@@ -375,7 +374,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 non mostra la visualizzazione grafica
 In questo documento viene usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
 
-**Erroree**
+**Error (Errore) (Error (Errore)e)**
 
 ![Screenshot mostra parte di una finestra della console con un messaggio di errore.](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 

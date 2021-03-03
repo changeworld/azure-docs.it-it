@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550785"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643539"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -28,27 +28,47 @@ Questo articolo illustra le informazioni relative a gestione automatici di Azure
 
 ## <a name="overview"></a>Panoramica
 
-Gestione automatica di Azure per le macchine virtuali è un servizio che elimina la necessità di individuare, sapere come eseguire l'onboarding e come configurare determinati servizi in Azure che potrebbero trarre vantaggio dalla macchina virtuale. Questi servizi consentono di migliorare l'affidabilità, la sicurezza e la gestione per le macchine virtuali e sono considerati servizi di procedure consigliate di Azure, ad esempio [azure gestione aggiornamenti](../automation/update-management/overview.md) e [backup di Azure](../backup/backup-overview.md) , solo per citarne alcuni.
+Gestione automatica di Azure per le macchine virtuali è un servizio che elimina la necessità di individuare, sapere come eseguire l'onboarding e come configurare determinati servizi in Azure che potrebbero trarre vantaggio dalla macchina virtuale. Questi servizi sono considerati servizi Best Practices di Azure e consentono di migliorare l'affidabilità, la sicurezza e la gestione delle macchine virtuali. I servizi di esempio includono [azure gestione aggiornamenti](../automation/update-management/overview.md) e [backup di Azure](../backup/backup-overview.md).
 
-Dopo l'onboarding delle macchine virtuali in gestione automatica di Azure, ogni servizio Best Practice viene configurato automaticamente sulle impostazioni consigliate. Le procedure consigliate sono diverse per ogni servizio. Un esempio potrebbe essere backup di Azure, in cui la procedura consigliata potrebbe consistere nel eseguire il backup della macchina virtuale una volta al giorno e avere un periodo di conservazione di sei mesi.
+Dopo l'onboarding delle macchine virtuali in Azure automanage, ogni servizio procedure consigliate viene configurato per le impostazioni consigliate. Le procedure consigliate sono diverse per ogni servizio. Un esempio potrebbe essere backup di Azure, in cui la procedura consigliata potrebbe consistere nel eseguire il backup della macchina virtuale una volta al giorno e avere un periodo di conservazione di sei mesi.
 
-Azure automanage monitora automaticamente anche la deriva e corregge il controllo per l'it quando viene rilevato. Ciò significa che se la macchina virtuale viene caricata in gestione automatica di Azure, la configurazione non viene configurata solo per le procedure consigliate di Azure, ma il computer viene monitorato per assicurarsi che continui a conformarsi a tali procedure consigliate nell'intero ciclo di vita. Se la macchina virtuale si sposta o devia da queste procedure, la correzione verrà corretta e il computer tornerà nello stato desiderato.
-
-Infine, l'esperienza è incredibilmente semplice.
-
+Azure automanage monitora automaticamente anche la deriva e corregge il controllo per l'it quando viene rilevato. Ciò significa che se la macchina virtuale viene caricata in gestione automatica di Azure, la configurazione non viene configurata solo per le procedure consigliate di Azure, ma il computer viene monitorato per assicurarsi che continui a conformarsi a tali procedure consigliate nell'intero ciclo di vita. Se la macchina virtuale si sposta o devia da queste procedure (ad esempio, se un servizio è offboarded), verrà corretto e il computer tornerà allo stato desiderato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 È necessario prendere in considerazione diversi prerequisiti prima di provare ad abilitare la gestione automatici di Azure nelle macchine virtuali.
 
-- Solo macchine virtuali Windows Server
-- Le macchine virtuali devono trovarsi in un'area supportata (vedere il paragrafo seguente)
-- L'utente deve disporre delle autorizzazioni corrette (vedere il paragrafo seguente)
+- Versioni supportate di [Windows Server](automanage-windows-server.md#supported-windows-server-versions) e [distribuzioni Linux](automanage-linux.md#supported-linux-distributions-and-versions)
+- Le macchine virtuali devono trovarsi in un'area supportata (vedere di seguito)
+- L'utente deve disporre delle autorizzazioni corrette (vedere di seguito)
 - Il servizio di gestione delle sottoscrizioni sandbox al momento non è supportato
 
-È anche importante notare che automanage supporta solo le macchine virtuali Windows situate nelle aree seguenti: Europa occidentale, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale, Stati Uniti centro-occidentali, Giappone orientale.
+### <a name="supported-regions"></a>Aree supportate
+Automanage supporta solo VM situate nelle aree seguenti:
+* Europa occidentale
+* Europa settentrionale
+* Stati Uniti centrali
+* Stati Uniti orientali
+* Stati Uniti orientali 2
+* Stati Uniti occidentali
+* Stati Uniti occidentali 2
+* Canada centrale
+* Stati Uniti centro-occidentali
+* Stati Uniti centro-meridionali
+* Giappone orientale
+* Regno Unito meridionale
+* Australia orientale
+* Australia sud-orientale
 
-È necessario avere il ruolo **collaboratore** per il gruppo di risorse contenente le macchine virtuali per abilitare la gestione delle macchine virtuali nelle VM usando un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account di gestione, sono necessarie le autorizzazioni seguenti per la sottoscrizione: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+### <a name="required-rbac-permissions"></a>Autorizzazioni RBAC necessarie
+Per l'account saranno necessari ruoli RBAC leggermente diversi a seconda che si stia abilitando la gestione autogestita con un nuovo account automanage.
+
+Se si Abilita automanage con un nuovo account automanage:
+* Ruolo **proprietario** per le sottoscrizioni contenenti le VM _**oppure**_
+* Ruoli di **amministratore di accesso utente** e **collaboratore** nelle sottoscrizioni contenenti le VM
+
+Se si Abilita automanage con un account di gestione autogestito esistente:
+* Ruolo **collaboratore** per il gruppo di risorse contenente le macchine virtuali
 
 > [!NOTE]
 > Se si vuole usare automanage in una macchina virtuale connessa a un'area di lavoro in una sottoscrizione diversa, è necessario disporre delle autorizzazioni descritte in precedenza in ogni sottoscrizione.
@@ -57,7 +77,9 @@ Infine, l'esperienza è incredibilmente semplice.
 
 :::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Onboarding intelligente dei servizi.":::
 
-Vedere [gestione automatica di Azure per le procedure consigliate per le macchine virtuali](virtual-machines-best-practices.md) per l'elenco completo dei servizi di Azure partecipanti, oltre ai profili di configurazione supportati.
+Per l'elenco completo dei servizi di Azure partecipanti, nonché per l'ambiente supportato, vedere gli argomenti seguenti:
+- [Gestione autogestita per Linux](automanage-linux.md)
+- [Gestione autogestita per Windows Server](automanage-windows-server.md)
 
  L'utente verrà automaticamente caricato in questi servizi partecipanti. Sono essenziali per le procedure consigliate white paper, che è possibile trovare nel [Framework di adozione del cloud](/azure/cloud-adoption-framework/manage/azure-server-management).
 
@@ -70,33 +92,37 @@ Nella portale di Azure è possibile abilitare la gestione automatica in una macc
 
 Se è la prima volta che si Abilita la gestione automatica per la macchina virtuale, è possibile eseguire la ricerca nella portale di Azure per le **procedure consigliate per la gestione automatica-macchine virtuali di Azure**. Fare clic su **Abilita in una macchina virtuale esistente**, selezionare le macchine virtuali da caricare, fare clic su **Seleziona**, **Abilita** e termina.
 
-L'unica volta in cui potrebbe essere necessario interagire con questa macchina virtuale per gestire questi servizi si trova nel caso in cui si sia tentato di correggere la macchina virtuale, ma non è stato possibile eseguire questa operazione. Se la macchina virtuale è stata risolta correttamente, verrà ripristinata la conformità senza avvisare dell'utente.
+L'unica volta in cui potrebbe essere necessario interagire con questa macchina virtuale per gestire questi servizi si trova nel caso in cui si sia tentato di correggere la macchina virtuale, ma non è stato possibile eseguire questa operazione. Se la macchina virtuale è stata risolta correttamente, verrà ripristinata la conformità senza avvisare dell'utente. Per informazioni dettagliate, vedere [lo stato delle macchine virtuali](#status-of-vms).
 
 
-## <a name="configuration-profiles"></a>Profili di configurazione
+## <a name="environment-configuration"></a>Configurazione dell'ambiente
 
-Quando si Abilita la gestione automatica per la macchina virtuale, è necessario un profilo di configurazione. I profili di configurazione sono la base di questo servizio. Definiscono esattamente i servizi in cui si caricano i computer e in qualche misura la configurazione di tali servizi.
+Quando si Abilita la gestione automatica per la macchina virtuale, è necessario un ambiente. Gli ambienti sono la base di questo servizio. Definiscono i servizi in cui si caricano i computer e in una certa misura la configurazione di tali servizi.
 
-### <a name="default-configuration-profiles"></a>Profili di configurazione predefiniti
+### <a name="default-environments"></a>Ambienti predefiniti
 
-Sono attualmente disponibili due profili di configurazione.
+Sono attualmente disponibili due ambienti.
 
-- **Procedure consigliate per macchine virtuali di Azure:** il profilo di configurazione di sviluppo/test è progettato per i computer di sviluppo/test.
-- **Procedure consigliate per le macchine virtuali di Azure:** il profilo di configurazione di produzione è per la produzione.
+- Ambiente di **sviluppo/test** è progettato per i computer di sviluppo/test.
+- L'ambiente di **produzione** è per la produzione.
 
 Il motivo di questo differenziatore è dovuto al fatto che alcuni servizi sono consigliati in base al carico di lavoro in esecuzione. Ad esempio, in un computer di produzione verrà automaticamente caricato in backup di Azure. Tuttavia, per un computer di sviluppo/test, un servizio di backup potrebbe essere un costo superfluo, poiché i computer di sviluppo/test sono in genere un impatto aziendale inferiore.
 
-### <a name="customizing-a-configuration-profile-using-preferences"></a>Personalizzazione di un profilo di configurazione usando le preferenze
+### <a name="customizing-an-environment-using-preferences"></a>Personalizzazione di un ambiente con preferenze
 
-Oltre ai servizi standard di cui si esegue l'onboarding, è possibile configurare un certo subset di preferenze. Queste preferenze sono consentite in un'ampia gamma di opzioni di configurazione che non violano le procedure consigliate. Ad esempio, nel caso di backup di Azure, sarà possibile definire la frequenza del backup e il giorno della settimana in cui si verifica. Tuttavia, *non* sarà possibile disattivare completamente backup di Azure.
-
-> [!NOTE]
-> Nel profilo di configurazione di sviluppo/test non è possibile eseguire il backup della macchina virtuale.
-
-È possibile modificare le impostazioni di un profilo di configurazione predefinito tramite le preferenze. Per informazioni su come creare una preferenza, vedere [qui](virtual-machines-custom-preferences.md).
+Oltre ai servizi standard di cui si esegue l'onboarding, è possibile configurare un certo subset di preferenze. Queste preferenze sono consentite in un intervallo di opzioni di configurazione. Ad esempio, nel caso di backup di Azure, sarà possibile definire la frequenza del backup e il giorno della settimana in cui si verifica.
 
 > [!NOTE]
-> Non è possibile modificare il profilo di configurazione nella macchina virtuale mentre è abilitata la funzionalità automanage. È necessario disabilitare la gestione automatica per tale macchina virtuale e quindi abilitare di nuovo la gestione automatica con il profilo di configurazione e le preferenze desiderate.
+> Nell'ambiente di sviluppo/test, non si eseguirà il backup della macchina virtuale.
+
+È possibile modificare le impostazioni di un ambiente predefinito con le preferenze. Per informazioni su come creare una preferenza, vedere [qui](virtual-machines-custom-preferences.md).
+
+> [!NOTE]
+> Non è possibile modificare la configurazione di enivonrment nella macchina virtuale mentre la gestione automatica è abilitata. È necessario disabilitare la gestione autonoma per tale macchina virtuale e quindi abilitare di nuovo la gestione autonoma con l'ambiente e le preferenze desiderate.
+
+Per l'elenco completo dei servizi di Azure che partecipano e se supportano le preferenze, vedere qui:
+- [Gestione autogestita per Linux](automanage-windows-server.md)
+- [Gestione autogestita per Windows Server](automanage-windows-server.md)
 
 
 ## <a name="automanage-account"></a>Gestisci account
@@ -123,7 +149,7 @@ Nella portale di Azure passare alla pagina Gestione automatica **-procedure cons
 
 :::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Elenco delle macchine virtuali configurate.":::
 
-Per ogni macchina virtuale elencata vengono visualizzati i dettagli seguenti: nome, profilo di configurazione, preferenza di configurazione, stato, account, sottoscrizione e gruppo di risorse.
+Per ogni macchina virtuale elencata vengono visualizzati i dettagli seguenti: nome, ambiente, preferenza di configurazione, stato, sistema operativo, account, sottoscrizione e gruppo di risorse.
 
 Nella colonna **stato** possono essere visualizzati gli Stati seguenti:
 - *In corso* : la macchina virtuale è stata appena abilitata e configurata
@@ -156,7 +182,7 @@ Prima di tutto, la macchina virtuale non verrà disattivata da nessuno dei servi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso che la gestione automaticamente per le macchine virtuali offre un mezzo per il quale è possibile eliminare la necessità di sapere, caricare e configurare i servizi di Azure per le procedure consigliate. Inoltre, se un computer caricato per la gestione automatica per le macchine virtuali deriva dai profili di configurazione impostati, verrà ripristinato automaticamente in conformità.
+In questo articolo si è appreso che la gestione automaticamente per le macchine virtuali offre un mezzo per il quale è possibile eliminare la necessità di sapere, caricare e configurare i servizi di Azure per le procedure consigliate. Inoltre, se un computer caricato per la gestione automatica per le macchine virtuali deriva dalla configurazione dell'ambiente, verrà automaticamente ripristinata la conformità.
 
 Provare ad abilitare la gestione automatici per le macchine virtuali nella portale di Azure.
 

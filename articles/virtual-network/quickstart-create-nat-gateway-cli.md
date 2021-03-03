@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8d14b8b83fd784956091e738a38d6851d5edacd9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1d505c8f363e908a43c751c6253ed0f3a14b3b51
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927136"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671540"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Creare un gateway NAT usando l'interfaccia della riga di comando di Azure
 
@@ -59,7 +59,7 @@ Per accedere alla rete Internet pubblica, sono necessari uno o più indirizzi IP
 
 ### <a name="create-a-public-ip-prefix"></a>Creare un prefisso indirizzo IP pubblico
 
-Con il gateway NAT è possibile usare una o più risorse indirizzo IP pubblico, prefissi IP pubblici o entrambi. Per la dimostrazione, verrà aggiunta una risorsa prefisso indirizzo IP pubblico a questo scenario.   Usare il comando [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) per creare una risorsa prefisso indirizzo IP pubblico denominata **myPublicIPprefix** in **myResourceGroupNAT**.
+Con il gateway NAT è possibile usare una o più risorse indirizzo IP pubblico, prefissi IP pubblici o entrambi. Per la dimostrazione, verrà aggiunta una risorsa prefisso indirizzo IP pubblico a questo scenario. Usare il comando [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) per creare una risorsa prefisso indirizzo IP pubblico denominata **myPublicIPprefix** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \

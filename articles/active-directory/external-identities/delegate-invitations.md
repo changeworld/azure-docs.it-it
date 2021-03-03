@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365549"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645824"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
 
@@ -78,11 +78,11 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
    >
    >![Abilita la password monouso per la posta elettronica](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. In **Abilita l'iscrizione self-service a Guest tramite flussi utente (anteprima)**, selezionare **Sì** se si vuole essere in grado di creare flussi utente che consentono agli utenti di iscriversi alle app. Per altre informazioni su questa impostazione, vedere [aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)](self-service-sign-up-user-flow.md).
+7. In **Abilita i flussi utente per l'iscrizione self-service a Guest** selezionare **Sì** se si vuole essere in grado di creare flussi utente che consentono agli utenti di iscriversi alle app. Per altre informazioni su questa impostazione, vedere [aggiungere un flusso utente di iscrizione self-service a un'app](self-service-sign-up-user-flow.md).
 
     ![Impostazione dell'iscrizione self-service tramite flussi utente](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. In **restrizioni di collaborazione** scegliere se consentire o negare gli inviti ai domini specificati. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
+7. In **restrizioni di collaborazione** è possibile scegliere se consentire o negare gli inviti ai domini specificati e immettere nomi di dominio specifici nelle caselle di testo. Per specificare più domini, immettere ognuno in una nuova riga. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
 
     ![Impostazioni delle restrizioni di collaborazione](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Assegnare il ruolo Mittente dell'invito guest a un utente

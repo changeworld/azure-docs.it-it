@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e46aa79bc84f3eba218932c1e8a463584de3f1bb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c903cf06981e1336ae30942775de11d09bb1299b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488954"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675356"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster in Azure
 
@@ -145,7 +144,7 @@ Quando si seleziona la tecnologia per il disco condiviso, tenere presenti le con
 
 Microsoft offre [dischi condivisi di Azure](../../disks-shared.md), che possono essere usati per implementare la disponibilità elevata di SAP ASC/SCS con un'opzione di disco condiviso.
 
-#### <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
+#### <a name="prerequisites-and-limitations"></a>Prerequisiti e limitazioni
 
 Attualmente è possibile usare i dischi di Azure SSD Premium come disco condiviso di Azure per l'istanza di SAP ASC/SCS. Sono attualmente disponibili le seguenti limitazioni:
 

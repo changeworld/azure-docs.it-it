@@ -7,25 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 46b498f8b8512d0202f47dd31ba25cc851ca71e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441454"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644103"
 ---
-# <a name="define-custom-attributes-for-user-flows-preview"></a>Definire attributi personalizzati per i flussi utente (anteprima)
-
-> [!NOTE]
-> La funzionalità degli attributi utente personalizzati è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="define-custom-attributes-for-user-flows"></a>Definire attributi personalizzati per i flussi utente
 
 È possibile definire requisiti diversi per le informazioni da raccogliere durante l'iscrizione alle singole applicazioni. Azure AD include un set predefinito di informazioni archiviate in attributi, ad esempio nome, cognome, città e codice postale. Con Azure AD è possibile estendere il set di attributi archiviati in un account Guest quando l'utente esterno si iscrive tramite un flusso utente.
 
-È possibile creare attributi personalizzati nel portale di Azure e usarli nei flussi utente di iscrizione self-service. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_<extensions-app-id>_attributename`. Ad esempio:
+È possibile creare attributi personalizzati nel portale di Azure e usarli nei flussi utente di iscrizione self-service. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md). L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_<extensions-app-id>_attributename`. Ad esempio:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -38,7 +35,7 @@ ms.locfileid: "92441454"
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Nel menu a sinistra selezionare **Identità esterne**.
-4. Selezionare **Attributi utente personalizzati (anteprima)** . Sono elencati gli attributi utente disponibili.
+4. Selezionare **attributi utente personalizzati**. Sono elencati gli attributi utente disponibili.
 
    ![Selezionare gli attributi utente per l'iscrizione](media/user-flow-add-custom-attributes/user-attributes.png)
 

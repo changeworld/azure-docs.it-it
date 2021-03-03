@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 22ad2d65710a3fc149f5a83fb511244ac3be2203
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2b35abf7f318d4db6166dd48c4f7bd35aaf4d98a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733240"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644409"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Crea controller dati in Azure Data Studio
 
@@ -49,7 +49,7 @@ Seguire questa procedura per creare un controller di dati di Azure ARC usando la
    
    Il percorso di Azure selezionato qui è il percorso in Azure in cui verranno archiviati i *metadati* sul controller dati e le istanze di database che gestisce. Il controller di dati e le istanze del database verranno effettivamente crewted nel cluster Kubernetes, laddove possibile.
 
-10. Selezionare la modalità di connettività appropriata. Altre informazioni sulle [modalità di connettività](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Fare clic su Avanti**.
+10. Selezionare la modalità di connettività appropriata. Altre informazioni sulle [modalità di connettività](./connectivity.md). **Fare clic su Avanti**.
 
     Se si seleziona la modalità di connettività diretta, le credenziali dell'entità servizio sono necessarie come descritto in [creare un'entità servizio](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 

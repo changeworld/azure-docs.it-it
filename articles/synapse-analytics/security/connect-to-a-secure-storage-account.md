@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 599cf17e1ab2b85aac77893e8b2d520d412e1cea
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d43d6f56b48a34fa34baf727508ad8f1c151aa7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417790"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674323"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Connettersi a un account di archiviazione di Azure sicuro dall'area di lavoro sinapsi
 
@@ -21,7 +21,7 @@ Questo articolo illustra come connettersi a un account di archiviazione di Azure
 
 
 ## <a name="secured-azure-storage-accounts"></a>Account di archiviazione di Azure protetti
-Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere e controllare l'accesso agli account di archiviazione. È possibile configurare le regole del firewall IP per concedere il traffico dagli intervalli di indirizzi IP pubblici selezionati per l'accesso all'account di archiviazione. È anche possibile configurare le regole di rete per concedere il traffico dalle reti virtuali selezionate per l'accesso all'account di archiviazione. È possibile combinare le regole del firewall IP che consentono l'accesso da intervalli di indirizzi IP selezionati e da regole di rete che concedono l'accesso da reti virtuali selezionate nello stesso account di archiviazione. Queste regole si applicano all'endpoint pubblico di un account di archiviazione. Non sono necessarie regole di accesso per consentire il traffico da endpoint privati gestiti creati nell'area di lavoro a un account di archiviazione. Le regole del firewall di archiviazione possono essere applicate agli account di archiviazione esistenti o ai nuovi account di archiviazione al momento della creazione. Per altre informazioni sulla protezione dell'account di archiviazione, vedere [qui](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere e controllare l'accesso agli account di archiviazione. È possibile configurare le regole del firewall IP per concedere il traffico dagli intervalli di indirizzi IP pubblici selezionati per l'accesso all'account di archiviazione. È anche possibile configurare le regole di rete per concedere il traffico dalle reti virtuali selezionate per l'accesso all'account di archiviazione. È possibile combinare le regole del firewall IP che consentono l'accesso da intervalli di indirizzi IP selezionati e da regole di rete che concedono l'accesso da reti virtuali selezionate nello stesso account di archiviazione. Queste regole si applicano all'endpoint pubblico di un account di archiviazione. Non sono necessarie regole di accesso per consentire il traffico da endpoint privati gestiti creati nell'area di lavoro a un account di archiviazione. Le regole del firewall di archiviazione possono essere applicate agli account di archiviazione esistenti o ai nuovi account di archiviazione al momento della creazione. Per altre informazioni sulla protezione dell'account di archiviazione, vedere [qui](../../storage/common/storage-network-security.md).
 
 ## <a name="synapse-workspaces-and-virtual-networks"></a>Aree di lavoro sinapsi e reti virtuali
 Quando si crea un'area di lavoro sinapsi, è possibile scegliere di abilitare l'associazione di una rete virtuale gestita. Se non si Abilita la rete virtuale gestita per l'area di lavoro durante la creazione, l'area di lavoro si trova in una rete virtuale condivisa insieme ad altre aree di lavoro sinapsi a cui non è associata una rete virtuale gestita. Se è stata abilitata la rete virtuale gestita quando è stata creata l'area di lavoro, l'area di lavoro è associata a una rete virtuale dedicata gestita da sinapsi di Azure. Queste reti virtuali non vengono create nella sottoscrizione del cliente. Non sarà quindi possibile concedere il traffico da tali reti virtuali all'account di archiviazione protetto usando le regole di rete descritte in precedenza.  

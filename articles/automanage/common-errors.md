@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 13388bf289c1d10a2e7da04a4dd5d26be109535e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697819"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644443"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Risolvere gli errori di onboarding comuni per la gestione del caricamento
 La gestione automatica potrebbe non riuscire a caricare un computer nel servizio. Questo documento illustra come risolvere gli errori di distribuzione, condivide alcuni motivi comuni per cui le distribuzioni possono avere esito negativo e descrive i potenziali passaggi successivi per la mitigazione.
@@ -37,7 +37,7 @@ Se non vengono visualizzate le distribuzioni non riuscite nel gruppo di risorse 
 Errore |  Strategia di riduzione del rischio
 :-----|:-------------|
 Errore di autorizzazioni insufficienti per l'account di gestione | Questo problema può verificarsi se di recente è stata spostata una sottoscrizione contenente un nuovo account di gestione autogestita in un nuovo tenant. I passaggi per risolvere il problema sono disponibili [qui](./repair-automanage-account.md).
-Area dell'area di lavoro requisiti di mapping area non corrispondenti | La gestione automatica non è riuscita a caricare il computer, ma l'area di lavoro Log Analytics a cui il computer è attualmente collegato non è mappata a un'area di automazione supportata. Assicurarsi che l'area di lavoro Log Analytics esistente e l'account di automazione si trovino in un [mapping di area supportato](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+Area dell'area di lavoro requisiti di mapping area non corrispondenti | La gestione automatica non è riuscita a caricare il computer, ma l'area di lavoro Log Analytics a cui il computer è attualmente collegato non è mappata a un'area di automazione supportata. Assicurarsi che l'area di lavoro Log Analytics esistente e l'account di automazione si trovino in un [mapping di area supportato](../automation/how-to/region-mappings.md).
 "L'assegnazione non è riuscita. non sono disponibili informazioni aggiuntive " | Aprire un caso con supporto Microsoft Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -46,4 +46,3 @@ Area dell'area di lavoro requisiti di mapping area non corrispondenti | La gesti
 
 > [!div class="nextstepaction"]
 > [Abilitare la gestione automatici per le macchine virtuali nella portale di Azure](quick-create-virtual-machines-portal.md)
-

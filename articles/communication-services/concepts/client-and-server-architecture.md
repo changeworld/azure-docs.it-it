@@ -9,20 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2cc7e1d0c108d45383a68258fb6f62fcab87d1f7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0dbd1770030eeee8768c0b610171f5f27456ed70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653816"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656228"
 ---
 # <a name="client-and-server-architecture"></a>Architettura client e server
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,7 +54,7 @@ Molti scenari sono particolarmente serviti con le applicazioni native. Servizi d
 La comunicazione sul sistema telefonico può aumentare significativamente la portata dell'applicazione. Per supportare gli scenari vocali e SMS PSTN, servizi di comunicazione Azure consente di [acquisire i numeri di telefono](../quickstarts/telephony-sms/get-phone-number.md) direttamente dalla portale di Azure o usando le API REST e le librerie client. Una volta acquisiti, i numeri di telefono possono essere utilizzati per raggiungere i clienti tramite chiamate PSTN e SMS sia negli scenari in ingresso che in uscita. Un flusso di architettura di esempio è disponibile di seguito:
 
 > [!Note]
-> Durante l'anteprima pubblica, il provisioning dei numeri di telefono degli Stati Uniti è disponibile per i clienti con indirizzi di fatturazione situati negli Stati Uniti e in Canada. 
+> Durante l'anteprima pubblica, il provisioning dei numeri di telefono degli Stati Uniti è disponibile per i clienti con indirizzi di fatturazione situati negli Stati Uniti e in Canada.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramma che illustra l'architettura PSTN dei servizi di comunicazione.":::
 

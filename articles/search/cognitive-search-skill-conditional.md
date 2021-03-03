@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72792038"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666365"
 ---
 # <a name="conditional-cognitive-skill"></a>Competenza cognitiva condizionale
 
@@ -94,7 +94,7 @@ Gli input fanno distinzione tra maiuscole e minuscole.
 ## <a name="skill-outputs"></a>Output competenze
 C'è un singolo output denominato semplicemente "output". Restituisce il valore *whenFalse* se la condizione è false o *whenTrue* se la condizione è true.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Esempio di definizione di competenze 1: filtrare i documenti per restituire solo documenti in francese
 
@@ -134,7 +134,7 @@ L'output seguente crea un'annotazione ("/document/languageWithDefault") impostat
 
 ### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Esempio di definizione di competenze 3: unire i valori di due campi in uno
 
-In questo esempio alcune frasi hanno una proprietà *frenchSentiment* . Quando la proprietà *frenchSentiment* è null, si vuole usare il valore *englishSentiment* . L'output viene assegnato a un membro denominato *sentimentalità* ("/Document/sentiment/*/sentiment").
+In questo esempio alcune frasi hanno una proprietà *frenchSentiment* . Quando la proprietà *frenchSentiment* è null, si vuole usare il valore *englishSentiment* . L'output viene assegnato a un membro denominato *sentimentalità* ("/Document/sentences/*/sentiment").
 
 ```json
 {

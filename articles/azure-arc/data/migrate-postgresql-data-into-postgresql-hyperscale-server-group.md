@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 521fd61f18d6673e21c23dbca4cfc12d2ee4bf0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9cbfc30b10373ad2a4f4304987dac426b5dcabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939642"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643576"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migrare il database PostgreSQL in un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
 
@@ -53,20 +53,20 @@ Si consideri la seguente configurazione:
 
 - **Destinazione**  
     Un server Postgres in esecuzione in un ambiente Azure Arc e denominato postgres01. È della versione 12. Non dispone di alcun database ad eccezione del database Postgres standard.  
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="migrate-source":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="Migrate-destinazione":::
 
 
 ### <a name="take-a-backup-of-the-source-database-on-premises"></a>Eseguire un backup del database di origine in locale
 
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="migrate-source":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Esegui migrazione-origine-backup":::
 
 Configurare:
 1. Assegnare un nome file: **MySourceBackup**
 2. Impostare il formato su **Custom** 
- :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="migrate-source":::
+ :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="migrate-source-backup-Configure":::
 
 Il backup è stato completato correttamente:  
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="migrate-source":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migrate-origine-backup-completato":::
 
 ### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un database vuoto nel sistema di destinazione nel gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
 
@@ -94,21 +94,23 @@ Che restituisce un output simile al seguente:
 ]
 ```
 
-Assegnare un nome al database di destinazione **RESTORED_MyOnPremPostgresDB**  
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migrate-Destination-DB-create"lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
+Denominare il database di destinazione **RESTORED_MyOnPremPostgresDB**.
+
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migrate-Destination-DB-create" lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
 
 ### <a name="restore-the-database-in-your-arc-setup"></a>Ripristinare il database nella configurazione dell'arco
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="migrate-source":::
+
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migratre-DB-Restore":::
 
 Configurare il ripristino:
 1. Puntare al file che contiene il backup da ripristinare: **MySourceBackup**
 2. Mantieni il formato impostato su **Custom o tar** 
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="migrate-source":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="migrate-DB-Restore-Configure":::
 
 3. Fare clic su **Ripristina**.  
 
    Il ripristino è riuscito.  
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="migrate-source":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrate-DB-Restore-completato":::
 
 ### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Verificare che il database sia stato ripristinato nel gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
 
@@ -118,7 +120,20 @@ Usare uno dei metodi seguenti:
 
 Espandere l'istanza Postgres ospitata nel programma di installazione di Azure Arc. Verrà visualizzata la tabella nel database ripristinato e, quando si selezionano i dati, viene visualizzata la stessa riga dell'istanza locale:
 
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="migrate-source"
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Eseguire la migrazione-DB-Restore-verifica":::
+
+**Dall' `psql` interno dell'installazione di Azure Arc:**  
+
+All'interno dell'installazione di Arc è possibile usare `psql` per connettersi all'istanza di Postgres, impostare il contesto del database su `RESTORED_MyOnPremPostgresDB` ed eseguire query sui dati:
+
+1. Elencare i punti finali per la guida dalla `psql` stringa di connessione:
+
+   ```console
+   azdata arc postgres endpoint list -n postgres01
+   [
+     {
+       "Description": "PostgreSQL Instance",
+       "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
      },
      {
        "Description": "Log Search Dashboard",
@@ -179,6 +194,6 @@ Espandere l'istanza Postgres ospitata nel programma di installazione di Azure Ar
     * [Progettare un database multi-tenant](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Progettare un dashboard di analisi in tempo reale](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> * In questi documenti ignorare le sezioni **accedere al portale di Azure**e **creare un database di Azure per Postgres-overscale (CITUS)**. Implementare i passaggi rimanenti nella distribuzione di Azure Arc. Queste sezioni sono specifiche dell'iperscalabilità di database di Azure per PostgreSQL (CITUS) offerta come servizio PaaS nel cloud di Azure, ma le altre parti dei documenti sono direttamente applicabili all'iperscalabilità di PostgreSQL abilitata per Azure Arc.
+> * In questi documenti ignorare le sezioni **accedere al portale di Azure** e **creare un database di Azure per Postgres-overscale (CITUS)**. Implementare i passaggi rimanenti nella distribuzione di Azure Arc. Queste sezioni sono specifiche dell'iperscalabilità di database di Azure per PostgreSQL (CITUS) offerta come servizio PaaS nel cloud di Azure, ma le altre parti dei documenti sono direttamente applicabili all'iperscalabilità di PostgreSQL abilitata per Azure Arc.
 
 - [Aumentare le istanze in Database di Azure per il gruppo di server PostgreSQL Hyperscale](scale-out-postgresql-hyperscale-server-group.md)

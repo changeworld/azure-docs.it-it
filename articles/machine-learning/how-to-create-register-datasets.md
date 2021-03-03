@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 39973fe8c15364dc214392985cecd8b8bc7834ed
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9a50d8402515cb7aafa9a1b02c8b8c18412f6618
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878206"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659393"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine Learning
 
@@ -31,7 +31,7 @@ Con Azure Machine Learning set di impostazioni è possibile:
 
 * Conservare una sola copia dei dati nella risorsa di archiviazione, a cui fanno riferimento i set di dati.
 
-* Accesso facile ai dati durante il training del modello senza doversi preoccupare di stringhe di connessione o percorsi di dati. [Altre informazioni su come eseguire il training con i set di impostazioni](how-to-train-with-datasets.md).
+* Accesso facile ai dati durante il training del modello senza doversi preoccupare di stringhe di connessione o percorsi di dati. [Vedere altre informazioni su come eseguire il training con i set di dati](how-to-train-with-datasets.md).
 
 * Condividere i dati e collaborare con altri utenti.
 
@@ -82,7 +82,7 @@ Con TabularDatasets è possibile specificare un timestamp da una colonna nei dat
 Creare una TabularDataset con [Python SDK](#create-a-tabulardataset) o [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> I flussi di lavoro AutoML generati tramite il Azure Machine Learning Studio supportano attualmente solo TabularDatasets. 
+> I flussi di lavoro di [ml automatizzati](concept-automated-ml.md) generati tramite il Azure Machine Learning Studio supportano attualmente solo TabularDatasets. 
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Accedere ai set di impostazioni in una rete virtuale
 
@@ -90,15 +90,20 @@ Se l'area di lavoro si trova in una rete virtuale, è necessario configurare il 
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets"></a>Creare set di dati
+## <a name="create-datasets-from-datastores"></a>Creare set di dati da archivi dati
 
-Affinché i dati siano accessibili da parte di Azure Machine Learning, è necessario creare i set di dati da percorsi in [archivi dati di Azure](how-to-access-data.md) o URL Web pubblici. 
+Affinché i dati siano accessibili da parte di Azure Machine Learning, è necessario creare i set di dati da percorsi in [Azure Machine Learning archivi dati](how-to-access-data.md) o URL Web. 
 
-Per creare set di dati da un [archivio dati di Azure](how-to-access-data.md) con Python SDK:
+> [!TIP] 
+> È possibile creare set di dati direttamente da URL di archiviazione con accesso ai dati basato su identità. Altre informazioni sono disponibili in [connettersi all'archiviazione con accesso ai dati basato su identità (anteprima)](how-to-identity-based-data-access.md)<br><br>
+Questa funzionalità è una funzionalità di anteprima [sperimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e può cambiare in qualsiasi momento. 
 
-1. Verificare `contributor` di avere o `owner` accedere all'archivio dati di Azure registrato.
+ 
+Per creare set di dati da un archivio dati con Python SDK:
 
-2. Creare il set di dati facendo riferimento a percorsi nell'archivio dati. È possibile creare un set di dati da più percorsi in più archivi dati. Non esiste un limite fisso per il numero di file o le dimensioni dei dati da cui è possibile creare un set di dati. 
+1. Verificare di avere `contributor` o `owner` accedere al servizio di archiviazione sottostante dell'archivio dati registrato Azure Machine Learning. [Controllare le autorizzazioni dell'account di archiviazione nell'portale di Azure](../role-based-access-control/check-access.md).
+
+1. Creare il set di dati facendo riferimento a percorsi nell'archivio dati. È possibile creare un set di dati da più percorsi in più archivi dati. Non esiste un limite fisso per il numero di file o le dimensioni dei dati da cui è possibile creare un set di dati. 
 
 > [!NOTE]
 > Per ogni percorso dati, verranno inviate alcune richieste al servizio di archiviazione per verificare se punta a un file o a una cartella. Questo sovraccarico può causare un peggioramento delle prestazioni o degli errori. Un set di dati che fa riferimento a una cartella con 1000 di file in viene considerato come riferimento a un percorso dati. Per ottenere prestazioni ottimali, è consigliabile creare un set di dati che fa riferimento a meno di 100 percorsi negli archivi dati.
@@ -261,7 +266,7 @@ Sono disponibili diversi modelli in [https://github.com/Azure/azure-quickstart-t
 Per informazioni sull'uso di questi modelli, vedere [usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning](how-to-create-workspace-template.md).
 
 
-## <a name="create-datasets-with-azure-open-datasets"></a>Creare set di impostazioni con i set di impostazioni di Azure Open
+## <a name="create-datasets-from-azure-open-datasets"></a>Creare set di impostazioni da Azure Open DataSet
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. I set di dati includono dati di pubblico dominio relativi a meteo, censimento, festività, sicurezza pubblica e posizione, che consentono di eseguire il training di modelli di Machine Learning e arricchire le soluzioni predittive. I set di impostazioni aperti si trovano nel cloud in Microsoft Azure e sono inclusi sia nell'SDK che in studio.
 
@@ -269,7 +274,7 @@ Informazioni su come creare [set di impostazioni di Azure Machine Learning da Az
 
 ## <a name="train-with-datasets"></a>Eseguire il training con set di dati
 
-Usare i set di impostazioni negli esperimenti di machine learning per il training dei modelli ML. [Altre informazioni su come eseguire il training con DataSet](how-to-train-with-datasets.md)
+Usare i set di impostazioni negli esperimenti di machine learning per il training dei modelli ML. [Vedere altre informazioni su come eseguire il training con i set di dati](how-to-train-with-datasets.md).
 
 ## <a name="version-datasets"></a>Set di impostazioni di versione
 

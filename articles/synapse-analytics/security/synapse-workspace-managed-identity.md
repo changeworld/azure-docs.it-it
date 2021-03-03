@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461301"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670686"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Identità gestita dell'area di lavoro di Azure Synapse
 
@@ -23,7 +23,7 @@ Questo articolo illustra la funzionalità dell'identità gestita nell'area di la
 
 L'identità gestita per le risorse di Azure è una funzionalità di Azure Active Directory. La funzionalità offre ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare la funzionalità di identità gestita per eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD.
 
-Le identità gestite per le risorse di Azure corrispondono al servizio noto in precedenza come identità del servizio gestita. Per altre informazioni, vedere [Identità gestite](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Le identità gestite per le risorse di Azure corrispondono al servizio noto in precedenza come identità del servizio gestita. Per altre informazioni, vedere [Identità gestite](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Identità gestita dell'area di lavoro di Azure Synapse
 

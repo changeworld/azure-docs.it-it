@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355240"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644868"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service
 
@@ -28,7 +28,7 @@ Questo articolo fornisce un esempio di come eseguire l'integrazione con un siste
 - Attivare una revisione manuale. Se la richiesta viene approvata, il sistema di approvazione USA Microsoft Graph per eseguire il provisioning dell'account utente. Il sistema di approvazione può inoltre notificare all'utente che il proprio account è stato creato.
 
 > [!IMPORTANT]
->**A partire dal 4 gennaio 2021**, Google sta [deprecando il supporto per l'accesso a WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se si usa la Federazione di Google o l'iscrizione self-service con Gmail, è necessario [testare le applicazioni native line-of-business per la compatibilità](google-federation.md#deprecation-of-webview-sign-in-support).
+>**A partire dal 4 gennaio 2021**, il [supporto dell'accesso WebView verrà deprecato](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) da Google. Se si usa la federazione Google o l'iscrizione self-service con Gmail, è consigliabile [testare la compatibilità delle applicazioni line-of-business native](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registrare un'applicazione per il sistema di approvazione
 
@@ -81,7 +81,7 @@ A questo punto, aggiungere i connettori API a un flusso utente di iscrizione sel
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore di Azure AD.
 2. In **Servizi di Azure** selezionare **Azure Active Directory**.
 3. Nel menu a sinistra selezionare **Identità esterne**.
-4. Selezionare **flussi utente (anteprima)** e quindi selezionare il flusso utente per il quale si vuole abilitare il connettore API.
+4. Selezionare **flussi utente** e quindi selezionare il flusso utente per il quale si vuole abilitare il connettore API.
 5. Selezionare **connettori API** e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
 
    - **Dopo aver eseguito l'accesso con un provider di identità**: selezionare il connettore dell'API stato di approvazione, ad esempio _verificare lo stato di approvazione_.
@@ -321,7 +321,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                           | Obbligatorio | Description                                                                                                                                                            |
+| Parametro                                           | Obbligatoria | Descrizione                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | Sì      | Può essere generato accettando l' `email` attestazione inviata all'API, sostituendo il `@` carattere con `_` e pre-in sospeso a `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | Sì      | Il valore deve essere impostato su `true`.                                                                                                                                                 |
@@ -357,8 +357,8 @@ POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
@@ -370,9 +370,9 @@ Content-type: application/json
 
 {
     ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
 }
 ```
 

@@ -2,21 +2,21 @@
 title: Azure PowerShell abilitare le chiavi gestite dal cliente con dischi gestiti da SSE
 description: Abilitare la crittografia lato server usando chiavi gestite dal cliente sui dischi gestiti con Azure PowerShell.
 author: roygara
-ms.date: 08/24/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 2eed2ee11f3a90e81d9ee845af2aa28620567603
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a1accbfd6edbab7cb09bec4a8423a596a9d1fa9c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488311"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672242"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell-abilitare le chiavi gestite dal cliente con la crittografia lato server-Managed Disks
 
-Archiviazione su disco di Azure consente di gestire chiavi personalizzate quando si usa la crittografia lato server (SSE) per Managed disks, se si sceglie. Per informazioni concettuali su SSE con chiavi gestite dal cliente, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione [chiavi gestite dal cliente](../disk-encryption.md#customer-managed-keys) dell'articolo crittografia del disco.
+Archiviazione su disco di Azure consente di gestire chiavi personalizzate quando si usa la crittografia lato server (SSE) per Managed disks, se si sceglie. Per informazioni concettuali su SSE con chiavi gestite dal cliente e altri tipi di crittografia del disco gestito, vedere la sezione [chiavi gestite dal cliente](../disk-encryption.md#customer-managed-keys) dell'articolo crittografia del disco.
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -26,13 +26,55 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
     Se è necessario risolvere questo problema, occorre [copiare tutti i dati](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) in un disco gestito completamente diverso che non usa chiavi gestite dal cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-your-azure-key-vault-and-diskencryptionset"></a>Configurare il Azure Key Vault e DiskEncryptionSet
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation"></a>Configurare un Azure Key Vault e DiskEncryptionSet senza rotazione automatica delle chiavi
 
 Per usare chiavi gestite dal cliente con SSE, è necessario configurare una Azure Key Vault e una risorsa DiskEncryptionSet.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## <a name="examples"></a>Esempi
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview"></a>Configurare un Azure Key Vault e DiskEncryptionSet con la rotazione automatica delle chiavi (anteprima)
+
+1. Assicurarsi di aver installato la versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps)e di avere eseguito l'accesso a un account Azure in con `Connect-AzAccount` .
+1. Creare un'istanza di Azure Key Vault e la chiave di crittografia.
+
+    Quando si crea l'istanza di Key Vault, è necessario abilitare la protezione ripulitura. La protezione dall'eliminazione garantisce che una chiave eliminata non possa essere eliminata definitivamente fino a quando non scade il periodo di conservazione. Questa impostazione protegge dalla perdita di dati a causa dell'eliminazione accidentale ed è obbligatoria per la crittografia dei dischi gestiti.
+    
+    ```powershell
+    $ResourceGroupName="yourResourceGroupName"
+    $LocationName="westcentralus"
+    $keyVaultName="yourKeyVaultName"
+    $keyName="yourKeyName"
+    $keyDestination="Software"
+    $diskEncryptionSetName="yourDiskEncryptionSetName"
+
+    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnablePurgeProtection
+
+    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
+    ```
+
+1.  Creare una DiskEncryptionSet usando la versione dell'API `2020-12-01` e impostando la proprietà `rotationToLatestKeyVersionEnabled` su true tramite il modello di Azure Resource Manager [CreateDiskEncryptionSetWithAutoKeyRotation.js](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)
+    
+    ```powershell
+    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json" `
+    -diskEncryptionSetName $diskEncryptionSetName `
+    -keyVaultId $($keyVault.ResourceId) `
+    -keyVaultKeyUrl $($key.Key.Kid) `
+    -encryptionType "EncryptionAtRestWithCustomerKey" `
+    -region $LocationName
+    ```
+
+1.  Concedere al set di crittografia dischi l'accesso all'insieme di credenziali delle chiavi.
+
+    > [!NOTE]
+    > Potrebbero essere necessari alcuni minuti prima che Azure crei l'identità del set di crittografia dischi in Azure Active Directory. Se quando si esegue il comando seguente viene visualizzato un errore simile a "Impossibile trovare l'oggetto Active Directory", attendere qualche minuto e riprovare.
+
+    ```powershell
+    $des=Get-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+    ```
+
+## <a name="examples"></a>Esempio
 
 Ora che sono state create e configurate queste risorse, è possibile usarle per proteggere i dischi gestiti. Di seguito sono riportati alcuni script di esempio, ognuno con un rispettivo scenario, che è possibile usare per proteggere i dischi gestiti.
 

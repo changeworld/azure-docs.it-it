@@ -4,16 +4,17 @@ description: Informazioni su come acquistare istanze riservate degli host dedica
 services: virtual-machines
 author: yashar
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: cac7a6dfcd98b9de61fabdb8e43ca1cdfd4023c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598302"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672282"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Salva i costi con le prenotazioni host dedicato di Azure
 
@@ -70,7 +71,7 @@ Se si dispone di un contratto Enterprise, è possibile utilizzare l' **opzione A
 
 | **Campo**           | **Descrizione**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subscription        | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo prepagato di Azure (in precedenza denominato impegno monetario), se disponibile, o addebitato come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione. |
+| Subscription        | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo del pagamento anticipato di Azure (in precedenza detto impegno monetario), se disponibile, oppure vengono applicati come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione. |
 | Ambito               | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region              | L'area di Azure coperta dalla prenotazione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dimensioni host dedicate | Dimensioni delle istanze host dedicate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -109,7 +110,7 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 
 - Quantità
 
-- Durata
+- Duration
 
 Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 

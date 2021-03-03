@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 116fb10956b02b5f6fe578565b9049d9fad54837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576211"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674203"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 | Tipo di autorizzazione  | Archiviazione BLOB   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [Firma di accesso condiviso](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supportato\*      | Non supportato   | Supportato\*     |
-| [Identità gestita](?tabs=managed-identity#supported-storage-authorization-types) | Supportato      | Funzionalità supportata        | Funzionalità supportata     |
+| [Identità gestita](?tabs=managed-identity#supported-storage-authorization-types) | Supportato      | Supportato        | Funzionalità supportata     |
 | [Identità utente](?tabs=user-identity#supported-storage-authorization-types)    | Funzionalità supportata\*      | Funzionalità supportata\*        | Funzionalità supportata\*     |
 
 \* È possibile usare un token di firma di accesso condiviso e l'identità di Azure AD per accedere a spazio di archiviazione non protetto con firewall.
@@ -192,16 +192,14 @@ Per usare le credenziali, l'utente deve disporre dell'autorizzazione `REFERENCES
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Per garantire un'esperienza uniforme con il pass-through di Azure AD, per impostazione predefinita tutti gli utenti hanno il diritto per l'uso della credenziale `UserIdentity`.
-
 ## <a name="server-scoped-credential"></a>Credenziali con ambito server
 
-Le credenziali con ambito server vengono usate quando l'account di accesso SQL chiama la funzione `OPENROWSET` senza `DATA_SOURCE` per leggere i file in un account di archiviazione. Il nome delle credenziali con ambito server **deve** corrispondere all'URL di archiviazione di Azure. Per aggiungere una credenziale, eseguire [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Sarà necessario specificare un argomento CREDENTIAL NAME, che deve corrispondere a una parte o all'intero percorso dei dati in Archiviazione (vedere di seguito).
+Le credenziali con ambito server vengono usate quando l'account di accesso SQL chiama la funzione `OPENROWSET` senza `DATA_SOURCE` per leggere i file in un account di archiviazione. Il nome delle credenziali con ambito server **deve** corrispondere all'URL di base di archiviazione di Azure, seguito facoltativamente da un nome di contenitore. Per aggiungere una credenziale, eseguire [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Sarà necessario specificare un argomento CREDENTIAL NAME,
 
 > [!NOTE]
 > L'argomento `FOR CRYPTOGRAPHIC PROVIDER` non è supportato.
 
-Il nome delle credenziali a livello di server deve corrispondere al percorso completo dell'account di archiviazione (e facoltativamente al contenitore) nel formato seguente: `<prefix>://<storage_account_path>/<storage_path>`. I percorsi degli account di archiviazione sono descritti nella tabella seguente:
+Il nome delle credenziali a livello di server deve corrispondere al percorso completo dell'account di archiviazione (e facoltativamente al contenitore) nel formato seguente: `<prefix>://<storage_account_path>[/<container_name>]`. I percorsi degli account di archiviazione sono descritti nella tabella seguente:
 
 | Origine dati esterna       | Prefisso | Percorso dell'account di archiviazione                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -224,11 +222,13 @@ Lo script seguente crea una credenziale a livello di server che può essere usat
 Sostituire <*mystorageaccountname*> con il nome dell'account di archiviazione effettivo e <*mystorageaccountcontainername*> con il nome del contenitore effettivo:
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+Facoltativamente, è possibile usare solo l'URL di base dell'account di archiviazione, senza nome del contenitore.
 
 ### <a name="managed-identity"></a>[Identità gestita](#tab/managed-identity)
 
@@ -238,6 +238,8 @@ Lo script seguente crea una credenziale a livello di server che può essere usat
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+Facoltativamente, è possibile usare solo l'URL di base dell'account di archiviazione, senza nome del contenitore.
 
 ### <a name="public-access"></a>[Accesso pubblico](#tab/public-access)
 

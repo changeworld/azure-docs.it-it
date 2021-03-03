@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 64fb37fb4a57b3ee397ffe8814c76c7dca2fb9b3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 85c0a113f15a1ce94ca1cccc605085dcd003dce4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334612"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661393"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrare i dati in un account di API Cassandra Azure Cosmos DB usando StriIm
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -36,7 +36,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
-1. Immettere quindi le proprietà di configurazione dell'istanza di StriIm. L'ambiente StriIm viene distribuito in una macchina virtuale. Dal riquadro **nozioni di base** immettere il **nome utente della macchina** virtuale e la password della **VM** . questa password viene usata per SSH nella macchina virtuale. Selezionare la **sottoscrizione** , il **gruppo di risorse** e **i dettagli della località** in cui si vuole distribuire StriIm. Al termine, selezionare **OK**.
+1. Immettere quindi le proprietà di configurazione dell'istanza di StriIm. L'ambiente StriIm viene distribuito in una macchina virtuale. Dal riquadro **nozioni di base** immettere il **nome utente della macchina** virtuale e la password della **VM** . questa password viene usata per SSH nella macchina virtuale. Selezionare la **sottoscrizione**, il **gruppo di risorse** e **i dettagli della località** in cui si vuole distribuire StriIm. Al termine, selezionare **OK**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configurare le impostazioni di base per StriIm":::
 
@@ -51,7 +51,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
    Dopo aver compilato il modulo, selezionare **OK** per continuare.
 
-1. Nel riquadro **impostazioni di accesso StriIm** configurare l' **indirizzo IP pubblico** (scegliere i valori predefiniti), il **nome di dominio per StriIm** , la **password amministratore** che si vuole usare per accedere all'interfaccia utente di StriIm. Configurare una VNET e una subnet (scegliere i valori predefiniti). Dopo aver compilato i dettagli, fare clic su **OK** per continuare.
+1. Nel riquadro **impostazioni di accesso StriIm** configurare l' **indirizzo IP pubblico** (scegliere i valori predefiniti), il **nome di dominio per StriIm**, la **password amministratore** che si vuole usare per accedere all'interfaccia utente di StriIm. Configurare una VNET e una subnet (scegliere i valori predefiniti). Dopo aver compilato i dettagli, fare clic su **OK** per continuare.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Impostazioni di accesso StriIm":::
 
@@ -71,7 +71,7 @@ In questa sezione si configurerà l'account di API Cassandra Azure Cosmos DB com
 
 1. Creare un [account di API Cassandra Azure Cosmos DB](create-cassandra-dotnet.md#create-a-database-account) usando il portale di Azure.
 
-1. Passare al riquadro **Esplora dati** nell'account Azure Cosmos. Selezionare **nuova tabella** per creare un nuovo contenitore. Si supponga di migrare i *prodotti* e *ordinare* i dati dal database Oracle al Azure Cosmos DB. Creare un nuovo spazio dei nomi denominato **StriimDemo** con un contenitore Orders. Eseguire il provisioning del contenitore con **1000 ur** (questo esempio usa 1000 ur, ma è necessario usare la velocità effettiva stimata per il carico di lavoro) e **/order_id** come chiave primaria. Questi valori variano a seconda dei dati di origine. 
+1. Passare al riquadro **Esplora dati** nell'account Azure Cosmos. Selezionare **nuova tabella** per creare un nuovo contenitore. Si supponga di migrare i *prodotti* e *ordinare* i dati dal database Oracle al Azure Cosmos DB. Creare un nuovo spazio dei nomi denominato **StriimDemo** con un contenitore Orders. Eseguire il provisioning del contenitore con **1000 ur**(questo esempio usa 1000 ur, ma è necessario usare la velocità effettiva stimata per il carico di lavoro) e **/order_id** come chiave primaria. Questi valori variano a seconda dei dati di origine. 
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-cassandra-api-account.png" alt-text="Crea account API Cassandra":::
 
@@ -131,7 +131,7 @@ In questa sezione si configurerà l'account di API Cassandra Azure Cosmos DB com
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Accedere a StriIm":::
 
-1. A questo punto si arriverà alla home page di StriIm. Sono disponibili tre diversi riquadri: **Dashboard** , **app** e **SourcePreview**. Il riquadro dashboard consente di spostare i dati in tempo reale e visualizzarli. Il riquadro app contiene le pipeline di dati di streaming o i flussi di dati. Nella parte destra della pagina è SourcePreview, in cui è possibile visualizzare in anteprima i dati prima di trasferirli.
+1. A questo punto si arriverà alla home page di StriIm. Sono disponibili tre diversi riquadri: **Dashboard**, **app** e **SourcePreview**. Il riquadro dashboard consente di spostare i dati in tempo reale e visualizzarli. Il riquadro app contiene le pipeline di dati di streaming o i flussi di dati. Nella parte destra della pagina è SourcePreview, in cui è possibile visualizzare in anteprima i dati prima di trasferirli.
 
 1. Selezionare il riquadro **app** per il momento. Sono disponibili diverse app di esempio che è possibile usare per acquisire familiarità con StriIm. Tuttavia, in questo articolo verranno creati dei propri. Selezionare il pulsante **Aggiungi app** nell'angolo superiore destro.
 
@@ -157,7 +157,7 @@ In questa sezione si configurerà l'account di API Cassandra Azure Cosmos DB com
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png" alt-text="Connessione a destinazione":::
 
-1. Prima di configurare la destinazione, verificare di aver aggiunto un [certificato radice Baltimore all'ambiente Java di StriIm](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
+1. Prima di configurare la destinazione, verificare di aver aggiunto un [certificato radice Baltimore all'ambiente Java di StriIm](/bingmaps/articles/ssl-certificate-validation-for-java-applications#configuring-root-certificates).
 
 1. Immettere le proprietà di configurazione dell'istanza di Azure Cosmos DB di destinazione e selezionare **Salva** per continuare. Ecco i parametri chiave da considerare:
 
@@ -175,7 +175,7 @@ In questa sezione si configurerà l'account di API Cassandra Azure Cosmos DB com
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters2.png" alt-text="Configurare le proprietà di destinazione":::
 
-1. A questo punto, eseguire l'applicazione StriIm. Nella barra dei menu superiore selezionare **creato** , quindi **distribuire l'app**. Nella finestra distribuzione è possibile specificare se si desidera eseguire determinate parti dell'applicazione in parti specifiche della topologia di distribuzione. Poiché è in esecuzione una semplice topologia di distribuzione tramite Azure, verrà usata l'opzione predefinita.
+1. A questo punto, eseguire l'applicazione StriIm. Nella barra dei menu superiore selezionare **creato**, quindi **distribuire l'app**. Nella finestra distribuzione è possibile specificare se si desidera eseguire determinate parti dell'applicazione in parti specifiche della topologia di distribuzione. Poiché è in esecuzione una semplice topologia di distribuzione tramite Azure, verrà usata l'opzione predefinita.
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/deploy-the-app.png" alt-text="Distribuire l'app":::
 

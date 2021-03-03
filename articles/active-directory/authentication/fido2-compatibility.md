@@ -11,16 +11,16 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ed99338a10eb226823c4bd4857d812038ff632
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094516"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649241"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Supporto browser dell'autenticazione con password FIDO2
 
-Azure Active Directory consente l'uso delle [chiavi di sicurezza di FIDO2](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) come dispositivo con password. La disponibilità dell'autenticazione FIDO2 per gli account Microsoft è stata [annunciata nel 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Come illustrato nell'annuncio, è necessario implementare determinate funzionalità e estensioni facoltative per la specifica CTAP di FIDO2 per supportare l'autenticazione protetta con gli account Microsoft e Azure Active Directory. Il diagramma seguente illustra i browser e le combinazioni del sistema operativo che supportano l'autenticazione senza password usando le chiavi di autenticazione FIDO2 con Azure Active Directory.
+Azure Active Directory consente l'uso delle [chiavi di sicurezza di FIDO2](./concept-authentication-passwordless.md#fido2-security-keys) come dispositivo con password. La disponibilità dell'autenticazione FIDO2 per gli account Microsoft è stata [annunciata nel 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Come illustrato nell'annuncio, alcune funzionalità facoltative ed estensioni per la specifica FIDO2 CTAP devono essere implementate per supportare l'autenticazione protetta con gli account Microsoft e Azure Active Directory. Il diagramma seguente illustra i browser e le combinazioni del sistema operativo che supportano l'autenticazione senza password usando le chiavi di autenticazione FIDO2 con Azure Active Directory.
 
 ## <a name="supported-browsers"></a>Browser supportati
 
@@ -35,7 +35,7 @@ Questa tabella mostra il supporto per l'autenticazione di Azure Active Directory
 
 ## <a name="unsupported-browsers"></a>Browser non supportati
 
-Il sistema operativo e le combinazioni di browser seguenti non sono supportati, ma è in corso l'analisi del supporto e dei test futuri. Per visualizzare ulteriori sistemi operativi e supporto per il browser, è possibile lasciare commenti e suggerimenti utilizzando lo strumento per il feedback del prodotto nella parte inferiore della pagina.
+Il sistema operativo e le combinazioni di browser seguenti non sono supportati, ma è in corso l'analisi del supporto e dei test futuri. Per visualizzare un altro sistema operativo e il supporto del browser, è possibile lasciare commenti e suggerimenti utilizzando lo strumento per il feedback del prodotto nella parte inferiore della pagina.
 
 | Sistema operativo | Browser |
 | ---- | ---- |
@@ -44,18 +44,21 @@ Il sistema operativo e le combinazioni di browser seguenti non sono supportati, 
 | Android | Chrome |
 | ChromeOS | Chrome |
 
-## <a name="operating-system-versions-tested"></a>Versioni del sistema operativo testate
+## <a name="minimum-browser-version"></a>Versione minima del browser
 
-Le informazioni nella tabella precedente sono state testate per le seguenti versioni del sistema operativo.
+Di seguito sono riportati i requisiti minimi per la versione del browser. 
 
-| Sistema operativo | Ultima versione testata |
-| --- | --- |
-| Windows | Windows 10 20H2 |
-| macOS | Sistema operativo X 11 Big Sur |
-| Linux | Workstation Fedora 32 |
+| Browser | Versione minima |
+| ---- | ---- |
+| Chrome | 76 |
+| Microsoft Edge | Windows 10 versione 1903<sup>1</sup> |
+| Firefox | Chrome |
+| ChromeOS | 66 |
+
+<sup>1</sup> Tutte le versioni del nuovo supporto Microsoft Edge basato su cromo Fido2. Il supporto per Microsoft Edge Legacy è stato aggiunto in 1903.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Abilitare l'accesso senza password per la chiave di sicurezza (anteprima)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
+[Abilitare l'accesso senza password per la chiave di sicurezza (anteprima)](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

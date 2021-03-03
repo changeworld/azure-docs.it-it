@@ -1,6 +1,6 @@
 ---
 title: Accesso senza password con l'app Microsoft Authenticator-Azure Active Directory
-description: Abilitare l'accesso senza password per Azure AD usando l'app Microsoft Authenticator (anteprima)
+description: Abilitare l'accesso senza password per Azure AD usando l'app Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626156"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653474"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator 
 
 L'app Microsoft Authenticator consente di accedere a qualsiasi account di Azure AD senza usare la password. Microsoft Authenticator usa l'autenticazione basata su chiave per abilitare le credenziali utente associate a un dispositivo, in cui il dispositivo usa un PIN o biometrico. [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) usa una tecnologia simile.
 
@@ -40,7 +40,7 @@ Per usare l'accesso tramite telefono senza password con l'app Microsoft Authenti
 - Accertarsi che sia installata la versione più recente di Microsoft Authenticator nei dispositivi che eseguono iOS 8.0 o versione successiva oppure Android 6.0 o versione successiva.
 
 > [!NOTE]
-> Se è stata abilitata Microsoft Authenticator l'anteprima di accesso senza password usando Azure AD PowerShell, è stata abilitata per l'intera directory. Se si Abilita utilizzando questo nuovo metodo, il criterio di PowerShell viene sostituito. Si consiglia di abilitare per tutti gli utenti nel tenant tramite il menu nuovi *metodi di autenticazione* . in caso contrario, gli utenti non inclusi nei nuovi criteri non saranno più in grado di accedere senza una password.
+> Se è stato abilitato Microsoft Authenticator accesso senza password usando Azure AD PowerShell, è stato abilitato per l'intera directory. Se si Abilita utilizzando questo nuovo metodo, il criterio di PowerShell viene sostituito. Si consiglia di abilitare per tutti gli utenti nel tenant tramite il menu nuovi *metodi di autenticazione* . in caso contrario, gli utenti non inclusi nei nuovi criteri non saranno più in grado di accedere senza una password.
 
 ## <a name="enable-passwordless-authentication-methods"></a>Abilita metodi di autenticazione con password
 
@@ -58,7 +58,7 @@ Per abilitare il metodo di autenticazione per l'accesso tramite telefono senza p
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account *amministratore globale* .
 1. Cercare e selezionare *Azure Active Directory*, quindi passare a criteri di autenticazione per la **sicurezza**  >    >  .
-1. In **Microsoft Authenticator (anteprima)** scegliere le opzioni seguenti:
+1. In **Microsoft Authenticator** scegliere le opzioni seguenti:
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati
 1. Per impostazione predefinita, ogni gruppo o utente aggiunto è abilitato per l'uso di Microsoft Authenticator in modalità di notifica push e senza password (modalità "any"). Per modificare questa operazione, per ogni riga:
@@ -104,7 +104,7 @@ Dopo che l'utente ha usato l'accesso tramite telefono senza password, l'app cont
 
 ## <a name="known-issues"></a>Problemi noti
 
-I problemi noti seguenti sono presenti nell'esperienza di anteprima corrente.
+Sono presenti i problemi noti seguenti.
 
 ### <a name="not-seeing-option-for-passwordless-phone-sign-in"></a>Opzione non visualizzato per l'accesso tramite telefono senza password
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090367"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644256"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Esercitazione: configurare senza chiave con Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Per iniziare, è necessario:
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-- [Tenant Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Il tenant deve essere collegato alla sottoscrizione di Azure.
+- [Tenant Azure ad B2C](./tutorial-create-tenant.md). Il tenant deve essere collegato alla sottoscrizione di Azure.
 
 - Un tenant cloud senza chiave, ottenere un [account di valutazione](https://keyless.io/go)gratuito.
 
@@ -157,6 +157,6 @@ A questo punto dovrebbe essere visualizzato un nuovo provider di identità OIDC 
 
 Per ulteriori informazioni, vedere gli articoli seguenti:
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

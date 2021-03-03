@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: beb670106690645a80aa12b930e3a005efb4282a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0559d02ec603d12578fa46d9790d0711fde5e38b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221647"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670897"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configurare la preferenza di routing per una macchina virtuale con il portale di Azure
 
@@ -25,13 +25,9 @@ Questo articolo illustra come configurare la preferenza di routing per una macch
 
 Questo articolo illustra come creare una macchina virtuale con un indirizzo IP pubblico impostato per instradare il traffico tramite Internet pubblico con il portale di Azure.
 
-> [!IMPORTANT]
-> La preferenza di routing è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al [portale di Azure](https://preview.portal.azure.com/).
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 

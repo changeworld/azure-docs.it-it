@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un'app Web usando l'API Azure Cosmos DB per MongoDB e Java SDK"
+title: "Guida introduttiva: creare un'app Web usando l'API Azure Cosmos DB per Mongo DB e Java SDK"
 description: Informazioni su come creare un esempio di codice Java che è possibile usare per la connessione e l'esecuzione di query usando l'API Azure Cosmos DB per MongoDB.
 author: markjbrown
 ms.author: mjbrown
@@ -9,21 +9,21 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 8a8fa9e15630aea3fb92571fd88a0ce01d3c9211
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: f91cf5103fa8bf324fe372d2f12736a426fe8aed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349113"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656534"
 ---
-# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Guida introduttiva: Creare un'app console con Java e l'API MongoDB in Azure Cosmos DB
+# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Guida introduttiva: creare un'app console con Java e l'API MongoDB in Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
@@ -122,7 +122,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 2. Eseguire `mvn exec:java -D exec.mainClass=GetStarted.Program` in un terminale per avviare l'applicazione Java.
 
-È ora possibile usare [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) per modificare e usare i nuovi dati, nonché eseguire query su di essi.
+È ora possibile usare [Robomongo](mongodb-robomongo.md)  /  [Studio 3T](mongodb-mongochef.md) per eseguire query, modificare e usare questi nuovi dati.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

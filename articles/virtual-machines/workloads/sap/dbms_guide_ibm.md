@@ -6,20 +6,19 @@ author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 keywords: Azure, DB2, SAP, IBM
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bce8b878de1892162ddce7957befa41649014073
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3f89f218c82505fd6bc261d41938d4619b32bf8a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959013"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675960"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -90,7 +89,7 @@ Di seguito è riportata una configurazione di base per le varie dimensioni e gli
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  ||  |
 |vCPU: 4 |<SID>/sapdata/DB2/ |P10 |2 |1\.000  |200  |256  |7.000  |340  |256 KB |ReadOnly |
 |RAM: 32 GiB |<SID>/saptmp/DB2/ |P6 |1 |240  |50  |128  |3\.500  |170  | ||
-| |/DB2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7.000  |340  |64 KB ||
+| |/DB2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7.000  |340  |64 kB ||
 | |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3\.500  |170  || |
 
 #### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Sistema SAP piccolo: dimensioni del database 200-750 GB: Small Business Suite
@@ -99,7 +98,7 @@ Di seguito è riportata una configurazione di base per le varie dimensioni e gli
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  || |
 |vCPU: 16 |<SID>/sapdata/DB2/ |P15 |4 |4.400  |500  |1,024  |14.000  |680  |256 KB |ReadOnly |
 |RAM: 128 GiB |<SID>/saptmp/DB2/ |P6 |2 |480  |100  |128  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P15 |2 |2.200  |250  |512  |7.000  |340  |64 KB ||
+| |/DB2/ <SID> /log_dir |P15 |2 |2.200  |250  |512  |7.000  |340  |64 kB ||
 | |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3\.500  |170  ||| 
 
 #### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>Sistema SAP medio: dimensioni del database 500-1000 GB: Small Business Suite
@@ -108,7 +107,7 @@ Di seguito è riportata una configurazione di base per le varie dimensioni e gli
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  || |
 |vCPU: 32 |<SID>/sapdata/DB2/ |P30 |2 |10,000  |400  |2,048  |10,000  |400  |256 KB |ReadOnly |
 |RAM: 256 GiB |<SID>/saptmp/DB2/ |P10 |2 |1\.000  |200  |256  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P20 |2 |4.600  |300  |1,024  |7.000  |340  |64 KB ||
+| |/DB2/ <SID> /log_dir |P20 |2 |4.600  |300  |1,024  |7.000  |340  |64 kB ||
 | |/DB2/ <SID> /offline_log_dir |P15 |1 |1.100  |125  |256  |3\.500  |170  ||| 
 
 #### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Sistema SAP di grandi dimensioni: dimensioni del database 750-2000 GB: Business Suite
@@ -117,7 +116,7 @@ Di seguito è riportata una configurazione di base per le varie dimensioni e gli
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  || |
 |vCPU: 64 |<SID>/sapdata/DB2/ |P30 |4 |20.000  |800  |4.096  |20.000  |800  |256 KB |ReadOnly |
 |RAM: 504 GiB |<SID>/saptmp/DB2/ |P15 |2 |2.200  |250  |512  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P20 |4 |9.200  |600  |2,048  |14.000  |680  |64 KB ||
+| |/DB2/ <SID> /log_dir |P20 |4 |9.200  |600  |2,048  |14.000  |680  |64 kB ||
 | |/DB2/ <SID> /offline_log_dir |P20 |1 |2\.300  |150  |512  |3\.500  |170  || |
 
 #### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Sistema SAP multiterabyte di grandi dimensioni: dimensioni del database 2 TB +: sistema Business Suite globale
@@ -126,7 +125,7 @@ Di seguito è riportata una configurazione di base per le varie dimensioni e gli
 |M128s |/db2 |P10 |1 |500  |100  |128  |3\.500  |170  || |
 |vCPU: 128 |<SID>/sapdata/DB2/ |P40 |4 |30.000  |1,000  |8,192  |30.000  |1,000  |256 KB |ReadOnly |
 |RAM: 2048 GiB |<SID>/saptmp/DB2/ |P20 |2 |4.600  |300  |1,024  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P30 |4 |20.000  |800  |4.096  |20.000  |800  |64 KB |WriteAccelerator |
+| |/DB2/ <SID> /log_dir |P30 |4 |20.000  |800  |4.096  |20.000  |800  |64 kB |WriteAccelerator |
 | |/DB2/ <SID> /offline_log_dir |P30 |1 |5\.000  |200  |1,024  |5\.000  |200  || |
 
 

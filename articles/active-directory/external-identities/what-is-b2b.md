@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e02cb23188b552b1779d184a2384835f4195762
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365379"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649292"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 
@@ -85,7 +85,7 @@ Azure AD supporta provider di identità esterni come Facebook, account Microsoft
 ![Screenshot con la pagina di provider di identità](media/what-is-b2b/identity-providers.png)
 
 
-## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Aggiungere un flusso utente di iscrizione self-service (anteprima)
+## <a name="create-a-self-service-sign-up-user-flow"></a>Creare un flusso utente di iscrizione self-service
 
 Con un flusso utente di iscrizione self-service, è possibile creare un'esperienza di iscrizione per gli utenti esterni che vogliono accedere alle app. Come parte del flusso di iscrizione, è possibile fornire opzioni per diversi provider di identità aziendali o di social networking e raccogliere informazioni sull'utente. Leggere altre informazioni sull'[iscrizione self-service e su come configurarla](self-service-sign-up-overview.md).
 

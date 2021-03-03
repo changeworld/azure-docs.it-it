@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e49ed356f294baca6e339faeebe92ca02b2723df
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762249"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644783"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Single Sign-on facile: avvio rapido
 
@@ -161,10 +161,10 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
     ![Screenshot che mostra "Registro di sistema" selezionato e "elemento del registro di sistema" selezionato.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
-   - **Percorso chiave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_* _
-   - _* Nome valore * *: **_https_*_
-   - _* Tipo di valore * *: **_REG_DWORD_*_
-   - _* Dati valore * *: **_00000001_*_
+   - **Percorso della chiave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_**
+   - **Nome valore**: **_https_**
+   - **Tipo di valore**: **_REG_DWORD_**
+   - **Dati valore**: **_00000001_**
  
      ![Screenshot che mostra la finestra "nuova proprietà del registro di sistema".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente deve aggiungere manualmente l'URL di Azure AD alle impostazioni di Firefox eseguendo questi passaggi:
 1. Eseguire Firefox e immettere `about:config` nella barra degli indirizzi. Eliminare tutte le notifiche visualizzate.
-2. Cercare la preferenza _ *Network. Negotiate-auth. trusted-URI**. Questa preferenza elenca i siti attendibili di Firefox per l'autenticazione Kerberos.
+2. Cercare la preferenza **network.negotiate-auth.trusted-uris**. Questa preferenza elenca i siti attendibili di Firefox per l'autenticazione Kerberos.
 3. Fare clic con il pulsante destro del mouse e scegliere **modifica**.
 4. Immettere `https://autologon.microsoftazuread-sso.com` nel campo.
 5. Fare clic su **OK** e quindi riaprire il browser.
@@ -205,7 +205,7 @@ L'uso di estensioni di terze parti di Criteri di gruppo di Active Directory per 
 
 #### <a name="known-browser-limitations"></a>Limitazioni note dei browser
 
-L'accesso SSO facile non funziona in modalità di esplorazione privata nei browser Firefox e Microsoft Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata. Per la prossima versione di Microsoft Edge basata sul cromo, non funzionerà in modalità InPrivate e Guest in base alla progettazione.
+L'accesso SSO facile non funziona in modalità di esplorazione privata nei browser Firefox e Microsoft Edge (legacy). Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata. Seamless SSO supporta la versione successiva di Microsoft Edge basata sul cromo e funziona in modalità InPrivate e Guest in base alla progettazione.
 
 ## <a name="step-4-test-the-feature"></a>Passaggio 4: Testare la funzionalità
 
@@ -216,10 +216,10 @@ Per testare la funzionalità per un utente specifico, verificare che siano soddi
   - La [funzionalità è stata distribuita](#step-3-roll-out-the-feature) all'utente tramite Criteri di gruppo.
 
 Per testare lo scenario in cui l'utente immette solo il nome utente ma non la password:
-   - Accedere a `https://myapps.microsoft.com/` in una nuova sessione privata del browser.
+   - Accedere a " https://myapps.microsoft.com/ . Assicurarsi di cancellare la cache del browser o di usare una nuova sessione del browser privata con uno dei browser supportati in modalità privata.
 
 Per testare lo scenario in cui l'utente non è obbligato a immettere il nome utente o la password, seguire una di queste procedure: 
-   - Accedere a `https://myapps.microsoft.com/contoso.onmicrosoft.com` in una nuova sessione privata del browser. Sostituire *Contoso* con il nome del tenant.
+   - Accedere per `https://myapps.microsoft.com/contoso.onmicrosoft.com` assicurarsi di cancellare la cache del browser o di usare una nuova sessione del browser privata con i browser supportati in modalità privata. Sostituire *Contoso* con il nome del tenant.
    - Accedere a `https://myapps.microsoft.com/contoso.com` in una nuova sessione privata del browser. Sostituire *contoso.com* con un dominio verificato, non federato, nel tenant.
 
 ## <a name="step-5-roll-over-keys"></a>Passaggio 5: Rinnovare le chiavi

@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 4246bc4c62fd8e5e73ff18e383b8bf115d25ede8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168509"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643837"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>Che cos'è il provisioning tra directory?
 
@@ -33,7 +33,7 @@ Azure AD attualmente supporta tre metodi per effettuare il provisioning tra dire
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md): lo strumento Microsoft progettato per soddisfare e realizzare identità ibride, tra cui il provisioning tra directory da Active Directory ad Azure AD.
 
-- [Provisioning cloud di Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md): un nuovo agente Microsoft progettato per soddisfare e realizzare gli obiettivi di identità ibride.  Offre un'esperienza di provisioning tra directory leggera tra Active Directory e Azure AD.
+- [Provisioning cloud di Azure AD Connect](../cloud-sync/what-is-cloud-sync.md): un nuovo agente Microsoft progettato per soddisfare e realizzare gli obiettivi di identità ibride.  Offre un'esperienza di provisioning tra directory leggera tra Active Directory e Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016): la soluzione Microsoft di gestione delle identità e degli accessi in locale che consente di gestire utenti, credenziali, criteri e accessi all'interno dell'organizzazione. Inoltre, Microsoft Identity Manager offre un provisioning tra directory avanzato per realizzare ambienti di identità ibride per Active Directory, Azure AD e altre directory.
 

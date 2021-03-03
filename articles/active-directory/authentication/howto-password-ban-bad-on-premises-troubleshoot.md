@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ca00785bfe8a99b8a3d620559c4fa492ee60c63
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2bbc1c555824d4c632c5bf85a9cd0aa83087fc8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741746"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648726"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Risoluzione dei problemi: protezione Azure AD password locale
 
@@ -259,6 +259,146 @@ Se si decide di disinstallare il software di protezione Azure AD password e di p
    `%windir%\sysvol\domain\Policies\AzureADPasswordProtection`
 
    Il percorso è diverso se la condivisione sysvol è stata configurata in un percorso non predefinito.
+
+## <a name="health-testing-with-powershell-cmdlets"></a>Test di integrità con i cmdlet di PowerShell
+
+Il modulo AzureADPasswordProtection di PowerShell include due cmdlet correlati all'integrità che eseguono la verifica di base del software installato e funzionante. È consigliabile eseguire questi cmdlet dopo aver configurato una nuova distribuzione, periodicamente successivamente e quando si verifica un problema.
+
+Ogni singolo test di integrità restituisce un risultato di base superato o non superato, oltre a un messaggio facoltativo in caso di errore. Nei casi in cui la cause di un errore non è chiara, cercare messaggi di errore nel registro eventi che potrebbero spiegare l'errore. Anche l'abilitazione dei messaggi del registro di testo può essere utile. Per altri dettagli, vedere [monitorare Azure ad la protezione delle password](howto-password-ban-bad-on-premises-monitor.md).
+
+## <a name="proxy-health-testing"></a>Test dell'integrità del proxy
+
+Il cmdlet Test-AzureADPasswordProtectionProxyHealth supporta due test di integrità che possono essere eseguiti singolarmente. Una terza modalità consente l'esecuzione di tutti i test che non richiedono input di parametro.
+
+### <a name="proxy-registration-verification"></a>Verifica registrazione proxy
+
+Questo test verifica che l'agente proxy sia registrato correttamente in Azure ed è in grado di eseguire l'autenticazione in Azure. Un'esecuzione corretta avrà un aspetto simile al seguente:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Passed
+```
+
+Se viene rilevato un errore, il test restituirà un risultato non riuscito e un messaggio di errore facoltativo. Di seguito è riportato un esempio di un possibile errore:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Failed No proxy certificates were found - please run the Register-AzureADPasswordProtectionProxy cmdlet to register the proxy.
+```
+
+### <a name="proxy-verification-of-end-to-end-azure-connectivity"></a>Verifica proxy della connettività di Azure end-to-end
+
+Questo test è un superset del test-VerifyProxyRegistration. Richiede che l'agente proxy sia registrato correttamente in Azure, sia in grado di eseguire l'autenticazione in Azure e infine aggiunge un controllo che un messaggio può essere inviato correttamente ad Azure, verificando che la comunicazione end-to-end completa sia funzionante.
+
+Un'esecuzione corretta avrà un aspetto simile al seguente:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyAzureConnectivity
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyAzureConnectivity Passed
+```
+
+### <a name="proxy-verification-of-all-tests"></a>Verifica proxy di tutti i test
+
+Questa modalità consente l'esecuzione bulk di tutti i test supportati dal cmdlet che non richiedono l'input dei parametri. Un'esecuzione corretta avrà un aspetto simile al seguente:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -TestAll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyTLSConfiguration  Passed
+VerifyProxyRegistration Passed
+VerifyAzureConnectivity Passed
+```
+
+## <a name="dc-agent-health-testing"></a>Test dell'integrità dell'agente DC
+
+Il cmdlet Test-AzureADPasswordProtectionDCAgentHealth supporta diversi test di integrità che possono essere eseguiti singolarmente. Una terza modalità consente l'esecuzione di tutti i test che non richiedono input di parametro.
+
+### <a name="basic-dc-agent-health-tests"></a>Test di integrità dell'agente del controller di dominio di base
+
+I test seguenti possono essere eseguiti singolarmente e non accettati. Breve descrizione
+
+|Test di integrità agente DC|Descrizione|
+| --- | :---: |
+|-VerifyPasswordFilterDll|Verifica che la dll del filtro password sia attualmente caricata e che sia in grado di chiamare il servizio agente DC|
+|-VerifyForestRegistration|Verifica che l'insieme di strutture sia attualmente registrato|
+|-VerifyEncryptionDecryption|Verifica che la crittografia e la decrittografia di base funzionino usando il servizio Microsoft KDS|
+|-VerifyDomainIsUsingDFSR|Verifica che il dominio corrente usi DFSR per la replica SYSVOL|
+|-VerifyAzureConnectivity|Verifica la comunicazione end-to-end con Azure funziona usando qualsiasi proxy disponibile|
+
+Di seguito è riportato un esempio di-VerifyPasswordFilterDll test superato; gli altri test sono simili in seguito all'esito positivo:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyPasswordFilterDll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyPasswordFilterDll Passed
+```
+
+### <a name="dc-agent-verification-of-all-tests"></a>Verifica dell'agente controller di dominio di tutti i test
+
+Questa modalità consente l'esecuzione bulk di tutti i test supportati dal cmdlet che non richiedono l'input dei parametri. Un'esecuzione corretta avrà un aspetto simile al seguente:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -TestAll
+
+DiagnosticName             Result AdditionalInfo
+--------------             ------ --------------
+VerifyPasswordFilterDll    Passed
+VerifyForestRegistration   Passed
+VerifyEncryptionDecryption Passed
+VerifyDomainIsUsingDFSR    Passed
+VerifyAzureConnectivity    Passed
+```
+
+### <a name="connectivity-testing-using-specific-proxy-servers"></a>Test della connettività con server proxy specifici
+
+Molte situazioni di risoluzione dei problemi implicano l'analisi della connettività di rete tra agenti e proxy del controller di dominio. Sono disponibili due test di integrità per concentrarsi in modo specifico su tali problemi. Questi test richiedono che venga specificato un particolare server proxy.
+
+#### <a name="verifying-connectivity-between-a-dc-agent-and-a-specific-proxy"></a>Verifica della connettività tra un agente del controller di dominio e un proxy specifico
+
+Questo test convalida la connettività sul primo lato della comunicazione dall'agente del controller di dominio al proxy. Verifica che il proxy riceva la chiamata, tuttavia non è interessa alcuna comunicazione con Azure. Un'esecuzione corretta avrà un aspetto simile al seguente:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Passed
+```
+
+Di seguito è riportato un esempio di condizione di errore in cui il servizio proxy in esecuzione nel server di destinazione è stato interrotto:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Failed The RPC endpoint mapper on the specified proxy returned no results; please check that the proxy service is running on that server.
+```
+
+#### <a name="verifying-connectivity-between-a-dc-agent-and-azure-using-a-specific-proxy"></a>Verifica della connettività tra un agente del controller di dominio e Azure (usando un proxy specifico)
+
+Questo test convalida la connettività end-to-end completa tra un agente del controller di dominio e Azure usando un proxy specifico. Un'esecuzione corretta avrà un aspetto simile al seguente:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyAzureConnectivityViaSpecificProxy bpl2.bpl.com
+
+DiagnosticName                          Result AdditionalInfo
+--------------                          ------ --------------
+VerifyAzureConnectivityViaSpecificProxy Passed
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

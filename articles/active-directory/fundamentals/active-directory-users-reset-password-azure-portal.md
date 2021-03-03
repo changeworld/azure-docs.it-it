@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370900"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651888"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Reimpostare la password di un utente con Azure Active Directory
 
@@ -50,6 +50,10 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
 
     >[!Note]
     >La password temporanea non scade mai. All'accesso successivo dell'utente, la password funzionerà indipendentemente dal tempo trascorso da quando è stata generata.
+
+> [!IMPORTANT]
+> Se un amministratore non è in grado di reimpostare la password dell'utente e nei registri eventi dell'applicazione nel server Azure AD Connect viene visualizzato il codice di errore seguente HR = 80231367, esaminare gli attributi dell'utente in Active Directory.  Se l'attributo **AdminCount** è impostato su 1, in questo modo si impedisce a un amministratore di reimpostare la password dell'utente.  Per consentire agli amministratori di reimpostare la password dell'utente, l'attributo **AdminCount** deve essere impostato su 0.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

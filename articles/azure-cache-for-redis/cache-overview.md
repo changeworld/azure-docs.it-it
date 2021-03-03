@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 9b1176f579754d714490297e9ff960d7808bd834
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5a0389b1074737728bd0ffa5d6db90d077a9f45f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383161"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652171"
 ---
 # <a name="about-azure-cache-for-redis"></a>Informazioni su Cache Redis di Azure
 Cache di Azure per Redis offre un archivio dati in memoria basato sul software [Redis](https://redis.io/). Redis migliora in modo significativo le prestazioni e la scalabilità di un'applicazione che usano gli archivi dati back-end. È in grado di elaborare volumi elevati di richieste delle applicazioni mantenendo i dati usati di frequente nella memoria del server che garantisce rapidità di lettura e scrittura. Redis offre una soluzione di archiviazione dati a bassa latenza e velocità effettiva elevata strategica per le applicazioni moderne.
@@ -44,8 +44,8 @@ Cache Redis di Azure è disponibile nei livelli seguenti:
 | Basic | Una cache Redis software open source in esecuzione in una macchina virtuale singola. Questo livello non prevede alcun contratto di servizio ed è ideale per carichi di lavoro di sviluppo/test e non critici. |
 | Standard | Una cache Redis software open source in esecuzione in due macchine virtuali in una configurazione replicata. |
 | Premium | Cache Redis software open source a prestazioni elevate. Questo livello offre una velocità effettiva più elevata, una latenza più bassa, una disponibilità migliore e un maggior numero di funzionalità. Le cache Premium vengono distribuite in macchine virtuali più potenti rispetto a quelle per le cache Basic o Standard. |
-| Enterprise (anteprima) | Cache a prestazioni elevate basate sul software Redis Enterprise di Redis Labs. Questo livello supporta i moduli Redis, tra cui RediSearch, RedisBloom e RedisTimeSeries. Offre inoltre una disponibilità ancora più elevata rispetto al livello Premium. |
-| Enterprise Flash (anteprima) | Cache di grandi dimensioni convenienti basate sul software Redis Enterprise di Redis Labs. Questo livello estende l'archiviazione dei dati Redis alla memoria non volatile, che più economica della DRAM, in una macchina virtuale. Riduce il costo complessivo di memoria per GB. |
+| Enterprise | Cache a prestazioni elevate basate sul software Redis Enterprise di Redis Labs. Questo livello supporta i moduli Redis, tra cui RediSearch, RedisBloom e RedisTimeSeries. Offre inoltre una disponibilità ancora più elevata rispetto al livello Premium. |
+| Enterprise Flash | Cache di grandi dimensioni convenienti basate sul software Redis Enterprise di Redis Labs. Questo livello estende l'archiviazione dei dati Redis alla memoria non volatile, che più economica della DRAM, in una macchina virtuale. Riduce il costo complessivo di memoria per GB. |
 
 ### <a name="feature-comparison"></a>Confronto tra le funzionalità
 Nella pagina [Prezzi di Cache di Azure per Redis](https://azure.microsoft.com/pricing/details/cache/) è presente un confronto dettagliato dei livelli disponibili. La tabella seguente descrive alcune delle funzionalità supportate in base al livello:
@@ -55,11 +55,11 @@ Nella pagina [Prezzi di Cache di Azure per Redis](https://azure.microsoft.com/pr
 | [Contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
 | Crittografia dei dati |✔|✔|✔|✔|✔|
 | [Isolamento rete](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|✔|
-| [Ridimensionamento](cache-how-to-scale.md) |✔|✔|✔|-|-|
+| [Ridimensionamento](cache-how-to-scale.md) |✔|✔|✔|✔|✔|
 | [Cluster software open source](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
-| [Salvataggio permanente dei dati](cache-how-to-premium-persistence.md) |-|-|✔|-|-|
-| [Ridondanza della zona](cache-how-to-zone-redundancy.md) |-|-|Anteprima|Anteprima|Anteprima|
-| [Replica geografica](cache-how-to-geo-replication.md) |-|-|✔|-|-|
+| [Salvataggio permanente dei dati](cache-how-to-premium-persistence.md) |-|-|✔|Anteprima|Anteprima|
+| [Ridondanza della zona](cache-how-to-zone-redundancy.md) |-|-|Anteprima|✔|✔|
+| [Replica geografica](cache-how-to-geo-replication.md) |-|-|✔|Anteprima|Anteprima|
 | [Moduli](https://redis.io/modules) |-|-|-|✔|✔|
 | [Importazione/Esportazione](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Aggiornamenti pianificati](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
@@ -73,19 +73,25 @@ Per la scelta di un livello per la cache di Azure per Redis, tenere presente qua
 * **Prestazioni di rete**: in presenza di un carico di lavoro che richiede una velocità effettiva elevata, il livello Premium o Enterprise offre maggiore larghezza di banda rispetto al livello Standard o Basic. Anche all'interno di ogni livello, a dimensioni più grandi della cache corrisponde maggiore larghezza di banda, a causa della macchina virtuale sottostante che ospita la cache. Per altre informazioni, vedere [Prestazioni di Cache di Azure per Redis](cache-planning-faq.md#azure-cache-for-redis-performance).
 * **Numero massimo di connessioni client**: il livello Premium offre il numero massimo di client che possono connettersi a Redis, con un numero maggiore di connessioni per cache di dimensioni più grandi. Il clustering non aumenta il numero di connessioni disponibili per una cache in cluster. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/).
 * **Disponibilità elevata**: la cache di Azure per Redis offre più opzioni a [disponibilità elevata](cache-high-availability.md). Garantisce la disponibilità di una cache di livello Standard, Premium o Enterprise in base al [contratto di servizio](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Il contratto di servizio copre solo la connettività agli endpoint cache. Il contratto di servizio non offre copertura per la protezione dalla perdita di dati. È consigliabile usare la funzionalità di persistenza dei dati Redis nei livelli Premium e Enterprise per aumentare la resilienza dalla perdita di dati.
-* **Persistenza dei dati**: i livelli Premium e Enterprise consentono di rendere permanenti i dati della cache in un account di archiviazione di Azure e in un disco gestito rispettivamente. I problemi dell'infrastruttura sottostante possono comportare una potenziale perdita di dati. È consigliabile usare la funzionalità di persistenza dei dati Redis in questi livelli per aumentare la resilienza dalla perdita di dati. Cache di Azure per Redis offre le opzioni RDB e AOF (anteprima). Per i livelli Enterprise la persistenza dei dati è abilitata per impostazione predefinita. Per il livello Premium, vedere [come configurare la persistenza per una cache Premium di Azure per Redis](cache-how-to-premium-persistence.md).
+* **Persistenza dei dati**: i livelli Premium e Enterprise consentono di rendere permanenti i dati della cache in un account di archiviazione di Azure e in un disco gestito rispettivamente. I problemi dell'infrastruttura sottostante possono comportare una potenziale perdita di dati. È consigliabile usare la funzionalità di persistenza dei dati Redis in questi livelli per aumentare la resilienza dalla perdita di dati. Cache di Azure per Redis offre le opzioni RDB e AOF (anteprima). La persistenza dei dati può essere abilitata tramite portale di Azure e CLI. Per il livello Premium, vedere [come configurare la persistenza per una cache Premium di Azure per Redis](cache-how-to-premium-persistence.md).
 * **Isolamento rete**: Le distribuzioni di collegamento privato e rete virtuale di Azure forniscono sicurezza avanzata e isolamento del traffico per la cache di Azure per Redis. La rete virtuale consente di limitare ulteriormente l'accesso tramite i criteri di controllo di accesso alla rete. Per altre informazioni, vedere [Cache di Azure per Redis con collegamento privato di Azure](cache-private-link.md) e [Come configurare il supporto di una rete virtuale per un'istanza di Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
 * **Estensibilità**: i livelli Enterprise supportano [RediSearch](https://docs.redislabs.com/latest/modules/redisearch/), [RedisBloom](https://docs.redislabs.com/latest/modules/redisbloom/) e [RedisTimeSeries](https://docs.redislabs.com/latest/modules/redistimeseries/). Questi moduli aggiungono nuovi tipi di dati e funzionalità a Redis.
 
 Una volta creata, è possibile dimensionare la cache dal livello Basic fino al livello Premium. Il ridimensionamento a un livello inferiore non è attualmente supportato. Per istruzioni dettagliate sul ridimensionamento, vedere [Come ridimensionare Cache Redis di Azure](cache-how-to-scale.md) e [Come automatizzare un'operazione di ridimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="enterprise-and-enterprise-flash-tier-requirements"></a>Requisiti del livello Flash Enterprise e Enterprise
+### <a name="special-considerations-for-enterprise-tiers"></a>Considerazioni speciali per i livelli Enterprise
 
 I livelli Enterprise si basano su Redis Enterprise, una variante commerciale di redis di redis Labs. I clienti pagheranno e riceveranno una licenza per il software tramite un'offerta di Azure Marketplace. Cache di Azure per Redis faciliterà l'acquisizione della licenza, in modo che non sia necessario eseguire questa operazione separatamente. Per procedere all'acquisto in Azure Marketplace, sono necessari i prerequisiti seguenti:
 * La sottoscrizione di Azure deve avere uno strumento di pagamento valido. I crediti di Azure o gli abbonamenti MSDN gratuiti non sono supportati.
-* È necessario essere un proprietario o un collaboratore della sottoscrizione.
 * L'organizzazione deve consentire gli [acquisti in Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 * Se si usa un Marketplace privato, deve contenere l'offerta Enterprise di Redis Labs.
+
+> [!IMPORTANT]
+> Cache di Azure per la cache Redis Enterprise richiede i bilanciamenti del carico di rete standard che vengono addebitati separatamente dalle istanze della cache. Per ulteriori informazioni, vedere i [prezzi del Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) . Se una cache aziendale è configurata per più zone di disponibilità, il trasferimento dei dati verrà fatturato in [base alle tariffe di larghezza di banda di rete standard](https://azure.microsoft.com/pricing/details/bandwidth/) a partire dal 1 ° luglio 2021.
+>
+> Inoltre, la persistenza dei dati aggiunge Managed Disks. L'uso di queste risorse sarà gratuito durante l'anteprima pubblica della persistenza dei dati aziendali. Questo può cambiare quando la funzionalità diventa disponibile a livello generale.
+>
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare una cache Redis Open Source](quickstart-create-redis.md)

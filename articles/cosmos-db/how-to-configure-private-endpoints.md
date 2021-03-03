@@ -4,15 +4,15 @@ description: Informazioni su come configurare il collegamento privato di Azure p
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 03/02/2021
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: c684bd38f5e82cc53da002278495c2d4a859edc2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629647"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661291"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,11 +22,11 @@ Con il collegamento privato di Azure è possibile connettersi a un account Azure
 > [!NOTE]
 > Il collegamento privato non impedisce la risoluzione degli endpoint di Azure Cosmos da un DNS pubblico. Il filtro delle richieste in ingresso si verifica a livello di applicazione, non a livello di trasporto o di rete.
 
-Il collegamento privato consente agli utenti di accedere a un account Azure Cosmos dall'interno della rete virtuale o da qualsiasi rete virtuale con peering. Le risorse mappate al collegamento privato sono accessibili anche in locale tramite peering privato attraverso la VPN o Azure ExpressRoute. 
+Il collegamento privato consente agli utenti di accedere a un account Azure Cosmos dall'interno della rete virtuale o da qualsiasi rete virtuale con peering. Le risorse mappate al collegamento privato sono accessibili anche in locale tramite peering privato attraverso la VPN o Azure ExpressRoute.
 
-È possibile connettersi a un account Azure Cosmos configurato con un collegamento privato usando il metodo di approvazione automatica o manuale. Per altre informazioni, vedere la sezione [Flusso di lavoro di approvazione](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) della documentazione del collegamento privato. 
+È possibile connettersi a un account Azure Cosmos configurato con un collegamento privato usando il metodo di approvazione automatica o manuale. Per altre informazioni, vedere la sezione [Flusso di lavoro di approvazione](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) della documentazione del collegamento privato.
 
-Questo articolo descrive la procedura per creare un endpoint privato. Si presuppone che si stia usando il metodo di approvazione automatica.
+Questo articolo descrive come configurare endpoint privati per Azure Cosmos DB archivio transazionale. Si presuppone che si stia usando il metodo di approvazione automatica. Se si usa l'archivio analitico, vedere [l'articolo endpoint privati per l'archivio analitico](analytical-store-private-endpoints.md) .
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Creare un endpoint privato con il portale di Azure
 
@@ -671,7 +671,7 @@ Quando si usa il collegamento privato con un account Azure Cosmos, si applicano 
 
 * Quando si usa l'API di Azure Cosmos DB per gli account MongoDB, un endpoint privato è supportato solo per gli account nella versione del server 3.6, ovvero gli account che usano l'endpoint nel formato `*.mongo.cosmos.azure.com`. Il collegamento privato non è supportato per gli account nella versione del server 3.2, ovvero gli account che usano l'endpoint nel formato `*.documents.azure.com`. Per usare il collegamento privato, è necessario eseguire la migrazione degli account precedenti alla nuova versione.
 
-* Quando si usa un'API di Azure Cosmos DB per l'account MongoDB che ha il collegamento privato, alcuni strumenti o librerie potrebbero non funzionare poiché rimuovono automaticamente il parametro `appName` dalla stringa di connessione. Questo parametro è necessario per connettersi all'account tramite un endpoint privato. Alcuni strumenti, ad esempio Visual Studio Code, non rimuovono il parametro dalla stringa di connessione e sono pertanto compatibili.
+* Quando si usa un account API Azure Cosmos DB per MongoDB con un collegamento privato, gli strumenti e le librerie devono supportare l'identificazione del nome del servizio (SNI) o passare il `appName` parametro dalla stringa di connessione per connettersi correttamente. Alcuni strumenti o librerie precedenti potrebbero non essere compatibili per l'utilizzo della funzionalità di collegamento privato.
 
 * È necessario concedere a un amministratore di rete almeno l'autorizzazione `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` nell'ambito dell'account Azure Cosmos per creare automaticamente endpoint privati approvati.
 

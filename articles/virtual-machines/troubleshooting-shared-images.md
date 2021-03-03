@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 507dd224ddeb935cc8b3718bb2e2628be36066f4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879630"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676022"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Risolvere i problemi delle raccolte di immagini condivise in Azure
 
@@ -52,9 +52,13 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Motivo**: si è tentato di eliminare una raccolta che contiene almeno una definizione di immagine esistente. Una raccolta deve essere vuota prima di poter essere eliminata.  
 **Soluzione temporanea**: eliminare tutte le definizioni di immagine nella raccolta e quindi procedere con l'eliminazione della raccolta. Se la definizione dell'immagine contiene versioni di immagini, è necessario eliminare le versioni delle immagini prima di eliminare le definizioni di immagine.
 
+*Il nome della raccolta ' <galleryname \> ' non è univoco nella sottoscrizione ' <subscriptionId> '. Selezionare un altro nome per la raccolta.*  
+**Motivo**: si ha una raccolta esistente con lo stesso nome e si è tentato di creare un'altra raccolta con lo stesso nome.  
+**Soluzione alternativa**: scegliere un nome diverso per la raccolta.
+
 *La risorsa <galleryname \> esiste già nel percorso <area \_ 1 \> nel gruppo di risorse <resourceGroup \> . Non è possibile creare una risorsa con lo stesso nome nel percorso <area \_ 2 \> . Selezionare un nuovo nome di risorsa.*  
-**Motivo**: è presente una raccolta esistente nel gruppo di risorse con lo stesso nome e si è tentato di creare un'altra raccolta con lo stesso nome ma in un'area diversa.  
-**Soluzione alternativa**: usare una raccolta diversa o usare un gruppo di risorse diverso.
+**Motivo**: si ha una raccolta esistente con lo stesso nome e si è tentato di creare un'altra raccolta con lo stesso nome.  
+**Soluzione alternativa**: scegliere un nome diverso per la raccolta.
 
 ## <a name="creating-or-modifying-image-definitions"></a>Creazione o modifica di definizioni di immagine ##
 

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 1fd177273c9dafb04add64d8a8bfef1d81cc65d0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319309"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655718"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Attivazione di applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning (anteprima)
 
@@ -29,9 +29,6 @@ Quando usare Griglia di eventi per le azioni guidate dagli eventi:
 * Utilizzo di una funzione di Azure dopo la registrazione di un modello
 * Streaming di eventi da Azure Machine Learning a diversi endpoint
 * Attivazione di una pipeline ML quando viene rilevata la deriva dei dati
-
-> [!NOTE] 
-> Attualmente, gli eventi runStatusChanged vengono attivati solo quando lo stato dell'esecuzione è **non riuscito**
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare Griglia di eventi è necessario accedere come collaboratore o proprietario all'area di lavoro di Azure Machine Learning per cui si intendono creare eventi.
@@ -67,7 +64,7 @@ Le sottoscrizioni per gli eventi di Azure Machine Learning sono protette dal con
 
 1. Accedere al portale di Azure, selezionare una nuova sottoscrizione o una sottoscrizione esistente. 
 
-1. Selezionare la scheda filtri e scorrere verso il basso fino a Filtri avanzati. Per **Chiave** e **Valore** , specificare i tipi di proprietà in base ai quali si desidera filtrare. Qui è possibile vedere che l'evento viene attivato solo quando il tipo di esecuzione è un'esecuzione di pipeline o un'esecuzione passaggio della pipeline.  
+1. Selezionare la scheda filtri e scorrere verso il basso fino a Filtri avanzati. Per **Chiave** e **Valore**, specificare i tipi di proprietà in base ai quali si desidera filtrare. Qui è possibile vedere che l'evento viene attivato solo quando il tipo di esecuzione è un'esecuzione di pipeline o un'esecuzione passaggio della pipeline.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrare gli eventi":::
 
@@ -84,7 +81,7 @@ Le sottoscrizioni per gli eventi di Azure Machine Learning sono protette dal con
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **Filtro avanzato** : Griglia di eventi di Azure supporta anche i filtri avanzati basati sullo schema dell'evento pubblicato. Per i dettagli sullo schema degli eventi di Azure Machine Learning, vedere [Schema degli eventi di Griglia di eventi di Azure per Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Alcuni esempi di filtri avanzati che è possibile eseguire includono:
++ **Filtro avanzato**: Griglia di eventi di Azure supporta anche i filtri avanzati basati sullo schema dell'evento pubblicato. Per i dettagli sullo schema degli eventi di Azure Machine Learning, vedere [Schema degli eventi di Griglia di eventi di Azure per Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Alcuni esempi di filtri avanzati che è possibile eseguire includono:
 
   Per l'evento `Microsoft.MachineLearningServices.ModelRegistered`, per filtrare il valore del tag del modello:
 
@@ -116,11 +113,11 @@ Griglia di eventi di Azure consente ai clienti di compilare gestori di messaggi 
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e accedere all'area di lavoro di Azure Machine Learning.
 
-1. Nella barra a sinistra selezionare __Eventi__ , quindi selezionare **Sottoscrizioni di eventi**. 
+1. Nella barra a sinistra selezionare __Eventi__, quindi selezionare **Sottoscrizioni di eventi**. 
 
     ![select-events-in-workspace.png](./media/how-to-use-event-grid/select-event.png)
 
-1. Selezionare il tipo di evento da usare. Nello screenshot seguente, ad esempio, è stato selezionato __Modello registrato__ , __Modello distribuito__ , __Esecuzione completata__ e __Deriva dei dati rilevata__ :
+1. Selezionare il tipo di evento da usare. Nello screenshot seguente, ad esempio, è stato selezionato __Modello registrato__, __Modello distribuito__, __Esecuzione completata__ e __Deriva dei dati rilevata__:
 
     ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 

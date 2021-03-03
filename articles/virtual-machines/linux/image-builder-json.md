@@ -3,17 +3,18 @@ title: Creare un modello di Image Builder di Azure (anteprima)
 description: Informazioni su come creare un modello da usare con Image Builder di Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/13/2020
+ms.date: 02/18/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678256"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670429"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
 
@@ -308,11 +309,28 @@ Proprietà customize:
 - **sha256Checksum** - valore di checksum sha256 del file, viene generato in locale, quindi Image Builder lo genera e lo verifica.
     * Per generare sha256Checksum, usando un terminale in Mac o Linux eseguire: `sha256sum <fileName>`
 
-
-Per eseguire i comandi con privilegi avanzati, è necessario che siano preceduti dal prefisso `sudo`.
-
 > [!NOTE]
 > I comandi inline vengono archiviati come parte della definizione del modello di immagine, che possono essere visualizzati quando si esegue il dump della definizione dell'immagine e sono visibili anche per supporto tecnico Microsoft nel caso di un caso di supporto a scopo di risoluzione dei problemi. Se si dispone di comandi o valori sensibili, si consiglia vivamente di spostarli negli script e di usare un'identità utente per l'autenticazione in archiviazione di Azure.
+
+#### <a name="super-user-privileges"></a>Privilegi con privilegi avanzati
+Per eseguire i comandi con privilegi avanzati, è necessario che siano preceduti da `sudo` , è possibile aggiungerli negli script o utilizzarli come comandi inline, ad esempio:
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+Esempio di script che usa sudo a cui è possibile fare riferimento usando scriptUri:
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### <a name="windows-restart-customizer"></a>Funzione di personalizzazione di riavvio di Windows 
 La funzione di personalizzazione di riavvio consente di riavviare una macchina virtuale Windows e attendere che torni online, consentendo all'utente di installare il software che richiede il riavvio.  
@@ -397,6 +415,10 @@ Supporto sistema operativo: Linux e Windows
 Proprietà della funzione di personalizzazione File:
 
 - **sourceUri** - un endpoint di archiviazione accessibile; può essere un'archiviazione Azure o GitHub. È possibile scaricare un solo file, non tutta la directory. Se è necessario scaricare una directory, usare un file compresso, quindi decomprimerlo usando la funzione di personalizzazione shell o PowerShell. 
+
+> [!NOTE]
+> Se il sourceUri è un account di archiviazione di Azure, indipendentemente dal fatto che il BLOB sia contrassegnato come pubblico, è necessario concedere all'identità utente gestita le autorizzazioni per l'accesso in lettura al BLOB. Per impostare le autorizzazioni di archiviazione, vedere questo [esempio](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) .
+
 - **destination** - è il percorso di destinazione completo e il nome del file. Qualsiasi percorso e sottodirectory a cui si fa riferimento deve essere esistente, usare le funzioni di personalizzazione shell o PowerShell per configurarli in anticipo. Per creare il percorso, è possibile usare le funzioni di personalizzazione dello script. 
 
 Questa operazione è supportata dalle directory Windows e dai percorsi Linux, ma ci sono alcune differenze: 
@@ -408,8 +430,6 @@ Se si verifica un errore durante il tentativo di download del file o di inserime
 
 > [!NOTE]
 > La funzione di personalizzazione file è adatta solo per il download di file di piccole dimensioni, inferiori a 20 MB. Per i download di file più grandi usare uno script o un comando inline, quindi il codice per scaricare i file, ad esempio `wget` o `curl` per Linux, `Invoke-WebRequest` per Windows.
-
-I file nella funzione di personalizzazione file possono essere scaricati da Archiviazione di Azure usando [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### <a name="windows-update-customizer"></a>Funzione di personalizzazione Windows Update
 Questa funzione di personalizzazione si basa sullo [strumento di provisioning Windows Update per la community](https://packer.io/docs/provisioners/community-supported.html) per Packer, un progetto open source gestito dalla community di Packer. Microsoft testa e convalida lo strumento di provisioning con il servizio Image Builder, supporta con esso l'indagine dei problemi e si impegna per risolverli. Tuttavia il progetto open source non è ufficialmente supportato da Microsoft. Per la documentazione dettagliata e la guida allo strumento di provisioning di Windows Update, vedere il repository del progetto.

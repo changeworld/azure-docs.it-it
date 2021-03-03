@@ -4,16 +4,16 @@ description: Informazioni sulle funzionalità e le caratteristiche delle VM seri
 author: vermagit
 ms.author: amverma
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: overview
 ms.date: 07/29/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 5950e9ab6ec979938a2318c4d25f53db4f5e1064
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: 15d05632e5ebf6e45a61adebbbbf647efca2a1a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951384"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666892"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>High Performance Computing in macchine virtuali serie H e serie N abilitate per InfiniBand
 

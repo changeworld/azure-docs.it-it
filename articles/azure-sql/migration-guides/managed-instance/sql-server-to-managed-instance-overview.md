@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/18/2020
+ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093976"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656279"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Panoramica della migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,6 +90,7 @@ La tabella seguente elenca gli strumenti di migrazione consigliati:
 |---------|---------|
 |[Servizio Migrazione del database di Azure (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Servizio di Azure di terze parti che supporta la migrazione in modalità offline per le applicazioni che possono permettersi tempi di inattività durante il processo di migrazione. A differenza della migrazione continua in modalità online, la migrazione in modalità offline esegue un ripristino unico di un backup completo del database dall'origine alla destinazione. | 
 |[Backup e ripristino nativi](../../managed-instance/restore-sample-database-quickstart.md) | SQL Istanza gestita supporta il ripristino dei backup di database SQL Server nativi (file con estensione bak), rendendola l'opzione di migrazione più semplice per i clienti che possono fornire backup completi del database nell'archiviazione di Azure. Anche i backup completi e differenziali sono supportati e documentati nella [sezione asset di migrazione](#migration-assets) più avanti in questo articolo.| 
+|[Servizio di riproduzione log (con ridondanza locale)](../../managed-instance/log-replay-service-migrate.md) | Si tratta di un servizio cloud abilitato per Istanza gestita basato sulla tecnologia SQL Server log shipping, rendendola un'opzione di migrazione per i clienti che possono fornire backup completi, differenziali e di log del database in archiviazione di Azure. CON ridondanza locale viene usato per ripristinare i file di backup dall'archiviazione BLOB di Azure a SQL Istanza gestita.| 
 | | |
 
 ### <a name="alternative-tools"></a>Strumenti alternativi
@@ -116,6 +117,7 @@ Nella tabella seguente vengono confrontate le opzioni di migrazione consigliate:
 |---------|---------|---------|
 |[Servizio Migrazione del database di Azure (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -Migrare database singoli o più database su larga scala. </br> -Può supportare i tempi di inattività durante il processo di migrazione. </br> </br> Origini supportate: </br> -SQL Server (2005-2019) in locale o in una VM di Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP calcolo della macchina virtuale SQL Server |  -Le migrazioni su larga scala possono essere automatizzate tramite [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> -Il tempo necessario per completare la migrazione dipende dalle dimensioni del database e dal tempo di backup e ripristino. </br> -Può essere necessario un tempo di inattività sufficiente. |
 |[Backup e ripristino nativi](../../managed-instance/restore-sample-database-quickstart.md) | -Migrare i singoli database delle applicazioni line-of-business.  </br> -Migrazione rapida e semplice senza uno strumento o un servizio di migrazione separato.  </br> </br> Origini supportate: </br> -SQL Server (2005-2019) in locale o in una VM di Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP calcolo della macchina virtuale SQL Server | -Il backup del database usa più thread per ottimizzare il trasferimento dei dati nell'archiviazione BLOB di Azure, ma le dimensioni del database e la larghezza di banda ISV possono avere effetti sulla velocità </br> -Il tempo di inattività deve adattarsi al tempo necessario per eseguire un backup completo e un ripristino, ovvero un'operazione di dimensione dei dati.| 
+|[Servizio di riproduzione log (con ridondanza locale)](../../managed-instance/log-replay-service-migrate.md) | -Migrare i singoli database delle applicazioni line-of-business.  </br> -È necessario un maggiore controllo per le migrazioni di database.  </br> </br> Origini supportate: </br> -SQL Server (2008-2019) in locale o in una VM di Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP calcolo della macchina virtuale SQL Server | -La migrazione comporta l'esecuzione di backup completi del database in SQL Server e la copia dei file di backup nell'archiviazione BLOB di Azure. CON ridondanza locale viene usato per ripristinare i file di backup dall'archiviazione BLOB di Azure a SQL Istanza gestita. </br> -I database da ripristinare durante il processo di migrazione saranno in modalità di ripristino e non potranno essere utilizzati per la lettura o la scrittura fino al completamento del processo.| 
 | | | |
 
 ### <a name="alternative-options"></a>Opzioni alternative

@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577383"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660158"
 ---
 # <a name="communication-services-notifications"></a>Notifiche di Servizi di comunicazione
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Le librerie client Chat e Chiamate di Servizi di comunicazione creano un canale di messaggistica in tempo reale che consente di eseguire il push dei messaggi di segnalazione nei client connessi in modo efficiente e affidabile. In questo modo è possibile integrare funzionalità avanzate di comunicazione in tempo reale nelle applicazioni senza la necessità di implementare una logica di polling HTTP complessa. Nelle applicazioni per dispositivi mobili però questo canale di segnalazione rimane connesso solo quando l'applicazione è attiva in primo piano. Per consentire agli utenti di ricevere chiamate in arrivo o messaggi di chat mentre l'applicazione è in background, occorre usare le notifiche push.
 
@@ -34,7 +32,7 @@ Per altre informazioni, vedere [Gestione degli eventi in Servizi di comunicazion
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Recapitare notifiche push con Hub di notifica di Azure
 
-È possibile connettere un hub di notifica di Azure alla risorsa di Servizi di comunicazione per inviare automaticamente notifiche push al dispositivo mobile di un utente quando riceve una chiamata in arrivo. Usare queste notifiche push per riattivare l'applicazione dal background e visualizzare l'interfaccia utente che consente all'utente di accettare o rifiutare la chiamata. 
+È possibile connettere un hub di notifica di Azure alla risorsa di Servizi di comunicazione per inviare automaticamente notifiche push al dispositivo mobile di un utente quando riceve una chiamata in arrivo. Usare queste notifiche push per riattivare l'applicazione dal background e visualizzare l'interfaccia utente che consente all'utente di accettare o rifiutare la chiamata.
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagramma che mostra l'integrazione di Servizi di comunicazione con Hub di notifica di Azure.":::
 
@@ -43,13 +41,13 @@ Servizi di comunicazione usa Hub di notifica di Azure come servizio pass-through
 > [!NOTE]
 > Attualmente sono supportate solo le notifiche push per le chiamate.
 
-### <a name="notification-hub-provisioning"></a>Provisioning di un hub di notifica 
+### <a name="notification-hub-provisioning"></a>Provisioning di un hub di notifica
 
 Per recapitare le notifiche push ai dispositivi client tramite Hub di notifica, [creare un hub di notifica](../../notification-hubs/create-notification-hub-portal.md) nella stessa sottoscrizione della risorsa di Servizi di comunicazione. È necessario configurare l'hub di notifica di Azure per il sistema PNS (Platform Notification System) che si vuole usare. Per informazioni su come ottenere notifiche push nell'app client da Hub di notifica, vedere [Introduzione a Hub di notifica](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) e selezionare la piattaforma client di destinazione dall'elenco a discesa nella parte superiore della pagina.
 
 > [!NOTE]
-> Attualmente sono supportate le piattaforme APN e FCM.  
-La piattaforma Apple Push Notification Service deve essere configurata con la modalità di autenticazione tramite token. Attualmente la modalità di autenticazione del certificato non è supportata. 
+> Attualmente sono supportate le piattaforme APN e FCM.
+La piattaforma Apple Push Notification Service deve essere configurata con la modalità di autenticazione tramite token. Attualmente la modalità di autenticazione del certificato non è supportata.
 
 Una volta configurato l'hub di notifica, è possibile associarlo alla risorsa di Servizi di comunicazione fornendo la stringa di connessione dell'hub tramite il client di Azure Resource Manager o il portale di Azure. La stringa di connessione deve contenere le autorizzazioni `Send`. È consigliabile creare un altro criterio di accesso con le sole autorizzazioni `Send` specificamente per l'hub. Per altre informazioni, vedere [Sicurezza di Hub di notifica](../../notification-hubs/notification-hubs-push-notification-security.md).
 
@@ -74,10 +72,10 @@ Nel portale passare alla risorsa di Servizi di comunicazione di Azure. All'inter
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot che mostra le impostazioni di Notifiche push nel portale di Azure.":::
 
 > [!NOTE]
-> Se la stringa di connessione dell'hub di notifica di Azure viene aggiornata, è necessario aggiornare anche la risorsa di Servizi di comunicazione.  
+> Se la stringa di connessione dell'hub di notifica di Azure viene aggiornata, è necessario aggiornare anche la risorsa di Servizi di comunicazione.
 Qualsiasi modifica apportata al modo in cui l'hub è collegato si rifletterà nel piano dati, ossia quando viene inviata una notifica, entro un intervallo massimo di ``10`` minuti. Ciò vale anche quando l'hub viene collegato per la prima volta **se** erano già state inviate notifiche.
 
-### <a name="device-registration"></a>Registrazione del dispositivo 
+### <a name="device-registration"></a>Registrazione del dispositivo
 
 Per informazioni su come registrare l'handle del dispositivo con Servizi di comunicazione, vedere la [guida di avvio rapido sulle chiamate vocali](../quickstarts/voice-video-calling/getting-started-with-calling.md).
 

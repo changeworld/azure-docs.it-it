@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/17/2021
-ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/23/2021
+ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096508"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660798"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in Istanza gestita di SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ La [disponibilità elevata](../database/high-availability-sla.md) è una parte f
 - In alcuni casi di riduzioni delle prestazioni delle query, il failover manuale consente di attenuare il problema di prestazioni.
 
 > [!NOTE]
-> Assicurandosi che le applicazioni siano resilienti al failover prima della distribuzione nell'ambiente di produzione, è possibile ridurre il rischio di errori dell'applicazione in produzione e contribuire alla disponibilità dell'applicazione per i clienti.
+> Assicurandosi che le applicazioni siano resilienti al failover prima della distribuzione nell'ambiente di produzione, è possibile ridurre il rischio di errori dell'applicazione in produzione e contribuire alla disponibilità dell'applicazione per i clienti. Scopri di più sul test delle applicazioni per la preparazione al cloud con [test della conformità del cloud per le app per la resilienza del failover con la](https://youtu.be/FACWYLgYDL8) ricodifica video di SQL istanza gestita.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Avviare il failover manuale in SQL Istanza gestita
 
@@ -43,7 +43,7 @@ La [disponibilità elevata](../database/high-availability-sla.md) è una parte f
 Per avviare un failover, l'utente deve avere uno dei seguenti ruoli di Azure:
 
 - Ruolo di proprietario della sottoscrizione o
-- Istanza gestita ruolo Collaboratore o
+- [Istanza gestita ruolo Collaboratore](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) o
 - Ruolo personalizzato con l'autorizzazione seguente:
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -153,6 +153,6 @@ La breve perdita di connettività dal client durante il failover, che in genere 
 > - Il failover non sarà consentito fino al completamento del primo backup completo per un nuovo database da parte dei sistemi di backup automatici.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
+- Scopri di più sul test delle applicazioni per la preparazione al cloud con [test della conformità del cloud per le app per la resilienza del failover con la](https://youtu.be/FACWYLgYDL8) ricodifica video di SQL istanza gestita.
 - Altre informazioni sulla disponibilità elevata della disponibilità elevata dell'istanza gestita [per il istanza gestita SQL di Azure](../database/high-availability-sla.md).
 - Per una panoramica, vedere informazioni su [Azure SQL istanza gestita](sql-managed-instance-paas-overview.md).

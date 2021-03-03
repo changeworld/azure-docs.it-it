@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257186"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649423"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con Active Directory Federation Services (AD FS) e provider di terze parti per utenti guest (anteprima)
 
@@ -26,9 +26,7 @@ ms.locfileid: "99257186"
 
 Questo articolo descrive come configurare la federazione diretta con un'altra organizzazione per la collaborazione B2B. È possibile configurare la federazione diretta con qualsiasi organizzazione il cui provider di identità (IdP) supporti il protocollo SAML 2.0 o WS-Fed.
 Quando si configura la federazione diretta con il provider di identità di un partner, i nuovi utenti guest di tale dominio possono usare il proprio account aziendale gestito dal provider di identità per accedere al tenant di Azure AD e iniziare a collaborare con l'utente. Non è necessario che l'utente guest crei un account Azure AD separato.
-> [!NOTE]
-> Gli utenti guest di federazione diretta devono accedere tramite un collegamento che include il contesto tenant, ad esempio `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>` oppure, nel caso di un dominio verificato, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`. È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti di federazione diretta attualmente non possono accedere tramite endpoint comuni privi di un contesto tenant. Ad esempio, l'uso di `https://myapps.microsoft.com`, `https://portal.azure.com` o `https://teams.microsoft.com` genera un errore.
- 
+
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quando un utente guest viene autenticato tramite federazione diretta?
 Dopo aver configurato la federazione diretta con un'organizzazione, tutti i nuovi utenti guest invitati verranno autenticati tramite federazione diretta. È importante notare che la configurazione della federazione diretta non modifica il metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. Di seguito sono riportati alcuni esempi:
  - Se gli utenti guest hanno già riscattato gli inviti e successivamente si è configurata la federazione diretta con l'organizzazione, gli utenti guest continueranno a usare lo stesso metodo di autenticazione usato prima che fosse configurata la federazione diretta.
@@ -42,10 +40,28 @@ La federazione diretta è associata agli spazi dei nomi di dominio, ad esempio c
 ## <a name="end-user-experience"></a>Esperienza utente finale 
 Con la federazione diretta, gli utenti guest possono accedere al tenant di Azure AD usando il proprio account aziendale. Quando accedono alle risorse condivise e viene richiesto di eseguire l'accesso, gli utenti di federazione diretta vengono reindirizzati al proprio provider di identità. Dopo aver eseguito l'accesso, vengono reindirizzati ad Azure AD per accedere alle risorse. I token di aggiornamento degli utenti di federazione diretta sono validi per 12 ore, ovvero il valore di [lunghezza predefinita per il token di aggiornamento pass-through](../develop/active-directory-configurable-token-lifetimes.md#exceptions) in Azure AD. Se per il provider di identità federato ha abilitato l'accesso Single Sign-On, l'utente userà l'esperienza di accesso SSO e non verrà visualizzato alcun messaggio di richiesta di accesso dopo l'autenticazione iniziale.
 
+## <a name="sign-in-endpoints"></a>Endpoint di accesso
+
+Gli utenti guest di federazione diretta possono ora accedere alle app multi-tenant o Microsoft di terze parti usando un [endpoint comune](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in altre parole, un URL di app generale che non include il contesto del tenant). Di seguito sono riportati alcuni esempi di endpoint comuni:
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Durante il processo di accesso, l'utente Guest sceglie le **Opzioni di accesso** e quindi seleziona **Accedi a un'organizzazione**. L'utente digita quindi il nome dell'organizzazione e continua ad accedere con le proprie credenziali.
+
+Gli utenti guest di federazione diretta possono anche usare gli endpoint dell'applicazione che includono le informazioni del tenant, ad esempio:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+È anche possibile assegnare agli utenti guest di Federazione direttamente un collegamento diretto a un'applicazione o a una risorsa includendo, ad esempio, le informazioni sul tenant `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
+
 ## <a name="limitations"></a>Limitazioni
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domini con verifica DNS in Azure AD
-Il dominio di cui si vuole eseguire la Federazione con deve ***non** essere verificato da DNS in Azure ad. È consentito configurare la federazione diretta con tenant di Azure AD non gestiti (verificati tramite posta elettronica o "virali") perché sono senza verifica DNS.
+Per il dominio con cui si vuole eseguire la federazione ***non*** deve essere stata effettuata la verifica DNS in Azure AD. È consentito configurare la federazione diretta con tenant di Azure AD non gestiti (verificati tramite posta elettronica o "virali") perché sono senza verifica DNS.
 
 ### <a name="authentication-url"></a>URL di autenticazione
 La federazione diretta è consentita solo per i criteri in cui il dominio dell'URL di autenticazione corrisponde al dominio di destinazione o in cui l'URL di autenticazione è uno di questi provider di identità consentiti (questo elenco è soggetto a modifiche):
@@ -60,7 +76,7 @@ La federazione diretta è consentita solo per i criteri in cui il dominio dell'U
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Ad esempio, quando si configura la Federazione diretta per _ * fabrikam. com * *, l'URL di autenticazione `https://fabrikam.com/adfs` passerà la convalida. Anche un host nello stesso dominio, ad esempio `https://sts.fabrikam.com/adfs`, supererà la convalida. Tuttavia, per l'URL di autenticazione `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` per lo stesso dominio la convalida non verrà superata.
+Ad esempio, quando si configura la federazione diretta per **fabrikam.com**, l'URL di autenticazione `https://fabrikam.com/adfs` supererà la convalida. Anche un host nello stesso dominio, ad esempio `https://sts.fabrikam.com/adfs`, supererà la convalida. Tuttavia, per l'URL di autenticazione `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` per lo stesso dominio la convalida non verrà superata.
 
 ### <a name="signing-certificate-renewal"></a>Rinnovo del certificato di firma
 Se si specifica l'URL dei metadati nelle impostazioni del provider di identità, Azure AD rinnoverà automaticamente il certificato di firma alla scadenza. Tuttavia, se il certificato viene ruotato per qualsiasi motivo prima della data di scadenza o se non si specifica un URL di metadati, Azure AD non riuscirà a rinnovarlo. In questo caso, sarà necessario aggiornare manualmente il certificato di firma.
@@ -147,7 +163,7 @@ Si procederà ora alla configurazione della federazione con il provider di ident
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Nel riquadro sinistro selezionare **Azure Active Directory**. 
 2. Selezionare **Identità esterne** > **Tutti i provider di identità**.
-3. Selezionare, quindi selezionare **nuovo IDP SAML/WS-Fed**.
+3. Selezionare **nuovo IDP SAML/WS-Fed**.
 
     ![Screenshot che mostra il pulsante per l'aggiunta di un nuovo provider di identità SAML o WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
